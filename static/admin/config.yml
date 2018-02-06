@@ -12,7 +12,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Person Key", name: "personKey", widget: "hidden", default: "person"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "people"}
       - {label: "Path", name: "path", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Role", name: "role", widget: "string"}
