@@ -16,7 +16,6 @@ collections:
       - {label: "Path", name: "path", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Role", name: "role", widget: "string"}
-      - {label: "Image", name: image, widget: image}
       - {label: "Description", name: "body", widget: "markdown"}
 
   - name: "pages"
