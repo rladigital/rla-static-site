@@ -42,15 +42,15 @@ export default ({ data }) => {
     );
 };
 
-// export const pageQuery = graphql`
-//     query PeopleByPath($path: String!) {
-//         markdownRemark(frontmatter: { path: { eq: $path } }) {
-//             html
-//             frontmatter {
-//                 path
-//                 title
-//                 description
-//             }
-//         }
-//     }
-// `;
+export const pageQuery = graphql`
+    query PeopleByPath($path: String!) {
+        markdownRemark(frontmatter: { path: { eq: $path } }) {
+            html
+            frontmatter {
+                path
+                title
+                description
+            }
+        }
+    }
+`;

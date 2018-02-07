@@ -40,7 +40,9 @@ export default class IndexPage extends React.Component {
                             person =>
                                 person.node.frontmatter.templateKey === "people"
                         )
-                        .map(({ node: person }) => <p>{person.excerpt}</p>)}
+                        .map(({ node: person }, index) => (
+                            <p key={index}>{person.excerpt}</p>
+                        ))}
                 </div>
             </section>
         );
