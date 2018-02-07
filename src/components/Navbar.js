@@ -12,9 +12,6 @@ const Navbar = () => (
                     <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
                 </figure>
             </Link>
-            <div>
-                <Link to="/about">About</Link>
-            </div>
         </div>
     </nav>
 );
