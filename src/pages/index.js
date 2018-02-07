@@ -19,7 +19,9 @@ export default class IndexPage extends React.Component {
 
     render() {
         const { data } = this.props;
-        //const { edges: people } = data.allMarkdownRemark;
+        const { edges: people } = data.allMarkdownRemark;
+
+        console.log(people);
 
         return (
             <section>
@@ -32,27 +34,35 @@ export default class IndexPage extends React.Component {
                         <h1>30 Years of Delivering</h1>
                         <h2>Strategic, Profitable Communications</h2>
                     </div>
+
+                    {people
+                        .filter(
+                            person =>
+                                person.node.frontmatter.templateKey === "people"
+                        )
+                        .map(({ node: person }) => <p>{person.excerpt}</p>)}
                 </div>
             </section>
         );
     }
 }
 
-// export const pageQuery = graphql`
-//     query IndexQuery {
-//         allMarkdownRemark {
-//             edges {
-//                 node {
-//                     excerpt(pruneLength: 400)
-//                     id
-//                     frontmatter {
-//                         title
-//                         templateKey
-//                         date(formatString: "MMMM DD, YYYY")
-//                         path
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// `;
+export const pageQuery = graphql`
+    query IndexQuery {
+        allMarkdownRemark {
+            edges {
+                node {
+                    html
+                    excerpt(pruneLength: 400)
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        date(formatString: "MMMM DD, YYYY")
+                        path
+                    }
+                }
+            }
+        }
+    }
+`;

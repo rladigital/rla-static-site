@@ -4,4 +4,4 @@ import "netlify-cms/dist/cms.css";
 import PeoplePreview from "./preview-templates/PeoplePreview";
 
 CMS.registerPreviewStyle("/styles.css");
-CMS.registerPreviewTemplate("blog", PeoplePreview);
+CMS.registerPreviewTemplate("people", PeoplePreview);
