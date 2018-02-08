@@ -6,6 +6,78 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "clients"
+    label: "Clients"
+    folder: "src/pages/clients"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "clients"}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Logo", name: "logo", widget: "image"}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Intro Heading", name: "intro", widget: "string"}
+      - {label: "Project Description", name: "project", widget: "markdown"}
+      - {label: "Outcome Description", name: "outcome", widget: "markdown"}
+      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
+      - {label: "Solutions", name: "solutions", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", colection: "solutions", searchFields: ["title"], valueField: "title"}}
+  - name: "work"
+    label: "Work"
+    folder: "src/pages/work"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work"}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Intro Heading", name: "intro", widget: "string"}
+      - {label: "Project Description", name: "project", widget: "markdown"}
+      - {label: "Outcome Description", name: "outcome", widget: "markdown"}
+      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
+      - {label: "Client", name: "client", widget: "relation", colection: "client", searchFields: ["title"], valueField: "title"}
+  - name: "solutions"
+    label: "Solutions"
+    folder: "src/pages/solutions"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "solutions"}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Intro Heading", name: "intro", widget: "string"}
+      - {label: "Description", name: "project", widget: "markdown"}
+      - {label: "Colour", name: "colour", widget: "string"}
+      - {label: "Icon", name: "icon", widget: "image"}
+  - name: "news"
+    label: "News"
+    folder: "src/pages/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news"}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Intro Heading", name: "intro", widget: "string"}
+      - {label: "Side Heading", name: "sideHeading", widget: "string"}
+      - {label: "Story", name: "project", widget: "markdown"}
+      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
+  - name: "insight"
+    label: "Insight"
+    folder: "src/pages/insight"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "insight"}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Intro Heading", name: "intro", widget: "string"}
+      - {label: "Side Heading", name: "sideHeading", widget: "string"}
+      - {label: "Story", name: "project", widget: "markdown"}
+      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
   - name: "people"
     label: "People"
     folder: "src/pages/people"
@@ -18,3 +90,22 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Role", name: "role", widget: "string"}
       - {label: "Description", name: "body", widget: "markdown"}
+  - name: "contacts"
+    label: "Contacts"
+    folder: "src/pages/contacts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contacts"}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Group", name: "group", widget: "select", options: ["RLA", "Mission", "Other"]}
+      - {label: "Address", name: "address", widget: "markdown"}      
+      - {label: "Lead Contact Name", name: "contactName", widget: "string"}
+      - {label: "Lead Contact Image", name: "contactImage", widget: "image"}
+      - {label: "Lead Contact Role", name: "contactRole", widget: "string"}
+      - {label: "Tel", name: "tel", widget: "string"}
+      - {label: "Email", name: "email", widget: "string"}
+      - {label: "Latitude", name: "lat", widget: "string"}
+      - {label: "Longitude", name: "lng", widget: "string"}
+
