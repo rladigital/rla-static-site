@@ -10,7 +10,7 @@ export const PeopleTemplate = ({
     title,
     helmet
 }) => {
-    const PostContent = contentComponent || Content;
+    const PostContent = contentComponent || HTMLContent;
 
     return (
         <section className="section">
@@ -31,13 +31,16 @@ export const PeopleTemplate = ({
 };
 
 export default ({ data }) => {
-    const { markdownRemark: people } = data;
-    return null;
+    console.log(data);
+    const { markdownRemark: person } = data;
     return (
         <PeopleTemplate
-            description={people.frontmatter.description}
-            helmet={<Helmet title={`Blog | ${people.frontmatter.title}`} />}
-            title={people.frontmatter.title}
+            description={person.frontmatter.description}
+            helmet={
+                <Helmet title={`Our People | ${person.frontmatter.title}`} />
+            }
+            title={person.frontmatter.title}
+            content={person.html}
         />
     );
 };
