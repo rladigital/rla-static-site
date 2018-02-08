@@ -19,9 +19,9 @@ export default class IndexPage extends React.Component {
 
     render() {
         const { data } = this.props;
-        const { edges: people } = data.allMarkdownRemark;
+        const { edges: posts } = data.allMarkdownRemark;
 
-        console.log(people);
+        console.log(posts);
 
         return (
             <section>
@@ -34,15 +34,30 @@ export default class IndexPage extends React.Component {
                         <h1>30 Years of Delivering</h1>
                         <h2>Strategic, Profitable Communications</h2>
                     </div>
-
-                    {people
-                        .filter(
-                            person =>
-                                person.node.frontmatter.templateKey === "people"
-                        )
-                        .map(({ node: person }, index) => (
-                            <p key={index}>{person.excerpt}</p>
-                        ))}
+                    <div>
+                        <h2>Clients</h2>
+                        {posts
+                            .filter(
+                                post =>
+                                    post.node.frontmatter.templateKey ===
+                                    "clients"
+                            )
+                            .map(({ node: client }, index) => (
+                                <p key={index}>{client.frontmatter.title}</p>
+                            ))}
+                    </div>
+                    <div>
+                        <h2>People</h2>
+                        {posts
+                            .filter(
+                                post =>
+                                    post.node.frontmatter.templateKey ===
+                                    "people"
+                            )
+                            .map(({ node: person }, index) => (
+                                <p key={index}>{person.excerpt}</p>
+                            ))}
+                    </div>
                 </div>
             </section>
         );
