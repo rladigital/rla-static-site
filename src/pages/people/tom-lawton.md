@@ -2,8 +2,7 @@
 templateKey: people
 path: /tom-lawton
 title: Tom Lawton
-date: 2016-12-17T15:04:10.000Z
-description: Tom is...
+role: Head of Development
 ---
 
 ## What he's all about
