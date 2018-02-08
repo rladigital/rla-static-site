@@ -2,13 +2,11 @@
 templateKey: people
 path: /tom-lawton
 title: Tom Lawton
-date: 2016-12-17T15:04:10.000Z
-description: Tom is...
+role: Head of Development
 ---
-
 ## What he's all about
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor elit arcu, non consequat enim tristique quis. Aliquam erat volutpat. Praesent tincidunt urna mauris, a fringilla elit lacinia sed. Sed suscipit eu velit et semper. Suspendisse condimentum, ex et viverra ornare, mi odio imperdiet ex, non venenatis risus odio et nisl. Duis faucibus, mauris ut semper pharetra, mauris sapien sodales dui, vitae sollicitudin arcu odio vel libero. Donec bibendum nisi in libero semper dignissim. Duis sagittis purus velit, eget facilisis sem vestibulum nec. Vivamus pretium turpis id lacus viverra, ut congue odio euismod. Praesent et ligula dolor. Suspendisse vulputate libero magna, vel accumsan odio accumsan:
+Good Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor elit arcu, non consequat enim tristique quis. Aliquam erat volutpat. Praesent tincidunt urna mauris, a fringilla elit lacinia sed. Sed suscipit eu velit et semper. Suspendisse condimentum, ex et viverra ornare, mi odio imperdiet ex, non venenatis risus odio et nisl. Duis faucibus, mauris ut semper pharetra, mauris sapien sodales dui, vitae sollicitudin arcu odio vel libero. Donec bibendum nisi in libero semper dignissim. Duis sagittis purus velit, eget facilisis sem vestibulum nec. Vivamus pretium turpis id lacus viverra, ut congue odio euismod. Praesent et ligula dolor. Suspendisse vulputate libero magna, vel accumsan odio accumsan:
 
 * blah
 * blah
