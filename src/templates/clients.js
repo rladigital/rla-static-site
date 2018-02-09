@@ -23,7 +23,6 @@ export const ClientTemplate = ({
                 <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                     {title}
                 </h1>
-
                 <img
                     style={{ borderRadius: "5px" }}
                     src={logo}

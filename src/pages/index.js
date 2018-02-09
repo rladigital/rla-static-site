@@ -3,6 +3,8 @@ import Link from "gatsby-link";
 import Script from "react-load-script";
 import graphql from "graphql";
 
+import PeopleSection from "../components/people/PeopleSection";
+
 export default class IndexPage extends React.Component {
     handleScriptLoad() {
         if (typeof window !== `undefined` && window.netlifyIdentity) {
@@ -19,10 +21,8 @@ export default class IndexPage extends React.Component {
 
     render() {
         const { data } = this.props;
-        const { edges: posts } = data.allMarkdownRemark;
 
-        console.log(posts);
-
+        const { people: { edges: people }, clients: { edges: clients } } = data;
         return (
             <section>
                 <Script
@@ -36,27 +36,13 @@ export default class IndexPage extends React.Component {
                     </div>
                     <div>
                         <h2>Clients</h2>
-                        {posts
-                            .filter(
-                                post =>
-                                    post.node.frontmatter.templateKey ===
-                                    "clients"
-                            )
-                            .map(({ node: client }, index) => (
-                                <p key={index}>{client.frontmatter.title}</p>
-                            ))}
+                        {clients.map(({ node: client }, index) => (
+                            <p key={index}>{client.frontmatter.title}</p>
+                        ))}
                     </div>
                     <div>
                         <h2>People</h2>
-                        {posts
-                            .filter(
-                                post =>
-                                    post.node.frontmatter.templateKey ===
-                                    "people"
-                            )
-                            .map(({ node: person }, index) => (
-                                <p key={index}>{person.excerpt}</p>
-                            ))}
+                        <PeopleSection people={people} />
                     </div>
                 </div>
             </section>
@@ -66,10 +52,27 @@ export default class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
     query IndexQuery {
-        allMarkdownRemark {
+        people: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "people" } } }
+        ) {
             edges {
                 node {
-                    html
+                    excerpt(pruneLength: 400)
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        path
+                        role
+                    }
+                }
+            }
+        }
+        clients: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "clients" } } }
+        ) {
+            edges {
+                node {
                     excerpt(pruneLength: 400)
                     id
                     frontmatter {

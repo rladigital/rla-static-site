@@ -87,9 +87,9 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "people"}
       - {label: "Path", name: "path", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Role", name: "role", widget: "string"}
       - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Profile", name: "profile", widget: "image"}
   - name: "contacts"
     label: "Contacts"
     folder: "src/pages/contacts"
