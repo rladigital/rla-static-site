@@ -8,8 +8,7 @@ export const PeopleTemplate = ({
     contentComponent,
     title,
     helmet,
-    role,
-    description
+    role
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
@@ -22,7 +21,6 @@ export const PeopleTemplate = ({
                         <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                             {title}
                         </h1>
-                        <p>{description}</p>
                         <PostContent content={content} />
                     </div>
                 </div>
@@ -36,7 +34,6 @@ export default ({ data }) => {
     const { markdownRemark: person } = data;
     return (
         <PeopleTemplate
-            description={person.frontmatter.description}
             helmet={
                 <Helmet title={`Our People | ${person.frontmatter.title}`} />
             }
@@ -55,7 +52,6 @@ export const pageQuery = graphql`
                 path
                 title
                 role
-                description
             }
         }
     }
