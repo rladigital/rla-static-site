@@ -17,29 +17,25 @@ export const ClientTemplate = ({
     const PostContent = contentComponent || HTMLContent;
 
     return (
-        <section className="section">
+        <section>
             {helmet || ""}
-            <div className="container content">
-                <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                    {title}
-                </h1>
-                <img
-                    style={{ borderRadius: "5px" }}
-                    src={logo}
-                    alt={`${title} Logo`}
-                />
-                <PostContent content={project} />
-                <PostContent content={outcome} />
-                {galleryImages.map((image, index) => {
-                    return (
-                        <img
-                            key={index}
-                            src={image}
-                            alt={`${title} Gallery Image`}
-                        />
-                    );
-                })}
-            </div>
+            <h1>{title}</h1>
+            <img
+                style={{ borderRadius: "5px" }}
+                src={logo}
+                alt={`${title} Logo`}
+            />
+            <PostContent content={project} />
+            <PostContent content={outcome} />
+            {galleryImages.map((image, index) => {
+                return (
+                    <img
+                        key={index}
+                        src={image}
+                        alt={`${title} Gallery Image`}
+                    />
+                );
+            })}
         </section>
     );
 };

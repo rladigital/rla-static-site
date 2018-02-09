@@ -40,10 +40,7 @@ export default class IndexPage extends React.Component {
                             <p key={index}>{client.frontmatter.title}</p>
                         ))}
                     </div>
-                    <div>
-                        <h2>People</h2>
-                        <PeopleSection people={people} />
-                    </div>
+                    <PeopleSection people={people} />
                 </div>
             </section>
         );
