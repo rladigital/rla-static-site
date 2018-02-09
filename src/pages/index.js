@@ -64,6 +64,7 @@ export const pageQuery = graphql`
                         templateKey
                         path
                         role
+                        profile
                     }
                 }
             }

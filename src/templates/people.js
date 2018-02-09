@@ -6,9 +6,10 @@ import Content, { HTMLContent } from "../components/Content";
 export const PeopleTemplate = ({
     content,
     contentComponent,
-    description,
     title,
-    helmet
+    helmet,
+    role,
+    description
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
@@ -41,6 +42,7 @@ export default ({ data }) => {
             }
             title={person.frontmatter.title}
             content={person.html}
+            role={person.frontmatter.role}
         />
     );
 };
@@ -52,6 +54,7 @@ export const pageQuery = graphql`
             frontmatter {
                 path
                 title
+                role
                 description
             }
         }
