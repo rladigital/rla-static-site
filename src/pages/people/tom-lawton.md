@@ -2,7 +2,9 @@
 templateKey: people
 path: /tom-lawton
 title: Tom Lawton
+date: 2018-02-14T00:00:00+00:00
 role: Head of Development
+profile: /img/profile-pic.jpg
 ---
 ## What he's all about
 
