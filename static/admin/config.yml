@@ -62,7 +62,7 @@ collections:
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Side Heading", name: "sideHeading", widget: "string"}
-      - {label: "Story", name: "project", widget: "markdown"}
+      - {label: "Story", name: "body", widget: "markdown"}
       - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
   - name: "insight"
     label: "Insight"
