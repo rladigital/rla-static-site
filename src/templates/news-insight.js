@@ -68,7 +68,7 @@ export default ({ data }) => {
 };
 
 export const pageQuery = graphql`
-    query newsByPath($path: String!) {
+    query newsInsightByPath($path: String!) {
         markdownRemark(frontmatter: { path: { eq: $path } }) {
             html
             frontmatter {

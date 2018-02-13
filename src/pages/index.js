@@ -7,6 +7,7 @@ import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
 import SolutionsSection from "../components/solutions/SolutionsSection";
 import ServicesSection from "../components/services/ServicesSection";
+import NewsSection from "../components/news/NewsSection";
 
 export default class IndexPage extends React.Component {
     handleScriptLoad() {
@@ -24,12 +25,13 @@ export default class IndexPage extends React.Component {
 
     render() {
         const { data } = this.props;
-
+        console.log(data);
         const {
-            people: { edges: people },
             clients: { edges: clients },
             solutions: { edges: solutions },
-            services: { edges: services }
+            services: { edges: services },
+            news: { edges: news },
+            people: { edges: people }
         } = data;
         return (
             <section>
@@ -40,6 +42,7 @@ export default class IndexPage extends React.Component {
                 <SolutionsSection solutions={solutions} />
                 <ClientsSection clients={clients} />
                 <ServicesSection services={services} />
+                <NewsSection news={news} />
                 <PeopleSection people={people} />
             </section>
         );
@@ -48,6 +51,22 @@ export default class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
     query IndexQuery {
+        clients: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "clients" } } }
+        ) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        path
+                        hero
+                    }
+                }
+            }
+        }
         services: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "services" } } }
         ) {
@@ -81,6 +100,22 @@ export const pageQuery = graphql`
                 }
             }
         }
+        news: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { glob: "news-*" } } }
+        ) {
+            edges {
+                node {
+                    html
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        path
+                        hero
+                    }
+                }
+            }
+        }
         people: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "people" } } }
         ) {
@@ -94,22 +129,6 @@ export const pageQuery = graphql`
                         path
                         role
                         profile
-                    }
-                }
-            }
-        }
-        clients: allMarkdownRemark(
-            filter: { frontmatter: { templateKey: { eq: "clients" } } }
-        ) {
-            edges {
-                node {
-                    excerpt(pruneLength: 400)
-                    id
-                    frontmatter {
-                        title
-                        templateKey
-                        path
-                        hero
                     }
                 }
             }
