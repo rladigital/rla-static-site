@@ -48,8 +48,18 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Description", name: "project", widget: "markdown"}
-      - {label: "Colour", name: "colour", widget: "string"}
+      - {label: "Colour", name: "color", widget: "string"}
       - {label: "Icon", name: "icon", widget: "image"}
+  - name: "services"
+    label: "Services"
+    folder: "src/pages/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "services"}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "project", widget: "markdown"}
   - name: "news"
     label: "News"
     folder: "src/pages/news"

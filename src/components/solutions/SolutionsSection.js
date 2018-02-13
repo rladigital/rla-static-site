@@ -21,9 +21,6 @@ class SolutionsSection extends React.Component {
                         );
                     })}
                 </Row>
-                <Row>
-                    <p>View all</p>
-                </Row>
             </div>
         );
     }

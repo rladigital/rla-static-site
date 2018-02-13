@@ -4,7 +4,6 @@ path: brand-desire
 title: Brand Desire
 intro: Brand Desire is Important
 project: All about brand desire
-colour: '#2ba4c1'
+color: '#2ba4c1'
 icon: /img/volvo-logo.png
 ---
-
