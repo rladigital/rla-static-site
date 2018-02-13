@@ -23,7 +23,7 @@ const SolutionTitle = styled.h5`
     }
 `;
 
-const  f = ({ solution }) => {
+const SolutionSummary = ({ solution }) => {
     //console.log(solution);
     return (
         <Link to={solution.frontmatter.path}>
