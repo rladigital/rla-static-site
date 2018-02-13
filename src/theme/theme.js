@@ -37,8 +37,8 @@ const theme = {
     darkColor: colors.background,
     lightColor: colors.white,
     body: {
-        color: colors.white,
-        background: colors.background,
+        color: colors.black,
+        background: colors.white,
         fontFamily: "Montserrat, sans-serif"
     },
     anchor: {

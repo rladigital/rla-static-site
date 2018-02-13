@@ -16,7 +16,7 @@ function globalCss(theme) {
             margin: 0;
             padding: 0;
             border: 0;
-            font-size: 100%;
+            font-size: 14px;
             font: inherit;
             vertical-align: baseline;
         }
@@ -46,11 +46,11 @@ function globalCss(theme) {
             border-collapse: collapse;
             border-spacing: 0;
         }
-                *{
+        *{
             box-sizing: inherit;
         }
         body {
-            background: #252b33;
+            background: ${theme.body.background};
             color: ${theme.body.color};
             font-family: ${theme.body.fontFamily};
             margin: 0;
@@ -70,14 +70,14 @@ function globalCss(theme) {
         }
 
         h1 {
-            font-size: 2.618em;
+            font-size: 2.618rem;
             font-weight: bold;
         }
         h2 {
-            font-size: 1.931em;
+            font-size: 1.931rem;
         }
         h3 {
-            font-size: 1.618em;
+            font-size: 1.618rem;
         }
         h4 {
             font-size: 1.194em;
