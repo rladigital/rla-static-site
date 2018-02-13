@@ -1,42 +1,52 @@
 import React from "react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
+import { Row, Column } from "rla-components";
 import Content, { HTMLContent } from "../components/Content";
 
 export const NewsTemplate = ({
     content,
     contentComponent,
-    logo,
-    project,
-    outcome,
+    hero,
+    intro,
+    sideHeading,
     galleryImages,
-    solutions,
     title,
     helmet
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
     return (
-        <section>
+        <Row>
             {helmet || ""}
-            <h1>{title}</h1>
-            <img
-                style={{ borderRadius: "5px" }}
-                src={logo}
-                alt={`${title} Logo`}
-            />
-            <PostContent content={project} />
-            <PostContent content={outcome} />
-            {galleryImages.map((image, index) => {
-                return (
-                    <img
-                        key={index}
-                        src={image}
-                        alt={`${title} Gallery Image`}
-                    />
-                );
-            })}
-        </section>
+            <Column>
+                <h1>{title}</h1>
+            </Column>
+            <Column>
+                <img
+                    style={{ borderRadius: "5px" }}
+                    src={hero}
+                    alt={`${title} Logo`}
+                />
+            </Column>
+            <Column medium={8}>
+                <h2>{intro}</h2>
+                <PostContent content={content} />
+            </Column>
+            <Column medium={4}>
+                <h3>{sideHeading}</h3>
+
+                {galleryImages.map((image, index) => {
+                    return (
+                        <img
+                            key={index}
+                            src={image}
+                            alt={`${title} Gallery Image`}
+                        />
+                    );
+                })}
+            </Column>
+        </Row>
     );
 };
 
@@ -49,8 +59,9 @@ export default ({ data }) => {
             helmet={<Helmet title={`News | ${news.frontmatter.title}`} />}
             title={news.frontmatter.title}
             hero={news.frontmatter.hero}
-            project={news.frontmatter.project}
-            outcome={news.frontmatter.outcome}
+            intro={news.frontmatter.intro}
+            sideHeading={news.frontmatter.sideHeading}
+            content={news.html}
             galleryImages={news.frontmatter.galleryImages}
         />
     );
@@ -63,11 +74,11 @@ export const pageQuery = graphql`
             frontmatter {
                 path
                 title
-                logo
+                hero
+                intro
+                sideHeading
                 project
-                outcome
                 galleryImages
-                solutions
             }
         }
     }

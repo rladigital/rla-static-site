@@ -1,15 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
+import { ThemeProvider, injectGlobal } from "styled-components";
+import { Theme } from "rla-components";
+import merge from "lodash/merge";
+
+import customTheme from "../theme/theme";
+import globalCss from "../theme/globalCss";
+//Add Global CSS
+injectGlobal`${globalCss(customTheme)}`;
 
 import Navbar from "../components/Navbar";
 
 const TemplateWrapper = ({ children }) => (
-    <div>
-        <Helmet title="RLA" />
-        <Navbar />
-        <div>{children()}</div>
-    </div>
+    <ThemeProvider theme={merge(Theme, customTheme)}>
+        <div>
+            <Helmet title="RLA" />
+            <Navbar />
+            <div>{children()}</div>
+        </div>
+    </ThemeProvider>
 );
 
 TemplateWrapper.propTypes = {
