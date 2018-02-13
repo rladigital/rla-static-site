@@ -4,6 +4,7 @@ import Script from "react-load-script";
 import graphql from "graphql";
 
 import PeopleSection from "../components/people/PeopleSection";
+import ClientsSection from "../components/clients/ClientsSection";
 
 export default class IndexPage extends React.Component {
     handleScriptLoad() {
@@ -29,19 +30,8 @@ export default class IndexPage extends React.Component {
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
-                <div>
-                    <div>
-                        <h1>30 Years of Delivering</h1>
-                        <h2>Strategic, Profitable Communications</h2>
-                    </div>
-                    <div>
-                        <h2>Clients</h2>
-                        {clients.map(({ node: client }, index) => (
-                            <p key={index}>{client.frontmatter.title}</p>
-                        ))}
-                    </div>
-                    <PeopleSection people={people} />
-                </div>
+                <ClientsSection clients={clients} />
+                <PeopleSection people={people} />
             </section>
         );
     }
@@ -77,6 +67,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         path
+                        hero
                     }
                 }
             }

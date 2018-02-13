@@ -80,13 +80,13 @@ function globalCss(theme) {
             font-size: 1.618rem;
         }
         h4 {
-            font-size: 1.194em;
+            font-size: 1.194rem;
         }
         h5 {
-            font-size: 1.2em;
+            font-size: 1.2rem;
         }
         h6 {
-            font-size: 1em;
+            font-size: 1rem;
         }
         strong, b{
             font-weight: bold;

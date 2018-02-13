@@ -11,8 +11,8 @@ class PeopleSection extends React.Component {
                 <Row>
                     {people.map(({ node: person }, index) => {
                         return (
-                            <Column medium={3}>
-                                <PeopleSummary key={index} person={person} />
+                            <Column medium={3} key={index}>
+                                <PeopleSummary person={person} />
                             </Column>
                         );
                     })}

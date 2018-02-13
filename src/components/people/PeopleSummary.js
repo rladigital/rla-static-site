@@ -12,7 +12,7 @@ const ProfileImage = styled.img`
 `;
 
 const PeopleSummary = ({ person }) => {
-    console.log(person);
+    //console.log(person);
     return (
         <SummaryContainer>
             <Link to={person.frontmatter.path}>
