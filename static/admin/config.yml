@@ -47,7 +47,7 @@ collections:
       - {label: "Path", name: "path", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
-      - {label: "Description", name: "project", widget: "markdown"}
+      - {label: "Description", name: "body", widget: "markdown"}
       - {label: "Colour", name: "color", widget: "string"}
       - {label: "Icon", name: "icon", widget: "image"}
   - name: "services"
@@ -59,7 +59,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "services"}
       - {label: "Path", name: "path", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "project", widget: "markdown"}
+      - {label: "Description", name: "body", widget: "markdown"}
   - name: "news"
     label: "News"
     folder: "src/pages/news"

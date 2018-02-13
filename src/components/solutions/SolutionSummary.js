@@ -23,11 +23,11 @@ const SolutionTitle = styled.h5`
     }
 `;
 
-const SolutionSummary = ({ solution }) => {
-    console.log(solution);
+const  f = ({ solution }) => {
+    //console.log(solution);
     return (
         <Link to={solution.frontmatter.path}>
-            <SummaryContainer color={solution.frontmatter.colour}>
+            <SummaryContainer color={solution.frontmatter.color}>
                 <SolutionTitle>
                     {solution.frontmatter.title} <span>&rarr;</span>
                 </SolutionTitle>

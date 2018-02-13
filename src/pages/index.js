@@ -57,7 +57,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         path
-                        colour
+                        color
                         icon
                         intro
                     }
