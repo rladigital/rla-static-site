@@ -1,5 +1,6 @@
 import React from "react";
 import PeopleSummary from "./PeopleSummary";
+import { Row, Column } from "rla-components";
 
 class PeopleSection extends React.Component {
     render() {
@@ -7,9 +8,15 @@ class PeopleSection extends React.Component {
         return (
             <div>
                 <h2>People at our Core</h2>
-                {people.map(({ node: person }, index) => {
-                    return <PeopleSummary key={index} person={person} />;
-                })}
+                <Row>
+                    {people.map(({ node: person }, index) => {
+                        return (
+                            <Column medium={3}>
+                                <PeopleSummary key={index} person={person} />
+                            </Column>
+                        );
+                    })}
+                </Row>
             </div>
         );
     }
