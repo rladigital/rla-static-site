@@ -6,6 +6,7 @@ import graphql from "graphql";
 import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
 import SolutionsSection from "../components/solutions/SolutionsSection";
+import ServicesSection from "../components/services/ServicesSection";
 
 export default class IndexPage extends React.Component {
     handleScriptLoad() {
@@ -27,7 +28,8 @@ export default class IndexPage extends React.Component {
         const {
             people: { edges: people },
             clients: { edges: clients },
-            solutions: { edges: solutions }
+            solutions: { edges: solutions },
+            services: { edges: services }
         } = data;
         return (
             <section>
@@ -37,6 +39,7 @@ export default class IndexPage extends React.Component {
                 />
                 <SolutionsSection solutions={solutions} />
                 <ClientsSection clients={clients} />
+                <ServicesSection services={services} />
                 <PeopleSection people={people} />
             </section>
         );
@@ -45,12 +48,26 @@ export default class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
     query IndexQuery {
+        services: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "services" } } }
+        ) {
+            edges {
+                node {
+                    html
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        path
+                    }
+                }
+            }
+        }
         solutions: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "solutions" } } }
         ) {
             edges {
                 node {
-                    excerpt(pruneLength: 400)
                     html
                     id
                     frontmatter {

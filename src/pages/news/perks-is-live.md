@@ -1,5 +1,5 @@
 ---
-templateKey: news
+templateKey: news-general
 path: perks-is-live
 title: Perks is Live
 hero: /img/perks-hero.gif
