@@ -4,13 +4,12 @@ import Link from "gatsby-link";
 
 const SummaryContainer = styled.section`
     position: relative;
-    background-image: url(${props => props.backgroundImage});
-    background-size: cover;
+    background-color: ${props => props.color};
     min-height: 150px;
     text-align: center;
 `;
 
-const ClientTitle = styled.h5`
+const SolutionTitle = styled.h5`
     position: absolute;
     margin: 0;
     padding: 0.5rem;
@@ -24,17 +23,17 @@ const ClientTitle = styled.h5`
     }
 `;
 
-const ClientSummary = ({ client }) => {
-    console.log(client);
+const SolutionSummary = ({ solution }) => {
+    console.log(solution);
     return (
-        <Link to={client.frontmatter.path}>
-            <SummaryContainer backgroundImage={client.frontmatter.hero}>
-                <ClientTitle>
-                    {client.frontmatter.title} <span>&rarr;</span>
-                </ClientTitle>
-            </SummaryContainer>{" "}
+        <Link to={solution.frontmatter.path}>
+            <SummaryContainer color={solution.frontmatter.colour}>
+                <SolutionTitle>
+                    {solution.frontmatter.title} <span>&rarr;</span>
+                </SolutionTitle>
+            </SummaryContainer>
         </Link>
     );
 };
 
-export default ClientSummary;
+export default SolutionSummary;

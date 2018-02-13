@@ -5,6 +5,7 @@ import graphql from "graphql";
 
 import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
+import SolutionsSection from "../components/solutions/SolutionsSection";
 
 export default class IndexPage extends React.Component {
     handleScriptLoad() {
@@ -23,13 +24,18 @@ export default class IndexPage extends React.Component {
     render() {
         const { data } = this.props;
 
-        const { people: { edges: people }, clients: { edges: clients } } = data;
+        const {
+            people: { edges: people },
+            clients: { edges: clients },
+            solutions: { edges: solutions }
+        } = data;
         return (
             <section>
                 <Script
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
+                <SolutionsSection solutions={solutions} />
                 <ClientsSection clients={clients} />
                 <PeopleSection people={people} />
             </section>
@@ -39,6 +45,25 @@ export default class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
     query IndexQuery {
+        solutions: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "solutions" } } }
+        ) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    html
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        path
+                        colour
+                        icon
+                        intro
+                    }
+                }
+            }
+        }
         people: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "people" } } }
         ) {
