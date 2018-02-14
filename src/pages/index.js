@@ -64,7 +64,6 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        path
                         hero
                     }
                 }
@@ -83,7 +82,6 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        path
                     }
                 }
             }
@@ -101,7 +99,6 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        path
                         color
                         icon
                         intro
@@ -122,7 +119,6 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        path
                         hero
                     }
                 }
@@ -141,7 +137,6 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        path
                         role
                         profile
                     }

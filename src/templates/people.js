@@ -43,7 +43,6 @@ export const pageQuery = graphql`
         markdownRemark(fields: { slug: { eq: $path } }) {
             html
             frontmatter {
-                path
                 title
                 role
             }

@@ -1,6 +1,5 @@
 ---
 templateKey: clients
-path: volvo
 title: Volvo
 logo: /img/volvo-logo.png
 hero: /img/volvo-banner.jpg

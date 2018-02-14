@@ -1,6 +1,5 @@
 ---
 templateKey: services
-path: strategy-and-planning
 title: Strategy and Planning
 ---
 

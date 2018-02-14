@@ -26,7 +26,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                         id
                         frontmatter {
                             templateKey
-                            path
                         }
                         fields {
                             slug

@@ -13,7 +13,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "clients"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Logo", name: "logo", widget: "image"}
       - {label: "Hero Image", name: "hero", widget: "image"}
@@ -29,7 +28,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
@@ -44,7 +42,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "solutions"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Description", name: "body", widget: "markdown"}
@@ -57,7 +54,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "services"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "body", widget: "markdown"}
   - name: "news"
@@ -67,7 +63,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-general"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
@@ -81,7 +76,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-insight"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
@@ -95,7 +89,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "people"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Role", name: "role", widget: "string"}
       - {label: "Description", name: "body", widget: "markdown"}
@@ -107,7 +100,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contacts"}
-      - {label: "Path", name: "path", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Group", name: "group", widget: "select", options: ["RLA", "Mission", "Other"]}
       - {label: "Address", name: "address", widget: "markdown"}      

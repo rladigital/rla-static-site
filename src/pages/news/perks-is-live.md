@@ -1,6 +1,5 @@
 ---
 templateKey: news-general
-path: perks-is-live
 title: Perks is Live
 hero: /img/perks-hero.gif
 intro: RLA Launches UK's first OEM Trade Parts Reward Programme for PSA Groupe
