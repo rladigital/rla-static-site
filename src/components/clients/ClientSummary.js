@@ -27,7 +27,7 @@ const ClientTitle = styled.h5`
 const ClientSummary = ({ client }) => {
     console.log(client);
     return (
-        <Link to={client.frontmatter.path}>
+        <Link to={client.fields.slug}>
             <SummaryContainer backgroundImage={client.frontmatter.hero}>
                 <ClientTitle>
                     {client.frontmatter.title} <span>&rarr;</span>

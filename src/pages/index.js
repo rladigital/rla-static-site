@@ -56,6 +56,9 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
+                    fields {
+                        slug
+                    }
                     excerpt(pruneLength: 400)
                     id
                     frontmatter {
@@ -72,6 +75,9 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
+                    fields {
+                        slug
+                    }
                     html
                     id
                     frontmatter {
@@ -87,6 +93,9 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
+                    fields {
+                        slug
+                    }
                     html
                     id
                     frontmatter {
@@ -105,6 +114,9 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
+                    fields {
+                        slug
+                    }
                     html
                     id
                     frontmatter {
@@ -121,6 +133,9 @@ export const pageQuery = graphql`
         ) {
             edges {
                 node {
+                    fields {
+                        slug
+                    }
                     excerpt(pruneLength: 400)
                     id
                     frontmatter {

@@ -15,7 +15,7 @@ const PeopleSummary = ({ person }) => {
     //console.log(person);
     return (
         <SummaryContainer>
-            <Link to={person.frontmatter.path}>
+            <Link to={person.fields.slug}>
                 <ProfileImage src={person.frontmatter.profile} />
                 <h3>{person.frontmatter.title}</h3>
                 <h4>{person.frontmatter.role}</h4>

@@ -26,7 +26,7 @@ const ServiceTitle = styled.h5`
 const ServiceSummary = ({ service }) => {
     //console.log(service);
     return (
-        <Link to={service.frontmatter.path}>
+        <Link to={service.fields.slug}>
             <SummaryContainer color={service.frontmatter.color}>
                 <ServiceTitle>
                     {service.frontmatter.title} <span>&rarr;</span>

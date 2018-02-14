@@ -27,7 +27,7 @@ const NewsTitle = styled.h5`
 const NewsSummary = ({ story }) => {
     console.log(story);
     return (
-        <Link to={story.frontmatter.path}>
+        <Link to={story.fields.slug}>
             <SummaryContainer backgroundImage={story.frontmatter.hero}>
                 <NewsTitle>
                     {story.frontmatter.title} <span>&rarr;</span>

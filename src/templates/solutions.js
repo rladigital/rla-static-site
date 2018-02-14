@@ -41,7 +41,7 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
     query SolutionByPath($path: String!) {
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
+        markdownRemark(fields: { slug: { eq: $path } }) {
             html
             frontmatter {
                 path

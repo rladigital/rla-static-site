@@ -26,7 +26,7 @@ const SolutionTitle = styled.h5`
 const SolutionSummary = ({ solution }) => {
     //console.log(solution);
     return (
-        <Link to={solution.frontmatter.path}>
+        <Link to={solution.fields.slug}>
             <SummaryContainer color={solution.frontmatter.color}>
                 <SolutionTitle>
                     {solution.frontmatter.title} <span>&rarr;</span>
