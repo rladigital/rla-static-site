@@ -4,13 +4,13 @@ import graphql from "graphql";
 import { Row, Column } from "rla-components";
 
 import theme from "../theme/theme";
-import NewsSummary from "../components/news/NewsSummary";
+import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
 
-export default class NewsPage extends React.Component {
+export default class WorkPage extends React.Component {
     render() {
-        const { data: { allMarkdownRemark: { edges: news } } } = this.props;
-        //console.log(news);
+        const { data: { allMarkdownRemark: { edges: work } } } = this.props;
+        //console.log(work);
         return (
             <div>
                 <Row>
@@ -19,16 +19,16 @@ export default class NewsPage extends React.Component {
                             fontSize={theme.pageHeaderSection.fontSize}
                             padding={theme.pageHeaderSection.padding}
                         >
-                            News &amp; <span>Insights</span>
+                            Our <span>Work</span>
                         </HeaderBlock>
                     </Column>
                 </Row>
 
                 <Row>
-                    {news.map(({ node: story }, index) => {
+                    {work.map(({ node: caseStudy }, index) => {
                         return (
                             <Column medium={3} key={index}>
-                                <NewsSummary story={story} />
+                                <WorkSummary work={caseStudy} />
                             </Column>
                         );
                     })}
@@ -39,9 +39,9 @@ export default class NewsPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-    query NewsQuery {
+    query workQuery {
         allMarkdownRemark(
-            filter: { frontmatter: { templateKey: { glob: "news-*" } } }
+            filter: { frontmatter: { templateKey: { eq: "work" } } }
         ) {
             edges {
                 node {
@@ -54,6 +54,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         hero
+                        logo
                     }
                 }
             }

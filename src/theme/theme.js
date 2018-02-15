@@ -22,7 +22,7 @@ export const sizes = {
 
 export const spacing = {
     radius: "0.2",
-    padding: "1.2",
+    padding: "0.8",
     margin: "0.2"
 };
 
@@ -66,11 +66,22 @@ const theme = {
         padding: spacing.padding
     },
     navigation: {
-        background: colors.white,
-        color: colors.black,
-        activeColor: colors.primary,
-        margin: 0,
-        textTransform: "uppercase"
+        navLink: {
+            margin: 0,
+            color: colors.white,
+            activeColor: colors.accent,
+            padding: spacing.padding,
+            textTransform: "uppercase"
+        }
+    },
+    pageHeaderSection: {
+        fontSize: 5,
+        padding: {
+            top: 4,
+            right: 0,
+            bottom: 4,
+            left: 0
+        }
     },
     button: {
         fontWeight: "normal",

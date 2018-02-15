@@ -4,13 +4,15 @@ import graphql from "graphql";
 import { Row, Column } from "rla-components";
 
 import theme from "../theme/theme";
-import NewsSummary from "../components/news/NewsSummary";
+import SolutionSummary from "../components/solutions/SolutionSummary";
 import HeaderBlock from "../components/HeaderBlock";
 
-export default class NewsPage extends React.Component {
+export default class SolutionsPage extends React.Component {
     render() {
-        const { data: { allMarkdownRemark: { edges: news } } } = this.props;
-        //console.log(news);
+        const {
+            data: { allMarkdownRemark: { edges: solutions } }
+        } = this.props;
+        //console.log(work);
         return (
             <div>
                 <Row>
@@ -19,16 +21,16 @@ export default class NewsPage extends React.Component {
                             fontSize={theme.pageHeaderSection.fontSize}
                             padding={theme.pageHeaderSection.padding}
                         >
-                            News &amp; <span>Insights</span>
+                            Get in <span>Touch</span>
                         </HeaderBlock>
                     </Column>
                 </Row>
 
                 <Row>
-                    {news.map(({ node: story }, index) => {
+                    {solutions.map(({ node: solution }, index) => {
                         return (
                             <Column medium={3} key={index}>
-                                <NewsSummary story={story} />
+                                <SolutionSummary solution={solution} />
                             </Column>
                         );
                     })}
@@ -39,9 +41,9 @@ export default class NewsPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-    query NewsQuery {
+    query ContactQuery {
         allMarkdownRemark(
-            filter: { frontmatter: { templateKey: { glob: "news-*" } } }
+            filter: { frontmatter: { templateKey: { eq: "contacts" } } }
         ) {
             edges {
                 node {
@@ -53,7 +55,9 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        hero
+                        color
+                        icon
+                        intro
                     }
                 }
             }

@@ -34,7 +34,7 @@ collections:
       - {label: "Project Description", name: "project", widget: "markdown"}
       - {label: "Outcome Description", name: "outcome", widget: "markdown"}
       - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
-      - {label: "Client", name: "client", widget: "relation", colection: "client", searchFields: ["title"], valueField: "title"}
+      - {label: "Client", name: "client", widget: "relation", collection: "clients", searchFields: ["title"], valueField: "title"}
   - name: "solutions"
     label: "Solutions"
     folder: "src/pages/solutions"

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Row, Column } from "rla-components";
 
 import HeaderBlock from "../HeaderBlock";
-import PeopleSummary from "./PeopleSummary";
+import PeopleBrowser from "./PeopleBrowser";
 import SectionContainer from "../SectionContainer";
 
 class PeopleSection extends React.Component {
@@ -15,13 +15,7 @@ class PeopleSection extends React.Component {
                     <span>People</span> at our Core
                 </HeaderBlock>
                 <Row>
-                    {people.map(({ node: person }, index) => {
-                        return (
-                            <Column medium={3} key={index}>
-                                <PeopleSummary person={person} />
-                            </Column>
-                        );
-                    })}
+                    <PeopleBrowser people={people} />
                 </Row>
             </SectionContainer>
         );

@@ -10,13 +10,13 @@ import globalCss from "../theme/globalCss";
 //Add Global CSS
 injectGlobal`${globalCss(customTheme)}`;
 
-import Navbar from "../components/Navbar";
+import SiteHeader from "../components/SiteHeader";
 
 const TemplateWrapper = ({ children }) => (
     <ThemeProvider theme={merge(Theme, customTheme)}>
         <div>
             <Helmet title="RLA" />
-            <Navbar />
+            <SiteHeader />
             <div>{children()}</div>
         </div>
     </ThemeProvider>
