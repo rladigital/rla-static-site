@@ -61,14 +61,13 @@ function globalCss(theme) {
         h1,h2,h3,h4,h5,h6,button {
             text-transform: uppercase;
         }
-        h1,h2 {
-            margin: ${theme.paragraph.margin}rem 0 ${theme.paragraph.margin *
-        2}rem;
-        }
-        h3,h4,h5,h6,p,hr {
+        h1,h2,h3,h4,h5,h6,p,hr {
             margin: 0 0 ${theme.paragraph.margin}em;
         }
-
+        p {
+            margin: ${theme.paragraph.margin}rem 0 ${theme.paragraph.margin *
+        4}rem 0;
+        }
         h1 {
             font-size: 2.618rem;
             font-weight: bold;

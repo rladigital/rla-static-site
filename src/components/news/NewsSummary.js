@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
@@ -6,7 +7,7 @@ const SummaryContainer = styled.section`
     position: relative;
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
-    min-height: 150px;
+    min-height: ${props => props.minHeight}rem;
     text-align: center;
 `;
 
@@ -24,17 +25,28 @@ const NewsTitle = styled.h5`
     }
 `;
 
-const NewsSummary = ({ story }) => {
-    console.log(story);
+const NewsSummary = ({ story, minHeight }) => {
     return (
         <Link to={story.fields.slug}>
-            <SummaryContainer backgroundImage={story.frontmatter.hero}>
+            <SummaryContainer
+                backgroundImage={story.frontmatter.hero}
+                minHeight={minHeight}
+            >
                 <NewsTitle>
                     {story.frontmatter.title} <span>&rarr;</span>
                 </NewsTitle>
             </SummaryContainer>
         </Link>
     );
+};
+
+NewsSummary.propTypes = {
+    story: PropTypes.object,
+    minHeight: PropTypes.number
+};
+
+NewsSummary.defaultProps = {
+    minHeight: 12
 };
 
 export default NewsSummary;

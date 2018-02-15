@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 
+import HeaderBlock from "../HeaderBlock";
 import PeopleSummary from "./PeopleSummary";
 import SectionContainer from "../SectionContainer";
 
@@ -10,7 +11,9 @@ class PeopleSection extends React.Component {
         const { people } = this.props;
         return (
             <SectionContainer>
-                <h2>People at our Core</h2>
+                <HeaderBlock>
+                    <span>People</span> at our Core
+                </HeaderBlock>
                 <Row>
                     {people.map(({ node: person }, index) => {
                         return (

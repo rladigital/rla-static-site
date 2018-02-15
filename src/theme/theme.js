@@ -1,7 +1,7 @@
 export const colors = {
     primary: "#86c3c4",
-    accent: "#3a3e46",
-    secondary: "#393e44",
+    accent: "#D72257",
+    secondary: "#3a3e46",
     black: "#0C141B",
     white: "#f8fafd",
     lightGray: "#d7d7d7",
@@ -23,7 +23,7 @@ export const sizes = {
 export const spacing = {
     radius: "0.2",
     padding: "1.2",
-    margin: "1.2"
+    margin: "0.2"
 };
 
 export const breakpoints = {

@@ -6,10 +6,13 @@ import { colors } from "../theme/theme";
 
 const HeaderBlock = styled.h1`
     text-align: ${props => props.textAlign};
-    padding: ${props => props.padding}rem;
+    padding: ${props => props.padding.top}rem ${props => props.padding.right}rem
+        ${props => props.padding.bottom}rem ${props => props.padding.left}rem;
     color: ${props => props.baseColor};
     font-size: ${props => props.fontSize}rem;
+    letter-spacing: -0.1rem;
     font-weight: bold;
+    line-height: 0.8;
     span {
         color: ${props => props.accentColor};
     }
@@ -20,15 +23,25 @@ HeaderBlock.propTypes = {
     baseColor: PropTypes.string,
     accentColor: PropTypes.string,
     fontSize: PropTypes.number,
-    padding: PropTypes.string
+    padding: PropTypes.shape({
+        top: PropTypes.number,
+        right: PropTypes.number,
+        bottom: PropTypes.number,
+        left: PropTypes.number
+    })
 };
 
 HeaderBlock.defaultProps = {
     textAlign: "center",
     baseColor: colors.white,
-    accentColor: colors.primary,
-    fontSize: 5,
-    padding: 1
+    accentColor: colors.accent,
+    fontSize: 4,
+    padding: {
+        top: 1,
+        right: 0,
+        bottom: 1,
+        left: 0
+    }
 };
 
 export default HeaderBlock;

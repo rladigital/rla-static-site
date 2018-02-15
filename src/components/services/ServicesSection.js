@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 
+import HeaderBlock from "../HeaderBlock";
 import ServiceSummary from "./ServiceSummary";
 import SectionContainer from "../SectionContainer";
 
@@ -11,8 +12,13 @@ class ServicesSection extends React.Component {
         return (
             <SectionContainer>
                 <Row>
-                    <h1>Together</h1>
-                    <h2>We can Achieve More</h2>
+                    <Column medium={4}>
+                        <HeaderBlock textAlign="left">
+                            <span>Together</span>
+                            <br />
+                            We can Achieve More
+                        </HeaderBlock>
+                    </Column>
                 </Row>
 
                 <Row>

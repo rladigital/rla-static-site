@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Column } from "rla-components";
 
+import HeaderBlock from "../HeaderBlock";
 import ClientSummary from "./ClientSummary";
 import { colors } from "../../theme/theme";
 import SectionContainer from "../SectionContainer";
@@ -14,8 +15,10 @@ class ClientsSection extends React.Component {
                 background={colors.white}
             >
                 <Row>
-                    <h1>30 Years of Delivering</h1>
-                    <h2>Strategic, Profitable Communications</h2>
+                    <HeaderBlock baseColor={colors.background}>
+                        30 Years of Delivering<br />
+                        <span>Strategic, Profitable Communications</span>
+                    </HeaderBlock>
                 </Row>
 
                 <Row>
