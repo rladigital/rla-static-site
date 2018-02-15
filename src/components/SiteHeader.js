@@ -20,7 +20,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderPadding = styled.div`
-    padding-top: 2rem;
+    padding-top: 5rem;
 `;
 
 const SiteHeader = () => (
@@ -41,12 +41,12 @@ const SiteHeader = () => (
                 </Column>
                 <Column medium={10}>
                     <SiteNav>
-                        <SiteNavLink to="solutions">Solutions</SiteNavLink>
-                        <SiteNavLink to="work">Work</SiteNavLink>
-                        <SiteNavLink to="clients">Clients</SiteNavLink>
-                        <SiteNavLink to="people">People</SiteNavLink>
-                        <SiteNavLink to="news">News</SiteNavLink>
-                        <SiteNavLink to="contact">Contact</SiteNavLink>
+                        <SiteNavLink to="/solutions">Solutions</SiteNavLink>
+                        <SiteNavLink to="/work">Work</SiteNavLink>
+                        <SiteNavLink to="/clients">Clients</SiteNavLink>
+                        <SiteNavLink to="/people">People</SiteNavLink>
+                        <SiteNavLink to="/news">News</SiteNavLink>
+                        <SiteNavLink to="/contact">Contact</SiteNavLink>
                     </SiteNav>
                 </Column>
             </Row>

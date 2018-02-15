@@ -1,41 +1,55 @@
 import React from "react";
+import Remark from "remark";
+import ReactRenderer from "remark-react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
+import { Row, Column } from "rla-components";
 import Content, { HTMLContent } from "../components/Content";
 
 export const ClientTemplate = ({
     content,
-    contentComponent,
     logo,
     project,
     outcome,
     galleryImages,
     solutions,
     title,
+    intro,
     helmet
 }) => {
-    const PostContent = contentComponent || HTMLContent;
-
+    //console.log(project, outcome);
     return (
         <section>
             {helmet || ""}
-            <h1>{title}</h1>
-            <img
-                style={{ borderRadius: "5px" }}
-                src={logo}
-                alt={`${title} Logo`}
-            />
-            <PostContent content={project} />
-            <PostContent content={outcome} />
-            {galleryImages.map((image, index) => {
-                return (
+            <Row>
+                <Column>
+                    <h1>{title}</h1>
                     <img
-                        key={index}
-                        src={image}
-                        alt={`${title} Gallery Image`}
+                        style={{ borderRadius: "5px" }}
+                        src={logo}
+                        alt={`${title} Logo`}
                     />
-                );
-            })}
+                </Column>
+            </Row>
+            <Row>
+                <Column medium={6}>
+                    <h4>{intro}</h4>
+                </Column>
+                <Column medium={6}>
+                    <div />
+                    <Content content={project} />
+                    <Content content={outcome} />
+                </Column>
+                {galleryImages.map((image, index) => {
+                    return (
+                        <img
+                            key={index}
+                            src={image}
+                            alt={`${title} Gallery Image`}
+                        />
+                    );
+                })}
+            </Row>
         </section>
     );
 };
@@ -55,6 +69,7 @@ export default ({ data }) => {
             outcome={client.frontmatter.outcome}
             galleryImages={client.frontmatter.galleryImages}
             solutions={client.frontmatter.solutions}
+            intro={client.frontmatter.intro}
         />
     );
 };
@@ -65,6 +80,7 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
+                intro
                 logo
                 project
                 outcome

@@ -77,7 +77,7 @@ const theme = {
     pageHeaderSection: {
         fontSize: 5,
         padding: {
-            top: 4,
+            top: 3,
             right: 0,
             bottom: 4,
             left: 0
