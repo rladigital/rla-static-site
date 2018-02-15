@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 
+import HeaderBlock from "../HeaderBlock";
 import SolutionSummary from "./SolutionSummary";
 import SectionContainer from "../SectionContainer";
 
@@ -12,8 +13,10 @@ class SolutionsSection extends React.Component {
         return (
             <SectionContainer>
                 <Row>
-                    <h1>Connected Ambition</h1>
-                    <h2>World Class Connected Marketing Solutions</h2>
+                    <HeaderBlock>
+                        Connected Ambition<br />
+                        <span>World Class Connected Marketing Solutions</span>
+                    </HeaderBlock>
                 </Row>
 
                 <Row>
