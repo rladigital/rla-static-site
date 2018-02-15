@@ -1,12 +1,17 @@
 import React from "react";
-import NewsSummary from "./NewsSummary";
 import { Row, Column } from "rla-components";
 
+import NewsSummary from "./NewsSummary";
+import { colors } from "../../theme/theme";
+import SectionContainer from "../SectionContainer";
 class NewsSection extends React.Component {
     render() {
         const { news } = this.props;
         return (
-            <div>
+            <SectionContainer
+                color={colors.background}
+                background={colors.white}
+            >
                 <Row>
                     <h1>News &amp; Insights</h1>
                 </Row>
@@ -20,7 +25,7 @@ class NewsSection extends React.Component {
                         );
                     })}
                 </Row>
-            </div>
+            </SectionContainer>
         );
     }
 }

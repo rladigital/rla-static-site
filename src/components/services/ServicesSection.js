@@ -1,21 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-
-import ServiceSummary from "./ServiceSummary";
 import { Row, Column } from "rla-components";
 
-const Container = styled.section`
-    position: relative;
-    padding: 2rem 0rem;
-    background-color: #082748;
-    color: ${props => props.theme.lightColor};
-`;
+import ServiceSummary from "./ServiceSummary";
+import SectionContainer from "../SectionContainer";
 
 class ServicesSection extends React.Component {
     render() {
         const { services } = this.props;
         return (
-            <Container>
+            <SectionContainer>
                 <Row>
                     <h1>Together</h1>
                     <h2>We can Achieve More</h2>
@@ -30,7 +24,7 @@ class ServicesSection extends React.Component {
                         );
                     })}
                 </Row>
-            </Container>
+            </SectionContainer>
         );
     }
 }

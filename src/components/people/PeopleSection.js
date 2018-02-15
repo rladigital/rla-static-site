@@ -1,21 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-
-import PeopleSummary from "./PeopleSummary";
 import { Row, Column } from "rla-components";
 
-const Container = styled.section`
-    position: relative;
-    padding: 2rem 0rem;
-    background-color: #082748;
-    color: ${props => props.theme.lightColor};
-`;
+import PeopleSummary from "./PeopleSummary";
+import SectionContainer from "../SectionContainer";
 
 class PeopleSection extends React.Component {
     render() {
         const { people } = this.props;
         return (
-            <Container>
+            <SectionContainer>
                 <h2>People at our Core</h2>
                 <Row>
                     {people.map(({ node: person }, index) => {
@@ -26,7 +20,7 @@ class PeopleSection extends React.Component {
                         );
                     })}
                 </Row>
-            </Container>
+            </SectionContainer>
         );
     }
 }

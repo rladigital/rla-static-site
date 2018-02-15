@@ -40,8 +40,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             return Promise.reject(result.errors);
         }
         return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-            console.log(node);
-            const pagePath = node.frontmatter.path;
+            //console.log(node);
             createPage({
                 path: node.fields.slug,
                 component: path.resolve(

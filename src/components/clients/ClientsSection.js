@@ -1,12 +1,18 @@
 import React from "react";
-import ClientSummary from "./ClientSummary";
 import { Row, Column } from "rla-components";
+
+import ClientSummary from "./ClientSummary";
+import { colors } from "../../theme/theme";
+import SectionContainer from "../SectionContainer";
 
 class ClientsSection extends React.Component {
     render() {
         const { clients } = this.props;
         return (
-            <div>
+            <SectionContainer
+                color={colors.background}
+                background={colors.white}
+            >
                 <Row>
                     <h1>30 Years of Delivering</h1>
                     <h2>Strategic, Profitable Communications</h2>
@@ -24,7 +30,7 @@ class ClientsSection extends React.Component {
                 <Row>
                     <p>View all</p>
                 </Row>
-            </div>
+            </SectionContainer>
         );
     }
 }

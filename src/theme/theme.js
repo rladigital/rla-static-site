@@ -3,7 +3,7 @@ export const colors = {
     accent: "#3a3e46",
     secondary: "#393e44",
     black: "#0C141B",
-    white: "#ffffff",
+    white: "#f8fafd",
     lightGray: "#d7d7d7",
     mediumGray: "#64686c",
     darkGray: "#22262c",
@@ -11,7 +11,7 @@ export const colors = {
     warning: "#ff9800",
     success: "#4caf50",
     info: "#00bcd4",
-    background: "#252b33"
+    background: "#07172C"
 };
 
 export const sizes = {
@@ -37,8 +37,8 @@ const theme = {
     darkColor: colors.background,
     lightColor: colors.white,
     body: {
-        color: colors.black,
-        background: colors.white,
+        color: colors.white,
+        background: colors.background,
         fontFamily: "Montserrat, sans-serif"
     },
     anchor: {
