@@ -4,12 +4,12 @@ import graphql from "graphql";
 import { Row, Column } from "rla-components";
 
 import theme from "../theme/theme";
-import NewsSummary from "../components/news/NewsSummary";
+import PeopleBrowser from "../components/people/PeopleBrowser";
 import HeaderBlock from "../components/HeaderBlock";
 
-export default class NewsPage extends React.Component {
+export default class PeoplePage extends React.Component {
     render() {
-        const { data: { allMarkdownRemark: { edges: news } } } = this.props;
+        const { data: { allMarkdownRemark: { edges: people } } } = this.props;
         //console.log(news);
         return (
             <div>
@@ -19,19 +19,21 @@ export default class NewsPage extends React.Component {
                             fontSize={theme.pageHeaderSection.fontSize}
                             padding={theme.pageHeaderSection.padding}
                         >
-                            News &amp; <span>Insights</span>
+                            <span>People</span> at our Core
                         </HeaderBlock>
+                        <p>
+                            We deliver fresh thinking and innovative ideas that
+                            give our clients the edge over their competitors.
+                            Our passion and drive to know your business inside
+                            out and back to front enables us to work alongside
+                            you and become an inseparable extension of your
+                            marketing team.
+                        </p>
                     </Column>
                 </Row>
 
                 <Row>
-                    {news.map(({ node: story }, index) => {
-                        return (
-                            <Column medium={3} key={index}>
-                                <NewsSummary story={story} />
-                            </Column>
-                        );
-                    })}
+                    <PeopleBrowser people={people} />
                 </Row>
             </div>
         );
@@ -39,9 +41,9 @@ export default class NewsPage extends React.Component {
 }
 
 export const pageQuery = graphql`
-    query NewsQuery {
+    query PeopleQuery {
         allMarkdownRemark(
-            filter: { frontmatter: { templateKey: { glob: "news-*" } } }
+            filter: { frontmatter: { templateKey: { eq: "people" } } }
         ) {
             edges {
                 node {
@@ -53,7 +55,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        hero
+                        profile
                     }
                 }
             }
