@@ -204,8 +204,6 @@ export default class SolutionsList {
     group() {
         let items = this.items;
 
-        console.log("test", items);
-
         // Create the group
         let group = new PIXI.Container();
 

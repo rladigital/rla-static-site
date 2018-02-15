@@ -3,36 +3,25 @@ import styled from "styled-components";
 import Link from "gatsby-link";
 
 const SummaryContainer = styled.section`
-    position: relative;
-    background-color: ${props => props.color};
-    min-height: 150px;
-    text-align: center;
-`;
-
-const ServiceTitle = styled.h5`
+    left: 50%;
+    top: 200px;
+    width: 100%;
+    padding: 0 50px;
+    max-width: 600px;
     position: absolute;
-    margin: 0;
-    padding: 0.5rem;
-    max-width: 90%;
-    bottom: 0;
-    color: ${props => props.theme.darkColor};
-    background: ${props => props.theme.lightColor};
-    font-size: 0.8rem;
-    span {
-        color: ${props => props.theme.anchor.color};
-    }
+    text-align: center;
+    transform: translateX(-50%);
+    font-size: 16px;
+    color: white;
 `;
 
 const ServiceSummary = ({ service }) => {
-    //console.log(service);
+    console.log("TEST", service);
     return (
-        <Link to={service.fields.slug}>
-            <SummaryContainer color={service.frontmatter.color}>
-                <ServiceTitle>
-                    {service.frontmatter.title} <span>&rarr;</span>
-                </ServiceTitle>
-            </SummaryContainer>
-        </Link>
+        <SummaryContainer>
+            <div dangerouslySetInnerHTML={{ __html: service.html }} />
+            <Link to={service.fields.slug}>Read More &rarr;</Link>
+        </SummaryContainer>
     );
 };
 
