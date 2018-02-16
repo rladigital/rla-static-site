@@ -43,7 +43,7 @@ export const SolutionTemplate = ({
 };
 
 export default ({ data }) => {
-    console.log(data);
+    //console.log(data);
     const { markdownRemark: solution } = data;
     return (
         <SolutionTemplate

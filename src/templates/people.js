@@ -41,7 +41,7 @@ export const PeopleTemplate = ({
 };
 
 export default ({ data }) => {
-    console.log(data);
+    //console.log(data);
     const { markdownRemark: person } = data;
     return (
         <PeopleTemplate
