@@ -4,11 +4,17 @@ import ReactRenderer from "remark-react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
 import { Row, Column } from "rla-components";
+
+import { colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
+import PageDetailContainer from "../components/PageDetailContainer";
+import PullQuote from "../components/PullQuote";
+import HeaderBlock from "../components/HeaderBlock";
 
 export const ClientTemplate = ({
     content,
     logo,
+    hero,
     project,
     outcome,
     galleryImages,
@@ -19,43 +25,50 @@ export const ClientTemplate = ({
 }) => {
     //console.log(project, outcome);
     return (
-        <section>
+        <PageDetailContainer>
             {helmet || ""}
             <Row>
                 <Column>
-                    <h1>{title}</h1>
                     <img
                         style={{ borderRadius: "5px" }}
-                        src={logo}
+                        src={hero}
                         alt={`${title} Logo`}
                     />
                 </Column>
             </Row>
             <Row>
+                <Column>
+                    <HeaderBlock textAlign="left" baseColor={colors.background}>
+                        {title}
+                    </HeaderBlock>
+                </Column>
+            </Row>
+            <Row>
                 <Column medium={6}>
-                    <h4>{intro}</h4>
+                    <PullQuote>&rdquo;{intro}&ldquo;</PullQuote>
                 </Column>
                 <Column medium={6}>
-                    <div />
+                    <h3>The Project</h3>
                     <Content content={project} />
+                    <h3>The Outcome</h3>
                     <Content content={outcome} />
                 </Column>
+            </Row>
+            <Row>
                 {galleryImages.map((image, index) => {
                     return (
-                        <img
-                            key={index}
-                            src={image}
-                            alt={`${title} Gallery Image`}
-                        />
+                        <Column medium={4} key={index}>
+                            <img src={image} alt={`${title} Gallery Image`} />
+                        </Column>
                     );
                 })}
             </Row>
-        </section>
+        </PageDetailContainer>
     );
 };
 
 export default ({ data }) => {
-    console.log(data);
+    //console.log(data);
     const { markdownRemark: client } = data;
     return (
         <ClientTemplate
@@ -65,6 +78,7 @@ export default ({ data }) => {
             }
             title={client.frontmatter.title}
             logo={client.frontmatter.logo}
+            hero={client.frontmatter.hero}
             project={client.frontmatter.project}
             outcome={client.frontmatter.outcome}
             galleryImages={client.frontmatter.galleryImages}
@@ -82,6 +96,7 @@ export const pageQuery = graphql`
                 title
                 intro
                 logo
+                hero
                 project
                 outcome
                 galleryImages

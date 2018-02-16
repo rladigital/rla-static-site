@@ -69,6 +69,7 @@ function globalCss(theme) {
         p {
             margin: ${theme.paragraph.margin}rem 0 ${theme.paragraph.margin *
         4}rem 0;
+            line-height: 1.5;
         }
         h1 {
             font-size: 2.618rem;

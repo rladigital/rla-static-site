@@ -15,9 +15,7 @@ export const ContactTemplate = ({
     return (
         <section>
             {helmet || ""}
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                {title}
-            </h1>
+            <h1>{title}</h1>
         </section>
     );
 };

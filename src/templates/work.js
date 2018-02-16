@@ -1,58 +1,87 @@
 import React from "react";
+import Remark from "remark";
+import ReactRenderer from "remark-react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
+import { Row, Column } from "rla-components";
+
+import { colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
+import PageDetailContainer from "../components/PageDetailContainer";
+import PullQuote from "../components/PullQuote";
+import HeaderBlock from "../components/HeaderBlock";
 
 export const WorkTemplate = ({
     content,
-    contentComponent,
     logo,
+    hero,
     project,
     outcome,
     galleryImages,
     solutions,
     title,
+    intro,
     helmet
 }) => {
-    const PostContent = contentComponent || HTMLContent;
-
+    //console.log(project, outcome);
     return (
-        <section>
+        <PageDetailContainer>
             {helmet || ""}
-            <h1>{title}</h1>
-            <img
-                style={{ borderRadius: "5px" }}
-                src={logo}
-                alt={`${title} Logo`}
-            />
-            <PostContent content={project} />
-            <PostContent content={outcome} />
-            {galleryImages.map((image, index) => {
-                return (
+            <Row>
+                <Column>
                     <img
-                        key={index}
-                        src={image}
-                        alt={`${title} Gallery Image`}
+                        style={{ borderRadius: "5px" }}
+                        src={hero}
+                        alt={`${title} Logo`}
                     />
-                );
-            })}
-        </section>
+                </Column>
+            </Row>
+            <Row>
+                <Column>
+                    <HeaderBlock textAlign="left" baseColor={colors.background}>
+                        {title}
+                    </HeaderBlock>
+                </Column>
+            </Row>
+            <Row>
+                <Column medium={6}>
+                    <PullQuote>&rdquo;{intro}&ldquo;</PullQuote>
+                </Column>
+                <Column medium={6}>
+                    <h3>The Project</h3>
+                    <Content content={project} />
+                    <h3>The Outcome</h3>
+                    <Content content={outcome} />
+                </Column>
+            </Row>
+            <Row>
+                {galleryImages.map((image, index) => {
+                    return (
+                        <Column medium={4} key={index}>
+                            <img src={image} alt={`${title} Gallery Image`} />
+                        </Column>
+                    );
+                })}
+            </Row>
+        </PageDetailContainer>
     );
 };
 
 export default ({ data }) => {
-    console.log(data);
-    const { markdownRemark: client } = data;
+    //console.log(data);
+    const { markdownRemark: work } = data;
     return (
         <WorkTemplate
-            description={client.frontmatter.description}
-            helmet={<Helmet title={`Our Work | ${client.frontmatter.title}`} />}
-            title={client.frontmatter.title}
-            logo={client.frontmatter.logo}
-            project={client.frontmatter.project}
-            outcome={client.frontmatter.outcome}
-            galleryImages={client.frontmatter.galleryImages}
-            solutions={client.frontmatter.solutions}
+            description={work.frontmatter.description}
+            helmet={<Helmet title={`Our Work | ${work.frontmatter.title}`} />}
+            title={work.frontmatter.title}
+            logo={work.frontmatter.logo}
+            hero={work.frontmatter.hero}
+            project={work.frontmatter.project}
+            outcome={work.frontmatter.outcome}
+            galleryImages={work.frontmatter.galleryImages}
+            solutions={work.frontmatter.solutions}
+            intro={work.frontmatter.intro}
         />
     );
 };
@@ -63,7 +92,9 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
+                intro
                 logo
+                hero
                 project
                 outcome
                 galleryImages

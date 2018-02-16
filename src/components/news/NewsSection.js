@@ -15,7 +15,7 @@ class NewsSection extends React.Component {
                 background={colors.white}
             >
                 <Row>
-                    <Column medium={6}>
+                    <Column medium={6} collapse>
                         <HeaderBlock
                             baseColor={colors.background}
                             fontSize={4}
@@ -40,7 +40,7 @@ class NewsSection extends React.Component {
                         </Link>
                         {news[0] && <NewsSummary story={news[0].node} />}
                     </Column>
-                    <Column medium={6}>
+                    <Column medium={6} collapse>
                         {news[1] && (
                             <NewsSummary story={news[1].node} minHeight={24} />
                         )}
