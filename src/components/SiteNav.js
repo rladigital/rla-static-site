@@ -12,7 +12,6 @@ const Container = styled.div`
     font-weight: ${props => props.weight};
     background: ${props => props.background};
     margin: ${props => props.margin};
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
     float: right;
 `;
 

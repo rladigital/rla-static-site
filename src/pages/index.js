@@ -6,8 +6,11 @@ import graphql from "graphql";
 import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
 import SolutionsSection from "../components/solutions/SolutionsSection";
+import SolutionsSectionStatic from "../components/solutions/SolutionsSectionStatic";
 import ServicesSection from "../components/services/ServicesSection";
+import ServicesSectionStatic from "../components/services/ServicesSectionStatic";
 import NewsSection from "../components/news/NewsSection";
+import { serveStatic } from "../helpers/helpers";
 
 export default class IndexPage extends React.Component {
     handleScriptLoad() {
@@ -25,7 +28,6 @@ export default class IndexPage extends React.Component {
 
     render() {
         const { data } = this.props;
-        console.log(data);
         const {
             clients: { edges: clients },
             solutions: { edges: solutions },
@@ -39,9 +41,17 @@ export default class IndexPage extends React.Component {
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
-                <SolutionsSection solutions={solutions} />
+                {serveStatic() ? (
+                    <SolutionsSectionStatic solutions={solutions} />
+                ) : (
+                    <SolutionsSection solutions={solutions} />
+                )}
                 <ClientsSection clients={clients} />
-                <ServicesSection services={services} />
+                {serveStatic() ? (
+                    <ServicesSectionStatic services={services} />
+                ) : (
+                    <ServicesSection services={services} />
+                )}
                 <NewsSection news={news} />
                 <PeopleSection people={people} />
             </section>
