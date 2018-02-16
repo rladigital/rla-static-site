@@ -3,16 +3,16 @@ templateKey: clients
 title: Volvo
 logo: /img/volvo-logo.png
 hero: /img/volvo-banner.jpg
-intro: >-
+intro: 'Together, we became a valuable extension of Volvo’s marketing team. '
+project: >-
   In attracting increasing volumes of premium customers, the brand needs to
   adapt its sales behaviours with customers to continue to exceed their
-  expectations
-project: >-
+  expectations.
+
+
   Sometimes the ‘How?’ is just as important as the ‘How many?’ When Volvo wanted
   to change their sales behaviours to meet new customer expectations, they came
   to RLA.
-
-
 
 
   We’re proud to be tasked with supporting Volvo Car UK’s next phase of ongoing
@@ -36,3 +36,4 @@ galleryImages:
 solutions:
   - Brand Desire
 ---
+
