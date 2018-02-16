@@ -15,5 +15,5 @@ export const isMobile = () => {
     return document.body.clientWidth < breakpoints.medium;
 };
 export const serveStatic = () => {
-    return !isBrowser() || isMobile();
+    return !isBrowser() || (isBrowser() && isMobile());
 };

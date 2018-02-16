@@ -3,14 +3,18 @@ import Link from "gatsby-link";
 import Script from "react-load-script";
 import graphql from "graphql";
 
+import { serveStatic } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
-import SolutionsSection from "../components/solutions/SolutionsSection";
-import SolutionsSectionStatic from "../components/solutions/SolutionsSectionStatic";
-import ServicesSection from "../components/services/ServicesSection";
-import ServicesSectionStatic from "../components/services/ServicesSectionStatic";
 import NewsSection from "../components/news/NewsSection";
-import { serveStatic } from "../helpers/helpers";
+
+if (serveStatic()) {
+    var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
+    var ServicesSection = require("../components/services/ServicesSectionStatic");
+} else {
+    var SolutionsSection = require("../components/solutions/SolutionsSection");
+    var ServicesSection = require("../components/services/ServicesSection");
+}
 
 export default class IndexPage extends React.Component {
     handleScriptLoad() {
@@ -41,17 +45,9 @@ export default class IndexPage extends React.Component {
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
-                {serveStatic() ? (
-                    <SolutionsSectionStatic solutions={solutions} />
-                ) : (
-                    <SolutionsSection solutions={solutions} />
-                )}
+                <SolutionsSection solutions={solutions} />
                 <ClientsSection clients={clients} />
-                {serveStatic() ? (
-                    <ServicesSectionStatic services={services} />
-                ) : (
-                    <ServicesSection services={services} />
-                )}
+                <ServicesSection services={services} />
                 <NewsSection news={news} />
                 <PeopleSection people={people} />
             </section>
