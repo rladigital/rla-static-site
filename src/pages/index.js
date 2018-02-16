@@ -17,6 +17,10 @@ if (serveStatic()) {
 }
 
 export default class IndexPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { hasMounted: false };
+    }
     handleScriptLoad() {
         if (typeof window !== `undefined` && window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
@@ -28,6 +32,9 @@ export default class IndexPage extends React.Component {
             });
         }
         window.netlifyIdentity.init();
+    }
+    componentDidMount() {
+        this.setState({ hasMounted: true });
     }
 
     render() {
@@ -45,11 +52,15 @@ export default class IndexPage extends React.Component {
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
-                <SolutionsSection solutions={solutions} />
-                <ClientsSection clients={clients} />
-                <ServicesSection services={services} />
-                <NewsSection news={news} />
-                <PeopleSection people={people} />
+                {this.state.hasMounted && (
+                    <div>
+                        <SolutionsSection solutions={solutions} />
+                        <ClientsSection clients={clients} />
+                        <ServicesSection services={services} />
+                        <NewsSection news={news} />
+                        <PeopleSection people={people} />
+                    </div>
+                )}
             </section>
         );
     }
