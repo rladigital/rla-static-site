@@ -2,7 +2,12 @@ import React from "react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
 import { Row, Column } from "rla-components";
+
+import { colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
+import PageDetailContainer from "../components/PageDetailContainer";
+import PullQuote from "../components/PullQuote";
+import HeaderBlock from "../components/HeaderBlock";
 
 export const NewsTemplate = ({
     content,
@@ -17,36 +22,42 @@ export const NewsTemplate = ({
     const PostContent = contentComponent || HTMLContent;
 
     return (
-        <Row>
+        <PageDetailContainer>
             {helmet || ""}
-            <Column>
-                <h1>{title}</h1>
-            </Column>
-            <Column>
-                <img
-                    style={{ borderRadius: "5px" }}
-                    src={hero}
-                    alt={`${title} Logo`}
-                />
-            </Column>
-            <Column medium={8}>
-                <h2>{intro}</h2>
-                <PostContent content={content} />
-            </Column>
-            <Column medium={4}>
-                <h3>{sideHeading}</h3>
+            <Row>
+                <Column>
+                    <img src={hero} alt={`${title} Logo`} />
+                </Column>
+            </Row>
+            <Row>
+                <Column>
+                    <HeaderBlock textAlign="left" baseColor={colors.background}>
+                        {title}
+                    </HeaderBlock>
+                </Column>
+            </Row>
+            <Row>
+                <Column medium={8}>
+                    <h2>{intro}</h2>
+                    <PostContent content={content} />
+                </Column>
+                <Column medium={4}>
+                    <PullQuote>{sideHeading}</PullQuote>
 
-                {galleryImages.map((image, index) => {
-                    return (
-                        <img
-                            key={index}
-                            src={image}
-                            alt={`${title} Gallery Image`}
-                        />
-                    );
-                })}
-            </Column>
-        </Row>
+                    {galleryImages.map((image, index) => {
+                        if (image) {
+                            return (
+                                <img
+                                    key={index}
+                                    src={image}
+                                    alt={`${title} Gallery Image`}
+                                />
+                            );
+                        }
+                    })}
+                </Column>
+            </Row>
+        </PageDetailContainer>
     );
 };
 

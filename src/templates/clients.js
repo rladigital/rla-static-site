@@ -29,11 +29,7 @@ export const ClientTemplate = ({
             {helmet || ""}
             <Row>
                 <Column>
-                    <img
-                        style={{ borderRadius: "5px" }}
-                        src={hero}
-                        alt={`${title} Logo`}
-                    />
+                    <img src={hero} alt={`${title} Logo`} />
                 </Column>
             </Row>
             <Row>

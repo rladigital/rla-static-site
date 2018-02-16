@@ -1,25 +1,42 @@
 import React from "react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
+import { Row, Column } from "rla-components";
+
+import { colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
+import PageDetailContainer from "../components/PageDetailContainer";
+import HeaderBlock from "../components/HeaderBlock";
 
 export const PeopleTemplate = ({
     content,
     contentComponent,
     title,
     helmet,
-    role
+    role,
+    profile
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
     return (
-        <section>
+        <PageDetailContainer>
             {helmet || ""}
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                {title}
-            </h1>
-            <PostContent content={content} />
-        </section>
+            <Row>
+                <Column>
+                    <HeaderBlock textAlign="left" baseColor={colors.background}>
+                        {title}
+                    </HeaderBlock>
+                </Column>
+            </Row>
+            <Row>
+                <Column medium={6}>
+                    <img src={profile} alt={`${title} Profile`} />{" "}
+                </Column>
+                <Column medium={6}>
+                    <PostContent content={content} />
+                </Column>
+            </Row>
+        </PageDetailContainer>
     );
 };
 
@@ -34,6 +51,7 @@ export default ({ data }) => {
             title={person.frontmatter.title}
             content={person.html}
             role={person.frontmatter.role}
+            profile={person.frontmatter.profile}
         />
     );
 };
@@ -45,6 +63,7 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 role
+                profile
             }
         }
     }
