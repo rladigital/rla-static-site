@@ -3,12 +3,15 @@ import graphql from "graphql";
 import Helmet from "react-helmet";
 import Content, { HTMLContent } from "../components/Content";
 
+import ProfileImage from "../components/ProfileImage";
+
 export const ContactTemplate = ({
     content,
     contentComponent,
     title,
     helmet,
-    role
+    role,
+    contactImage
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
@@ -16,19 +19,21 @@ export const ContactTemplate = ({
         <section>
             {helmet || ""}
             <h1>{title}</h1>
+            <ProfileImage src={contactImage} />
         </section>
     );
 };
 
 export default ({ data }) => {
     console.log(data);
-    const { markdownRemark: person } = data;
+    const { markdownRemark: contact } = data;
     return (
         <ContactTemplate
-            helmet={<Helmet title={`Contact | ${person.frontmatter.title}`} />}
-            title={person.frontmatter.title}
-            content={person.html}
-            role={person.frontmatter.role}
+            helmet={<Helmet title={`Contact | ${contact.frontmatter.title}`} />}
+            title={contact.frontmatter.title}
+            content={contact.html}
+            role={contact.frontmatter.role}
+            contactImage={contact.frontmatter.contactImage}
         />
     );
 };
@@ -42,6 +47,7 @@ export const pageQuery = graphql`
                 address
                 tel
                 email
+                contactImage
             }
         }
     }

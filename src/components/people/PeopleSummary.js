@@ -2,13 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
+import ProfileImage from "../ProfileImage";
+
 const SummaryContainer = styled.section`
     text-align: center;
-`;
-
-const ProfileImage = styled.img`
-    max-width: 70%;
-    border-radius: 50%;
 `;
 
 const PeopleSummary = ({ person }) => {
