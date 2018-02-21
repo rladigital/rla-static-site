@@ -13,7 +13,6 @@ contactImage: /img/the-mission.svg
 contactRole: Mission
 tel: +44 (0)207 462 1415
 email: contact@themission.co.uk
-lat: '51.518282'
-lng: '-0.134125'
+lat: 51.518282
+lng: -0.134125
 ---
-

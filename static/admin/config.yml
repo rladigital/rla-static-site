@@ -108,6 +108,6 @@ collections:
       - {label: "Lead Contact Role", name: "contactRole", widget: "string"}
       - {label: "Tel", name: "tel", widget: "string"}
       - {label: "Email", name: "email", widget: "string"}
-      - {label: "Latitude", name: "lat", widget: "string"}
-      - {label: "Longitude", name: "lng", widget: "string"}
+      - {label: "Latitude", name: "lat", widget: "number"}
+      - {label: "Longitude", name: "lng", widget: "number"}
 
