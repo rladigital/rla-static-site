@@ -8,9 +8,9 @@ import L from "leaflet";
 import theme from "../theme/theme";
 import SolutionSummary from "../components/solutions/SolutionSummary";
 import HeaderBlock from "../components/HeaderBlock";
-import MapWrapper from "../components/contacts/MapWrapper";
-import { MapListContainer } from "../components/contacts/MapContactListComponents";
+import { MapWrapper } from "../components/contacts/MapContactListComponents";
 import MapContactListGroup from "../components/contacts/MapContactListGroup";
+import MapListContainer from "../components/contacts/MapListContainer";
 
 require("leaflet/dist/leaflet.css");
 import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
@@ -54,6 +54,7 @@ export default class ContactPage extends React.Component {
             })[0];
             this.setState({ selectedContact: contact.node });
         } catch (e) {}
+        console.log(this.state.selectedContact);
     };
     render() {
         const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
@@ -109,21 +110,21 @@ export default class ContactPage extends React.Component {
                                     );
                                 })}
                             </Map>
-                            <MapListContainer>
+                            <MapListContainer
+                                contacts={contacts}
+                                onItemClick={this.selectContactBySlug}
+                            >
                                 <MapContactListGroup
                                     heading="RLA Locations"
                                     group="RLA"
-                                    contacts={contacts}
                                 />
                                 <MapContactListGroup
                                     heading="Mission Locations"
-                                    group="mission"
-                                    contacts={contacts}
+                                    group="Mission"
                                 />
                                 <MapContactListGroup
                                     heading="Also In"
-                                    group="other"
-                                    contacts={contacts}
+                                    group="Other"
                                     size="small"
                                 />
                             </MapListContainer>

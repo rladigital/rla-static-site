@@ -2,12 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { colors, sizes } from "../../theme/theme";
 
-export const MapListContainer = styled.div`
-    width: 200px;
-    height: 300px;
-    position: absolute;
-    z-index: 2;
-    background: ${colors.mediumBlueGray};
+export const MapWrapper = styled.div`
+    position: relative;
 `;
 
 export const MapListHeader = styled.h5`

@@ -9,7 +9,7 @@ import {
 
 class MapContactListGroup extends React.Component {
     render() {
-        const { heading, group, contacts, size } = this.props;
+        const { heading, group, contacts, size, onItemClick } = this.props;
         return (
             <div>
                 <MapListHeader>{heading}</MapListHeader>
@@ -20,7 +20,14 @@ class MapContactListGroup extends React.Component {
                         })
                         .map(({ node: contact }, index) => {
                             return (
-                                <ContactListItem key={index} size={size}>
+                                <ContactListItem
+                                    key={index}
+                                    size={size}
+                                    onClick={onItemClick.bind(
+                                        this,
+                                        contact.fields.slug
+                                    )}
+                                >
                                     {contact.frontmatter.title}
                                 </ContactListItem>
                             );
