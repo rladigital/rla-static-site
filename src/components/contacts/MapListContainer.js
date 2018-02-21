@@ -12,11 +12,10 @@ export const Container = styled.div`
 
 class MapListContainer extends React.Component {
     render() {
-        const { contacts, onItemClick } = this.props;
         return (
             <Container>
                 {this.props.children.map((child, index) => {
-                    return React.cloneElement(child, { contacts, onItemClick });
+                    return React.cloneElement(child, { ...this.props });
                 })}
             </Container>
         );

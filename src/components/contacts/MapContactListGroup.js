@@ -9,7 +9,14 @@ import {
 
 class MapContactListGroup extends React.Component {
     render() {
-        const { heading, group, contacts, size, onItemClick } = this.props;
+        const {
+            heading,
+            group,
+            contacts,
+            selectedContact,
+            size,
+            onItemClick
+        } = this.props;
         return (
             <div>
                 <MapListHeader>{heading}</MapListHeader>
@@ -27,6 +34,10 @@ class MapContactListGroup extends React.Component {
                                         this,
                                         contact.fields.slug
                                     )}
+                                    active={
+                                        contact.fields.slug ===
+                                        selectedContact.fields.slug
+                                    }
                                 >
                                     {contact.frontmatter.title}
                                 </ContactListItem>

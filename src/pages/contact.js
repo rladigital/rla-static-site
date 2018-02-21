@@ -113,6 +113,7 @@ export default class ContactPage extends React.Component {
                             <MapListContainer
                                 contacts={contacts}
                                 onItemClick={this.selectContactBySlug}
+                                selectedContact={this.state.selectedContact}
                             >
                                 <MapContactListGroup
                                     heading="RLA Locations"
