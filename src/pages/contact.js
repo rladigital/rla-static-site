@@ -8,6 +8,9 @@ import L from "leaflet";
 import theme from "../theme/theme";
 import SolutionSummary from "../components/solutions/SolutionSummary";
 import HeaderBlock from "../components/HeaderBlock";
+import MapWrapper from "../components/contacts/MapWrapper";
+import { MapListContainer } from "../components/contacts/MapContactListComponents";
+import MapContactListGroup from "../components/contacts/MapContactListGroup";
 
 require("leaflet/dist/leaflet.css");
 import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
@@ -23,15 +26,12 @@ L.Marker.prototype.options.icon = L.icon({
     tooltipAnchor: [16, -28],
     shadowSize: [41, 41]
 });
-export default class SolutionsPage extends React.Component {
+export default class ContactPage extends React.Component {
     constructor() {
         super();
         this.state = {
-            zoom: 5,
-            selectedContact: {
-                lat: 51.505,
-                lng: -0.09
-            }
+            zoom: 4,
+            selectedContact: {}
         };
     }
     componentWillMount() {
@@ -58,10 +58,10 @@ export default class SolutionsPage extends React.Component {
     render() {
         const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
         // console.log(contacts);
-        const position = [
-            this.state.selectedContact.frontmatter.lat,
-            this.state.selectedContact.frontmatter.lng
-        ];
+        const position = {
+            lat: this.state.selectedContact.frontmatter.lat,
+            lng: this.state.selectedContact.frontmatter.lng
+        };
         return (
             <div>
                 <Row>
@@ -77,44 +77,58 @@ export default class SolutionsPage extends React.Component {
 
                 <Row>
                     <Column>
-                        <Map
-                            ref={m => {
-                                this.leaflet = m;
-                            }}
-                            center={position}
-                            zoom={this.state.zoom}
-                            style={{ height: "300px" }}
-                        >
-                            <TileLayer
-                                attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            />
+                        <MapWrapper>
+                            <Map
+                                ref={m => {
+                                    this.leaflet = m;
+                                }}
+                                center={position}
+                                zoom={this.state.zoom}
+                                style={{
+                                    height: "300px",
+                                    width: "100%",
+                                    position: "absolute",
+                                    zIndex: "1"
+                                }}
+                            >
+                                <TileLayer
+                                    attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                />
 
-                            {contacts.map(({ node: contact }, index) => {
-                                return (
-                                    <Marker
-                                        position={[
-                                            contact.frontmatter.lat,
-                                            contact.frontmatter.lng
-                                        ]}
-                                    >
-                                        Hello
-                                    </Marker>
-                                );
-                            })}
-                            <Marker position={position}>Hello</Marker>
-                        </Map>
+                                {contacts.map(({ node: contact }, index) => {
+                                    return (
+                                        <Marker
+                                            position={[
+                                                contact.frontmatter.lat,
+                                                contact.frontmatter.lng
+                                            ]}
+                                        >
+                                            Hello
+                                        </Marker>
+                                    );
+                                })}
+                            </Map>
+                            <MapListContainer>
+                                <MapContactListGroup
+                                    heading="RLA Locations"
+                                    group="RLA"
+                                    contacts={contacts}
+                                />
+                                <MapContactListGroup
+                                    heading="Mission Locations"
+                                    group="mission"
+                                    contacts={contacts}
+                                />
+                                <MapContactListGroup
+                                    heading="Also In"
+                                    group="other"
+                                    contacts={contacts}
+                                    size="small"
+                                />
+                            </MapListContainer>
+                        </MapWrapper>
                     </Column>
-                </Row>
-
-                <Row>
-                    {contacts.map(({ node: contact }, index) => {
-                        return (
-                            <Column medium={3} key={index}>
-                                <SolutionSummary solution={contact} />
-                            </Column>
-                        );
-                    })}
                 </Row>
             </div>
         );
@@ -136,6 +150,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
+                        group
                         color
                         icon
                         intro
