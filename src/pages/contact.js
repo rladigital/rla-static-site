@@ -30,22 +30,14 @@ export default class ContactPage extends React.Component {
     constructor() {
         super();
         this.state = {
-            zoom: 7,
+            zoom: 5,
             selectedContact: {}
         };
     }
     componentWillMount() {
         this.selectContactBySlug("/contacts/bournemouth/");
     }
-    // componentDidMount() {
-    //     this.setupMap();
-    // }
-    // setupMap = () => {
-    //     const leaflet = this.leaflet.leafletElement;
-    //     leaflet.on("zoomend", () => {
-    //         window.console.log("Current zoom level -> ", leaflet.getZoom());
-    //     });
-    // };
+
     handleMapClick = ev => {
         this.selectContactBySlug(ev.sourceTarget.options.slug); // ev is an event object (MouseEvent in this case)
     };
@@ -57,11 +49,9 @@ export default class ContactPage extends React.Component {
             })[0];
             this.setState({ selectedContact: contact.node });
         } catch (e) {}
-        //console.log(this.state.selectedContact);
     };
     render() {
         const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
-        // console.log(contacts);
         const position = {
             lat: this.state.selectedContact.frontmatter.lat,
             lng: this.state.selectedContact.frontmatter.lng
@@ -79,7 +69,7 @@ export default class ContactPage extends React.Component {
                     </Column>
                 </Row>
 
-                <Row>
+                <Row equaliseChildHeight={true}>
                     <Column medium={3} collapse>
                         <MapListContainer
                             contacts={contacts}
@@ -161,12 +151,14 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         group
-                        color
-                        icon
-                        intro
                         lat
                         lng
                         address
+                        contactName
+                        contactImage
+                        contactRole
+                        tel
+                        email
                     }
                 }
             }
