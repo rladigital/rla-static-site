@@ -79,6 +79,7 @@ export default class ContactPage extends React.Component {
                             <ContactMap
                                 selectedContact={this.state.selectedContact}
                                 contacts={contacts}
+                                selectContactBySlug={this.selectContactBySlug}
                             />
                         )}
                     </Column>
