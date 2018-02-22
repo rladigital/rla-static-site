@@ -28,7 +28,7 @@ const SectionLabel = styled.h4`
 class ContactDetail extends React.Component {
     render() {
         const { contact } = this.props;
-        console.log(contact);
+        //console.log(contact);
         return (
             <Container>
                 <ContactLocationName>

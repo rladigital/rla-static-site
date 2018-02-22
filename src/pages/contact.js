@@ -2,45 +2,28 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
 
+import { isBrowser } from "../helpers/helpers";
 import theme from "../theme/theme";
 import SolutionSummary from "../components/solutions/SolutionSummary";
 import HeaderBlock from "../components/HeaderBlock";
 import MapContactListGroup from "../components/contacts/MapContactListGroup";
 import MapListContainer from "../components/contacts/MapListContainer";
 import ContactDetail from "../components/contacts/ContactDetail";
+if (isBrowser()) {
+    var ContactMap = require("../components/contacts/ContactMap");
+}
 
-require("leaflet/dist/leaflet.css");
-import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
-import iconUrl from "leaflet/dist/images/marker-icon.png";
-import shadowUrl from "leaflet/dist/images/marker-shadow.png";
-L.Marker.prototype.options.icon = L.icon({
-    iconRetinaUrl,
-    iconUrl,
-    shadowUrl,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    tooltipAnchor: [16, -28],
-    shadowSize: [41, 41]
-});
 export default class ContactPage extends React.Component {
     constructor() {
         super();
         this.state = {
-            zoom: 5,
             selectedContact: {}
         };
     }
     componentWillMount() {
         this.selectContactBySlug("/contacts/bournemouth/");
     }
-
-    handleMapClick = ev => {
-        this.selectContactBySlug(ev.sourceTarget.options.slug); // ev is an event object (MouseEvent in this case)
-    };
     selectContactBySlug = slug => {
         const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
         try {
@@ -50,12 +33,9 @@ export default class ContactPage extends React.Component {
             this.setState({ selectedContact: contact.node });
         } catch (e) {}
     };
+
     render() {
         const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
-        const position = {
-            lat: this.state.selectedContact.frontmatter.lat,
-            lng: this.state.selectedContact.frontmatter.lng
-        };
         return (
             <div>
                 <Row>
@@ -95,39 +75,12 @@ export default class ContactPage extends React.Component {
                         <ContactDetail contact={this.state.selectedContact} />
                     </Column>
                     <Column medium={6} collapse>
-                        <Map
-                            ref={m => {
-                                this.leaflet = m;
-                            }}
-                            center={position}
-                            zoom={this.state.zoom}
-                            style={{
-                                minHeight: "300px",
-                                height: "100%",
-                                width: "100%"
-                            }}
-                        >
-                            <TileLayer
-                                attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        {isBrowser() && (
+                            <ContactMap
+                                selectedContact={this.state.selectedContact}
+                                contacts={contacts}
                             />
-
-                            {contacts.map(({ node: contact }, index) => {
-                                return (
-                                    <Marker
-                                        position={[
-                                            contact.frontmatter.lat,
-                                            contact.frontmatter.lng
-                                        ]}
-                                        title={contact.frontmatter.title}
-                                        alt={contact.frontmatter.title}
-                                        onClick={this.handleMapClick}
-                                        slug={contact.fields.slug}
-                                        key={index}
-                                    />
-                                );
-                            })}
-                        </Map>
+                        )}
                     </Column>
                 </Row>
             </div>
