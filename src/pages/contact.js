@@ -8,9 +8,9 @@ import L from "leaflet";
 import theme from "../theme/theme";
 import SolutionSummary from "../components/solutions/SolutionSummary";
 import HeaderBlock from "../components/HeaderBlock";
-import { MapWrapper } from "../components/contacts/MapContactListComponents";
 import MapContactListGroup from "../components/contacts/MapContactListGroup";
 import MapListContainer from "../components/contacts/MapListContainer";
+import ContactDetail from "../components/contacts/ContactDetail";
 
 require("leaflet/dist/leaflet.css");
 import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
@@ -30,21 +30,24 @@ export default class ContactPage extends React.Component {
     constructor() {
         super();
         this.state = {
-            zoom: 4,
+            zoom: 7,
             selectedContact: {}
         };
     }
     componentWillMount() {
         this.selectContactBySlug("/contacts/bournemouth/");
     }
-    componentDidMount() {
-        this.setupMap();
-    }
-    setupMap = () => {
-        const leaflet = this.leaflet.leafletElement;
-        leaflet.on("zoomend", () => {
-            window.console.log("Current zoom level -> ", leaflet.getZoom());
-        });
+    // componentDidMount() {
+    //     this.setupMap();
+    // }
+    // setupMap = () => {
+    //     const leaflet = this.leaflet.leafletElement;
+    //     leaflet.on("zoomend", () => {
+    //         window.console.log("Current zoom level -> ", leaflet.getZoom());
+    //     });
+    // };
+    handleMapClick = ev => {
+        this.selectContactBySlug(ev.sourceTarget.options.slug); // ev is an event object (MouseEvent in this case)
     };
     selectContactBySlug = slug => {
         const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
@@ -54,7 +57,7 @@ export default class ContactPage extends React.Component {
             })[0];
             this.setState({ selectedContact: contact.node });
         } catch (e) {}
-        console.log(this.state.selectedContact);
+        //console.log(this.state.selectedContact);
     };
     render() {
         const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
@@ -77,59 +80,64 @@ export default class ContactPage extends React.Component {
                 </Row>
 
                 <Row>
-                    <Column>
-                        <MapWrapper>
-                            <Map
-                                ref={m => {
-                                    this.leaflet = m;
-                                }}
-                                center={position}
-                                zoom={this.state.zoom}
-                                style={{
-                                    height: "300px",
-                                    width: "100%",
-                                    position: "absolute",
-                                    zIndex: "1"
-                                }}
-                            >
-                                <TileLayer
-                                    attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                />
+                    <Column medium={3} collapse>
+                        <MapListContainer
+                            contacts={contacts}
+                            onItemClick={this.selectContactBySlug}
+                            selectedContact={this.state.selectedContact}
+                        >
+                            <MapContactListGroup
+                                heading="RLA Locations"
+                                group="RLA"
+                            />
+                            <MapContactListGroup
+                                heading="Mission Locations"
+                                group="Mission"
+                            />
+                            <MapContactListGroup
+                                heading="Also In"
+                                group="Other"
+                                size="small"
+                            />
+                        </MapListContainer>
+                    </Column>
+                    <Column medium={3} collapse>
+                        <ContactDetail contact={this.state.selectedContact} />
+                    </Column>
+                    <Column medium={6} collapse>
+                        <Map
+                            ref={m => {
+                                this.leaflet = m;
+                            }}
+                            center={position}
+                            zoom={this.state.zoom}
+                            style={{
+                                minHeight: "300px",
+                                height: "100%",
+                                width: "100%"
+                            }}
+                        >
+                            <TileLayer
+                                attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
 
-                                {contacts.map(({ node: contact }, index) => {
-                                    return (
-                                        <Marker
-                                            position={[
-                                                contact.frontmatter.lat,
-                                                contact.frontmatter.lng
-                                            ]}
-                                        >
-                                            Hello
-                                        </Marker>
-                                    );
-                                })}
-                            </Map>
-                            <MapListContainer
-                                contacts={contacts}
-                                onItemClick={this.selectContactBySlug}
-                                selectedContact={this.state.selectedContact}
-                            >
-                                <MapContactListGroup
-                                    heading="RLA Locations"
-                                    group="RLA"
-                                />
-                                <MapContactListGroup
-                                    heading="Mission Locations"
-                                    group="Mission"
-                                />
-                                <MapContactListGroup
-                                    heading="Also In"
-                                    group="Other"
-                                    size="small"
-                                />
-                            </MapListContainer>
-                        </MapWrapper>
+                            {contacts.map(({ node: contact }, index) => {
+                                return (
+                                    <Marker
+                                        position={[
+                                            contact.frontmatter.lat,
+                                            contact.frontmatter.lng
+                                        ]}
+                                        title={contact.frontmatter.title}
+                                        alt={contact.frontmatter.title}
+                                        onClick={this.handleMapClick}
+                                        slug={contact.fields.slug}
+                                        key={index}
+                                    />
+                                );
+                            })}
+                        </Map>
                     </Column>
                 </Row>
             </div>
@@ -158,6 +166,7 @@ export const pageQuery = graphql`
                         intro
                         lat
                         lng
+                        address
                     }
                 }
             }

@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { colors, sizes } from "../../theme/theme";
 
-export const Container = styled.div`
-    width: 200px;
-    height: 300px;
-    position: absolute;
-    z-index: 2;
+const Container = styled.div`
     background: ${colors.mediumBlueGray};
 `;
 
@@ -15,7 +11,10 @@ class MapListContainer extends React.Component {
         return (
             <Container>
                 {this.props.children.map((child, index) => {
-                    return React.cloneElement(child, { ...this.props });
+                    return React.cloneElement(child, {
+                        ...this.props,
+                        key: index
+                    });
                 })}
             </Container>
         );

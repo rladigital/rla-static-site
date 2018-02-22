@@ -7,13 +7,14 @@ export const MapWrapper = styled.div`
 `;
 
 export const MapListHeader = styled.h5`
+    padding: 0.6rem 1rem;
     color: ${colors.lightGray};
 `;
 
 export const ContactList = styled.ul``;
 
 export const ContactListItem = styled.li`
-    padding: 0.6rem;
+    padding: 0.6rem 1rem;
     background: ${props =>
         props.active ? colors.darkBlueGray : colors.mediumBlueGray};
     font-size: ${props =>
