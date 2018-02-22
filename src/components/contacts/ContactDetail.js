@@ -6,16 +6,23 @@ import ProfileImage from "../ProfileImage";
 
 const Container = styled.div`
     height: 100%;
-    padding: 0.8rem;
+    padding: 1rem;
     background: ${colors.white};
     color: ${colors.darkBlueGray};
     p {
         margin: 0.2rem 0;
         line-height: 1;
+        font-size: 0.8rem;
     }
 `;
+const ContactLocationName = styled.h3`
+    color: ${colors.accent};
+    font-weight: bold;
+`;
 const SectionLabel = styled.h4`
+    margin: 1.5rem 0 0.5rem 0;
     color: ${colors.lightGray};
+    font-weight: bold;
 `;
 
 class ContactDetail extends React.Component {
@@ -24,7 +31,9 @@ class ContactDetail extends React.Component {
         console.log(contact);
         return (
             <Container>
-                <h3>{contact.frontmatter.title}</h3>
+                <ContactLocationName>
+                    {contact.frontmatter.title}
+                </ContactLocationName>
                 <SectionLabel>Address</SectionLabel>
                 <Content content={contact.frontmatter.address} />
                 <SectionLabel>Lead Contact</SectionLabel>
