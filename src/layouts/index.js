@@ -5,6 +5,7 @@ import { ThemeProvider, injectGlobal } from "styled-components";
 import { Theme } from "rla-components";
 import merge from "lodash/merge";
 
+require("../theme/font-awesome-setup");
 import customTheme from "../theme/theme";
 import globalCss from "../theme/globalCss";
 //Add Global CSS

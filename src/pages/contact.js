@@ -50,7 +50,7 @@ export default class ContactPage extends React.Component {
                 </Row>
 
                 <Row equaliseChildHeight={true}>
-                    <Column medium={3} collapse>
+                    <Column medium={6} large={3} collapse>
                         <MapListContainer
                             contacts={contacts}
                             onItemClick={this.selectContactBySlug}
@@ -71,10 +71,10 @@ export default class ContactPage extends React.Component {
                             />
                         </MapListContainer>
                     </Column>
-                    <Column medium={3} collapse>
+                    <Column medium={6} large={3} collapse>
                         <ContactDetail contact={this.state.selectedContact} />
                     </Column>
-                    <Column medium={6} collapse>
+                    <Column large={6} collapse>
                         {isBrowser() && (
                             <ContactMap
                                 selectedContact={this.state.selectedContact}
