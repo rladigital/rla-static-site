@@ -9,14 +9,21 @@ import SectionContainer from "../SectionContainer";
 class PeopleSection extends React.Component {
     render() {
         const { people } = this.props;
+
+        let full = people.concat(people);
         return (
             <SectionContainer>
                 <HeaderBlock>
                     <span>People</span> at our Core
                 </HeaderBlock>
-                <Row>
-                    <PeopleBrowser people={people} />
-                </Row>
+
+                <PeopleBrowser
+                    people={full
+                        .concat(full)
+                        .concat(full)
+                        .concat(full)}
+                    size={500}
+                />
             </SectionContainer>
         );
     }

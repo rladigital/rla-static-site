@@ -27,7 +27,12 @@ function globalCss(theme) {
         footer, header, hgroup, menu, nav, section {
             display: block;
         }
-        body {
+        html{
+            width: 100%;
+            overflow-x: hidden;
+        }
+        html, body {
+            height: 100%;
             line-height: 1;
         }
         img{

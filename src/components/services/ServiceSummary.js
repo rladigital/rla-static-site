@@ -16,7 +16,6 @@ const SummaryContainer = styled.section`
 `;
 
 const ServiceSummary = ({ service }) => {
-    console.log("TEST", service);
     return (
         <SummaryContainer>
             <div dangerouslySetInnerHTML={{ __html: service.html }} />

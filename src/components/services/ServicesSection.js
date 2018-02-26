@@ -246,8 +246,6 @@ class ServicesSection extends React.Component {
         let { services } = this.props;
         let { current } = this.state;
 
-        console.log(services);
-
         return (
             <SectionContainer>
                 <Row>

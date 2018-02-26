@@ -40,35 +40,36 @@ class SolutionsSection extends React.Component {
     constructor() {
         super();
 
-        this.state = {
-            width: window.innerWidth,
-            height: window.innerHeight
-        };
+        this.width = document.body.clientWidth;
+        this.height = document.body.clientHeight;
     }
     componentDidMount() {
         let logoPadding = 100;
         let backgroundColor = "ffffff";
         let videoURL =
             "https://s3.eu-west-2.amazonaws.com/volvofirstclass/global/public/Volvo+first+class.mp4";
-        let { width, height } = this.state;
         let { solutions } = this.props;
 
         // Create pixi app
         let app = new PIXI.Application({
-            width: width,
-            height: height,
+            width: this.width,
+            height: this.height,
             forceCanvas: true,
             backgroundColor: hexToInt(colors.background)
         });
 
         // The Connected Ambition Group
-        this.SolutionsList = new SolutionsList(width, height, solutions);
+        this.SolutionsList = new SolutionsList(
+            this.width,
+            this.height,
+            solutions
+        );
         app.stage.addChild(this.SolutionsList.group());
 
         // The Video Group
         this.video = new Video(
-            width,
-            height,
+            this.width,
+            this.height,
             backgroundColor,
             logo,
             logoPadding,
@@ -96,10 +97,8 @@ class SolutionsSection extends React.Component {
     }
 
     render() {
-        const { height } = this.state;
-
         return (
-            <StickyContainer style={{ height: height * 2.5 }}>
+            <StickyContainer style={{ height: this.height * 2.5 }}>
                 <Sticky>
                     {({ style }) => {
                         return (
