@@ -324,6 +324,9 @@ class PeopleBrowser extends React.Component {
     }
 
     _selected(data) {
+        if (this.details) {
+            this.details.destroy();
+        }
         this.details = this._details(this.props.size, data);
         this.app.stage.addChild(this.details);
     }

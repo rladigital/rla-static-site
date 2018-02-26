@@ -20,7 +20,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderPadding = styled.div`
-    padding-top: 5rem;
+    padding-top: 50px;
 `;
 
 const SiteHeader = () => (
