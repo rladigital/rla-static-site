@@ -187,21 +187,21 @@ function globalCss(theme) {
 }
 
 function headings() {
-    const h1Size = 9;
+    const h1Size = 2;
     const breakpoint = ["large", "medium", "small"];
     let string = new String();
 
     for (var i = 1; i < 7; i++) {
         let size = h1Size / (i / 1.2);
-
         string = string.concat(`
             h${i} {
-                font-size: ${size}vw;
+                font-weight: bold;
+                font-size: ${size}rem;
                 ${breakpoint.map(
                     breakpoint => `@media (min-width: ${
                         breakpoints[breakpoint]
                     }px) {
-                        font-size: ${size / 2}vw
+                        font-size: ${size * 2}rem
                     }`
                 )}
             }

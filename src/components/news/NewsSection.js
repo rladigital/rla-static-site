@@ -22,33 +22,41 @@ class NewsSection extends React.Component {
                 background={colors.white}
                 padding={0}
             >
-                <Row>
-                    <Column medium={6} collapse>
-                        <HeaderContainer minHeight={20}>
-                            <HeaderBlock
-                                baseColor={colors.background}
-                                fontSize={5}
-                                textAlign="left"
-                                padding={{
-                                    top: 1,
-                                    right: 0,
-                                    bottom: 2,
-                                    left: 0
-                                }}
-                            >
-                                News &amp; Insights
-                            </HeaderBlock>
-                            <Link to="news">
-                                <Button
-                                    hollow={true}
-                                    size="large"
-                                    color="background"
+                <div style={{ position: "absolute" }}>
+                    <Row>
+                        <Column medium={6}>
+                            <HeaderContainer minHeight={20}>
+                                <HeaderBlock
+                                    baseColor={colors.background}
+                                    fontSize={5}
+                                    textAlign="left"
+                                    padding={{
+                                        top: 1,
+                                        right: 0,
+                                        bottom: 2,
+                                        left: 0
+                                    }}
                                 >
-                                    See More News &rarr;
-                                </Button>
-                            </Link>
-                        </HeaderContainer>
-
+                                    News &amp; Insights
+                                </HeaderBlock>
+                                <Link to="news">
+                                    <Button
+                                        hollow={true}
+                                        size="large"
+                                        color="background"
+                                    >
+                                        See All News &rarr;
+                                    </Button>
+                                </Link>
+                            </HeaderContainer>
+                        </Column>
+                    </Row>
+                </div>
+                <Row expanded collapse>
+                    <Column medium={6} collapse>
+                        <Row>
+                            <HeaderContainer minHeight={20} />
+                        </Row>
                         {news[0] && (
                             <NewsSummary story={news[0].node} minHeight={20} />
                         )}

@@ -31,12 +31,13 @@ export const spacing = {
 
 export const breakpoints = {
     small: 0,
-    medium: 350,
+    medium: 550,
     large: 700,
     xlarge: 1050
 };
 
 const theme = {
+    spacing: spacing,
     darkColor: colors.background,
     lightColor: colors.white,
     body: {
@@ -80,9 +81,9 @@ const theme = {
     pageHeaderSection: {
         fontSize: 5,
         padding: {
-            top: 3,
+            top: 5,
             right: 0,
-            bottom: 4,
+            bottom: 5,
             left: 0
         }
     },

@@ -3,12 +3,19 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
+import { breakpoints } from "../../theme/theme";
+
 const SummaryContainer = styled.section`
     position: relative;
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
-    min-height: ${props => props.minHeight}vw;
+    background-position: center;
+    min-height: 80vw;
     text-align: center;
+
+    @media (min-width: ${breakpoints.medium}px) {
+        min-height: ${props => props.minHeight}vw;
+    }
 `;
 
 const NewsTitle = styled.h5`
