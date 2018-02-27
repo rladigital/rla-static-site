@@ -7,7 +7,7 @@ const SummaryContainer = styled.section`
     position: relative;
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
-    min-height: ${props => props.minHeight}rem;
+    min-height: ${props => props.minHeight}vw;
     text-align: center;
 `;
 

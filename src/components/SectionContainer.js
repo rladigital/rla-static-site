@@ -5,17 +5,19 @@ import { colors } from "../theme/theme";
 
 const SectionContainer = styled.section`
     position: relative;
-    padding: 2rem 0rem;
+    padding: ${props => props.padding};
     background-color: ${props => props.background};
     color: ${props => props.color};
 `;
 
 SectionContainer.propTypes = {
+    padding: PropTypes.string,
     background: PropTypes.string,
     color: PropTypes.string
 };
 
 SectionContainer.defaultProps = {
+    padding: "2rem 0rem",
     background: colors.background,
     color: colors.white
 };

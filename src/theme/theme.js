@@ -87,7 +87,7 @@ const theme = {
         }
     },
     button: {
-        fontWeight: "normal",
+        fontWeight: "bold",
         textTransform: "uppercase",
         borderRadius: spacing.radius
     },

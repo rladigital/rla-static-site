@@ -3,9 +3,11 @@ import styled from "styled-components";
 import Link from "gatsby-link";
 
 const SummaryContainer = styled.section`
+    height: ${props => props.height}px;
     position: relative;
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
+    background-position: center;
     min-height: 150px;
     text-align: center;
 `;
@@ -24,11 +26,14 @@ const ClientTitle = styled.h5`
     }
 `;
 
-const ClientSummary = ({ client }) => {
+const ClientSummary = ({ client, height }) => {
     console.log(client);
     return (
         <Link to={client.fields.slug}>
-            <SummaryContainer backgroundImage={client.frontmatter.hero}>
+            <SummaryContainer
+                backgroundImage={client.frontmatter.hero}
+                height={height}
+            >
                 <ClientTitle>
                     {client.frontmatter.title} <span>&rarr;</span>
                 </ClientTitle>

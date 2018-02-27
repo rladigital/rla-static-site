@@ -9,7 +9,7 @@ const HeaderBlock = styled.h1`
     padding: ${props => props.padding.top}rem ${props => props.padding.right}rem
         ${props => props.padding.bottom}rem ${props => props.padding.left}rem;
     color: ${props => props.baseColor};
-    font-size: ${props => props.fontSize}rem;
+    //font-size: ${props => props.fontSize}vw;
     letter-spacing: -0.1rem;
     font-weight: 900;
     line-height: 0.8;
@@ -35,7 +35,7 @@ HeaderBlock.defaultProps = {
     textAlign: "center",
     baseColor: colors.white,
     accentColor: colors.accent,
-    fontSize: 4,
+    fontSize: 5,
     padding: {
         top: 1,
         right: 0,
