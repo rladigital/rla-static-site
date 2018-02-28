@@ -1,6 +1,7 @@
 ---
 templateKey: news-general
 title: New CEO
+date: 04/12/2016
 hero: /img/mike-smith.jpg
 intro: RLA are delighted to welcome Mike Smith as our new CEO
 sideHeading: >-
