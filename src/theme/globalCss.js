@@ -1,3 +1,5 @@
+import { breakpoints } from "./theme";
+
 function globalCss(theme) {
     return `
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
@@ -75,25 +77,6 @@ function globalCss(theme) {
             margin: ${theme.paragraph.margin}rem 0 ${theme.paragraph.margin *
         4}rem 0;
             line-height: 1.5;
-        }
-        h1 {
-            font-size: 2.618rem;
-            font-weight: bold;
-        }
-        h2 {
-            font-size: 1.931rem;
-        }
-        h3 {
-            font-size: 1.618rem;
-        }
-        h4 {
-            font-size: 1.194rem;
-        }
-        h5 {
-            font-size: 1.2rem;
-        }
-        h6 {
-            font-size: 1rem;
         }
         strong, b{
             font-weight: bold;
@@ -197,8 +180,35 @@ function globalCss(theme) {
             text-decoration: ${theme.anchor.textDecoration};
             
         }
-        
+
+        /* ----- Heading Styles ----- */
+        ${headings()}       
     `;
+}
+
+function headings() {
+    const h1Size = 2;
+    const breakpoint = ["large", "medium", "small"];
+    let string = new String();
+
+    for (var i = 1; i < 7; i++) {
+        let size = h1Size / (i / 1.2);
+        string = string.concat(`
+            h${i} {
+                font-weight: bold;
+                font-size: ${size}rem;
+                ${breakpoint.map(
+                    breakpoint => `@media (min-width: ${
+                        breakpoints[breakpoint]
+                    }px) {
+                        font-size: ${size * 2}rem
+                    }`
+                )}
+            }
+        `);
+    }
+
+    return string;
 }
 
 export default globalCss;

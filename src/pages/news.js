@@ -9,8 +9,8 @@ import HeaderBlock from "../components/HeaderBlock";
 
 export default class NewsPage extends React.Component {
     render() {
-        const { data: { allMarkdownRemark: { edges: news } } } = this.props;
-        //console.log(news);
+        let { data: { allMarkdownRemark: { edges: news } } } = this.props;
+
         return (
             <div>
                 <Row>
@@ -23,18 +23,47 @@ export default class NewsPage extends React.Component {
                         </HeaderBlock>
                     </Column>
                 </Row>
-
-                <Row>
-                    {news.map(({ node: story }, index) => {
-                        return (
-                            <Column medium={3} key={index}>
-                                <NewsSummary story={story} />
+                <Row expanded collapse>
+                    <Column medium={6} large={6} collapse>
+                        <NewsItem data={news[0]} height={2} />
+                    </Column>
+                    <Column medium={6} large={6} collapse>
+                        <Row collapse>
+                            <NewsItem data={news[1]} height={1} />
+                        </Row>
+                        <Row collapse>
+                            <Column medium={6} large={6} collapse>
+                                <NewsItem data={news[2]} height={1} />
                             </Column>
-                        );
-                    })}
+                            <Column medium={6} large={6} collapse>
+                                <NewsItem data={news[3]} height={1} />
+                            </Column>
+                        </Row>
+                    </Column>
+                </Row>
+                <Row expanded collapse>
+                    <Column medium={3} collapse>
+                        <NewsItem data={news[4]} height={1} />
+                    </Column>
+                    <Column medium={3} collapse>
+                        <NewsItem data={news[5]} height={1} />
+                    </Column>
+                    <Column medium={6} collapse>
+                        <NewsItem data={news[6]} height={1} />
+                    </Column>
                 </Row>
             </div>
         );
+    }
+}
+
+class NewsItem extends React.Component {
+    render() {
+        const rowHeight = 22;
+        let { data, height } = this.props;
+        return data ? (
+            <NewsSummary story={data.node} minHeight={rowHeight * height} />
+        ) : null;
     }
 }
 

@@ -13,12 +13,15 @@ injectGlobal`${globalCss(customTheme)}`;
 
 import SiteHeader from "../components/SiteHeader";
 
+import Footer from "../components/Footer";
+
 const TemplateWrapper = ({ children }) => (
     <ThemeProvider theme={merge(Theme, customTheme)}>
         <div>
             <Helmet title="RLA" />
             <SiteHeader />
             <div>{children()}</div>
+            <Footer />
         </div>
     </ThemeProvider>
 );

@@ -15,8 +15,9 @@ const HeaderContainer = styled.div`
     left: 0;
     right: 0;
     z-index: 1;
-    padding: 5px 0;
+    padding: 12px 0;
     background: ${colors.background};
+    z-index: 3;
 `;
 
 const HeaderPadding = styled.div`
@@ -27,7 +28,7 @@ const SiteHeader = () => (
     <div>
         <HeaderPadding />
         <HeaderContainer>
-            <Row>
+            <Row expanded>
                 <Column medium={2}>
                     <Link to="/">
                         <figure>

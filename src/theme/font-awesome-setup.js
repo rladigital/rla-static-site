@@ -1,10 +1,27 @@
 import fontawesome from "@fortawesome/fontawesome";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import {
+    faMapMarkerAlt,
     faEnvelope,
     faPhone,
-    faCircle,
     faBars
 } from "@fortawesome/fontawesome-free-solid";
 
-fontawesome.library.add(faEnvelope, faPhone, faCircle, faBars);
+import { faCircle } from "@fortawesome/fontawesome-free-regular";
+
+import {
+    faFacebookF,
+    faLinkedinIn,
+    faTwitter
+} from "@fortawesome/fontawesome-free-brands";
+
+fontawesome.library.add(
+    faMapMarkerAlt,
+    faEnvelope,
+    faPhone,
+    faCircle,
+    faBars,
+    faFacebookF,
+    faLinkedinIn,
+    faTwitter
+);
