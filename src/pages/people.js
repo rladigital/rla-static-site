@@ -60,6 +60,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
+                        role
                         profile
                     }
                 }
