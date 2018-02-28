@@ -1,7 +1,7 @@
 ---
 templateKey: news-general
 title: New CEO
-date: 04/12/2016
+date: 2016-04-12T00:00:00+01:00
 hero: /img/mike-smith.jpg
 intro: RLA are delighted to welcome Mike Smith as our new CEO
 sideHeading: >-
@@ -11,6 +11,7 @@ sideHeading: >-
 galleryImages:
   - null
 ---
+
 Mike joins us from Innocean UK, where he was the General Manager responsible for doubling the agency’s size, as well as the principal lead for their Hyundai and Kia accounts.
 
 Before that Mike was Client Services Director at Havas, where he led the Citroen account across both fleet and retail. He’s held a number of senior roles at some big names in advertising and marketing, including WCRS, Lowe Worldwide and Leo Burnett.
