@@ -15,13 +15,13 @@ import SiteHeader from "../components/SiteHeader";
 
 import Footer from "../components/Footer";
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, data }) => (
     <ThemeProvider theme={merge(Theme, customTheme)}>
         <div>
             <Helmet title="RLA" />
             <SiteHeader />
             <div>{children()}</div>
-            <Footer />
+            <Footer data={data} />
         </div>
     </ThemeProvider>
 );
@@ -31,3 +31,29 @@ TemplateWrapper.propTypes = {
 };
 
 export default TemplateWrapper;
+
+export const query = graphql`
+    query FooterQuery {
+        allMarkdownRemark(
+            filter: {
+                fields: {
+                    slug: { regex: "/contacts/(bournemouth)|(belfast)//" }
+                }
+            }
+        ) {
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        address
+                        tel
+                        email
+                    }
+                }
+            }
+        }
+    }
+`;

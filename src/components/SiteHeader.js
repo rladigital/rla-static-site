@@ -28,16 +28,10 @@ const SiteHeader = () => (
     <div>
         <HeaderPadding />
         <HeaderContainer>
-            <Row expanded>
+            <Row>
                 <Column medium={2}>
                     <Link to="/">
-                        <figure>
-                            <img
-                                src={logo}
-                                alt="RLA"
-                                style={{ width: "88px" }}
-                            />
-                        </figure>
+                        <img src={logo} alt="RLA" style={{ width: "88px" }} />
                     </Link>
                 </Column>
                 <Column medium={10}>
