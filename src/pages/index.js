@@ -22,7 +22,7 @@ export default class IndexPage extends React.Component {
         super(props);
         this.state = {
             hasMounted: false,
-            font: "Arial"
+            font: false
         };
     }
     handleScriptLoad() {
