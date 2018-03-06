@@ -2,8 +2,9 @@ import React from "react";
 import Link from "gatsby-link";
 import Script from "react-load-script";
 import graphql from "graphql";
+import WebFont from "webfontloader";
 
-import { serveStatic } from "../helpers/helpers";
+import { serveStatic, isBrowser } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
 import NewsSection from "../components/news/NewsSection";
@@ -21,7 +22,7 @@ export default class IndexPage extends React.Component {
         super(props);
         this.state = {
             hasMounted: false,
-            font: false
+            font: "Arial"
         };
     }
     handleScriptLoad() {
@@ -33,8 +34,14 @@ export default class IndexPage extends React.Component {
                     });
                 }
             });
-        } else {
-            // Load web font
+        }
+        window.netlifyIdentity.init();
+    }
+    componentDidMount() {
+        this.setState({ hasMounted: true });
+
+        // Load web font
+        if (isBrowser()) {
             WebFont.load({
                 google: {
                     families: ["Montserrat:400,700,900", "sans-serif"]
@@ -49,11 +56,6 @@ export default class IndexPage extends React.Component {
                 }
             });
         }
-        window.netlifyIdentity.init();
-    }
-
-    componentDidMount() {
-        this.setState({ hasMounted: true });
     }
 
     render() {
