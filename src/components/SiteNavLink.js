@@ -12,7 +12,7 @@ const MainNavLink = styled(Link).attrs({
 })`
             display: inline-block;
             margin: ${props => props.theme.navigation.navLink.margin}rem;
-            padding ${props => props.theme.navigation.navLink.padding}rem 
+            padding ${props => props.theme.navigation.navLink.padding}rem;
             ${props => props.theme.navigation.navLink.padding}rem;
             ${props => props.theme.navigation.navLink.padding / 2}rem;
             ${props => props.theme.navigation.navLink.padding}rem;
@@ -20,8 +20,8 @@ const MainNavLink = styled(Link).attrs({
             color: ${props => props.theme.navigation.navLink.color};
             text-transform: ${props =>
                 props.theme.navigation.navLink.textTransform};
-            &:first-child {
-                margin-left: 0;
+            &:last-child {
+                padding-right: 0;
             }
             &.active{
                 box-shadow: inset 0px -2px ${props =>
