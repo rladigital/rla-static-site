@@ -22,7 +22,7 @@ export default class IndexPage extends React.Component {
         super(props);
         this.state = {
             hasMounted: false,
-            font: false
+            font: "Arial"
         };
     }
     handleScriptLoad() {
@@ -41,19 +41,21 @@ export default class IndexPage extends React.Component {
         this.setState({ hasMounted: true });
 
         // Load web font
-        WebFont.load({
-            google: {
-                families: ["Montserrat:400,700,900", "sans-serif"]
-            },
+        if (!serveStatic()) {
+            WebFont.load({
+                google: {
+                    families: ["Montserrat:400,700,900", "sans-serif"]
+                },
 
-            active: () => {
-                this.setState({ font: "Montserrat" });
-            },
+                active: () => {
+                    this.setState({ font: "Montserrat" });
+                },
 
-            inactive: () => {
-                this.setState({ font: "Arial" });
-            }
-        });
+                inactive: () => {
+                    this.setState({ font: "Arial" });
+                }
+            });
+        }
     }
 
     render() {

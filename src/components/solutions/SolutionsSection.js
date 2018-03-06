@@ -111,7 +111,7 @@ class SolutionsSection extends React.Component {
     render() {
         const { font } = this.props;
         return (
-            <StickyContainer style={{ height: this.height * (font ? 2.5 : 1) }}>
+            <StickyContainer style={{ height: this.height * 2.5 }}>
                 <Sticky>
                     {({ style }) => {
                         return (
