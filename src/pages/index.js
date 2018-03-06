@@ -2,7 +2,6 @@ import React from "react";
 import Link from "gatsby-link";
 import Script from "react-load-script";
 import graphql from "graphql";
-import WebFont from "webfontloader";
 
 import { serveStatic } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
@@ -34,7 +33,7 @@ export default class IndexPage extends React.Component {
                     });
                 }
             });
-
+        } else {
             // Load web font
             WebFont.load({
                 google: {
