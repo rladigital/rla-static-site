@@ -37,6 +37,7 @@ class ServicesSection extends React.Component {
     }
     componentDidMount() {
         let items = this.props.services;
+        let { font } = this.props;
 
         // Create pixi app
         let app = new PIXI.Application({
@@ -58,7 +59,7 @@ class ServicesSection extends React.Component {
         app.stage.addChild(gradient);
 
         // add items
-        app.stage.addChild(this._items(items, this.coords));
+        app.stage.addChild(this._items(items, font));
 
         gradient.mask = circle;
 
@@ -66,7 +67,7 @@ class ServicesSection extends React.Component {
         this.canvas.appendChild(app.view);
     }
 
-    _items(items) {
+    _items(items, font) {
         let group = new PIXI.Container();
         let coords = this._coordsToItems(
             this.state.current,
@@ -91,7 +92,7 @@ class ServicesSection extends React.Component {
 
             // Create the title
             let style = new PIXI.TextStyle({
-                fontFamily: "Montserrat",
+                fontFamily: font,
                 fontSize: 16,
                 fontWeight: "bold",
                 fill: "#ffffff",

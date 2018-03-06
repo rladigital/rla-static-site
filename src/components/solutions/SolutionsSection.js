@@ -43,28 +43,46 @@ class SolutionsSection extends React.Component {
         this.width = document.body.clientWidth;
         this.height = document.body.clientHeight;
     }
+    componentWillReceiveProps(nextProps) {
+        let { solutions, font } = nextProps;
+
+        if (font) {
+            // The Connected Ambition Group
+            this.SolutionsList = new SolutionsList(
+                this.width,
+                this.height,
+                solutions
+            );
+
+            this.background.addChild(this.SolutionsList.group(font));
+
+            // Handle Scroll
+            window.addEventListener("scroll", () => this.handleScroll());
+
+            // Handle Mouse Move
+            window.addEventListener("mousemove", e => this.handleMouseMove(e));
+        }
+    }
     componentDidMount() {
         let logoPadding = 100;
         let backgroundColor = "ffffff";
         let videoURL =
             "https://s3.eu-west-2.amazonaws.com/volvofirstclass/global/public/Volvo+first+class.mp4";
-        let { solutions } = this.props;
+        let { solutions, font } = this.props;
 
         // Create pixi app
-        let app = new PIXI.Application({
+        this.app = new PIXI.Application({
             width: this.width,
             height: this.height,
             forceCanvas: true,
             backgroundColor: hexToInt(colors.background)
         });
 
-        // The Connected Ambition Group
-        this.SolutionsList = new SolutionsList(
-            this.width,
-            this.height,
-            solutions
-        );
-        app.stage.addChild(this.SolutionsList.group());
+        // The background Group
+        this.background = new PIXI.Container();
+        this.background.width = this.width;
+        this.background.height = this.height;
+        this.app.stage.addChild(this.background);
 
         // The Video Group
         this.video = new Video(
@@ -75,16 +93,10 @@ class SolutionsSection extends React.Component {
             logoPadding,
             videoURL
         );
-        app.stage.addChild(this.video.group());
+        this.app.stage.addChild(this.video.group());
 
         // Add to canvas
-        this.canvas.appendChild(app.view);
-
-        // Handle Scroll
-        window.addEventListener("scroll", () => this.handleScroll());
-
-        // Handle Mouse Move
-        window.addEventListener("mousemove", e => this.handleMouseMove(e));
+        this.canvas.appendChild(this.app.view);
     }
 
     handleScroll() {
@@ -97,8 +109,9 @@ class SolutionsSection extends React.Component {
     }
 
     render() {
+        const { font } = this.props;
         return (
-            <StickyContainer style={{ height: this.height * 2.5 }}>
+            <StickyContainer style={{ height: this.height * (font ? 2.5 : 1) }}>
                 <Sticky>
                     {({ style }) => {
                         return (

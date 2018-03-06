@@ -64,7 +64,6 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
                 .map(({ node: contact }, index) => {
                     return (
                         <Column large={3} key={index}>
-                            {console.log(contact)}
                             <Location
                                 to={contact.fields.slug}
                                 address={contact.frontmatter.address}

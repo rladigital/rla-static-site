@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import Script from "react-load-script";
 import graphql from "graphql";
+import WebFont from "webfontloader";
 
 import { serveStatic } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
@@ -19,7 +20,10 @@ if (serveStatic()) {
 export default class IndexPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { hasMounted: false };
+        this.state = {
+            hasMounted: false,
+            font: false
+        };
     }
     handleScriptLoad() {
         if (typeof window !== `undefined` && window.netlifyIdentity) {
@@ -35,9 +39,25 @@ export default class IndexPage extends React.Component {
     }
     componentDidMount() {
         this.setState({ hasMounted: true });
+
+        // Load web font
+        WebFont.load({
+            google: {
+                families: ["Montserrat:400,700,900", "sans-serif"]
+            },
+
+            active: () => {
+                this.setState({ font: "Montserrat" });
+            },
+
+            inactive: () => {
+                this.setState({ font: "Arial" });
+            }
+        });
     }
 
     render() {
+        const { font } = this.state;
         const { data } = this.props;
         const {
             clients: { edges: clients },
@@ -54,11 +74,13 @@ export default class IndexPage extends React.Component {
                 />
                 {this.state.hasMounted && (
                     <div>
-                        <SolutionsSection solutions={solutions} />
+                        <SolutionsSection solutions={solutions} font={font} />
                         <ClientsSection clients={clients} />
-                        <ServicesSection services={services} />
+                        {font && (
+                            <ServicesSection services={services} font={font} />
+                        )}
                         <NewsSection news={news} />
-                        <PeopleSection people={people} />
+                        {font && <PeopleSection people={people} font={font} />}
                     </div>
                 )}
             </section>

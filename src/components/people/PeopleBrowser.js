@@ -29,7 +29,7 @@ class PeopleBrowser extends React.Component {
     }
 
     componentDidMount() {
-        let { size, people } = this.props;
+        let { size, people, font } = this.props;
 
         // Create pixi app
         this.app = new PIXI.Application({
@@ -50,7 +50,7 @@ class PeopleBrowser extends React.Component {
         this.app.stage.addChild(controls);
 
         // The items
-        let items = this._items(chunks, this.coords);
+        let items = this._items(chunks, this.coords, font);
         this.app.stage.addChild(items);
 
         // The details area
@@ -62,7 +62,6 @@ class PeopleBrowser extends React.Component {
     }
 
     _details(size, data) {
-        console.log(data);
         let group = new PIXI.Container();
         let circle = new PIXI.Graphics();
         let image = PIXI.Sprite.fromImage(data.profile);
@@ -133,7 +132,7 @@ class PeopleBrowser extends React.Component {
         return group;
     }
 
-    _items(people, coords) {
+    _items(people, coords, font) {
         let dotSize = 50;
         let main = 4;
         let group = new PIXI.Container();
@@ -169,7 +168,7 @@ class PeopleBrowser extends React.Component {
 
                     // Title
                     let titleStyle = new PIXI.TextStyle({
-                        fontFamily: "Montserrat",
+                        fontFamily: font,
                         fontSize: 16,
                         fontWeight: 700,
                         fill: "#ffffff"
@@ -186,7 +185,7 @@ class PeopleBrowser extends React.Component {
 
                     // Role
                     let roleStyle = new PIXI.TextStyle({
-                        fontFamily: "Montserrat",
+                        fontFamily: font,
                         fontSize: 12,
                         fill: "#ffffff"
                     });

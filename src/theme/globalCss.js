@@ -1,9 +1,7 @@
 import { breakpoints } from "./theme";
 
 function globalCss(theme) {
-    return `
-        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
-    
+    return `   
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
@@ -201,7 +199,7 @@ function headings() {
                     breakpoint => `@media (min-width: ${
                         breakpoints[breakpoint]
                     }px) {
-                        font-size: ${size * 2}rem
+                        font-size: ${size * 2}rem;
                     }`
                 )}
             }

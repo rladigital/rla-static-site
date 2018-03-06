@@ -40,7 +40,6 @@ const ClientTitle = styled.h5`
 // `;
 
 const ClientSummary = ({ client, height }) => {
-    console.log(client);
     return (
         <Link to={client.fields.slug}>
             <SummaryContainer

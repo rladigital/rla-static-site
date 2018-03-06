@@ -9,30 +9,14 @@ import { colors, spacing } from "../../theme/theme";
 import SectionContainer from "../SectionContainer";
 
 const StyledButton = Button.extend`
-    color: ${colors.white};
-    margin-top: ${spacing.padding}em;
+    color: ${colors.background};
+    margin-top: 4em;
 `;
 
 const StyledP = styled.p`
     font-size: 14px;
     text-align: center;
     margin-bottom: 4rem;
-`;
-
-const StyledSectionContainer = SectionContainer.extend`
-    &:before {
-        top: -4vw;
-        height: 4vw;
-        width: 100%;
-        content: " ";
-        position: absolute;
-        pointer-events: none;
-        background: linear-gradient(
-            to bottom,
-            transparent,
-            ${props => props.background}
-        );
-    }
 `;
 
 class ClientsSection extends React.Component {
@@ -71,34 +55,19 @@ class ClientsSection extends React.Component {
                             </StyledP>
                         </Column>
                     </Row>
-                </SectionContainer>
-                <SectionContainer
-                    color={colors.white}
-                    background={colors.background}
-                    padding={{
-                        top: 0,
-                        right: 0,
-                        bottom: 0,
-                        left: 0
-                    }}
-                >
-                    <Row expanded collapse>
+                    <Row>
                         {clients.slice(0, 6).map(({ node: client }, index) => {
                             return (
-                                <Column medium={4} key={index} collapse>
+                                <Column medium={4} key={index}>
                                     <ClientSummary
                                         client={client}
-                                        height={34}
+                                        height={24}
                                     />
                                 </Column>
                             );
                         })}
                     </Row>
-                </SectionContainer>
-                <StyledSectionContainer
-                    color={colors.white}
-                    background={colors.background}
-                >
+
                     <Row style={{ textAlign: "center" }}>
                         <Link to="work">
                             <StyledButton
@@ -110,7 +79,7 @@ class ClientsSection extends React.Component {
                             </StyledButton>
                         </Link>
                     </Row>
-                </StyledSectionContainer>
+                </SectionContainer>
             </div>
         );
     }

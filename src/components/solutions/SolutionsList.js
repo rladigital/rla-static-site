@@ -34,7 +34,7 @@ export default class SolutionsList {
         return sprite;
     }
 
-    _orbs(items) {
+    _orbs(items, font) {
         let group = new PIXI.Container();
 
         this.orbs = [];
@@ -65,7 +65,7 @@ export default class SolutionsList {
             let alignment = current.x >= this.width / 2 ? "left" : "right";
 
             let style = new PIXI.TextStyle({
-                fontFamily: "Montserrat",
+                fontFamily: font,
                 fontSize: 14,
                 fontWeight: "bold",
                 fill: "#ffffff", // gradient
@@ -144,7 +144,7 @@ export default class SolutionsList {
 
         return group;
     }
-    _title(titleText, captionText) {
+    _title(titleText, captionText, font) {
         let group = new PIXI.Container();
 
         group.x = this.width / 2;
@@ -162,7 +162,7 @@ export default class SolutionsList {
 
         // The Title
         let titleStyle = new PIXI.TextStyle({
-            fontFamily: "Montserrat",
+            fontFamily: font,
             fontSize: scale(68),
             fontWeight: 900,
             fill: "#ffffff",
@@ -187,7 +187,7 @@ export default class SolutionsList {
 
         // The Caption
         let captionStyle = new PIXI.TextStyle({
-            fontFamily: "Montserrat",
+            fontFamily: font,
             fontSize: scale(16),
             fill: "#829BE3",
             align: "center",
@@ -224,7 +224,7 @@ export default class SolutionsList {
         return items;
     }
 
-    group() {
+    group(font) {
         let items = this.items;
 
         // Create the group
@@ -241,13 +241,14 @@ export default class SolutionsList {
         group.addChild(lines);
 
         // Add orbs
-        let orbs = this._orbs(coords);
+        let orbs = this._orbs(coords, font);
         group.addChild(orbs);
 
         // Add title
         this.title = this._title(
             "CONNECTED AMBITION",
-            "WORLD CLASS CONNECTED MARKETING SOLUTIONS "
+            "WORLD CLASS CONNECTED MARKETING SOLUTIONS ",
+            font
         );
         group.addChild(this.title);
 

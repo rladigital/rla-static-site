@@ -22,9 +22,9 @@ class NewsSection extends React.Component {
                 background={colors.white}
                 padding={0}
             >
-                <div style={{ position: "absolute" }}>
-                    <Row>
-                        <Column medium={6}>
+                <Row>
+                    <Column medium={6} collapse>
+                        <Row>
                             <HeaderContainer minHeight={20}>
                                 <HeaderBlock
                                     baseColor={colors.background}
@@ -49,14 +49,8 @@ class NewsSection extends React.Component {
                                     </Button>
                                 </Link>
                             </HeaderContainer>
-                        </Column>
-                    </Row>
-                </div>
-                <Row expanded collapse>
-                    <Column medium={6} collapse>
-                        <Row>
-                            <HeaderContainer minHeight={20} />
                         </Row>
+
                         {news[0] && (
                             <NewsSummary story={news[0].node} minHeight={20} />
                         )}

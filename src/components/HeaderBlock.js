@@ -11,7 +11,7 @@ const HeaderBlock = styled.h1`
     color: ${props => props.baseColor};
     letter-spacing: -0.1rem;
     font-weight: 900;
-    line-height: 0.8;
+    line-height: 0.9;
     span {
         color: ${props => props.accentColor};
     }
