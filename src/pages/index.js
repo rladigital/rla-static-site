@@ -22,7 +22,7 @@ export default class IndexPage extends React.Component {
         super(props);
         this.state = {
             hasMounted: false,
-            font: "Arial"
+            font: false
         };
     }
     handleScriptLoad() {
@@ -34,14 +34,8 @@ export default class IndexPage extends React.Component {
                     });
                 }
             });
-        }
-        window.netlifyIdentity.init();
-    }
-    componentDidMount() {
-        this.setState({ hasMounted: true });
 
-        // Load web font
-        if (!serveStatic()) {
+            // Load web font
             WebFont.load({
                 google: {
                     families: ["Montserrat:400,700,900", "sans-serif"]
@@ -56,6 +50,11 @@ export default class IndexPage extends React.Component {
                 }
             });
         }
+        window.netlifyIdentity.init();
+    }
+
+    componentDidMount() {
+        this.setState({ hasMounted: true });
     }
 
     render() {
