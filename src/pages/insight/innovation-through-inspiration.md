@@ -1,7 +1,7 @@
 ---
 templateKey: news-insight
 title: Innovation Through Inspiration
-date: 2015-09-29T00:00:00+01:00
+date: 29/09/2015
 hero: /img/handshake-2.jpg
 intro: >-
   We love solving problems, it’s what fires us up and inspires fresh and
