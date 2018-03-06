@@ -41,21 +41,6 @@ export default class IndexPage extends React.Component {
         this.setState({ hasMounted: true });
 
         // Load web font
-        if (isBrowser()) {
-            WebFont.load({
-                google: {
-                    families: ["Montserrat:400,700,900", "sans-serif"]
-                },
-
-                active: () => {
-                    this.setState({ font: "Montserrat" });
-                },
-
-                inactive: () => {
-                    this.setState({ font: "Arial" });
-                }
-            });
-        }
     }
 
     render() {
