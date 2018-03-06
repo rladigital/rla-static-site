@@ -3,12 +3,21 @@ import * as PIXI from "pixi.js";
 import SVGGraphics from "pixi-svg-graphics";
 
 export default class Video {
-    constructor(width, height, backgroundColor, svg, svgPadding, videoURL) {
+    constructor(
+        width,
+        height,
+        backgroundColor,
+        svg,
+        svgPadding,
+        svgMaxWidth,
+        videoURL
+    ) {
         this.width = width;
         this.height = height;
         this.backgroundColor = backgroundColor;
         this.svg = svg;
         this.svgPadding = svgPadding;
+        this.svgMaxWidth = svgMaxWidth;
         this.videoURL = videoURL;
     }
     _circle(color) {
@@ -47,14 +56,14 @@ export default class Video {
     }
     _logo(svg, padding) {
         let graphics = new PIXI.Graphics();
+        let width = Math.min(this.width, this.svgMaxWidth) - padding;
 
         // Convert SVG to Graphics
         SVGGraphics.drawSVG(graphics, svg);
 
         // Set width & height
-        graphics.height =
-            (this.width - padding) * (graphics.height / graphics.width);
-        graphics.width = this.width - padding;
+        graphics.height = width * (graphics.height / graphics.width);
+        graphics.width = width - padding;
 
         // Set position on page
         graphics.x = this.width / 2 - graphics.width / 2;
