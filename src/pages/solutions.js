@@ -21,7 +21,7 @@ export default class SolutionsPage extends React.Component {
                             fontSize={theme.pageHeaderSection.fontSize}
                             padding={theme.pageHeaderSection.padding}
                         >
-                            Our <span>Work</span>
+                            <span>Connected</span> Ambition
                         </HeaderBlock>
                     </Column>
                 </Row>
