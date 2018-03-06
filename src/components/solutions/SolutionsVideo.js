@@ -68,6 +68,7 @@ export default class Video {
         this.group.pivot.set(this.width / 2, this.height / 2);
         this.group.x = this.width / 2;
         this.group.y = this.height / 2;
+        this.group.alpha = 1;
 
         // add circle to group
         this.circle = this._circle("ffffff");
@@ -98,6 +99,7 @@ export default class Video {
         // The tweens
         TweenLite.to(this.circle.scale, 0.5, { x: scale, y: scale });
         TweenLite.to(this.group.scale, 0.5, { x: innerScale, y: innerScale });
+        TweenLite.to(this.group, 0.5, { alpha: scale });
 
         // Make invisible
         this.group.visible = scale < 0.01 ? false : true;

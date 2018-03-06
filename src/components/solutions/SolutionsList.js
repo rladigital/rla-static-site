@@ -11,6 +11,29 @@ export default class SolutionsList {
         this.triggered = false;
         this.items = items;
     }
+
+    _background() {
+        let canvas = document.createElement("canvas");
+        canvas.width = this.width;
+        canvas.height = this.height;
+        let ctx = canvas.getContext("2d");
+        let gradient = ctx.createRadialGradient(
+            this.width / 2,
+            this.height / 2,
+            this.height,
+            this.width / 2,
+            this.height / 2,
+            0
+        );
+        gradient.addColorStop(0, "#0e182c");
+        gradient.addColorStop(1, "#2b3a59");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, this.width, this.height);
+
+        var sprite = new PIXI.Sprite(PIXI.Texture.fromCanvas(canvas));
+        return sprite;
+    }
+
     _orbs(items) {
         let group = new PIXI.Container();
 
@@ -131,7 +154,7 @@ export default class SolutionsList {
 
         // The Circle
         let circle = new PIXI.Graphics()
-            .beginFill(0x6b7089)
+            .beginFill(0x344470)
             .drawCircle(this.width / 2, this.height / 2, scale(180))
             .endFill();
 
@@ -208,6 +231,10 @@ export default class SolutionsList {
         let group = new PIXI.Container();
 
         let coords = this._coords(items);
+
+        // Add background to group
+        let background = this._background();
+        group.addChild(background);
 
         // Add lines
         let lines = this._lines(items);

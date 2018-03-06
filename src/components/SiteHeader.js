@@ -59,7 +59,7 @@ class SiteHeader extends React.Component {
                     }}
                 >
                     <Row>
-                        <Column medium={2}>
+                        <Column small={6} medium={3}>
                             <Link to="/">
                                 <img
                                     src={logo}
@@ -68,8 +68,8 @@ class SiteHeader extends React.Component {
                                 />
                             </Link>
                         </Column>
-                        <Column medium={10}>
-                            {scrolltop ? (
+                        <Column small={6} medium={9}>
+                            {true ? (
                                 <SiteNav>
                                     <SiteNavLink to="/solutions">
                                         Solutions
