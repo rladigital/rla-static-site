@@ -3,10 +3,15 @@ import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
 
+import { serveStatic } from "../helpers/helpers";
 import theme from "../theme/theme";
-import PeopleBrowser from "../components/people/PeopleBrowser";
 import HeaderBlock from "../components/HeaderBlock";
 
+if (serveStatic()) {
+    var PeopleBrowser = require("../components/people/PeopleBrowserStatic");
+} else {
+    var PeopleBrowser = require("../components/people/PeopleBrowser");
+}
 export default class PeoplePage extends React.Component {
     render() {
         const { data: { allMarkdownRemark: { edges: people } } } = this.props;
@@ -55,6 +60,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
+                        role
                         profile
                     }
                 }

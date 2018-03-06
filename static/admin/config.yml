@@ -64,6 +64,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-general"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Side Heading", name: "sideHeading", widget: "string"}
@@ -77,6 +78,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-insight"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Side Heading", name: "sideHeading", widget: "string"}

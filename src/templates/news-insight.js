@@ -7,6 +7,7 @@ import { colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
+import SidebarDate from "../components/SidebarDate";
 import HeaderBlock from "../components/HeaderBlock";
 
 export const NewsTemplate = ({
@@ -17,6 +18,7 @@ export const NewsTemplate = ({
     sideHeading,
     galleryImages,
     title,
+    date,
     helmet
 }) => {
     const PostContent = contentComponent || HTMLContent;
@@ -42,6 +44,7 @@ export const NewsTemplate = ({
                     <PostContent content={content} />
                 </Column>
                 <Column medium={4}>
+                    <SidebarDate date={date} />
                     <PullQuote>{sideHeading}</PullQuote>
 
                     {galleryImages.map((image, index) => {
@@ -69,6 +72,7 @@ export default ({ data }) => {
             description={news.frontmatter.description}
             helmet={<Helmet title={`News | ${news.frontmatter.title}`} />}
             title={news.frontmatter.title}
+            date={news.frontmatter.date}
             hero={news.frontmatter.hero}
             intro={news.frontmatter.intro}
             sideHeading={news.frontmatter.sideHeading}
@@ -84,6 +88,7 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
+                date
                 hero
                 intro
                 sideHeading
