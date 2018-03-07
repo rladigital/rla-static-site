@@ -14,10 +14,13 @@ if (serveStatic()) {
 }
 export default class PeoplePage extends React.Component {
     render() {
-        const { data: { allMarkdownRemark: { edges: people } } } = this.props;
+        const {
+            data: { allMarkdownRemark: { edges: people } },
+            transition
+        } = this.props;
         //console.log(news);
         return (
-            <div>
+            <div style={transition && transition.style}>
                 <Row>
                     <Column>
                         <HeaderBlock

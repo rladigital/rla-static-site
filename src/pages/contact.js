@@ -35,9 +35,12 @@ export default class ContactPage extends React.Component {
     };
 
     render() {
-        const { data: { allMarkdownRemark: { edges: contacts } } } = this.props;
+        const {
+            data: { allMarkdownRemark: { edges: contacts } },
+            transition
+        } = this.props;
         return (
-            <div>
+            <div style={transition && transition.style}>
                 <Row>
                     <Column>
                         <HeaderBlock

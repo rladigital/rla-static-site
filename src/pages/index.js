@@ -66,10 +66,11 @@ export default class IndexPage extends React.Component {
             solutions: { edges: solutions },
             services: { edges: services },
             news: { edges: news },
-            people: { edges: people }
+            people: { edges: people },
+            transition
         } = data;
         return (
-            <section>
+            <section style={transition && transition.style}>
                 <Script
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}

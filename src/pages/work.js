@@ -9,10 +9,13 @@ import HeaderBlock from "../components/HeaderBlock";
 
 export default class WorkPage extends React.Component {
     render() {
-        const { data: { allMarkdownRemark: { edges: work } } } = this.props;
+        const {
+            data: { allMarkdownRemark: { edges: work } },
+            transition
+        } = this.props;
         //console.log(work);
         return (
-            <div>
+            <div style={transition && transition.style}>
                 <Row>
                     <Column>
                         <HeaderBlock

@@ -91,7 +91,7 @@ export const NewsTemplate = ({
 };
 
 export default ({ data, pathContext, transition }) => {
-    console.log(data, transition);
+    //console.log(data, transition);
     const { markdownRemark: news } = data;
     const { previous, next } = pathContext;
     return (

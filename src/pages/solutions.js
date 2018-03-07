@@ -10,11 +10,11 @@ import HeaderBlock from "../components/HeaderBlock";
 export default class SolutionsPage extends React.Component {
     render() {
         const {
-            data: { allMarkdownRemark: { edges: solutions } }
+            data: { allMarkdownRemark: { edges: solutions }, transition }
         } = this.props;
         //console.log(work);
         return (
-            <div>
+            <div style={transition && transition.style}>
                 <Row>
                     <Column>
                         <HeaderBlock

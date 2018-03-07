@@ -9,10 +9,13 @@ import HeaderBlock from "../components/HeaderBlock";
 
 export default class NewsPage extends React.Component {
     render() {
-        let { data: { allMarkdownRemark: { edges: news } } } = this.props;
+        let {
+            data: { allMarkdownRemark: { edges: news } },
+            transition
+        } = this.props;
 
         return (
-            <div>
+            <div style={transition && transition.style}>
                 <Row>
                     <Column>
                         <HeaderBlock
