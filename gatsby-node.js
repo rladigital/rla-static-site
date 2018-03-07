@@ -54,8 +54,17 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         pages.forEach(({ node }, index) => {
             //console.log(node);
             const previous =
-                index === pages.length - 1 ? false : pages[index + 1].node;
-            const next = index === 0 ? false : pages[index - 1].node;
+                index === pages.length - 1 ||
+                pages[index + 1].node.frontmatter.templateKey !==
+                    node.frontmatter.templateKey
+                    ? false
+                    : pages[index + 1].node;
+            const next =
+                index === 0 ||
+                pages[index - 1].node.frontmatter.templateKey !==
+                    node.frontmatter.templateKey
+                    ? false
+                    : pages[index - 1].node;
 
             createPage({
                 path: node.fields.slug,

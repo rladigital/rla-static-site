@@ -71,10 +71,18 @@ export const NewsTemplate = ({
             </PageDetailContainer>
             <Row collapse>
                 <Column medium={6} collapse>
-                    <NewsSummary story={previous} minHeight={30} />
+                    {previous ? (
+                        <NewsSummary story={previous} minHeight={30} />
+                    ) : (
+                        <span>&nbsp;</span>
+                    )}
                 </Column>
                 <Column medium={6} collapse>
-                    <NewsSummary story={next} minHeight={30} />
+                    {next ? (
+                        <NewsSummary story={next} minHeight={30} />
+                    ) : (
+                        <span>&nbsp;</span>
+                    )}
                 </Column>
             </Row>
         </div>
