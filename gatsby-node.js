@@ -18,14 +18,24 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     return graphql(`
         {
-            allMarkdownRemark(limit: 1000) {
+            allMarkdownRemark(
+                sort: {
+                    fields: [
+                        frontmatter___templateKey
+                        frontmatter___date
+                        frontmatter___title
+                    ]
+                    order: DESC
+                }
+                limit: 1000
+            ) {
                 edges {
                     node {
-                        excerpt(pruneLength: 400)
-                        html
                         id
                         frontmatter {
                             templateKey
+                            title
+                            hero
                         }
                         fields {
                             slug
@@ -39,8 +49,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             result.errors.forEach(e => console.error(e.toString()));
             return Promise.reject(result.errors);
         }
-        return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        const pages = result.data.allMarkdownRemark.edges;
+
+        pages.forEach(({ node }, index) => {
             //console.log(node);
+            const previous =
+                index === pages.length - 1 ? false : pages[index + 1].node;
+            const next = index === 0 ? false : pages[index - 1].node;
+
             createPage({
                 path: node.fields.slug,
                 component: path.resolve(
@@ -48,7 +64,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                 ),
                 // additional data can be passed via context
                 context: {
-                    slug: node.fields.slug
+                    slug: node.fields.slug,
+                    previous,
+                    next
                 }
             });
         });

@@ -62,21 +62,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-general"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
-      - {label: "Hero Image", name: "hero", widget: "image"}
-      - {label: "Intro Heading", name: "intro", widget: "string"}
-      - {label: "Side Heading", name: "sideHeading", widget: "string"}
-      - {label: "Story", name: "body", widget: "markdown"}
-      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
-  - name: "insight"
-    label: "Insight"
-    folder: "src/pages/insight"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-insight"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}

@@ -70,7 +70,7 @@ class NewsItem extends React.Component {
 export const pageQuery = graphql`
     query NewsQuery {
         allMarkdownRemark(
-            filter: { frontmatter: { templateKey: { glob: "news-*" } } }
+            filter: { frontmatter: { templateKey: { eq: "news" } } }
         ) {
             edges {
                 node {

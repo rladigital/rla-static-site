@@ -148,7 +148,7 @@ export const pageQuery = graphql`
             }
         }
         news: allMarkdownRemark(
-            filter: { frontmatter: { templateKey: { glob: "news-*" } } }
+            filter: { frontmatter: { templateKey: { eq: "news" } } }
         ) {
             edges {
                 node {

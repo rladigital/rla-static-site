@@ -1,5 +1,5 @@
 ---
-templateKey: news-general
+templateKey: news
 title: New CEO
 date: 2016-04-12T00:00:00+01:00
 hero: /img/mike-smith.jpg

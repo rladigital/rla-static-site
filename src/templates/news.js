@@ -64,8 +64,8 @@ export const NewsTemplate = ({
     );
 };
 
-export default ({ data }) => {
-    //console.log(data);
+export default ({ data, ...rest }) => {
+    console.log(data, rest);
     const { markdownRemark: news } = data;
     return (
         <NewsTemplate

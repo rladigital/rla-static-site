@@ -1,5 +1,5 @@
 ---
-templateKey: news-insight
+templateKey: news
 title: Innovation Through Inspiration
 date: 2015-09-29T00:00:00+01:00
 hero: /img/handshake-2.jpg

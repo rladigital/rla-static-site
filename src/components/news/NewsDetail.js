@@ -1,3 +1,3 @@
-import NewsTemplate from "../../templates/news-general";
+import NewsTemplate from "../../templates/news";
 
 export default NewsTemplate;

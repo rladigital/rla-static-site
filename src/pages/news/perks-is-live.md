@@ -1,5 +1,5 @@
 ---
-templateKey: news-general
+templateKey: news
 title: Perks is Live
 date: 2017-05-31T00:00:00+01:00
 hero: /img/perks-hero.gif
