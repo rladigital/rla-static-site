@@ -23,12 +23,13 @@ export const NewsTemplate = ({
     date,
     helmet,
     previous,
-    next
+    next,
+    transition
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
     return (
-        <div>
+        <div style={transition && transition.style}>
             <PageDetailContainer>
                 {helmet || ""}
                 <Row>
@@ -89,8 +90,8 @@ export const NewsTemplate = ({
     );
 };
 
-export default ({ data, pathContext }) => {
-    console.log(data);
+export default ({ data, pathContext, transition }) => {
+    console.log(data, transition);
     const { markdownRemark: news } = data;
     const { previous, next } = pathContext;
     return (
@@ -106,6 +107,7 @@ export default ({ data, pathContext }) => {
             galleryImages={news.frontmatter.galleryImages}
             previous={previous}
             next={next}
+            transition={transition}
         />
     );
 };

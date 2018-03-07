@@ -29,6 +29,7 @@
         "react-leaflet": "^1.8.0",
         "react-load-script": "0.0.6",
         "react-sticky": "^6.0.1",
+        "react-transition-group": "^2.2.1",
         "remark": "^9.0.0",
         "remark-react": "^4.0.1",
         "rla-components": "^0.4.3",
