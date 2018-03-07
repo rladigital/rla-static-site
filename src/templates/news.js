@@ -1,6 +1,7 @@
 import React from "react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
+import Link from "gatsby-link";
 import { Row, Column } from "rla-components";
 
 import { colors } from "../theme/theme";
@@ -9,6 +10,7 @@ import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
 import SidebarDate from "../components/SidebarDate";
 import HeaderBlock from "../components/HeaderBlock";
+import NewsSummary from "../components/news/NewsSummary";
 
 export const NewsTemplate = ({
     content,
@@ -19,54 +21,70 @@ export const NewsTemplate = ({
     galleryImages,
     title,
     date,
-    helmet
+    helmet,
+    previous,
+    next
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
     return (
-        <PageDetailContainer>
-            {helmet || ""}
-            <Row>
-                <Column>
-                    <img src={hero} alt={`${title} Logo`} />
-                </Column>
-            </Row>
-            <Row>
-                <Column>
-                    <HeaderBlock textAlign="left" baseColor={colors.background}>
-                        {title}
-                    </HeaderBlock>
-                </Column>
-            </Row>
-            <Row>
-                <Column medium={8}>
-                    <h2>{intro}</h2>
-                    <PostContent content={content} />
-                </Column>
-                <Column medium={4}>
-                    <SidebarDate date={date} />
-                    <PullQuote>{sideHeading}</PullQuote>
+        <div>
+            <PageDetailContainer>
+                {helmet || ""}
+                <Row>
+                    <Column>
+                        <img src={hero} alt={`${title} Logo`} />
+                    </Column>
+                </Row>
+                <Row>
+                    <Column>
+                        <HeaderBlock
+                            textAlign="left"
+                            baseColor={colors.background}
+                        >
+                            {title}
+                        </HeaderBlock>
+                    </Column>
+                </Row>
+                <Row>
+                    <Column medium={8}>
+                        <h2>{intro}</h2>
+                        <PostContent content={content} />
+                    </Column>
+                    <Column medium={4}>
+                        <SidebarDate date={date} />
+                        <PullQuote>{sideHeading}</PullQuote>
 
-                    {galleryImages.map((image, index) => {
-                        if (image) {
-                            return (
-                                <img
-                                    key={index}
-                                    src={image}
-                                    alt={`${title} Gallery Image`}
-                                />
-                            );
-                        }
-                    })}
+                        {galleryImages.map((image, index) => {
+                            if (image) {
+                                return (
+                                    <img
+                                        key={index}
+                                        src={image}
+                                        alt={`${title} Gallery Image`}
+                                    />
+                                );
+                            }
+                        })}
+                    </Column>
+                </Row>
+            </PageDetailContainer>
+            <Row collapse>
+                <Column medium={6} collapse>
+                    <NewsSummary story={previous} minHeight={30} />
+                </Column>
+                <Column medium={6} collapse>
+                    <NewsSummary story={next} minHeight={30} />
                 </Column>
             </Row>
-        </PageDetailContainer>
+        </div>
     );
 };
 
-export default ({ data, ...rest }) => {
-    console.log(data, rest);
+export default ({ data, pathContext }) => {
+    console.log(data);
     const { markdownRemark: news } = data;
+    const { previous, next } = pathContext;
     return (
         <NewsTemplate
             description={news.frontmatter.description}
@@ -78,6 +96,8 @@ export default ({ data, ...rest }) => {
             sideHeading={news.frontmatter.sideHeading}
             content={news.html}
             galleryImages={news.frontmatter.galleryImages}
+            previous={previous}
+            next={next}
         />
     );
 };
