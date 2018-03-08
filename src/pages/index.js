@@ -83,7 +83,7 @@ export default class IndexPage extends React.Component {
                             <ServicesSection services={services} font={font} />
                         )}
                         <NewsSection news={news} />
-                        {font && <PeopleSection people={people} font={font} />}
+                        <PeopleSection people={people} />
                     </div>
                 )}
             </section>

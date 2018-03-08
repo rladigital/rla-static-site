@@ -55,8 +55,7 @@ class SolutionsSection extends React.Component {
     componentDidMount() {
         let logoPadding = 16;
         let backgroundColor = "ffffff";
-        let videoURL =
-            "https://s3.eu-west-2.amazonaws.com/volvofirstclass/global/public/Volvo+first+class.mp4";
+        let videoURL = "/video.mp4";
         let { solutions, font } = this.props;
         let logoMaxWidth = 1416;
 

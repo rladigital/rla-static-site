@@ -20,7 +20,7 @@ class NewsSection extends React.Component {
             <SectionContainer
                 color={colors.background}
                 background={colors.white}
-                padding={0}
+                padding="0"
             >
                 <Row>
                     <Column medium={6} collapse>
