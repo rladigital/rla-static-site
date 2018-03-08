@@ -81,3 +81,34 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         });
     });
 };
+
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
+// const extractCss = new ExtractTextPlugin({
+//     filename: "stylesCMS.css"
+//     // use: `${cssModulesConfig(stage)}&modules&importLoaders=1`
+// });
+
+// exports.modifyWebpackConfig = ({ config, stage }) => {
+//     switch (stage) {
+//         case "develop":
+//             //case "build-css":
+//             config.removeLoader("css");
+//             config.loader("css", {
+//                 test: /\.css$/,
+//                 loader: extractCss.extract({
+//                     use: [
+//                         {
+//                             loader: `css-loader?modules&importLoaders=1`
+//                         }
+//                     ]
+//                 })
+//             });
+
+//             config.merge({
+//                 plugins: [extractCss]
+//             });
+//             break;
+//     }
+
+//     return config;
+// };

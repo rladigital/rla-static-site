@@ -26,6 +26,7 @@ export const PeopleTemplate = ({
                     <HeaderBlock textAlign="left" baseColor={colors.background}>
                         {title}
                     </HeaderBlock>
+                    <h3>{role}</h3>
                 </Column>
             </Row>
             <Row>
