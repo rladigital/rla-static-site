@@ -1,6 +1,6 @@
 import React from "react";
 
-//import Content from "../../components/Content";
+import Content from "../../components/Content";
 import { NewsTemplate } from "../../templates/news";
 import withPreviewStyles from "./withPreviewStyles";
 
@@ -16,6 +16,7 @@ class NewsPreview extends React.Component {
                 galleryImages={entry.getIn(["data", "galleryImages"])}
                 hero={entry.getIn(["data", "hero"])}
                 date={entry.getIn(["data", "date"])}
+                contentComponent={Content}
             />
         );
     }

@@ -1,9 +1,9 @@
 import React from "react";
-import { ClientTemplate } from "../../templates/clients";
+import { WorkTemplate } from "../../templates/work";
 import withPreviewStyles from "./withPreviewStyles";
 
-const ClientPreview = ({ entry, widgetFor }) => (
-    <ClientTemplate
+const WorkPreview = ({ entry, widgetFor }) => (
+    <WorkTemplate
         content={entry.getIn(["data", "description"])}
         title={entry.getIn(["data", "title"])}
         hero={entry.getIn(["data", "hero"])}
@@ -16,4 +16,4 @@ const ClientPreview = ({ entry, widgetFor }) => (
     />
 );
 
-export default withPreviewStyles(ClientPreview);
+export default withPreviewStyles(WorkPreview);
