@@ -22,7 +22,7 @@ class PeopleBrowser extends React.Component {
         };
 
         this.width = document.body.clientWidth;
-        this.height = document.body.clientHeight;
+        this.height = 600;
 
         console.log(this.height);
         this.coords;
@@ -41,7 +41,7 @@ class PeopleBrowser extends React.Component {
 
         let perRow = 6;
 
-        this.coords = this._coords(perRow, 360);
+        this.coords = this._coords(perRow, 360, size);
 
         let chunks = this._chunk(people, perRow);
 
@@ -54,19 +54,20 @@ class PeopleBrowser extends React.Component {
         this.app.stage.addChild(items);
 
         // The details area
-        //this.details = this._details(size);
-        //this.app.stage.addChild(this.details);
+        this.details = this._details(people[0].node.frontmatter);
+        this.app.stage.addChild(this.details);
 
         // Add to canvas
         this.canvas.appendChild(this.app.view);
     }
 
-    _details(size, data) {
+    _details(data) {
         let group = new PIXI.Container();
         let circle = new PIXI.Graphics();
         let image = PIXI.Sprite.fromImage(data.profile);
         let x = this.width / 2;
         let y = this.height / 2;
+        let size = this.width / 4;
 
         circle
             .beginFill(`0xffffff`)
@@ -240,7 +241,8 @@ class PeopleBrowser extends React.Component {
         let main = 1;
         let theta = Math.PI / count;
         let items = new Array();
-        let size = 300;
+
+        let size = this.width / 2 - this.width / 4;
 
         for (var i = 0; i < count; i++) {
             let angle =
@@ -326,7 +328,7 @@ class PeopleBrowser extends React.Component {
         if (this.details) {
             this.details.destroy();
         }
-        this.details = this._details(this.props.size, data);
+        this.details = this._details(data);
         this.app.stage.addChild(this.details);
     }
 
