@@ -1,39 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Transition } from "react-transition-group";
+import { TweenLite } from "gsap";
 
 import { colors } from "../../theme/theme";
 import { hexToInt, scale, random } from "../../helpers/helpers";
-
-const duration = 300;
-
-const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-    opacity: 0,
-    padding: 20,
-    display: "inline-block",
-    backgroundColor: "#8787d8"
-};
-
-const transitionStyles = {
-    entering: { opacity: 0 },
-    entered: { opacity: 1 }
-};
-
-const Fade = ({ in: inProp }) => (
-    <Transition in={inProp} timeout={duration}>
-        {state => (
-            <div
-                style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state]
-                }}
-            >
-                I'm A fade Transition!
-            </div>
-        )}
-    </Transition>
-);
 
 const Container = styled.div`
     position: relative;
@@ -44,6 +14,7 @@ const PersonGroup = styled.div`
     margin-left: 50%;
     margin-top: 300px;
     position: absolute;
+    transition: transform 1s ease, opacity 1s ease;
 `;
 
 const Person = styled.div`
@@ -64,6 +35,7 @@ const SelectedPerson = styled.div`
     background-size: cover;
     background-position: center;
     transform: translate(-50%, -50%);
+    z-index: 1;
 `;
 
 class PeopleBrowser extends React.Component {
@@ -71,10 +43,10 @@ class PeopleBrowser extends React.Component {
         super(props);
         this.state = {
             selected: null,
-            current: 0,
+            current: 1,
             coords: null,
             data: null,
-            show: false
+            array: [0, 1, 2]
         };
         this.width = document.body.clientWidth;
         this.height = 600;
@@ -84,8 +56,6 @@ class PeopleBrowser extends React.Component {
         const { people } = this.props;
         const coords = this.generateCoords(6, 360);
         const data = this.chunkArray(6, people);
-
-        console.log(data);
 
         this.setState({
             coords: coords,
@@ -131,61 +101,80 @@ class PeopleBrowser extends React.Component {
 
     navigateChunk(direction) {
         let { data } = this.state;
+        let array = [];
         let current;
+        let length = data.length - 1;
 
-        if (direction == "next") {
+        if (direction == "prev") {
             current = this.state.current + 1;
-            if (current == data.length) {
+            if (current == length + 1) {
                 current = 0;
             }
         } else {
             current = this.state.current - 1;
             if (current == -1) {
-                current = data.length;
+                current = length;
             }
         }
 
-        this.setState({ current: current });
+        array[0] = current - 1 < 0 ? length : current - 1;
+        array[1] = current;
+        array[2] = current + 1 > length ? 0 : current + 1;
+
+        this.setState({ current: current, array: array });
     }
 
     handleSelect(person) {
-        console.log(person);
         this.setState({ selected: person });
     }
 
-    handleToggle() {
-        console.log("toggle");
-        this.setState(({ show }) => ({
-            show: !show
-        }));
+    getTransform(x) {
+        const { array } = this.state;
+
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] == x) {
+                return i;
+            }
+        }
     }
 
     render() {
-        const { coords, data, current, selected, show } = this.state;
+        const { coords, data, current, selected } = this.state;
         return (
             <Container>
-                <Fade in={!!show} />
-                {coords && (
-                    <PersonGroup>
-                        {data[current].map(({ node: person }, index) => {
-                            return (
-                                <Person
-                                    key={index}
-                                    onClick={() => this.handleSelect(person)}
-                                    style={{
-                                        top: coords[index].y,
-                                        left: coords[index].x,
-                                        backgroundImage: `url('${
-                                            person.frontmatter.profile
-                                        }')`
-                                    }}
-                                >
-                                    {person.frontmatter.title}
-                                </Person>
-                            );
-                        })}
-                    </PersonGroup>
-                )}
+                {coords &&
+                    data.map((row, index) => {
+                        return (
+                            <PersonGroup
+                                style={{
+                                    transform: `scale(${this.getTransform(
+                                        index
+                                    )})`,
+                                    opacity: current == index ? 1 : 0
+                                }}
+                            >
+                                {row.map(({ node: person }, index) => {
+                                    return (
+                                        <Person
+                                            key={index}
+                                            onClick={() =>
+                                                this.handleSelect(person)
+                                            }
+                                            style={{
+                                                top: coords[index].y,
+                                                left: coords[index].x,
+                                                backgroundImage: `url('${
+                                                    person.frontmatter.profile
+                                                }')`
+                                            }}
+                                        >
+                                            {person.frontmatter.title}
+                                        </Person>
+                                    );
+                                })}
+                            </PersonGroup>
+                        );
+                    })}
                 {selected && (
                     <SelectedPerson
                         style={{
@@ -199,9 +188,14 @@ class PeopleBrowser extends React.Component {
                         {selected.frontmatter.title}
                     </SelectedPerson>
                 )}
-                <button onClick={() => this.navigateChunk("prev")}>prev</button>
-                <button onClick={() => this.navigateChunk("next")}>next</button>
-                <button onClick={() => this.handleToggle()}>toggle</button>
+                <div style={{ position: "absolute", zIndex: 99 }}>
+                    <button onClick={() => this.navigateChunk("prev")}>
+                        prev
+                    </button>
+                    <button onClick={() => this.navigateChunk("next")}>
+                        next
+                    </button>
+                </div>
             </Container>
         );
     }

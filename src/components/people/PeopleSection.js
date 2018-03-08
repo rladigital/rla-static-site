@@ -18,7 +18,7 @@ const StyledP = styled.p`
 
 class PeopleSection extends React.Component {
     render() {
-        const { people, font } = this.props;
+        const { people } = this.props;
 
         let full = people.concat(people);
         return (
@@ -46,7 +46,6 @@ class PeopleSection extends React.Component {
                         .concat(full)
                         .concat(full)}
                     size={500}
-                    font={font}
                 />
             </SectionContainer>
         );
