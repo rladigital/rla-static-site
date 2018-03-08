@@ -4,7 +4,7 @@ import Link from "gatsby-link";
 
 const SummaryContainer = styled.section`
     position: relative;
-    background-color: ${props => props.color};
+    background: ${props => props.color};
     min-height: 150px;
     text-align: center;
 `;
