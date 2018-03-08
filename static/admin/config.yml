@@ -6,21 +6,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "clients"
-    label: "Clients"
-    folder: "src/pages/clients"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "clients"}
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Logo", name: "logo", widget: "image"}
-      - {label: "Hero Image", name: "hero", widget: "image"}
-      - {label: "Intro Heading", name: "intro", widget: "string"}
-      - {label: "Project Description", name: "project", widget: "markdown"}
-      - {label: "Outcome Description", name: "outcome", widget: "markdown"}
-      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
-      - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
   - name: "work"
     label: "Work"
     folder: "src/pages/work"
@@ -47,6 +32,21 @@ collections:
       - {label: "Description", name: "body", widget: "markdown"}
       - {label: "Colour", name: "color", widget: "string"}
       - {label: "Icon", name: "icon", widget: "image"}
+  - name: "clients"
+    label: "Clients"
+    folder: "src/pages/clients"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "clients"}
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Logo", name: "logo", widget: "image"}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Intro Heading", name: "intro", widget: "string"}
+      - {label: "Project Description", name: "project", widget: "markdown"}
+      - {label: "Outcome Description", name: "outcome", widget: "markdown"}
+      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
+      - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
   - name: "services"
     label: "Services"
     folder: "src/pages/services"

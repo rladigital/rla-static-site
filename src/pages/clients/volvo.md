@@ -34,5 +34,4 @@ outcome: >-
 galleryImages:
   - /img/volvo-band-4-1.jpg
 solutionsList:
-  - Brand Desire
 ---
