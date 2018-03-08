@@ -20,7 +20,7 @@ collections:
       - {label: "Project Description", name: "project", widget: "markdown"}
       - {label: "Outcome Description", name: "outcome", widget: "markdown"}
       - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
-      - {label: "Solutions", name: "solutions", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
+      - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
   - name: "work"
     label: "Work"
     folder: "src/pages/work"

@@ -33,7 +33,6 @@ outcome: >-
   Together, we are a valuable extension of your marketing team.
 galleryImages:
   - /img/volvo-band-4-1.jpg
-solutions:
+solutionsList:
   - Brand Desire
 ---
-
