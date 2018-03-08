@@ -1,9 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-import { TweenLite } from "gsap";
+import { Transition } from "react-transition-group";
 
 import { colors } from "../../theme/theme";
 import { hexToInt, scale, random } from "../../helpers/helpers";
+
+const duration = 300;
+
+const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+    padding: 20,
+    display: "inline-block",
+    backgroundColor: "#8787d8"
+};
+
+const transitionStyles = {
+    entering: { opacity: 0 },
+    entered: { opacity: 1 }
+};
+
+const Fade = ({ in: inProp }) => (
+    <Transition in={inProp} timeout={duration}>
+        {state => (
+            <div
+                style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }}
+            >
+                I'm A fade Transition!
+            </div>
+        )}
+    </Transition>
+);
 
 const Container = styled.div`
     position: relative;
@@ -43,7 +73,8 @@ class PeopleBrowser extends React.Component {
             selected: null,
             current: 0,
             coords: null,
-            data: null
+            data: null,
+            show: false
         };
         this.width = document.body.clientWidth;
         this.height = 600;
@@ -122,10 +153,18 @@ class PeopleBrowser extends React.Component {
         this.setState({ selected: person });
     }
 
+    handleToggle() {
+        console.log("toggle");
+        this.setState(({ show }) => ({
+            show: !show
+        }));
+    }
+
     render() {
-        const { coords, data, current, selected } = this.state;
+        const { coords, data, current, selected, show } = this.state;
         return (
             <Container>
+                <Fade in={!!show} />
                 {coords && (
                     <PersonGroup>
                         {data[current].map(({ node: person }, index) => {
@@ -162,6 +201,7 @@ class PeopleBrowser extends React.Component {
                 )}
                 <button onClick={() => this.navigateChunk("prev")}>prev</button>
                 <button onClick={() => this.navigateChunk("next")}>next</button>
+                <button onClick={() => this.handleToggle()}>toggle</button>
             </Container>
         );
     }
