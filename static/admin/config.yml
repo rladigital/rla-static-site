@@ -66,6 +66,8 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Category", name: "categroy", widget: "select", options: ["News", "Insight"]}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Side Heading", name: "sideHeading", widget: "string"}
       - {label: "Story", name: "body", widget: "markdown"}
