@@ -17,7 +17,7 @@ const MainNavLink = styled(Link).attrs({
             ${props => props.theme.navigation.navLink.padding / 2}rem;
             ${props => props.theme.navigation.navLink.padding}rem;
             text-decoration: none;
-            color: ${props => props.theme.navigation.navLink.color};
+            color: inherit;
             text-transform: ${props =>
                 props.theme.navigation.navLink.textTransform};
             &:last-child {

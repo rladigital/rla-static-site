@@ -7,10 +7,9 @@ import { Row, Column } from "rla-components";
 import { colors } from "../theme/theme";
 
 const Container = styled.div`
-    color: ${props => props.color};
+    color: inherit;
     font-size: ${props => props.size};
     font-weight: ${props => props.weight};
-    background: ${props => props.background};
     margin: ${props => props.margin};
     float: right;
 `;

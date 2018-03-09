@@ -16,10 +16,8 @@ const HeaderContainer = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
-    background: ${colors.background};
-    transition: padding 0.5s ease;
     z-index: 3;
+    transition: padding 0.5s ease, color 0.5s ease, background 0.5s ease;
 `;
 
 const Icon = styled(FAIcon)`
@@ -51,11 +49,18 @@ class SiteHeader extends React.Component {
     }
     render() {
         const { scrolltop } = this.state;
+        const { location } = this.props;
+        const white = "#ffffff";
+        let isHome = Boolean(location.pathname == "/");
+
         return (
             <div>
                 <HeaderContainer
                     style={{
-                        padding: `${scrolltop ? 24 : 10}px 0`
+                        padding: `${scrolltop && isHome ? 24 : 10}px 0`,
+                        background:
+                            scrolltop && isHome ? white : colors.background,
+                        color: scrolltop && isHome ? colors.background : white
                     }}
                 >
                     <Row>

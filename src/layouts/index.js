@@ -15,11 +15,11 @@ import SiteHeader from "../components/SiteHeader";
 
 import Footer from "../components/Footer";
 
-const TemplateWrapper = ({ children, data }) => (
+const TemplateWrapper = ({ children, data, location }) => (
     <ThemeProvider theme={merge(Theme, customTheme)}>
         <div>
             <Helmet title="RLA" />
-            <SiteHeader />
+            <SiteHeader location={location} />
             <div>{children()}</div>
             <Footer data={data} />
         </div>
