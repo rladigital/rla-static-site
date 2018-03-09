@@ -18,16 +18,31 @@ const PersonGroup = styled.div`
 `;
 
 const Person = styled.div`
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+`;
+
+const PersonImage = styled.div`
     width: 100px;
     height: 100px;
-    position: absolute;
     border-radius: 100px;
     background-size: cover;
     background-position: center;
-    transform: translate(-50%, -50%);
+    display: inline-block;
 `;
 
-const SelectedPerson = styled.div`
+const PersonTitle = styled.h3`
+    font-size: 12px;
+    white-space: nowrap;
+`;
+const PersonRole = styled.h4`
+    font-size: 10px;
+    white-space: nowrap;
+`;
+
+const Selected = styled.div`
     top: 50%;
     left: 50%;
     position: absolute;
@@ -35,7 +50,46 @@ const SelectedPerson = styled.div`
     background-size: cover;
     background-position: center;
     transform: translate(-50%, -50%);
+    text-align: center;
     z-index: 1;
+    transition: background-image ease 0.25s;
+    &:before{
+        content: " ";
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent , ${
+            colors.background
+        } 80%);
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        border-radius: 100%;
+        padding: 20px;
+        box-shadow: inset 0px 0px 0 3px ${colors.accent};
+    }
+`;
+
+const SelectedText = styled.div`
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+`;
+
+const SelectedTitle = styled.h1`
+    position: relative;
+    font-size: 30px;
+`;
+
+const SelectedRole = styled.h1`
+    position: relative;
+    font-size: 15px;
+    font-weight: normal;
+`;
+
+const SelectedBiog = styled.div`
+    position: relative;
+    font-size: 14px;
+    padding: 5px 40px 50px;
 `;
 
 class PeopleBrowser extends React.Component {
@@ -81,7 +135,7 @@ class PeopleBrowser extends React.Component {
         let main = 1;
         let theta = Math.PI / count;
         let items = new Array();
-        let size = this.width / 2 - this.width / 4;
+        let size = this.width / 2 - this.width / 3.5;
 
         for (var i = 0; i < count; i++) {
             let angle =
@@ -125,6 +179,7 @@ class PeopleBrowser extends React.Component {
     }
 
     handleSelect(person) {
+        console.log(person);
         this.setState({ selected: person });
     }
 
@@ -162,13 +217,23 @@ class PeopleBrowser extends React.Component {
                                             }
                                             style={{
                                                 top: coords[index].y,
-                                                left: coords[index].x,
-                                                backgroundImage: `url('${
-                                                    person.frontmatter.profile
-                                                }')`
+                                                left: coords[index].x
                                             }}
                                         >
-                                            {person.frontmatter.title}
+                                            <PersonImage
+                                                style={{
+                                                    backgroundImage: `url('${
+                                                        person.frontmatter
+                                                            .profile
+                                                    }')`
+                                                }}
+                                            />
+                                            <PersonTitle>
+                                                {person.frontmatter.title}
+                                            </PersonTitle>
+                                            <PersonRole>
+                                                {person.frontmatter.role}
+                                            </PersonRole>
                                         </Person>
                                     );
                                 })}
@@ -176,7 +241,7 @@ class PeopleBrowser extends React.Component {
                         );
                     })}
                 {selected && (
-                    <SelectedPerson
+                    <Selected
                         style={{
                             width: this.width / 4,
                             height: this.width / 4,
@@ -185,8 +250,16 @@ class PeopleBrowser extends React.Component {
                             }')`
                         }}
                     >
-                        {selected.frontmatter.title}
-                    </SelectedPerson>
+                        <SelectedText>
+                            <SelectedTitle>
+                                {selected.frontmatter.title}
+                            </SelectedTitle>
+                            <SelectedRole>
+                                {selected.frontmatter.role}
+                            </SelectedRole>
+                            <SelectedBiog>{selected.excerpt}</SelectedBiog>
+                        </SelectedText>
+                    </Selected>
                 )}
                 <div style={{ position: "absolute", zIndex: 99 }}>
                     <button onClick={() => this.navigateChunk("prev")}>
