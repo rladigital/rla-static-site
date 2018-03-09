@@ -96,7 +96,7 @@ export const pageQuery = graphql`
                 project
                 outcome
                 galleryImages
-                solutions
+                solutionsList
             }
         }
     }

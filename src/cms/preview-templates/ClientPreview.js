@@ -12,7 +12,7 @@ const ClientPreview = ({ entry, widgetFor }) => (
         project={entry.getIn(["data", "project"])}
         outcome={entry.getIn(["data", "outcome"])}
         galleryImages={entry.getIn(["data", "galleryImages"])}
-        solutions={entry.getIn(["data", "solutions"])}
+        solutions={entry.getIn(["data", "solutionsList"])}
     />
 );
 

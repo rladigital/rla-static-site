@@ -68,7 +68,7 @@ export const WorkTemplate = ({
 };
 
 export default ({ data }) => {
-    //console.log(data);
+    console.log(data);
     const { markdownRemark: work } = data;
     return (
         <WorkTemplate
@@ -98,7 +98,7 @@ export const pageQuery = graphql`
                 project
                 outcome
                 galleryImages
-                solutions
+                solutionsList
             }
         }
     }
