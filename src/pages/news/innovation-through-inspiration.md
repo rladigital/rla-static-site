@@ -10,7 +10,7 @@ sideHeading: >-
   Inspiration is an essential part of the creative process. The most relevant
   and disruptive products and solutions are the ones that are inspired by real
   life situations, events or problems.
-categroy: Insight
+category: Insight
 tags:
   - Innovation
   - Inspiration

@@ -8,7 +8,7 @@ sideHeading: >-
   Mike brings leadership experience from over 25 years at some major UK
   agencies. He has led brands across a broad range of sectors, with local
   market, regional and global remits.
-categroy: News
+category: News
 galleryImages:
   - null
 ---

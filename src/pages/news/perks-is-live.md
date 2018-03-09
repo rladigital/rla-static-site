@@ -7,7 +7,7 @@ intro: RLA Launches UK's first OEM Trade Parts Reward Programme for PSA Groupe
 sideHeading: >-
   Targeted at 25,000 indepenent garages and bodyshops, Perks is a genuine
   industry first.
-categroy: News
+category: News
 galleryImages:
   - null
 ---
