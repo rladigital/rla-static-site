@@ -1,12 +1,13 @@
 ---
 templateKey: news
 title: Perks is Live
-date: 2017-05-31T00:00:00+01:00
+date: 2017-05-30T23:00:00.000Z
 hero: /img/perks-hero.gif
 intro: RLA Launches UK's first OEM Trade Parts Reward Programme for PSA Groupe
 sideHeading: >-
   Targeted at 25,000 indepenent garages and bodyshops, Perks is a genuine
   industry first.
+categroy: News
 galleryImages:
   - null
 ---
