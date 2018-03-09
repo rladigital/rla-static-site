@@ -4,11 +4,11 @@ title: Perks is Live
 date: 2017-05-30T23:00:00.000Z
 hero: /img/perks-hero.gif
 thumb: /img/perks-hero.gif
+category: News
 intro: RLA Launches UK's first OEM Trade Parts Reward Programme for PSA Groupe
 sideHeading: >-
-  Targeted at 25,000 indepenent garages and bodyshops, Perks is a genuine
+  Targeted at 25,000 independent garages and bodyshops, Perks is a genuine
   industry first.
-category: News
 galleryImages:
   - null
 author: Tom Lawton
