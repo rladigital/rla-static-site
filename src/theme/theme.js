@@ -40,6 +40,7 @@ const theme = {
     spacing: spacing,
     darkColor: colors.background,
     lightColor: colors.white,
+    accent: colors.accent,
     body: {
         color: colors.white,
         background: colors.background,

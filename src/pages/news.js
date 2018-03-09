@@ -80,12 +80,12 @@ export const pageQuery = graphql`
                     fields {
                         slug
                     }
-                    html
                     id
                     frontmatter {
                         title
                         templateKey
                         hero
+                        category
                     }
                 }
             }
