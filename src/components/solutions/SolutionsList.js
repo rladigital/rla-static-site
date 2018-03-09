@@ -42,7 +42,7 @@ export default class SolutionsList {
         // The Dot
         for (var i = 0; i < items.length; i++) {
             let current = items[i];
-            let { title, color } = current.node.frontmatter;
+            let { title, color1, color2 } = current.node.frontmatter;
 
             this.orbs[i] = new PIXI.Container();
             this.orbs[i].fixedX = 0;
@@ -51,14 +51,14 @@ export default class SolutionsList {
             this.orbs[i].alpha = 0;
 
             // The gradient texture
-            let stops = color.match(/#[0-9A-Fa-f]{6}/g);
+            //let stops = color1.match(/#[0-9A-Fa-f]{6}/g);
             let canvas = document.createElement("canvas");
             let ctx = canvas.getContext("2d");
             let gradientSize = current.size * 2;
             let grd = ctx.createLinearGradient(0, 0, gradientSize, 0);
 
-            grd.addColorStop(0, stops[0]);
-            grd.addColorStop(1, stops[1]);
+            grd.addColorStop(0, color1);
+            grd.addColorStop(1, color2);
 
             ctx.fillStyle = grd;
             ctx.fillRect(0, 0, gradientSize, gradientSize);
