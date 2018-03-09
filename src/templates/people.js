@@ -14,7 +14,10 @@ export const PeopleTemplate = ({
     title,
     helmet,
     role,
-    profile
+    tags,
+    profile,
+    linkedIn,
+    twitter
 }) => {
     const PostContent = contentComponent || HTMLContent;
 
@@ -32,6 +35,8 @@ export const PeopleTemplate = ({
             <Row>
                 <Column medium={6}>
                     <img src={profile} alt={`${title} Profile`} />{" "}
+                    {twitter && <div>{twitter}</div>}
+                    {linkedIn && <div>{linkedIn}</div>}
                 </Column>
                 <Column medium={6}>
                     <PostContent content={content} />
@@ -53,6 +58,9 @@ export default ({ data }) => {
             content={person.html}
             role={person.frontmatter.role}
             profile={person.frontmatter.profile}
+            tags={person.frontmatter.tags}
+            linkedIn={person.frontmatter.linkedIn}
+            twitter={person.frontmatter.twitter}
         />
     );
 };
@@ -64,7 +72,10 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 role
+                tags
                 profile
+                linkedIn
+                twitter
             }
         }
     }

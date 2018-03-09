@@ -19,6 +19,7 @@ export const NewsTemplate = ({
     intro,
     sideHeading,
     galleryImages,
+    author,
     title,
     date,
     helmet,
@@ -54,6 +55,7 @@ export const NewsTemplate = ({
                     </Column>
                     <Column medium={4}>
                         <SidebarDate date={date} />
+                        {author.title}
                         <PullQuote>{sideHeading}</PullQuote>
 
                         {galleryImages.map((image, index) => {
@@ -108,6 +110,7 @@ export default ({ data, pathContext, transition }) => {
             previous={previous}
             next={next}
             transition={transition}
+            author={news.frontmatter.author}
         />
     );
 };
@@ -124,6 +127,7 @@ export const pageQuery = graphql`
                 sideHeading
                 project
                 galleryImages
+                author
             }
         }
     }

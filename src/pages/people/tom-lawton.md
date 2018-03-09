@@ -6,6 +6,8 @@ role: Head of Development
 profile: /img/profile-pic.jpg
 tags:
   - Digital
+linkedIn: 'linkedIn link'
+twitter: 'twitter link'
 ---
 
 ## What he's all about

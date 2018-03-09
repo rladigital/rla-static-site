@@ -28,7 +28,7 @@ const WorkSummary = ({ work }) => {
     console.log(work);
     return (
         <Link to={work.fields.slug}>
-            <SummaryContainer backgroundImage={work.frontmatter.hero}>
+            <SummaryContainer backgroundImage={work.frontmatter.thumb}>
                 <WorkTitle>
                     {work.frontmatter.title} <span>&rarr;</span>
                 </WorkTitle>

@@ -35,7 +35,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                         frontmatter {
                             templateKey
                             title
-                            hero
+                            thumb
+                            category
                         }
                         fields {
                             slug

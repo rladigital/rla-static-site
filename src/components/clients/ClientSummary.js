@@ -43,7 +43,7 @@ const ClientSummary = ({ client, height }) => {
     return (
         <Link to={client.fields.slug}>
             <SummaryContainer
-                backgroundImage={client.frontmatter.hero}
+                backgroundImage={client.frontmatter.logo}
                 height={height}
             >
                 <ClientTitle>

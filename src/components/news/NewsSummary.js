@@ -56,7 +56,7 @@ const NewsSummary = ({ story, minHeight }) => {
     return (
         <Link to={story.fields.slug}>
             <SummaryContainer
-                backgroundImage={story.frontmatter.hero}
+                backgroundImage={story.frontmatter.thumb}
                 minHeight={minHeight}
             >
                 <NewsTitleBackground>

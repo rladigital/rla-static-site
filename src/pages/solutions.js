@@ -57,7 +57,6 @@ export const pageQuery = graphql`
                         templateKey
                         color1
                         color2
-                        intro
                     }
                 }
             }

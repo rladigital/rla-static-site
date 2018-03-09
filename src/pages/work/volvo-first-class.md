@@ -18,7 +18,12 @@ outcome: >-
   over the next three years.
 galleryImages:
   - /img/volvo-band-4-1.jpg
+<<<<<<< HEAD
 solutionsList:
   - Brand Desire
 weighting: 0
+=======
+  - /img/handshake-2.jpg
+client: Volvo
+>>>>>>> 48e7ba4c4fe41a2f722609da39250a5466fe5796
 ---
