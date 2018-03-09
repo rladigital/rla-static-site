@@ -55,7 +55,7 @@ class SolutionsSection extends React.Component {
     }
     componentDidMount() {
         let logoPadding = 16;
-        let backgroundColor = "ffffff";
+        let backgroundColor = "f9f9f9";
         let { solutions, font } = this.props;
         let logoMaxWidth = 1416;
 

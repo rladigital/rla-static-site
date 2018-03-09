@@ -3,7 +3,7 @@ export const colors = {
     accent: "#D72257",
     secondary: "#3a3e46",
     black: "#0C141B",
-    white: "#f8fafd",
+    white: "#f9f9f9",
     lightBlueGray: "#272E48",
     mediumBlueGray: "#272E48",
     darkBlueGray: "#07172C",

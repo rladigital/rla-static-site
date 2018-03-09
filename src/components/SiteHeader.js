@@ -50,7 +50,6 @@ class SiteHeader extends React.Component {
     render() {
         const { scrolltop } = this.state;
         const { location } = this.props;
-        const white = "#ffffff";
         let isHome = Boolean(location.pathname == "/");
 
         return (
@@ -59,8 +58,13 @@ class SiteHeader extends React.Component {
                     style={{
                         padding: `${scrolltop && isHome ? 24 : 10}px 0`,
                         background:
-                            scrolltop && isHome ? white : colors.background,
-                        color: scrolltop && isHome ? colors.background : white
+                            scrolltop && isHome
+                                ? colors.white
+                                : colors.background,
+                        color:
+                            scrolltop && isHome
+                                ? colors.background
+                                : colors.white
                     }}
                 >
                     <Row>
