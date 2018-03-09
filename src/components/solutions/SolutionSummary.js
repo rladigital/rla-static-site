@@ -4,7 +4,11 @@ import Link from "gatsby-link";
 
 const SummaryContainer = styled.section`
     position: relative;
-    background: ${props => props.color};
+    background: linear-gradient(
+        164.17deg,
+        ${props => props.color1} 0%,
+        ${props => props.color2} 100%
+    );
     min-height: 150px;
     text-align: center;
 `;
@@ -27,7 +31,7 @@ const SolutionSummary = ({ solution }) => {
     //console.log(solution);
     return (
         <Link to={solution.fields.slug}>
-            <SummaryContainer color={solution.frontmatter.color}>
+            <SummaryContainer {...solution.frontmatter}>
                 <SolutionTitle>
                     {solution.frontmatter.title} <span>&rarr;</span>
                 </SolutionTitle>

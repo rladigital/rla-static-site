@@ -55,8 +55,8 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        color
-                        icon
+                        color1
+                        color2
                         intro
                     }
                 }

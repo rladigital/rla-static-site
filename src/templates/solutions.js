@@ -67,6 +67,10 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 intro
+                color1
+                color2
+                description1
+                description2
             }
         }
     }
