@@ -1,13 +1,14 @@
 ---
 templateKey: news
 title: New CEO
-date: 2016-04-12T00:00:00+01:00
+date: 2016-04-11T23:00:00.000Z
 hero: /img/mike-smith.jpg
 intro: RLA are delighted to welcome Mike Smith as our new CEO
 sideHeading: >-
   Mike brings leadership experience from over 25 years at some major UK
   agencies. He has led brands across a broad range of sectors, with local
   market, regional and global remits.
+categroy: News
 galleryImages:
   - null
 ---
