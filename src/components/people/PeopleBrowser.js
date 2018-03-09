@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { TweenLite } from "gsap";
+import FAIcon from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../theme/theme";
 import { hexToInt, scale, random } from "../../helpers/helpers";
@@ -21,7 +22,8 @@ const Person = styled.div`
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
-    width: 1000px;
+    width: 200px;
+    cursor: pointer;
 `;
 
 const PersonImage = styled.div`
@@ -42,11 +44,26 @@ const PersonRole = styled.h4`
     white-space: nowrap;
 `;
 
+const Controls = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+`;
+
+const Control = styled.a`
+    font-size: 3em;
+    color: ${colors.white};
+    cursor: pointer;
+`;
+
 const Selected = styled.div`
     top: 50%;
     left: 50%;
+    width: 400px;
+    height: 400px;
     position: absolute;
-    border-radius 1000px;
+    border-radius 200px;
     background-size: cover;
     background-position: center;
     transform: translate(-50%, -50%);
@@ -89,7 +106,7 @@ const SelectedRole = styled.h1`
 const SelectedBiog = styled.div`
     position: relative;
     font-size: 14px;
-    padding: 5px 40px 50px;
+    padding: 5px 40px 30px;
 `;
 
 class PeopleBrowser extends React.Component {
@@ -135,7 +152,7 @@ class PeopleBrowser extends React.Component {
         let main = 1;
         let theta = Math.PI / count;
         let items = new Array();
-        let size = this.width / 2 - this.width / 3.5;
+        let size = 320;
 
         for (var i = 0; i < count; i++) {
             let angle =
@@ -205,7 +222,9 @@ class PeopleBrowser extends React.Component {
                                     transform: `scale(${this.getTransform(
                                         index
                                     )})`,
-                                    opacity: current == index ? 1 : 0
+                                    opacity: current == index ? 1 : 0,
+                                    pointerEvents:
+                                        current == index ? "auto" : "none"
                                 }}
                             >
                                 {row.map(({ node: person }, index) => {
@@ -243,8 +262,6 @@ class PeopleBrowser extends React.Component {
                 {selected && (
                     <Selected
                         style={{
-                            width: this.width / 4,
-                            height: this.width / 4,
                             backgroundImage: `url('${
                                 selected.frontmatter.profile
                             }')`
@@ -261,14 +278,23 @@ class PeopleBrowser extends React.Component {
                         </SelectedText>
                     </Selected>
                 )}
-                <div style={{ position: "absolute", zIndex: 99 }}>
-                    <button onClick={() => this.navigateChunk("prev")}>
-                        prev
-                    </button>
-                    <button onClick={() => this.navigateChunk("next")}>
-                        next
-                    </button>
-                </div>
+                <Controls>
+                    <Control
+                        className="fa-layers fa-fw"
+                        onClick={() => this.navigateChunk("next")}
+                    >
+                        <FAIcon icon="chevron-up" transform="shrink-8" />
+                        <FAIcon icon={["far", "circle"]} />
+                    </Control>
+
+                    <Control
+                        className="fa-layers fa-fw"
+                        onClick={() => this.navigateChunk("prev")}
+                    >
+                        <FAIcon icon="chevron-down" transform="shrink-8" />
+                        <FAIcon icon={["far", "circle"]} />
+                    </Control>
+                </Controls>
             </Container>
         );
     }

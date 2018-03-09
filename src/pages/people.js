@@ -41,7 +41,17 @@ export default class PeoplePage extends React.Component {
                 </Row>
 
                 <Row>
-                    <PeopleBrowser people={people} />
+                    <PeopleBrowser
+                        people={people
+                            .concat(people)
+                            .concat(people)
+                            .concat(people)
+                            .concat(people)
+                            .concat(people)
+                            .concat(people)
+                            .concat(people)}
+                        size={500}
+                    />
                 </Row>
             </div>
         );

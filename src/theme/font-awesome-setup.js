@@ -4,7 +4,9 @@ import {
     faMapMarkerAlt,
     faEnvelope,
     faPhone,
-    faBars
+    faBars,
+    faChevronUp,
+    faChevronDown
 } from "@fortawesome/fontawesome-free-solid";
 
 import { faCircle } from "@fortawesome/fontawesome-free-regular";
@@ -23,5 +25,7 @@ fontawesome.library.add(
     faBars,
     faFacebookF,
     faLinkedinIn,
-    faTwitter
+    faTwitter,
+    faChevronUp,
+    faChevronDown
 );

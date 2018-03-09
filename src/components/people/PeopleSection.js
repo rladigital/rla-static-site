@@ -13,14 +13,13 @@ if (serveStatic()) {
 
 const StyledP = styled.p`
     text-align: center;
-    padding: 30px 0 50px;
+    padding: 30px 0 0;
 `;
 
 class PeopleSection extends React.Component {
     render() {
         const { people } = this.props;
 
-        let full = people.concat(people);
         return (
             <SectionContainer>
                 <HeaderBlock>
@@ -41,10 +40,14 @@ class PeopleSection extends React.Component {
                 </Row>
 
                 <PeopleBrowser
-                    people={full
-                        .concat(full)
-                        .concat(full)
-                        .concat(full)}
+                    people={people
+                        .concat(people)
+                        .concat(people)
+                        .concat(people)
+                        .concat(people)
+                        .concat(people)
+                        .concat(people)
+                        .concat(people)}
                     size={500}
                 />
             </SectionContainer>
