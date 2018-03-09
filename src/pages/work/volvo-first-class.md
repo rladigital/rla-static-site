@@ -17,6 +17,7 @@ outcome: >-
   over the next three years.
 galleryImages:
   - /img/volvo-band-4-1.jpg
+  - /img/handshake-2.jpg
 client: Volvo
 ---
 
