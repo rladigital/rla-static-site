@@ -46,7 +46,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "clients"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Logo", name: "logo", widget: "image"}
-      - {label: "Background Colour", name: "color", widget: "string" required: false}
+      - {label: "Background Colour", name: "color", widget: "string", required: false}
       - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
   - name: "services"
     label: "Services"
