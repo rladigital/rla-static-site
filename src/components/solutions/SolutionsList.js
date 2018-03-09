@@ -50,16 +50,40 @@ export default class SolutionsList {
             this.orbs[i].random = random(-20, 20);
             this.orbs[i].alpha = 0;
 
-            // The orb
+            // The gradient texture
+            let stops = color.match(/#[0-9A-Fa-f]{6}/g);
+            let canvas = document.createElement("canvas");
+            let ctx = canvas.getContext("2d");
+            let gradientSize = current.size * 2;
+            let grd = ctx.createLinearGradient(0, 0, gradientSize, 0);
 
+            grd.addColorStop(0, stops[0]);
+            grd.addColorStop(1, stops[1]);
+
+            ctx.fillStyle = grd;
+            ctx.fillRect(0, 0, gradientSize, gradientSize);
+
+            let gradientTexture = PIXI.Texture.fromCanvas(canvas);
+            let gradientSprite = new PIXI.Sprite(gradientTexture);
+            gradientSprite.x = current.x - current.size;
+            gradientSprite.y = current.y - current.size;
+
+            console.log(current.size);
+
+            this.orbs[i].addChild(gradientSprite);
+
+            // The orb
             let orb = new PIXI.Graphics();
 
-            orb.beginFill(hexToInt(color));
+            orb.beginFill(0xffffff);
             orb.drawCircle(0, 0, current.size);
             orb.x = current.x;
             orb.y = current.y;
 
             this.orbs[i].addChild(orb);
+
+            // Mask gradient
+            gradientSprite.mask = orb;
 
             // The text
             let alignment = current.x >= this.width / 2 ? "left" : "right";
@@ -130,7 +154,6 @@ export default class SolutionsList {
             let midpointX = (startX + endX) / 2 + curve * angleY;
             let midpointY = (startY + endY) / 2 + curve * angleX;
 
-            console.log(current, "aaa", items[end]);
             if (
                 current.node.frontmatter.title &&
                 items[end].node.frontmatter.title
