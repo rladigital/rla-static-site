@@ -130,7 +130,11 @@ export default class SolutionsList {
             let midpointX = (startX + endX) / 2 + curve * angleY;
             let midpointY = (startY + endY) / 2 + curve * angleX;
 
-            if (current.title && items[end].title) {
+            console.log(current, "aaa", items[end]);
+            if (
+                current.node.frontmatter.title &&
+                items[end].node.frontmatter.title
+            ) {
                 this.lines[i]
                     .lineStyle(1, 0x5b709f)
                     .moveTo(startX, startY)
