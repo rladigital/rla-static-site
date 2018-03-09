@@ -98,7 +98,6 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contacts"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Group", name: "group", widget: "select", options: ["RLA", "Mission", "Other"]}
-      - {label: "Show on map", name: "showOnMap", widget: "boolean", default: false}      
       - {label: "Address", name: "address", widget: "markdown", required: false}      
       - {label: "Lead Contact Name", name: "contactName", widget: "string", required: false}
       - {label: "Lead Contact Image", name: "contactImage", widget: "image", required: false}

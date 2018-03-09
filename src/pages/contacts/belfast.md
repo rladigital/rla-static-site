@@ -2,6 +2,7 @@
 templateKey: contacts
 title: Belfast
 group: RLA
+showOnMap:
 address: |-
   4th floor, 
 
@@ -20,4 +21,3 @@ email: stephen.roycroft@rlaireland.com
 lat: 54.585136
 lng: -5.940712
 ---
-
