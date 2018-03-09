@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { StickyContainer, Sticky } from "react-sticky";
 import * as PIXI from "pixi.js";
+import video from "../../videos/video.mp4";
 
 import { colors } from "../../theme/theme";
 import { hexToInt } from "../../helpers/helpers";
@@ -55,7 +56,6 @@ class SolutionsSection extends React.Component {
     componentDidMount() {
         let logoPadding = 16;
         let backgroundColor = "ffffff";
-        let videoURL = "/video.mp4";
         let { solutions, font } = this.props;
         let logoMaxWidth = 1416;
 
@@ -81,7 +81,7 @@ class SolutionsSection extends React.Component {
             logo,
             logoPadding,
             logoMaxWidth,
-            videoURL
+            video
         );
         this.app.stage.addChild(this.video.group());
 
