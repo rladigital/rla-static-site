@@ -3,6 +3,7 @@ templateKey: news
 title: Innovation Through Inspiration
 date: 2015-09-28T23:00:00.000Z
 hero: /img/handshake-2.jpg
+thumb: /img/handshake-2.jpg
 intro: >-
   We love solving problems, it’s what fires us up and inspires fresh and
   original thinking.
@@ -16,6 +17,7 @@ tags:
   - Inspiration
 galleryImages:
   - null
+author: Tom Lawton
 ---
 
 Joel Gibbard, a 25-year-old robotics engineer who graduated from Plymouth

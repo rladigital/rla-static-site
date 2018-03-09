@@ -3,6 +3,7 @@ templateKey: news
 title: New CEO
 date: 2016-04-11T23:00:00.000Z
 hero: /img/mike-smith.jpg
+thumb: /img/mike-smith.jpg
 intro: RLA are delighted to welcome Mike Smith as our new CEO
 sideHeading: >-
   Mike brings leadership experience from over 25 years at some major UK
@@ -11,6 +12,7 @@ sideHeading: >-
 category: News
 galleryImages:
   - null
+author: Tom Lawton
 ---
 
 Mike joins us from Innocean UK, where he was the General Manager responsible for doubling the agency’s size, as well as the principal lead for their Hyundai and Kia accounts.

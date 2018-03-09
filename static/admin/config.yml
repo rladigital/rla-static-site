@@ -15,11 +15,15 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Thumbnail Image", name: "thumb", widget: "image"}
+      - {label: "Logo", name: "logo", widget: "image", required: false}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Project Description", name: "project", widget: "markdown"}
       - {label: "Outcome Description", name: "outcome", widget: "markdown"}
       - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
-      - {label: "Client", name: "client", widget: "relation", collection: "clients", searchFields: ["title"], valueField: "title"}
+      - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
+      - {label: "Weighting", name: "weighting", widget: "number", default: 0, min: 0, max: 100}
+
   - name: "solutions"
     label: "Solutions"
     folder: "src/pages/solutions"
@@ -29,9 +33,10 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "solutions"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Intro Heading", name: "intro", widget: "string"}
-      - {label: "Description", name: "body", widget: "markdown"}
-      - {label: "Colour", name: "color", widget: "string"}
-      - {label: "Icon", name: "icon", widget: "image"}
+      - {label: "Description Part 1", name: "description1", widget: "markdown"}
+      - {label: "Description Part 2", name: "description2", widget: "markdown"}
+      - {label: "Colour 1", name: "color1", widget: "string"}
+      - {label: "Colour 2", name: "color2", widget: "string"}
   - name: "clients"
     label: "Clients"
     folder: "src/pages/clients"
@@ -41,11 +46,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "clients"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Logo", name: "logo", widget: "image"}
-      - {label: "Hero Image", name: "hero", widget: "image"}
-      - {label: "Intro Heading", name: "intro", widget: "string"}
-      - {label: "Project Description", name: "project", widget: "markdown"}
-      - {label: "Outcome Description", name: "outcome", widget: "markdown"}
-      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
+      - {label: "Background Colour", name: "color", widget: "string", required: false}
       - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
   - name: "services"
     label: "Services"
@@ -66,12 +67,15 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Thumbnail Image", name: "thumb", widget: "image"}
       - {label: "Category", name: "category", widget: "select", options: ["News", "Insight"]}
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Side Heading", name: "sideHeading", widget: "string"}
       - {label: "Story", name: "body", widget: "markdown"}
       - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
+      - {label: "Author", name: "author", widget: "relation", collection: "people", searchFields: ["title"], valueField: "title"}
+
   - name: "people"
     label: "People"
     folder: "src/pages/people"
@@ -81,8 +85,11 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "people"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Role", name: "role", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Description", name: "body", widget: "markdown"}
       - {label: "Profile", name: "profile", widget: "image", default: "/img/missing_avatar.svg"}
+      - {label: "LinkedIn", name: "linkedIn", widget: "string", required: false}
+      - {label: "Twitter", name: "twitter", widget: "string", required: false}
   - name: "contacts"
     label: "Contacts"
     folder: "src/pages/contacts"
@@ -92,12 +99,12 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contacts"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Group", name: "group", widget: "select", options: ["RLA", "Mission", "Other"]}
-      - {label: "Address", name: "address", widget: "markdown"}      
-      - {label: "Lead Contact Name", name: "contactName", widget: "string"}
-      - {label: "Lead Contact Image", name: "contactImage", widget: "image"}
-      - {label: "Lead Contact Role", name: "contactRole", widget: "string"}
-      - {label: "Tel", name: "tel", widget: "string"}
-      - {label: "Email", name: "email", widget: "string"}
-      - {label: "Latitude", name: "lat", widget: "number"}
-      - {label: "Longitude", name: "lng", widget: "number"}
+      - {label: "Address", name: "address", widget: "markdown", required: false}      
+      - {label: "Lead Contact Name", name: "contactName", widget: "string", required: false}
+      - {label: "Lead Contact Image", name: "contactImage", widget: "image", required: false}
+      - {label: "Lead Contact Role", name: "contactRole", widget: "string", required: false}
+      - {label: "Tel", name: "tel", widget: "string", required: false}
+      - {label: "Email", name: "email", widget: "string", required: false}
+      - {label: "Latitude", name: "lat", widget: "number", required: false}
+      - {label: "Longitude", name: "lng", widget: "number", required: false}
 

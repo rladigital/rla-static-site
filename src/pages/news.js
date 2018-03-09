@@ -84,7 +84,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        hero
+                        thumb
                         category
                     }
                 }

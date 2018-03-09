@@ -141,8 +141,8 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        color
-                        icon
+                        color1
+                        color2
                         intro
                     }
                 }
@@ -150,6 +150,7 @@ export const pageQuery = graphql`
         }
         news: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "news" } } }
+            limit: 2
         ) {
             edges {
                 node {
@@ -160,7 +161,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        hero
+                        thumb
                         category
                     }
                 }
