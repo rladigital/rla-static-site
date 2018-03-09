@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: Innovation Through Inspiration
-date: 2015-09-29T00:00:00+01:00
+date: 2015-09-28T23:00:00.000Z
 hero: /img/handshake-2.jpg
 intro: >-
   We love solving problems, it’s what fires us up and inspires fresh and
@@ -10,6 +10,10 @@ sideHeading: >-
   Inspiration is an essential part of the creative process. The most relevant
   and disruptive products and solutions are the ones that are inspired by real
   life situations, events or problems.
+categroy: Insight
+tags:
+  - Innovation
+  - Inspiration
 galleryImages:
   - null
 ---
