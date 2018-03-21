@@ -218,6 +218,7 @@ class PeopleBrowser extends React.Component {
                     data.map((row, index) => {
                         return (
                             <PersonGroup
+                                key={index}
                                 style={{
                                     transform: `scale(${this.getTransform(
                                         index

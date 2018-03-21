@@ -25,7 +25,7 @@ const WorkTitle = styled.h5`
 `;
 
 const WorkSummary = ({ work }) => {
-    console.log(work);
+    //console.log(work);
     return (
         <Link to={work.fields.slug}>
             <SummaryContainer backgroundImage={work.frontmatter.thumb}>
