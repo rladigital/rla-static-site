@@ -12,7 +12,6 @@ export default class SolutionsPage extends React.Component {
         const {
             data: { allMarkdownRemark: { edges: solutions }, transition }
         } = this.props;
-        //console.log(work);
         return (
             <div style={transition && transition.style}>
                 <Row>

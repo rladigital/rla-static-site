@@ -2,6 +2,7 @@
 /* globals window CustomEvent */
 import React, { createElement } from "react";
 import { Transition } from "react-transition-group";
+import WebFont from "webfontloader";
 import createHistory from "history/createBrowserHistory";
 
 import getTransitionStyle from "./src/utils/getTransitionStyle";
@@ -29,7 +30,8 @@ class ReplaceComponentRenderer extends React.Component {
         this.state = {
             exiting: false,
             nextPageResources: {},
-            scrolltop: true
+            scrolltop: true,
+            font: false
         };
         this.listenerHandler = this.listenerHandler.bind(this);
     }
@@ -54,6 +56,21 @@ class ReplaceComponentRenderer extends React.Component {
     componentDidMount() {
         window.addEventListener(historyExitingEventType, this.listenerHandler);
         window.addEventListener("scroll", () => this.handleScroll());
+
+        // Load web font
+        WebFont.load({
+            google: {
+                families: ["Montserrat:400,700,900", "sans-serif"]
+            },
+
+            active: () => {
+                this.setState({ font: "Montserrat" });
+            },
+
+            inactive: () => {
+                this.setState({ font: "Arial" });
+            }
+        });
     }
 
     componentWillUnmount() {
@@ -92,7 +109,8 @@ class ReplaceComponentRenderer extends React.Component {
                             style: getTransitionStyle({ status, timeout }),
                             nextPageResources: this.state.nextPageResources
                         },
-                        scrolltop: this.state.scrolltop
+                        scrolltop: this.state.scrolltop,
+                        font: this.state.font
                     })
                 }
             </Transition>

@@ -12,7 +12,6 @@ if (serveStatic()) {
     var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
     var ServicesSection = require("../components/services/ServicesSectionStatic");
 } else {
-    var WebFont = require("webfontloader");
     var SolutionsSection = require("../components/solutions/SolutionsSection");
     var ServicesSection = require("../components/services/ServicesSection");
 }
@@ -21,8 +20,7 @@ export default class IndexPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hasMounted: false,
-            font: false
+            hasMounted: false
         };
     }
     handleScriptLoad() {
@@ -39,28 +37,10 @@ export default class IndexPage extends React.Component {
     }
     componentDidMount() {
         this.setState({ hasMounted: true });
-
-        // Load web font
-        if (WebFont) {
-            WebFont.load({
-                google: {
-                    families: ["Montserrat:400,700,900", "sans-serif"]
-                },
-
-                active: () => {
-                    this.setState({ font: "Montserrat" });
-                },
-
-                inactive: () => {
-                    this.setState({ font: "Arial" });
-                }
-            });
-        }
     }
 
     render() {
-        const { font } = this.state;
-        const { data, scrolltop } = this.props;
+        const { data, scrolltop, font } = this.props;
         const {
             clients: { edges: clients },
             solutions: { edges: solutions },

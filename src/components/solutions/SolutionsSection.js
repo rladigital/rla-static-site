@@ -143,7 +143,6 @@ class SolutionsSection extends React.Component {
 
     render() {
         const { font, scrolltop } = this.props;
-        console.log(this.props);
         return (
             <StickyContainer style={{ height: this.height * 2.5 }}>
                 <Sticky>
