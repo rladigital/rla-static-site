@@ -17,8 +17,6 @@ import SiteHeader from "../components/SiteHeader";
 
 import Footer from "../components/Footer";
 
-let isHome = Boolean(location.pathname == "/");
-
 class TemplateWrapper extends React.Component {
     constructor(props) {
         super(props);
@@ -48,11 +46,7 @@ class TemplateWrapper extends React.Component {
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>
                     <Helmet title="RLA" />
-                    <SiteHeader
-                        location={location}
-                        scrolltop={scrolltop}
-                        isHome={isHome}
-                    />
+                    <SiteHeader location={location} scrolltop={scrolltop} />
                     <div>
                         {children({ ...this.props, scrolltop: scrolltop })}
                     </div>
