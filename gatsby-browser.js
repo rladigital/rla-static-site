@@ -26,7 +26,11 @@ exports.replaceHistory = () => history;
 class ReplaceComponentRenderer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { exiting: false, nextPageResources: {} };
+        this.state = {
+            exiting: false,
+            nextPageResources: {},
+            scrolltop: true
+        };
         this.listenerHandler = this.listenerHandler.bind(this);
     }
 
@@ -39,8 +43,17 @@ class ReplaceComponentRenderer extends React.Component {
         this.setState({ exiting: true, nextPageResources });
     }
 
+    handleScroll() {
+        const scrolltop = !Boolean(window.scrollY > 0);
+
+        if (scrolltop != this.state.scrolltop) {
+            this.setState({ scrolltop: scrolltop });
+        }
+    }
+
     componentDidMount() {
         window.addEventListener(historyExitingEventType, this.listenerHandler);
+        window.addEventListener("scroll", () => this.handleScroll());
     }
 
     componentWillUnmount() {
@@ -48,6 +61,7 @@ class ReplaceComponentRenderer extends React.Component {
             historyExitingEventType,
             this.listenerHandler
         );
+        window.removeEventListener("scroll", () => this.handleScroll());
     }
 
     componentWillReceiveProps(nextProps) {
@@ -77,7 +91,8 @@ class ReplaceComponentRenderer extends React.Component {
                             timeout,
                             style: getTransitionStyle({ status, timeout }),
                             nextPageResources: this.state.nextPageResources
-                        }
+                        },
+                        scrolltop: this.state.scrolltop
                     })
                 }
             </Transition>

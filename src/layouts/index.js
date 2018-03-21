@@ -24,33 +24,17 @@ class TemplateWrapper extends React.Component {
             scrolltop: true
         };
     }
-    componentDidMount() {
-        !serveStatic() &&
-            window.addEventListener("scroll", () => this.handleScroll());
-    }
-    componentWillUnmount() {
-        !serveStatic() &&
-            window.removeEventListener("scroll", () => this.handleScroll());
-    }
-    handleScroll() {
-        const scrolltop = !Boolean(window.scrollY > 0);
 
-        if (scrolltop != this.state.scrolltop) {
-            this.setState({ scrolltop: scrolltop });
-        }
-    }
     render() {
         const { scrolltop } = this.state;
-        const { children, data, location } = this.props;
+        const { children, ...rest } = this.props;
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>
                     <Helmet title="RLA" />
-                    <SiteHeader location={location} scrolltop={scrolltop} />
-                    <div>
-                        {children({ ...this.props, scrolltop: scrolltop })}
-                    </div>
-                    <Footer data={data} />
+                    <SiteHeader location={this.props.location} />
+                    <div>{children()}</div>
+                    <Footer data={this.props.data} />
                 </div>
             </ThemeProvider>
         );
