@@ -29,7 +29,7 @@ export const ClientTemplate = ({ logo, color, solutions, title, helmet }) => {
                 {solutions.map((solution, index) => {
                     return (
                         <Column medium={4} key={index}>
-                            {solution.frontmatter.title}
+                            {soloutuin && solution.frontmatter.title}
                         </Column>
                     );
                 })}
