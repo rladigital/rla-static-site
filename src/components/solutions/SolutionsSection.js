@@ -1,8 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
 import { StickyContainer, Sticky } from "react-sticky";
 import * as PIXI from "pixi.js";
+import FAIcon from "@fortawesome/react-fontawesome";
+import Transition from "react-transition-group/Transition";
+
 import video from "../../videos/video.mp4";
 
 import { colors } from "../../theme/theme";
@@ -14,6 +17,50 @@ import SectionContainer from "../SectionContainer";
 
 import Video from "./SolutionsVideo";
 
+const duration = 300;
+
+const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0
+};
+
+const transitionStyles = {
+    entering: { opacity: 0 },
+    entered: { opacity: 1 }
+};
+
+const Fade = ({ in: inProp }) => (
+    <Transition in={inProp} timeout={duration}>
+        {state => (
+            <ScrollDown
+                style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }}
+            >
+                <ScrollDownText />
+                <Chevron />
+            </ScrollDown>
+        )}
+    </Transition>
+);
+
+const fadeDown = keyframes`
+  0%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+`;
+
 let Canvas = styled.div`
     width: 100%;
     height: 100%;
@@ -24,6 +71,30 @@ let logo = new DOMParser().parseFromString(
 `,
     "image/svg+xml"
 );
+
+let ScrollDown = styled.div`
+    width: 100%;
+    bottom: 0;
+    padding: 50px;
+    position: fixed;
+    text-align: center;
+    pointer-events: none;
+    color: ${colors.background};
+`;
+
+const Chevron = styled(FAIcon).attrs({
+    icon: "chevron-down"
+})`
+    animation: ${fadeDown} 2s linear infinite;
+`;
+
+const ScrollDownText = styled.p.attrs({
+    children: "Scroll Down"
+})`
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+`;
 
 //#082748
 class SolutionsSection extends React.Component {
@@ -99,7 +170,7 @@ class SolutionsSection extends React.Component {
     }
 
     render() {
-        const { font } = this.props;
+        const { font, scrolltop } = this.props;
         return (
             <StickyContainer style={{ height: this.height * 2.5 }}>
                 <Sticky>
@@ -114,6 +185,7 @@ class SolutionsSection extends React.Component {
                         );
                     }}
                 </Sticky>
+                {font && scrolltop && <Fade />}
             </StickyContainer>
         );
     }

@@ -60,7 +60,7 @@ export default class IndexPage extends React.Component {
 
     render() {
         const { font } = this.state;
-        const { data } = this.props;
+        const { data, scrolltop } = this.props;
         const {
             clients: { edges: clients },
             solutions: { edges: solutions },
@@ -77,7 +77,11 @@ export default class IndexPage extends React.Component {
                 />
                 {this.state.hasMounted && (
                     <div>
-                        <SolutionsSection solutions={solutions} font={font} />
+                        <SolutionsSection
+                            solutions={solutions}
+                            font={font}
+                            scrolltop={scrolltop}
+                        />
                         <ClientsSection clients={clients} />
                         {font && (
                             <ServicesSection services={services} font={font} />

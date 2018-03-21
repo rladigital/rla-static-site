@@ -8,6 +8,8 @@ import merge from "lodash/merge";
 require("../theme/font-awesome-setup");
 import customTheme from "../theme/theme";
 import globalCss from "../theme/globalCss";
+import { serveStatic } from "../helpers/helpers";
+
 //Add Global CSS
 injectGlobal`${globalCss(customTheme)}`;
 
@@ -15,16 +17,51 @@ import SiteHeader from "../components/SiteHeader";
 
 import Footer from "../components/Footer";
 
-const TemplateWrapper = ({ children, data, location }) => (
-    <ThemeProvider theme={merge(Theme, customTheme)}>
-        <div>
-            <Helmet title="RLA" />
-            <SiteHeader location={location} />
-            <div>{children()}</div>
-            <Footer data={data} />
-        </div>
-    </ThemeProvider>
-);
+let isHome = Boolean(location.pathname == "/");
+
+class TemplateWrapper extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            scrolltop: true
+        };
+    }
+    componentDidMount() {
+        !serveStatic() &&
+            window.addEventListener("scroll", () => this.handleScroll());
+    }
+    componentWillUnmount() {
+        !serveStatic() &&
+            window.removeEventListener("scroll", () => this.handleScroll());
+    }
+    handleScroll() {
+        const scrolltop = !Boolean(window.scrollY > 0);
+
+        if (scrolltop != this.state.scrolltop) {
+            this.setState({ scrolltop: scrolltop });
+        }
+    }
+    render() {
+        const { scrolltop } = this.state;
+        const { children, data, location } = this.props;
+        return (
+            <ThemeProvider theme={merge(Theme, customTheme)}>
+                <div>
+                    <Helmet title="RLA" />
+                    <SiteHeader
+                        location={location}
+                        scrolltop={scrolltop}
+                        isHome={isHome}
+                    />
+                    <div>
+                        {children({ ...this.props, scrolltop: scrolltop })}
+                    </div>
+                    <Footer data={data} />
+                </div>
+            </ThemeProvider>
+        );
+    }
+}
 
 TemplateWrapper.propTypes = {
     children: PropTypes.func
