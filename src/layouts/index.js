@@ -28,6 +28,7 @@ class TemplateWrapper extends React.Component {
     render() {
         const { scrolltop } = this.state;
         const { children, ...rest } = this.props;
+        console.log("bbb", this.props);
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>

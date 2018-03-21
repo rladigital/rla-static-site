@@ -284,7 +284,7 @@ export default class SolutionsList {
 
     scroll(scroll) {
         let scale = Math.max(0, 1 - scroll / this.height);
-        this.triggered = scale > 0.01 ? false : true;
+        this.triggered = scale > 0.3 ? false : true;
 
         if (this.triggered) {
             // Trigger title
