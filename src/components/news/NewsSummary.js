@@ -52,7 +52,7 @@ const NewsTitle = styled.h3`
 `;
 
 const NewsSummary = ({ story, minHeight }) => {
-    console.log(story);
+    //console.log(story);
     return (
         <Link to={story.fields.slug}>
             <SummaryContainer

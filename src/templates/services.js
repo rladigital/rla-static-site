@@ -38,7 +38,7 @@ export const ServiceTemplate = ({
 };
 
 export default ({ data }) => {
-    console.log(data);
+    //console.log(data);
     const { markdownRemark: service } = data;
     return (
         <ServiceTemplate

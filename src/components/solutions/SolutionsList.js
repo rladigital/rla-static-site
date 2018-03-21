@@ -1,14 +1,7 @@
-import {
-    TweenLite,
-    Elastic
-} from "gsap";
+import { TweenLite, Elastic } from "gsap";
 import * as PIXI from "pixi.js";
 
-import {
-    scale,
-    random,
-    hexToInt
-} from "../../helpers/helpers";
+import { scale, random, hexToInt } from "../../helpers/helpers";
 
 export default class SolutionsList {
     constructor(width, height, items) {
@@ -49,11 +42,7 @@ export default class SolutionsList {
         // The Dot
         for (var i = 0; i < items.length; i++) {
             let current = items[i];
-            let {
-                title,
-                color1,
-                color2
-            } = current.node.frontmatter;
+            let { title, color1, color2 } = current.node.frontmatter;
 
             this.orbs[i] = new PIXI.Container();
             this.orbs[i].fixedX = 0;
@@ -79,7 +68,7 @@ export default class SolutionsList {
             gradientSprite.x = current.x - current.size;
             gradientSprite.y = current.y - current.size;
 
-            console.log(current.size);
+            //console.log(current.size);
 
             this.orbs[i].addChild(gradientSprite);
 
@@ -114,9 +103,9 @@ export default class SolutionsList {
 
             let margin = scale(20);
             let x =
-                alignment == "left" ?
-                current.x + current.size + margin :
-                current.x - richText.width - current.size - margin;
+                alignment == "left"
+                    ? current.x + current.size + margin
+                    : current.x - richText.width - current.size - margin;
             let y = current.y - richText.height / 2;
 
             richText.x = x;

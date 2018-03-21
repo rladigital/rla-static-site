@@ -196,7 +196,7 @@ class PeopleBrowser extends React.Component {
     }
 
     handleSelect(person) {
-        console.log(person);
+        //console.log(person);
         this.setState({ selected: person });
     }
 
