@@ -4,7 +4,6 @@ import { Row, Column } from "rla-components";
 import { StickyContainer, Sticky } from "react-sticky";
 import * as PIXI from "pixi.js";
 import FAIcon from "@fortawesome/react-fontawesome";
-import Transition from "react-transition-group/Transition";
 
 import video from "../../videos/video.mp4";
 
@@ -16,34 +15,6 @@ import SolutionsList from "./SolutionsList";
 import SectionContainer from "../SectionContainer";
 
 import Video from "./SolutionsVideo";
-
-const duration = 300;
-
-const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-    opacity: 0
-};
-
-const transitionStyles = {
-    entering: { opacity: 0 },
-    entered: { opacity: 1 }
-};
-
-const Fade = ({ in: inProp }) => (
-    <Transition in={inProp} timeout={duration}>
-        {state => (
-            <ScrollDown
-                style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state]
-                }}
-            >
-                <ScrollDownText />
-                <Chevron />
-            </ScrollDown>
-        )}
-    </Transition>
-);
 
 const fadeDown = keyframes`
   0%{
@@ -80,6 +51,7 @@ let ScrollDown = styled.div`
     text-align: center;
     pointer-events: none;
     color: ${colors.background};
+    transition: opacity 1s;
 `;
 
 const Chevron = styled(FAIcon).attrs({
@@ -171,6 +143,7 @@ class SolutionsSection extends React.Component {
 
     render() {
         const { font, scrolltop } = this.props;
+        console.log(this.props);
         return (
             <StickyContainer style={{ height: this.height * 2.5 }}>
                 <Sticky>
@@ -185,7 +158,15 @@ class SolutionsSection extends React.Component {
                         );
                     }}
                 </Sticky>
-                {font && scrolltop && <Fade />}
+
+                <ScrollDown
+                    style={{
+                        opacity: font && scrolltop ? 1 : 0
+                    }}
+                >
+                    <ScrollDownText />
+                    <Chevron />
+                </ScrollDown>
             </StickyContainer>
         );
     }

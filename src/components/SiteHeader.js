@@ -26,8 +26,32 @@ const Icon = styled(FAIcon)`
 `;
 
 class SiteHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            scrolltop: true
+        };
+    }
+
+    componentDidMount() {
+        window.addEventListener("scroll", () => this.handleScroll());
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", () => this.handleScroll());
+    }
+
+    handleScroll() {
+        const scrolltop = !Boolean(window.scrollY > 0);
+
+        if (scrolltop != this.state.scrolltop) {
+            this.setState({ scrolltop: scrolltop });
+        }
+    }
+
     render() {
-        const { location, scrolltop } = this.props;
+        const { scrolltop } = this.state;
+        const { location } = this.props;
         let isHome = Boolean(location && location.pathname == "/");
 
         return (
