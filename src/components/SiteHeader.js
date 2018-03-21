@@ -28,7 +28,7 @@ const Icon = styled(FAIcon)`
 class SiteHeader extends React.Component {
     render() {
         const { location, scrolltop } = this.props;
-        let isHome = Boolean(location.pathname == "/");
+        let isHome = Boolean(location && location.pathname == "/");
 
         return (
             <div>
