@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { spacing, colors } from "../theme/theme";
 import { Row, Column } from "rla-components";
 import FAIcon from "@fortawesome/react-fontawesome";
+import Scrollbars from "react-custom-scrollbars";
 
 const Overlay = styled.div`
     width: 100%;
@@ -61,24 +62,26 @@ class Offcanvas extends React.Component {
             return (
                 <Overlay>
                     <Menu>
-                        <Section padding={1.45}>
-                            <CloseIcon onClick={toggleOffcanvas()} />
-                        </Section>
-                        <Section padding={3}>
-                            {items.map((item, index) => {
-                                return (
-                                    <Item>
-                                        <StyledLink to={item.to}>
-                                            {item.text}
-                                        </StyledLink>
-                                    </Item>
-                                );
-                            })}
-                        </Section>
-                        <Section padding={3}>
-                            <Item>Connected Ambition</Item>
-                            <Item>Play Show Reel</Item>
-                        </Section>
+                        <Scrollbars>
+                            <Section padding={1.45}>
+                                <CloseIcon onClick={toggleOffcanvas()} />
+                            </Section>
+                            <Section padding={3}>
+                                {items.map((item, index) => {
+                                    return (
+                                        <Item>
+                                            <StyledLink to={item.to}>
+                                                {item.text}
+                                            </StyledLink>
+                                        </Item>
+                                    );
+                                })}
+                            </Section>
+                            <Section padding={3}>
+                                <Item>Connected Ambition</Item>
+                                <Item>Play Show Reel</Item>
+                            </Section>
+                        </Scrollbars>
                     </Menu>
                 </Overlay>
             );
