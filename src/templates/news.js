@@ -55,7 +55,7 @@ export const NewsTemplate = ({
                     </Column>
                     <Column medium={4}>
                         <SidebarDate date={date} />
-                        {author.title}
+                        {author.frontmatter.title}
                         <PullQuote>{sideHeading}</PullQuote>
 
                         {galleryImages.map((image, index) => {
@@ -127,7 +127,11 @@ export const pageQuery = graphql`
                 sideHeading
                 project
                 galleryImages
-                author
+                author {
+                    frontmatter {
+                        title
+                    }
+                }
             }
         }
     }

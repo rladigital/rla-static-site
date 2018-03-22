@@ -2,6 +2,9 @@ module.exports = {
     siteMetadata: {
         title: "RLA Website"
     },
+    mapping: {
+        "MarkdownRemark.frontmatter.author": `MarkdownRemark.frontmatter.title`
+    },
     plugins: [
         "gatsby-plugin-react-helmet",
         {
