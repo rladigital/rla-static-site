@@ -9,8 +9,8 @@ import { colors } from "../../theme/theme";
 import SectionContainer from "../SectionContainer";
 
 const HeaderContainer = styled.div`
-    padding: 2rem 0;
-    height: ${props => props.minHeight}vw;
+    padding: 4vw 0;
+    height: 25vw;
 `;
 
 class NewsSection extends React.Component {
@@ -22,10 +22,10 @@ class NewsSection extends React.Component {
                 background={colors.white}
                 padding="0"
             >
-                <Row>
-                    <Column medium={6} collapse>
-                        <Row>
-                            <HeaderContainer minHeight={20}>
+                <div style={{ position: "absolute", width: "100%" }}>
+                    <Row>
+                        <Column medium={6}>
+                            <HeaderContainer>
                                 <HeaderBlock
                                     baseColor={colors.background}
                                     fontSize={5}
@@ -33,7 +33,7 @@ class NewsSection extends React.Component {
                                     padding={{
                                         top: 1,
                                         right: 0,
-                                        bottom: 2,
+                                        bottom: 1,
                                         left: 0
                                     }}
                                 >
@@ -49,15 +49,23 @@ class NewsSection extends React.Component {
                                     </Button>
                                 </Link>
                             </HeaderContainer>
+                        </Column>
+                    </Row>
+                </div>
+
+                <Row expanded collapse>
+                    <Column medium={6} collapse>
+                        <Row>
+                            <HeaderContainer />
                         </Row>
 
                         {news[0] && (
-                            <NewsSummary story={news[0].node} minHeight={20} />
+                            <NewsSummary story={news[0].node} height={25} />
                         )}
                     </Column>
                     <Column medium={6} collapse>
                         {news[1] && (
-                            <NewsSummary story={news[1].node} minHeight={40} />
+                            <NewsSummary story={news[1].node} height={50} />
                         )}
                     </Column>
                 </Row>

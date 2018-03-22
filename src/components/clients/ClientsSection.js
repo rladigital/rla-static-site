@@ -16,7 +16,7 @@ const StyledButton = Button.extend`
 const StyledP = styled.p`
     font-size: 14px;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 `;
 
 class ClientsSection extends React.Component {
@@ -35,7 +35,7 @@ class ClientsSection extends React.Component {
                                 padding={{
                                     top: 4,
                                     right: 0,
-                                    bottom: 4,
+                                    bottom: 2,
                                     left: 0
                                 }}
                                 fontSize={3}
@@ -55,10 +55,10 @@ class ClientsSection extends React.Component {
                             </StyledP>
                         </Column>
                     </Row>
-                    <Row>
+                    <Row expanded collapse>
                         {clients.slice(0, 6).map(({ node: client }, index) => {
                             return (
-                                <Column medium={4} key={index}>
+                                <Column medium={4} key={index} collapse>
                                     <ClientSummary
                                         client={client}
                                         height={24}

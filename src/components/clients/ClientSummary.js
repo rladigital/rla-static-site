@@ -2,53 +2,63 @@ import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
+import { breakpoints } from "../../theme/theme";
+
 const SummaryContainer = styled.section`
-    height: ${props => props.height}vw;
+    height: 33.33vw;
     position: relative;
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
     background-position: center;
-    min-height: 150px;
-    text-align: center;
 `;
 
-const ClientTitle = styled.h5`
+const TitleBackground = styled.div`
     position: absolute;
     margin: 0;
-    padding: 0.5rem;
-    max-width: 90%;
+    width: 100%;
+    min-height: 35%;
     bottom: 0;
-    color: ${props => props.theme.darkColor};
-    background: ${props => props.theme.lightColor};
-    font-size: 0.8rem;
-    z-index: 2;
-    span {
-        color: ${props => props.theme.anchor.color};
-    }
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.9) 90%
+    );
 `;
 
-// const ClientTitle = styled.div`
-//     left: 0;
-//     bottom: 0;
-//     z-index: 1;
-//     font-size: 22px;
-//     font-weight: 900;
-//     position: absolute;
-//     text-transform: uppercase;
-//     color: ${props => props.theme.lightColor};
-//     padding: ${props => props.theme.spacing.padding}em;
-// `;
+const TitleContainer = styled.div`
+    text-align: left;
+    position: absolute;
+    margin: 0;
+    padding: 3rem;
+    width: 100%;
+    bottom: 0;
+`;
 
-const ClientSummary = ({ client, height }) => {
+const Category = styled.h5`
+    display: inline-block;
+    padding: 0.5rem;
+    color: ${props => props.theme.lightColor};
+    margin-bottom: 0.5rem;
+    background: ${props => props.theme.accent};
+`;
+
+const Title = styled.h3`
+    margin: 0;
+    max-width: 90%;
+    margin-top: 0;
+    color: ${props => props.theme.lightColor};
+    font-weight: 900;
+`;
+
+const ClientSummary = ({ client }) => {
     return (
         <Link to={client.fields.slug}>
-            <SummaryContainer
-                backgroundImage={client.frontmatter.logo}
-                height={height}
-            >
-                <ClientTitle>
-                    {client.frontmatter.title} <span>&rarr;</span>
-                </ClientTitle>
+            <SummaryContainer backgroundImage={client.frontmatter.hero}>
+                <TitleBackground>
+                    <TitleContainer>
+                        <Title>{client.frontmatter.title}</Title>
+                    </TitleContainer>
+                </TitleBackground>
             </SummaryContainer>
         </Link>
     );

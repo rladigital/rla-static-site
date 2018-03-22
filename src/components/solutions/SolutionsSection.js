@@ -133,7 +133,7 @@ class SolutionsSection extends React.Component {
     }
 
     handleScroll() {
-        this.video.resize(window.scrollY);
+        this.video.scroll(window.scrollY);
         this.SolutionsList.scroll(window.scrollY);
     }
 
