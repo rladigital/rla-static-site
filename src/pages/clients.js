@@ -2,18 +2,40 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
+import Carousel from "nuka-carousel";
 
 import theme from "../theme/theme";
 import ClientSummary from "../components/clients/ClientSummary";
 import HeaderBlock from "../components/HeaderBlock";
 
 export default class ClientsPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { currentSlide: 0 };
+    }
+    setSlide(x) {
+        console.log(x);
+        this.setState({ currentSlide: x });
+    }
     render() {
         const {
             data: { allMarkdownRemark: { edges: clients } },
             transition
         } = this.props;
         //console.log(clients);
+
+        const settings = {
+            slideWidth: "200px",
+            cellAlign: "center"
+        };
+
+        const temp = clients
+            .concat(clients)
+            .concat(clients)
+            .concat(clients)
+            .concat(clients)
+            .concat(clients);
+
         return (
             <div style={transition && transition.style}>
                 <Row>
@@ -28,13 +50,23 @@ export default class ClientsPage extends React.Component {
                 </Row>
 
                 <Row>
-                    {clients.map(({ node: client }, index) => {
-                        return (
-                            <Column medium={3} key={index}>
-                                <ClientSummary client={client} />
-                            </Column>
-                        );
-                    })}
+                    <Carousel
+                        {...settings}
+                        slideIndex={this.state.currentSlide}
+                    >
+                        {temp.map(({ node: client }, index) => {
+                            return (
+                                // <ClientSummary client={client} />
+                                <img
+                                    key={index}
+                                    src={`http://placehold.it/200x200/ffffff/c0392b/&text=${
+                                        client.frontmatter.title
+                                    } ${index}`}
+                                    onClick={() => this.setSlide(index)}
+                                />
+                            );
+                        })}
+                    </Carousel>
                 </Row>
             </div>
         );
