@@ -52,6 +52,8 @@ const CloseIcon = styled(FAIcon).attrs({
     icon: "times"
 })`
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 `;
 
 class Offcanvas extends React.Component {
