@@ -1,7 +1,7 @@
 const getTransitionStyles = timeout => {
     return {
         entering: {
-            opacity: 0
+            opacity: 1
         },
         entered: {
             transition: `opacity ${timeout}ms ease-in-out`,
