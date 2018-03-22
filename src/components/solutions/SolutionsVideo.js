@@ -101,7 +101,7 @@ export default class Video {
 
         return this.group;
     }
-    resize(scroll) {
+    scroll(scroll) {
         let scale = Math.max(0, 1 - scroll / this.height);
         let innerScale = scale + scroll / 3000;
 
