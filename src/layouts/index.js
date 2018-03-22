@@ -14,26 +14,52 @@ import { serveStatic } from "../helpers/helpers";
 injectGlobal`${globalCss(customTheme)}`;
 
 import SiteHeader from "../components/SiteHeader";
+import Offcanvas from "../components/Offcanvas";
 
 import Footer from "../components/Footer";
+
+const navigation = [
+    { to: "/solutions", text: "Solutions" },
+    { to: "/Work", text: "Work" },
+    { to: "/clients", text: "Clients" },
+    { to: "/people", text: "People" },
+    { to: "/news", text: "News" },
+    { to: "/contact", text: "Contact" }
+];
 
 class TemplateWrapper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            scrolltop: true
+            scrolltop: true,
+            offcanvasActive: false
         };
     }
 
+    toggleOffcanvas() {
+        this.setState({ offcanvasActive: !this.state.offcanvasActive });
+        console.log("test", this.state.offcanvasActive ? "active" : "closed");
+    }
+
     render() {
-        const { scrolltop } = this.state;
+        const { scrolltop, offcanvasActive } = this.state;
         const { children, ...rest } = this.props;
-        console.log("bbb", this.props);
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>
                     <Helmet title="RLA" />
-                    <SiteHeader location={this.props.location} />
+                    <SiteHeader
+                        items={navigation}
+                        location={this.props.location}
+                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
+                        offcanvasActive={offcanvasActive}
+                    />
+                    <Offcanvas
+                        items={navigation}
+                        active={true}
+                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
+                        offcanvasActive={offcanvasActive}
+                    />
                     <div>{children()}</div>
                     <Footer data={this.props.data} />
                 </div>

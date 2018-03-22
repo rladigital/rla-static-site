@@ -20,7 +20,10 @@ const HeaderContainer = styled.div`
     transition: padding 0.5s ease, color 0.5s ease, background 0.5s ease;
 `;
 
-const Icon = styled(FAIcon)`
+const MenuIcon = styled(FAIcon).attrs({
+    icon: "bars"
+})`
+    cursor: pointer;
     margin: ${spacing.padding}rem 0;
     float: right;
 `;
@@ -51,7 +54,7 @@ class SiteHeader extends React.Component {
 
     render() {
         const { scrolltop } = this.state;
-        const { location } = this.props;
+        const { location, items, toggleOffcanvas } = this.props;
         let isHome = Boolean(location && location.pathname == "/");
 
         return (
@@ -80,25 +83,21 @@ class SiteHeader extends React.Component {
                             </Link>
                         </Column>
                         <Column small={6} medium={9}>
-                            {true ? (
+                            {scrolltop && isHome ? (
                                 <SiteNav>
-                                    <SiteNavLink to="/solutions">
-                                        Solutions
-                                    </SiteNavLink>
-                                    <SiteNavLink to="/work">Work</SiteNavLink>
-                                    <SiteNavLink to="/clients">
-                                        Clients
-                                    </SiteNavLink>
-                                    <SiteNavLink to="/people">
-                                        People
-                                    </SiteNavLink>
-                                    <SiteNavLink to="/news">News</SiteNavLink>
-                                    <SiteNavLink to="/contact">
-                                        Contact
-                                    </SiteNavLink>
+                                    {items.map((item, index) => {
+                                        return (
+                                            <SiteNavLink to={item.to}>
+                                                {item.text}
+                                            </SiteNavLink>
+                                        );
+                                    })}
                                 </SiteNav>
                             ) : (
-                                <Icon icon="bars" />
+                                <MenuIcon
+                                    icon="bars"
+                                    onClick={toggleOffcanvas()}
+                                />
                             )}
                         </Column>
                     </Row>
