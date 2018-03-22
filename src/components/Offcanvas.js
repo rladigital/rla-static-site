@@ -62,7 +62,7 @@ class Offcanvas extends React.Component {
             return (
                 <Overlay>
                     <Menu>
-                        <Scrollbars>
+                        <Scrollbars autoHide>
                             <Section padding={1.45}>
                                 <CloseIcon onClick={toggleOffcanvas()} />
                             </Section>
