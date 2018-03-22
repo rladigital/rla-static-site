@@ -32,19 +32,19 @@ const ContactDetail = styled.li`
     }
 `;
 
-export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
+export default ({
+    data: { allMarkdownRemark: { edges: contacts } },
+    items
+}) => (
     <SectionContainer>
         <Row>
             <Column large={2}>
                 <img src={logo} alt="RLA" style={{ width: "120px" }} />
             </Column>
             <Column large={2}>
-                <StyledLink to="/solutions">Solutions</StyledLink>
-                <StyledLink to="/work">Work</StyledLink>
-                <StyledLink to="/clients">Clients</StyledLink>
-                <StyledLink to="/people">People</StyledLink>
-                <StyledLink to="/news">News</StyledLink>
-                <StyledLink to="/contact">Contact</StyledLink>
+                {items.map((item, index) => {
+                    return <StyledLink to={item.to}>{item.text}</StyledLink>;
+                })}
             </Column>
 
             {contacts

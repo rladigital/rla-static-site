@@ -19,7 +19,6 @@ import Offcanvas from "../components/Offcanvas";
 import Footer from "../components/Footer";
 
 const navigation = [
-    { to: "/solutions", text: "Solutions" },
     { to: "/Work", text: "Work" },
     { to: "/clients", text: "Clients" },
     { to: "/people", text: "People" },
@@ -61,7 +60,7 @@ class TemplateWrapper extends React.Component {
                         offcanvasActive={offcanvasActive}
                     />
                     <div>{children()}</div>
-                    <Footer data={this.props.data} />
+                    <Footer items={navigation} data={this.props.data} />
                 </div>
             </ThemeProvider>
         );
