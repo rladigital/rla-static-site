@@ -85,7 +85,7 @@ const theme = {
         padding: {
             top: 5,
             right: 0,
-            bottom: 5,
+            bottom: 2.5,
             left: 0
         }
     },

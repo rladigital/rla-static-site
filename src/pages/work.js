@@ -2,10 +2,19 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
+import styled from "styled-components";
 
-import theme from "../theme/theme";
+import theme, { colors } from "../theme/theme";
 import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
+
+const Container = styled.div`
+    padding: 3px 0;
+    margin: 0 -3px;
+    background: ${colors.white};
+`;
+
+const layouts = [6, 6, 3, 3, 6, 4, 4, 4, 6, 6];
 
 export default class WorkPage extends React.Component {
     render() {
@@ -14,6 +23,17 @@ export default class WorkPage extends React.Component {
             transition
         } = this.props;
         //console.log(work);
+
+        const temp = work
+            .concat(work)
+            .concat(work)
+            .concat(work)
+            .concat(work)
+            .concat(work)
+            .concat(work)
+            .concat(work)
+            .concat(work)
+            .concat(work);
         return (
             <div style={transition && transition.style}>
                 <Row>
@@ -27,15 +47,22 @@ export default class WorkPage extends React.Component {
                     </Column>
                 </Row>
 
-                <Row>
-                    {work.map(({ node: caseStudy }, index) => {
-                        return (
-                            <Column medium={3} key={index}>
-                                <WorkSummary work={caseStudy} />
-                            </Column>
-                        );
-                    })}
-                </Row>
+                <Container>
+                    <Row expanded collapse>
+                        {temp.map(({ node: caseStudy }, index) => {
+                            console.log("test", index);
+                            return (
+                                <Column
+                                    medium={layouts[index]}
+                                    key={index}
+                                    collapse
+                                >
+                                    <WorkSummary work={caseStudy} />
+                                </Column>
+                            );
+                        })}
+                    </Row>
+                </Container>
             </div>
         );
     }
@@ -55,6 +82,7 @@ export const pageQuery = graphql`
                     id
                     frontmatter {
                         title
+                        outcome
                         templateKey
                         thumb
                     }
