@@ -14,7 +14,7 @@ const Container = styled.div`
     background: ${colors.white};
 `;
 
-const layouts = [6, 6, 3, 3, 6, 4, 4, 4, 6, 6];
+const layouts = [6, 6, 3, 3, 6, 4, 4, 4];
 
 export default class WorkPage extends React.Component {
     render() {
@@ -24,16 +24,6 @@ export default class WorkPage extends React.Component {
         } = this.props;
         //console.log(work);
 
-        const temp = work
-            .concat(work)
-            .concat(work)
-            .concat(work)
-            .concat(work)
-            .concat(work)
-            .concat(work)
-            .concat(work)
-            .concat(work)
-            .concat(work);
         return (
             <div style={transition && transition.style}>
                 <Row>
@@ -49,11 +39,17 @@ export default class WorkPage extends React.Component {
 
                 <Container>
                     <Row expanded collapse>
-                        {temp.map(({ node: caseStudy }, index) => {
-                            console.log("test", index);
+                        {work.map(({ node: caseStudy }, index) => {
+                            let layout = index
+                                .toString()
+                                .split("")
+                                .pop();
+
+                            console.log(layout);
                             return (
                                 <Column
-                                    medium={layouts[index]}
+                                    medium={6}
+                                    large={layouts[layout]}
                                     key={index}
                                     collapse
                                 >

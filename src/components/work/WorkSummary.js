@@ -5,12 +5,13 @@ import Link from "gatsby-link";
 import { colors, spacing } from "../../theme/theme";
 
 const Image = styled.section`
-    min-height: 300px;
-    max-height: 800px;
+    min-height: 200px;
+    max-height: 500px;
     height: 30vw;
     position: relative;
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
+    background-position: center;
     text-align: center;
 `;
 
