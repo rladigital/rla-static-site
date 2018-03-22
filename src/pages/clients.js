@@ -25,8 +25,13 @@ export default class ClientsPage extends React.Component {
         //console.log(clients);
 
         const settings = {
-            slideWidth: "200px",
-            cellAlign: "center"
+            slideWidth: 0.3,
+            cellAlign: "center",
+            dots: false,
+            slideIndex: this.state.currentSlide,
+            renderCenterRightControls: ({ nextSlide }) => null,
+            renderCenterLeftControls: ({ previousSlide }) => null,
+            renderBottomCenterControls: ({ currentSlide }) => null
         };
 
         const temp = clients
@@ -49,17 +54,14 @@ export default class ClientsPage extends React.Component {
                     </Column>
                 </Row>
 
-                <Row>
-                    <Carousel
-                        {...settings}
-                        slideIndex={this.state.currentSlide}
-                    >
+                <Row expanded collapse>
+                    <Carousel {...settings}>
                         {temp.map(({ node: client }, index) => {
                             return (
                                 // <ClientSummary client={client} />
                                 <img
                                     key={index}
-                                    src={`http://placehold.it/200x200/ffffff/c0392b/&text=${
+                                    src={`http://placehold.it/200x300/ffffff/c0392b/&text=${
                                         client.frontmatter.title
                                     } ${index}`}
                                     onClick={() => this.setSlide(index)}
