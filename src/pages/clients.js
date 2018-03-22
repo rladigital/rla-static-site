@@ -59,13 +59,15 @@ export default class ClientsPage extends React.Component {
                         {temp.map(({ node: client }, index) => {
                             return (
                                 // <ClientSummary client={client} />
-                                <img
+                                <div
                                     key={index}
                                     src={`http://placehold.it/200x300/ffffff/c0392b/&text=${
                                         client.frontmatter.title
                                     } ${index}`}
                                     onClick={() => this.setSlide(index)}
-                                />
+                                >
+                                    <img src={client.frontmatter.logo} />
+                                </div>
                             );
                         })}
                     </Carousel>
