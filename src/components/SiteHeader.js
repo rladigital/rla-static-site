@@ -83,7 +83,7 @@ class SiteHeader extends React.Component {
                             </Link>
                         </Column>
                         <Column small={6} medium={9}>
-                            {scrolltop && isHome ? (
+                            {(scrolltop && isHome) || !isHome ? (
                                 <SiteNav>
                                     {items.map((item, index) => {
                                         return (
