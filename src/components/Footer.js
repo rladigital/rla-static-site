@@ -16,6 +16,8 @@ const StyledLink = styled(Link)`
     text-transform: uppercase;
     color: ${colors.white};
     margin-bottom: ${spacing.padding}rem;
+    font-size: 0.8rem;
+    font-weight: 700;
 `;
 
 const SocialIcon = styled(Link)`
@@ -29,6 +31,7 @@ const ContactDetail = styled.li`
         font-weight: normal;
         color: ${colors.lightGray};
         font-size: 0.8em;
+        line-height: 1.5;
     }
 `;
 
