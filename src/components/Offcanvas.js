@@ -5,6 +5,34 @@ import { spacing, colors } from "../theme/theme";
 import { Row, Column } from "rla-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 import Scrollbars from "react-custom-scrollbars";
+import { Transition, TransitionGroup } from "react-transition-group";
+
+const duration = 300;
+
+const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0
+};
+
+const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 }
+};
+
+const Fade = ({ in: inProp, children }) => (
+    <Transition in={inProp} timeout={duration}>
+        {state => (
+            <div
+                style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }}
+            >
+                {children}
+            </div>
+        )}
+    </Transition>
+);
 
 const Overlay = styled.div`
     width: 100%;
@@ -60,37 +88,43 @@ class Offcanvas extends React.Component {
     render() {
         const { items, toggleOffcanvas, offcanvasActive } = this.props;
 
-        if (offcanvasActive)
-            return (
-                <Overlay onClick={toggleOffcanvas()}>
-                    <Menu onClick={e => e.stopPropagation()}>
-                        <Scrollbars autoHide>
-                            <Section padding={1.45}>
-                                <CloseIcon onClick={toggleOffcanvas()} />
-                            </Section>
-                            <Section padding={3}>
-                                {items.map((item, index) => {
-                                    return (
-                                        <Item>
-                                            <StyledLink
-                                                to={item.to}
-                                                onClick={toggleOffcanvas()}
-                                            >
-                                                {item.text}
-                                            </StyledLink>
-                                        </Item>
-                                    );
-                                })}
-                            </Section>
-                            <Section padding={3}>
-                                <Item>Connected Ambition</Item>
-                                <Item>Play Show Reel</Item>
-                            </Section>
-                        </Scrollbars>
-                    </Menu>
-                </Overlay>
-            );
-        else return null;
+        return (
+            <TransitionGroup className="todo-list">
+                {offcanvasActive && (
+                    <Fade>
+                        <Overlay onClick={toggleOffcanvas()}>
+                            <Menu onClick={e => e.stopPropagation()}>
+                                <Scrollbars autoHide>
+                                    <Section padding={1.45}>
+                                        <CloseIcon
+                                            onClick={toggleOffcanvas()}
+                                        />
+                                    </Section>
+                                    <Section padding={3}>
+                                        {items.map((item, index) => {
+                                            return (
+                                                <Item>
+                                                    <StyledLink
+                                                        to={item.to}
+                                                        onClick={toggleOffcanvas()}
+                                                    >
+                                                        {item.text}
+                                                    </StyledLink>
+                                                </Item>
+                                            );
+                                        })}
+                                    </Section>
+                                    <Section padding={3}>
+                                        <Item>Connected Ambition</Item>
+                                        <Item>Play Show Reel</Item>
+                                    </Section>
+                                </Scrollbars>
+                            </Menu>
+                        </Overlay>
+                    </Fade>
+                )}
+            </TransitionGroup>
+        );
     }
 }
 
