@@ -12,10 +12,6 @@ import HeaderBlock from "../components/HeaderBlock";
 
 const duration = 300;
 
-const defaultStyle = {
-    opacity: 0
-};
-
 const transitionStyles = {
     entering: { opacity: 0 },
     entered: { opacity: 1 }
@@ -26,7 +22,6 @@ const Fade = ({ in: inProp, children }) => (
         {state => (
             <div
                 style={{
-                    ...defaultStyle,
                     ...transitionStyles[state]
                 }}
             >
