@@ -4,32 +4,23 @@ import graphql from "graphql";
 import { Row, Column } from "rla-components";
 import Carousel from "nuka-carousel";
 import styled, { keyframes } from "styled-components";
-import { Transition, TransitionGroup } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import theme, { colors } from "../theme/theme";
 import ClientSummary from "../components/clients/ClientSummary";
 import HeaderBlock from "../components/HeaderBlock";
 
-const duration = 300;
+const rotate360 = keyframes`
+  from {
+    opacity: 0;
+    top: -20px;
+  }
 
-const transitionStyles = {
-    entering: { opacity: 0 },
-    entered: { opacity: 1 }
-};
-
-const Fade = ({ in: inProp, children }) => (
-    <Transition in={inProp} timeout={duration}>
-        {state => (
-            <div
-                style={{
-                    ...transitionStyles[state]
-                }}
-            >
-                {children}
-            </div>
-        )}
-    </Transition>
-);
+  to {
+    opacity: 1;
+    top: 0;
+  }
+`;
 
 const Brand = styled.div`
     transition opacity 0.5s ease;
@@ -66,6 +57,11 @@ const Solution = styled.div`
     margin-left: 4rem;
     border-left: 1px solid ${colors.white};
     position: relative;
+    animation: ${rotate360} 0.5s linear;
+    animation-fill-mode: forwards;
+
+    opacity: 0;
+    top: -50px;
 `;
 
 const SolutionDot = styled.div`
@@ -198,34 +194,23 @@ export default class ClientsPage extends React.Component {
                                         />
                                     </Container>
                                     <Container style={{ height: 300 }}>
-                                        <TransitionGroup className="todo-list">
-                                            {isCurrent &&
-                                                solutions.map(
-                                                    (solution, index) => {
-                                                        return (
-                                                            <Fade key={index}>
-                                                                <Solution
-                                                                    style={{
-                                                                        animationDelay: `${0.2 *
-                                                                            index}s`,
-                                                                        zIndex:
-                                                                            1 -
-                                                                            index
-                                                                    }}
-                                                                >
-                                                                    <SolutionDot />
-                                                                    <SolutionText
-                                                                    >
-                                                                        {
-                                                                            solution
-                                                                        }
-                                                                    </SolutionText>
-                                                                </Solution>
-                                                            </Fade>
-                                                        );
-                                                    }
-                                                )}
-                                        </TransitionGroup>
+                                        {isCurrent &&
+                                            solutions.map((solution, index) => {
+                                                return (
+                                                    <Solution
+                                                        style={{
+                                                            animationDelay: `${0.2 *
+                                                                index}s`,
+                                                            zIndex: 1 - index
+                                                        }}
+                                                    >
+                                                        <SolutionDot />
+                                                        <SolutionText>
+                                                            {solution}
+                                                        </SolutionText>
+                                                    </Solution>
+                                                );
+                                            })}
                                     </Container>
                                 </Brand>
                             );
