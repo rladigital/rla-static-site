@@ -120,13 +120,6 @@ export default class ClientsPage extends React.Component {
             renderBottomCenterControls: ({ currentSlide }) => null
         };
 
-        const temp = clients
-            .concat(clients)
-            .concat(clients)
-            .concat(clients)
-            .concat(clients)
-            .concat(clients);
-
         const solutions = [
             "Brand Desire",
             "Customer Loyalty",
@@ -148,7 +141,7 @@ export default class ClientsPage extends React.Component {
 
                 <Row expanded collapse>
                     <Carousel {...settings}>
-                        {temp.map(({ node: client }, index) => {
+                        {clients.map(({ node: client }, index) => {
                             const isCurrent = Boolean(
                                 this.state.currentSlide == index
                             );

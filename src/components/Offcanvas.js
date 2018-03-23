@@ -62,8 +62,8 @@ class Offcanvas extends React.Component {
 
         if (offcanvasActive)
             return (
-                <Overlay>
-                    <Menu>
+                <Overlay onClick={toggleOffcanvas()}>
+                    <Menu onClick={e => e.stopPropagation()}>
                         <Scrollbars autoHide>
                             <Section padding={1.45}>
                                 <CloseIcon onClick={toggleOffcanvas()} />
@@ -72,7 +72,10 @@ class Offcanvas extends React.Component {
                                 {items.map((item, index) => {
                                     return (
                                         <Item>
-                                            <StyledLink to={item.to}>
+                                            <StyledLink
+                                                to={item.to}
+                                                onClick={toggleOffcanvas()}
+                                            >
                                                 {item.text}
                                             </StyledLink>
                                         </Item>
