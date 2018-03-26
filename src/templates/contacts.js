@@ -25,7 +25,7 @@ export const ContactTemplate = ({
 };
 
 export default ({ data }) => {
-    console.log(data);
+    //console.log(data);
     const { markdownRemark: contact } = data;
     return (
         <ContactTemplate

@@ -45,7 +45,7 @@ export default class WorkPage extends React.Component {
                                 .split("")
                                 .pop();
 
-                            console.log(layout);
+                            //console.log(layout);
                             return (
                                 <Column
                                     medium={6}

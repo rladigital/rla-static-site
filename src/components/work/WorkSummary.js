@@ -53,7 +53,7 @@ const Description = styled.div`
 `;
 
 const WorkSummary = ({ work }) => {
-    console.log(work);
+    //console.log(work);
     return (
         <Container>
             <Link to={work.fields.slug}>
