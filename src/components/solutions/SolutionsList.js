@@ -28,14 +28,14 @@ const Title = styled.text`
     font-weight: 900;
     fill: ${colors.white};
     text-anchor: middle;
-    letter-spacing: 0;
+    letter-spacing: -2px;
 `;
 
 const Subtitle = styled.text`
     font-size: 20px;
     fill: #829be3;
     text-anchor: middle;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
 `;
 
 const Solution = styled.text`
@@ -195,7 +195,10 @@ class SolutionsVideo extends React.Component {
                                 />
                             </filter>
                             <linearGradient id="stroke_grad">
-                                <stop offset="0%" stopColor="transparent" />
+                                <stop
+                                    offset="25%"
+                                    stopColor="rgba(130, 155, 227, 0)"
+                                />
                                 <stop
                                     offset="100%"
                                     stopColor="rgba(130, 155, 227, 0.4)"
@@ -248,14 +251,6 @@ class SolutionsVideo extends React.Component {
                         </Subtitle>
                         {orbs &&
                             solutions.map(({ node: solution }, index) => [
-                                <Orb
-                                    key={index}
-                                    fill={`url(#grad_${index})`}
-                                    onClick={() => this.handleClick(index)}
-                                    {...(activeSolution != index
-                                        ? orbs[index]
-                                        : orbsActive)}
-                                />,
                                 <Solution
                                     y={orbs[index].cy}
                                     textAnchor={
@@ -273,16 +268,32 @@ class SolutionsVideo extends React.Component {
                                                 x={
                                                     orbs[index].cx +
                                                     (orbs[index].cx < width / 2
-                                                        ? -orbs[index].r - 16
-                                                        : orbs[index].r + 16)
+                                                        ? -orbs[index].r - 10
+                                                        : orbs[index].r + 10)
                                                 }
-                                                dy={i == 0 ? "-2px" : "16px"}
+                                                dy={i == 0 ? "-3px" : "18px"}
                                             >
-                                                {word}{" "}
+                                                {word}
                                             </tspan>
                                         ))}
-                                </Solution>
+                                </Solution>,
+                                <Orb
+                                    key={index}
+                                    fill={`url(#grad_${index})`}
+                                    id={`orb_${index}`}
+                                    onClick={() => this.handleClick(index)}
+                                    {...(activeSolution != index
+                                        ? orbs[index]
+                                        : orbsActive)}
+                                />
                             ])}
+                        {activeSolution != null && (
+                            <use
+                                id="use"
+                                href={`#orb_${activeSolution}`}
+                                onClick={() => this.handleClick(activeSolution)}
+                            />
+                        )}
                     </Svg>
                 </Container>
             </Gradient>
