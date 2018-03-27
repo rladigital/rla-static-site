@@ -63,7 +63,7 @@ const Menu = styled.div`
     background: ${colors.background};
     padding: 0 2rem;
     text-align: right;
-    z-index: 1000;
+    z-index: 999;
 `;
 
 const Section = styled.div`
@@ -89,14 +89,6 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const CloseIcon = styled(FAIcon).attrs({
-    icon: "times"
-})`
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-`;
-
 class Offcanvas extends React.Component {
     render() {
         const { items, toggleOffcanvas, offcanvasActive } = this.props;
@@ -106,9 +98,7 @@ class Offcanvas extends React.Component {
                 {offcanvasActive && (
                     <Slide>
                         <Scrollbars autoHide>
-                            <Section padding={1.45}>
-                                <CloseIcon onClick={toggleOffcanvas()} />
-                            </Section>
+                            <Section padding={2.05}>&nbsp;</Section>
                             <Section padding={3}>
                                 {items.map((item, index) => {
                                     return (

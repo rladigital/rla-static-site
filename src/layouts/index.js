@@ -35,29 +35,54 @@ class TemplateWrapper extends React.Component {
         };
     }
 
+    componentDidMount() {
+        window.addEventListener("scroll", () => this.handleScroll());
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", () => this.handleScroll());
+    }
+
     toggleOffcanvas() {
         this.setState({ offcanvasActive: !this.state.offcanvasActive });
         console.log("test", this.state.offcanvasActive ? "active" : "closed");
     }
 
+    handleScroll() {
+        const scrolltop = !Boolean(window.scrollY > 0);
+
+        if (scrolltop != this.state.scrolltop) {
+            this.setState({ scrolltop: scrolltop });
+        }
+    }
+
     render() {
         const { scrolltop, offcanvasActive } = this.state;
-        const { children, ...rest } = this.props;
+        const { children, location, ...rest } = this.props;
+        let isHome = Boolean(location && location.pathname == "/");
+
+        console.log(location);
+
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>
                     <Helmet title="RLA" />
+
+                    <Offcanvas
+                        items={navigation}
+                        active={true}
+                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
+                        offcanvasActive={Boolean(
+                            (!scrolltop || !isHome) && offcanvasActive
+                        )}
+                    />
                     <SiteHeader
                         items={navigation}
                         location={this.props.location}
                         toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
                         offcanvasActive={offcanvasActive}
-                    />
-                    <Offcanvas
-                        items={navigation}
-                        active={true}
-                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
-                        offcanvasActive={offcanvasActive}
+                        scrolltop={scrolltop}
+                        isHome={isHome}
                     />
                     <div>{children()}</div>
                     <Footer items={navigation} data={this.props.data} />

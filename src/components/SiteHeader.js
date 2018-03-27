@@ -16,7 +16,7 @@ const HeaderContainer = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    z-index: 3;
+    z-index: 1000;
     transition: padding 0.5s ease, color 0.5s ease, background 0.5s ease;
 `;
 
@@ -29,50 +29,21 @@ const MenuIcon = styled(FAIcon).attrs({
 `;
 
 class SiteHeader extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            scrolltop: true
-        };
-    }
-
-    componentDidMount() {
-        window.addEventListener("scroll", () => this.handleScroll());
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("scroll", () => this.handleScroll());
-    }
-
-    handleScroll() {
-        const scrolltop = !Boolean(window.scrollY > 0);
-
-        if (scrolltop != this.state.scrolltop) {
-            this.setState({ scrolltop: scrolltop });
-        }
-    }
-
     render() {
-        const { scrolltop } = this.state;
-        const { location, items, toggleOffcanvas } = this.props;
-        let isHome = Boolean(location && location.pathname == "/");
+        const { items, toggleOffcanvas, scrolltop, isHome } = this.props;
 
         return (
             <div>
                 <HeaderContainer
                     style={{
-                        padding: `${scrolltop && isHome ? 24 : 10}px 0`,
-                        background:
-                            scrolltop && isHome
-                                ? colors.white
-                                : colors.background,
+                        padding: `${scrolltop && isHome ? 28 : 20}px 1rem`,
                         color:
                             scrolltop && isHome
                                 ? colors.background
                                 : colors.white
                     }}
                 >
-                    <Row>
+                    <Row expanded>
                         <Column small={6} medium={3}>
                             <Link to="/">
                                 <img
