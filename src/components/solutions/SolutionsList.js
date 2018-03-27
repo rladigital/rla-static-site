@@ -1,335 +1,271 @@
-import { TweenLite, Elastic } from "gsap";
-import * as PIXI from "pixi.js";
+import React from "react";
+import styled from "styled-components";
+import { Row, Column } from "rla-components";
+import { colors } from "../../theme/theme";
+import { scale, random } from "../../helpers/helpers";
 
-import { scale, random, hexToInt } from "../../helpers/helpers";
+const Svg = styled.svg`
+    position: absolute;
+`;
 
-export default class SolutionsList {
-    constructor(width, height, items) {
-        this.width = width;
-        this.height = height;
-        this.r = scale(350);
-        this.triggered = false;
-        this.items = items;
+const Container = styled.div`
+    width: 100%;
+    height: 100%;
+`;
+
+const Gradient = styled.div`
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#2e3e60 10%, ${colors.background});
+`;
+
+const TitleCircle = styled.circle`
+    fill: #344470;
+`;
+
+const Title = styled.text`
+    font-size: 80px;
+    font-weight: 900;
+    fill: ${colors.white};
+    text-anchor: middle;
+    letter-spacing: 0;
+`;
+
+const Subtitle = styled.text`
+    font-size: 20px;
+    fill: #829be3;
+    text-anchor: middle;
+    letter-spacing: 2px;
+`;
+
+const Solution = styled.text`
+    font-size: 16px;
+    font-weight: 900;
+    fill: ${colors.white};
+`;
+
+class SolutionsVideo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            randoms: null
+        };
     }
+    coords(items) {
+        const { width, height } = this.props;
+        const { randoms } = this.state;
+        const r = 360;
+        const array = new Array();
 
-    _background() {
-        let canvas = document.createElement("canvas");
-        canvas.width = this.width;
-        canvas.height = this.height;
-        let ctx = canvas.getContext("2d");
-        let gradient = ctx.createRadialGradient(
-            this.width / 2,
-            this.height / 2,
-            0,
-            this.width / 2,
-            this.height / 2,
-            800
-        );
-        gradient.addColorStop(0, "#2e3e60");
-        gradient.addColorStop(1, "#0d172b");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, this.width, this.height);
+        if (randoms) {
+            for (var i = 0; i < items.length; i++) {
+                array[i] = new Object();
+                const theta = Math.PI * 2 / items.length;
+                const angle = theta * i - Math.PI / 2;
+                const x = width / 2 + r * Math.cos(angle); // center point + radius * angle
+                const y = height / 2 + r * Math.sin(angle);
+                const size = randoms[i].orbs.size;
 
-        var sprite = new PIXI.Sprite(PIXI.Texture.fromCanvas(canvas));
-        return sprite;
-    }
+                array[i].cx = x + randoms[i].orbs.x;
+                array[i].cy = y + randoms[i].orbs.y;
+                array[i].r = size;
+            }
 
-    _orbs(items, font) {
-        let group = new PIXI.Container();
-
-        this.orbs = [];
-
-        // The Dot
-        for (var i = 0; i < items.length; i++) {
-            let current = items[i];
-            let { title, color1, color2 } = current.node.frontmatter;
-
-            this.orbs[i] = new PIXI.Container();
-            this.orbs[i].fixedX = 0;
-            this.orbs[i].fixedY = 0;
-            this.orbs[i].random = random(-20, 20);
-            this.orbs[i].alpha = 0;
-
-            // The gradient texture
-            //let stops = color1.match(/#[0-9A-Fa-f]{6}/g);
-            let canvas = document.createElement("canvas");
-            let ctx = canvas.getContext("2d");
-            let gradientSize = current.size * 2;
-            let grd = ctx.createLinearGradient(0, 0, gradientSize, 0);
-
-            grd.addColorStop(0, color1);
-            grd.addColorStop(1, color2);
-
-            ctx.fillStyle = grd;
-            ctx.fillRect(0, 0, gradientSize, gradientSize);
-
-            let gradientTexture = PIXI.Texture.fromCanvas(canvas);
-            let gradientSprite = new PIXI.Sprite(gradientTexture);
-            gradientSprite.x = current.x - current.size;
-            gradientSprite.y = current.y - current.size;
-
-            //console.log(current.size);
-
-            this.orbs[i].addChild(gradientSprite);
-
-            // The orb
-            let orb = new PIXI.Graphics();
-
-            orb.beginFill(0xffffff);
-            orb.drawCircle(0, 0, current.size);
-            orb.x = current.x;
-            orb.y = current.y;
-
-            this.orbs[i].addChild(orb);
-
-            // Mask gradient
-            gradientSprite.mask = orb;
-
-            // The text
-            let alignment = current.x >= this.width / 2 ? "left" : "right";
-
-            let style = new PIXI.TextStyle({
-                fontFamily: font,
-                fontSize: 14,
-                fontWeight: "bold",
-                fill: "#ffffff", // gradient
-                wordWrap: true,
-                wordWrapWidth: 0,
-                lineHeight: 14,
-                align: alignment
-            });
-
-            let richText = new PIXI.Text(title.toUpperCase(), style);
-
-            let margin = scale(20);
-            let x =
-                alignment == "left"
-                    ? current.x + current.size + margin
-                    : current.x - richText.width - current.size - margin;
-            let y = current.y - richText.height / 2;
-
-            richText.x = x;
-            richText.y = y;
-
-            this.orbs[i].addChild(richText);
-
-            // Add to group;
-            group.addChild(this.orbs[i]);
+            return array;
         }
-        return group;
     }
 
-    _lines(items) {
-        let group = new PIXI.Container();
+    randoms(items) {
+        const deviation = 50;
+        const array = new Array();
 
-        this.lines = [];
-
-        // The Line
         for (var i = 0; i < items.length; i++) {
-            let current = items[i];
-            this.lines[i] = new PIXI.Graphics();
-            this.lines[i].alpha = 0;
-            this.lines[i].fixedX = 0;
-            this.lines[i].fixedY = 0;
-            this.lines[i].random = random(-20, 20);
+            array[i] = new Object();
+            array[i].orbs = new Object();
+            array[i].lines = new Object();
 
-            let end = random(
+            // For the orbs
+            array[i].orbs.size = random(18, 34);
+            array[i].orbs.x = random(-deviation, deviation);
+            array[i].orbs.y = random(-deviation, deviation);
+
+            // For the lines
+            // For the lines
+            array[i].line = random(
                 Math.max(0, i - 4),
                 Math.min(items.length - 1, i + 4)
             );
-            //let end = Math.min(items.length - 1, i + 1);
-            //let end = Math.max(0, i - 1);
+        }
 
-            let startX = current.x;
-            let startY = current.y;
+        console.log(array);
 
-            let endX = items[end].x;
-            let endY = items[end].y;
+        return array;
+    }
 
-            let angleX = i > end ? endX - startX : startX - endX;
-            let angleY = i > end ? startY - endY : endY - startY;
+    lines(coords) {
+        const { randoms } = this.state;
+        const lines = new Array();
 
-            let curve = Math.abs(i - end) * 0.2;
+        if (coords) {
+            for (var i = 0; i < coords.length; i++) {
+                const current = coords[i];
 
-            let midpointX = (startX + endX) / 2 + curve * angleY;
-            let midpointY = (startY + endY) / 2 + curve * angleX;
+                const end = randoms[i].line;
 
-            if (
-                current.node.frontmatter.title &&
-                items[end].node.frontmatter.title
-            ) {
-                this.lines[i]
-                    .lineStyle(1, 0x5b709f)
-                    .moveTo(startX, startY)
-                    .quadraticCurveTo(midpointX, midpointY, endX, endY);
+                //console.log(coords[i]);
+
+                const startX = current.cx;
+                const startY = current.cy;
+
+                const endX = coords[end].cx;
+                const endY = coords[end].cy;
+
+                const angleX = i > end ? endX - startX : startX - endX;
+                const angleY = i > end ? startY - endY : endY - startY;
+
+                const curve = Math.abs(i - end) * 0.2;
+
+                const midpointX = (startX + endX) / 2 + curve * angleY;
+                const midpointY = (startY + endY) / 2 + curve * angleX;
+
+                lines[i] = {
+                    d: `M${startX},${startY} Q${midpointX},${midpointY} ${endX}, ${endY}`,
+                    stroke: "url(#stroke_grad)",
+                    strokeWidth: "3",
+                    fill: "transparent"
+                };
             }
 
-            group.addChild(this.lines[i]);
+            console.log(lines);
+            return lines;
         }
-
-        //LINE
-
-        return group;
-    }
-    _title(titleText, captionText, font) {
-        let group = new PIXI.Container();
-
-        group.x = this.width / 2;
-        group.y = this.height / 2;
-        group.scale.set(0);
-        group.pivot.set(this.width / 2, this.height / 2);
-
-        // The Circle
-        let circle = new PIXI.Graphics()
-            .beginFill(0x344470)
-            .drawCircle(this.width / 2, this.height / 2, scale(180))
-            .endFill();
-
-        group.addChild(circle);
-
-        // The Title
-        let titleStyle = new PIXI.TextStyle({
-            fontFamily: font,
-            fontSize: scale(68),
-            fontWeight: 900,
-            fill: "#ffffff",
-            dropShadow: true,
-            dropShadowColor: "#000",
-            dropShadowAlpha: 0.1,
-            dropShadowBlur: scale(20),
-            dropShadowAngle: 90,
-            dropShadowDistance: 0,
-            wordWrap: true,
-            wordWrapWidth: scale(440),
-            align: "center",
-            lineHeight: scale(58),
-            letterSpacing: scale(1)
-        });
-        let title = new PIXI.Text(titleText, titleStyle);
-
-        title.x = this.width / 2 - title.width / 2;
-        title.y = this.height / 2 - title.height / 2 - scale(20);
-
-        group.addChild(title);
-
-        // The Caption
-        let captionStyle = new PIXI.TextStyle({
-            fontFamily: font,
-            fontSize: scale(16),
-            fill: "#829BE3",
-            align: "center",
-            lineHeight: scale(16),
-            letterSpacing: scale(2),
-            wordWrap: true,
-            wordWrapWidth: scale(300)
-        });
-        let caption = new PIXI.Text(captionText, captionStyle);
-
-        caption.x = this.width / 2 - caption.width / 2;
-        caption.y = this.height / 2 - caption.height / 2 + scale(80);
-
-        group.addChild(caption);
-
-        return group;
     }
 
-    _coords(items) {
-        let deviation = scale(50);
-        for (var i = 0; i < items.length; i++) {
-            let current = items[i];
-            let theta = Math.PI * 2 / items.length;
-            let angle = theta * i - Math.PI / 2;
-            let x = this.width / 2 + this.r * Math.cos(angle); // center point + radius * angle
-            let y = this.height / 2 + this.r * Math.sin(angle);
-            let size = scale(random(18, 34));
-
-            current.x = x + random(-deviation, deviation);
-            current.y = y + random(-deviation, deviation);
-            current.size = size;
-        }
-
-        return items;
+    componentDidMount() {
+        const { solutions } = this.props;
+        this.setState({ randoms: this.randoms(solutions) });
     }
 
-    group(font) {
-        let items = this.items;
+    render() {
+        const { width, height, scrollY, style, solutions } = this.props;
 
-        // Create the group
-        let group = new PIXI.Container();
+        const scale = Math.min(scrollY / height, 1);
 
-        let coords = this._coords(items);
+        const coords = this.coords(solutions);
 
-        // Add background to group
-        let background = this._background();
-        group.addChild(background);
+        const lines = this.lines(coords);
 
-        // Add lines
-        let lines = this._lines(items);
-        group.addChild(lines);
-
-        // Add orbs
-        let orbs = this._orbs(coords, font);
-        group.addChild(orbs);
-
-        // Add title
-        this.title = this._title(
-            "CONNECTED AMBITION",
-            "WORLD CLASS CONNECTED MARKETING SOLUTIONS ",
-            font
+        return (
+            <Gradient style={style}>
+                <Container
+                    style={{
+                        opacity: scale,
+                        transform: `scale(${scale})`
+                    }}
+                >
+                    <Svg width={width} height={height}>
+                        <defs>
+                            <filter
+                                id="shadow"
+                                x="-20%"
+                                y="-20%"
+                                width="140%"
+                                height="140%"
+                            >
+                                <feDropShadow
+                                    dx="0"
+                                    dy="4"
+                                    stdDeviation="5"
+                                    floodColor="#55555"
+                                    floodOpacity="0.2"
+                                />
+                            </filter>
+                            <linearGradient id="stroke_grad">
+                                <stop offset="0%" stopColor="transparent" />
+                                <stop
+                                    offset="100%"
+                                    stopColor="rgba(130, 155, 227, 0.4)"
+                                />
+                            </linearGradient>
+                            {solutions.map(({ node: solution }, index) => (
+                                <linearGradient id={`grad_${index}`}>
+                                    <stop
+                                        offset="5%"
+                                        stopColor={solution.frontmatter.color1}
+                                    />
+                                    <stop
+                                        offset="95%"
+                                        stopColor={solution.frontmatter.color2}
+                                    />
+                                </linearGradient>
+                            ))}
+                        </defs>
+                        {lines &&
+                            lines.map((line, index) => <path {...line} />)}
+                        {coords &&
+                            solutions.map(({ node: solution }, index) => [
+                                <circle
+                                    {...coords[index]}
+                                    fill={`url(#grad_${index})`}
+                                />,
+                                <Solution
+                                    y={coords[index].cy}
+                                    textAnchor={
+                                        coords[index].cx < width / 2
+                                            ? "end"
+                                            : "start"
+                                    }
+                                >
+                                    {solution.frontmatter.title
+                                        .toUpperCase()
+                                        .split(" ")
+                                        .map((word, i) => (
+                                            <tspan
+                                                x={
+                                                    coords[index].cx +
+                                                    (coords[index].cx <
+                                                    width / 2
+                                                        ? -coords[index].r - 16
+                                                        : coords[index].r + 16)
+                                                }
+                                                tspan
+                                                dy={i == 0 ? "-2px" : "16px"}
+                                            >
+                                                {word}{" "}
+                                            </tspan>
+                                        ))}
+                                </Solution>
+                            ])}
+                        <TitleCircle
+                            cx={width / 2}
+                            cy={height / 2}
+                            r={Math.min(width / 2, 200)}
+                        />
+                        <Title
+                            style={{ filter: "url(#shadow)" }}
+                            x={width / 2}
+                            y={height / 2}
+                        >
+                            <tspan dy="-30px" x={width / 2}>
+                                CONNECTED
+                            </tspan>
+                            <tspan dy="70px" x={width / 2}>
+                                AMBITION
+                            </tspan>
+                        </Title>
+                        <Subtitle x={width / 2} y={height / 2}>
+                            <tspan dy="85px" x={width / 2}>
+                                WORLD CLASS CONNECTED
+                            </tspan>
+                            <tspan dy="25px" x={width / 2}>
+                                MARKETING SOLUTIONS
+                            </tspan>
+                        </Subtitle>
+                    </Svg>
+                </Container>
+            </Gradient>
         );
-        group.addChild(this.title);
-
-        return group;
-    }
-
-    scroll(scroll) {
-        let scale = Math.max(0, 1 - scroll / this.height);
-        this.triggered = scale > 0.3 ? false : true;
-
-        if (this.triggered) {
-            // Trigger title
-            TweenLite.to(this.title.scale, 1.5, {
-                ease: Elastic.easeOut.config(0.4),
-                x: 1,
-                y: 1
-            });
-
-            // Trigger orbs
-            let orbsDelay = 0.6;
-            this.orbs.map((orb, index) => {
-                TweenLite.to(orb, 1, {
-                    delay: orbsDelay,
-                    alpha: 1
-                });
-                orbsDelay = orbsDelay + 0.05;
-            });
-
-            // Trigger lines
-            let linesDelay = 0.8;
-            this.lines.map((line, index) => {
-                TweenLite.to(line, 1, {
-                    delay: linesDelay,
-                    alpha: 1
-                });
-                linesDelay = linesDelay + 0.08;
-            });
-        }
-    }
-
-    parallax(e) {
-        let tiltx = (e.screenX - this.width / 2) * 0.0005;
-        let tilty = (e.screenY - this.height / 2) * 0.0005;
-
-        // Orbs parallax
-        this.orbs.map((orb, index) => {
-            orb.x = orb.fixedX - tiltx * orb.random;
-            orb.y = orb.fixedY - tilty * orb.random;
-        });
-
-        // Orbs parallax
-        this.lines.map((line, index) => {
-            line.x = line.fixedX - tiltx * line.random;
-            line.y = line.fixedY - tilty * line.random;
-        });
     }
 }
+
+export default SolutionsVideo;
