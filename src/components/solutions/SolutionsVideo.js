@@ -15,9 +15,10 @@ const Svg = styled.svg`
 `;
 
 const Video = styled.video`
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
     position: absolute;
+    margin: 2.5% 0 0 2.5%;
 `;
 
 const VideoContainer = styled.div`
