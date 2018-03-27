@@ -44,16 +44,22 @@ const Solution = styled.text`
     fill: ${colors.white};
 `;
 
+const Orb = styled.circle`
+    cursor: pointer;
+    transition: all 1s cubic-bezier(1, -0.2, 0, 1.2);
+`;
+
 class SolutionsVideo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            randoms: null
+            randoms: null,
+            activeSolution: null
         };
     }
-    coords(items) {
+    orbs(items) {
         const { width, height } = this.props;
-        const { randoms } = this.state;
+        const { randoms, activeSolution } = this.state;
         const r = 360;
         const array = new Array();
 
@@ -97,8 +103,6 @@ class SolutionsVideo extends React.Component {
             );
         }
 
-        console.log(array);
-
         return array;
     }
 
@@ -111,8 +115,6 @@ class SolutionsVideo extends React.Component {
                 const current = coords[i];
 
                 const end = randoms[i].line;
-
-                //console.log(coords[i]);
 
                 const startX = current.cx;
                 const startY = current.cy;
@@ -136,7 +138,6 @@ class SolutionsVideo extends React.Component {
                 };
             }
 
-            console.log(lines);
             return lines;
         }
     }
@@ -146,14 +147,27 @@ class SolutionsVideo extends React.Component {
         this.setState({ randoms: this.randoms(solutions) });
     }
 
+    handleClick(x) {
+        this.setState({
+            activeSolution: this.state.activeSolution == x ? null : x
+        });
+    }
+
     render() {
         const { width, height, scrollY, style, solutions } = this.props;
+        const { activeSolution } = this.state;
 
         const scale = Math.min(scrollY / height, 1);
 
-        const coords = this.coords(solutions);
+        const orbs = this.orbs(solutions);
 
-        const lines = this.lines(coords);
+        const lines = this.lines(orbs);
+
+        const orbsActive = {
+            cx: width / 2,
+            cy: height / 2,
+            r: Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2)) / 2
+        };
 
         return (
             <Gradient style={style}>
@@ -188,7 +202,10 @@ class SolutionsVideo extends React.Component {
                                 />
                             </linearGradient>
                             {solutions.map(({ node: solution }, index) => (
-                                <linearGradient id={`grad_${index}`}>
+                                <linearGradient
+                                    key={index}
+                                    id={`grad_${index}`}
+                                >
                                     <stop
                                         offset="5%"
                                         stopColor={solution.frontmatter.color1}
@@ -201,41 +218,9 @@ class SolutionsVideo extends React.Component {
                             ))}
                         </defs>
                         {lines &&
-                            lines.map((line, index) => <path {...line} />)}
-                        {coords &&
-                            solutions.map(({ node: solution }, index) => [
-                                <circle
-                                    {...coords[index]}
-                                    fill={`url(#grad_${index})`}
-                                />,
-                                <Solution
-                                    y={coords[index].cy}
-                                    textAnchor={
-                                        coords[index].cx < width / 2
-                                            ? "end"
-                                            : "start"
-                                    }
-                                >
-                                    {solution.frontmatter.title
-                                        .toUpperCase()
-                                        .split(" ")
-                                        .map((word, i) => (
-                                            <tspan
-                                                x={
-                                                    coords[index].cx +
-                                                    (coords[index].cx <
-                                                    width / 2
-                                                        ? -coords[index].r - 16
-                                                        : coords[index].r + 16)
-                                                }
-                                                tspan
-                                                dy={i == 0 ? "-2px" : "16px"}
-                                            >
-                                                {word}{" "}
-                                            </tspan>
-                                        ))}
-                                </Solution>
-                            ])}
+                            lines.map((line, index) => (
+                                <path key={index} {...line} />
+                            ))}
                         <TitleCircle
                             cx={width / 2}
                             cy={height / 2}
@@ -261,6 +246,43 @@ class SolutionsVideo extends React.Component {
                                 MARKETING SOLUTIONS
                             </tspan>
                         </Subtitle>
+                        {orbs &&
+                            solutions.map(({ node: solution }, index) => [
+                                <Orb
+                                    key={index}
+                                    fill={`url(#grad_${index})`}
+                                    onClick={() => this.handleClick(index)}
+                                    {...(activeSolution != index
+                                        ? orbs[index]
+                                        : orbsActive)}
+                                />,
+                                <Solution
+                                    y={orbs[index].cy}
+                                    textAnchor={
+                                        orbs[index].cx < width / 2
+                                            ? "end"
+                                            : "start"
+                                    }
+                                >
+                                    {solution.frontmatter.title
+                                        .toUpperCase()
+                                        .split(" ")
+                                        .map((word, i) => (
+                                            <tspan
+                                                key={i}
+                                                x={
+                                                    orbs[index].cx +
+                                                    (orbs[index].cx < width / 2
+                                                        ? -orbs[index].r - 16
+                                                        : orbs[index].r + 16)
+                                                }
+                                                dy={i == 0 ? "-2px" : "16px"}
+                                            >
+                                                {word}{" "}
+                                            </tspan>
+                                        ))}
+                                </Solution>
+                            ])}
                     </Svg>
                 </Container>
             </Gradient>

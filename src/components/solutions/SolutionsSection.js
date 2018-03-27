@@ -100,12 +100,14 @@ class SolutionsSection extends React.Component {
                                     scrollY={scrollY}
                                     solutions={solutions}
                                 />
-                                <SolutionsVideo
-                                    style={style}
-                                    width={width}
-                                    height={height}
-                                    scrollY={scrollY}
-                                />
+                                {scrollY < height && (
+                                    <SolutionsVideo
+                                        style={style}
+                                        width={width}
+                                        height={height}
+                                        scrollY={scrollY}
+                                    />
+                                )}
                             </div>
                         );
                     }}
