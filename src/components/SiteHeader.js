@@ -20,17 +20,15 @@ const HeaderContainer = styled.div`
     transition: padding 0.5s ease, color 0.5s ease, background 0.5s ease;
 `;
 
-const MenuIcon = styled(FAIcon).attrs({
-    icon: "bars"
-})`
-    cursor: pointer;
-    margin: ${spacing.padding}rem 0;
-    float: right;
-`;
-
 class SiteHeader extends React.Component {
     render() {
-        const { items, toggleOffcanvas, scrolltop, isHome } = this.props;
+        const {
+            items,
+            toggleOffcanvas,
+            scrolltop,
+            isHome,
+            offcanvasActive
+        } = this.props;
 
         return (
             <div>
@@ -66,8 +64,13 @@ class SiteHeader extends React.Component {
                                 </SiteNav>
                             ) : (
                                 <MenuIcon
-                                    icon="bars"
-                                    onClick={toggleOffcanvas()}
+                                    active={offcanvasActive}
+                                    onClick={toggleOffcanvas}
+                                    style={{
+                                        float: "right",
+                                        marginTop: "0.7rem",
+                                        cursor: "pointer"
+                                    }}
                                 />
                             )}
                         </Column>
@@ -79,3 +82,48 @@ class SiteHeader extends React.Component {
 }
 
 export default SiteHeader;
+
+class MenuIcon extends React.Component {
+    render() {
+        const { active, onClick, style } = this.props;
+
+        const pathProps = {
+            stroke: "white",
+            strokeWidth: 10
+        };
+
+        const animateProps = {
+            attributeName: "d",
+            dur: "500ms",
+            fill: "freeze"
+        };
+
+        //const menuPaths = ["M5,5 45,5", "M5,25 45,25", "M5,45 45,45"];
+        const menuPaths = ["M0,5 50,5", "M0,25 50,25", "M0,45 50,45"];
+
+        const closePaths = ["M5,5 45,45", "M5,25 5,25", "M5,45 45,5"];
+
+        console.log(this.props);
+
+        return (
+            <svg
+                width="20"
+                height="20"
+                viewBox="0 0 50 50"
+                onClick={onClick()}
+                style={style}
+            >
+                {menuPaths.map((path, i) => {
+                    return (
+                        <path {...pathProps} d={!active ? path : closePaths[i]}>
+                            {/* <animate
+                                {...animateProps}
+                                to={active ? closePaths[i] : path}
+                            /> */}
+                        </path>
+                    );
+                })}
+            </svg>
+        );
+    }
+}

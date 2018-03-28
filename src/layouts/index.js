@@ -45,7 +45,6 @@ class TemplateWrapper extends React.Component {
 
     toggleOffcanvas() {
         this.setState({ offcanvasActive: !this.state.offcanvasActive });
-        console.log("test", this.state.offcanvasActive ? "active" : "closed");
     }
 
     handleScroll() {
@@ -57,11 +56,12 @@ class TemplateWrapper extends React.Component {
     }
 
     render() {
-        const { scrolltop, offcanvasActive } = this.state;
+        const { scrolltop } = this.state;
         const { children, location, ...rest } = this.props;
+        const offcanvasActive = Boolean(
+            (!scrolltop || !isHome) && this.state.offcanvasActive
+        );
         let isHome = Boolean(location && location.pathname == "/");
-
-        console.log(location);
 
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
@@ -72,9 +72,7 @@ class TemplateWrapper extends React.Component {
                         items={navigation}
                         active={true}
                         toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
-                        offcanvasActive={Boolean(
-                            (!scrolltop || !isHome) && offcanvasActive
-                        )}
+                        offcanvasActive={offcanvasActive}
                     />
                     <SiteHeader
                         items={navigation}
