@@ -58,10 +58,10 @@ class TemplateWrapper extends React.Component {
     render() {
         const { scrolltop } = this.state;
         const { children, location, ...rest } = this.props;
+        const isHome = Boolean(location && location.pathname == "/");
         const offcanvasActive = Boolean(
             (!scrolltop || !isHome) && this.state.offcanvasActive
         );
-        let isHome = Boolean(location && location.pathname == "/");
 
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>

@@ -84,6 +84,15 @@ class SiteHeader extends React.Component {
 export default SiteHeader;
 
 class MenuIcon extends React.Component {
+    constructor(props) {
+        super(props);
+        this.animate = [];
+    }
+    componentWillReceiveProps() {
+        this.animate.map((animate, i) => {
+            animate.beginElement();
+        });
+    }
     render() {
         const { active, onClick, style } = this.props;
 
@@ -115,11 +124,18 @@ class MenuIcon extends React.Component {
             >
                 {menuPaths.map((path, i) => {
                     return (
-                        <path {...pathProps} d={!active ? path : closePaths[i]}>
-                            {/* <animate
+                        <path
+                            key={i}
+                            d={active ? path : closePaths[i]}
+                            {...pathProps}
+                        >
+                            <animate
                                 {...animateProps}
                                 to={active ? closePaths[i] : path}
-                            /> */}
+                                ref={svg => {
+                                    this.animate[i] = svg;
+                                }}
+                            />
                         </path>
                     );
                 })}
