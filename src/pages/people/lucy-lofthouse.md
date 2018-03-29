@@ -1,0 +1,12 @@
+---
+templateKey: people
+title: Lucy Lofthouse
+role: Finance Director
+profile: /img/lucy-lofthouse.jpg
+tags:
+  - Management
+linkedIn: 
+twitter: 
+---
+
+Lucy completed her Accountancy training in financial services but was drawn to the bright lights of agency life in 2009 and has never looked back. Lucy relishes the contrast of her financial responsibilities and her HR duties and is passionate about making RLA a better place to work for everyone. Out of work, Lucy loves spending time at the beach with her two little ones, and has recently taken up yoga when she realised than running was just a little bit too exhausting.

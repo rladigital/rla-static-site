@@ -1,10 +1,10 @@
 ---
 templateKey: people
-title: Luke Fowell
-role: Digital Director
+title: Sean Millard
+role: Senior Artworker
 profile: /img/missing_avatar.svg
 tags:
-  - Digital
+  - Studio
 linkedIn: 
 twitter: 
 ---

@@ -1,7 +1,7 @@
 ---
 templateKey: people
-title: Luke Fowell
-role: Digital Director
+title: 
+role: 
 profile: /img/missing_avatar.svg
 tags:
   - Digital
