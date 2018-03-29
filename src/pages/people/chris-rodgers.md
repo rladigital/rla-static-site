@@ -1,7 +1,7 @@
 ---
 templateKey: people
-title: 
-role: 
+title: Chris Rodgers
+role: Frontend Developer
 profile: /img/missing_avatar.svg
 tags:
   - Digital 

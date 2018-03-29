@@ -1,7 +1,7 @@
 ---
 templateKey: people
-title: 
-role: 
+title: Tristan Welch
+role: Project Manager
 profile: /img/missing_avatar.svg
 tags:
   - Digital
