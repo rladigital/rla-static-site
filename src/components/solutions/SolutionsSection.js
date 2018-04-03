@@ -59,33 +59,24 @@ class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            scrollY: window.scrollY,
-            width: document.body.clientWidth,
-            height: document.body.clientHeight
+            scrollY: window.scrollY
         };
     }
     componentDidMount() {
         window.addEventListener("scroll", () => this.handleScroll());
-        window.addEventListener("resize", () => this.handleResize());
     }
     componentWillUnmount() {
         window.removeEventListener("scroll", () => this.handleScroll());
-        window.removeEventListener("resize", () => this.handleResize());
     }
     handleScroll() {
         this.setState({
             scrollY: window.scrollY
         });
     }
-    handleResize() {
-        this.setState({
-            width: document.body.clientWidth,
-            height: document.body.clientHeight
-        });
-    }
+
     render() {
-        const { font, scrolltop, solutions } = this.props;
-        const { width, height, scrollY } = this.state;
+        const { width, height, font, scrolltop, solutions } = this.props;
+        const { scrollY } = this.state;
 
         return (
             <StickyContainer style={{ height: height * 2.5 }}>

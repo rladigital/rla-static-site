@@ -20,7 +20,9 @@ export default class IndexPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hasMounted: false
+            hasMounted: false,
+            width: isBrowser ? document.body.clientWidth : null,
+            height: isBrowser ? document.body.clientHeight : null
         };
     }
     handleScriptLoad() {
@@ -37,10 +39,26 @@ export default class IndexPage extends React.Component {
     }
     componentDidMount() {
         this.setState({ hasMounted: true });
+        if (isBrowser) {
+            window.addEventListener("resize", () => this.handleResize());
+        }
+    }
+    componentWillUnmount() {
+        if (isBrowser) {
+            window.removeEventListener("resize", () => this.handleResize());
+        }
+    }
+
+    handleResize() {
+        this.setState({
+            width: document.body.clientWidth,
+            height: document.body.clientHeight
+        });
     }
 
     render() {
         const { data, scrolltop, font } = this.props;
+        const { width, height } = this.state;
         const {
             clients: { edges: clients },
             solutions: { edges: solutions },
@@ -58,14 +76,21 @@ export default class IndexPage extends React.Component {
                 {this.state.hasMounted && (
                     <div>
                         <SolutionsSection
+                            width={width}
+                            height={height}
                             solutions={solutions}
                             font={font}
                             scrolltop={scrolltop}
                         />
                         <ClientsSection clients={clients} />
-                        {font && (
-                            <ServicesSection services={services} font={font} />
-                        )}
+
+                        <ServicesSection
+                            width={width}
+                            height={height / 2}
+                            services={services.concat(services)}
+                            font={font}
+                        />
+
                         <NewsSection news={news} />
                         <PeopleSection people={people} />
                     </div>

@@ -135,8 +135,6 @@ class MenuIcon extends React.Component {
 
         const closePaths = ["M5,5 45,45", "M5,25 5,25", "M5,45 45,5"];
 
-        console.log(this.props);
-
         return (
             <svg
                 width="20"

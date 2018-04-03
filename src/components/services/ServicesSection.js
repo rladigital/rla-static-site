@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
+import FAIcon from "@fortawesome/react-fontawesome";
 
 import { TweenLite } from "gsap";
-import * as PIXI from "pixi.js";
 
 import HeaderBlock from "../HeaderBlock";
 import ServiceSummary from "./ServiceSummary";
@@ -12,263 +12,253 @@ import SectionContainer from "../SectionContainer";
 import { colors } from "../../theme/theme";
 import { hexToInt } from "../../helpers/helpers";
 
-let Container = styled.div`
-    position: relative;
-`;
-
-let Canvas = styled.div`
-    width: 100%;
-    height: 100%;
+const Control = styled.a`
+    font-size: 3em;
+    color: ${colors.white};
+    cursor: pointer;
 `;
 
 class ServicesSection extends React.Component {
-    constructor() {
-        super();
-
+    constructor(props) {
+        super(props);
         this.state = {
-            current: 0
+            current: 0,
+            services: null
         };
-
-        this.width = document.body.clientWidth;
-        this.height = 500;
-        this.curveStart = 390;
-        this.curveStop = 900;
-        this.coords;
     }
+
     componentDidMount() {
-        let items = this.props.services;
-        let { font } = this.props;
-
-        // Create pixi app
-        let app = new PIXI.Application({
-            width: this.width,
-            height: this.height,
-            forceCanvas: true,
-            backgroundColor: hexToInt(colors.background)
+        this.setState({
+            services: this.dataLength(this.props.services)
         });
-
-        // create coords
-        this.coords = this._coords(30, items.length);
-
-        // add circle
-        let circle = this._circle();
-        app.stage.addChild(circle);
-
-        // add gradient
-        let gradient = this._gradient();
-        app.stage.addChild(gradient);
-
-        // add items
-        app.stage.addChild(this._items(items, font));
-
-        gradient.mask = circle;
-
-        // Add to canvas
-        this.canvas.appendChild(app.view);
     }
 
-    _items(items, font) {
-        let group = new PIXI.Container();
-        let coords = this._coordsToItems(
-            this.state.current,
-            this.coords,
-            items.length
-        );
+    coords(elem) {
+        const { current } = this.state;
+        const points = 7;
+        const total = elem.getTotalLength();
+        const segment = total / (points - 1);
+        let coords = new Array();
 
-        this.items = [];
-
-        // Create the items
-        items.map((item, index) => {
-            let dotSize = 10;
-            let x = coords[index].x;
-            let y = coords[index].y;
-            let alpha = coords[index].alpha;
-            let { title } = item.node.frontmatter;
-
-            this.items[index] = new PIXI.Container();
-
-            this.items[index].x = x;
-            this.items[index].y = y;
-
-            // Create the title
-            let style = new PIXI.TextStyle({
-                fontFamily: font,
-                fontSize: 16,
-                fontWeight: "bold",
-                fill: "#ffffff",
-                wordWrap: true,
-                wordWrapWidth: 200,
-                align: "center"
-            });
-
-            title = new PIXI.Text(title.toUpperCase(), style);
-
-            title.x = 0 - title.width / 2;
-            title.y = 0 - title.height - 50;
-
-            this.items[index].addChild(title);
-
-            // Create the dot
-            let graphics = new PIXI.Graphics();
-
-            graphics
-                .beginFill(0xffffff)
-                .drawCircle(0, 0, dotSize)
-                .endFill();
-
-            graphics.lineStyle(1, 0xffffff, 0.2).drawCircle(0, 0, dotSize + 5);
-
-            graphics
-                .moveTo(0, 0)
-                .lineStyle(1, 0xffffff)
-                .lineTo(0, 0 - 40);
-
-            // add dot to this.items[index]
-            this.items[index].addChild(graphics);
-
-            // make clickable
-            // Opt-in to interactivity
-            this.items[index].interactive = true;
-
-            // Shows hand cursor
-            this.items[index].buttonMode = true;
-
-            // Pointers normalize touch and mouse
-            this.items[index].on("pointerdown", () => this.handleClick(index));
-
-            this.items[index].alpha = alpha;
-
-            group.addChild(this.items[index]);
-        });
-
-        return group;
-    }
-
-    _circle() {
-        let graphics = new PIXI.Graphics();
-
-        graphics
-            .beginFill(0xffffff)
-            .drawEllipse(
-                this.width / 2,
-                this.height + this.curveStop,
-                this.width,
-                this.curveStart + this.curveStop
-            )
-            .endFill();
-
-        return graphics;
-    }
-
-    _gradient() {
-        let margin = 100;
-        let height = this.curveStart + 100;
-        let canvas = document.createElement("canvas");
-        canvas.width = this.width;
-        canvas.height = height;
-        let ctx = canvas.getContext("2d");
-        let gradient = ctx.createLinearGradient(0, height, 0, 0);
-        gradient.addColorStop(0, colors.background);
-        gradient.addColorStop(1, colors.accent);
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, this.width, this.height);
-
-        var sprite = new PIXI.Sprite(PIXI.Texture.fromCanvas(canvas));
-        sprite.y = this.height - height;
-
-        return sprite;
-    }
-
-    _coordsToItems(current, coords) {
-        let toShow = 2;
-
-        // Move coords according to position
-        if (current != 0) {
-            coords = coords
-                .slice(-current) // remove from back
-                .concat(coords.slice(0, coords.length - current)); // add to front
+        // Generate points
+        for (var i = 0; i < points; i++) {
+            coords[i] = elem.getPointAtLength(segment * i);
         }
 
+        // Coord other params
+        for (var i = 0; i < coords.length; i++) {
+            coords[i].status =
+                i == 3 ? "active" : i < 6 && i > 0 ? "visible" : null;
+        }
+
+        // Slide the points
+        for (var i = 0; i < current; i++) {
+            const n = coords.splice(0, 1); // remove from front
+            coords = coords.concat(n); // add to back
+        }
+
+        console.log(coords);
         return coords;
     }
 
-    _coords(places, length) {
-        let items = [];
-        let perSide = length / 2;
-        let toShow = 3;
+    dataLength(data) {
+        const points = 7;
 
-        for (var i = 0; i < places; i++) {
-            let current = new Object();
-            let theta = Math.PI * 2 / places;
-            let angle = theta * i + -Math.PI / 2;
-            let x = this.width / 2 + this.width * Math.cos(angle); // center point + radius * angle
-            let y =
-                this.height +
-                (this.curveStop + this.curveStart) * Math.sin(angle) +
-                this.curveStop;
-            let alpha = i < toShow || i > places - toShow ? 1 : 0;
-
-            current.x = x;
-            current.y = y;
-            current.alpha = alpha;
-
-            items[i] = current;
+        while (data.length < points) {
+            data = data.concat(data);
         }
 
-        // Remove unused coords
-        let coords = items
-            .slice(0, perSide)
-            .concat(items.slice(items.length - perSide));
+        data.splice(-1, 1);
 
-        return coords;
+        return data;
     }
 
-    handleClick(x) {
-        this.setCurrent(x);
+    prev() {
+        const prev = this.state.current - 1;
+        const actual = prev < 0 ? this.props.services.length - 1 : prev;
+        this.setState({ current: actual });
     }
 
-    setCurrent(x) {
-        let coords = this._coordsToItems(x, this.coords, this.items.length);
-
-        // Set state
-        this.setState({ current: x });
-
-        // Move the items along the oval
-        this.items.map((item, index) => {
-            TweenLite.to(item, 0.5, {
-                x: coords[index].x,
-                y: coords[index].y,
-                alpha: coords[index].alpha
-            });
-        });
+    next() {
+        const next = this.state.current + 1;
+        const actual = next > this.props.services.length - 1 ? 0 : next;
+        this.setState({ current: actual });
     }
 
     render() {
-        let { services } = this.props;
-        let { current } = this.state;
+        const { width, height } = this.props;
+        const { current, services } = this.state;
+        const coords = this.path && this.coords(this.path);
 
         return (
-            <SectionContainer>
-                <Row>
-                    <Column medium={4}>
-                        <HeaderBlock textAlign="left">
-                            <span>Together</span>
-                            <br />
-                            We can Achieve More
-                        </HeaderBlock>
-                    </Column>
-                </Row>
+            <div style={{ position: "relative" }}>
+                <svg width={width} height={height}>
+                    <defs>
+                        <linearGradient
+                            id="curve_grad"
+                            x1="0%"
+                            y1="0%"
+                            x2="0%"
+                            y2="100%"
+                        >
+                            <stop
+                                offset="0%"
+                                stopColor={colors.accent}
+                                stopOpacity="0.7"
+                            />
+                            <stop
+                                offset="100%"
+                                stopColor={colors.accent}
+                                stopOpacity="0.1"
+                            />
+                        </linearGradient>
+                    </defs>
+                    {/* <ellipse
+                    cx={width / 2}
+                    cy={height + 200}
+                    rx={width}
+                    ry={height}
+                    fill="url(#curve_grad)"
+                /> */}
 
-                <Container>
-                    <Canvas
-                        innerRef={input => {
-                            this.canvas = input;
+                    <path
+                        d={`M${-60},${height / 2} Q${width / 2},${0} ${width +
+                            60}, ${height / 2} V${height} H${0}`}
+                        fill="url(#curve_grad)"
+                    />
+                    <path
+                        d={`M${-60},${height / 2} Q${width / 2},${0} ${width +
+                            60}, ${height / 2} `}
+                        fill="transparent"
+                        ref={path => {
+                            this.path = path;
                         }}
                     />
 
-                    <ServiceSummary service={services[current].node} />
-                </Container>
-            </SectionContainer>
+                    {coords &&
+                        services &&
+                        services.map((service, i) => {
+                            return (
+                                coords[i] && [
+                                    <circle
+                                        r={
+                                            coords[i].status == "active"
+                                                ? 12
+                                                : coords[i].status == "visible"
+                                                    ? 6
+                                                    : 0
+                                        }
+                                        fillOpacity={coords[i].status ? 1 : 0}
+                                        fill={colors.white}
+                                        cx={coords[i].x}
+                                        cy={coords[i].y}
+                                        style={{
+                                            transition: "all 1s ease"
+                                        }}
+                                    >
+                                        {i}
+                                    </circle>,
+                                    <text
+                                        x={coords[i].x}
+                                        y={
+                                            coords[i].y -
+                                            (coords[i].status == "active"
+                                                ? 40
+                                                : 30)
+                                        }
+                                        textAnchor="middle"
+                                        style={{
+                                            fill: colors.white,
+                                            fontWeight: 900,
+                                            transition: "all 1s ease"
+                                        }}
+                                        fillOpacity={
+                                            coords[i].status == "active"
+                                                ? 1
+                                                : coords[i].status == "visible"
+                                                    ? 0.5
+                                                    : 0
+                                        }
+                                    >
+                                        {service.node.frontmatter.title.toUpperCase()}
+                                    </text>,
+                                    <line
+                                        x={coords[i].x}
+                                        y={coords[i].y}
+                                        x1={coords[i].x}
+                                        y1={coords[i].y}
+                                        x2={coords[i].x}
+                                        y2={
+                                            coords[i].y -
+                                            (coords[i].status == "active"
+                                                ? 30
+                                                : 20)
+                                        }
+                                        strokeWidth="1"
+                                        stroke="white"
+                                        style={{
+                                            transition: "all 1s ease"
+                                        }}
+                                    />
+                                ]
+                            );
+                        })}
+                </svg>
+                <div
+                    style={{
+                        width: "100%",
+                        position: "absolute",
+                        top: height / 2,
+                        textAlign: "center"
+                    }}
+                >
+                    <Row style={{ position: "relative" }}>
+                        <Column small={8} centered>
+                            {services && (
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: services[current].node.html
+                                    }}
+                                />
+                            )}
+
+                            <Control
+                                className="fa-layers fa-fw"
+                                onClick={() => this.navigateChunk("next")}
+                                style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0
+                                }}
+                                onClick={() => this.prev()}
+                            >
+                                <FAIcon
+                                    icon="chevron-left"
+                                    transform="shrink-8"
+                                />
+                                <FAIcon icon={["far", "circle"]} />
+                            </Control>
+
+                            <Control
+                                className="fa-layers fa-fw"
+                                onClick={() => this.navigateChunk("next")}
+                                style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    right: 0
+                                }}
+                                onClick={() => this.next()}
+                            >
+                                <FAIcon
+                                    icon="chevron-right"
+                                    transform="shrink-8"
+                                />
+                                <FAIcon icon={["far", "circle"]} />
+                            </Control>
+                        </Column>
+                    </Row>
+                </div>
+            </div>
         );
     }
 }

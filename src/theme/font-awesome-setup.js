@@ -6,7 +6,9 @@ import {
     faPhone,
     faBars,
     faChevronUp,
-    faChevronDown
+    faChevronDown,
+    faChevronLeft,
+    faChevronRight
 } from "@fortawesome/fontawesome-free-solid";
 
 import { faCircle } from "@fortawesome/fontawesome-free-regular";
@@ -27,5 +29,7 @@ fontawesome.library.add(
     faLinkedinIn,
     faTwitter,
     faChevronUp,
-    faChevronDown
+    faChevronDown,
+    faChevronLeft,
+    faChevronRight
 );
