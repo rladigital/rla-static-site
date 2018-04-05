@@ -21,8 +21,8 @@ export default class IndexPage extends React.Component {
         super(props);
         this.state = {
             hasMounted: false,
-            width: isBrowser ? document.body.clientWidth : null,
-            height: isBrowser ? document.body.clientHeight : null
+            width: isBrowser() ? document.body.clientWidth : null,
+            height: isBrowser() ? document.body.clientHeight : null
         };
     }
     handleScriptLoad() {
@@ -39,21 +39,23 @@ export default class IndexPage extends React.Component {
     }
     componentDidMount() {
         this.setState({ hasMounted: true });
-        if (isBrowser) {
+        if (isBrowse()) {
             window.addEventListener("resize", () => this.handleResize());
         }
     }
     componentWillUnmount() {
-        if (isBrowser) {
+        if (isBrowser()) {
             window.removeEventListener("resize", () => this.handleResize());
         }
     }
 
     handleResize() {
-        this.setState({
-            width: document.body.clientWidth,
-            height: document.body.clientHeight
-        });
+        if (isBrowser()) {
+            this.setState({
+                width: document.body.clientWidth,
+                height: document.body.clientHeight
+            });
+        }
     }
 
     render() {
