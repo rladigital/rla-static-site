@@ -65,7 +65,7 @@ class NewsItem extends React.Component {
         const rowHeight = 22;
         let { data, height } = this.props;
         return data ? (
-            <NewsSummary story={data.node} minHeight={rowHeight * height} />
+            <NewsSummary story={data.node} height={rowHeight * height} />
         ) : null;
     }
 }

@@ -10,7 +10,7 @@ const SummaryContainer = styled.section`
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
     background-position: center;
-    height: ${props => props.height}vw;
+    height: ${props => (props.height ? props.height : 30)}vw;
     text-align: center;
 `;
 
@@ -46,6 +46,7 @@ const Title = styled.h3`
     max-width: 90%;
     margin-top: 0;
     color: ${props => props.theme.lightColor};
+    text-shadow: 0 0 10px black;
 `;
 
 const NewsSummary = ({ story, height }) => {
