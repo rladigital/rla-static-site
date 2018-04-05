@@ -39,7 +39,7 @@ export default class IndexPage extends React.Component {
     }
     componentDidMount() {
         this.setState({ hasMounted: true });
-        if (isBrowse()) {
+        if (isBrowser()) {
             window.addEventListener("resize", () => this.handleResize());
         }
     }
