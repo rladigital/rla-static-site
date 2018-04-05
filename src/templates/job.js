@@ -23,6 +23,11 @@ export const JobTemplate = ({
             {helmet || ""}
             <Row>
                 <Column>
+                    <img src={hero} alt={`${title} Profile`} />{" "}
+                </Column>
+            </Row>
+            <Row>
+                <Column>
                     <HeaderBlock textAlign="left" baseColor={colors.background}>
                         {title}
                     </HeaderBlock>
@@ -31,7 +36,7 @@ export const JobTemplate = ({
             </Row>
             <Row>
                 <Column medium={6}>
-                    <img src={hero} alt={`${title} Profile`} />{" "}
+                    <img src={hero} alt={`${title}`} />{" "}
                 </Column>
                 <Column medium={6}>
                     <PostContent content={content} />

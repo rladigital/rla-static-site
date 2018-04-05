@@ -37,18 +37,6 @@ class JobsSection extends React.Component {
                             );
                         })}
                     </Row>
-
-                    <Row style={{ textAlign: "center" }}>
-                        <Link to="work">
-                            <StyledButton
-                                hollow={true}
-                                size="large"
-                                color="accent"
-                            >
-                                See All Case Studies &rarr;
-                            </StyledButton>
-                        </Link>
-                    </Row>
                 </SectionContainer>
             </div>
         );

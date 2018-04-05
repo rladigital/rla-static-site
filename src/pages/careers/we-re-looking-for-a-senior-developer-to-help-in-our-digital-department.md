@@ -30,6 +30,6 @@ benefits:
   - 28 Days Hoilday
   - Pension
   - Fun Environment
-hero: /img/1@2x.png
+hero: /img/missing_avatar.svg
 ---
 
