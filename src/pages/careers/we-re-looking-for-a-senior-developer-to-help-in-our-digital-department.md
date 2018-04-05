@@ -11,6 +11,9 @@ role: >-
   odio, a accumsan nulla. Nam auctor in velit vel mollis. Nullam efficitur arcu
   est. Vivamus in mi neque. Nam orci nisi, condimentum in feugiat eget, sodales
   ac arcu.
+
+
+  ![null](/img/2.png)
 person: >-
   Sed sit amet metus non nisl elementum rutrum. Cras sed est sollicitudin,
   sodales ligula non, hendrerit odio. Fusce auctor libero dui, sit amet interdum
