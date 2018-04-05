@@ -18,7 +18,7 @@ const Logo = () => {
             y="0px"
             viewBox="0 0 148 60"
             width="110"
-            height="75"
+            height="55"
         >
             <defs>
                 <filter
