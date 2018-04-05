@@ -2,6 +2,7 @@
 templateKey: job
 area: Digital
 title: We're Looking for a Senior Developer to Help in our Digital Department
+closing: 19/06/2018
 role: >-
   Integer congue ligula non commodo pharetra. Suspendisse ac turpis sapien.
   Pellentesque sit amet imperdiet dolor, quis accumsan augue. Nullam vitae arcu
