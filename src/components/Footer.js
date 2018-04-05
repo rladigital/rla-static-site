@@ -46,7 +46,11 @@ export default ({
             </Column>
             <Column large={2}>
                 {items.map((item, index) => {
-                    return <StyledLink to={item.to}>{item.text}</StyledLink>;
+                    return (
+                        <StyledLink key={index} to={item.to}>
+                            {item.text}
+                        </StyledLink>
+                    );
                 })}
             </Column>
 
