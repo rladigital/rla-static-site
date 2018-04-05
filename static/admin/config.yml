@@ -100,6 +100,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "job"}
       - {label: "Area", name: "area", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Closing Date", name: "closing", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Role", name: "role", widget: "markdown"}
       - {label: "Person", name: "person", widget: "markdown"}
       - {label: "Key Skills", name: "skills", widget: "list"}
