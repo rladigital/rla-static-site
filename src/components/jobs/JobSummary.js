@@ -56,6 +56,7 @@ const JobSummary = ({ job }) => {
             <SummaryContainer backgroundImage={job.frontmatter.hero}>
                 <TitleBackground>
                     <TitleContainer>
+                        <Category>{job.frontmatter.area}</Category>
                         <Title>{job.frontmatter.title}</Title>
                     </TitleContainer>
                 </TitleBackground>

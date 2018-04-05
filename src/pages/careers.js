@@ -53,7 +53,9 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         role
-                        profile
+                        hero
+                        area
+                        closing
                     }
                 }
             }

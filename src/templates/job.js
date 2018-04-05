@@ -35,7 +35,8 @@ export const JobTemplate = props => {
         level,
         salary,
         hours,
-        benefits
+        benefits,
+        closing
     } = props;
     const PostContent = contentComponent || Content;
 
@@ -61,6 +62,12 @@ export const JobTemplate = props => {
                     </Column>
                     <Column medium={4}>
                         <SummaryContainer>
+                            <Row>
+                                <Column small={6}>
+                                    <h5>Closing:</h5>
+                                </Column>
+                                <Column small={6}>{closing}</Column>
+                            </Row>
                             <Row>
                                 <Column small={6}>
                                     <h5>Level:</h5>
@@ -114,6 +121,7 @@ export default ({ data }) => {
             salary={job.frontmatter.salary}
             hours={job.frontmatter.hours}
             benefits={job.frontmatter.benefits}
+            closing={job.frontmatter.closing}
         />
     );
 };
@@ -134,6 +142,7 @@ export const pageQuery = graphql`
                 salary
                 hours
                 benefits
+                closing
             }
         }
     }
