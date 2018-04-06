@@ -19,7 +19,6 @@ outcome: >-
 galleryImages:
   - /img/Salisbury.png
 solutionsList:
-  - B
+  - Brand Desire
 weighting: 0
 ---
-
