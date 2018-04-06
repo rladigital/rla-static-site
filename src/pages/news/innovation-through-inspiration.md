@@ -19,6 +19,8 @@ galleryImages:
   - null
 author: Tom Lawton
 ---
+<img src="/img/1.png" alt="Phone image" class="floatLeft pWidth50" />
+
 Joel Gibbard, a 25-year-old robotics engineer who graduated from Plymouth
 University in 2011, has recently won the prestigious James Dyson award for his
 game-changing 3D-printed prosthetic hand. A prosthetic hand that challenges
