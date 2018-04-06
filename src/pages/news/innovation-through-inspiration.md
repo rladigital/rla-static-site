@@ -33,6 +33,8 @@ manufacturing before they can be used. Compare that to Joel’s design and it
 becomes obvious just how revolutionary his technology is, and the opportunity
 it could provide to change thousands of lives worldwide.
 
+<img src="/img/6.png" alt="Image" class="floatRight width50" />
+
 Joel’s inspiration was his encounter with a six-year-old girl who sadly lost
 all of her limbs to meningitis but wasn’t comfortable using traditional
 prosthetics. The most capable, advanced ones were prohibitively expensive, and
