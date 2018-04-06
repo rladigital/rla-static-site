@@ -59,8 +59,6 @@ class SiteHeader extends React.Component {
                 ? colors.background
                 : "transparent";
 
-        console.log(scrolltop);
-
         return (
             <div>
                 <HeaderContainer
@@ -118,11 +116,18 @@ class MenuIcon extends React.Component {
     constructor(props) {
         super(props);
         this.animate = [];
+        this.state = {
+            active: this.props.active
+        };
     }
-    componentWillReceiveProps() {
-        this.animate.map((animate, i) => {
-            animate.beginElement();
-        });
+    componentWillReceiveProps(nextProps) {
+        const { active } = nextProps;
+        if (this.state.active != active) {
+            this.animate.map((animate, i) => {
+                animate.beginElement();
+            });
+            this.setState({ active: active });
+        }
     }
     render() {
         const { active, onClick, style } = this.props;
