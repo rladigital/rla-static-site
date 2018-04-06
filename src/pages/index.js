@@ -88,7 +88,7 @@ export default class IndexPage extends React.Component {
 
                         <ServicesSection
                             width={width}
-                            height={height / 2}
+                            height={Math.max(height / 2, 400)}
                             services={services.concat(services)}
                             font={font}
                         />

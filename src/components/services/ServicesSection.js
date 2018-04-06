@@ -18,19 +18,14 @@ const Control = styled.a`
     cursor: pointer;
 `;
 
+let resizeTimer;
+
 class ServicesSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            current: 0,
-            services: null
+            current: 0
         };
-    }
-
-    componentDidMount() {
-        this.setState({
-            services: this.dataLength(this.props.services)
-        });
     }
 
     coords(elem) {
@@ -60,38 +55,65 @@ class ServicesSection extends React.Component {
         return coords;
     }
 
-    dataLength(data) {
-        const points = 7;
+    splitPath() {
+        var numPieces = 20,
+            pieceSizes = [],
+            pieces = [];
 
-        while (data.length < points) {
-            data = data.concat(data);
+        for (var i = 0; i < numPieces; i++) {
+            pieceSizes.push({ i: i, size: Math.floor(Math.random() * 20) + 5 });
         }
 
-        data.splice(-1, 1);
+        var size = pieceSizes.reduce(function(a, b) {
+            return a + b.size;
+        }, 0);
 
-        return data;
+        var pieceSize = pLength / size;
+
+        pieceSizes.forEach(function(x, j) {
+            var segs = [];
+            for (var i = 0; i <= x.size + sampleInterval; i += sampleInterval) {
+                pt = p.getPointAtLength(i * pieceSize + cumu * pieceSize);
+                segs.push([pt.x, pt.y]);
+            }
+            angle =
+                Math.atan2(segs[1][1] - segs[0][1], segs[1][0] - segs[0][0]) *
+                180 /
+                Math.PI;
+            pieces.push({ id: j, segs: segs, angle: angle });
+            cumu += x.size;
+        });
+
+        return pieces;
     }
 
     prev() {
         const prev = this.state.current - 1;
         const actual = prev < 0 ? this.props.services.length - 1 : prev;
-        this.setState({ current: actual });
+        this.setCurrent(actual);
     }
 
     next() {
         const next = this.state.current + 1;
         const actual = next > this.props.services.length - 1 ? 0 : next;
-        this.setState({ current: actual });
+        this.setCurrent(actual);
+    }
+
+    setCurrent(x) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            this.setState({ current: x });
+        }, 250);
     }
 
     render() {
-        const { width, height } = this.props;
-        const { current, services } = this.state;
+        const { width, height, services } = this.props;
+        const { current } = this.state;
         const coords = this.path && this.coords(this.path);
 
         return (
             <div>
-                <Row>
+                <Row style={{ height: height }}>
                     <Column large="5">
                         <HeaderBlock
                             baseColor={colors.white}
@@ -132,14 +154,6 @@ class ServicesSection extends React.Component {
                                 />
                             </linearGradient>
                         </defs>
-                        {/* <ellipse
-                    cx={width / 2}
-                    cy={height + 200}
-                    rx={width}
-                    ry={height}
-                    fill="url(#curve_grad)"
-                /> */}
-
                         <path
                             d={`M${-60},${height / 2} Q${width /
                                 2},${0} ${width + 60}, ${height /
@@ -159,72 +173,61 @@ class ServicesSection extends React.Component {
                             services &&
                             services.map((service, i) => {
                                 return (
-                                    coords[i] && [
-                                        <circle
-                                            r={
-                                                coords[i].status == "active"
-                                                    ? 12
-                                                    : coords[i].status ==
-                                                      "visible"
-                                                        ? 6
-                                                        : 0
-                                            }
-                                            fillOpacity={
-                                                coords[i].status ? 1 : 0
-                                            }
-                                            fill={colors.white}
-                                            cx={coords[i].x}
-                                            cy={coords[i].y}
+                                    coords[i] && (
+                                        <g
+                                            transform={`translate(${
+                                                coords[i].x
+                                            }, ${coords[i].y})`}
                                             style={{
-                                                transition: "all 1s ease"
-                                            }}
-                                        >
-                                            {i}
-                                        </circle>,
-                                        <text
-                                            x={coords[i].x}
-                                            y={
-                                                coords[i].y -
-                                                (coords[i].status == "active"
-                                                    ? 40
-                                                    : 30)
-                                            }
-                                            textAnchor="middle"
-                                            style={{
-                                                fill: colors.white,
-                                                fontWeight: 900,
-                                                transition: "all 1s ease"
-                                            }}
-                                            fillOpacity={
-                                                coords[i].status == "active"
+                                                opacity: coords[i].status
                                                     ? 1
-                                                    : coords[i].status ==
-                                                      "visible"
-                                                        ? 0.5
-                                                        : 0
-                                            }
-                                        >
-                                            {service.node.frontmatter.title.toUpperCase()}
-                                        </text>,
-                                        <line
-                                            x={coords[i].x}
-                                            y={coords[i].y}
-                                            x1={coords[i].x}
-                                            y1={coords[i].y}
-                                            x2={coords[i].x}
-                                            y2={
-                                                coords[i].y -
-                                                (coords[i].status == "active"
-                                                    ? 30
-                                                    : 20)
-                                            }
-                                            strokeWidth="1"
-                                            stroke="white"
-                                            style={{
+                                                    : 0,
                                                 transition: "all 1s ease"
                                             }}
-                                        />
-                                    ]
+                                        >
+                                            <circle
+                                                r={
+                                                    coords[i].status == "active"
+                                                        ? 12
+                                                        : 6
+                                                }
+                                                fill={colors.white}
+                                                cx={0}
+                                                cy={0}
+                                            >
+                                                {i}
+                                            </circle>
+                                            <text
+                                                y={-30}
+                                                textAnchor="middle"
+                                                style={{
+                                                    fill: colors.white,
+                                                    fontWeight: 900
+                                                }}
+                                                fillOpacity={
+                                                    coords[i].status == "active"
+                                                        ? 1
+                                                        : 0.5
+                                                }
+                                            >
+                                                {service.node.frontmatter.title.toUpperCase()}
+                                            </text>
+                                            <line
+                                                x={0}
+                                                y={0}
+                                                x1={0}
+                                                y1={0}
+                                                x2={0}
+                                                y2={
+                                                    coords[i].status == "active"
+                                                        ? -30
+                                                        : -20
+                                                }
+                                                strokeWidth="1"
+                                                stroke="white"
+                                            />
+                                        </g>
+                                    )
                                 );
                             })}
                     </svg>
@@ -238,13 +241,15 @@ class ServicesSection extends React.Component {
                     >
                         <Row style={{ position: "relative" }}>
                             <Column small={8} centered>
-                                {services && (
-                                    <div
-                                        dangerouslySetInnerHTML={{
-                                            __html: services[current].node.html
-                                        }}
-                                    />
-                                )}
+                                {services &&
+                                    services[current] && (
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html:
+                                                    services[current].node.html
+                                            }}
+                                        />
+                                    )}
 
                                 <Control
                                     className="fa-layers fa-fw"
