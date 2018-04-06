@@ -8,7 +8,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import SiteNav from "./SiteNav";
 import SiteNavLink from "./SiteNavLink";
 import { spacing, colors } from "../theme/theme";
-import { serveStatic } from "../helpers/helpers";
+import { isBrowser } from "../helpers/helpers";
 
 const Logo = () => {
     return (
@@ -55,7 +55,9 @@ class SiteHeader extends React.Component {
             scrolltop == 0 && isHome ? colors.background : colors.white;
 
         const backgroundColor =
-            (scrolltop > document.body.clientHeight * 2.5 && isHome) || !isHome
+            (isBrowser() &&
+                (scrolltop > document.body.clientHeight * 2.5 && isHome)) ||
+            (isBrowser() && !isHome)
                 ? colors.background
                 : "transparent";
 
