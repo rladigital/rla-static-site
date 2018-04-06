@@ -57,7 +57,6 @@ class ServicesSection extends React.Component {
             coords = coords.concat(n); // add to back
         }
 
-        console.log(coords);
         return coords;
     }
 

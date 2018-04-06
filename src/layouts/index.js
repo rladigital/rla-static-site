@@ -27,6 +27,8 @@ const navigation = [
     { to: "/contact", text: "Contact" }
 ];
 
+let resizeTimer;
+
 class TemplateWrapper extends React.Component {
     constructor(props) {
         super(props);
@@ -49,11 +51,10 @@ class TemplateWrapper extends React.Component {
     }
 
     handleScroll() {
-        const scrolltop = !Boolean(window.scrollY > 0);
-
-        if (scrolltop != this.state.scrolltop) {
-            this.setState({ scrolltop: scrolltop });
-        }
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            this.setState({ scrolltop: window.scrollY });
+        }, 250);
     }
 
     render() {
@@ -61,9 +62,8 @@ class TemplateWrapper extends React.Component {
         const { children, location, ...rest } = this.props;
         const isHome = Boolean(location && location.pathname == "/");
         const offcanvasActive = Boolean(
-            (!scrolltop || !isHome) && this.state.offcanvasActive
+            (scrolltop != 0 || !isHome) && this.state.offcanvasActive
         );
-
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>
@@ -84,7 +84,9 @@ class TemplateWrapper extends React.Component {
                         isHome={isHome}
                     />
                     <div>{children()}</div>
-                    <Footer items={navigation} data={this.props.data} />
+                    {this.props.data && (
+                        <Footer items={navigation} data={this.props.data} />
+                    )}
                 </div>
             </ThemeProvider>
         );
