@@ -104,7 +104,7 @@ export const query = graphql`
         allMarkdownRemark(
             filter: {
                 fields: {
-                    slug: { regex: "/contacts/(bournemouth)|(belfast)//" }
+                    slug: { regex: "/contacts/(bournemouth)|(london)//" }
                 }
             }
         ) {

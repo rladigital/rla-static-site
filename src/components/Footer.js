@@ -54,34 +54,20 @@ export default ({
                 })}
             </Column>
 
-            {contacts
-                .sort((a, b) => {
-                    var nameA = a.node.frontmatter.title.toUpperCase(); // ignore upper and lowercase
-                    var nameB = b.node.frontmatter.title.toUpperCase(); // ignore upper and lowercase
-                    if (nameA < nameB) {
-                        return 1;
-                    }
-                    if (nameA > nameB) {
-                        return -1;
-                    }
-
-                    // names must be equal
-                    return 0;
-                })
-                .map(({ node: contact }, index) => {
-                    return (
-                        <Column large={3} key={index}>
-                            <Location
-                                to={contact.fields.slug}
-                                address={contact.frontmatter.address}
-                                phone={contact.frontmatter.tel}
-                                email={contact.frontmatter.email}
-                            >
-                                {contact.frontmatter.title}
-                            </Location>
-                        </Column>
-                    );
-                })}
+            {contacts.map(({ node: contact }, index) => {
+                return (
+                    <Column large={3} key={index}>
+                        <Location
+                            to={contact.fields.slug}
+                            address={contact.frontmatter.address}
+                            phone={contact.frontmatter.tel}
+                            email={contact.frontmatter.email}
+                        >
+                            {contact.frontmatter.title}
+                        </Location>
+                    </Column>
+                );
+            })}
 
             <Column large={2} style={{ textAlign: "right" }}>
                 <Social icon="facebook-f" to="/contact" />
