@@ -33,7 +33,7 @@ class TemplateWrapper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            scrolltop: true,
+            scrolltop: 0,
             offcanvasActive: false
         };
     }
