@@ -47,6 +47,10 @@ const Solution = styled.text`
 const Orb = styled.circle`
     cursor: pointer;
     transition: all 1s cubic-bezier(1, -0.2, 0, 1.2);
+    &:hover {
+        r: 16px;
+        transition: all ease 1s;
+    }
 `;
 
 class SolutionsVideo extends React.Component {
