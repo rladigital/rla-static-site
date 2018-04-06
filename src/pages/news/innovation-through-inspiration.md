@@ -19,7 +19,7 @@ galleryImages:
   - null
 author: Tom Lawton
 ---
-<img src="undefined" alt="undefined" style={{float: "undefined, maxWidth="50%"}}/>
+<img src="undefined" alt="undefined" style={{float: "undefined", maxWidth="50%"}}/>
 
 Joel Gibbard, a 25-year-old robotics engineer who graduated from Plymouth
 University in 2011, has recently won the prestigious James Dyson award for his
