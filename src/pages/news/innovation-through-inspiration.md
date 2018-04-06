@@ -60,7 +60,7 @@ Individual finger movements are achieved using sensors, stuck directly on to
 the user’s skin. It was this combination of innovation, enterprise and
 affordability that helped Joel win the Dyson Award.
 
-handshake
+> Together we became a valuable extension of the Volvo Marketing Team
 
 “I’m a great believer in finding more efficient ways of doing things. By
 embracing rapid prototyping techniques, Joel has initiated a step-change in

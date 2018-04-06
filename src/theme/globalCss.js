@@ -203,6 +203,12 @@ function globalCss(theme) {
         .width75{
             max-width: 75%;
         }    
+
+        .postContent blockquote {
+            padding: 2rem 2rem 1.2rem 2rem;
+            background: #eaeaea;
+            font-size: 2rem;
+        }
     `;
 }
 

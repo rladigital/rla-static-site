@@ -49,7 +49,7 @@ export const NewsTemplate = ({
                     </Column>
                 </Row>
                 <Row>
-                    <Column medium={8}>
+                    <Column medium={8} className="postContent">
                         <h2>{intro}</h2>
                         <PostContent content={content} />
                     </Column>
