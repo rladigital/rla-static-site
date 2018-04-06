@@ -19,13 +19,13 @@ galleryImages:
   - null
 author: Tom Lawton
 ---
-<img src="undefined" alt="undefined" style={{float: "undefined", maxWidth="50%"}}/>
-
 Joel Gibbard, a 25-year-old robotics engineer who graduated from Plymouth
 University in 2011, has recently won the prestigious James Dyson award for his
 game-changing 3D-printed prosthetic hand. A prosthetic hand that challenges
 much more expensive and advanced products, yet comes in at less than £1000,
 and can be 3D-printed in just 40 hours.
+
+<img src="/img/1.png" alt="Phone image" style="float:left, max-width=50%" />
 
 More advanced, traditionally manufactured prosthetic limbs cost anywhere from
 £30,000 – £60,000 and take weeks, if not months of fitting appointments and
