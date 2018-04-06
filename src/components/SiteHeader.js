@@ -17,31 +17,12 @@ const Logo = () => {
             x="0px"
             y="0px"
             viewBox="0 0 148 60"
-            width="110"
-            height="55"
+            width="88"
         >
-            <defs>
-                <filter
-                    id="shadow"
-                    x="-20%"
-                    y="-20%"
-                    width="140%"
-                    height="140%"
-                >
-                    <feDropShadow
-                        dx="0"
-                        dy="0"
-                        stdDeviation="5"
-                        floodColor="#55555"
-                        floodOpacity="0.6"
-                    />
-                </filter>
-            </defs>
             <path
-                className="st0"
+                class="st0"
                 d="M105,6.1L85.3,55V44.7H67.8V6.5H49.9v15c-0.6-3.6-2.2-6.5-4.6-8.9c-3.7-3.7-9.8-6.1-19.2-6.1H0v53.4h17.9V44.7	h3.8l10.1,15.3h18.2v0h33.3h2h16.2l2.7-7.2H123l2.8,7.2h19.4L122.7,6.1H105z M32.4,26.7c0,3.3-2.6,5.2-6.9,5.2h-7.7V21.5h7.8	c4.1,0,6.8,1.7,6.8,5.1V26.7z M39.7,41.8c5.5-2.6,9.2-6.9,10.2-12.9v27.8L39.7,41.8z M108.8,40.1l4.9-13l4.9,13H108.8z M139.3,0	c-4.8,0-8.7,3.9-8.7,8.7s3.9,8.7,8.7,8.7c4.8,0,8.7-3.9,8.7-8.7S144.1,0,139.3,0z M139.3,16.4c-4.3,0-7.7-3.5-7.7-7.7	c0-4.3,3.5-7.7,7.7-7.7c4.3,0,7.7,3.5,7.7,7.7C147.1,13,143.6,16.4,139.3,16.4z M145.2,8.4v3.3h-1.3V8.7c0-0.8-0.2-1.1-0.7-1.1	c-0.7,0-1.1,0.6-1.2,1.1c0,0.2-0.1,0.4-0.1,0.6v2.4h-1.3V8.6c0-0.7-0.1-1.1-0.7-1.1c-0.7,0-1.1,0.6-1.3,1.2c0,0.1,0,0.2,0,0.4v2.6	l-1.3,0V8.1c0-0.5-0.2-0.5-0.3-0.5h0V6.5l0,0c0,0,0.1,0,0.1,0c0.7,0,1.2,0.1,1.4,0.6c0.4-0.4,1-0.7,1.6-0.7c0.8,0,1.3,0.3,1.5,0.9	c0.3-0.5,0.9-0.9,1.7-0.9C144.6,6.3,145.2,7,145.2,8.4z M136.5,10.5l0.2,0v1.2l-0.1,0c0,0-0.2,0-0.3,0c-0.6,0-2-0.2-2-2V7.5h-0.7	V6.4h0.7V5.1h1.2v1.4h1.2v1.1h-1.2v2.1c0,0.6,0.3,1,0.9,1C136.4,10.6,136.4,10.5,136.5,10.5z"
                 fill="currentColor"
-                style={{ filter: "url(#shadow)" }}
             />
         </svg>
     );
@@ -53,7 +34,7 @@ const HeaderContainer = styled.div`
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: padding 0.5s ease, color 0.5s ease, background 0.5s ease;
+    transition: padding 0.5s ease, color 0.5s ease, background 2s ease;
 `;
 
 class SiteHeader extends React.Component {
@@ -66,19 +47,27 @@ class SiteHeader extends React.Component {
             offcanvasActive
         } = this.props;
 
-        const logoOpacity = scrolltop && isHome ? 0 : 1;
+        const logoOpacity = scrolltop == 0 && isHome ? 0 : 1;
 
-        const headerPadding = scrolltop && isHome ? 28 : 20;
+        const headerPadding = scrolltop == 0 && isHome ? 28 : 20;
 
         const foregroundColor =
-            scrolltop && isHome ? colors.background : colors.white;
+            scrolltop == 0 && isHome ? colors.background : colors.white;
+
+        const backgroundColor =
+            (scrolltop > document.body.clientHeight * 2.5 && isHome) || !isHome
+                ? colors.background
+                : "transparent";
+
+        console.log(scrolltop);
 
         return (
             <div>
                 <HeaderContainer
                     style={{
                         padding: `${headerPadding}px 1rem`,
-                        color: foregroundColor
+                        color: foregroundColor,
+                        backgroundColor: backgroundColor
                     }}
                 >
                     <Row expanded>
@@ -94,7 +83,7 @@ class SiteHeader extends React.Component {
                             </Link>
                         </Column>
                         <Column small={6} medium={9}>
-                            {scrolltop && isHome ? (
+                            {scrolltop == 0 && isHome ? (
                                 <SiteNav>
                                     {items.map((item, index) => {
                                         return (
