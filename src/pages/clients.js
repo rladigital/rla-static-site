@@ -188,22 +188,25 @@ export default class ClientsPage extends React.Component {
                                     </Container>
                                     <Container style={{ height: 300 }}>
                                         {isCurrent &&
-                                            solutions.map((solution, index) => {
-                                                return (
-                                                    <Solution
-                                                        style={{
-                                                            animationDelay: `${0.2 *
-                                                                index}s`,
-                                                            zIndex: 1 - index
-                                                        }}
-                                                    >
-                                                        <SolutionDot />
-                                                        <SolutionText>
-                                                            {solution}
-                                                        </SolutionText>
-                                                    </Solution>
-                                                );
-                                            })}
+                                            client.frontmatter.solutionsList.map(
+                                                (solution, index) => {
+                                                    return (
+                                                        <Solution
+                                                            style={{
+                                                                animationDelay: `${0.2 *
+                                                                    index}s`,
+                                                                zIndex:
+                                                                    1 - index
+                                                            }}
+                                                        >
+                                                            <SolutionDot />
+                                                            <SolutionText>
+                                                                {solution}
+                                                            </SolutionText>
+                                                        </Solution>
+                                                    );
+                                                }
+                                            )}
                                     </Container>
                                 </Brand>
                             );
@@ -231,6 +234,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         logo
+                        solutionsList
                     }
                 }
             }
