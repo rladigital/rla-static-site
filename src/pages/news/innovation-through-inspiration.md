@@ -25,7 +25,7 @@ game-changing 3D-printed prosthetic hand. A prosthetic hand that challenges
 much more expensive and advanced products, yet comes in at less than £1000,
 and can be 3D-printed in just 40 hours.
 
-<img src="/img/1.png" alt="Phone image" style="float:right; max-width=50%" />
+<img src="/img/1.png" alt="Phone Image" class="floatLeft width50" />
 
 More advanced, traditionally manufactured prosthetic limbs cost anywhere from
 £30,000 – £60,000 and take weeks, if not months of fitting appointments and
