@@ -9,10 +9,11 @@ const ClientPreview = ({ entry, widgetFor }) => (
         hero={entry.getIn(["data", "hero"])}
         logo={entry.getIn(["data", "logo"])}
         intro={entry.getIn(["data", "intro"])}
-        project={entry.getIn(["data", "project"])}
-        outcome={entry.getIn(["data", "outcome"])}
-        galleryImages={entry.getIn(["data", "galleryImages"])}
-        solutions={entry.getIn(["data", "solutionsList"])}
+        solutions={
+            entry.getIn(["data", "solutionsList"])
+                ? entry.getIn(["data", "solutionsList"])
+                : []
+        }
     />
 );
 
