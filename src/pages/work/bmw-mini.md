@@ -1,9 +1,9 @@
 ---
 templateKey: work
-title: Salisbury BID
-hero: /img/Salisbury@2x.png
-thumb: /img/Salisbury.png
-intro: Salisbury BID
+title: BMW/Mini
+hero: /img/BMW-Mini@2x.png
+thumb: /img/BMW-Mini.png
+intro: BMW/Mini
 project: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
   augue id luctus. Sed ac nibh eget dui volutpat porttitor. Integer vel libero
@@ -17,7 +17,7 @@ outcome: >-
   tincidunt turpis. Integer et erat est. Fusce pharetra gravida sem, eu mattis
   ipsum vulputate a.
 galleryImages:
-  - /img/Salisbury.png
+  - /img/BMW-Mini.png
 solutionsList:
   - Brand Desire
 weighting: 0

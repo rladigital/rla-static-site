@@ -1,9 +1,9 @@
 ---
 templateKey: work
-title: Salisbury BID
-hero: /img/Salisbury@2x.png
-thumb: /img/Salisbury.png
-intro: Salisbury BID
+title: PSA Group
+hero: /img/PSA@2x.png
+thumb: /img/PSA.png
+intro: PSA Group
 project: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
   augue id luctus. Sed ac nibh eget dui volutpat porttitor. Integer vel libero
@@ -17,7 +17,7 @@ outcome: >-
   tincidunt turpis. Integer et erat est. Fusce pharetra gravida sem, eu mattis
   ipsum vulputate a.
 galleryImages:
-  - /img/Salisbury.png
+  - /img/PSA.png
 solutionsList:
   - Brand Desire
 weighting: 0
