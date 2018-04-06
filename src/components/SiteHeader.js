@@ -34,7 +34,7 @@ const HeaderContainer = styled.div`
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: padding 0.5s ease, color 0.5s ease, background 2s ease;
+    transition: padding 0.5s ease, color 0.5s ease, background 0.5s ease;
 `;
 
 class SiteHeader extends React.Component {
