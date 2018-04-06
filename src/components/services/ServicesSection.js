@@ -126,7 +126,7 @@ class ServicesSection extends React.Component {
                             fontSize={4.5}
                             textAlign="left"
                         >
-                            <span>Together, {current}</span>
+                            <span>Together,</span>
                             <br />
                             we can achieve more
                         </HeaderBlock>

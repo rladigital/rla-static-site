@@ -16,30 +16,54 @@ const StyledLink = styled(Link)`
     text-transform: uppercase;
     color: ${colors.white};
     margin-bottom: ${spacing.padding}rem;
-    font-size: 0.8rem;
+    font-size: 16px;
     font-weight: 700;
 `;
 
 const SocialIcon = styled(Link)`
-    width: 36px;
+    width: 42px;
+    height: 42px;
+    border-radius: 40px;
+    font-size: 20px;
+    line-height: 38px;
+    text-align: center;
     margin-left: ${spacing.padding}rem;
+    border: 3px solid ${colors.accent};
+    display: inline-block;
 `;
 
 const ContactDetail = styled.li`
-    padding-bottom: ${spacing.padding}rem;
+    font-size: 16px;
+    padding-bottom: 1rem;
+    position: relative;
     a {
         font-weight: normal;
         color: ${colors.lightGray};
-        font-size: 0.8em;
+        font-size: 14px;
         line-height: 1.5;
     }
+`;
+
+const Copyright = styled.div`
+    padding: 14px;
+    margin-top: 2em;
+    font-size: 14px;
+    text-align: center;
+    background-color: #16263b;
+    color: ${colors.lightGray};
+`;
+
+const FaUl = styled.ul`
+    list-style-type: none;
+    margin-left: 1.4em;
+    padding-left: 0;
 `;
 
 export default ({
     data: { allMarkdownRemark: { edges: contacts } },
     items
 }) => (
-    <SectionContainer>
+    <SectionContainer padding="5em 0 0">
         <Row>
             <Column large={2}>
                 <img src={logo} alt="RLA" style={{ width: "120px" }} />
@@ -75,6 +99,11 @@ export default ({
                 <Social icon="twitter" to="/contact" />
             </Column>
         </Row>
+        <Copyright>
+            <Row>
+                <Column>Copyright RLA Group Ltd. | Cookie Policy</Column>
+            </Row>
+        </Copyright>
     </SectionContainer>
 );
 
@@ -82,7 +111,7 @@ const Location = ({ to, children, address, phone, email }) => (
     <div>
         <StyledLink to={to}>{children}</StyledLink>
 
-        <ul className="fa-ul">
+        <FaUl>
             {address && (
                 <ContactDetail>
                     <FAIcon icon="map-marker-alt" listItem />
@@ -103,17 +132,12 @@ const Location = ({ to, children, address, phone, email }) => (
                     <a href={`mailto:${email}`}>{email}</a>
                 </ContactDetail>
             )}
-        </ul>
+        </FaUl>
     </div>
 );
 
 const Social = ({ icon, to }) => (
-    <SocialIcon className="fa-layers fa-fw" to={to}>
-        <FAIcon color={colors.white} icon={["fab", icon]} transform="grow-2" />
-        <FAIcon
-            color={colors.accent}
-            icon={["far", "circle"]}
-            transform="grow-22"
-        />
+    <SocialIcon to={to}>
+        <FAIcon color={colors.white} icon={["fab", icon]} />
     </SocialIcon>
 );
