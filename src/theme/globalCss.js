@@ -180,7 +180,27 @@ function globalCss(theme) {
         }
 
         /* ----- Heading Styles ----- */
-        ${headings()}       
+        ${headings()}    
+
+
+        /* ----- Utility Styles (used in HTML embedded in posts) ----- */
+        .floatLeft {
+            float: left;
+            margin-right: 1em;
+        } 
+        .floatRight {
+            float: right;
+            margin-left: 1em;
+        }   
+        .width25{
+            max-width: 25%;
+        }   
+        .width50{
+            max-width: 50%;
+        }   
+        .width75{
+            max-width: 75%;
+        }    
     `;
 }
 

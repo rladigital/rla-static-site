@@ -55,8 +55,15 @@ export const NewsTemplate = ({
                     </Column>
                     <Column medium={4}>
                         <SidebarDate date={date} />
-                        {author.frontmatter.title}
                         <PullQuote>{sideHeading}</PullQuote>
+                        {author &&
+                            author.frontmatter && (
+                                <div>
+                                    <p>{author.frontmatter.title}</p>
+
+                                    <p>{author.frontmatter.role}</p>
+                                </div>
+                            )}
 
                         {galleryImages.map((image, index) => {
                             if (image) {
@@ -130,6 +137,7 @@ export const pageQuery = graphql`
                 author {
                     frontmatter {
                         title
+                        role
                     }
                 }
             }

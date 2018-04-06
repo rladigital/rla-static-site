@@ -22,4 +22,3 @@ solutionsList:
   - Brand Desire
 weighting: 0
 ---
-

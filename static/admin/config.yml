@@ -21,7 +21,8 @@ collections:
       - {label: "Project Description", name: "project", widget: "markdown"}
       - {label: "Outcome Description", name: "outcome", widget: "markdown"}
       - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
-      - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
+      - {label: "Solution Lookup (Not used in content, just for finding titles to copy)", name: "solutionLookup", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title", required: false}
+      - {label: "Solutions (Exact Title of Solutions, separated with commas)", name: "solutionsList", widget: "list"}
       - {label: "Weighting", name: "weighting", widget: "number", default: 0, min: 0, max: 100}
 
   - name: "solutions"
@@ -47,7 +48,12 @@ collections:
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Logo", name: "logo", widget: "image"}
       - {label: "Background Colour", name: "color", widget: "string", required: false}
-      - {label: "Solutions", name: "solutionsList", widget: "list", field: {label: "Solution", name: "solution", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}}
+      - {label: "Solution Lookup (Not used in content, just for finding titles to copy)", name: "solutionLookup", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title", required: false}
+      - {label: "Solutions (Exact Title of Solutions, separated with commas)", name: "solutionsList", widget: "list"}
+      # - {label: "Solution1", name: "solution1", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
+      # - {label: "Solution2", name: "solution2", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
+      # - {label: "Solution3", name: "solution3", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
+      # - {label: "Solution4", name: "solution4", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
   - name: "services"
     label: "Services"
     folder: "src/pages/services"
