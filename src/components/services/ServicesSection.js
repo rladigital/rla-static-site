@@ -103,7 +103,7 @@ class ServicesSection extends React.Component {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             this.setState({ current: x });
-        }, 250);
+        }, 500);
     }
 
     render() {
@@ -126,7 +126,7 @@ class ServicesSection extends React.Component {
                             fontSize={4.5}
                             textAlign="left"
                         >
-                            <span>Together,</span>
+                            <span>Together, {current}</span>
                             <br />
                             we can achieve more
                         </HeaderBlock>
@@ -191,6 +191,9 @@ class ServicesSection extends React.Component {
                                                         ? 12
                                                         : 6
                                                 }
+                                                style={{
+                                                    transition: "r 1s ease"
+                                                }}
                                                 fill={colors.white}
                                                 cx={0}
                                                 cy={0}
@@ -218,11 +221,7 @@ class ServicesSection extends React.Component {
                                                 x1={0}
                                                 y1={0}
                                                 x2={0}
-                                                y2={
-                                                    coords[i].status == "active"
-                                                        ? -30
-                                                        : -20
-                                                }
+                                                y2={-20}
                                                 strokeWidth="1"
                                                 stroke="white"
                                             />
