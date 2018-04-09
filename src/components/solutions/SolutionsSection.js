@@ -106,7 +106,7 @@ class SolutionsSection extends React.Component {
 
                 <ScrollDown
                     style={{
-                        opacity: font && scrolltop ? 1 : 0
+                        opacity: font && scrolltop != 0 ? 1 : 0
                     }}
                 >
                     <ScrollDownText />

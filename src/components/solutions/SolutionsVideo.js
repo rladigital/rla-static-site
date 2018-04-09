@@ -82,7 +82,7 @@ class SolutionsVideo extends React.Component {
                     this.video.readyState != 4 && (
                         <LoadingScreen
                             percentage={loadedPercentage}
-                            text={`${loadedPercentage}%`}
+                            text={`${Math.round(loadedPercentage)}%`}
                         />
                     )}
                 <Svg width={width} height={height}>
@@ -101,6 +101,7 @@ class SolutionsVideo extends React.Component {
                         innerRef={video => {
                             this.video = video;
                         }}
+                        preload="auto"
                         poster={placeholder}
                     >
                         <source src={video} type="video/mp4" />
