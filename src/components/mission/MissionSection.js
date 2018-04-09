@@ -22,7 +22,7 @@ const P = styled.p`
 const MissionSection = ({ percentage, text }) => (
     <Container>
         <Row>
-            <Column large={6}>
+            <Column large={8} xlarge={6}>
                 <HeaderBlock
                     textAlign="left"
                     accentColor={colors.background}
@@ -40,7 +40,7 @@ const MissionSection = ({ percentage, text }) => (
             </Column>
         </Row>
         <Row>
-            <Column large={5}>
+            <Column xlarge={5}>
                 <P>
                     <strong>
                         We are fast becoming the UK’s leading, most respected
