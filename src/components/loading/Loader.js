@@ -30,9 +30,9 @@ const Loader = ({ percentage, text }) => (
                 animation: percentage
                     ? "none"
                     : `${animation} ${1}s infinite alternate`,
-                transition: `width ${10}s ease`
+                transition: `width ${1}s ease`
             }}
-            width={percentage || "100%"}
+            width={`${percentage}%` || "100%"}
             height={60}
             mask="url(#loader_mask)"
             fill="#dddddd"

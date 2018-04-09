@@ -4,6 +4,7 @@ import { Row, Column } from "rla-components";
 import { colors } from "../../theme/theme";
 import video from "../../videos/video.mp4";
 import placeholder from "../../img/static-video.png";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const Container = styled.div`
     width: 100%;
@@ -33,17 +34,33 @@ const Rect = styled.rect`
 `;
 
 class SolutionsVideo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loadedPercentage: 0
+        };
+    }
     componentDidMount() {
-        this.video.addEventListener("progress", () => {
-            if (this.video && this.video.readyState > 1) {
-                let loadedPercentage =
-                    this.video.buffered.end(0) / this.video.duration * 100;
-                console.log("test", loadedPercentage);
-            }
-        });
+        this.video.addEventListener("progress", () => this.handleVideoLoad());
+    }
+
+    componentWillUnmount() {
+        this.video.removeEventListener("progress", () =>
+            this.handleVideoLoad()
+        );
+    }
+
+    handleVideoLoad() {
+        if (this.video && this.video.readyState > 0) {
+            this.setState({
+                loadedPercentage:
+                    this.video.buffered.end(0) / this.video.duration * 100
+            });
+        }
     }
 
     render() {
+        const { loadedPercentage } = this.state;
         const { width, height, scrollY, style } = this.props;
 
         const circleProps = {
@@ -61,6 +78,13 @@ class SolutionsVideo extends React.Component {
 
         return (
             <Container style={{ ...style, opacity: scale }}>
+                {this.video &&
+                    this.video.readyState != 4 && (
+                        <LoadingScreen
+                            percentage={loadedPercentage}
+                            text={`${loadedPercentage}%`}
+                        />
+                    )}
                 <Svg width={width} height={height}>
                     <circle {...circleProps} />
                 </Svg>
