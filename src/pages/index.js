@@ -8,6 +8,7 @@ import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
 import NewsSection from "../components/news/NewsSection";
 import LoadingScreen from "../components/loading/LoadingScreen";
+import MissionSection from "../components/mission/MissionSection";
 
 if (serveStatic()) {
     var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
@@ -96,6 +97,7 @@ export default class IndexPage extends React.Component {
 
                         <NewsSection news={news} />
                         <PeopleSection people={people} />
+                        <MissionSection />
                     </div>
                 ) : (
                     <LoadingScreen text="Loading" />
