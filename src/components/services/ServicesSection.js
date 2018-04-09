@@ -175,6 +175,7 @@ class ServicesSection extends React.Component {
                                 return (
                                     coords[i] && (
                                         <g
+                                            key={i}
                                             transform={`translate(${
                                                 coords[i].x
                                             }, ${coords[i].y})`}
