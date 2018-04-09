@@ -23,8 +23,8 @@ export default class IndexPage extends React.Component {
         super(props);
         this.state = {
             hasMounted: false,
-            width: isBrowser() ? document.body.clientWidth : null,
-            height: isBrowser() ? document.body.clientHeight : null
+            width: isBrowser() ? window.innerWidth : null,
+            height: isBrowser() ? window.innerHeight : null
         };
     }
     handleScriptLoad() {
@@ -54,8 +54,8 @@ export default class IndexPage extends React.Component {
     handleResize() {
         if (isBrowser()) {
             this.setState({
-                width: document.body.clientWidth,
-                height: document.body.clientHeight
+                width: window.innerWidth,
+                height: window.innerHeight
             });
         }
     }

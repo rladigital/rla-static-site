@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors } from "../../theme/theme";
 import { scale, random } from "../../helpers/helpers";
+import SolutionModal from "./SolutionModal";
 
 const Svg = styled.svg`
     position: absolute;
@@ -46,10 +47,9 @@ const Solution = styled.text`
 
 const Orb = styled.circle`
     cursor: pointer;
-    transition: all 1s cubic-bezier(1, -0.2, 0, 1.2);
+    transition: r 1s cubic-bezier(1, -0.2, 0, 1.2);
     &:hover {
         r: 16px;
-        transition: all ease 1s;
     }
 `;
 
@@ -153,7 +153,7 @@ class SolutionsVideo extends React.Component {
 
     handleClick(x) {
         this.setState({
-            activeSolution: this.state.activeSolution == x ? null : x
+            activeSolution: x
         });
     }
 
@@ -166,12 +166,6 @@ class SolutionsVideo extends React.Component {
         const orbs = this.orbs(solutions);
 
         const lines = this.lines(orbs);
-
-        const orbsActive = {
-            cx: width / 2,
-            cy: height / 2,
-            r: Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2)) / 2
-        };
 
         return (
             <Gradient style={style}>
@@ -285,21 +279,20 @@ class SolutionsVideo extends React.Component {
                                     key={index}
                                     fill={`url(#grad_${index})`}
                                     id={`orb_${index}`}
-                                    onClick={() => this.handleClick(index)}
-                                    {...(activeSolution != index
-                                        ? orbs[index]
-                                        : orbsActive)}
+                                    onClick={() => this.handleClick(solution)}
+                                    {...orbs[index]}
                                 />
                             ])}
-                        {activeSolution != null && (
-                            <use
-                                id="use"
-                                href={`#orb_${activeSolution}`}
-                                onClick={() => this.handleClick(activeSolution)}
-                            />
-                        )}
                     </Svg>
                 </Container>
+                {activeSolution && (
+                    <SolutionModal
+                        width={width}
+                        height={height}
+                        solution={activeSolution}
+                        close={() => this.handleClick(null)}
+                    />
+                )}
             </Gradient>
         );
     }

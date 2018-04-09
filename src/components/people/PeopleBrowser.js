@@ -119,7 +119,7 @@ class PeopleBrowser extends React.Component {
             data: null,
             array: [0, 1, 2]
         };
-        this.width = document.body.clientWidth;
+        this.width = window.innerWidth;
         this.height = 600;
     }
 
