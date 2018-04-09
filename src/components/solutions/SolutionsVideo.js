@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors } from "../../theme/theme";
 import video from "../../videos/video.mp4";
+import placeholder from "../../img/static-video.png";
 
 const Container = styled.div`
     width: 100%;
@@ -76,6 +77,7 @@ class SolutionsVideo extends React.Component {
                         innerRef={video => {
                             this.video = video;
                         }}
+                        poster={placeholder}
                     >
                         <source src={video} type="video/mp4" />
                     </Video>
