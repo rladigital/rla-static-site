@@ -114,7 +114,7 @@ class ServicesSection extends React.Component {
         return (
             <div>
                 <Row style={{ height: height }}>
-                    <Column large="5">
+                    <Column large={5}>
                         <HeaderBlock
                             baseColor={colors.white}
                             padding={{

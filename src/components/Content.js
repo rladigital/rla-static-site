@@ -14,7 +14,6 @@ export default ({ content, className }) => {
     );
 };
 export const HTMLContent = ({ content, className }) => {
-    console.log(content);
     return (
         <div
             className={className}
