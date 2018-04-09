@@ -32,6 +32,17 @@ const Rect = styled.rect`
 `;
 
 class SolutionsVideo extends React.Component {
+    componentDidMount() {
+        this.video.addEventListener("progress", () => {
+            if (this.video && this.video.readyState > 1) {
+                let loadedPercentage =
+                    this.video.buffered.end(0) / this.video.duration * 100;
+                console.log("test", loadedPercentage);
+                progress.value = loadedPercentage;
+            }
+        });
+    }
+
     render() {
         const { width, height, scrollY, style } = this.props;
 
@@ -59,7 +70,14 @@ class SolutionsVideo extends React.Component {
                         transform: `scale(${scale})`
                     }}
                 >
-                    <Video autoPlay muted loop>
+                    <Video
+                        autoPlay
+                        muted
+                        loop
+                        innerRef={video => {
+                            this.video = video;
+                        }}
+                    >
                         <source src={video} type="video/mp4" />
                     </Video>
                     <Svg width={width} height={height} viewBox="0 0 1920 1080">
