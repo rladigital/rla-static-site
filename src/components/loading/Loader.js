@@ -8,33 +8,39 @@ const pathProps = {
     fill: "#ffffff"
 };
 
+const Svg = styled.svg`
+    max-width: 100%;
+`;
+
 const animation = keyframes`
     from {opacity: 1;}
     to {opacity: 0.2;}
 `;
 
-const Loader = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 90" width="200">
+const Loader = ({ percentage, text }) => (
+    <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 90" width="200">
         <defs>
             <mask id="loader_mask">
                 <path {...pathProps} />
             </mask>
         </defs>
-        <path {...pathProps} stroke="#ddd" strokeWidth={1} />
+        <path {...pathProps} stroke="#eeeeee" strokeWidth={1} />
         <rect
             style={{
-                animation: `${animation} ${1}s infinite alternate`,
+                animation: percentage
+                    ? "none"
+                    : `${animation} ${1}s infinite alternate`,
                 transition: `width ${10}s ease`
             }}
-            width={148}
+            width={percentage || "100%"}
             height={60}
             mask="url(#loader_mask)"
             fill="#dddddd"
         />
         <text x={74} y={80} textAnchor="middle" fill="#dddddd">
-            Loading...
+            {text}
         </text>
-    </svg>
+    </Svg>
 );
 
 export default Loader;

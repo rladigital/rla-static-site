@@ -98,7 +98,7 @@ export default class IndexPage extends React.Component {
                         <PeopleSection people={people} />
                     </div>
                 ) : (
-                    <LoadingScreen />
+                    <LoadingScreen text="Loading" />
                 )}
             </section>
         );

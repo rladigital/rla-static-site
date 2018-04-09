@@ -20,7 +20,7 @@ const Centred = styled.div`
 `;
 
 const LoadingScreen = props => (
-    <Overlay id="loadingxx">
+    <Overlay>
         <Centred>
             <Loader {...props} />
         </Centred>
