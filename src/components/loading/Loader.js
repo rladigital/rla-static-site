@@ -13,8 +13,8 @@ const Svg = styled.svg`
 `;
 
 const animation = keyframes`
-    from {opacity: 1;}
-    to {opacity: 0.2;}
+    from {opacity: 0;}
+    to {opacity: 1;}
 `;
 
 const Loader = ({ percentage, text }) => (
@@ -32,7 +32,7 @@ const Loader = ({ percentage, text }) => (
                     : `${animation} ${1}s infinite alternate`,
                 transition: `width ${1}s ease`
             }}
-            width={`${percentage}%` || "100%"}
+            width={percentage ? `${percentage}%` : "100%"}
             height={60}
             mask="url(#loader_mask)"
             fill="#dddddd"
