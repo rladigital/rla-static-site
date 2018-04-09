@@ -7,6 +7,7 @@ import { serveStatic, isBrowser } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
 import ClientsSection from "../components/clients/ClientsSection";
 import NewsSection from "../components/news/NewsSection";
+import LoadingScreen from "../components/loading/LoadingScreen";
 
 if (serveStatic()) {
     var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
@@ -75,7 +76,7 @@ export default class IndexPage extends React.Component {
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
-                {this.state.hasMounted && (
+                {this.state.hasMounted ? (
                     <div>
                         <SolutionsSection
                             width={width}
@@ -96,6 +97,8 @@ export default class IndexPage extends React.Component {
                         <NewsSection news={news} />
                         <PeopleSection people={people} />
                     </div>
+                ) : (
+                    <LoadingScreen />
                 )}
             </section>
         );

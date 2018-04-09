@@ -38,7 +38,6 @@ class SolutionsVideo extends React.Component {
                 let loadedPercentage =
                     this.video.buffered.end(0) / this.video.duration * 100;
                 console.log("test", loadedPercentage);
-                progress.value = loadedPercentage;
             }
         });
     }
