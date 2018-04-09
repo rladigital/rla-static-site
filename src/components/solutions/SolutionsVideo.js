@@ -82,7 +82,10 @@ class SolutionsVideo extends React.Component {
                     this.video.readyState != 4 && (
                         <LoadingScreen
                             percentage={loadedPercentage}
-                            text={`${Math.round(loadedPercentage)}%`}
+                            text={
+                                loadedPercentage != 0 &&
+                                `${Math.round(loadedPercentage)}%`
+                            }
                         />
                     )}
                 <Svg width={width} height={height}>
