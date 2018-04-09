@@ -79,7 +79,7 @@ class SolutionsVideo extends React.Component {
         return (
             <Container style={{ ...style, opacity: scale }}>
                 {this.video &&
-                    this.video.readyState != 4 && (
+                    this.video.readyState <= 3 && (
                         <LoadingScreen
                             percentage={loadedPercentage}
                             text={
