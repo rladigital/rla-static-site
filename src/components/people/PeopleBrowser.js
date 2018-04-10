@@ -252,7 +252,7 @@ class PeopleBrowser extends React.Component {
                     <div
                         style={{
                             height: height,
-                            transform: `scale(${transformScale(1400)})`
+                            transform: `scale(${transformScale(1200)})`
                         }}
                     >
                         {coords &&
