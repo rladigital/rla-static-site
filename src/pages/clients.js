@@ -9,6 +9,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import theme, { colors } from "../theme/theme";
 import ClientSummary from "../components/clients/ClientSummary";
 import HeaderBlock from "../components/HeaderBlock";
+import SolutionModal from "../components/solutions/SolutionModal";
 
 const rotate360 = keyframes`
   from {
@@ -71,7 +72,6 @@ const SolutionDot = styled.div`
     left: -12px;
     position: absolute;
     border-radius: 50px;
-    background: linear-gradient(to bottom, #3eb2de, #2c7cdb);
     z-index: 1;
     &:after {
         width: 24px;
@@ -98,17 +98,28 @@ const SolutionText = styled.div`
 export default class ClientsPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { currentSlide: 0 };
+        this.state = {
+            currentSlide: 0,
+            activeSolution: null
+        };
     }
     setSlide(x) {
         this.setState({ currentSlide: x });
     }
+    handleClick(x) {
+        this.setState({
+            activeSolution: x
+        });
+    }
+
     render() {
+        const { activeSolution } = this.state;
+        const { data, transition } = this.props;
+
         const {
-            data: { allMarkdownRemark: { edges: clients } },
-            transition
-        } = this.props;
-        console.log(clients);
+            clients: { edges: clients },
+            solutions: { edges: solutions }
+        } = data;
 
         const settings = {
             slideWidth: 0.3,
@@ -119,12 +130,6 @@ export default class ClientsPage extends React.Component {
             renderCenterLeftControls: ({ previousSlide }) => null,
             renderBottomCenterControls: ({ currentSlide }) => null
         };
-
-        const solutions = [
-            "Brand Desire",
-            "Customer Loyalty",
-            "Sales Performance"
-        ];
 
         return (
             <div style={transition && transition.style}>
@@ -189,9 +194,18 @@ export default class ClientsPage extends React.Component {
                                     <Container style={{ height: 300 }}>
                                         {isCurrent &&
                                             client.frontmatter.solutionsList.map(
-                                                (solution, index) => {
+                                                (id, index) => {
+                                                    const solution =
+                                                        solutions[id].node;
+
+                                                    console.log(solution);
                                                     return (
                                                         <Solution
+                                                            onClick={() =>
+                                                                this.handleClick(
+                                                                    solution
+                                                                )
+                                                            }
                                                             style={{
                                                                 animationDelay: `${0.2 *
                                                                     index}s`,
@@ -199,9 +213,25 @@ export default class ClientsPage extends React.Component {
                                                                     1 - index
                                                             }}
                                                         >
-                                                            <SolutionDot />
+                                                            <SolutionDot
+                                                                style={{
+                                                                    background: `linear-gradient(to bottom, ${
+                                                                        solution
+                                                                            .frontmatter
+                                                                            .color1
+                                                                    }, ${
+                                                                        solution
+                                                                            .frontmatter
+                                                                            .color2
+                                                                    })`
+                                                                }}
+                                                            />
                                                             <SolutionText>
-                                                                {solution}
+                                                                {
+                                                                    solution
+                                                                        .frontmatter
+                                                                        .title
+                                                                }
                                                             </SolutionText>
                                                         </Solution>
                                                     );
@@ -213,6 +243,14 @@ export default class ClientsPage extends React.Component {
                         })}
                     </Carousel>
                 </Row>
+                {activeSolution && (
+                    <SolutionModal
+                        width={window.innerWidth}
+                        height={window.innerHeight}
+                        solution={activeSolution}
+                        close={() => this.handleClick(null)}
+                    />
+                )}
             </div>
         );
     }
@@ -220,7 +258,7 @@ export default class ClientsPage extends React.Component {
 
 export const pageQuery = graphql`
     query clientsQuery {
-        allMarkdownRemark(
+        clients: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "clients" } } }
         ) {
             edges {
@@ -235,6 +273,26 @@ export const pageQuery = graphql`
                         templateKey
                         logo
                         solutionsList
+                    }
+                }
+            }
+        }
+        solutions: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "solutions" } } }
+        ) {
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+                    html
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        color1
+                        color2
+                        intro
                     }
                 }
             }
