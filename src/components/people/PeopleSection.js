@@ -21,7 +21,7 @@ class PeopleSection extends React.Component {
                     <span>People</span> at our Core
                 </HeaderBlock>
 
-                <PeopleBrowser people={people} size={500} />
+                <PeopleBrowser people={people.concat(people)} size={500} />
             </SectionContainer>
         );
     }

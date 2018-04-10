@@ -7,7 +7,7 @@ import { transformScale } from "../../helpers/helpers";
 import { colors } from "../../theme/theme";
 import { hexToInt, scale, random } from "../../helpers/helpers";
 
-const height = 500;
+const height = 640;
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -22,7 +22,7 @@ const PersonGroup = styled.div`
     margin-left: 50%;
     margin-top: ${height / 2}px;
     position: absolute;
-    transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease, filter 1s ease;
 `;
 
 const Person = styled.div`
@@ -62,8 +62,8 @@ const Control = styled.a`
 const Selected = styled.div`
     top: 50%;
     left: 50%;
-    width: 400px;
-    height: 400px;
+    width: 360px;
+    height: 360px;
     position: absolute;
     border-radius 200px;
     background-size: cover;
@@ -76,9 +76,7 @@ const Selected = styled.div`
         content: " ";
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, transparent , ${
-            colors.background
-        } 80%);
+
         position: absolute;
         top: -20px;
         left: -20px;
@@ -121,7 +119,7 @@ class PeopleBrowser extends React.Component {
             current: 1,
             coords: null,
             data: null,
-            array: [0, 1, 2]
+            array: [0, 1, 2, 3]
         };
         this.width = window.innerWidth;
     }
@@ -194,6 +192,7 @@ class PeopleBrowser extends React.Component {
         array[0] = current - 1 < 0 ? length : current - 1;
         array[1] = current;
         array[2] = current + 1 > length ? 0 : current + 1;
+        array[3] = current + 1 > length ? 1 : current + 2;
 
         this.setState({ current: current, array: array });
     }
@@ -253,21 +252,27 @@ class PeopleBrowser extends React.Component {
                     <div
                         style={{
                             height: height,
-                            transform: `scale(${transformScale(1080)})`
+                            transform: `scale(${transformScale(1400)})`
                         }}
                     >
                         {coords &&
-                            data.map((row, index) => {
+                            data.map((row, i) => {
                                 return (
                                     <PersonGroup
-                                        key={index}
+                                        key={i}
                                         style={{
                                             transform: `scale(${this.getTransform(
-                                                index
-                                            )})`,
-                                            opacity: current == index ? 1 : 0,
+                                                i
+                                            ) / 1.4})`,
+                                            filter: `blur(${
+                                                current == i ? 10 : 0
+                                            }px)`,
+                                            opacity:
+                                                current == i
+                                                    ? 0.5
+                                                    : current + 1 == i ? 1 : 0,
                                             pointerEvents:
-                                                current == index
+                                                current + 1 == i
                                                     ? "auto"
                                                     : "none"
                                         }}
@@ -276,11 +281,12 @@ class PeopleBrowser extends React.Component {
                                             return (
                                                 <Person
                                                     key={index}
-                                                    onClick={() =>
-                                                        this.handleSelect(
-                                                            person
-                                                        )
-                                                    }
+                                                    onClick={() => {
+                                                        current + 1 == i &&
+                                                            this.handleSelect(
+                                                                person
+                                                            );
+                                                    }}
                                                     style={{
                                                         top: coords[index].y,
                                                         left: coords[index].x
