@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { TweenLite } from "gsap";
 import FAIcon from "@fortawesome/react-fontawesome";
+import { Row, Column } from "rla-components";
+import { transformScale } from "../../helpers/helpers";
 
 import { colors } from "../../theme/theme";
 import { hexToInt, scale, random } from "../../helpers/helpers";
 
+const height = 500;
+
 const Container = styled.div`
     position: relative;
-    height: 600px;
+    height: ${height}px;
 `;
 
 const PersonGroup = styled.div`
@@ -44,17 +47,12 @@ const PersonRole = styled.h4`
     white-space: nowrap;
 `;
 
-const Controls = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-`;
-
 const Control = styled.a`
+    position: absolute;
     font-size: 3em;
     color: ${colors.white};
     cursor: pointer;
+    z-index: 1;
 `;
 
 const Selected = styled.div`
@@ -88,16 +86,19 @@ const Selected = styled.div`
 
 const SelectedText = styled.div`
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    text-align: center;
+
+    padding: 0 0 2em;
 `;
 
 const SelectedTitle = styled.h1`
+    margin-bottom: 0.5em;
     position: relative;
     font-size: 30px;
 `;
 
 const SelectedRole = styled.h1`
+    margin-bottom: 1em;
     position: relative;
     font-size: 15px;
     font-weight: normal;
@@ -106,7 +107,6 @@ const SelectedRole = styled.h1`
 const SelectedBiog = styled.div`
     position: relative;
     font-size: 14px;
-    padding: 5px 40px 30px;
 `;
 
 class PeopleBrowser extends React.Component {
@@ -120,7 +120,6 @@ class PeopleBrowser extends React.Component {
             array: [0, 1, 2]
         };
         this.width = window.innerWidth;
-        this.height = 600;
     }
 
     componentDidMount() {
@@ -152,7 +151,7 @@ class PeopleBrowser extends React.Component {
         let main = 1;
         let theta = Math.PI / count;
         let items = new Array();
-        let size = 320;
+        let size = 360;
 
         for (var i = 0; i < count; i++) {
             let angle =
@@ -213,90 +212,131 @@ class PeopleBrowser extends React.Component {
     render() {
         const { coords, data, current, selected } = this.state;
         return (
-            <Container>
-                {coords &&
-                    data.map((row, index) => {
-                        return (
-                            <PersonGroup
-                                key={index}
-                                style={{
-                                    transform: `scale(${this.getTransform(
-                                        index
-                                    )})`,
-                                    opacity: current == index ? 1 : 0,
-                                    pointerEvents:
-                                        current == index ? "auto" : "none"
-                                }}
-                            >
-                                {row.map(({ node: person }, index) => {
-                                    return (
-                                        <Person
-                                            key={index}
-                                            onClick={() =>
-                                                this.handleSelect(person)
-                                            }
-                                            style={{
-                                                top: coords[index].y,
-                                                left: coords[index].x
-                                            }}
-                                        >
-                                            <PersonImage
-                                                style={{
-                                                    backgroundImage: `url('${
-                                                        person.frontmatter
-                                                            .profile
-                                                    }')`
-                                                }}
-                                            />
-                                            <PersonTitle>
-                                                {person.frontmatter.title}
-                                            </PersonTitle>
-                                            <PersonRole>
-                                                {person.frontmatter.role}
-                                            </PersonRole>
-                                        </Person>
-                                    );
-                                })}
-                            </PersonGroup>
-                        );
-                    })}
-                {selected && (
-                    <Selected
+            <div>
+                <Container>
+                    <Row
                         style={{
-                            backgroundImage: `url('${
-                                selected.frontmatter.profile
-                            }')`
+                            top: "50%",
+                            position: "relative"
                         }}
                     >
-                        <SelectedText>
-                            <SelectedTitle>
-                                {selected.frontmatter.title}
-                            </SelectedTitle>
-                            <SelectedRole>
-                                {selected.frontmatter.role}
-                            </SelectedRole>
-                            <SelectedBiog>{selected.excerpt}</SelectedBiog>
-                        </SelectedText>
-                    </Selected>
-                )}
-                <Controls>
-                    <Control
-                        className="fa-layers fa-fw"
-                        onClick={() => this.navigateChunk("next")}
-                    >
-                        <FAIcon icon="chevron-up" transform="shrink-8" />
-                        <FAIcon icon={["far", "circle"]} />
-                    </Control>
+                        <Column>
+                            <Control
+                                className="fa-layers fa-fw"
+                                onClick={() => this.navigateChunk("next")}
+                                style={{ left: 0 }}
+                            >
+                                <FAIcon
+                                    icon="chevron-left"
+                                    transform="shrink-8"
+                                />
+                                <FAIcon icon={["far", "circle"]} />
+                            </Control>
 
-                    <Control
-                        className="fa-layers fa-fw"
-                        onClick={() => this.navigateChunk("prev")}
+                            <Control
+                                className="fa-layers fa-fw"
+                                onClick={() => this.navigateChunk("prev")}
+                                style={{ right: 0 }}
+                            >
+                                <FAIcon
+                                    icon="chevron-right"
+                                    transform="shrink-8"
+                                />
+                                <FAIcon icon={["far", "circle"]} />
+                            </Control>
+                        </Column>
+                    </Row>
+                    <div
+                        style={{
+                            height: height,
+                            transform: `scale(${transformScale(1080)})`
+                        }}
                     >
-                        <FAIcon icon="chevron-down" transform="shrink-8" />
-                        <FAIcon icon={["far", "circle"]} />
-                    </Control>
-                </Controls>
-            </Container>
+                        {coords &&
+                            data.map((row, index) => {
+                                return (
+                                    <PersonGroup
+                                        key={index}
+                                        style={{
+                                            transform: `scale(${this.getTransform(
+                                                index
+                                            )})`,
+                                            opacity: current == index ? 1 : 0,
+                                            pointerEvents:
+                                                current == index
+                                                    ? "auto"
+                                                    : "none"
+                                        }}
+                                    >
+                                        {row.map(({ node: person }, index) => {
+                                            return (
+                                                <Person
+                                                    key={index}
+                                                    onClick={() =>
+                                                        this.handleSelect(
+                                                            person
+                                                        )
+                                                    }
+                                                    style={{
+                                                        top: coords[index].y,
+                                                        left: coords[index].x
+                                                    }}
+                                                >
+                                                    <PersonImage
+                                                        style={{
+                                                            backgroundImage: `url('${
+                                                                person
+                                                                    .frontmatter
+                                                                    .profile
+                                                            }')`
+                                                        }}
+                                                    />
+                                                    <PersonTitle>
+                                                        {
+                                                            person.frontmatter
+                                                                .title
+                                                        }
+                                                    </PersonTitle>
+                                                    <PersonRole>
+                                                        {
+                                                            person.frontmatter
+                                                                .role
+                                                        }
+                                                    </PersonRole>
+                                                </Person>
+                                            );
+                                        })}
+                                    </PersonGroup>
+                                );
+                            })}
+                        {selected && (
+                            <Selected
+                                style={{
+                                    backgroundImage: `url('${
+                                        selected.frontmatter.profile
+                                    }')`
+                                }}
+                            />
+                        )}
+                    </div>
+                </Container>
+
+                {selected && (
+                    <Row>
+                        <Column xlarge={6} large={8} centered>
+                            <SelectedText>
+                                <SelectedTitle>
+                                    {selected.frontmatter.title}
+                                </SelectedTitle>
+                                <SelectedRole>
+                                    {selected.frontmatter.role}
+                                </SelectedRole>
+                                <SelectedBiog>{selected.excerpt}</SelectedBiog>
+                            </SelectedText>
+                        </Column>
+                    </Row>
+                )}
+            </div>
         );
     }
 }
