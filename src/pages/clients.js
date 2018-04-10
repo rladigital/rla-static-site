@@ -195,8 +195,11 @@ export default class ClientsPage extends React.Component {
                                         {isCurrent &&
                                             client.frontmatter.solutionsList.map(
                                                 (id, index) => {
-                                                    const solution =
-                                                        solutions[id].node;
+                                                    const solution = solutions[
+                                                        id
+                                                    ]
+                                                        ? solutions[id].node
+                                                        : solutions[0].node;
 
                                                     console.log(solution);
                                                     return (
