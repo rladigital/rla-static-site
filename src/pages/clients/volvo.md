@@ -5,6 +5,6 @@ logo: /img/volvo-logo.png
 color: '#bad455'
 solutionLookup: Customer Relationship
 solutionsList:
-  - 0
-  - 1
+  - Brand Desire
+  - Customer Relationship
 ---
