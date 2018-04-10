@@ -62,6 +62,7 @@ const BackButton = styled.a`
     z-index: 999;
     color: ${colors.white};
     font-size: 1.2em;
+    cursor: pointer;
 `;
 
 class SolutionModal extends React.Component {
