@@ -9,8 +9,8 @@ import { colors, spacing } from "../../theme/theme";
 import SectionContainer from "../SectionContainer";
 
 const StyledButton = Button.extend`
-    color: ${colors.background};
-    margin-top: 4em;
+    color: ${colors.white};
+    margin: 0.5rem 0 4rem;
 `;
 
 const StyledP = styled.p`
@@ -27,7 +27,9 @@ class ClientsSection extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
+                    padding="2em 0 0"
                 >
+                    >
                     <Row>
                         <Column large={8} centered>
                             <HeaderBlock
@@ -67,7 +69,11 @@ class ClientsSection extends React.Component {
                             );
                         })}
                     </Row>
-
+                </SectionContainer>
+                <SectionContainer
+                    color={colors.white}
+                    background={colors.background}
+                >
                     <Row style={{ textAlign: "center" }}>
                         <Link to="work">
                             <StyledButton
