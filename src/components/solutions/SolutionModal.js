@@ -1,8 +1,13 @@
 import React from "react";
+import ReactDOM from "react-dom";
+
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
 import { scale, random } from "../../helpers/helpers";
+import FAIcon from "@fortawesome/react-fontawesome";
+
+const modalRoot = document.getElementById("modal-root");
 
 const Container = styled.div`
     top: 0;
@@ -28,7 +33,7 @@ const Content = styled.div`
     transform: translate(-50%, -50%);
     position: absolute;
     padding: 200px 0 0;
-    transition-delay: 0.5s;
+
     @media (min-width: ${breakpoints.medium}px) {
         padding: 5% 2%;
     }
@@ -49,20 +54,37 @@ const Circle = styled.circle`
     transition: all 1s cubic-bezier(0.76, -0.46, 0.2, 1.38);
 `;
 
+const BackButton = styled.a`
+    top: 0;
+    left: 0;
+    padding: 2em;
+    position: absolute;
+    z-index: 999;
+    color: ${colors.white};
+    font-size: 1.2em;
+`;
+
 class SolutionModal extends React.Component {
     constructor(props) {
         super(props);
+        this.el = document.createElement("div");
         this.state = {
             animation: 0
         };
     }
 
     componentDidMount() {
+        modalRoot.appendChild(this.el);
+
         setTimeout(() => {
             this.setState({
                 animation: 1
             });
         }, 25);
+    }
+
+    componentWillUnmount() {
+        modalRoot.removeChild(this.el);
     }
 
     handleClose(cb) {
@@ -84,18 +106,24 @@ class SolutionModal extends React.Component {
 
         const circleProps = {
             cx: isLarge ? width / 2 + 100 : width / 2,
-            cy: height / 2,
+            cy: isLarge ? height / 2 : height / 2 + 100,
             r: Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2)) / 2,
             fill: "url(#active_solution_grad)",
             transform: `translate(${width * (1 - animation)} 0)`
         };
 
-        return (
+        return ReactDOM.createPortal(
             <Container
                 id="container"
                 style={{ opacity: animation }}
                 onClick={() => this.handleClose(close)}
             >
+                <BackButton
+                    role="button"
+                    onClick={() => this.handleClose(close)}
+                >
+                    <FAIcon icon="chevron-left" /> Back
+                </BackButton>
                 <Svg>
                     <linearGradient id="active_solution_grad">
                         <stop
@@ -115,7 +143,8 @@ class SolutionModal extends React.Component {
                         height: h,
                         top: circleProps.cy,
                         left: circleProps.cx,
-                        opacity: animation
+                        opacity: animation,
+                        transitionDelay: animation ? "0.5s" : "0s"
                     }}
                     onClick={e => e.stopPropagation()}
                 >
@@ -126,7 +155,8 @@ class SolutionModal extends React.Component {
                         </Column>
                     </Row>
                 </Content>
-            </Container>
+            </Container>,
+            this.el
         );
     }
 }
