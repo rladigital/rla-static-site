@@ -195,49 +195,49 @@ export default class ClientsPage extends React.Component {
                                         {isCurrent &&
                                             client.frontmatter.solutionsList.map(
                                                 (id, index) => {
-                                                    const solution = solutions[
-                                                        id
-                                                    ]
-                                                        ? solutions[id].node
-                                                        : solutions[0].node;
-
-                                                    console.log(solution);
-                                                    return (
-                                                        <Solution
-                                                            onClick={() =>
-                                                                this.handleClick(
-                                                                    solution
-                                                                )
-                                                            }
-                                                            style={{
-                                                                animationDelay: `${0.2 *
-                                                                    index}s`,
-                                                                zIndex:
-                                                                    1 - index
-                                                            }}
-                                                        >
-                                                            <SolutionDot
-                                                                style={{
-                                                                    background: `linear-gradient(to bottom, ${
+                                                    if (solutions[id]) {
+                                                        const solution =
+                                                            solutions[id].node;
+                                                        return (
+                                                            <Solution
+                                                                onClick={() =>
+                                                                    this.handleClick(
                                                                         solution
-                                                                            .frontmatter
-                                                                            .color1
-                                                                    }, ${
-                                                                        solution
-                                                                            .frontmatter
-                                                                            .color2
-                                                                    })`
-                                                                }}
-                                                            />
-                                                            <SolutionText>
-                                                                {
-                                                                    solution
-                                                                        .frontmatter
-                                                                        .title
+                                                                    )
                                                                 }
-                                                            </SolutionText>
-                                                        </Solution>
-                                                    );
+                                                                style={{
+                                                                    animationDelay: `${0.2 *
+                                                                        index}s`,
+                                                                    zIndex:
+                                                                        1 -
+                                                                        index
+                                                                }}
+                                                            >
+                                                                <SolutionDot
+                                                                    style={{
+                                                                        background: `linear-gradient(to bottom, ${
+                                                                            solution
+                                                                                .frontmatter
+                                                                                .color1
+                                                                        }, ${
+                                                                            solution
+                                                                                .frontmatter
+                                                                                .color2
+                                                                        })`
+                                                                    }}
+                                                                />
+                                                                <SolutionText>
+                                                                    {
+                                                                        solution
+                                                                            .frontmatter
+                                                                            .title
+                                                                    }
+                                                                </SolutionText>
+                                                            </Solution>
+                                                        );
+                                                    } else {
+                                                        return null;
+                                                    }
                                                 }
                                             )}
                                     </Container>

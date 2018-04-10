@@ -7,9 +7,7 @@ import { colors, breakpoints } from "../../theme/theme";
 import { scale, random, isBrowser } from "../../helpers/helpers";
 import FAIcon from "@fortawesome/react-fontawesome";
 
-if (isBrowser()) {
-    const modalRoot = document.getElementById("modal-root");
-}
+const modalRoot = isBrowser() ? document.getElementById("modal-root") : null;
 
 const Container = styled.div`
     top: 0;
