@@ -11,11 +11,6 @@ if (serveStatic()) {
     var PeopleBrowser = require("./PeopleBrowser");
 }
 
-const StyledP = styled.p`
-    text-align: center;
-    padding: 30px 0 0;
-`;
-
 class PeopleSection extends React.Component {
     render() {
         const { people } = this.props;

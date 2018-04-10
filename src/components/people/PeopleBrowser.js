@@ -9,6 +9,10 @@ import { hexToInt, scale, random } from "../../helpers/helpers";
 
 const height = 500;
 
+const Wrapper = styled.div`
+    overflow: hidden;
+`;
+
 const Container = styled.div`
     position: relative;
     height: ${height}px;
@@ -16,7 +20,7 @@ const Container = styled.div`
 
 const PersonGroup = styled.div`
     margin-left: 50%;
-    margin-top: 300px;
+    margin-top: ${height / 2}px;
     position: absolute;
     transition: transform 1s ease, opacity 1s ease;
 `;
@@ -212,7 +216,7 @@ class PeopleBrowser extends React.Component {
     render() {
         const { coords, data, current, selected } = this.state;
         return (
-            <div>
+            <Wrapper>
                 <Container>
                     <Row
                         style={{
@@ -336,7 +340,7 @@ class PeopleBrowser extends React.Component {
                         </Column>
                     </Row>
                 )}
-            </div>
+            </Wrapper>
         );
     }
 }
