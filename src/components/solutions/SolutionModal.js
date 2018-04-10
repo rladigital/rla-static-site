@@ -7,7 +7,7 @@ import { colors, breakpoints } from "../../theme/theme";
 import { scale, random, isBrowser } from "../../helpers/helpers";
 import FAIcon from "@fortawesome/react-fontawesome";
 
-if (isBrowser) {
+if (isBrowser()) {
     const modalRoot = document.getElementById("modal-root");
 }
 
@@ -77,7 +77,7 @@ class SolutionModal extends React.Component {
     }
 
     componentDidMount() {
-        if (isBrowser) {
+        if (isBrowser()) {
             modalRoot.appendChild(this.el);
         }
 
@@ -89,7 +89,7 @@ class SolutionModal extends React.Component {
     }
 
     componentWillUnmount() {
-        if (isBrowser) {
+        if (isBrowser()) {
             modalRoot.removeChild(this.el);
         }
     }
