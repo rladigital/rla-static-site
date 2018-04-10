@@ -227,7 +227,7 @@ class PeopleBrowser extends React.Component {
                         <Column>
                             <Control
                                 className="fa-layers fa-fw"
-                                onClick={() => this.navigateChunk("next")}
+                                onClick={() => this.navigateChunk("prev")}
                                 style={{ left: 0 }}
                             >
                                 <FAIcon
@@ -239,7 +239,7 @@ class PeopleBrowser extends React.Component {
 
                             <Control
                                 className="fa-layers fa-fw"
-                                onClick={() => this.navigateChunk("prev")}
+                                onClick={() => this.navigateChunk("next")}
                                 style={{ right: 0 }}
                             >
                                 <FAIcon
