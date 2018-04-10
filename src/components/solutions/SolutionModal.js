@@ -4,10 +4,12 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
-import { scale, random } from "../../helpers/helpers";
+import { scale, random, isBrowser } from "../../helpers/helpers";
 import FAIcon from "@fortawesome/react-fontawesome";
 
-const modalRoot = document.getElementById("modal-root");
+if (isBrowser) {
+    const modalRoot = document.getElementById("modal-root");
+}
 
 const Container = styled.div`
     top: 0;
@@ -75,7 +77,9 @@ class SolutionModal extends React.Component {
     }
 
     componentDidMount() {
-        modalRoot.appendChild(this.el);
+        if (isBrowser) {
+            modalRoot.appendChild(this.el);
+        }
 
         setTimeout(() => {
             this.setState({
@@ -85,7 +89,9 @@ class SolutionModal extends React.Component {
     }
 
     componentWillUnmount() {
-        modalRoot.removeChild(this.el);
+        if (isBrowser) {
+            modalRoot.removeChild(this.el);
+        }
     }
 
     handleClose(cb) {
