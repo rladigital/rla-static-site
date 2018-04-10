@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors } from "../../theme/theme";
-import { scale, random } from "../../helpers/helpers";
+import { transformScale, random } from "../../helpers/helpers";
 import SolutionModal from "./SolutionModal";
 
 const Svg = styled.svg`
@@ -72,8 +72,8 @@ class SolutionsVideo extends React.Component {
                 array[i] = new Object();
                 const theta = Math.PI * 2 / items.length;
                 const angle = theta * i - Math.PI / 2;
-                const x = width / 2 + r * Math.cos(angle); // center point + radius * angle
-                const y = height / 2 + r * Math.sin(angle);
+                const x = 0 + r * Math.cos(angle); // center point + radius * angle
+                const y = 0 + r * Math.sin(angle);
                 const size = randoms[i].orbs.size;
 
                 array[i].cx = x + randoms[i].orbs.x;
@@ -218,71 +218,76 @@ class SolutionsVideo extends React.Component {
                                 </linearGradient>
                             ))}
                         </defs>
-                        {lines &&
-                            lines.map((line, index) => (
-                                <path key={index} {...line} />
-                            ))}
-                        <TitleCircle
-                            cx={width / 2}
-                            cy={height / 2}
-                            r={Math.min(width / 2, 200)}
-                        />
-                        <Title
-                            style={{ filter: "url(#shadow)" }}
-                            x={width / 2}
-                            y={height / 2}
+                        <g
+                            transform={`translate(${width / 2},${height /
+                                2}) scale(${transformScale(1080)})`}
                         >
-                            <tspan dy="-30px" x={width / 2}>
-                                CONNECTED
-                            </tspan>
-                            <tspan dy="70px" x={width / 2}>
-                                AMBITION
-                            </tspan>
-                        </Title>
-                        <Subtitle x={width / 2} y={height / 2}>
-                            <tspan dy="85px" x={width / 2}>
-                                WORLD CLASS CONNECTED
-                            </tspan>
-                            <tspan dy="25px" x={width / 2}>
-                                MARKETING SOLUTIONS
-                            </tspan>
-                        </Subtitle>
-                        {orbs &&
-                            solutions.map(({ node: solution }, index) => [
-                                <Solution
-                                    y={orbs[index].cy}
-                                    textAnchor={
-                                        orbs[index].cx < width / 2
-                                            ? "end"
-                                            : "start"
-                                    }
-                                >
-                                    {solution.frontmatter.title
-                                        .toUpperCase()
-                                        .split(" ")
-                                        .map((word, i) => (
-                                            <tspan
-                                                key={i}
-                                                x={
-                                                    orbs[index].cx +
-                                                    (orbs[index].cx < width / 2
-                                                        ? -orbs[index].r - 10
-                                                        : orbs[index].r + 10)
-                                                }
-                                                dy={i == 0 ? "-3px" : "18px"}
-                                            >
-                                                {word}
-                                            </tspan>
-                                        ))}
-                                </Solution>,
-                                <Orb
-                                    key={index}
-                                    fill={`url(#grad_${index})`}
-                                    id={`orb_${index}`}
-                                    onClick={() => this.handleClick(solution)}
-                                    {...orbs[index]}
-                                />
-                            ])}
+                            {lines &&
+                                lines.map((line, index) => (
+                                    <path key={index} {...line} />
+                                ))}
+                            <TitleCircle cx={0} cy={0} r={200} />
+                            <Title
+                                style={{ filter: "url(#shadow)" }}
+                                x={0}
+                                y={0}
+                            >
+                                <tspan dy="-30px" x={0}>
+                                    CONNECTED
+                                </tspan>
+                                <tspan dy="70px" x={0}>
+                                    AMBITION
+                                </tspan>
+                            </Title>
+                            <Subtitle x={0} y={0}>
+                                <tspan dy="85px" x={0}>
+                                    WORLD CLASS CONNECTED
+                                </tspan>
+                                <tspan dy="25px" x={0}>
+                                    MARKETING SOLUTIONS
+                                </tspan>
+                            </Subtitle>
+                            {orbs &&
+                                solutions.map(({ node: solution }, index) => [
+                                    <Solution
+                                        y={orbs[index].cy}
+                                        textAnchor={
+                                            orbs[index].cx < 0 ? "end" : "start"
+                                        }
+                                    >
+                                        {solution.frontmatter.title
+                                            .toUpperCase()
+                                            .split(" ")
+                                            .map((word, i) => (
+                                                <tspan
+                                                    key={i}
+                                                    x={
+                                                        orbs[index].cx +
+                                                        (orbs[index].cx < 0
+                                                            ? -orbs[index].r -
+                                                              10
+                                                            : orbs[index].r +
+                                                              10)
+                                                    }
+                                                    dy={
+                                                        i == 0 ? "-3px" : "18px"
+                                                    }
+                                                >
+                                                    {word}
+                                                </tspan>
+                                            ))}
+                                    </Solution>,
+                                    <Orb
+                                        key={index}
+                                        fill={`url(#grad_${index})`}
+                                        id={`orb_${index}`}
+                                        onClick={() =>
+                                            this.handleClick(solution)
+                                        }
+                                        {...orbs[index]}
+                                    />
+                                ])}
+                        </g>
                     </Svg>
                 </Container>
                 {activeSolution && (
