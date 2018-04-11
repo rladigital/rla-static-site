@@ -1,6 +1,6 @@
 ---
 templateKey: work
-title: Tesco Stores NI
+title: Tesco
 hero: /img/Tesco@2x.png
 thumb: /img/tesco-thumbnail.jpg
 intro: Tesco Stores NI
