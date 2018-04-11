@@ -220,6 +220,7 @@ export default class ClientsPage extends React.Component {
                                                                         1 -
                                                                         index
                                                                 }}
+                                                                key={index}
                                                             >
                                                                 <SolutionDot
                                                                     style={{
