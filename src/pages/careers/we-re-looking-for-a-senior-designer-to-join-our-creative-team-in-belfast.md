@@ -36,6 +36,6 @@ benefits:
   - Fun Environment
 tags:
   - Studio
-hero: /img/missing_avatar.svg
+hero: /img/belfast-senior-designer op 1 edit.jpg
 ---
 
