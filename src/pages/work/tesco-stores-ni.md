@@ -2,7 +2,7 @@
 templateKey: work
 title: Tesco Stores NI
 hero: /img/Tesco@2x.png
-thumb: /img/Tesco.png
+thumb: /img/tesco-thumbnail.jpg
 intro: Tesco Stores NI
 project: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
