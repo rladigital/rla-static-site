@@ -11,9 +11,11 @@ level: Senior
 salary: £25k - £35
 hours: '9:00am - 5:30pm'
 benefits:
-  - 28 Days Hoilday
-  - Pension
-  - Fun Environment
+  - 28 Days Holiday
+  - Continuous Professional Development
+  - Childcare Vouchers
+  - Eye Care Scheme
+  - Cycle to Work Scheme
 tags:
   - Studio
 hero: /img/belfast-senior-designer op 1 edit.jpg
