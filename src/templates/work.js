@@ -5,6 +5,8 @@ import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
+import FAIcon from "@fortawesome/react-fontawesome";
+import Link from "gatsby-link";
 
 import { colors, spacing, breakpoints } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
@@ -79,6 +81,24 @@ const Solution = styled.p`
     color: ${colors.lightGray};
 `;
 
+const BackButtonRow = styled(Row)`
+    @media (min-width: 1516px) {
+        position: absolute;
+    }
+`;
+
+const BackButton = styled.a.attrs({
+    role: "button"
+})`
+    font-size: 1.2em;
+    display: inline-block;
+    padding: ${spacing.padding}em 0;
+    color: ${colors.lightGray};
+    @media (min-width: 1516px) {
+        padding: 0;
+    }
+`;
+
 const contentStyle = {
     marginBottom: "4em",
     color: colors.lightGray
@@ -99,6 +119,13 @@ export const WorkTemplate = ({
     return (
         <PageDetailContainer>
             {helmet || ""}
+            <BackButtonRow expanded>
+                <Column>
+                    <BackButton>
+                        <FAIcon icon="arrow-left" />
+                    </BackButton>
+                </Column>
+            </BackButtonRow>
             {hero && (
                 <Row>
                     <Column>
@@ -115,7 +142,7 @@ export const WorkTemplate = ({
             )}
             <Row>
                 <Column large={6}>
-                    <PullQuote fontSize={4}>{intro}</PullQuote>
+                    <PullQuote fontSize={4}>{intro} </PullQuote>
                 </Column>
                 <Column large={6}>
                     <Heading>The Project</Heading>
@@ -146,14 +173,16 @@ export const WorkTemplate = ({
                     })}
 
                     <GalleryItem>
-                        <StyledButton
-                            size="large"
-                            color="background"
-                            borderWidth={3}
-                            hollow
-                        >
-                            SEE MORE WORK →
-                        </StyledButton>
+                        <Link to="/work">
+                            <StyledButton
+                                size="large"
+                                color="background"
+                                borderWidth={3}
+                                hollow
+                            >
+                                SEE MORE WORK →
+                            </StyledButton>
+                        </Link>
                     </GalleryItem>
                 </Column>
             </Row>
