@@ -3,7 +3,7 @@ templateKey: work
 title: FCA Group
 hero: /img/fca group-hero2.jpg
 thumb: /img/fca group-thumbnail.jpg
-logo: /img/fga group logos update@2x.png
+logo: /img/fca group-thumbnail.jpg
 intro: 'Together, we became a valuable extension of FCA’s marketing team.'
 project: >-
   Transform the local marketing effectiveness for the whole UK Fiat Chrysler
