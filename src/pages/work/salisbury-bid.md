@@ -2,7 +2,7 @@
 templateKey: work
 title: Salisbury BID
 hero: /img/Salisbury@2x.png
-thumb: /img/Salisbury.png
+thumb: /img/salisbury-thumbnail.jpg
 intro: Salisbury BID
 project: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
@@ -22,3 +22,4 @@ solutionsList:
   - Brand Desire
 weighting: 0
 ---
+
