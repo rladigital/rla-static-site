@@ -19,11 +19,11 @@ outcome: >-
   Bank, Resource Zone, Event Manager, Media module, Mobile and Social
   (Facebook/Instagram) Targeting module.
 galleryImages:
-  - /img/fca-dashboard.png
+  - /img/alfa@2x.png
   - /img/650px-x-650px_abarth-595-moving-sky.gif
   - /img/fca-infographic.png
   - /img/128101 jeep compass launch invite gif_7.gif
-  - /img/alfa@2x.png
+  - /img/fca-dashboard.png
 solutionsList:
   - Sales Performance
   - Customer Acquisition
