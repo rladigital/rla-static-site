@@ -1,7 +1,7 @@
 ---
 templateKey: job
 area: Client Services
-title: We're looking for an Account<br>Manager to join our Client Services team.
+title: We're looking for an Account Manager to join our Client Services team.
 closing: 11/04/2018
 role: >-
   Integer congue ligula non commodo pharetra. Suspendisse ac turpis sapien.
