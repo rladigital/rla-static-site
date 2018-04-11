@@ -3,6 +3,7 @@ templateKey: work
 title: Volvo First Class
 hero: /img/volvo-banner.jpg
 thumb: /img/volvo-banner.jpg
+logo: /img/volvo-logo-2.jpg
 intro: 'Together, we became a valuable extension of Volvo’s marketing team. '
 project: >-
   We’re proud to be tasked with supporting Volvo Car UK’s next phase of ongoing
@@ -22,3 +23,4 @@ solutionsList:
   - Brand Desire
 weighting: 0
 ---
+
