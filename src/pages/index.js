@@ -124,6 +124,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         hero
+                        thumb
                     }
                 }
             }

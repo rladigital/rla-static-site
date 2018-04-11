@@ -53,7 +53,7 @@ const Title = styled.h3`
 const ClientSummary = ({ client }) => {
     return (
         <Link to={client.fields.slug}>
-            <SummaryContainer backgroundImage={client.frontmatter.hero}>
+            <SummaryContainer backgroundImage={client.frontmatter.thumb}>
                 <TitleBackground>
                     <TitleContainer>
                         <Title>{client.frontmatter.title}</Title>
