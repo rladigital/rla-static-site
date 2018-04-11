@@ -44,8 +44,8 @@ const GalleryItem = styled.div`
     float: left;
     position: relative;
     @media (min-width: ${breakpoints.medium}px) {
-        width: 24vw;
-        height: 24vw;
+        width: 18vw;
+        height: 18vw;
         max-width: 340px;
         max-height: 340px;
         margin: 0 2.4vw 2.4vw 0;
@@ -87,9 +87,7 @@ const BackButtonRow = styled(Row)`
     }
 `;
 
-const BackButton = styled.a.attrs({
-    role: "button"
-})`
+const BackButton = styled(Link)`
     font-size: 1.2em;
     display: inline-block;
     padding: ${spacing.padding}em 0;
@@ -121,7 +119,7 @@ export const WorkTemplate = ({
             {helmet || ""}
             <BackButtonRow expanded>
                 <Column>
-                    <BackButton>
+                    <BackButton to="/work">
                         <FAIcon icon="arrow-left" />
                     </BackButton>
                 </Column>
