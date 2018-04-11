@@ -6,5 +6,4 @@ tags:
   - Client Services
 profile: /img/Sara Williams.jpg
 ---
-
-Missing
+.
