@@ -11,12 +11,18 @@ skills:
   - Laravel
   - React
 level: Senior
-salary: £25k - £35k
+salary: DOE
 hours: '9:00am - 5:30pm'
 benefits:
   - 28 Days Hoilday
-  - Pension
-  - Fun Environment
+  - Your birthday as a day off
+  - Continuous Professional Development
+  - Childcare Vouchers
+  - Eye Care Scheme
+  - Refer A Friend Scheme
+  - Cycle to work scheme
+  - Reward & Recognition Scheme
+  - Fridge Friday!
 tags:
   - Client Services
 hero: /img/account handler role b img_7616.jpg
