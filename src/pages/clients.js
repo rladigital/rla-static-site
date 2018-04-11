@@ -33,7 +33,6 @@ const Container = styled.div`
 `;
 
 const LogoContainer = styled.div`
-    background: ${colors.secondary};
     padding: 4vw 3vw;
     cursor: pointer;
 `;
@@ -157,6 +156,7 @@ export default class ClientsPage extends React.Component {
                             const isCurrent = Boolean(
                                 this.state.currentSlide == index
                             );
+                            console.log(client);
                             return (
                                 // <ClientSummary client={client} />
                                 <Brand
@@ -165,6 +165,10 @@ export default class ClientsPage extends React.Component {
                                 >
                                     <Container>
                                         <LogoContainer
+                                            style={{
+                                                backgroundColor:
+                                                    client.frontmatter.color
+                                            }}
                                             onClick={() => this.setSlide(index)}
                                         >
                                             <Logo
@@ -284,6 +288,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         logo
+                        color
                         solutionsList
                     }
                 }
