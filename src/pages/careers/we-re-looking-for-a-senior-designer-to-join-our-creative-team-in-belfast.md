@@ -8,7 +8,7 @@ person: "You will have an excellent portfolio of creative work showcasing variou
 skills:
   - Adobe
 level: Senior
-salary: £25k - £35
+salary: DOE
 hours: '9:00am - 5:30pm'
 benefits:
   - 28 Days Holiday
