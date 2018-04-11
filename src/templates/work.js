@@ -14,8 +14,8 @@ import HeaderBlock from "../components/HeaderBlock";
 
 const Hero = styled.div`
     width: 100%;
-    height: 30vw;
-    max-height: 400px;
+    height: 40vw;
+    max-height: 450px;
     min-height: 180px;
     background-size: cover;
     background-position: center;
@@ -66,6 +66,19 @@ const StyledButton = Button.extend`
     font-weight 900;
 `;
 
+const Table = styled.table`
+    margin: 0 0 5em 0;
+    display: inline-block;
+`;
+
+const Td = styled.td`
+    padding: 0 2em 1em 0;
+`;
+
+const Solution = styled.p`
+    color: ${colors.lightGray};
+`;
+
 const contentStyle = {
     marginBottom: "4em",
     color: colors.lightGray
@@ -110,25 +123,20 @@ export const WorkTemplate = ({
                     <Heading>The Outcome</Heading>
                     <Content content={outcome} style={contentStyle} />
 
-                    <table>
+                    <Table>
                         <tr>
-                            <td>
+                            <Td>
                                 <Heading fontSize={1}>
                                     Our areas of expertise —{" "}
                                 </Heading>
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 {solutionsList.map((solution, index) => {
-                                    return (
-                                        <Content
-                                            content={solution}
-                                            style={contentStyle}
-                                        />
-                                    );
+                                    return <Solution>{solution}</Solution>;
                                 })}
-                            </td>
+                            </Td>
                         </tr>
-                    </table>
+                    </Table>
                 </Column>
             </Row>
             <Row>
@@ -144,7 +152,7 @@ export const WorkTemplate = ({
                             borderWidth={3}
                             hollow
                         >
-                            See Next Case Study →
+                            SEE MORE WORK →
                         </StyledButton>
                     </GalleryItem>
                 </Column>
