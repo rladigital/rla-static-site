@@ -1,7 +1,7 @@
 ---
 templateKey: people
 title: Aaron Cork
-role: Front End Developer
+role: Frontend Developer
 tags:
   - Digital
 profile: /img/missing_avatar.svg
