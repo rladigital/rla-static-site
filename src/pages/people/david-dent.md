@@ -4,7 +4,6 @@ title: David Dent
 role: Senior Planner
 tags:
   - Strategy
-profile: /img/missing_avatar.svg
+profile: /img/david dent.jpg
 ---
-
-David has worked at some of the best London agencies delivering effective strategies for some of the biggest global companies. His passion for people watching delivers unique consumer and business insights.
+David has worked at some of the best London agencies delivering effective strategies for some of the biggest global companies.  When not in the office, he can be found on or near the water, watching sport or handing over vast sums of cash to pay for his expensive children.
