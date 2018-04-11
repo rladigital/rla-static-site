@@ -29,7 +29,6 @@ class ClientsSection extends React.Component {
                     background={colors.white}
                     padding="2em 0 0"
                 >
-                    >
                     <Row>
                         <Column large={8} centered>
                             <HeaderBlock

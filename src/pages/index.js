@@ -95,7 +95,7 @@ export default class IndexPage extends React.Component {
                             font={font}
                         />
 
-                        <NewsSection news={news} />
+                        <NewsSection width={width} news={news} />
                         <PeopleSection people={people.concat(people)} />
                         <MissionSection />
                     </div>
@@ -166,7 +166,7 @@ export const pageQuery = graphql`
         }
         news: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "news" } } }
-            limit: 2
+            limit: 3
         ) {
             edges {
                 node {

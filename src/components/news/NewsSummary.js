@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
-import { breakpoints } from "../../theme/theme";
+import { colors, breakpoints } from "../../theme/theme";
 
 const SummaryContainer = styled.section`
     position: relative;
     background-image: url(${props => props.backgroundImage});
     background-size: cover;
     background-position: center;
-    height: ${props => (props.height ? props.height : 30)}vw;
+    height: 360px;
     text-align: center;
 `;
 
@@ -18,19 +18,14 @@ const TitleBackground = styled.div`
     position: absolute;
     margin: 0;
     width: 100%;
-    min-height: 35%;
+    height: 50%;
     bottom: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.9) 90%
-    );
 `;
 const TitleContainer = styled.div`
     text-align: left;
     position: absolute;
     margin: 0;
-    padding: 3rem;
+    padding: 2.2rem;
     width: 100%;
     bottom: 0;
 `;
@@ -45,8 +40,8 @@ const Title = styled.h3`
     margin: 0;
     max-width: 90%;
     margin-top: 0;
+    font-size: 1.2em;
     color: ${props => props.theme.lightColor};
-    text-shadow: 0 0 10px black;
 `;
 
 const NewsSummary = ({ story, height }) => {
