@@ -1,7 +1,7 @@
 ---
 templateKey: job
-area: Digital
-title: We're Looking for a Senior Developer to Help in our Digital Department
+area: Client Services
+title: We're looking for a Senior Account Manager to join our Client Services team.
 closing: 19/06/2018
 role: >-
   Integer congue ligula non commodo pharetra. Suspendisse ac turpis sapien.
@@ -37,6 +37,6 @@ benefits:
   - 28 Days Hoilday
   - Pension
   - Fun Environment
-hero: /img/1@2x.png
+hero: /img/account handler role b img_7616.jpg
 ---
 
