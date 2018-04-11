@@ -20,16 +20,19 @@ const Hero = styled.div`
     background-size: cover;
     background-position: center;
     background-image: url('${props => props.src}');
-    margin-bottom: 3.2em;
+    margin-bottom: 2.8em;
 `;
 
 const Logo = styled.img`
-    height: 30px;
-    margin-bottom: 2.8em;
+    height: 70px;
+    margin-bottom: 3em;
 `;
 
 const Heading = styled.h4`
     margin-bottom 1.2em;
+    @media (min-width: ${breakpoints.medium}px) {
+        font-size: ${props => props.fontSize}em;
+    }
 `;
 
 const GalleryItem = styled.div`
@@ -55,8 +58,10 @@ const GalleryImage = GalleryItem.extend`
 
 const StyledButton = Button.extend`
     top: 50%;
+    left: 50%;
+    width: 80%;
     position: absolute;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     border-radius: 10px;
     font-weight 900;
 `;
@@ -73,12 +78,11 @@ export const WorkTemplate = ({
     project,
     outcome,
     galleryImages,
-    solutions,
+    solutionsList,
     title,
     intro,
     helmet
 }) => {
-    //console.log(project, outcome);
     return (
         <PageDetailContainer>
             {helmet || ""}
@@ -105,6 +109,26 @@ export const WorkTemplate = ({
                     <Content content={project} style={contentStyle} />
                     <Heading>The Outcome</Heading>
                     <Content content={outcome} style={contentStyle} />
+
+                    <table>
+                        <tr>
+                            <td>
+                                <Heading fontSize={1}>
+                                    Our areas of expertise —{" "}
+                                </Heading>
+                            </td>
+                            <td>
+                                {solutionsList.map((solution, index) => {
+                                    return (
+                                        <Content
+                                            content={solution}
+                                            style={contentStyle}
+                                        />
+                                    );
+                                })}
+                            </td>
+                        </tr>
+                    </table>
                 </Column>
             </Row>
             <Row>
@@ -117,8 +141,8 @@ export const WorkTemplate = ({
                         <StyledButton
                             size="large"
                             color="background"
+                            borderWidth={3}
                             hollow
-                            expanded
                         >
                             See Next Case Study →
                         </StyledButton>
@@ -142,7 +166,7 @@ export default ({ data }) => {
             project={work.frontmatter.project}
             outcome={work.frontmatter.outcome}
             galleryImages={work.frontmatter.galleryImages}
-            solutions={work.frontmatter.solutions}
+            solutionsList={work.frontmatter.solutionsList}
             intro={work.frontmatter.intro}
         />
     );

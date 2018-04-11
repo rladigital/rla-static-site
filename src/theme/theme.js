@@ -92,8 +92,7 @@ const theme = {
     button: {
         fontWeight: "900",
         textTransform: "uppercase",
-        borderRadius: spacing.radius,
-        borderWidth: "5px"
+        borderRadius: spacing.radius
     },
     column: {
         columns: 12,

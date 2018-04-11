@@ -36,11 +36,13 @@
         "react-transition-group": "2.2.1",
         "remark": "^9.0.0",
         "remark-react": "^4.0.1",
-        "rla-components": "^0.4.3",
+        "rla-components": "^0.4.5",
         "styled-components": "^3.1.6",
         "webfontloader": "^1.6.28"
     },
-    "keywords": ["gatsby"],
+    "keywords": [
+        "gatsby"
+    ],
     "license": "MIT",
     "main": "n/a",
     "scripts": {

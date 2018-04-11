@@ -9,7 +9,7 @@ const Image = styled.section`
     max-height: 500px;
     height: 30vw;
     position: relative;
-    background-image: url(${props => props.backgroundImage});
+    background-image: url('${props => props.backgroundImage}');
     background-size: cover;
     background-position: center;
     text-align: center;
