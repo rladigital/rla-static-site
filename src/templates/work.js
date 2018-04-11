@@ -3,13 +3,68 @@ import Remark from "remark";
 import ReactRenderer from "remark-react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
-import { Row, Column } from "rla-components";
+import styled from "styled-components";
+import { Row, Column, Button } from "rla-components";
 
-import { colors } from "../theme/theme";
+import { colors, spacing, breakpoints } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
 import HeaderBlock from "../components/HeaderBlock";
+
+const Hero = styled.div`
+    width: 100%;
+    height: 30vw;
+    max-height: 400px;
+    min-height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('${props => props.src}');
+    margin-bottom: 3.2em;
+`;
+
+const Logo = styled.img`
+    height: 30px;
+    margin-bottom: 2.8em;
+`;
+
+const Heading = styled.h4`
+    margin-bottom 1.2em;
+`;
+
+const GalleryItem = styled.div`
+    width: 100%;
+    height: 80vw;
+    margin: 0 0 8vw 0;
+    float: left;
+    position: relative;
+    @media (min-width: ${breakpoints.medium}px) {
+        width: 24vw;
+        height: 24vw;
+        max-width: 340px;
+        max-height: 340px;
+        margin: 0 2.4vw 2.4vw 0;
+    }
+`;
+
+const GalleryImage = GalleryItem.extend`
+    background-image: url('${props => props.src}');
+    background-size: cover;
+    background-position: center;
+`;
+
+const StyledButton = Button.extend`
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    font-weight 900;
+`;
+
+const contentStyle = {
+    marginBottom: "4em",
+    color: colors.lightGray
+};
 
 export const WorkTemplate = ({
     content,
@@ -27,41 +82,48 @@ export const WorkTemplate = ({
     return (
         <PageDetailContainer>
             {helmet || ""}
+            {hero && (
+                <Row>
+                    <Column>
+                        <Hero src={hero} />
+                    </Column>
+                </Row>
+            )}
+            {logo && (
+                <Row>
+                    <Column>
+                        <Logo src={logo} id="logo" />
+                    </Column>
+                </Row>
+            )}
             <Row>
-                <Column>
-                    <img
-                        style={{ borderRadius: "5px" }}
-                        src={hero}
-                        alt={`${title} Logo`}
-                    />
+                <Column large={6}>
+                    <PullQuote fontSize={4}>{intro}</PullQuote>
+                </Column>
+                <Column large={6}>
+                    <Heading>The Project</Heading>
+                    <Content content={project} style={contentStyle} />
+                    <Heading>The Outcome</Heading>
+                    <Content content={outcome} style={contentStyle} />
                 </Column>
             </Row>
             <Row>
                 <Column>
-                    <HeaderBlock textAlign="left" baseColor={colors.background}>
-                        {title}
-                    </HeaderBlock>
+                    {galleryImages.map((image, index) => {
+                        return <GalleryImage src={image} />;
+                    })}
+
+                    <GalleryItem>
+                        <StyledButton
+                            size="large"
+                            color="background"
+                            hollow
+                            expanded
+                        >
+                            See Next Case Study →
+                        </StyledButton>
+                    </GalleryItem>
                 </Column>
-            </Row>
-            <Row>
-                <Column medium={6}>
-                    <PullQuote>&rdquo;{intro}&ldquo;</PullQuote>
-                </Column>
-                <Column medium={6}>
-                    <h3>The Project</h3>
-                    <Content content={project} />
-                    <h3>The Outcome</h3>
-                    <Content content={outcome} />
-                </Column>
-            </Row>
-            <Row>
-                {galleryImages.map((image, index) => {
-                    return (
-                        <Column medium={4} key={index}>
-                            <img src={image} alt={`${title} Gallery Image`} />
-                        </Column>
-                    );
-                })}
             </Row>
         </PageDetailContainer>
     );

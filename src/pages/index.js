@@ -111,6 +111,7 @@ export const pageQuery = graphql`
     query IndexQuery {
         clients: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "work" } } }
+            limit: 3
         ) {
             edges {
                 node {
