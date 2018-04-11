@@ -22,8 +22,10 @@ galleryImages:
   - /img/screen shot 2018-04-11 at 12.43.40.png
   - /img/screen shot 2018-04-11 at 12.43.30.png
   - /img/screen shot 2018-04-11 at 12.43.21.png
+solutionLookup: ''
 solutionsList:
   - Brand Desire
+  - Cortex
 weighting: 0
 ---
 
