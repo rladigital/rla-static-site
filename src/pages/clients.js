@@ -112,6 +112,13 @@ export default class ClientsPage extends React.Component {
         });
     }
 
+    getSolution(solutionTitle) {
+        const solution = this.props.data.solutions.edges.filter(solution => {
+            return solution.node.frontmatter.title === solutionTitle;
+        })[0];
+        return solution ? solution.node : false;
+    }
+
     render() {
         const { activeSolution } = this.state;
         const { data, transition } = this.props;
@@ -194,10 +201,11 @@ export default class ClientsPage extends React.Component {
                                     <Container style={{ height: 300 }}>
                                         {isCurrent &&
                                             client.frontmatter.solutionsList.map(
-                                                (id, index) => {
-                                                    if (solutions[id]) {
-                                                        const solution =
-                                                            solutions[id].node;
+                                                (title, index) => {
+                                                    const solution = this.getSolution(
+                                                        title
+                                                    );
+                                                    if (solution) {
                                                         return (
                                                             <Solution
                                                                 onClick={() =>
