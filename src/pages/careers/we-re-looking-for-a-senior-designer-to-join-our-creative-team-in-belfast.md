@@ -1,7 +1,7 @@
 ---
 templateKey: job
-area: Client Services
-title: We're looking for an Account Manager to join our Client Services team.
+area: Studio
+title: We're looking for a Senior Designer to join our Creative team in Belfast.
 closing: 11/04/2018
 role: >-
   Integer congue ligula non commodo pharetra. Suspendisse ac turpis sapien.
@@ -36,6 +36,6 @@ benefits:
   - Fun Environment
 tags:
   - Studio
-hero: /img/account handler role a img_7605.jpg
+hero: /img/belfast-senior-designer op 1 edit.jpg
 ---
 
