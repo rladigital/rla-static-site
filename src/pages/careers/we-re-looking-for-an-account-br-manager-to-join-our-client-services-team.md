@@ -33,6 +33,6 @@ benefits:
   - Fun Environment
 tags:
   - Client Services
-hero: /img/missing_avatar.svg
+hero: /img/account handler role a img_7605.jpg
 ---
 
