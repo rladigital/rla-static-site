@@ -1,6 +1,6 @@
 ---
 templateKey: work
-title: Salisbury BID
+title: THE CITY OF SALISBURY
 hero: /img/Salisbury@2x.png
 thumb: /img/salisbury-thumbnail.jpg
 intro: Salisbury BID
