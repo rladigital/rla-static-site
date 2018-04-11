@@ -6,5 +6,4 @@ tags:
   - Digital
 profile: /img/chris rodgers.jpg
 ---
-
-Missing
+.
