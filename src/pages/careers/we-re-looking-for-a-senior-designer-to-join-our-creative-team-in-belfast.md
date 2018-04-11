@@ -2,7 +2,7 @@
 templateKey: job
 area: Studio
 title: We're looking for a Senior Designer to join our Creative team in Belfast.
-closing: 11/04/2018
+closing: 05/04/2018
 role: >-
   Integer congue ligula non commodo pharetra. Suspendisse ac turpis sapien.
   Pellentesque sit amet imperdiet dolor, quis accumsan augue. Nullam vitae arcu
