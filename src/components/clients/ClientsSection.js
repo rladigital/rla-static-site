@@ -79,8 +79,9 @@ class ClientsSection extends React.Component {
                                 hollow={true}
                                 size="large"
                                 color="accent"
+                                borderWidth={3}
                             >
-                                See All Case Studies &rarr;
+                                VIEW OUR WORK &rarr;
                             </StyledButton>
                         </Link>
                     </Row>
