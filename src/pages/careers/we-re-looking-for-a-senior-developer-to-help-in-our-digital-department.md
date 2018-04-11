@@ -2,41 +2,42 @@
 templateKey: job
 area: Client Services
 title: We're looking for an Account Manager to join our Client Services team.
-closing: 19/06/2018
-role: >-
-  Integer congue ligula non commodo pharetra. Suspendisse ac turpis sapien.
-  Pellentesque sit amet imperdiet dolor, quis accumsan augue. Nullam vitae arcu
-  at dolor faucibus ornare a et urna. Curabitur ac diam tellus. Sed magna augue,
-  convallis sit amet sem id, porttitor iaculis odio. Aliquam efficitur vehicula
-  odio, a accumsan nulla. Nam auctor in velit vel mollis. Nullam efficitur arcu
-  est. Vivamus in mi neque. Nam orci nisi, condimentum in feugiat eget, sodales
-  ac arcu.
-
-
-  ![null](/img/2.png)
-
-
-  youtube iO41wTyhrko
-person: >-
-  Sed sit amet metus non nisl elementum rutrum. Cras sed est sollicitudin,
-  sodales ligula non, hendrerit odio. Fusce auctor libero dui, sit amet interdum
-  urna tempus ac. Etiam sed felis lorem. Ut vestibulum turpis ut leo ultricies,
-  et efficitur leo viverra. Quisque viverra diam velit. Mauris nec vehicula
-  nunc. Quisque in odio ac magna aliquet placerat. Curabitur id dolor id augue
-  mattis suscipit non sed justo. Fusce fermentum mattis orci sollicitudin
-  vestibulum.
+closing: 20/06/2018
+role: "The key purpose of this role is to be responsible for the day to day management of Client accounts. \r\r\n\nOther responsibilities will include:\r\n\n* Building and maintaining strong Client relationships and to be the first point of contact for the Client on day to day matters.\r\n* Making steps to build relationships beyond the core Client contacts (for future opportunities).\r\n* Responsibility for providing team support across the business to ensure that we meet our deliverables.\r\n* Presenting (verbally and in writing) the Agency's proposals and recommendations effectively, logically and concisely.\r\n* Thinking proactively on behalf of the Client and RLA, considering new marketing initiatives.\r\n* Negotiating and gaining approval from the Client for all projects and creative work and to ensure that work is carried out to these agreements.\r\n* Responsibility for the day to day management and development of direct reports.\r\n* Responsibility for day to day budget management, monitoring all job costs, and obtaining approval before spend is committed.\r\n* Identifying opportunities across the group to sell initiatives and projects to the client.\r\n* Negotiating all in costs to get the best possible rates.\r\n* Accountable for trafficking digital requests, website updates, bug fixes and development projects through the digital department. \r\n* On completion of each job ensure a case study including details of the client brief, our solution and the results is written up.\r\n\n\n\n![null](/img/2.png)\n\nyoutube iO41wTyhrko"
+person: |-
+  * Personal capacity for growth and development
+  * Resource Management Experience
+  * Ability to Travel in the UK
+  * Understanding of the basic elements of advertising and marketing
+  * Excellent organisational skills
+  * Creative flair and keen eye for detail 
+  * Understanding of digital projects and processes
+  * Self-motivated
+  * Ability to work flexibly, on own initiative and as part of a team
+  * First class ability to prioritise and manage own workload
+  * Experience of agency processes and systems
+  * Ability to build strong client relationships
+  *
 skills:
   - PHP
   - JavaScript
   - Laravel
   - React
-level: Senior
-salary: £25k - £35
+level: N/A
+salary: DOE
 hours: '9:00am - 5:30pm'
 benefits:
   - 28 Days Hoilday
-  - Pension
-  - Fun Environment
+  - Your birthday as a day off
+  - Continuous Professional Development
+  - Childcare Vouchers
+  - Eye Care Scheme
+  - Refer A Friend Scheme
+  - Cycle to work scheme
+  - Reward & Recognition Scheme
+  - Fridge Friday!
+tags:
+  - Client Services
 hero: /img/account handler role a img_7605.jpg
 ---
 
