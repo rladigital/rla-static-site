@@ -54,8 +54,7 @@ class SiteHeader extends React.Component {
             scrolltop == 0 && isHome ? colors.background : colors.white;
 
         const backgroundColor =
-            (isBrowser() &&
-                (scrolltop > document.body.clientHeight * 2.5 && isHome)) ||
+            (isBrowser() && (scrolltop > window.innerHeight * 2.5 && isHome)) ||
             (isBrowser() && !isHome)
                 ? colors.background
                 : "transparent";

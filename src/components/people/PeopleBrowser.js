@@ -1,21 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import { TweenLite } from "gsap";
 import FAIcon from "@fortawesome/react-fontawesome";
+import { Row, Column } from "rla-components";
+import { transformScale } from "../../helpers/helpers";
 
 import { colors } from "../../theme/theme";
 import { hexToInt, scale, random } from "../../helpers/helpers";
 
+const height = 640;
+
+const Wrapper = styled.div`
+    overflow: hidden;
+`;
+
 const Container = styled.div`
     position: relative;
-    height: 600px;
+    height: ${height}px;
 `;
 
 const PersonGroup = styled.div`
     margin-left: 50%;
-    margin-top: 300px;
+    margin-top: ${height / 2}px;
     position: absolute;
-    transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease, filter 1s ease;
 `;
 
 const Person = styled.div`
@@ -44,24 +51,19 @@ const PersonRole = styled.h4`
     white-space: nowrap;
 `;
 
-const Controls = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-`;
-
 const Control = styled.a`
+    position: absolute;
     font-size: 3em;
     color: ${colors.white};
     cursor: pointer;
+    z-index: 1;
 `;
 
 const Selected = styled.div`
     top: 50%;
     left: 50%;
-    width: 400px;
-    height: 400px;
+    width: 360px;
+    height: 360px;
     position: absolute;
     border-radius 200px;
     background-size: cover;
@@ -74,9 +76,7 @@ const Selected = styled.div`
         content: " ";
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, transparent , ${
-            colors.background
-        } 80%);
+
         position: absolute;
         top: -20px;
         left: -20px;
@@ -88,16 +88,19 @@ const Selected = styled.div`
 
 const SelectedText = styled.div`
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    text-align: center;
+
+    padding: 0 0 2em;
 `;
 
 const SelectedTitle = styled.h1`
+    margin-bottom: 0.5em;
     position: relative;
     font-size: 30px;
 `;
 
 const SelectedRole = styled.h1`
+    margin-bottom: 1em;
     position: relative;
     font-size: 15px;
     font-weight: normal;
@@ -106,7 +109,6 @@ const SelectedRole = styled.h1`
 const SelectedBiog = styled.div`
     position: relative;
     font-size: 14px;
-    padding: 5px 40px 30px;
 `;
 
 class PeopleBrowser extends React.Component {
@@ -117,10 +119,9 @@ class PeopleBrowser extends React.Component {
             current: 1,
             coords: null,
             data: null,
-            array: [0, 1, 2]
+            array: [0, 1, 2, 3]
         };
-        this.width = document.body.clientWidth;
-        this.height = 600;
+        this.width = window.innerWidth;
     }
 
     componentDidMount() {
@@ -152,7 +153,7 @@ class PeopleBrowser extends React.Component {
         let main = 1;
         let theta = Math.PI / count;
         let items = new Array();
-        let size = 320;
+        let size = 360;
 
         for (var i = 0; i < count; i++) {
             let angle =
@@ -191,6 +192,7 @@ class PeopleBrowser extends React.Component {
         array[0] = current - 1 < 0 ? length : current - 1;
         array[1] = current;
         array[2] = current + 1 > length ? 0 : current + 1;
+        array[3] = current + 1 > length ? 1 : current + 2;
 
         this.setState({ current: current, array: array });
     }
@@ -213,90 +215,138 @@ class PeopleBrowser extends React.Component {
     render() {
         const { coords, data, current, selected } = this.state;
         return (
-            <Container>
-                {coords &&
-                    data.map((row, index) => {
-                        return (
-                            <PersonGroup
-                                key={index}
-                                style={{
-                                    transform: `scale(${this.getTransform(
-                                        index
-                                    )})`,
-                                    opacity: current == index ? 1 : 0,
-                                    pointerEvents:
-                                        current == index ? "auto" : "none"
-                                }}
-                            >
-                                {row.map(({ node: person }, index) => {
-                                    return (
-                                        <Person
-                                            key={index}
-                                            onClick={() =>
-                                                this.handleSelect(person)
-                                            }
-                                            style={{
-                                                top: coords[index].y,
-                                                left: coords[index].x
-                                            }}
-                                        >
-                                            <PersonImage
-                                                style={{
-                                                    backgroundImage: `url('${
-                                                        person.frontmatter
-                                                            .profile
-                                                    }')`
-                                                }}
-                                            />
-                                            <PersonTitle>
-                                                {person.frontmatter.title}
-                                            </PersonTitle>
-                                            <PersonRole>
-                                                {person.frontmatter.role}
-                                            </PersonRole>
-                                        </Person>
-                                    );
-                                })}
-                            </PersonGroup>
-                        );
-                    })}
-                {selected && (
-                    <Selected
+            <Wrapper>
+                <Container>
+                    <Row
                         style={{
-                            backgroundImage: `url('${
-                                selected.frontmatter.profile
-                            }')`
+                            top: "50%",
+                            position: "relative"
                         }}
                     >
-                        <SelectedText>
-                            <SelectedTitle>
-                                {selected.frontmatter.title}
-                            </SelectedTitle>
-                            <SelectedRole>
-                                {selected.frontmatter.role}
-                            </SelectedRole>
-                            <SelectedBiog>{selected.excerpt}</SelectedBiog>
-                        </SelectedText>
-                    </Selected>
-                )}
-                <Controls>
-                    <Control
-                        className="fa-layers fa-fw"
-                        onClick={() => this.navigateChunk("next")}
-                    >
-                        <FAIcon icon="chevron-up" transform="shrink-8" />
-                        <FAIcon icon={["far", "circle"]} />
-                    </Control>
+                        <Column>
+                            <Control
+                                className="fa-layers fa-fw"
+                                onClick={() => this.navigateChunk("prev")}
+                                style={{ left: 0 }}
+                            >
+                                <FAIcon
+                                    icon="chevron-left"
+                                    transform="shrink-8"
+                                />
+                                <FAIcon icon={["far", "circle"]} />
+                            </Control>
 
-                    <Control
-                        className="fa-layers fa-fw"
-                        onClick={() => this.navigateChunk("prev")}
+                            <Control
+                                className="fa-layers fa-fw"
+                                onClick={() => this.navigateChunk("next")}
+                                style={{ right: 0 }}
+                            >
+                                <FAIcon
+                                    icon="chevron-right"
+                                    transform="shrink-8"
+                                />
+                                <FAIcon icon={["far", "circle"]} />
+                            </Control>
+                        </Column>
+                    </Row>
+                    <div
+                        style={{
+                            height: height,
+                            transform: `scale(${transformScale(1200)})`
+                        }}
                     >
-                        <FAIcon icon="chevron-down" transform="shrink-8" />
-                        <FAIcon icon={["far", "circle"]} />
-                    </Control>
-                </Controls>
-            </Container>
+                        {coords &&
+                            data.map((row, i) => {
+                                return (
+                                    <PersonGroup
+                                        key={i}
+                                        style={{
+                                            transform: `scale(${this.getTransform(
+                                                i
+                                            ) / 1.4})`,
+                                            filter: `blur(${
+                                                current == i ? 10 : 0
+                                            }px)`,
+                                            opacity:
+                                                current == i
+                                                    ? 0.5
+                                                    : current + 1 == i ? 1 : 0,
+                                            pointerEvents:
+                                                current + 1 == i
+                                                    ? "auto"
+                                                    : "none"
+                                        }}
+                                    >
+                                        {row.map(({ node: person }, index) => {
+                                            return (
+                                                <Person
+                                                    key={index}
+                                                    onClick={() => {
+                                                        current + 1 == i &&
+                                                            this.handleSelect(
+                                                                person
+                                                            );
+                                                    }}
+                                                    style={{
+                                                        top: coords[index].y,
+                                                        left: coords[index].x
+                                                    }}
+                                                >
+                                                    <PersonImage
+                                                        style={{
+                                                            backgroundImage: `url('${
+                                                                person
+                                                                    .frontmatter
+                                                                    .profile
+                                                            }')`
+                                                        }}
+                                                    />
+                                                    <PersonTitle>
+                                                        {
+                                                            person.frontmatter
+                                                                .title
+                                                        }
+                                                    </PersonTitle>
+                                                    <PersonRole>
+                                                        {
+                                                            person.frontmatter
+                                                                .role
+                                                        }
+                                                    </PersonRole>
+                                                </Person>
+                                            );
+                                        })}
+                                    </PersonGroup>
+                                );
+                            })}
+                        {selected && (
+                            <Selected
+                                style={{
+                                    backgroundImage: `url('${
+                                        selected.frontmatter.profile
+                                    }')`
+                                }}
+                            />
+                        )}
+                    </div>
+                </Container>
+
+                {selected && (
+                    <Row>
+                        <Column xlarge={6} large={8} centered>
+                            <SelectedText>
+                                <SelectedTitle>
+                                    {selected.frontmatter.title}
+                                </SelectedTitle>
+                                <SelectedRole>
+                                    {selected.frontmatter.role}
+                                </SelectedRole>
+                                <SelectedBiog>{selected.excerpt}</SelectedBiog>
+                            </SelectedText>
+                        </Column>
+                    </Row>
+                )}
+            </Wrapper>
         );
     }
 }

@@ -112,18 +112,22 @@ class ServicesSection extends React.Component {
         const coords = this.path && this.coords(this.path);
 
         return (
-            <div>
-                <Row style={{ height: height }}>
+            <SectionContainer
+                color={colors.white}
+                background={colors.background}
+                padding="2em 0 4em"
+            >
+                <Row>
                     <Column large={5}>
                         <HeaderBlock
                             baseColor={colors.white}
                             padding={{
-                                top: 4,
+                                top: 0,
                                 right: 0,
                                 bottom: 2,
                                 left: 0
                             }}
-                            fontSize={4.5}
+                            fontSize={5}
                             textAlign="left"
                         >
                             <span>Together,</span>
@@ -288,7 +292,7 @@ class ServicesSection extends React.Component {
                         </Row>
                     </div>
                 </div>
-            </div>
+            </SectionContainer>
         );
     }
 }

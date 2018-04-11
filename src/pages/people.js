@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
+import styled from "styled-components";
 
 import { serveStatic } from "../helpers/helpers";
 import theme from "../theme/theme";
@@ -12,6 +13,11 @@ if (serveStatic()) {
 } else {
     var PeopleBrowser = require("../components/people/PeopleBrowser");
 }
+
+const StyledP = styled.p`
+    text-align: center;
+`;
+
 export default class PeoplePage extends React.Component {
     render() {
         const {
@@ -29,14 +35,19 @@ export default class PeoplePage extends React.Component {
                         >
                             <span>People</span> at our Core
                         </HeaderBlock>
-                        <p>
+                    </Column>
+                </Row>
+
+                <Row>
+                    <Column xlarge={6} centered>
+                        <StyledP>
                             We deliver fresh thinking and innovative ideas that
                             give our clients the edge over their competitors.
                             Our passion and drive to know your business inside
                             out and back to front enables us to work alongside
                             you and become an inseparable extension of your
                             marketing team.
-                        </p>
+                        </StyledP>
                     </Column>
                 </Row>
 
@@ -68,7 +79,7 @@ export const pageQuery = graphql`
                     fields {
                         slug
                     }
-                    html
+                    excerpt(pruneLength: 400)
                     id
                     frontmatter {
                         title

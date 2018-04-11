@@ -9,6 +9,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import theme, { colors } from "../theme/theme";
 import ClientSummary from "../components/clients/ClientSummary";
 import HeaderBlock from "../components/HeaderBlock";
+import SolutionModal from "../components/solutions/SolutionModal";
 
 const rotate360 = keyframes`
   from {
@@ -32,7 +33,6 @@ const Container = styled.div`
 `;
 
 const LogoContainer = styled.div`
-    background: ${colors.secondary};
     padding: 4vw 3vw;
     cursor: pointer;
 `;
@@ -71,7 +71,6 @@ const SolutionDot = styled.div`
     left: -12px;
     position: absolute;
     border-radius: 50px;
-    background: linear-gradient(to bottom, #3eb2de, #2c7cdb);
     z-index: 1;
     &:after {
         width: 24px;
@@ -98,17 +97,35 @@ const SolutionText = styled.div`
 export default class ClientsPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { currentSlide: 0 };
+        this.state = {
+            currentSlide: 0,
+            activeSolution: null
+        };
     }
     setSlide(x) {
         this.setState({ currentSlide: x });
     }
+    handleClick(x) {
+        this.setState({
+            activeSolution: x
+        });
+    }
+
+    getSolution(solutionTitle) {
+        const solution = this.props.data.solutions.edges.filter(solution => {
+            return solution.node.frontmatter.title === solutionTitle;
+        })[0];
+        return solution ? solution.node : false;
+    }
+
     render() {
+        const { activeSolution } = this.state;
+        const { data, transition } = this.props;
+
         const {
-            data: { allMarkdownRemark: { edges: clients } },
-            transition
-        } = this.props;
-        console.log(clients);
+            clients: { edges: clients },
+            solutions: { edges: solutions }
+        } = data;
 
         const settings = {
             slideWidth: 0.3,
@@ -119,12 +136,6 @@ export default class ClientsPage extends React.Component {
             renderCenterLeftControls: ({ previousSlide }) => null,
             renderBottomCenterControls: ({ currentSlide }) => null
         };
-
-        const solutions = [
-            "Brand Desire",
-            "Customer Loyalty",
-            "Sales Performance"
-        ];
 
         return (
             <div style={transition && transition.style}>
@@ -145,6 +156,7 @@ export default class ClientsPage extends React.Component {
                             const isCurrent = Boolean(
                                 this.state.currentSlide == index
                             );
+                            console.log(client);
                             return (
                                 // <ClientSummary client={client} />
                                 <Brand
@@ -153,6 +165,10 @@ export default class ClientsPage extends React.Component {
                                 >
                                     <Container>
                                         <LogoContainer
+                                            style={{
+                                                backgroundColor:
+                                                    client.frontmatter.color
+                                            }}
                                             onClick={() => this.setSlide(index)}
                                         >
                                             <Logo
@@ -189,22 +205,52 @@ export default class ClientsPage extends React.Component {
                                     <Container style={{ height: 300 }}>
                                         {isCurrent &&
                                             client.frontmatter.solutionsList.map(
-                                                (solution, index) => {
-                                                    return (
-                                                        <Solution
-                                                            style={{
-                                                                animationDelay: `${0.2 *
-                                                                    index}s`,
-                                                                zIndex:
-                                                                    1 - index
-                                                            }}
-                                                        >
-                                                            <SolutionDot />
-                                                            <SolutionText>
-                                                                {solution}
-                                                            </SolutionText>
-                                                        </Solution>
+                                                (title, index) => {
+                                                    const solution = this.getSolution(
+                                                        title
                                                     );
+                                                    if (solution) {
+                                                        return (
+                                                            <Solution
+                                                                onClick={() =>
+                                                                    this.handleClick(
+                                                                        solution
+                                                                    )
+                                                                }
+                                                                style={{
+                                                                    animationDelay: `${0.2 *
+                                                                        index}s`,
+                                                                    zIndex:
+                                                                        1 -
+                                                                        index
+                                                                }}
+                                                                key={index}
+                                                            >
+                                                                <SolutionDot
+                                                                    style={{
+                                                                        background: `linear-gradient(to bottom, ${
+                                                                            solution
+                                                                                .frontmatter
+                                                                                .color1
+                                                                        }, ${
+                                                                            solution
+                                                                                .frontmatter
+                                                                                .color2
+                                                                        })`
+                                                                    }}
+                                                                />
+                                                                <SolutionText>
+                                                                    {
+                                                                        solution
+                                                                            .frontmatter
+                                                                            .title
+                                                                    }
+                                                                </SolutionText>
+                                                            </Solution>
+                                                        );
+                                                    } else {
+                                                        return null;
+                                                    }
                                                 }
                                             )}
                                     </Container>
@@ -213,6 +259,14 @@ export default class ClientsPage extends React.Component {
                         })}
                     </Carousel>
                 </Row>
+                {activeSolution && (
+                    <SolutionModal
+                        width={window.innerWidth}
+                        height={window.innerHeight}
+                        solution={activeSolution}
+                        close={() => this.handleClick(null)}
+                    />
+                )}
             </div>
         );
     }
@@ -220,7 +274,7 @@ export default class ClientsPage extends React.Component {
 
 export const pageQuery = graphql`
     query clientsQuery {
-        allMarkdownRemark(
+        clients: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "clients" } } }
         ) {
             edges {
@@ -234,7 +288,28 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         logo
+                        color
                         solutionsList
+                    }
+                }
+            }
+        }
+        solutions: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "solutions" } } }
+        ) {
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+                    html
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        color1
+                        color2
+                        intro
                     }
                 }
             }

@@ -23,8 +23,8 @@ export default class IndexPage extends React.Component {
         super(props);
         this.state = {
             hasMounted: false,
-            width: isBrowser() ? document.body.clientWidth : null,
-            height: isBrowser() ? document.body.clientHeight : null
+            width: isBrowser() ? window.innerWidth : null,
+            height: isBrowser() ? window.innerHeight : null
         };
     }
     handleScriptLoad() {
@@ -54,8 +54,8 @@ export default class IndexPage extends React.Component {
     handleResize() {
         if (isBrowser()) {
             this.setState({
-                width: document.body.clientWidth,
-                height: document.body.clientHeight
+                width: window.innerWidth,
+                height: window.innerHeight
             });
         }
     }
@@ -95,8 +95,8 @@ export default class IndexPage extends React.Component {
                             font={font}
                         />
 
-                        <NewsSection news={news} />
-                        <PeopleSection people={people} />
+                        <NewsSection width={width} news={news} />
+                        <PeopleSection people={people.concat(people)} />
                         <MissionSection />
                     </div>
                 ) : (
@@ -110,7 +110,8 @@ export default class IndexPage extends React.Component {
 export const pageQuery = graphql`
     query IndexQuery {
         clients: allMarkdownRemark(
-            filter: { frontmatter: { templateKey: { eq: "clients" } } }
+            filter: { frontmatter: { templateKey: { eq: "work" } } }
+            limit: 3
         ) {
             edges {
                 node {
@@ -166,7 +167,7 @@ export const pageQuery = graphql`
         }
         news: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "news" } } }
-            limit: 2
+            limit: 3
         ) {
             edges {
                 node {

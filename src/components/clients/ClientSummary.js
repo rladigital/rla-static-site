@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
-import { breakpoints } from "../../theme/theme";
+import { colors, breakpoints } from "../../theme/theme";
 
 const SummaryContainer = styled.section`
     height: 33.33vw;
@@ -20,8 +20,8 @@ const TitleBackground = styled.div`
     bottom: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.9) 90%
+        transparent 0%,
+        ${colors.background} 90%
     );
 `;
 
@@ -29,7 +29,7 @@ const TitleContainer = styled.div`
     text-align: left;
     position: absolute;
     margin: 0;
-    padding: 3rem;
+    padding: 2.2rem;
     width: 100%;
     bottom: 0;
 `;

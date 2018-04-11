@@ -78,16 +78,15 @@ class SolutionsVideo extends React.Component {
 
         return (
             <Container style={{ ...style, opacity: scale }}>
-                {this.video &&
-                    this.video.readyState <= 3 && (
-                        <LoadingScreen
-                            percentage={loadedPercentage}
-                            text={
-                                loadedPercentage != 0 &&
-                                `${Math.round(loadedPercentage)}%`
-                            }
-                        />
-                    )}
+                {this.video && this.video.readyState < 2 ? (
+                    <LoadingScreen
+                        percentage={loadedPercentage}
+                        text={
+                            loadedPercentage != 0 &&
+                            `${Math.round(loadedPercentage)}%`
+                        }
+                    />
+                ) : null}
                 <Svg width={width} height={height}>
                     <circle {...circleProps} />
                 </Svg>

@@ -1,12 +1,10 @@
 ---
 templateKey: people
 title: Aaron Cork
-role: Full Stack Developer
-profile: /img/missing_avatar.svg
+role: Front end Developer
 tags:
   - Digital
-linkedIn: 
-twitter: 
+profile: /img/aaron-cork.jpg
 ---
 
 Missing

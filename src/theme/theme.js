@@ -90,9 +90,10 @@ const theme = {
         }
     },
     button: {
-        fontWeight: "bold",
+        fontWeight: "900",
         textTransform: "uppercase",
-        borderRadius: spacing.radius
+        borderRadius: spacing.radius,
+        borderWidth: "5px"
     },
     column: {
         columns: 12,
