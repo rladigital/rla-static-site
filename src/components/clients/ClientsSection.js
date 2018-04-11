@@ -62,7 +62,7 @@ class ClientsSection extends React.Component {
                                 <Column medium={4} key={index} collapse>
                                     <ClientSummary
                                         client={client}
-                                        height={24}
+                                        index={index}
                                     />
                                 </Column>
                             );

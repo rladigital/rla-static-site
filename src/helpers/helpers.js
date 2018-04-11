@@ -11,6 +11,20 @@ export function transformScale(size) {
 export function hexToInt(hexString) {
     return parseInt(hexString.substring(1), 16);
 }
+export function hextoRgb(hexString) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexString);
+    return result
+        ? {
+              r: parseInt(result[1], 16),
+              g: parseInt(result[2], 16),
+              b: parseInt(result[3], 16)
+          }
+        : null;
+}
+export function transparentize(hexString, amount) {
+    var rgb = hextoRgb(hexString);
+    return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - amount})`;
+}
 export const isBrowser = new Function(
     "try {return this===window;}catch(e){ return false;}"
 );

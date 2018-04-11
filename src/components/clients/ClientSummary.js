@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Link from "gatsby-link";
 
 import { colors, breakpoints } from "../../theme/theme";
+import { transparentize } from "../../helpers/helpers";
 
 const SummaryContainer = styled.section`
     height: 33.33vw;
@@ -10,55 +11,51 @@ const SummaryContainer = styled.section`
     background-image: url('${props => props.backgroundImage}');
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 `;
 
-const TitleBackground = styled.div`
-    position: absolute;
-    margin: 0;
+const Overlay = styled.div`
     width: 100%;
-    min-height: 35%;
-    bottom: 0;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        ${colors.background} 90%
-    );
-`;
+    height: 100%;
+    position: relative;
+    position: relative;
+    text-align: center;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: opacity 1s ease, transform 0.5s ease;
 
-const TitleContainer = styled.div`
-    text-align: left;
-    position: absolute;
-    margin: 0;
-    padding: 2.2rem;
-    width: 100%;
-    bottom: 0;
-`;
+    background: ${props =>
+        transparentize(
+            props.index % 2 ? colors.accent : colors.background,
+            0.52
+        )};
 
-const Category = styled.h5`
-    display: inline-block;
-    padding: 0.5rem;
-    color: ${props => props.theme.lightColor};
-    margin-bottom: 0.5rem;
-    background: ${props => props.theme.accent};
+    &:hover {
+        opacity: 1;
+        transform: scale(1);
+    }
 `;
 
 const Title = styled.h3`
+    top: 50%;
+    left: 50%;
     margin: 0;
     max-width: 90%;
     margin-top: 0;
-    color: ${props => props.theme.lightColor};
+    font-size: 2.6em;
     font-weight: 900;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: ${props => props.theme.lightColor};
 `;
 
-const ClientSummary = ({ client }) => {
+const ClientSummary = ({ client, index }) => {
     return (
         <Link to={client.fields.slug}>
             <SummaryContainer backgroundImage={client.frontmatter.thumb}>
-                <TitleBackground>
-                    <TitleContainer>
-                        <Title>{client.frontmatter.title}</Title>
-                    </TitleContainer>
-                </TitleBackground>
+                <Overlay index={index}>
+                    <Title>{client.frontmatter.title}</Title>
+                </Overlay>
             </SummaryContainer>
         </Link>
     );
