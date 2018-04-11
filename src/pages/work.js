@@ -12,6 +12,12 @@ const Container = styled.div`
     padding: 3px 0;
     margin: 0 -3px;
     background: ${colors.white};
+    background: linear-gradient(
+        to bottom,
+        ${colors.white},
+        #ebebeb,
+        ${colors.white}
+    );
 `;
 
 const layouts = [6, 6, 3, 3, 6, 4, 4, 4];

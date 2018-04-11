@@ -31,13 +31,13 @@ const WorkTitle = styled.h5`
 
 const Container = styled.div`
     padding: 3px;
-    background: ${colors.white};
 `;
 
 const Description = styled.div`
     height: 85px;
     color: ${colors.mediumGray};
     padding: ${spacing.padding}rem;
+    background: ${colors.white};
     font-size: 0.8rem;
     position: relative;
     overflow: hidden;
