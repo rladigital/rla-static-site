@@ -6,5 +6,4 @@ tags:
   - Digital
 profile: /img/helena shaw.jpg
 ---
-
-Missing
+.
