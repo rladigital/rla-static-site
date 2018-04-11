@@ -18,7 +18,10 @@ outcome: >-
   pro-actively assist Volvo Car UK in achieving its performance growth in the UK
   over the next three years.
 galleryImages:
-  - /img/volvo-band-4-1.jpg
+  - /img/screen shot 2018-04-11 at 12.43.48.png
+  - /img/screen shot 2018-04-11 at 12.43.40.png
+  - /img/screen shot 2018-04-11 at 12.43.30.png
+  - /img/screen shot 2018-04-11 at 12.43.21.png
 solutionsList:
   - Brand Desire
 weighting: 0
