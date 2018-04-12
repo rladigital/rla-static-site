@@ -9,18 +9,20 @@ tags:
   - CULTURE
   - 10 QUESTIONS
 intro: test
-sideHeading: TO BE UDPATED
+sideHeading: >-
+  The ideal client relationship is a respected partnership, built on trust,
+  earned over time. 
 galleryImages:
   - /img/sam-2.jpg
 author: Samantha Smith
 ---
-**Ok, so what do you actually do? **
+**Ok, so what do you actually do?**
 
 So many things, it’s different every day.  
 
 The day flies by – listening to and helping anyone who needs my support, guidance, advice and encouragement. I love solving problems, helping whoever may be struggling with whatever they are struggling with. I’m a great believer in ‘a problem shared is a problem halved’, so being approachable and available to everyone, not only in the agency but to our clients too, is really important to me. Which is why I’m sat answering these questions at 10.30pm! My ‘work’ day starts when the agency closes.
 
-**What industry trend or technology are you most excited about? **
+**What industry trend or technology are you most excited about?**
 
 My time is extremely precious, and I have little of it, so I’m more interested in Brands that can serve me a relevant ad. They’ve taken an interest, learned my preferences, and talk to me about something I am genuinely interested in buying. Once they serve me an offer, I’m hooked and will buy. I love it when Brands get it so right, because it works.
 
@@ -46,18 +48,18 @@ I have to say my son and daughter, Joshua and Kirby. Well, I don’t have to. I 
 
 Help at an elephant orphanage in South Africa. I adore the country and am passionate about elephants, literally love them!
 
-**You’re in control of the Sonos, what are we listening to?**
+**You’re in control of the Sonos, what are we listening to?**
 
-Anything from the 80s. Early 80s, from Ska to New Romantics. I’m tone deaf, so not an avid music fan as long as it’s a feel-good tune, upbeat and makes me feel happy. I’ll actually listen to anything, unashamedly I’ll admit to loving anything Motown, The Beatles, Bowie and even ABBA. I’ll only sing along when the agency is empty though. It’s probably easier to say what I wouldn’t listen to and that is definitely Death/Heavy metal.
+Anything from the 80s. Early 80s, from Ska to New Romantics. I’m tone deaf, so not an avid music fan as long as it’s a feel-good tune, upbeat and makes me feel happy. I’ll actually listen to anything, unashamedly I’ll admit to loving anything Motown, The Beatles, Bowie and even ABBA. I’ll only sing along when the agency is empty though. It’s probably easier to say what I wouldn’t listen to and that is definitely Death/Heavy metal.
 
-**We’re on a pitch and it’s pizza time, what are you ordering?**
+**We’re on a pitch and it’s pizza time, what are you ordering?**
 
-If I’m honest, I’d rather not have a pizza, but if that’s what everyone else wants then anything vegetarian! Mushrooms, sweetcorn, peppers, jalapeños - any vegetables on offer, throw them on. It should be Dominos, thin crust, and with at least two pots of the garlic and herb dip.
+If I’m honest, I’d rather not have a pizza, but if that’s what everyone else wants then anything vegetarian! Mushrooms, sweetcorn, peppers, jalapeños - any vegetables on offer, throw them on. It should be Dominos, thin crust, and with at least two pots of the garlic and herb dip.
 
-**It’s Friday, its 4 o’clock, the beer fridge is open. What are you grabbing?**
+**It’s Friday, its 4 o’clock, the beer fridge is open. What are you grabbing?**
 
-No hesitation – Gin and slim.
+No hesitation – Gin and slim.
 
-**What’s your favourite part of the job?**
+**What’s your favourite part of the job?**
 
 Talking to clients, getting to the bottom of their problems, understanding their challenges and finding a way to help them. Building the relationship to such a point that whenever a client needs to turn to someone for help, they will always turn to RLA because of the trust and mutual respect that exists in the partnership.
