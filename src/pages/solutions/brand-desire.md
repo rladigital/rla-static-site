@@ -1,7 +1,11 @@
 ---
 templateKey: solutions
 title: Brand Desire
-intro: 'Generating buzz, excitement and equity around brands'
+intro: >-
+  Exploring your brand’s personality is essential to reach a creative, impactful
+  strategy. Getting to the very core of what it takes to reach your goals
+  reinforces every movement, and every decision. Brand desire is just one part
+  of the picture. See how we can help you by getting in touch.
 description1: >-
   Exploring your brand’s personality is essential to reach a creative, impactful
   strategy. Getting to the very core of what it takes to reach your goals
