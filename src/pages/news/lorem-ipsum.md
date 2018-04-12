@@ -1,6 +1,6 @@
 ---
 templateKey: news
-title: Lorem Ipsum
+title: 10 QUESTIONS WITH… SAM SMITH
 date: 12/04/2018
 hero: /img/sam.jpg
 thumb: /img/sam.jpg
