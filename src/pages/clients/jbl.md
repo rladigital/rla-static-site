@@ -1,7 +1,7 @@
 ---
 templateKey: clients
-title: BMW
-logo: /img/bmw-logo@2x.png
+title: JBL
+logo: /img/jbl_logo_web.png
 solutionsList:
   - Brand Desire
   - Cortex
