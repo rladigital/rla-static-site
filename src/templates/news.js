@@ -11,11 +11,13 @@ import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
 import HeaderBlock from "../components/HeaderBlock";
 import SidebarDate from "../components/blog/SidebarDate";
+import Social from "../components/blog/Social";
 import NewsSummary from "../components/news/NewsSummary";
 import Author from "../components/blog/Author";
 
 import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
+import Tags from "../components/blog/Tags";
 
 const contentStyle = {
     marginBottom: "4em",
@@ -35,10 +37,10 @@ export const NewsTemplate = ({
     helmet,
     previous,
     next,
-    transition
+    transition,
+    tags
 }) => {
     const PostContent = contentComponent || HTMLContent;
-    console.log(author);
     return (
         <div style={transition && transition.style}>
             <PageDetailContainer>
@@ -75,11 +77,33 @@ export const NewsTemplate = ({
                     <Column medium={1}>&nbsp;</Column>
                     <Column medium={4}>
                         <SidebarDate date={date} />
-                        <PullQuote fontSize={1.8} padding="0 0 2rem">
+                        <PullQuote fontSize={1.8} padding="0 0 2.6rem">
                             {sideHeading}
                         </PullQuote>
 
+                        <Social
+                            size={50}
+                            icon="linkedin-in"
+                            href={author.frontmatter.linkedIn}
+                            color={colors.background}
+                            borderColor={colors.background}
+                            margin="0 1rem 3rem 0"
+                            transform="shrink-10 up-0.5"
+                        />
+
+                        <Social
+                            size={50}
+                            icon="twitter"
+                            href={author.frontmatter.linkedIn}
+                            color={colors.background}
+                            borderColor={colors.background}
+                            margin="0 1rem 3rem 0"
+                            transform="shrink-10 "
+                        />
+
                         {author && <Author author={author} />}
+
+                        {tags && <Tags tags={tags} />}
 
                         {/* {galleryImages.map((image, index) => {
                             if (image) {
@@ -134,6 +158,7 @@ export default ({ data, pathContext, transition }) => {
             next={next}
             transition={transition}
             author={news.frontmatter.author}
+            tags={news.frontmatter.tags}
         />
     );
 };
@@ -150,12 +175,15 @@ export const pageQuery = graphql`
                 sideHeading
                 project
                 galleryImages
+                tags
                 author {
                     excerpt(pruneLength: 400)
                     frontmatter {
                         title
                         role
                         profile
+                        twitter
+                        linkedIn
                     }
                 }
             }
