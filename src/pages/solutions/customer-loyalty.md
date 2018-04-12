@@ -14,7 +14,7 @@ description2: >-
   amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
   suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
   luctus tellus. Morbi.
-color1: '#FCF46F'
-color2: '#F7E53C'
+color1: '#FFC400'
+color2: '#e69200'
 ---
 
