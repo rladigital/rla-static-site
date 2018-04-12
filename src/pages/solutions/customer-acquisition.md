@@ -1,19 +1,13 @@
 ---
 templateKey: solutions
 title: Customer Acquisition
-intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+intro: Going deep into the mind of the consumer.
 description1: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Driving meaningful connections between brand and consumer starts with
+  intelligent planning and strategising.
 description2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  By accessing what really matters to the audience, we can effectively and
+  competitively reach those customers who are ready for action.
 color1: '#4EF6DC'
 color2: '#26E9B6'
 ---
