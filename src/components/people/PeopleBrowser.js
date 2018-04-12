@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 import { Row, Column } from "rla-components";
-import { transformScale } from "../../helpers/helpers";
+import { transformScale, shuffleArray } from "../../helpers/helpers";
 
 import { colors } from "../../theme/theme";
-import { hexToInt, scale, random } from "../../helpers/helpers";
+import { hexToInt, scale, random, chunkArray } from "../../helpers/helpers";
 
 const height = 600;
 
@@ -127,35 +127,13 @@ class PeopleBrowser extends React.Component {
     componentDidMount() {
         const { people } = this.props;
         const coords = this.generateCoords(6, 360);
-        const data = this.chunkArray(6, this.shuffleArray(people));
+        const data = chunkArray(6, shuffleArray(people));
 
         this.setState({
             coords: coords,
             data: data,
             selected: data[0][0].node
         });
-    }
-
-    shuffleArray(o) {
-        for (
-            var j, x, i = o.length;
-            i;
-            j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x
-        );
-        return o;
-    }
-
-    chunkArray(chunk_size, myArray) {
-        var i = 0;
-        var chunk;
-        var tempArray = [];
-
-        for (i = 0; i < myArray.length; i += chunk_size) {
-            chunk = myArray.slice(i, i + chunk_size);
-            tempArray.push(chunk);
-        }
-
-        return tempArray;
     }
 
     generateCoords(count, r) {

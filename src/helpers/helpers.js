@@ -38,3 +38,23 @@ export const isMobile = () => {
 export const serveStatic = () => {
     return !isBrowser() || (isBrowser() && isMobile());
 };
+export function chunkArray(chunk_size, myArray) {
+    var i = 0;
+    var chunk;
+    var tempArray = [];
+
+    for (i = 0; i < myArray.length; i += chunk_size) {
+        chunk = myArray.slice(i, i + chunk_size);
+        tempArray.push(chunk);
+    }
+
+    return tempArray;
+}
+export function shuffleArray(o) {
+    for (
+        var j, x, i = o.length;
+        i;
+        j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x
+    );
+    return o;
+}
