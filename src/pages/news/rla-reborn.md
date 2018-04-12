@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: RLA Reborn
-date: 04/01/2018
+date: Invalid date
 hero: /img/rla-barn.jpg
 thumb: /img/rla-barn.jpg
 category: News
