@@ -3,8 +3,11 @@ templateKey: contacts
 title: Bournemouth
 group: RLA
 address: |-
-  Parley Green Lane,\
-  Christchurch, BH23 6BB
+  Parley Green Lane, 
+
+  Christchurch,
+
+  BH23 6BB
 contactName: Paul Smith
 contactImage: /img/people-paul-smith.jpg
 contactRole: Strategy and Planning Director
