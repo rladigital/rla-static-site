@@ -106,9 +106,8 @@ const SelectedRole = styled.h1`
     font-weight: normal;
 `;
 
-const SelectedBiog = styled.div`
+const SelectedBiog = styled.p`
     position: relative;
-    font-size: 14px;
 `;
 
 class PeopleBrowser extends React.Component {

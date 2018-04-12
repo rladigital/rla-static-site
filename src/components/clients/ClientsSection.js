@@ -14,15 +14,9 @@ const StyledButton = Button.extend`
 `;
 
 const StyledP = styled.p`
-    font-size: 14px;
     text-align: center;
     margin-bottom: 1.6rem;
     color: ${colors.lightGray};
-`;
-
-const Highlight = StyledP.extend`
-    font-weight: bold;
-    color: ${colors.accent};
 `;
 
 class ClientsSection extends React.Component {
@@ -36,7 +30,7 @@ class ClientsSection extends React.Component {
                     padding="1em 0 3em"
                 >
                     <Row>
-                        <Column large={8} centered>
+                        <Column large={7} centered>
                             <HeaderBlock
                                 baseColor={colors.background}
                                 padding={{
@@ -50,23 +44,22 @@ class ClientsSection extends React.Component {
                                 <span>NO</span> EXCUSES
                             </HeaderBlock>
                             <StyledP>
-                                If there’s one thing we don’t have, it’s
-                                excuses. We’re the leaders connecting the
-                                front-line with your brand, upholding a level of
-                                rare commerciality that doesn’t exist in your
-                                usual agency.
+                                We have a lot to offer at RLA, but if there’s
+                                one thing we don’t have - it’s excuses. We’re
+                                world-leaders in connecting the front-line with
+                                your brand, offering a rare level of
+                                commerciality that doesn’t exist in your usual
+                                agency.
                             </StyledP>
                             <StyledP>
-                                We understand. We’ve got the tech. And the
-                                creativity.
+                                We strive to understand our clients’ needs
+                                fully, and we’ve got the tech and creativity to
+                                match.
                             </StyledP>
                             <StyledP>
-                                It’s time to unite sales with marketing to be at
-                                the forefront of opportunity.
-                            </StyledP>
-                            <Highlight>No excuses.</Highlight>
-                            <StyledP>
-                                Have a look at some of our work below.{" "}
+                                It’s time to unite sales with marketing, and
+                                stay at the forefront of opportunity - no
+                                excuses.
                             </StyledP>
                         </Column>
                     </Row>
