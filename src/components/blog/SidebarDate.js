@@ -2,16 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import format from "date-fns/format";
-import { colors } from "../theme/theme";
+import { colors } from "../../theme/theme";
 
 const SidebarDateContainer = styled.blockquote`
     position: relative;
-    padding: 0 2rem 1.4rem 2rem;
+    padding: 5rem 0 2rem;
     background-color: ${props => props.background};
     color: ${props => props.color};
     font-size: ${props => props.fontSize}rem;
     line-height: 1.3;
     text-transform: uppercase;
+    display: inline-block;
 `;
 
 const SidebarDate = ({ date, prefix, ...rest }) => {

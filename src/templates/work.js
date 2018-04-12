@@ -5,7 +5,6 @@ import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
-import FAIcon from "@fortawesome/react-fontawesome";
 import Link from "gatsby-link";
 
 import { colors, spacing, breakpoints } from "../theme/theme";
@@ -13,17 +12,8 @@ import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
 import HeaderBlock from "../components/HeaderBlock";
-
-const Hero = styled.div`
-    width: 100%;
-    height: 40vw;
-    max-height: 450px;
-    min-height: 180px;
-    background-size: cover;
-    background-position: center;
-    background-image: url('${props => props.src}');
-    margin-bottom: 2.8em;
-`;
+import BackButton from "../components/blog/BackButton";
+import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
     height: 70px;
@@ -81,22 +71,6 @@ const Solution = styled.p`
     color: ${colors.lightGray};
 `;
 
-const BackButtonRow = styled(Row)`
-    @media (min-width: 1516px) {
-        position: absolute;
-    }
-`;
-
-const BackButton = styled(Link)`
-    font-size: 1.2em;
-    display: inline-block;
-    padding: ${spacing.padding}em 0;
-    color: ${colors.lightGray};
-    @media (min-width: 1516px) {
-        padding: 0;
-    }
-`;
-
 const contentStyle = {
     marginBottom: "4em",
     color: colors.lightGray
@@ -117,17 +91,11 @@ export const WorkTemplate = ({
     return (
         <PageDetailContainer>
             {helmet || ""}
-            <BackButtonRow expanded>
-                <Column>
-                    <BackButton to="/work">
-                        <FAIcon icon="arrow-left" />
-                    </BackButton>
-                </Column>
-            </BackButtonRow>
+            <BackButton to="/work" />
             {hero && (
                 <Row>
                     <Column>
-                        <Hero src={hero} />
+                        <Hero src={hero} />{" "}
                     </Column>
                 </Row>
             )}
@@ -149,25 +117,31 @@ export const WorkTemplate = ({
                     <Content content={outcome} style={contentStyle} />
 
                     <Table>
-                        <tr>
-                            <Td>
-                                <Heading fontSize={1}>
-                                    Our areas of expertise —{" "}
-                                </Heading>
-                            </Td>
-                            <Td>
-                                {solutionsList.map((solution, index) => {
-                                    return <Solution>{solution}</Solution>;
-                                })}
-                            </Td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <Td>
+                                    <Heading fontSize={1}>
+                                        Our areas of expertise —{" "}
+                                    </Heading>
+                                </Td>
+                                <Td>
+                                    {solutionsList.map((solution, index) => {
+                                        return (
+                                            <Solution key={index}>
+                                                {solution}
+                                            </Solution>
+                                        );
+                                    })}
+                                </Td>
+                            </tr>
+                        </tbody>
                     </Table>
                 </Column>
             </Row>
             <Row>
                 <Column>
                     {galleryImages.map((image, index) => {
-                        return <GalleryImage src={image} />;
+                        return <GalleryImage key={index} src={image} />;
                     })}
 
                     <GalleryItem>

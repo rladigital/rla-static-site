@@ -62,23 +62,27 @@ class NewsSection extends React.Component {
                     <Column medium={6} collapse>
                         <NewsSummary story={news[0].node} />
                     </Column>
-                    <Column medium={6} collapse>
-                        <NewsSummary story={news[1].node} />
-                    </Column>
-                    {!news[3] ? (
+                    {news[1] && (
                         <Column medium={6} collapse>
-                            <NewsSummary story={news[2].node} />
+                            <NewsSummary story={news[1].node} />
                         </Column>
-                    ) : (
-                        [
-                            <Column medium={6} xlarge={3} collapse>
-                                <NewsSummary story={news[2].node} />
-                            </Column>,
-                            <Column medium={6} xlarge={3} collapse>
-                                <NewsSummary story={news[3].node} />
-                            </Column>
-                        ]
                     )}
+                    {news[2] &&
+                        mews[3] &&
+                        (!news[3] ? (
+                            <Column medium={6} collapse>
+                                <NewsSummary story={news[2].node} />
+                            </Column>
+                        ) : (
+                            [
+                                <Column medium={6} xlarge={3} collapse>
+                                    <NewsSummary story={news[2].node} />
+                                </Column>,
+                                <Column medium={6} xlarge={3} collapse>
+                                    <NewsSummary story={news[3].node} />
+                                </Column>
+                            ]
+                        ))}
                 </Row>
             </SectionContainer>
         );

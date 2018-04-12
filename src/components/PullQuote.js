@@ -5,10 +5,10 @@ import { colors } from "../theme/theme";
 
 const PullQuote = styled.blockquote`
     position: relative;
-
     background-color: ${props => props.background};
     color: ${props => props.color};
     font-size: ${props => props.fontSize}rem;
+    padding: ${props => props.padding};
     font-family: "Adobe Caslon Pro";
     line-height: 1.3;
 `;
