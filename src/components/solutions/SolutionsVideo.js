@@ -42,6 +42,7 @@ class SolutionsVideo extends React.Component {
     }
     componentDidMount() {
         this.video.addEventListener("progress", () => this.handleVideoLoad());
+        this.video.play();
     }
 
     componentWillUnmount() {
