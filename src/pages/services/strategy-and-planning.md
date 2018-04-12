@@ -2,11 +2,4 @@
 templateKey: services
 title: Strategy and Planning
 ---
-
-Strategy and Planning Praesent ligula augue, tincidunt id egestas nec,
-tincidunt eget est. Sed in turpis dictum, congue mauris a, sagittis sapien.
-Curabitur accumsan convallis velit nec convallis. Cras bibendum feugiat
-libero, id convallis lectus dapibus nec. Nulla convallis augue id tellus
-dictum, eget cursus erat fringilla. Nunc sit amet mi ac metus luctus mattis.
-Donec vestibulum at eros in semper. Fusce egestas pellentesque enim vitae
-sagittis.
+We’ve done our research. Delving into the mind of the consumer comes naturally to us. It’s no longer enough to simply plan. We must closely analyse big data to create meaningful connections that can be built into our plans, ultimately uniting your brand with your loyal customer.
