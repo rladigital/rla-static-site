@@ -19,7 +19,7 @@ author: Samantha Smith
 
 So many things, it’s different every day.  
 
-The day flies by – listening to and helping anyone who needs my support, guidance, advice and encouragement. I love solving problems, helping whoever may be struggling with whatever they are struggling with. I’m a great believer in ‘a problem shared is a problem halved’, so being approachable and available to everyone, not only in the agency but to our clients too, is really important to me. Which is why I’m sat answering these questions at 10.30pm! My ‘work’ day starts when the agency closes. 
+The day flies by – listening to and helping anyone who needs my support, guidance, advice and encouragement. I love solving problems, helping whoever may be struggling with whatever they are struggling with. I’m a great believer in ‘a problem shared is a problem halved’, so being approachable and available to everyone, not only in the agency but to our clients too, is really important to me. Which is why I’m sat answering these questions at 10.30pm! My ‘work’ day starts when the agency closes. 
 
 **What makes working at RLA different to other agencies?**
 
@@ -29,6 +29,6 @@ Also, an open culture where everyone’s voice can be heard, opinions are welcom
 
 ![null](/img/sam-2.jpg)
 
-Most manufacturer-run trade parts programmes operate to a business model that is now well over 20 years old. However, parts retailing has changed immeasurably over the last decade with the growth of several disruptive and capable competitors which has seen many OEM’s share of the market slowly decline. But not for RLA’s client, PSA Group who are about to take their already successful Trade Team programme to the next level by launching the industry’s first OEM rewards programme, PERKS, on the 5th June 2017. 
+**What industry trend or technology are you most excited about? **
 
-Targeted at 25,000 Independent Garages and Bodyshops, PERKS is a genuine industry first. A customer loyalty programme which rewards customers with points every time they buy, offers them savings from hundreds of high street brands and retailers, and gives them opportunities to enter regular competitions to win both large and fun prizes.
+My time is extremely precious, and I have little of it, so I’m more interested in Brands that can serve me a relevant ad. They’ve taken an interest, learned my preferences, and talk to me about something I am genuinely interested in buying. Once they serve me an offer, I’m hooked and will buy. I love it when Brands get it so right, because it works. So, it’s been really important to me that RLA stays on top of the marketing automation trend. What I’m really keen to explore now is how this impacts voice assistants. I’ve never been fortunate enough to have a personal assistant in my career, but we are quickly reaching the time when our own personal AI assistant will become part of our everyday lives creating a dependency that we don’t yet know we have. Helping brands make sure they don’t lose out in this next battle is going to be extremely interesting.
