@@ -8,9 +8,7 @@ category: News
 tags:
   - CULTURE
 intro: test
-sideHeading: >-
-  Targeted at 25,000 Independent Garages and Bodyshops, PERKS is a genuine
-  industry first.
+sideHeading: TO BE UDPATED
 galleryImages:
   - /img/sam-2.jpg
 author: Samantha Smith
