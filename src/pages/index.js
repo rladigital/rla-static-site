@@ -96,7 +96,7 @@ export default class IndexPage extends React.Component {
                         />
 
                         <NewsSection width={width} news={news} />
-                        <PeopleSection people={people.concat(people)} />
+                        <PeopleSection people={people} />
                         <MissionSection />
                     </div>
                 ) : (

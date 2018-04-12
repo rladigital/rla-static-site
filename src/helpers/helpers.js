@@ -5,8 +5,12 @@ export function random(min, max) {
 export function scale(width, screenWidth) {
     return width / 1800 * window.innerWidth;
 }
-export function transformScale(size) {
-    return Math.min(window.innerWidth, window.innerHeight) / size;
+export function transformScale(size, limit) {
+    if (limit) {
+        return Math.min(window.innerWidth, window.innerHeight, limit) / size;
+    } else {
+        return Math.min(window.innerWidth, window.innerHeight) / size;
+    }
 }
 export function hexToInt(hexString) {
     return parseInt(hexString.substring(1), 16);

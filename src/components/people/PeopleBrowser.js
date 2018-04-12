@@ -7,7 +7,7 @@ import { transformScale } from "../../helpers/helpers";
 import { colors } from "../../theme/theme";
 import { hexToInt, scale, random } from "../../helpers/helpers";
 
-const height = 640;
+const height = 600;
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
     position: relative;
     height: ${height}px;
+    margin-bottom: -80px;
 `;
 
 const PersonGroup = styled.div`
@@ -62,10 +63,10 @@ const Control = styled.a`
 const Selected = styled.div`
     top: 50%;
     left: 50%;
-    width: 360px;
-    height: 360px;
+    width: 450px;
+    height: 450px;
     position: absolute;
-    border-radius 200px;
+    border-radius 400px;
     background-size: cover;
     background-position: center;
     transform: translate(-50%, -50%);
@@ -89,7 +90,6 @@ const Selected = styled.div`
 const SelectedText = styled.div`
     width: 100%;
     text-align: center;
-
     padding: 0 0 2em;
 `;
 
@@ -127,13 +127,22 @@ class PeopleBrowser extends React.Component {
     componentDidMount() {
         const { people } = this.props;
         const coords = this.generateCoords(6, 360);
-        const data = this.chunkArray(6, people);
+        const data = this.chunkArray(6, this.shuffleArray(people));
 
         this.setState({
             coords: coords,
             data: data,
             selected: data[0][0].node
         });
+    }
+
+    shuffleArray(o) {
+        for (
+            var j, x, i = o.length;
+            i;
+            j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x
+        );
+        return o;
     }
 
     chunkArray(chunk_size, myArray) {
@@ -252,7 +261,7 @@ class PeopleBrowser extends React.Component {
                     <div
                         style={{
                             height: height,
-                            transform: `scale(${transformScale(1200)})`
+                            transform: `scale(${transformScale(1400, 1200)})`
                         }}
                     >
                         {coords &&
