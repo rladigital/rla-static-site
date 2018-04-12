@@ -1,10 +1,11 @@
 ---
 templateKey: clients
 title: Volvo
-logo: /img/volvo-logo.png
-color: '#5b91ba'
+logo: /img/volvo2@2x.png
+color: ''
 solutionLookup: Customer Relationship
 solutionsList:
   - Brand Desire
   - Customer Relationship
 ---
+
