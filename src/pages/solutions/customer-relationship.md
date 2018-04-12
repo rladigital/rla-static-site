@@ -1,19 +1,14 @@
 ---
 templateKey: solutions
 title: Customer Relationship
-intro: Improving customer relationships
+intro: Driving loyalty through intricate personalisation of the consumer journey.
 description1: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Meticulously observing your customer’s individual journeys provides key
+  insights to feed evolving strategies. Every single journey is different.
 description2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  The key is to draw from multiple meaningful data sources to produce creative
+  automated marketing communications that will only serve to nurture that
+  relationship.
 color1: '#CA7ADC'
 color2: '#AA4DBE'
 ---
