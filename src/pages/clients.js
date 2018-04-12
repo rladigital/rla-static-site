@@ -145,7 +145,7 @@ export default class ClientsPage extends React.Component {
                             fontSize={theme.pageHeaderSection.fontSize}
                             padding={theme.pageHeaderSection.padding}
                         >
-                            <span>Brands</span> we work with
+                            <span>CLIENT</span> EXPERIENCE
                         </HeaderBlock>
                     </Column>
                 </Row>
