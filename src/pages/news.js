@@ -28,31 +28,31 @@ export default class NewsPage extends React.Component {
                 </Row>
                 <Row expanded collapse>
                     <Column medium={6} large={6} collapse>
-                        <NewsItem data={news[0]} height={2} />
+                        <NewsItem data={news[0]} height={720} />
                     </Column>
                     <Column medium={6} large={6} collapse>
                         <Row collapse>
-                            <NewsItem data={news[1]} height={1} />
+                            <NewsItem data={news[1]} height={360} />
                         </Row>
                         <Row collapse>
                             <Column medium={6} large={6} collapse>
-                                <NewsItem data={news[2]} height={1} />
+                                <NewsItem data={news[2]} height={360} />
                             </Column>
                             <Column medium={6} large={6} collapse>
-                                <NewsItem data={news[3]} height={1} />
+                                <NewsItem data={news[3]} height={360} />
                             </Column>
                         </Row>
                     </Column>
                 </Row>
                 <Row expanded collapse>
                     <Column medium={3} collapse>
-                        <NewsItem data={news[4]} height={1} />
+                        <NewsItem data={news[4]} height={360} />
                     </Column>
                     <Column medium={3} collapse>
-                        <NewsItem data={news[5]} height={1} />
+                        <NewsItem data={news[5]} height={360} />
                     </Column>
                     <Column medium={6} collapse>
-                        <NewsItem data={news[6]} height={1} />
+                        <NewsItem data={news[6]} height={360} />
                     </Column>
                 </Row>
             </div>
@@ -62,11 +62,8 @@ export default class NewsPage extends React.Component {
 
 class NewsItem extends React.Component {
     render() {
-        const rowHeight = 22;
         let { data, height } = this.props;
-        return data ? (
-            <NewsSummary story={data.node} height={rowHeight * height} />
-        ) : null;
+        return data ? <NewsSummary story={data.node} height={height} /> : null;
     }
 }
 

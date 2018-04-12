@@ -10,7 +10,7 @@ const SummaryContainer = styled.section`
     background-image: url('${props => props.backgroundImage}');
     background-size: cover;
     background-position: center;
-    height: 360px;
+    height: ${props => props.height}px;
     text-align: center;
 `;
 
@@ -69,7 +69,8 @@ NewsSummary.propTypes = {
 };
 
 NewsSummary.defaultProps = {
-    minHeight: 12
+    minHeight: 12,
+    height: 360
 };
 
 export default NewsSummary;
