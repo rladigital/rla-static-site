@@ -1,19 +1,14 @@
 ---
 templateKey: solutions
-title: Sales Performance
+title: ' Channel Incentives'
 intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
 description1: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  We have the tech and the creativity to drive performance. We provide a
+  concierge service to mo-tivate and grow involvement, while equipping your
+  sales and partner teams with the incentive to perform.
 description2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Through clever short-term spiffs and long term behavioural encouragement,
+  you’ll hit targets with-out damaging your brand.
 color1: '#FD894E'
 color2: '#FB5126'
 ---
