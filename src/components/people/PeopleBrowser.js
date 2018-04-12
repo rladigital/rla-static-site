@@ -225,7 +225,6 @@ class PeopleBrowser extends React.Component {
         const { coords, data, current, selected } = this.state;
         return (
             <Wrapper>
-                <div>{current}</div>
                 <Container>
                     <Row
                         style={{
