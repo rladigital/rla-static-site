@@ -1,6 +1,6 @@
 ---
 templateKey: clients
-title: BMW t
+title: BMW
 logo: /img/bmw-logo@2x.png
 solutionsList:
   - Customer Loyalty
