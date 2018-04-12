@@ -68,7 +68,6 @@ class NewsSection extends React.Component {
                         </Column>
                     )}
                     {news[2] &&
-                        mews[3] &&
                         (!news[3] ? (
                             <Column medium={6} collapse>
                                 <NewsSummary story={news[2].node} />

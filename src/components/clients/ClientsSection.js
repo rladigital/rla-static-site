@@ -16,7 +16,13 @@ const StyledButton = Button.extend`
 const StyledP = styled.p`
     font-size: 14px;
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 1.6rem;
+    color: ${colors.lightGray};
+`;
+
+const Highlight = StyledP.extend`
+    font-weight: bold;
+    color: ${colors.accent};
 `;
 
 class ClientsSection extends React.Component {
@@ -27,7 +33,7 @@ class ClientsSection extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
-                    padding="2em 0 0"
+                    padding="1em 0 3em"
                 >
                     <Row>
                         <Column large={8} centered>
@@ -36,39 +42,45 @@ class ClientsSection extends React.Component {
                                 padding={{
                                     top: 4,
                                     right: 0,
-                                    bottom: 4,
+                                    bottom: 3,
                                     left: 0
                                 }}
                                 fontSize={3.4}
                             >
-                                30 Years of Delivering<br />
-                                <span>
-                                    Strategic, Profitable Communications
-                                </span>
+                                <span>NO</span> EXCUSES
                             </HeaderBlock>
                             <StyledP>
-                                We deliver fresh thinking and innovative ideas
-                                that give our clients the edge over their
-                                competitors. Our passion and drive to know your
-                                business inside out and back to front enables us
-                                to work alongside you and become an inseparable
-                                extension of your marketing team.
+                                If there’s one thing we don’t have, it’s
+                                excuses. We’re the leaders connecting the
+                                front-line with your brand, upholding a level of
+                                rare commerciality that doesn’t exist in your
+                                usual agency.
+                            </StyledP>
+                            <StyledP>
+                                We understand. We’ve got the tech. And the
+                                creativity.
+                            </StyledP>
+                            <StyledP>
+                                It’s time to unite sales with marketing to be at
+                                the forefront of opportunity.
+                            </StyledP>
+                            <Highlight>No excuses.</Highlight>
+                            <StyledP>
+                                Have a look at some of our work below.{" "}
                             </StyledP>
                         </Column>
                     </Row>
-                    <Row expanded collapse>
-                        {clients.slice(0, 6).map(({ node: client }, index) => {
-                            return (
-                                <Column medium={4} key={index} collapse>
-                                    <ClientSummary
-                                        client={client}
-                                        index={index}
-                                    />
-                                </Column>
-                            );
-                        })}
-                    </Row>
                 </SectionContainer>
+                <Row expanded collapse>
+                    {clients.slice(0, 6).map(({ node: client }, index) => {
+                        return (
+                            <Column medium={4} key={index} collapse>
+                                <ClientSummary client={client} index={index} />
+                            </Column>
+                        );
+                    })}
+                </Row>
+
                 <SectionContainer
                     color={colors.white}
                     background={colors.background}

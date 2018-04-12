@@ -225,6 +225,16 @@ class PeopleBrowser extends React.Component {
         const { coords, data, current, selected } = this.state;
         return (
             <Wrapper>
+                <img
+                    style={{
+                        left: "50%",
+                        position: "absolute",
+                        transform: "translateX(-50%)",
+                        marginTop: -20,
+                        zIndex: 2
+                    }}
+                    src="/img/people-browser-nav.png"
+                />
                 <Container>
                     <Row
                         style={{

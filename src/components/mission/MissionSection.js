@@ -33,9 +33,10 @@ const MissionSection = ({ percentage, text }) => (
                         bottom: 2,
                         left: 0
                     }}
-                    fontSize={6}
+                    fontSize={3.6}
                 >
-                    Be&nbsp;part&nbsp;of <span>something</span> big
+                    Be&nbsp;part&nbsp;of <span>something</span>
+                    <br /> big
                 </HeaderBlock>
             </Column>
         </Row>

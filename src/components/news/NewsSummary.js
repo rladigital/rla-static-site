@@ -7,7 +7,7 @@ import { colors, breakpoints } from "../../theme/theme";
 
 const SummaryContainer = styled.section`
     position: relative;
-    background-image: url(${props => props.backgroundImage});
+    background-image: url('${props => props.backgroundImage}');
     background-size: cover;
     background-position: center;
     height: 360px;
