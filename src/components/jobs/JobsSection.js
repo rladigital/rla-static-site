@@ -10,7 +10,7 @@ import SectionContainer from "../SectionContainer";
 
 const StyledButton = Button.extend`
     color: ${colors.background};
-    margin-top: 4em;
+    margin-top: 0em;
 `;
 
 const StyledP = styled.p`
@@ -27,6 +27,7 @@ class JobsSection extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
+                    padding={{ top: 0, left: 0, bottom: 0, right: 0 }}
                 >
                     <Row expanded collapse>
                         {jobs.slice(0, 6).map(({ node: job }, index) => {
