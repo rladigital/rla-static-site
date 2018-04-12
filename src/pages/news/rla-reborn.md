@@ -1,6 +1,6 @@
 ---
 templateKey: news
-title: RLA Reborn
+title: A new Era for RLA
 date: Invalid date
 hero: /img/rla-barn.jpg
 thumb: /img/rla-barn.jpg
