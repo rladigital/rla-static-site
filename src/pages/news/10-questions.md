@@ -25,4 +25,18 @@ My time is extremely precious, and I have little of it, so I’m more interested
 
 So, it’s been really important to me that RLA stays on top of the marketing automation trend. What I’m really keen to explore now is how this impacts voice assistants. I’ve never been fortunate enough to have a personal assistant in my career, but we are quickly reaching the time when our own personal AI assistant will become part of our everyday lives creating a dependency that we don’t yet know we have. Helping brands make sure they don’t lose out in this next battle is going to be extremely interesting.
 
+**What’s your best memory from RLA so far?**
+
+So many in my 15 years. But I think it has to be whilst in my first role as an AD on VW & VWCV, convincing the client to order a rain machine whilst on a photoshoot in South Africa after convincing him it would be more cost effective to shoot out there, saving on the cost of weather insurance in the UK - required in case of rain! And whilst on the same shoot, being a part of the team that wrote the ‘Let’s Go To Work’ line for VWCV. The client actually kicked the wall when we presented it to him, he loved it so much! For it then to go on and become one of the top 10 campaigns of the decade is an awesome accolade.
+
 ![null](/img/sam-2.jpg)
+
+**When you’re not in the barn, what do you get up to?**
+
+Escape – get away. Travel the world. There’s so much to see, even in the UK. And if I can’t physically get away, I’ll escape by reading anything, colouring anything, complete puzzles of all sorts, walk anywhere and everywhere, eat, drink and generally enjoy the company and laughing a lot with everyone around me. 
+
+**What are you most proud of?**
+
+Reaching MD, I love RLA and I love my job – every day. I’ll never forget getting back to the agency after a client meeting and everyone being gathered together, and the announcement being made – I was so surprised, and it genuinely was unexpected.
+
+I have to say my son and daughter, Joshua and Kirby. Well, I don’t have to. I feel it’s the obvious answer, but I want to name them as I genuinely am so very proud of them both. I love seeing them now as the adults they’ve become, building their own futures, remembering how very different they both were as they were growing up. I’ve kept (hoarded) so many ‘memories’, a loft full, that one day (soon) I hope I’ll be fortunate enough to share it all with my grandchildren.
