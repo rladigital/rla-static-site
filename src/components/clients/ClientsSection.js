@@ -36,10 +36,10 @@ class ClientsSection extends React.Component {
                                 padding={{
                                     top: 4,
                                     right: 0,
-                                    bottom: 2,
+                                    bottom: 4,
                                     left: 0
                                 }}
-                                fontSize={3}
+                                fontSize={3.4}
                             >
                                 30 Years of Delivering<br />
                                 <span>

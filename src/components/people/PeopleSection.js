@@ -17,7 +17,15 @@ class PeopleSection extends React.Component {
 
         return (
             <SectionContainer padding="6em 0 4em">
-                <HeaderBlock>
+                <HeaderBlock
+                    fontSize={3.4}
+                    padding={{
+                        top: 0,
+                        right: 0,
+                        bottom: 4,
+                        left: 0
+                    }}
+                >
                     <span>People</span> at our Core
                 </HeaderBlock>
 

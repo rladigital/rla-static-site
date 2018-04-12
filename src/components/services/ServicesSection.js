@@ -118,21 +118,21 @@ class ServicesSection extends React.Component {
                 padding="2em 0 4em"
             >
                 <Row>
-                    <Column large={5}>
+                    <Column>
                         <HeaderBlock
                             baseColor={colors.white}
                             padding={{
-                                top: 0,
+                                top: 4,
                                 right: 0,
-                                bottom: 2,
+                                bottom: 6,
                                 left: 0
                             }}
-                            fontSize={5}
-                            textAlign="left"
+                            fontSize={3.4}
+                            textAlign="center"
                         >
-                            <span>Together,</span>
+                            <span>THE DEVIL</span>
                             <br />
-                            we can achieve more
+                            IS IN THE DETAIL
                         </HeaderBlock>
                     </Column>
                 </Row>
