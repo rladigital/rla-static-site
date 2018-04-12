@@ -225,6 +225,7 @@ class PeopleBrowser extends React.Component {
         const { coords, data, current, selected } = this.state;
         return (
             <Wrapper>
+                <div>{current}</div>
                 <Container>
                     <Row
                         style={{
@@ -279,7 +280,12 @@ class PeopleBrowser extends React.Component {
                                             opacity:
                                                 current == i
                                                     ? 0.5
-                                                    : current + 1 == i ? 1 : 0,
+                                                    : current + 1 == i ||
+                                                      (current ==
+                                                          data.length - 1 &&
+                                                          i == 0)
+                                                        ? 1
+                                                        : 0,
                                             pointerEvents:
                                                 current + 1 == i
                                                     ? "auto"
