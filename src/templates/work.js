@@ -125,13 +125,14 @@ export const WorkTemplate = ({
                                     </Heading>
                                 </Td>
                                 <Td>
-                                    {solutionsList.map((solution, index) => {
-                                        return (
-                                            <Solution key={index}>
-                                                {solution}
-                                            </Solution>
-                                        );
-                                    })}
+                                    {solutionsList &&
+                                        solutionsList.map((solution, index) => {
+                                            return (
+                                                <Solution key={index}>
+                                                    {solution}
+                                                </Solution>
+                                            );
+                                        })}
                                 </Td>
                             </tr>
                         </tbody>
