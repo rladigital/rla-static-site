@@ -2,7 +2,6 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
 import { StickyContainer, Sticky } from "react-sticky";
-import * as PIXI from "pixi.js";
 import FAIcon from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../theme/theme";
