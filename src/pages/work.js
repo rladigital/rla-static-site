@@ -5,14 +5,14 @@ import { Row, Column } from "rla-components";
 import styled from "styled-components";
 
 import theme, { colors } from "../theme/theme";
-import { randomChunkArray, random } from "../helpers/helpers";
+import { randomChunkArray, random, shuffleArray } from "../helpers/helpers";
 import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
 
 const layouts = {
     0: [[]],
     1: [[12]],
-    2: [[6, 6], [7, 5], [5, 7]],
+    2: [[5, 7], [6, 6], [7, 5]],
     3: [[3, 6, 3], [4, 4, 4]]
 };
 
@@ -30,16 +30,13 @@ const LoadMore = styled.a`
 `;
 
 export default class WorkPage extends React.Component {
-    shouldComponentUpdate() {
-        return false;
-    }
     render() {
         const {
             data: { allMarkdownRemark: { edges: work } },
             transition
         } = this.props;
 
-        let chunkedWork = randomChunkArray(work, 2, 3);
+        let chunkedWork = randomChunkArray(shuffleArray(work), 2, 3);
 
         return (
             <div style={transition && transition.style}>
