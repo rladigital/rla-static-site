@@ -141,9 +141,10 @@ export const WorkTemplate = ({
             </Row>
             <Row>
                 <Column>
-                    {galleryImages.map((image, index) => {
-                        return <GalleryImage key={index} src={image} />;
-                    })}
+                    {galleryImages &&
+                        galleryImages.map((image, index) => {
+                            return <GalleryImage key={index} src={image} />;
+                        })}
 
                     <GalleryItem>
                         <Link to="/work">
