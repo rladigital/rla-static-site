@@ -158,7 +158,14 @@ class SolutionsVideo extends React.Component {
     }
 
     render() {
-        const { width, height, scrollY, style, solutions } = this.props;
+        const {
+            width,
+            height,
+            scrollY,
+            style,
+            solutions,
+            animation
+        } = this.props;
         const { activeSolution } = this.state;
 
         const scale = Math.min(scrollY / height, 1);
@@ -172,7 +179,8 @@ class SolutionsVideo extends React.Component {
                 <Container
                     style={{
                         opacity: scale,
-                        transform: `scale(${scale})`
+                        transform: `scale(${scale})`,
+                        transition: `transform ${animation}`
                     }}
                 >
                     <Svg width={width} height={height}>

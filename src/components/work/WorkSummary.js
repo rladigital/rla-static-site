@@ -56,7 +56,7 @@ const Image = styled.section`
     cursor: pointer;
     transition: transform 0.25s ease;
     &:hover{
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 `;
 

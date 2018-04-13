@@ -3,6 +3,8 @@ import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
 import styled from "styled-components";
+import ScrollAnimation from "react-animate-on-scroll";
+import "animate.css/animate.min.css";
 
 import theme, { colors } from "../theme/theme";
 import { randomChunkArray, random, shuffleArray } from "../helpers/helpers";
@@ -114,10 +116,16 @@ export default class PeoplePage extends React.Component {
                                                 key={index}
                                                 collapse
                                             >
-                                                <WorkSummary
-                                                    work={caseStudy}
-                                                    index={index}
-                                                />
+                                                <ScrollAnimation
+                                                    animateIn="fadeIn"
+                                                    delay={250 * index}
+                                                    animateOnce={true}
+                                                >
+                                                    <WorkSummary
+                                                        work={caseStudy}
+                                                        index={index}
+                                                    />
+                                                </ScrollAnimation>
                                             </Column>
                                         );
                                     }

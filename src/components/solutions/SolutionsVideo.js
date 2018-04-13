@@ -5,32 +5,26 @@ import { colors } from "../../theme/theme";
 import video from "../../videos/video.mp4";
 import placeholder from "../../img/static-video.png";
 import LoadingScreen from "../loading/LoadingScreen";
+import { transformScale } from "../../helpers/helpers";
 
 const Container = styled.div`
     width: 100%;
     height: 100%;
-    background: ${colors.background};
+    position: fixed;
 `;
 
 const Svg = styled.svg`
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 `;
 
 const Video = styled.video`
-    width: 95%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    margin: 2.5% 0 0 2.5%;
-`;
-
-const VideoContainer = styled.div`
-    width: 100%;
-    height: 100%;
-`;
-
-const Rect = styled.rect`
-    width: 100%;
-    height: 100%;
 `;
 
 class SolutionsVideo extends React.Component {
@@ -39,16 +33,6 @@ class SolutionsVideo extends React.Component {
         this.state = {
             loadedPercentage: 0
         };
-    }
-    componentDidMount() {
-        this.video.addEventListener("progress", () => this.handleVideoLoad());
-        this.video.play();
-    }
-
-    componentWillUnmount() {
-        this.video.removeEventListener("progress", () =>
-            this.handleVideoLoad()
-        );
     }
 
     handleVideoLoad() {
@@ -62,79 +46,71 @@ class SolutionsVideo extends React.Component {
 
     render() {
         const { loadedPercentage } = this.state;
-        const { width, height, scrollY, style } = this.props;
-
-        const circleProps = {
-            cx: width / 2,
-            cy: height / 2,
-            r: Math.max(
-                (1 - scrollY / height) *
-                    (Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2)) / 2),
-                0
-            ),
-            fill: colors.white
-        };
+        const { width, height, scrollY, style, animation } = this.props;
 
         const scale = Math.max(1 - scrollY / height, 0);
 
-        return (
-            <Container style={{ ...style, opacity: scale }}>
-                {/* {this.video && this.video.readyState < 2 ? (
-                    <LoadingScreen
-                        percentage={loadedPercentage}
-                        text={
-                            loadedPercentage != 0 &&
-                            `${Math.round(loadedPercentage)}%`
-                        }
-                    />
-                ) : null} */}
-                <Svg width={width} height={height}>
-                    <circle {...circleProps} />
-                </Svg>
+        const size = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
 
-                <VideoContainer
-                    style={{
-                        transform: `scale(${scale})`
-                    }}
+        const logoScale =
+            1600 > window.innerWidth
+                ? transformScale(1600)
+                : transformScale(1000);
+
+        return (
+            <Container
+                style={{
+                    opacity: scale,
+                    transform: `scale(${scale})`,
+                    transition: `transform ${animation}`
+                }}
+            >
+                <Svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={size}
+                    height={size}
+                    viewBox={`0 0 ${size} ${size}`}
                 >
-                    <Video
-                        autoPlay
-                        muted
-                        loop
-                        innerRef={video => {
-                            this.video = video;
-                        }}
-                        preload="auto"
-                        poster={placeholder}
-                    >
-                        <source src={video} type="video/mp4" />
-                    </Video>
-                    <Svg width={width} height={height} viewBox="0 0 1920 1080">
-                        <defs>
-                            <mask id="mask" x="0" y="0">
-                                <Rect
-                                    x="0"
-                                    y="0"
-                                    fill="#ffffff"
-                                    width="100%"
-                                    height="100%"
+                    <defs>
+                        <mask id="mask" x="0" y="0">
+                            <g transform={`translate(${size / 2} ${size / 2})`}>
+                                <circle
+                                    cx="0"
+                                    cy="0"
+                                    r={size / 2}
+                                    style={{ fill: "#ffffff" }}
+                                    shapeRendering="optimizeQuality"
                                 />
+
                                 <path
-                                    d="M1293.46,283.45,1081.55,808.38V698.66H893.31V287.75H700.76V449.11c-6.45-38.72-23.66-69.92-49.48-95.74-39.8-39.8-105.42-65.62-206.53-65.62H164V862.16H356.55V697.59h40.88L506.06,862.16h749.75l29-77.45H1486l30.12,77.45h209.76l-242-578.71ZM513.59,505c0,35.5-28,55.94-74.22,55.94H356.55V449.11h83.9c44.1,0,73.15,18.29,73.15,54.86ZM591,666.39c59.16-28,99-74.22,109.72-138.76v299Zm743.29-17.21L1387,509.34l52.71,139.84Zm328.08-431.35A93.58,93.58,0,1,0,1756,311.42,93.65,93.65,0,0,0,1662.42,217.84Zm0,176.41a82.83,82.83,0,1,1,82.83-82.83C1746.32,356.6,1708.67,394.25,1662.42,394.25Zm63.46-86.05v35.5h-14V310.34c0-8.61-2.15-11.83-7.53-11.83-7.53,0-11.83,6.45-12.91,11.83,0,2.15-1.08,4.3-1.08,6.45v25.82h-14V310.34c0-7.53-1.08-11.83-7.53-11.83-7.53,0-11.83,6.45-14,12.91v32.27h-14v-39.8c0-5.38-2.15-5.38-3.23-5.38h0V286.68h1.08c7.53,0,12.91,1.08,15.06,6.45,4.3-4.3,10.76-7.53,17.21-7.53q12.91,0,16.14,9.68c3.23-5.38,9.68-9.68,18.29-9.68C1719.43,285.6,1725.88,293.13,1725.88,308.19Zm-93.58,22.59h2.15v12.91h-4.3c-6.45,0-21.51-2.15-21.51-21.51V298.51h-7.53V286.68h7.53V271.62h12.91v15.06h12.91v11.83h-12.91V321.1c0,6.45,3.23,10.76,9.68,10.76C1631.22,330.78,1631.22,330.78,1632.3,330.78Z"
-                                    fill="#000000"
+                                    d="M293.24-226.06,106.9,236.5V139.06H-58.66V-222.28H-228v141.9a151,151,0,0,0-43.62-84.2c-35-35-92.71-57.71-181.61-57.71H-700V282.81h169.32V139.06h36l95.54,144.73H260.15l25.45-68.18H463.43L490,283.79H673.51L460.71-226.06ZM-393.51-31.21C-393.51,0-418.1,18-458.78,18h-72.8V-80.4h73.78c38.78,0,64.4,16.07,64.4,48.24Zm69,142.8c52-24.56,87-65.24,96.49-122v263ZM329.2,95.52,375.54-27.43l46.34,123ZM617.6-283.79a82.35,82.35,0,0,0-82.18,82.21,82.35,82.35,0,0,0,82.29,82.29A82.35,82.35,0,0,0,700-201.59a82.35,82.35,0,0,0-82.29-82.18Zm0,155.15a72.8,72.8,0,0,1-72.8-72.8,72.8,72.8,0,0,1,72.8-72.8,72.8,72.8,0,0,1,72.8,72.8c1.2,40.66-32,72.8-72.69,72.8Zm55.8-75.6V-173H661.11v-28.56c0-7.56-1.9-10.42-6.61-10.42a12.15,12.15,0,0,0-11.26,10.42c0,1.9-1,3.78-1,5.6v22.71H630v-29.15c0-6.61-1-10.42-6.61-10.42-6.61,0-10.42,5.6-12.29,11.34v28.39H598.81v-34.08c0-4.73-1.9-4.73-2.8-4.73h0v-10.42h1c6.61,0,11.34,1,13.24,5.6a22.4,22.4,0,0,1,15.15-6.61q11.34,0,14.2,8.4a18.37,18.37,0,0,1,16.07-8.4c12.21-.84,17.89,5.8,17.89,19Zm-82.29,19.85H593v11.34h-3.78c-5.6,0-18.93-1.9-18.93-18.93v-20.8H563.7V-223.2h6.61v-12.29h11.34v13.24H593v10.42H581.64V-192c0,5.6,2.8,9.46,8.4,9.46.22-1,.22-1.93,1.18-1.93Z"
+                                    style={{ fill: "#000000" }}
+                                    transform={`scale(${logoScale})`}
                                 />
-                            </mask>
-                        </defs>
-                        <Rect
-                            x="0"
-                            y="0"
+                            </g>
+                        </mask>
+                    </defs>
+                    <g>
+                        <rect
+                            width={size}
+                            height={size}
+                            style={{ fill: colors.white }}
                             mask="url(#mask)"
-                            fill={colors.white}
-                            width="100%"
-                            height="100%"
                         />
-                    </Svg>
-                </VideoContainer>
+                    </g>
+                </Svg>
+                <Video
+                    autoPlay
+                    muted
+                    loop
+                    innerRef={video => {
+                        this.video = video;
+                    }}
+                    preload="auto"
+                    poster={placeholder}
+                >
+                    <source src={video} type="video/mp4" />
+                </Video>
             </Container>
         );
     }

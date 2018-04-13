@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
 import styled from "styled-components";
+import ScrollAnimation from "react-animate-on-scroll";
+import "animate.css/animate.min.css";
 
 import HeaderBlock from "../HeaderBlock";
 import WorkSummary from "./WorkSummary";
@@ -64,16 +66,30 @@ class WorkSection extends React.Component {
                         </Column>
                     </Row>
                 </SectionContainer>
-                <Row expanded collapse>
-                    {work.slice(0, 6).map(({ node: work }, index) => {
-                        return (
-                            <Column medium={4} key={index} collapse>
-                                <WorkSummary work={work} index={index} />
-                            </Column>
-                        );
-                    })}
-                </Row>
-
+                <SectionContainer
+                    color={colors.background}
+                    background={colors.white}
+                    padding="0"
+                >
+                    <Row expanded collapse>
+                        {work.slice(0, 6).map(({ node: work }, index) => {
+                            return (
+                                <Column medium={4} key={index} collapse>
+                                    <ScrollAnimation
+                                        animateIn="fadeIn"
+                                        delay={250 * index}
+                                        animateOnce={true}
+                                    >
+                                        <WorkSummary
+                                            work={work}
+                                            index={index}
+                                        />
+                                    </ScrollAnimation>
+                                </Column>
+                            );
+                        })}
+                    </Row>
+                </SectionContainer>
                 <SectionContainer
                     color={colors.white}
                     background={colors.background}

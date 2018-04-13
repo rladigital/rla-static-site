@@ -76,6 +76,7 @@ class SolutionsSection extends React.Component {
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
         const { scrollY } = this.state;
+        const animation = "1s ease";
 
         return (
             <StickyContainer style={{ height: height * 2.5 }}>
@@ -89,6 +90,7 @@ class SolutionsSection extends React.Component {
                                     height={height}
                                     scrollY={scrollY}
                                     solutions={solutions}
+                                    animation={animation}
                                 />
                                 {scrollY < height && (
                                     <SolutionsVideo
@@ -96,6 +98,7 @@ class SolutionsSection extends React.Component {
                                         width={width}
                                         height={height}
                                         scrollY={scrollY}
+                                        animation={animation}
                                     />
                                 )}
                             </div>
