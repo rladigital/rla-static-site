@@ -27,34 +27,16 @@ const navigation = [
     { to: "/contact", text: "Contact" }
 ];
 
-let resizeTimer;
-
 class TemplateWrapper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            scrolltop: 0,
             offcanvasActive: false
         };
     }
 
-    componentDidMount() {
-        window.addEventListener("scroll", () => this.handleScroll());
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("scroll", () => this.handleScroll());
-    }
-
     toggleOffcanvas() {
         this.setState({ offcanvasActive: !this.state.offcanvasActive });
-    }
-
-    handleScroll() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            this.setState({ scrolltop: window.scrollY });
-        }, 250);
     }
 
     render() {

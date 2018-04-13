@@ -5,234 +5,18 @@ import { Row, Column } from "rla-components";
 import styled from "styled-components";
 
 import theme, { colors } from "../theme/theme";
-import { chunkArray, random } from "../helpers/helpers";
+import { randomChunkArray, random } from "../helpers/helpers";
 import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
 
 const layouts = {
-    0: [],
-    1: [12],
+    0: [[]],
+    1: [[12]],
     2: [[6, 6]],
-    3: [[6, 3, 3], [3, 6, 3], [3, 3, 6], [4, 4, 4]]
+    3: [[6, 3, 3], [3, 6, 3], [4, 4, 4]]
 };
 
-const staticWorkTop = [
-    [
-        {
-            node: {
-                fields: {
-                    slug: ""
-                },
-                frontmatter: {
-                    outcome: "",
-                    templatekey: "work",
-                    thumb: "/img/work/JBLcase-study.jpg",
-                    title: ""
-                },
-                html: "",
-                id: ""
-            }
-        },
-        {
-            node: {
-                fields: {
-                    slug: ""
-                },
-                frontmatter: {
-                    outcome: "",
-                    templatekey: "work",
-                    thumb: "/img/work/salisburycase-study.jpg",
-                    title: ""
-                },
-                html: "",
-                id: ""
-            }
-        }
-    ]
-];
-
-const staticWork = [
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/AUDIcase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/BMW-MINIcase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/Denniscase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/euroreparcase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/FCA.gif",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/ford.gif",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/goodyear-dunlopcase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/scaniacase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/take-me-outcase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/teleforest.gif",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/tescocase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    },
-    {
-        node: {
-            fields: {
-                slug: ""
-            },
-            frontmatter: {
-                outcome: "",
-                templatekey: "work",
-                thumb: "/img/work/Volkswagencase-study.jpg",
-                title: ""
-            },
-            html: "",
-            id: ""
-        }
-    }
-];
+let lastarrayIndex = null;
 
 const LoadMore = styled.a`
     width: 100%;
@@ -247,7 +31,7 @@ const LoadMore = styled.a`
 
 export default class WorkPage extends React.Component {
     shouldComponentUpdate(nextprops) {
-        return false;
+        return true;
     }
 
     render() {
@@ -256,9 +40,7 @@ export default class WorkPage extends React.Component {
             transition
         } = this.props;
 
-        //const chunkedWork = chunkArray(3, work);
-
-        const chunkedWork = staticWorkTop.concat(chunkArray(3, staticWork));
+        const chunkedWork = randomChunkArray(work, 2, 3);
 
         console.log(chunkedWork);
 
@@ -280,25 +62,39 @@ export default class WorkPage extends React.Component {
                         {chunkedWork &&
                             chunkedWork.map((chunk, i) => {
                                 let layoutArray = layouts[chunk.length];
-                                let layout =
-                                    layoutArray[random(0, layoutArray.length)];
+                                let arrayIndex = 0;
 
-                                return (
-                                    layout &&
-                                    chunk &&
-                                    chunk.map(({ node: caseStudy }, index) => {
-                                        return (
-                                            <Column
-                                                medium={6}
-                                                large={layout[index]}
-                                                key={index}
-                                                collapse
-                                            >
-                                                <WorkSummary work={caseStudy} />
-                                            </Column>
+                                if (layoutArray.length > 1) {
+                                    arrayIndex = random(0, layoutArray.length);
+                                    while (arrayIndex == lastarrayIndex) {
+                                        arrayIndex = random(
+                                            0,
+                                            layoutArray.length - 1
                                         );
-                                    })
-                                );
+                                    }
+                                    lastarrayIndex = arrayIndex;
+                                }
+
+                                let layout = layoutArray[arrayIndex];
+
+                                if (layout && chunk) {
+                                    return chunk.map(
+                                        ({ node: caseStudy }, index) => {
+                                            return (
+                                                <Column
+                                                    medium={6}
+                                                    large={layout[index]}
+                                                    key={index}
+                                                    collapse
+                                                >
+                                                    <WorkSummary
+                                                        work={caseStudy}
+                                                    />
+                                                </Column>
+                                            );
+                                        }
+                                    );
+                                }
                             })}
                     </Row>
                 </div>

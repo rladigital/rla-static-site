@@ -10,6 +10,8 @@ import SiteNavLink from "./SiteNavLink";
 import { spacing, colors } from "../theme/theme";
 import { isBrowser } from "../helpers/helpers";
 
+let resizeTimer;
+
 const Logo = () => {
     return (
         <svg
@@ -37,14 +39,31 @@ const HeaderContainer = styled.div`
 `;
 
 class SiteHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            scrolltop: 0
+        };
+    }
+
+    componentDidMount() {
+        window.addEventListener("scroll", () => this.handleScroll());
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", () => this.handleScroll());
+    }
+    handleScroll() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            this.setState({ scrolltop: window.scrollY });
+        }, 250);
+    }
+
     render() {
-        const {
-            items,
-            toggleOffcanvas,
-            scrolltop,
-            isHome,
-            offcanvasActive
-        } = this.props;
+        const { items, toggleOffcanvas, isHome, offcanvasActive } = this.props;
+
+        const { scrolltop } = this.state;
 
         const logoOpacity = scrolltop == 0 && isHome ? 0 : 1;
 

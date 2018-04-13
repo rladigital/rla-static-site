@@ -50,6 +50,17 @@ export function chunkArray(chunk_size, myArray) {
 
     return tempArray;
 }
+export function randomChunkArray(arr, min, max) {
+    var arrs = [],
+        size = 1;
+    var min = min || 1;
+    var max = max || min || 1;
+    while (arr.length > 0) {
+        size = Math.min(max, Math.floor(Math.random() * max + min));
+        arrs.push(arr.splice(0, size));
+    }
+    return arrs;
+}
 export function shuffleArray(o) {
     for (
         var j, x, i = o.length;
