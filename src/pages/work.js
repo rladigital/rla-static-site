@@ -30,19 +30,16 @@ const LoadMore = styled.a`
 `;
 
 export default class WorkPage extends React.Component {
-    shouldComponentUpdate(nextprops) {
-        return true;
+    shouldComponentUpdate() {
+        return false;
     }
-
     render() {
         const {
             data: { allMarkdownRemark: { edges: work } },
             transition
         } = this.props;
 
-        const chunkedWork = randomChunkArray(work, 2, 3);
-
-        console.log(chunkedWork);
+        let chunkedWork = randomChunkArray(work, 2, 3);
 
         return (
             <div style={transition && transition.style}>
@@ -63,14 +60,15 @@ export default class WorkPage extends React.Component {
                             chunkedWork.map((chunk, i) => {
                                 let layoutArray = layouts[chunk.length];
                                 let arrayIndex = 0;
+                                let getArrayIndex = function() {
+                                    return random(0, layoutArray.length - 1);
+                                };
 
+                                // make sure that there are no duplicate rows if possible
                                 if (layoutArray.length > 1) {
-                                    arrayIndex = random(0, layoutArray.length);
+                                    arrayIndex = getArrayIndex();
                                     while (arrayIndex == lastarrayIndex) {
-                                        arrayIndex = random(
-                                            0,
-                                            layoutArray.length - 1
-                                        );
+                                        arrayIndex = getArrayIndex();
                                     }
                                     lastarrayIndex = arrayIndex;
                                 }
