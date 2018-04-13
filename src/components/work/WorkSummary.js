@@ -27,17 +27,20 @@ const Overlay = styled.div`
     }
 `;
 
-const Title = styled.h3`
+const ContentContainer = styled.div`
     top: 50%;
     left: 50%;
     margin: 0;
     max-width: 90%;
     margin-top: 0;
-    font-size: 2.6em;
-    font-weight: 900;
     position: absolute;
     transform: translate(-50%, -50%);
     color: ${props => props.theme.white};
+`;
+
+const Title = styled.h3`
+    font-size: 2.6em;
+    font-weight: 900;
 `;
 
 const Image = styled.section`
@@ -47,13 +50,26 @@ const Image = styled.section`
     background-size: cover;
     background-position: center;
     overflow: hidden;
+    cursor: pointer;
+`;
+
+const Summary = styled.p`
+    font-size: 0.8vw;
 `;
 
 const WorkSummary = ({ work, index }) => {
+    console.log(work);
     return (
         <Image backgroundImage={work.frontmatter.thumb}>
             <Overlay index={index}>
-                <Title>{work.frontmatter.title}</Title>
+                <ContentContainer>
+                    <Title>{work.frontmatter.title}</Title>
+                    {work.frontmatter.outcome && (
+                        <Summary>
+                            {work.frontmatter.outcome.substring(0, 200)}...
+                        </Summary>
+                    )}
+                </ContentContainer>
             </Overlay>
         </Image>
     );
