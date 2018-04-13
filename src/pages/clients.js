@@ -7,7 +7,6 @@ import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import theme, { colors } from "../theme/theme";
-import ClientSummary from "../components/clients/ClientSummary";
 import HeaderBlock from "../components/HeaderBlock";
 import SolutionModal from "../components/solutions/SolutionModal";
 
@@ -158,7 +157,6 @@ export default class ClientsPage extends React.Component {
                             );
                             console.log(client);
                             return (
-                                // <ClientSummary client={client} />
                                 <Brand
                                     key={index}
                                     style={{ opacity: isCurrent ? 1 : 0.1 }}

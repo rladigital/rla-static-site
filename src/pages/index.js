@@ -5,7 +5,7 @@ import graphql from "graphql";
 
 import { serveStatic, isBrowser } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
-import ClientsSection from "../components/clients/ClientsSection";
+import WorkSection from "../components/work/WorkSection";
 import NewsSection from "../components/news/NewsSection";
 import LoadingScreen from "../components/loading/LoadingScreen";
 import MissionSection from "../components/mission/MissionSection";
@@ -64,7 +64,7 @@ export default class IndexPage extends React.Component {
         const { data, scrolltop, font } = this.props;
         const { width, height } = this.state;
         const {
-            clients: { edges: clients },
+            work: { edges: work },
             solutions: { edges: solutions },
             services: { edges: services },
             news: { edges: news },
@@ -86,7 +86,7 @@ export default class IndexPage extends React.Component {
                             font={font}
                             scrolltop={scrolltop}
                         />
-                        <ClientsSection clients={clients} />
+                        <WorkSection work={work} />
 
                         <ServicesSection
                             width={width}
@@ -109,7 +109,7 @@ export default class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
     query IndexQuery {
-        clients: allMarkdownRemark(
+        work: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "work" } } }
             limit: 3
         ) {

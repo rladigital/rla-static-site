@@ -87,6 +87,7 @@ export default class WorkPage extends React.Component {
                                                 >
                                                     <WorkSummary
                                                         work={caseStudy}
+                                                        index={index}
                                                     />
                                                 </Column>
                                             );
