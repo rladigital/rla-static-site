@@ -9,14 +9,9 @@ import { randomChunkArray, random, shuffleArray } from "../helpers/helpers";
 import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
 
-const layouts = {
-    0: [[]],
-    1: [[12]],
-    2: [[5, 7], [6, 6], [7, 5]],
-    3: [[3, 6, 3], [4, 4, 4]]
-};
-
 let lastarrayIndex = null;
+
+const rowsAdvance = 3;
 
 const LoadMore = styled.a`
     width: 100%;
@@ -29,14 +24,67 @@ const LoadMore = styled.a`
     cursor: pointer;
 `;
 
-export default class WorkPage extends React.Component {
+export default class PeoplePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    componentDidMount() {
+        const { data: { allMarkdownRemark: { edges: work } } } = this.props;
+
+        const chunks = randomChunkArray(shuffleArray(work), 2, 3);
+        const layouts = {
+            0: [[]],
+            1: [[12]],
+            2: [[5, 7], [6, 6], [7, 5]],
+            3: [[3, 6, 3], [4, 4, 4]]
+        };
+        const layout = this.generateLayout(chunks, layouts);
+
+        this.setState({
+            rows: rowsAdvance,
+            chunkedWork: chunks,
+            layout: layout
+        });
+    }
+
+    handleClick() {
+        this.setState({
+            rows: this.state.rows + rowsAdvance
+        });
+    }
+
+    generateLayout(chunks, layouts) {
+        const result = new Array();
+
+        chunks.map((chunk, i) => {
+            const layoutArray = layouts[chunk.length];
+            const getArrayIndex = function() {
+                return random(0, layoutArray.length - 1);
+            };
+            let arrayIndex = 0;
+
+            // make sure that there are no duplicate rows if possible
+            if (layoutArray.length > 1) {
+                arrayIndex = getArrayIndex();
+                while (arrayIndex == lastarrayIndex) {
+                    arrayIndex = getArrayIndex();
+                }
+                lastarrayIndex = arrayIndex;
+            }
+
+            result.push(layoutArray[arrayIndex]);
+        });
+
+        return result;
+    }
+
     render() {
         const {
             data: { allMarkdownRemark: { edges: work } },
             transition
         } = this.props;
-
-        let chunkedWork = randomChunkArray(shuffleArray(work), 2, 3);
+        const { chunkedWork, rows, layout } = this.state;
 
         return (
             <div style={transition && transition.style}>
@@ -54,47 +102,33 @@ export default class WorkPage extends React.Component {
                 <div>
                     <Row expanded collapse>
                         {chunkedWork &&
-                            chunkedWork.map((chunk, i) => {
-                                let layoutArray = layouts[chunk.length];
-                                let arrayIndex = 0;
-                                let getArrayIndex = function() {
-                                    return random(0, layoutArray.length - 1);
-                                };
-
-                                // make sure that there are no duplicate rows if possible
-                                if (layoutArray.length > 1) {
-                                    arrayIndex = getArrayIndex();
-                                    while (arrayIndex == lastarrayIndex) {
-                                        arrayIndex = getArrayIndex();
+                            chunkedWork.slice(0, rows).map((chunk, i) => {
+                                return chunk.map(
+                                    ({ node: caseStudy }, index) => {
+                                        return (
+                                            <Column
+                                                medium={6}
+                                                large={layout[i][index]}
+                                                key={index}
+                                                collapse
+                                            >
+                                                <WorkSummary
+                                                    work={caseStudy}
+                                                    index={index}
+                                                />
+                                            </Column>
+                                        );
                                     }
-                                    lastarrayIndex = arrayIndex;
-                                }
-
-                                let layout = layoutArray[arrayIndex];
-
-                                if (layout && chunk) {
-                                    return chunk.map(
-                                        ({ node: caseStudy }, index) => {
-                                            return (
-                                                <Column
-                                                    medium={6}
-                                                    large={layout[index]}
-                                                    key={index}
-                                                    collapse
-                                                >
-                                                    <WorkSummary
-                                                        work={caseStudy}
-                                                        index={index}
-                                                    />
-                                                </Column>
-                                            );
-                                        }
-                                    );
-                                }
+                                );
                             })}
                     </Row>
                 </div>
-                <LoadMore>Load More</LoadMore>
+                {chunkedWork &&
+                    chunkedWork.length > rows && (
+                        <LoadMore onClick={() => this.handleClick()}>
+                            Load More
+                        </LoadMore>
+                    )}
             </div>
         );
     }

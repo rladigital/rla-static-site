@@ -51,6 +51,7 @@ export function chunkArray(chunk_size, myArray) {
     return tempArray;
 }
 export function randomChunkArray(arr, min, max) {
+    var arr = arr.slice();
     var arrs = [],
         size = 1;
     var min = min || 1;

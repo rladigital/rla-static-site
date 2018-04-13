@@ -58,7 +58,6 @@ const Summary = styled.p`
 `;
 
 const WorkSummary = ({ work, index }) => {
-    console.log(work);
     return (
         <Image backgroundImage={work.frontmatter.thumb}>
             <Overlay index={index}>
