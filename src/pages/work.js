@@ -32,7 +32,9 @@ export default class PeoplePage extends React.Component {
     componentDidMount() {
         const { data: { allMarkdownRemark: { edges: work } } } = this.props;
 
-        const chunks = randomChunkArray(shuffleArray(work), 2, 3);
+        // const chunks = randomChunkArray(shuffleArray(work), 2, 3);
+        const chunks = randomChunkArray(work, 2, 3);
+
         const layouts = {
             0: [[]],
             1: [[12]],

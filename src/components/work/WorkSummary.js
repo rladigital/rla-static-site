@@ -5,15 +5,18 @@ import Link from "gatsby-link";
 import { colors, spacing } from "../../theme/theme";
 import { transparentize } from "../../helpers/helpers";
 
+const Container = styled.div`
+    height: 33.33vw;
+    overflow: hidden;
+`;
+
 const Overlay = styled.div`
     width: 100%;
     height: 100%;
-    position: relative;
-    position: relative;
     text-align: center;
     opacity: 0;
     transform: scale(1.2);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.25s ease;
 
     background: ${props =>
         transparentize(
@@ -27,7 +30,7 @@ const Overlay = styled.div`
     }
 `;
 
-const ContentContainer = styled.div`
+const Content = styled.div`
     top: 50%;
     left: 50%;
     margin: 0;
@@ -35,7 +38,7 @@ const ContentContainer = styled.div`
     margin-top: 0;
     position: absolute;
     transform: translate(-50%, -50%);
-    color: ${props => props.theme.white};
+    color: ${props => colors.white};
 `;
 
 const Title = styled.h3`
@@ -44,13 +47,17 @@ const Title = styled.h3`
 `;
 
 const Image = styled.section`
-    height: 33.33vw;
+    height: 100%;
     position: relative;
     background-image: url('${props => props.backgroundImage}');
     background-size: cover;
     background-position: center;
     overflow: hidden;
     cursor: pointer;
+    transition: transform 0.25s ease;
+    &:hover{
+        transform: scale(1.1);
+    }
 `;
 
 const Summary = styled.p`
@@ -59,18 +66,22 @@ const Summary = styled.p`
 
 const WorkSummary = ({ work, index }) => {
     return (
-        <Image backgroundImage={work.frontmatter.thumb}>
-            <Overlay index={index}>
-                <ContentContainer>
-                    <Title>{work.frontmatter.title}</Title>
-                    {work.frontmatter.outcome && (
-                        <Summary>
-                            {work.frontmatter.outcome.substring(0, 200)}...
-                        </Summary>
-                    )}
-                </ContentContainer>
-            </Overlay>
-        </Image>
+        <Link to={work.fields.slug}>
+            <Container>
+                <Image backgroundImage={work.frontmatter.thumb}>
+                    <Overlay index={index}>
+                        <Content>
+                            <Title>{work.frontmatter.title}</Title>
+                            {work.frontmatter.outcome && (
+                                <Summary>
+                                    {work.frontmatter.outcome.substring(0, 200)}...
+                                </Summary>
+                            )}
+                        </Content>
+                    </Overlay>
+                </Image>
+            </Container>
+        </Link>
     );
 };
 
