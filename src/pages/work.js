@@ -12,8 +12,8 @@ import HeaderBlock from "../components/HeaderBlock";
 const layouts = {
     0: [[]],
     1: [[12]],
-    2: [[6, 6]],
-    3: [[6, 3, 3], [3, 6, 3], [4, 4, 4]]
+    2: [[6, 6], [7, 5], [5, 7]],
+    3: [[3, 6, 3], [4, 4, 4]]
 };
 
 let lastarrayIndex = null;
