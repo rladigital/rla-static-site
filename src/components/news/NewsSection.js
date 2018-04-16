@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
 import styled from "styled-components";
+import ScrollAnimation from "react-animate-on-scroll";
+import "animate.css/animate.min.css";
 
 import HeaderBlock from "../HeaderBlock";
 import NewsSummary from "./NewsSummary";
@@ -60,25 +62,55 @@ class NewsSection extends React.Component {
                         &nbsp;
                     </Column>
                     <Column medium={6} collapse>
-                        <NewsSummary story={news[0].node} />
+                        <ScrollAnimation
+                            animateIn="fadeIn"
+                            delay={0}
+                            animateOnce={true}
+                        >
+                            <NewsSummary story={news[0].node} />
+                        </ScrollAnimation>
                     </Column>
                     {news[1] && (
                         <Column medium={6} collapse>
-                            <NewsSummary story={news[1].node} />
+                            <ScrollAnimation
+                                animateIn="fadeIn"
+                                delay={250}
+                                animateOnce={true}
+                            >
+                                <NewsSummary story={news[1].node} />
+                            </ScrollAnimation>
                         </Column>
                     )}
                     {news[2] &&
                         (!news[3] ? (
                             <Column medium={6} collapse>
-                                <NewsSummary story={news[2].node} />
+                                <ScrollAnimation
+                                    animateIn="fadeIn"
+                                    delay={500}
+                                    animateOnce={true}
+                                >
+                                    <NewsSummary story={news[2].node} />
+                                </ScrollAnimation>
                             </Column>
                         ) : (
                             [
                                 <Column medium={6} xlarge={3} collapse>
-                                    <NewsSummary story={news[2].node} />
+                                    <ScrollAnimation
+                                        animateIn="fadeIn"
+                                        delay={500}
+                                        animateOnce={true}
+                                    >
+                                        <NewsSummary story={news[2].node} />
+                                    </ScrollAnimation>
                                 </Column>,
                                 <Column medium={6} xlarge={3} collapse>
-                                    <NewsSummary story={news[3].node} />
+                                    <ScrollAnimation
+                                        animateIn="fadeIn"
+                                        delay={750}
+                                        animateOnce={true}
+                                    >
+                                        <NewsSummary story={news[3].node} />
+                                    </ScrollAnimation>
                                 </Column>
                             ]
                         ))}

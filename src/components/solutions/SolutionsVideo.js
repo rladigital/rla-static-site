@@ -62,14 +62,13 @@ class SolutionsVideo extends React.Component {
                 style={{
                     opacity: scale,
                     transform: `scale(${scale})`,
-                    transition: `transform ${animation}`
+                    transition: animation
                 }}
             >
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={size}
                     height={size}
-                    viewBox={`0 0 ${size} ${size}`}
                 >
                     <defs>
                         <mask id="mask" x="0" y="0">
@@ -79,7 +78,6 @@ class SolutionsVideo extends React.Component {
                                     cy="0"
                                     r={size / 2}
                                     style={{ fill: "#ffffff" }}
-                                    shapeRendering="optimizeQuality"
                                 />
 
                                 <path

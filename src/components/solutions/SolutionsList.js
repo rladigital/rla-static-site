@@ -180,7 +180,7 @@ class SolutionsVideo extends React.Component {
                     style={{
                         opacity: scale,
                         transform: `scale(${scale})`,
-                        transition: `transform ${animation}`
+                        transition: animation
                     }}
                 >
                     <Svg width={width} height={height}>
