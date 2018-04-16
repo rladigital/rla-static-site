@@ -4,10 +4,10 @@ import graphql from "graphql";
 import { Row, Column } from "rla-components";
 
 import { serveStatic } from "../helpers/helpers";
-import theme from "../theme/theme";
+import theme, { colors, spacing } from "../theme/theme";
 import HeaderBlock from "../components/HeaderBlock";
-
 import JobSection from "../components/jobs/JobsSection";
+import SectionContainer from "../components/SectionContainer";
 
 export default class JobPage extends React.Component {
     render() {
@@ -29,9 +29,13 @@ export default class JobPage extends React.Component {
                     </Column>
                 </Row>
 
-                <Row>
+                <SectionContainer
+                    color={colors.background}
+                    background={colors.white}
+                    padding={`${spacing.padding}rem 0`}
+                >
                     <JobSection jobs={jobs} />
-                </Row>
+                </SectionContainer>
             </div>
         );
     }

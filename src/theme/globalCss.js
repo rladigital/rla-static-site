@@ -71,11 +71,12 @@ function globalCss(theme) {
             text-transform: uppercase;
         }
         h1,h2,h3,h4,h5,h6,p,hr {
-            margin: 0 0 ${theme.paragraph.margin}em;
+            margin: 0 0 ${theme.paragraph.margin}rem;
         }
         p {
-            margin: ${theme.paragraph.margin}rem 0 ${theme.paragraph.margin *
-        4}rem 0;
+            margin: ${theme.paragraph.margin}rem 0 ${
+        theme.paragraph.margin
+    }rem 0;
             line-height: 1.5;
         }
         strong, b{

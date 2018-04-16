@@ -25,8 +25,8 @@ export const sizes = {
 
 export const spacing = {
     radius: "0.2",
-    padding: "0.8",
-    margin: "0.2"
+    padding: "1.4",
+    margin: "1.4"
 };
 
 export const breakpoints = {
@@ -76,7 +76,7 @@ const theme = {
             margin: 0,
             color: colors.white,
             activeColor: colors.accent,
-            padding: spacing.padding,
+            padding: 0.8,
             textTransform: "uppercase"
         }
     },
