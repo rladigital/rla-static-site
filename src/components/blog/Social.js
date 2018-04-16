@@ -10,7 +10,7 @@ const Circle = styled.a`
     width: ${props => props.size}px;
     height: ${props => props.size}px;
     color: ${props => props.color};
-    border: 1px solid ${props => props.borderColor};
+    border: ${props => props.borderWidth}px solid ${props => props.borderColor};
     font-size: ${props => props.size}px;
     line-height: ${props => props.size}px;
     border-radius: ${props => props.size}px;
@@ -31,6 +31,7 @@ Social.defaultProps = {
     size: 20,
     color: "#ffffff",
     borderColor: "#ffffff",
+    borderWidth: 1,
     transform: "shrink-8 up-1"
 };
 

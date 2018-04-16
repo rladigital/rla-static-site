@@ -10,6 +10,7 @@ import { HTMLContent } from "../components/Content";
 import { colors, spacing } from "../theme/theme";
 import logo from "../img/rla.svg";
 import SectionContainer from "./SectionContainer";
+import Social from "../components/blog/Social";
 
 const StyledLink = styled(Link)`
     display: block;
@@ -18,18 +19,6 @@ const StyledLink = styled(Link)`
     margin-bottom: ${spacing.padding}rem;
     font-size: 16px;
     font-weight: 700;
-`;
-
-const SocialIcon = styled(Link)`
-    width: 42px;
-    height: 42px;
-    border-radius: 40px;
-    font-size: 20px;
-    line-height: 38px;
-    text-align: center;
-    margin-left: ${spacing.padding}rem;
-    border: 3px solid ${colors.accent};
-    display: inline-block;
 `;
 
 const ContactDetail = styled.li`
@@ -94,9 +83,9 @@ export default ({
             })}
 
             <Column large={2} style={{ textAlign: "right" }}>
-                <Social icon="facebook-f" to="/contact" />
-                <Social icon="linkedin-in" to="/contact" />
-                <Social icon="twitter" to="/contact" />
+                <SocialIcon icon="facebook-f" />
+                <SocialIcon icon="linkedin-in" />
+                <SocialIcon icon="twitter" />
             </Column>
         </Row>
         <Copyright>
@@ -136,8 +125,13 @@ const Location = ({ to, children, address, phone, email }) => (
     </div>
 );
 
-const Social = ({ icon, to }) => (
-    <SocialIcon to={to}>
-        <FAIcon color={colors.white} icon={["fab", icon]} />
-    </SocialIcon>
+const SocialIcon = ({ ...rest }) => (
+    <Social
+        size={35}
+        borderColor={colors.accent}
+        color={colors.white}
+        margin="0 0 1rem 0.5rem"
+        transform="shrink-8 up-0.5"
+        {...rest}
+    />
 );
