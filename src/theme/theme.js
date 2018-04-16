@@ -81,11 +81,11 @@ const theme = {
         }
     },
     pageHeaderSection: {
-        fontSize: 5,
+        fontSize: 4,
         padding: {
-            top: 5,
+            top: 8,
             right: 0,
-            bottom: 2.5,
+            bottom: 5,
             left: 0
         }
     },
