@@ -86,7 +86,7 @@ class SolutionsSection extends React.Component {
                             <div>
                                 <SolutionsList
                                     style={style}
-                                    width={width}
+                                    width={width - 16}
                                     height={height}
                                     scrollY={scrollY}
                                     solutions={solutions}
