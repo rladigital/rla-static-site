@@ -10,21 +10,11 @@ import theme, { colors } from "../theme/theme";
 import { randomChunkArray, random, shuffleArray } from "../helpers/helpers";
 import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
+import LoadMore from "../components/blog/LoadMore";
 
 let lastarrayIndex = null;
 
 const rowsAdvance = 3;
-
-const LoadMore = styled.a`
-    width: 100%;
-    display: inline-block;
-    background: ${colors.accent};
-    padding: 30px;
-    text-align: center;
-    font-size: 28px;
-    color: ${colors.white};
-    cursor: pointer;
-`;
 
 export default class PeoplePage extends React.Component {
     constructor(props) {

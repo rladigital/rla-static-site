@@ -8,6 +8,8 @@ import "animate.css/animate.min.css";
 import theme from "../theme/theme";
 import NewsSummary from "../components/news/NewsSummary";
 import HeaderBlock from "../components/HeaderBlock";
+import LoadMore from "../components/blog/LoadMore";
+
 import { randomChunkArray, random } from "../helpers/helpers";
 
 let lastarrayIndex = null;
@@ -21,17 +23,7 @@ export default class NewsPage extends React.Component {
     componentDidMount() {
         const { data: { allMarkdownRemark: { edges: news } } } = this.props;
 
-        const chunks = randomChunkArray(
-            news
-                .concat(news)
-                .concat(news)
-                .concat(news)
-                .concat(news)
-                .concat(news)
-                .concat(news),
-            2,
-            4
-        );
+        const chunks = randomChunkArray(news, 2, 4);
 
         const layout = this.generateLayout(chunks);
 
@@ -42,6 +34,12 @@ export default class NewsPage extends React.Component {
         });
 
         console.log(chunks);
+    }
+
+    handleClick() {
+        this.setState({
+            rows: this.state.rows + rowsAdvance
+        });
     }
 
     generateLayout(chunks) {
@@ -65,7 +63,7 @@ export default class NewsPage extends React.Component {
                                 >
                                     <NewsSummary
                                         story={data[0].node}
-                                        height={250}
+                                        height={500}
                                     />
                                 </ScrollAnimation>
                             </Column>
@@ -77,26 +75,26 @@ export default class NewsPage extends React.Component {
                 function(data) {
                     return (
                         <Row collapse expanded>
-                            <Column large={6} collapse expanded>
+                            <Column large={4} collapse expanded>
                                 <ScrollAnimation
                                     animateIn="fadeIn"
                                     delay={0}
                                     animateOnce={true}
                                 >
                                     <NewsSummary
-                                        story={data[0].node}
+                                        story={data[1].node}
                                         height={500}
                                     />
                                 </ScrollAnimation>
                             </Column>
-                            <Column large={6} collapse expanded>
+                            <Column large={8} collapse expanded>
                                 <ScrollAnimation
                                     animateIn="fadeIn"
                                     delay={250}
                                     animateOnce={true}
                                 >
                                     <NewsSummary
-                                        story={data[1].node}
+                                        story={data[0].node}
                                         height={500}
                                     />
                                 </ScrollAnimation>
@@ -139,7 +137,7 @@ export default class NewsPage extends React.Component {
                 function(data) {
                     return (
                         <Row collapse expanded>
-                            <Column large={4} collapse expanded>
+                            <Column large={6} collapse expanded>
                                 <ScrollAnimation
                                     animateIn="fadeIn"
                                     delay={0}
@@ -151,7 +149,7 @@ export default class NewsPage extends React.Component {
                                     />
                                 </ScrollAnimation>
                             </Column>
-                            <Column large={4} collapse expanded>
+                            <Column large={3} collapse expanded>
                                 <ScrollAnimation
                                     animateIn="fadeIn"
                                     delay={250}
@@ -163,7 +161,7 @@ export default class NewsPage extends React.Component {
                                     />
                                 </ScrollAnimation>
                             </Column>
-                            <Column large={4} collapse expanded>
+                            <Column large={3} collapse expanded>
                                 <ScrollAnimation
                                     animateIn="fadeIn"
                                     delay={50}
@@ -371,11 +369,17 @@ export default class NewsPage extends React.Component {
                 <div>
                     <Row expanded collapse>
                         {chunkedNews &&
-                            chunkedNews.map((items, i) => {
+                            chunkedNews.slice(0, rows).map((items, i) => {
                                 return layout[i](items);
                             })}
                     </Row>
                 </div>
+                {chunkedNews &&
+                    chunkedNews.length > rows && (
+                        <LoadMore onClick={() => this.handleClick()}>
+                            Load More
+                        </LoadMore>
+                    )}
             </div>
         );
     }
