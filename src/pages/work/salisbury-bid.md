@@ -2,7 +2,7 @@
 templateKey: work
 title: THE CITY OF SALISBURY
 hero: /img/Salisbury@2x.png
-thumb: /img/salisbury-thumbnail.jpg
+thumb: /img/RLA_Work_Page_1200x1200_Salisbury.jpg
 intro: Salisbury BID
 project: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae

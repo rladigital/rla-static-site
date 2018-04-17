@@ -2,7 +2,7 @@
 templateKey: work
 title: Tesco
 hero: /img/Tesco@2x.png
-thumb: /img/tesco-thumbnail.jpg
+thumb: /img/RLA_Work_Page_1200x1200_Tesco.jpg
 intro: Tesco Stores NI
 project: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
@@ -22,4 +22,3 @@ solutionsList:
   - B
 weighting: 0
 ---
-
