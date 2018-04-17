@@ -24,6 +24,7 @@ collections:
       - {label: "Solution Lookup (Not used in content, just for finding titles to copy)", name: "solutionLookup", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title", required: false}
       - {label: "Solutions (Exact Title of Solutions, separated with commas)", name: "solutionsList", widget: "list"}
       - {label: "Weighting", name: "weighting", widget: "number", default: 0, min: 0, max: 100}
+      - {label: "Preview Type", name: "previewType", widget: "select", options: { label: "None", value: "none" }, { label: "Go to page", value: "page" }, { label: "Lightbox", value: "lightbox" }}
 
   - name: "solutions"
     label: "Solutions"
