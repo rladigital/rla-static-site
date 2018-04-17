@@ -14,4 +14,6 @@ galleryImages:
 solutionsList:
 
 weighting: 0
+
+previewType:
 ---

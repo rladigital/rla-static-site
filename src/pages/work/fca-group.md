@@ -29,4 +29,5 @@ solutionsList:
   - Customer Acquisition
   - Cortex
 weighting: -3
+previewType: page
 ---

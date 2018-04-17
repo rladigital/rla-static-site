@@ -21,4 +21,5 @@ galleryImages:
 solutionsList:
   - B
 weighting: -1
+previewType: page
 ---
