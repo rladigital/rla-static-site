@@ -113,10 +113,6 @@ class Offcanvas extends React.Component {
                                     );
                                 })}
                             </Section>
-                            <Section padding={3}>
-                                <Item> Connected Ambition </Item>
-                                <Item> Play Show Reel </Item>
-                            </Section>
                         </Scrollbars>
                     </Slide>
                 )}
