@@ -14,9 +14,7 @@ const StyledButton = Button.extend`
 `;
 
 const StyledP = styled.p`
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 6rem;
+    margin: 3rem 0;
 `;
 
 class JobsSection extends React.Component {
@@ -51,7 +49,7 @@ const PeoplePlaceholder = ({ height }) => (
             textAlign="left"
             accentColor={colors.background}
             baseColor={colors.white}
-            fontSize={2.6}
+            fontSize={3.2}
             padding={{
                 top: 0,
                 left: 0,
@@ -61,12 +59,12 @@ const PeoplePlaceholder = ({ height }) => (
         >
             <span>People</span> at our Core
         </HeaderBlock>
-        <p>
+        <StyledP>
             We deliver fresh thinking and innovative ideas that give our clients
             the edge over their competitors. Our passion and drive to know your
             business inside out and back to front enables us to work alongside
             you and become an inseparable extension of your marketing team.
-        </p>
+        </StyledP>
         <Button hollow size="large" color="white" borderWidth={2}>
             Check Us Out →
         </Button>
