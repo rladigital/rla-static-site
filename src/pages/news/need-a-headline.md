@@ -14,7 +14,7 @@ galleryImages:
   - /img/connected ambition-1.jpg
 author: Luke Fagg
 ---
-Facebook. Cambridge Analytica. Data. Mark Zuckerberg.
+Facebook. Cambridge Analytica. Data. Zuckerberg.
 
 You can't read the news without seeing those words pop up somewhere. And you're sure it affects your business somehow. How could it not? Billions of users spend time on Facebook every day, which is why the platform has been invaluable for targeting existing and prospective customers. 
 
