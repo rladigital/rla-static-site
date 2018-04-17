@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: Connected Ambition
-date: 12/04/2018
+date: 17/04/2018
 hero: /img/connected ambition-1.jpg
 thumb: /img/connected ambition-1.jpg
 category: Insight
