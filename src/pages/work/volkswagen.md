@@ -1,7 +1,7 @@
 ---
 templateKey: work
 title: Volkswagen
-hero: /img/Volkswagencase-study.jpg
+hero: 
 thumb: /img/Volkswagencase-study.jpg
 logo: 
 intro: 

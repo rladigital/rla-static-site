@@ -1,8 +1,8 @@
 ---
 templateKey: work
 title: Teleforest
-hero: /img/Teleforest.gif
-thumb: /img/Teleforest.gif
+hero: 
+thumb: /img/RLA_Work_Page_1200x1200_Teleflorist.jpg
 logo: 
 intro: 
 project: >-

@@ -1,7 +1,7 @@
 ---
 templateKey: work
 title: BMW
-hero: /img/BMW-MINIcase-study.jpg
+hero: 
 thumb: /img/RLA_Work_Page_1200x1200_BMWMini.jpg
 logo: 
 intro: 

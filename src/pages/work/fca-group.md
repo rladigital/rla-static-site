@@ -28,6 +28,5 @@ solutionsList:
   - Sales Performance
   - Customer Acquisition
   - Cortex
-weighting: 0
+weighting: -3
 ---
-

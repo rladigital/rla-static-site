@@ -1,7 +1,7 @@
 ---
 templateKey: work
 title: Goodyear
-hero: /img/goodyear-dunlopcase-study.jpg
+hero: 
 thumb: /img/goodyear-dunlopcase-study.jpg
 logo: 
 intro: 

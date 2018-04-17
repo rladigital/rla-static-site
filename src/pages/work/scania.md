@@ -1,7 +1,7 @@
 ---
 templateKey: work
 title: Scania
-hero: /img/scaniacase-study.jpg
+hero: 
 thumb: /img/RLA_Work_Page_1200x1200_Scania.jpg
 logo: 
 intro: 

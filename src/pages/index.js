@@ -110,6 +110,7 @@ export default class IndexPage extends React.Component {
 export const pageQuery = graphql`
     query IndexQuery {
         work: allMarkdownRemark(
+            sort: { fields: [frontmatter___weighting] }
             filter: { frontmatter: { templateKey: { eq: "work" } } }
             limit: 3
         ) {

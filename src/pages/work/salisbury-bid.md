@@ -20,5 +20,5 @@ galleryImages:
   - /img/Salisbury.png
 solutionsList:
   - Brand Desire
-weighting: 0
+weighting: -2
 ---

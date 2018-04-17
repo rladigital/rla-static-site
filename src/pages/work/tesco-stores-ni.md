@@ -20,5 +20,5 @@ galleryImages:
   - /img/Tesco.png
 solutionsList:
   - B
-weighting: 0
+weighting: -1
 ---

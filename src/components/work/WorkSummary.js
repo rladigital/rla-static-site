@@ -53,7 +53,6 @@ const Image = styled.section`
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    cursor: pointer;
     transition: transform 0.25s ease;
     &:hover{
         transform: scale(1.05);
@@ -64,9 +63,19 @@ const Summary = styled.p`
     font-size: 0.8vw;
 `;
 
+const WorkSummaryWrapper = ({ children, slug, isClickable }) => {
+    if (isClickable) {
+        return <Link to={slug}>{children}</Link>;
+    } else {
+        return children;
+    }
+};
+
 const WorkSummary = ({ work, index }) => {
+    const isClickable = Boolean(work.frontmatter.hero);
+
     return (
-        <Link to={work.fields.slug}>
+        <WorkSummaryWrapper slug={work.fields.slug} isClickable={isClickable}>
             <Container>
                 <Image backgroundImage={work.frontmatter.thumb}>
                     <Overlay index={index}>
@@ -81,7 +90,7 @@ const WorkSummary = ({ work, index }) => {
                     </Overlay>
                 </Image>
             </Container>
-        </Link>
+        </WorkSummaryWrapper>
     );
 };
 

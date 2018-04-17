@@ -137,6 +137,7 @@ export default class PeoplePage extends React.Component {
 export const pageQuery = graphql`
     query workQuery {
         allMarkdownRemark(
+            sort: { fields: [frontmatter___weighting] }
             filter: { frontmatter: { templateKey: { eq: "work" } } }
         ) {
             edges {
@@ -151,6 +152,7 @@ export const pageQuery = graphql`
                         outcome
                         templateKey
                         thumb
+                        hero
                     }
                 }
             }

@@ -1,7 +1,7 @@
 ---
 templateKey: work
 title: Dennis Eagle
-hero: /img/Denniscase-study.jpg
+hero: 
 thumb: /img/RLA_Work_Page_1200x1200_DennisEagle.jpg
 logo: 
 intro: 

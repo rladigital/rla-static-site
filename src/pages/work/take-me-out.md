@@ -1,7 +1,7 @@
 ---
 templateKey: work
 title: Take Me Out
-hero: /img/take-me-outcase-study.jpg
+hero: 
 thumb: /img/RLA_Work_Page_1200x1200_KIA.jpg
 logo: 
 intro: 
