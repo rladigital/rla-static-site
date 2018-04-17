@@ -1,7 +1,7 @@
 ---
 templateKey: work
 title: Tesco
-hero: /img/Tesco@2x.png
+hero: 
 thumb: /img/RLA_Work_Page_1200x1200_Tesco.jpg
 intro: Tesco Stores NI
 project: >-

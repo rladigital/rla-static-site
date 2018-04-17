@@ -63,19 +63,22 @@ const Summary = styled.p`
     font-size: 0.8vw;
 `;
 
-const WorkSummaryWrapper = ({ children, slug, isClickable }) => {
-    if (isClickable) {
-        return <Link to={slug}>{children}</Link>;
-    } else {
-        return children;
+const WorkSummaryWrapper = ({ children, slug, previewType }) => {
+    switch (previewType) {
+        case "page":
+            return <Link to={slug}>{children}</Link>;
+            break;
+        default:
+            return children;
     }
 };
 
 const WorkSummary = ({ work, index }) => {
-    const isClickable = Boolean(work.frontmatter.hero);
-
     return (
-        <WorkSummaryWrapper slug={work.fields.slug} isClickable={isClickable}>
+        <WorkSummaryWrapper
+            slug={work.fields.slug}
+            previewType={work.frontmatter.previewType}
+        >
             <Container>
                 <Image backgroundImage={work.frontmatter.thumb}>
                     <Overlay index={index}>

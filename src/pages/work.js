@@ -153,6 +153,7 @@ export const pageQuery = graphql`
                         templateKey
                         thumb
                         hero
+                        previewType
                     }
                 }
             }
