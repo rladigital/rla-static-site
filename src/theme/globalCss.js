@@ -1,4 +1,4 @@
-import { breakpoints } from "./theme";
+import { breakpoints, colors } from "./theme";
 
 function globalCss(theme) {
     return `   
@@ -209,6 +209,25 @@ function globalCss(theme) {
             padding: 2rem 2rem 1.2rem 2rem;
             background: #eaeaea;
             font-size: 2rem;
+        }
+
+        /* ----- CMS content style ----- */
+        .cms-content{
+            color: ${colors.lightGray};
+
+            h1, h2, h3, h4, h5, h6{
+                color: ${colors.black};
+                margin: 3rem 0 1rem;
+            }
+            h1{
+                font-size: 1.2rem;
+            }
+            h2{
+                font-size: 1rem;
+            }
+            p{
+                margin: 0 0 2rem;
+            }
         }
     `;
 }

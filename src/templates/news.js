@@ -19,11 +19,6 @@ import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
 import Tags from "../components/blog/Tags";
 
-const contentStyle = {
-    marginBottom: "4em",
-    color: colors.lightGray
-};
-
 export const NewsTemplate = ({
     content,
     contentComponent,
@@ -72,7 +67,10 @@ export const NewsTemplate = ({
                 </Row>
                 <Row>
                     <Column medium={7} className="postContent">
-                        <PostContent style={contentStyle} content={content} />
+                        <PostContent
+                            content={content}
+                            className="cms-content"
+                        />
                     </Column>
                     <Column medium={1}>&nbsp;</Column>
                     <Column medium={4}>
@@ -173,7 +171,6 @@ export const pageQuery = graphql`
                 hero
                 intro
                 sideHeading
-
                 galleryImages
                 tags
                 author {

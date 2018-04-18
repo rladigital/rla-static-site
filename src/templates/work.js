@@ -17,14 +17,6 @@ import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
     height: 70px;
-    margin-bottom: 3em;
-`;
-
-const Heading = styled.h4`
-    margin-bottom 1.2em;
-    @media (min-width: ${breakpoints.medium}px) {
-        font-size: ${props => props.fontSize}em;
-    }
 `;
 
 const GalleryItem = styled.div`
@@ -67,14 +59,9 @@ const Td = styled.td`
     padding: 0 2em 1em 0;
 `;
 
-const Solution = styled.p`
-    color: ${colors.lightGray};
+const Solution = styled.div`
+    margin-bottom: 1.2rem;
 `;
-
-const contentStyle = {
-    marginBottom: "4em",
-    color: colors.lightGray
-};
 
 export const WorkTemplate = ({
     content,
@@ -107,18 +94,18 @@ export const WorkTemplate = ({
             )}
             <Row>
                 <Column large={6}>
-                    <PullQuote fontSize={4}>{intro} </PullQuote>
+                    <PullQuote fontSize={4} padding="3rem 0 0">
+                        {intro}
+                    </PullQuote>
                 </Column>
                 <Column large={6}>
-                    <Content content={description} style={contentStyle} />
+                    <Content content={description} className="cms-content" />
 
-                    <Table>
+                    <Table className="cms-content">
                         <tbody>
                             <tr>
                                 <Td>
-                                    <Heading fontSize={1}>
-                                        Our areas of expertise —{" "}
-                                    </Heading>
+                                    <h2>Our areas of expertise — </h2>
                                 </Td>
                                 <Td>
                                     {solutionsList &&

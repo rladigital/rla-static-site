@@ -4,6 +4,7 @@ title: FCA Group
 hero: /img/fca group-hero2.jpg
 thumb: /img/fca group-thumbnail.jpg
 logo: /img/fga group logos update@2x.png
+intro: 'Together, we became a valuable extension of FCA’s marketing team.'
 description: >-
   # THE PROJECT
 
@@ -13,6 +14,8 @@ description: >-
   Chrysler, Abarth and Fiat Professional), 315 dealer branches, 6 regions, 10
   principle brand clients and 14 secondary clients across sales, product,
   training, Aftersales and Financial Services. 
+
+  
 
 
   # THE OUTCOME
@@ -37,4 +40,3 @@ solutionsList:
 weighting: -3
 previewType: page
 ---
-
