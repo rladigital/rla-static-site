@@ -52,7 +52,7 @@ export default class ContactPage extends React.Component {
                     </Column>
                 </Row>
 
-                <Row equaliseChildHeight={true}>
+                <Row equaliseChildHeight={true} collapse expanded>
                     <Column medium={6} large={3} collapse>
                         <MapListContainer
                             contacts={contacts}

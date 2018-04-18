@@ -252,6 +252,10 @@ function globalCss(theme) {
                 }
             }
         }
+
+        div.leaflet-container {
+            background: ${colors.background};
+        }
     `;
 }
 
