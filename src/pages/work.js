@@ -2,11 +2,11 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.min.css";
 
-import theme, { colors } from "../theme/theme";
+import theme, { colors, breakpoints } from "../theme/theme";
 import { randomChunkArray, random, shuffleArray } from "../helpers/helpers";
 import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
@@ -15,6 +15,15 @@ import LoadMore from "../components/blog/LoadMore";
 let lastarrayIndex = null;
 
 const rowsAdvance = 3;
+
+const heightMediaQuery = `
+@media (min-width: ${breakpoints.medium}px) {
+    height: 50vw;
+}
+    @media (min-width: ${breakpoints.large}px) {
+        height: 33.33vw;
+    }
+`;
 
 export default class PeoplePage extends React.Component {
     constructor(props) {
@@ -112,6 +121,9 @@ export default class PeoplePage extends React.Component {
                                                     animateOnce={true}
                                                 >
                                                     <WorkSummary
+                                                        heightMediaQuery={
+                                                            heightMediaQuery
+                                                        }
                                                         work={caseStudy}
                                                         index={index}
                                                     />

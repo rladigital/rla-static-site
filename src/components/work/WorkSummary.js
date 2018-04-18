@@ -1,13 +1,21 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "gatsby-link";
 
-import { colors, spacing } from "../../theme/theme";
+import { colors, spacing, breakpoints } from "../../theme/theme";
 import { transparentize } from "../../helpers/helpers";
 
 const Container = styled.div`
-    height: 33.33vw;
     overflow: hidden;
+    height: 100vw;
+    ${props =>
+        props.heightMediaQuery
+            ? css`
+                  ${props.heightMediaQuery};
+              `
+            : css`
+                  height: 33.33vw;
+              `};
 `;
 
 const Overlay = styled.div`
@@ -73,13 +81,13 @@ const WorkSummaryWrapper = ({ children, slug, previewType }) => {
     }
 };
 
-const WorkSummary = ({ work, index }) => {
+const WorkSummary = ({ work, index, heightMediaQuery }) => {
     return (
         <WorkSummaryWrapper
             slug={work.fields.slug}
             previewType={work.frontmatter.previewType}
         >
-            <Container>
+            <Container heightMediaQuery={heightMediaQuery}>
                 <Image backgroundImage={work.frontmatter.thumb}>
                     <Overlay index={index}>
                         <Content>

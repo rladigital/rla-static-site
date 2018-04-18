@@ -1,14 +1,15 @@
 import React from "react";
 import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.min.css";
 
 import HeaderBlock from "../HeaderBlock";
 import WorkSummary from "./WorkSummary";
-import { colors, spacing } from "../../theme/theme";
+import { colors, spacing, breakpoints } from "../../theme/theme";
 import SectionContainer from "../SectionContainer";
+import { height } from "window-size";
 
 const StyledButton = Button.extend`
     color: ${colors.white};
@@ -19,6 +20,12 @@ const StyledP = styled.p`
     text-align: center;
     margin-bottom: 1.6rem;
     color: ${colors.lightGray};
+`;
+
+const heightMediaQuery = `
+    @media (min-width: ${breakpoints.medium}px) {
+        height: 33.33vw;
+    }
 `;
 
 class WorkSection extends React.Component {
@@ -81,6 +88,7 @@ class WorkSection extends React.Component {
                                         animateOnce={true}
                                     >
                                         <WorkSummary
+                                            heightMediaQuery={heightMediaQuery}
                                             work={work}
                                             index={index}
                                         />
