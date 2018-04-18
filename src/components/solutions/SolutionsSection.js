@@ -76,7 +76,7 @@ class SolutionsSection extends React.Component {
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
         const { scrollY } = this.state;
-        const animation = "transform 1s ease, opacity 1s ease";
+        const animation = "transform 0.25s ease, opacity 0.25s ease";
 
         return (
             <StickyContainer style={{ height: height * 2.5 }}>
