@@ -17,8 +17,7 @@ collections:
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Thumbnail Image", name: "thumb", widget: "image", required: false}
       - {label: "Logo", name: "logo", widget: "image", required: false}
-      - {label: "Project Description", name: "project", widget: "markdown", required: false}
-      - {label: "Outcome Description", name: "outcome", widget: "markdown", required: false}
+      - {label: "Description", name: "description", widget: "markdown", required: false}
       - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}, required: false}
       - {label: "Solution Lookup (Not used in content, just for finding titles to copy)", name: "solutionLookup", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title", required: false}
       - {label: "Solutions (Exact Title of Solutions, separated with commas)", name: "solutionsList", widget: "list", required: false}

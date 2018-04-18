@@ -5,9 +5,7 @@ hero:
 thumb: /img/Volkswagencase-study.jpg
 logo: 
 intro: 
-project: >-
-
-outcome: >-
+description: >-
 
 galleryImages:
 

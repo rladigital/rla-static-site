@@ -5,9 +5,7 @@ hero:
 thumb: /img/RLA_Work_Page_600x600_Ford.gif
 logo: 
 intro: 
-project: >-
-
-outcome: >-
+description: >-
 
 galleryImages:
 

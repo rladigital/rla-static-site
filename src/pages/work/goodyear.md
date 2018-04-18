@@ -5,9 +5,7 @@ hero:
 thumb: /img/goodyear-dunlopcase-study.jpg
 logo: 
 intro: 
-project: >-
-
-outcome: >-
+description: >-
 
 galleryImages:
 
