@@ -3,6 +3,7 @@ templateKey: job
 area: Client Services
 title: We're looking for a Senior Account Manager to join our Client Services team.
 closing: 11/04/2018
+location: Bournemouth
 description: >-
   # About Us
 

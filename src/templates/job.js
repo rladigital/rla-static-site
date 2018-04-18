@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 
-import { colors } from "../theme/theme";
+import { spacing, colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import HeaderBlock from "../components/HeaderBlock";
@@ -13,10 +13,10 @@ import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
 
 const SummaryContainer = styled.section`
-    padding: 10px;
+    padding: ${spacing.padding}em ${spacing.padding}em 0;
     background: #ebebeb;
-    div {
-        margin: 0.3em 0;
+    p {
+        margin: 0 0 0.8em;
     }
 `;
 const JobContainer = styled.section`
@@ -31,9 +31,9 @@ export const JobTemplate = props => {
         area,
         helmet,
         description,
-        skills,
         hero,
         level,
+        location,
         salary,
         hours,
         benefits,
@@ -56,54 +56,26 @@ export const JobTemplate = props => {
             )}
             <JobContainer>
                 <Row>
-                    <Column medium={7} className="cms-content">
+                    <Column large={7} className="cms-content">
                         <PostContent content={description} />
-                        {skills && [
-                            <h1>Key Skills</h1>,
-                            <ul>
-                                {skills.map((skill, index) => {
-                                    return <li key={index}>{skill}</li>;
-                                })}
-                            </ul>
-                        ]}
                     </Column>
-                    <Column medium={1}>&nbsp;</Column>
-                    <Column medium={4}>
+                    <Column large={1}>&nbsp;</Column>
+                    <Column large={4}>
                         <SummaryContainer>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Level:</h5>
-                                </Column>
-                                <Column small={6}>{level}</Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Salary:</h5>
-                                </Column>
-                                <Column small={6}>{salary}</Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Hours:</h5>
-                                </Column>
-                                <Column small={6}>{hours}</Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Benefits:</h5>
-                                </Column>
-                                <Column small={6}>
-                                    {benefits.map((benefit, index) => {
-                                        return <div key={index}>{benefit}</div>;
-                                    })}
-                                </Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Closing:</h5>
-                                </Column>
-                                <Column small={6}>{closing}</Column>
-                            </Row>
+                            <SummaryItem label="Level:">{level}</SummaryItem>
+                            <SummaryItem label="Salary:">{salary}</SummaryItem>
+                            <SummaryItem label="Hours:">{hours}</SummaryItem>
+                            <SummaryItem label="Location:">
+                                {location}
+                            </SummaryItem>
+                            <SummaryItem label="Benefits:">
+                                {benefits.map((benefit, index) => {
+                                    return <p key={index}>{benefit}</p>;
+                                })}
+                            </SummaryItem>
+                            <SummaryItem label="Closing:">
+                                {closing}
+                            </SummaryItem>
                         </SummaryContainer>
                     </Column>
                 </Row>
@@ -111,6 +83,17 @@ export const JobTemplate = props => {
         </PageDetailContainer>
     );
 };
+
+const SummaryItem = ({ label, children }) => (
+    <Row>
+        <Column large={6} xlarge={4} collapse>
+            <h5>{label}</h5>
+        </Column>
+        <Column large={6} xlarge={8} collapse>
+            {children}
+        </Column>
+    </Row>
+);
 
 export default ({ data }) => {
     //console.log(data);
@@ -122,9 +105,9 @@ export default ({ data }) => {
             area={job.frontmatter.area}
             content={job.html}
             description={job.frontmatter.description}
-            skills={job.frontmatter.skills}
             hero={job.frontmatter.hero}
             level={job.frontmatter.level}
+            location={job.frontmatter.location}
             salary={job.frontmatter.salary}
             hours={job.frontmatter.hours}
             benefits={job.frontmatter.benefits}
@@ -140,11 +123,11 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 description
-                skills
                 area
                 tags
                 hero
                 level
+                location
                 salary
                 hours
                 benefits

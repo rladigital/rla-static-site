@@ -3,6 +3,7 @@ templateKey: job
 area: Client Services
 title: We're looking for an Account Manager to join our Client Services team.
 closing: 19/06/2018
+location: Bournemouth
 description: >-
   # ABOUT US
 
@@ -110,4 +111,3 @@ tags:
   - Client Services
 hero: /img/account handler role a img_7605.jpg
 ---
-

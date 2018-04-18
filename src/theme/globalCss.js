@@ -232,6 +232,12 @@ function globalCss(theme) {
             p{
                 margin: 0 0 2rem;
             }
+            a{
+                color: inherit;
+            }
+            a[href]{
+                text-decoration: underline;
+            }
             ul{
                 margin-left: 25px;
                 list-style-type: none;
