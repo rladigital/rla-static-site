@@ -3,10 +3,8 @@ templateKey: contacts
 title: London
 group: Mission
 address: |-
-  36 Percy Street, 
-
-  London, 
-
+  36 Percy Street<br/>
+  London<br/>
   W1T 2DH
 contactName: Mission
 contactImage: /img/the-mission.svg
