@@ -16,7 +16,6 @@ if (serveStatic()) {
 
 const StyledP = styled.p`
     text-align: center;
-    margin-bottom: 80px;
 `;
 
 export default class PeoplePage extends React.Component {
