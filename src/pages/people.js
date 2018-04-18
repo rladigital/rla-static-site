@@ -37,20 +37,6 @@ export default class PeoplePage extends React.Component {
                         </HeaderBlock>
                     </Column>
                 </Row>
-
-                <Row>
-                    <Column xlarge={6} centered>
-                        <StyledP>
-                            We deliver fresh thinking and innovative ideas that
-                            give our clients the edge over their competitors.
-                            Our passion and drive to know your business inside
-                            out and back to front enables us to work alongside
-                            you and become an inseparable extension of your
-                            marketing team.
-                        </StyledP>
-                    </Column>
-                </Row>
-
                 <Row>
                     <PeopleBrowser people={people} size={500} />
                 </Row>
