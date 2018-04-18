@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { colors } from "../../theme/theme";
 import FAIcon from "@fortawesome/react-fontawesome";
 import Link from "gatsby-link";
-import { Circ } from "gsap";
 
 const Circle = styled.a`
     width: ${props => props.size}px;

@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 
-import { TweenLite } from "gsap";
-
 import HeaderBlock from "../HeaderBlock";
 import ServiceSummary from "./ServiceSummary";
 import SectionContainer from "../SectionContainer";

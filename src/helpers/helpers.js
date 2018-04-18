@@ -1,4 +1,6 @@
+import moment from "moment";
 import { breakpoints } from "../theme/theme";
+
 export function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -69,4 +71,7 @@ export function shuffleArray(o) {
         j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x
     );
     return o;
+}
+export function dateFormat(date, format = "DD MMMM YYYY") {
+    return moment(date, "DD/MM/YYYY").format(format);
 }

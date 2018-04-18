@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import format from "date-fns/format";
+
 import { colors } from "../../theme/theme";
+import { dateFormat } from "../../helpers/helpers";
 
 const SidebarDateContainer = styled.blockquote`
     position: relative;
@@ -16,9 +17,10 @@ const SidebarDateContainer = styled.blockquote`
 `;
 
 const SidebarDate = ({ date, prefix, ...rest }) => {
+    console.log(date);
     return (
         <SidebarDateContainer {...rest}>
-            {prefix} {format(date, "DD MMM YYYY")}
+            {prefix} {dateFormat(date)}
         </SidebarDateContainer>
     );
 };
