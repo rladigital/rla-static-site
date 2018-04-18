@@ -28,8 +28,7 @@ export const JobTemplate = props => {
         title,
         area,
         helmet,
-        role,
-        person,
+        description,
         skills,
         hero,
         level,
@@ -48,17 +47,16 @@ export const JobTemplate = props => {
             </Row>
             <JobContainer>
                 <Row>
-                    <Column medium={8}>
-                        <h3>The Role</h3>
-                        <PostContent content={role} />
-                        <h3>The Person</h3>
-                        <PostContent content={person} />
-                        <h3>Key Skills</h3>
-                        <ul>
-                            {skills.map((skill, index) => {
-                                return <li key={index}>{skill}</li>;
-                            })}
-                        </ul>
+                    <Column medium={8} className="cms-content">
+                        <PostContent content={description} />
+                        {skills && [
+                            <h1>Key Skills</h1>,
+                            <ul>
+                                {skills.map((skill, index) => {
+                                    return <li key={index}>{skill}</li>;
+                                })}
+                            </ul>
+                        ]}
                     </Column>
                     <Column medium={4}>
                         <SummaryContainer>
@@ -113,8 +111,7 @@ export default ({ data }) => {
             title={job.frontmatter.title}
             area={job.frontmatter.area}
             content={job.html}
-            role={job.frontmatter.role}
-            person={job.frontmatter.person}
+            description={job.frontmatter.description}
             skills={job.frontmatter.skills}
             hero={job.frontmatter.hero}
             level={job.frontmatter.level}
@@ -132,8 +129,7 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
-                role
-                person
+                description
                 skills
                 area
                 tags
