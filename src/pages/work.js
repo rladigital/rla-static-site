@@ -149,7 +149,7 @@ export const pageQuery = graphql`
                     id
                     frontmatter {
                         title
-                        outcome
+                        description
                         templateKey
                         thumb
                         hero

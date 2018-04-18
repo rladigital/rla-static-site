@@ -84,9 +84,12 @@ const WorkSummary = ({ work, index }) => {
                     <Overlay index={index}>
                         <Content>
                             <Title>{work.frontmatter.title}</Title>
-                            {work.frontmatter.outcome && (
+                            {work.frontmatter.description && (
                                 <Summary>
-                                    {work.frontmatter.outcome.substring(0, 200)}...
+                                    {work.frontmatter.description.substring(
+                                        0,
+                                        200
+                                    )}...
                                 </Summary>
                             )}
                         </Content>

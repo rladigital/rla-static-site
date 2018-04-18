@@ -9,8 +9,7 @@ const WorkPreview = ({ entry, widgetFor }) => (
         hero={entry.getIn(["data", "hero"])}
         logo={entry.getIn(["data", "logo"])}
         intro={entry.getIn(["data", "intro"])}
-        project={entry.getIn(["data", "project"])}
-        outcome={entry.getIn(["data", "outcome"])}
+        description={entry.getIn(["data", "description"])}
         galleryImages={entry.getIn(["data", "galleryImages"])}
         solutions={entry.getIn(["data", "solutionsList"])}
     />

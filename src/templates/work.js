@@ -80,8 +80,7 @@ export const WorkTemplate = ({
     content,
     logo,
     hero,
-    project,
-    outcome,
+    description,
     galleryImages,
     solutionsList,
     title,
@@ -111,10 +110,7 @@ export const WorkTemplate = ({
                     <PullQuote fontSize={4}>{intro} </PullQuote>
                 </Column>
                 <Column large={6}>
-                    <Heading>The Project</Heading>
-                    <Content content={project} style={contentStyle} />
-                    <Heading>The Outcome</Heading>
-                    <Content content={outcome} style={contentStyle} />
+                    <Content content={description} style={contentStyle} />
 
                     <Table>
                         <tbody>
@@ -174,8 +170,7 @@ export default ({ data }) => {
             title={work.frontmatter.title}
             logo={work.frontmatter.logo}
             hero={work.frontmatter.hero}
-            project={work.frontmatter.project}
-            outcome={work.frontmatter.outcome}
+            description={work.frontmatter.description}
             galleryImages={work.frontmatter.galleryImages}
             solutionsList={work.frontmatter.solutionsList}
             intro={work.frontmatter.intro}
@@ -192,8 +187,7 @@ export const pageQuery = graphql`
                 intro
                 logo
                 hero
-                project
-                outcome
+                description
                 galleryImages
                 solutionsList
             }
