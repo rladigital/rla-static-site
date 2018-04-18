@@ -29,14 +29,14 @@ class WorkSection extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
-                    padding="1em 0 3em"
+                    padding="1em 0 4em"
                 >
                     <Row>
                         <Column large={7} centered>
                             <HeaderBlock
                                 baseColor={colors.background}
                                 padding={{
-                                    top: 4,
+                                    top: 8,
                                     right: 0,
                                     bottom: 3,
                                     left: 0
