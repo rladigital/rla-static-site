@@ -108,12 +108,10 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Closing Date", name: "closing", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Description", name: "description", widget: "markdown"}
-      - {label: "Key Skills", name: "skills", widget: "list"}
       - {label: "Level", name: "level", widget: "string"}
       - {label: "Salary", name: "salary", widget: "string"}
       - {label: "Hours", name: "hours", widget: "string", default: "9:00am - 5:30pm"}
       - {label: "Benefits", name: "benefits", widget: "list", default: ["28 Days Hoilday", "Pension", "Fun Environment"]}
-      - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Hero", name: "hero", widget: "image", default: "/img/missing_avatar.svg"}
   - name: "contacts"
     label: "Contacts"

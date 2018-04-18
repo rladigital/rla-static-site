@@ -9,6 +9,8 @@ import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import HeaderBlock from "../components/HeaderBlock";
 import JobHeader from "../components/jobs/JobHeader";
+import BackButton from "../components/blog/BackButton";
+import Hero from "../components/blog/Hero";
 
 const SummaryContainer = styled.section`
     padding: 10px;
@@ -42,12 +44,19 @@ export const JobTemplate = props => {
     return (
         <PageDetailContainer>
             {helmet || ""}
-            <Row>
-                <JobHeader area={area} title={title} hero={hero} />
-            </Row>
+            <BackButton to="/careers" />
+            {hero && (
+                <Row>
+                    <Column>
+                        <Hero src={hero}>
+                            <JobHeader area={area} title={title} hero={hero} />
+                        </Hero>
+                    </Column>
+                </Row>
+            )}
             <JobContainer>
                 <Row>
-                    <Column medium={8} className="cms-content">
+                    <Column medium={7} className="cms-content">
                         <PostContent content={description} />
                         {skills && [
                             <h1>Key Skills</h1>,
@@ -58,14 +67,9 @@ export const JobTemplate = props => {
                             </ul>
                         ]}
                     </Column>
+                    <Column medium={1}>&nbsp;</Column>
                     <Column medium={4}>
                         <SummaryContainer>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Closing:</h5>
-                                </Column>
-                                <Column small={6}>{closing}</Column>
-                            </Row>
                             <Row>
                                 <Column small={6}>
                                     <h5>Level:</h5>
@@ -93,6 +97,12 @@ export const JobTemplate = props => {
                                         return <div key={index}>{benefit}</div>;
                                     })}
                                 </Column>
+                            </Row>
+                            <Row>
+                                <Column small={6}>
+                                    <h5>Closing:</h5>
+                                </Column>
+                                <Column small={6}>{closing}</Column>
                             </Row>
                         </SummaryContainer>
                     </Column>

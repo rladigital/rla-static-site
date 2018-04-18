@@ -217,7 +217,11 @@ function globalCss(theme) {
 
             h1, h2, h3, h4, h5, h6{
                 color: ${colors.black};
-                margin: 3rem 0 1rem;
+                margin: 4rem 0 1rem;
+                &:first-child{
+                    margin: 0 0 1rem;
+                    
+                }
             }
             h1{
                 font-size: 1.2rem;
@@ -227,6 +231,19 @@ function globalCss(theme) {
             }
             p{
                 margin: 0 0 2rem;
+            }
+            ul{
+                margin-left: 25px;
+                list-style-type: none;
+                > li{
+                    line-height: 1.8;
+                    text-indent: -25px;
+                    margin-bottom: 20px;
+                    &:before{
+                        content: "— ";
+                        margin-right: 5px;
+                    }
+                }
             }
         }
     `;

@@ -97,8 +97,6 @@ description: >-
 
   * Finance and Forecasting. To be aware of performance against monthly targets,
   what is being invoiced and when
-skills:
-  - ''
 level: Senior
 salary: DOE
 hours: '9:00am - 5:30pm'
@@ -116,4 +114,3 @@ tags:
   - Client Services
 hero: /img/account handler role b img_7616.jpg
 ---
-

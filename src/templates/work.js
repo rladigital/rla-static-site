@@ -17,6 +17,7 @@ import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
     height: 70px;
+    margin-bottom: 3rem;
 `;
 
 const GalleryItem = styled.div`
@@ -94,9 +95,7 @@ export const WorkTemplate = ({
             )}
             <Row>
                 <Column large={6}>
-                    <PullQuote fontSize={4} padding="3rem 0 0">
-                        {intro}
-                    </PullQuote>
+                    <PullQuote fontSize={4}>{intro}</PullQuote>
                 </Column>
                 <Column large={6}>
                     <Content content={description} className="cms-content" />
