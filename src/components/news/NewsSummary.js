@@ -3,15 +3,29 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
+import { transparentize } from "../../helpers/helpers";
 import { colors, breakpoints } from "../../theme/theme";
 
 const SummaryContainer = styled.section`
     position: relative;
+    height: ${props => props.height}px;
+    text-align: center;
+    overflow: hidden;
+    &:hover {
+        .news-image {
+            transform: scale(1.05);
+        }
+    }
+`;
+
+const Image = styled.div`
+    width: 100%;
+    height: 100%;
+
     background-image: url('${props => props.backgroundImage}');
     background-size: cover;
     background-position: center;
-    height: ${props => props.height}px;
-    text-align: center;
+    transition: transform 0.25s ease;
 `;
 
 const TitleBackground = styled.div`
@@ -20,6 +34,11 @@ const TitleBackground = styled.div`
     width: 100%;
     height: 50%;
     bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        ${transparentize(colors.background, 0.5)} 100%
+    );
 `;
 const TitleContainer = styled.div`
     text-align: left;
@@ -48,10 +67,13 @@ const NewsSummary = ({ story, height }) => {
     //console.log(story);
     return (
         <Link to={story.fields.slug}>
-            <SummaryContainer
-                backgroundImage={story.frontmatter.thumb}
-                height={height}
-            >
+            <SummaryContainer height={height}>
+                <Image
+                    className="news-image"
+                    backgroundImage={story.frontmatter.thumb}
+                >
+                    {" "}
+                </Image>
                 <TitleBackground>
                     <TitleContainer>
                         <Category>{story.frontmatter.category}</Category>
