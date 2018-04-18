@@ -22,38 +22,18 @@ description: >-
   countryside location, but be just a 20-minute drive to the beach!
 
 
-  # THE PERSON
+  # THE Role
 
 
   The key purpose of this role is to be responsible for the day to day
   management of one of our biggest accounts.
 
 
-  * A proven track record of running effective integrated projects.
-
-  * Experience of managing and developing team members.
-
-  * Demonstrates a real knowledge and passion for integrated marketing and keeps
-  abreast of latest developments both for business and personal interest.
-
-  * Has CRM and automotive skills (ideally)
-
-  * Personal capacity for growth and development.
-
-  * Excellent communicator (at all levels).
-
-  * Good Commercial understanding
-
-  * A relentless desire for delivering work on budget, on brief and on time.
-
-  * A forensic attention to detail and the ability to implement process to
-  maintain quality control across the account.
-
-  * Able to form and maintain relationships at all levels.
+  Other responsibilities will include:
 
 
 
-  # Other responsibilities will include:
+
 
 
   * To have an in-depth knowledge of the Client's business and the sector in
@@ -97,6 +77,34 @@ description: >-
 
   * Finance and Forecasting. To be aware of performance against monthly targets,
   what is being invoiced and when
+
+
+  # The Person:
+
+
+  * A proven track record of running effective integrated projects.
+
+  * Experience of managing and developing team members.
+
+  * Demonstrates a real knowledge and passion for integrated marketing and keeps
+  abreast of latest developments both for business and personal interest.
+
+  * Has CRM and automotive skills (ideally)
+
+  * Personal capacity for growth and development.
+
+  * Excellent communicator (at all levels).
+
+  * Good Commercial understanding
+
+  * A relentless desire for delivering work on budget, on brief and on time.
+
+  * A forensic attention to detail and the ability to implement process to
+  maintain quality control across the account.
+
+  * Able to form and maintain relationships at all levels.
+skills:
+  - N/a
 level: Senior
 salary: DOE
 hours: '9:00am - 5:30pm'
@@ -114,3 +122,4 @@ tags:
   - Client Services
 hero: /img/account handler role b img_7616.jpg
 ---
+
