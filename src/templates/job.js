@@ -3,7 +3,6 @@ import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
-import Moment from "react-moment";
 
 import { dateFormat } from "../helpers/helpers";
 import { spacing, colors } from "../theme/theme";
