@@ -46,10 +46,12 @@ const PersonImage = styled.div`
 const PersonTitle = styled.h3`
     font-size: 12px;
     white-space: nowrap;
+    margin: 0 0 0.2rem;
 `;
 const PersonRole = styled.h4`
     font-size: 10px;
     white-space: nowrap;
+    margin: 0;
 `;
 
 const Control = styled.a`
