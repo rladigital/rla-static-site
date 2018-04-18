@@ -173,7 +173,7 @@ export const pageQuery = graphql`
                 hero
                 intro
                 sideHeading
-                project
+
                 galleryImages
                 tags
                 author {
