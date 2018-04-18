@@ -8,7 +8,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import SiteNav from "./SiteNav";
 import SiteNavLink from "./SiteNavLink";
 import { spacing, colors } from "../theme/theme";
-import { isBrowser } from "../helpers/helpers";
+import { isBrowser, transparentize } from "../helpers/helpers";
 
 let resizeTimer;
 
@@ -78,13 +78,19 @@ class SiteHeader extends React.Component {
                 ? colors.background
                 : "transparent";
 
+        const headerBackgroundColor =
+            (isBrowser() && (scrolltop > window.innerHeight * 2.5 && isHome)) ||
+            (isBrowser() && !isHome)
+                ? transparentize(colors.background, 0.4)
+                : "transparent";
+
         return (
             <div>
                 <HeaderContainer
                     style={{
                         padding: `${headerPadding}px 1rem`,
                         color: foregroundColor,
-                        backgroundColor: backgroundColor
+                        backgroundColor: headerBackgroundColor
                     }}
                 >
                     <Row expanded>
