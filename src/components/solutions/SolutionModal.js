@@ -32,16 +32,15 @@ const Content = styled.div`
     transition: all 1s ease;
     transform: translate(-50%, -50%);
     position: absolute;
-    padding: 3vw 0 0;
-    font-size: 5vw;
-    @media (min-width: ${breakpoints.medium}px) {
-        font-size: 3vw;
-    }
+    padding: 10vw 0 0;
+    font-size: 3vw;
+
     @media (min-width: ${breakpoints.large}px) {
         font-size: 2vw;
     }
     @media (min-width: ${breakpoints.xlarge}px) {
-        font-size: 1.5vw;
+        font-size: 1.4vw;
+        padding: 2vw 10vw 0 2vw;
     }
 `;
 
@@ -53,6 +52,17 @@ const H1 = styled.h1`
     }
     @media (min-width: ${breakpoints.large}px) {
         font-size: 6vw;
+    }
+`;
+
+const H2 = styled.h2`
+    font-weight: 900;
+    font-size: 3vw;
+    @media (min-width: ${breakpoints.large}px) {
+        font-size: 2vw;
+    }
+    @media (min-width: ${breakpoints.large}px) {
+        font-size: 1.4vw;
     }
 `;
 
@@ -69,6 +79,11 @@ const BackButton = styled.a`
     color: ${colors.white};
     font-size: 1.2em;
     cursor: pointer;
+    text-shadow: 1px 2px 11px ${colors.background};
+`;
+
+const ContentContainer = styled.div`
+    padding-right: 5vw;
 `;
 
 class SolutionModal extends React.Component {
@@ -123,6 +138,8 @@ class SolutionModal extends React.Component {
             transform: `translate(${width * (1 - animation)} 0)`
         };
 
+        console.log(solution);
+
         return ReactDOM.createPortal(
             <Container
                 id="container"
@@ -162,7 +179,19 @@ class SolutionModal extends React.Component {
                     <Row expanded>
                         <Column collapse>
                             <H1>{solution.frontmatter.title}</H1>
-                            <p>{solution.frontmatter.intro}</p>
+                            <H2>{solution.frontmatter.intro}</H2>
+                        </Column>
+                    </Row>
+                    <Row expanded>
+                        <Column large={6} collapse>
+                            <ContentContainer>
+                                <p>{solution.frontmatter.description1}</p>
+                            </ContentContainer>
+                        </Column>
+                        <Column large={6} collapse>
+                            <ContentContainer>
+                                <p>{solution.frontmatter.description2}</p>
+                            </ContentContainer>
                         </Column>
                     </Row>
                 </Content>

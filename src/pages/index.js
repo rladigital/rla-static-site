@@ -164,6 +164,8 @@ export const pageQuery = graphql`
                         color1
                         color2
                         intro
+                        description1
+                        description2
                     }
                 }
             }
