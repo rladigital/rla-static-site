@@ -16,7 +16,7 @@ function globalCss(theme) {
             font-family: 'Gotham';
             src: url('fonts/Gotham-Bold.woff2') format('woff2'),
                 url('fonts/Gotham-Bold.woff') format('woff');
-            font-weight: 500;
+            font-weight: bold;
             font-style: normal;
         }
 
@@ -241,6 +241,7 @@ function globalCss(theme) {
             color: ${colors.lightGray};
 
             h1, h2, h3, h4, h5, h6{
+                font-weight: 900;
                 color: ${colors.black};
                 margin: 4rem 0 1rem;
                 &:first-child{
