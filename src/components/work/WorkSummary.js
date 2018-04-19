@@ -88,7 +88,10 @@ const WorkSummary = ({ work, index, heightMediaQuery }) => {
             previewType={work.frontmatter.previewType}
         >
             <Container heightMediaQuery={heightMediaQuery}>
-                <Image backgroundImage={work.frontmatter.thumb}>
+                <Image
+                    backgroundImage={work.frontmatter.thumb}
+                    alignment={work.frontmatter.thumbnailAlignment}
+                >
                     <Overlay index={index}>
                         <Content>
                             <Title>{work.frontmatter.title}</Title>

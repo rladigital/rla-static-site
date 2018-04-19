@@ -167,6 +167,7 @@ export const pageQuery = graphql`
                         thumb
                         hero
                         previewType
+                        thumbnailAlignment
                     }
                 }
             }
