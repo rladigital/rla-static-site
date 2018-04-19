@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
-import { colors } from "../../theme/theme";
+import { colors, breakpoints } from "../../theme/theme";
 import { transformScale, random, isMobile } from "../../helpers/helpers";
 import SolutionModal from "./SolutionModal";
 
@@ -59,9 +59,12 @@ const Subtitle = styled.text`
 `;
 
 const Solution = styled.text`
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 900;
     fill: ${colors.white};
+    @media (min-width: ${breakpoints.medium}px) {
+        font-size: 16px;
+    }
 `;
 
 const Orb = styled.circle`
@@ -90,7 +93,7 @@ class SolutionsVideo extends React.Component {
         const deviation = 50;
 
         if (isMobile()) {
-            const r = 240;
+            const r = 340;
             for (var i = 0; i < items.length; i++) {
                 array[i] = new Object();
                 const theta = Math.PI / items.length;
@@ -101,7 +104,7 @@ class SolutionsVideo extends React.Component {
 
                 const x = 0 + r * Math.cos(angle); // center point + radius * angle
                 const y = 0 + r * Math.sin(angle);
-                const size = 18;
+                const size = 30;
 
                 array[i].cx = x;
                 array[i].cy = y;
@@ -306,31 +309,32 @@ class SolutionsVideo extends React.Component {
                                         {solution.frontmatter.title
                                             .toUpperCase()
                                             .split(" ")
-                                            .map((word, i) => (
-                                                <tspan
-                                                    key={i}
-                                                    x={
-                                                        isMobile()
-                                                            ? orbs[index].cx
-                                                            : orbs[index].cx +
-                                                              (orbs[index].cx <
-                                                              0
-                                                                  ? -orbs[index]
-                                                                        .r - 10
-                                                                  : orbs[index]
-                                                                        .r + 10)
-                                                    }
-                                                    dy={
-                                                        isMobile()
-                                                            ? i == 0 ? 40 : 15
-                                                            : i == 0
-                                                                ? "-3px"
-                                                                : "18px"
-                                                    }
-                                                >
-                                                    {word}
-                                                </tspan>
-                                            ))}
+                                            .map((word, i) => {
+                                                const x = isMobile()
+                                                    ? orbs[index].cx
+                                                    : orbs[index].cx +
+                                                      (orbs[index].cx < 0
+                                                          ? -orbs[index].r - 10
+                                                          : orbs[index].r + 10);
+
+                                                const dy = isMobile()
+                                                    ? i == 0
+                                                        ? orbs[index].cy > 0
+                                                            ? 60
+                                                            : -60
+                                                        : 20
+                                                    : i == 0 ? "-3px" : "18px";
+
+                                                return (
+                                                    <tspan
+                                                        key={i}
+                                                        x={x}
+                                                        dy={dy}
+                                                    >
+                                                        {word}
+                                                    </tspan>
+                                                );
+                                            })}
                                     </Solution>,
                                     <Orb
                                         key={index}
