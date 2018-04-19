@@ -6,5 +6,6 @@ solutionsList:
   - Brand Desire
   - Cortex
   - Customer Acquisition
+  - Customer Relationship
 ---
 
