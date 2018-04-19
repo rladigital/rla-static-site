@@ -59,7 +59,7 @@ const Image = styled.section`
     position: relative;
     background-image: url('${props => props.backgroundImage}');
     background-size: cover;
-    background-position: center;
+    background-position: ${props => props.alignment};
     overflow: hidden;
     transition: transform 0.25s ease;
     &:hover{
@@ -88,16 +88,16 @@ const WorkSummary = ({ work, index, heightMediaQuery }) => {
             previewType={work.frontmatter.previewType}
         >
             <Container heightMediaQuery={heightMediaQuery}>
-                <Image backgroundImage={work.frontmatter.thumb}>
+                <Image
+                    backgroundImage={work.frontmatter.thumb}
+                    alignment={work.frontmatter.thumbnailAlignment}
+                >
                     <Overlay index={index}>
                         <Content>
                             <Title>{work.frontmatter.title}</Title>
-                            {work.frontmatter.description && (
+                            {work.frontmatter.excerpt && (
                                 <Summary>
-                                    {work.frontmatter.description.substring(
-                                        0,
-                                        200
-                                    )}...
+                                    {work.frontmatter.excerpt.substring(0, 200)}...
                                 </Summary>
                             )}
                         </Content>

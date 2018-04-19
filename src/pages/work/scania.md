@@ -14,4 +14,8 @@ solutionsList:
 weighting: 0
 
 previewType:
+
+excerpt:
+
+thumbnailAlignment: top
 ---
