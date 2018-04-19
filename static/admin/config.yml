@@ -74,7 +74,7 @@ collections:
       - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Thumbnail Image", name: "thumb", widget: "image"}
-      - {label: "Category", name: "category", widget: "select", options: ["News", "Insight"]}
+      - {label: "Category", name: "category", widget: "select", options: ["News", "Insight", "Culture"]}
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Intro Heading", name: "intro", widget: "string"}
       - {label: "Side Heading", name: "sideHeading", widget: "string"}
