@@ -42,7 +42,7 @@ export default class ContactMap extends React.Component {
                 center={position}
                 zoom={this.state.zoom}
                 style={{
-                    minHeight: "500px",
+                    minHeight: "680px",
                     height: "100%",
                     width: "100%"
                 }}
@@ -58,26 +58,10 @@ export default class ContactMap extends React.Component {
                     style={{
                         fillColor: "#424f67",
                         weight: 1,
-                        color: colors.white,
+                        color: colors.background,
                         fillOpacity: 1
                     }}
                 />
-
-                {/* {contacts.map(({ node: contact }, index) => {
-                    return (
-                        <Marker
-                            position={[
-                                contact.frontmatter.lat,
-                                contact.frontmatter.lng
-                            ]}
-                            title={contact.frontmatter.title}
-                            alt={contact.frontmatter.title}
-                            onClick={this.handleMapClick}
-                            slug={contact.fields.slug}
-                            key={index}
-                        />
-                    );
-                })} */}
 
                 {contacts.map(({ node: contact }, index) => {
                     return (
@@ -94,6 +78,20 @@ export default class ContactMap extends React.Component {
                         />
                     );
                 })}
+
+                {/* {contacts.map(({ node: contact }, index) => {
+                    return (
+                        <Popup
+                            position={[
+                                contact.frontmatter.lat,
+                                contact.frontmatter.lng
+                            ]}
+                            key={index}
+                        >
+                            <div>{contact.frontmatter.title}</div>
+                        </Popup>
+                    );
+                })} */}
             </Map>
         );
     }

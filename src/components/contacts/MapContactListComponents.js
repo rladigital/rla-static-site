@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { colors, sizes } from "../../theme/theme";
+import { colors, sizes, spacing } from "../../theme/theme";
 
 export const MapWrapper = styled.div`
     position: relative;
 `;
 
 export const MapListHeader = styled.h5`
-    padding: 0.6rem 1rem;
+    margin: 0;
+    padding: ${spacing.padding}em;
     color: ${colors.lightGray};
 `;
 
 export const ContactList = styled.ul``;
 
 export const ContactListItem = styled.li`
-    padding: 0.6rem 1rem;
+    padding: 0.8em ${spacing.padding}em;
     background: ${props =>
         props.active ? colors.darkBlueGray : colors.mediumBlueGray};
     font-size: ${props =>

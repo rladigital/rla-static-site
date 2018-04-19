@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { colors, breakpoints } from "../../theme/theme";
-import Content from "../Content";
-import ProfileImage from "../ProfileImage";
+import { colors, breakpoints, spacing } from "../../theme/theme";
+import { HTMLContent } from "../Content";
 import FAIcon from "@fortawesome/react-fontawesome";
 
 const Container = styled.div`
     height: 100%;
-    padding: 1rem;
+    padding: ${spacing.padding}em;
     background: ${colors.white};
     color: ${colors.darkBlueGray};
     word-break: break-word;
@@ -25,19 +24,19 @@ const ContactLocationName = styled.h3`
         font-size: 4vw;
     }
     @media (min-width: ${breakpoints.large}px) {
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
 `;
 const SectionLabel = styled.h4`
-    margin: 1.5rem 0 0.5rem 0;
+    margin: 2rem 0 1rem 0;
     color: ${colors.lightGray};
     font-weight: bold;
-    font-size: 5.5vw;
+    font-size: 5vw;
     @media (min-width: ${breakpoints.medium}px) {
-        font-size: 2.8vw;
+        font-size: 2.3vw;
     }
     @media (min-width: ${breakpoints.large}px) {
-        font-size: 1.5vw;
+        font-size: 0.8vw;
     }
 `;
 
@@ -46,6 +45,21 @@ const Icon = styled(FAIcon)`
     font-size: 1.5rem;
     margin: 0.5rem 0.3rem -0.3rem 0;
 `;
+
+const ProfileImage = styled.img`
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+`;
+
+const Details = styled.div`
+    line-height: 1.2;
+    margin-bottom: 1em;
+    font-weight: bold;
+    font-size: 1em;
+`;
+
 class ContactDetail extends React.Component {
     render() {
         const { contact } = this.props;
@@ -56,27 +70,32 @@ class ContactDetail extends React.Component {
                     {contact.frontmatter.title}
                 </ContactLocationName>
                 <SectionLabel>Address</SectionLabel>
-                <Content content={contact.frontmatter.address} />
+                <Details>
+                    <HTMLContent content={contact.frontmatter.address} />
+                </Details>
                 <SectionLabel>Lead Contact</SectionLabel>
                 <ProfileImage src={contact.frontmatter.contactImage} />
-                <p>{contact.frontmatter.contactName}</p>
-                <p>{contact.frontmatter.contactRole}</p>
-                <p>
+                <Details>
+                    {contact.frontmatter.contactName}
+                    <br />
+                    {contact.frontmatter.contactRole}
+                </Details>
+                <Details>
                     <Icon
                         icon="phone"
                         mask={["fas", "circle"]}
                         transform="shrink-9"
                     />
                     {contact.frontmatter.tel}
-                </p>
-                <p>
+                </Details>
+                <Details>
                     <Icon
                         icon="envelope"
                         mask={["fas", "circle"]}
                         transform="shrink-9"
                     />
                     {contact.frontmatter.email}
-                </p>
+                </Details>
             </Container>
         );
     }
