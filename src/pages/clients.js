@@ -7,6 +7,7 @@ import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import theme, { colors } from "../theme/theme";
+import { isMobile } from "../helpers/helpers";
 import HeaderBlock from "../components/HeaderBlock";
 import SolutionModal from "../components/solutions/SolutionModal";
 
@@ -39,8 +40,8 @@ const LogoContainer = styled.div`
 const Logo = styled.div`
     width: 100%;
     height: 10vw;
-    min-height: 200px;
-    max-height: 400px;
+    min-height: 80px;
+    max-height: 100px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -127,7 +128,7 @@ export default class ClientsPage extends React.Component {
         } = data;
 
         const settings = {
-            slideWidth: 0.3,
+            slideWidth: isMobile() ? 0.8 : 0.25,
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
@@ -216,7 +217,7 @@ export default class ClientsPage extends React.Component {
                                                                     )
                                                                 }
                                                                 style={{
-                                                                    animationDelay: `${0.2 *
+                                                                    animationDelay: `${0.25 *
                                                                         index}s`,
                                                                     zIndex:
                                                                         1 -
