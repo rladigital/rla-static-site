@@ -25,7 +25,7 @@ excerpt: Cultivating support for farmers.
 galleryImages:
   - /img/Tesco.png
 solutionsList:
-  - B
+  - Brand desire
 weighting: -1
 previewType: page
 thumbnailAlignment: top
