@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import graphql from "graphql";
 import styled from "styled-components";
-import { Row, Column } from "rla-components";
+import { Row, Column, Button } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
 import { scale, random, isBrowser } from "../../helpers/helpers";
+import { Scrollbars } from "react-custom-scrollbars";
+
 import FAIcon from "@fortawesome/react-fontawesome";
 
 const modalRoot = isBrowser() ? document.getElementById("modal-root") : null;
@@ -83,7 +86,14 @@ const BackButton = styled.a`
 `;
 
 const ContentContainer = styled.div`
-    padding-right: 5vw;
+    padding: 0 0 2em 0;
+    @media (min-width: ${breakpoints.xlarge}px) {
+        padding: 0 4vw 5em 0;
+    }
+`;
+
+const ButtonContainer = ContentContainer.extend`
+    padding-bottom: 0 !important;
 `;
 
 class SolutionModal extends React.Component {
@@ -91,6 +101,7 @@ class SolutionModal extends React.Component {
         super(props);
         this.el = document.createElement("div");
         this.state = {
+            current: this.props.solution,
             animation: 0
         };
     }
@@ -122,9 +133,13 @@ class SolutionModal extends React.Component {
         }, 1000);
     }
 
+    handleClick(x) {
+        this.setState({ current: x });
+    }
+
     render() {
-        const { animation } = this.state;
-        const { solution, width, height, close } = this.props;
+        const { animation, current } = this.state;
+        const { solutions, width, height, close } = this.props;
         const isLarge = Boolean(width > breakpoints.xlarge);
 
         const w = isLarge ? width - width / 5 : width;
@@ -138,7 +153,11 @@ class SolutionModal extends React.Component {
             transform: `translate(${width * (1 - animation)} 0)`
         };
 
-        console.log(solution);
+        const currentSolution = solutions[current].node;
+        const prevSolution = current - 1;
+        const nextSolution = current + 1;
+
+        console.log(currentSolution);
 
         return ReactDOM.createPortal(
             <Container
@@ -156,15 +175,16 @@ class SolutionModal extends React.Component {
                     <linearGradient id="active_solution_grad">
                         <stop
                             offset="5%"
-                            stopColor={solution.frontmatter.color2}
+                            stopColor={currentSolution.frontmatter.color2}
                         />
                         <stop
                             offset="95%"
-                            stopColor={solution.frontmatter.color1}
+                            stopColor={currentSolution.frontmatter.color1}
                         />
                     </linearGradient>
                     <Circle {...circleProps} />
                 </Svg>
+
                 <Content
                     style={{
                         width: w,
@@ -176,24 +196,85 @@ class SolutionModal extends React.Component {
                     }}
                     onClick={e => e.stopPropagation()}
                 >
-                    <Row expanded>
-                        <Column collapse>
-                            <H1>{solution.frontmatter.title}</H1>
-                            <H2>{solution.frontmatter.intro}</H2>
-                        </Column>
-                    </Row>
-                    <Row expanded>
-                        <Column large={6} collapse>
-                            <ContentContainer>
-                                <p>{solution.frontmatter.description1}</p>
-                            </ContentContainer>
-                        </Column>
-                        <Column large={6} collapse>
-                            <ContentContainer>
-                                <p>{solution.frontmatter.description2}</p>
-                            </ContentContainer>
-                        </Column>
-                    </Row>
+                    {" "}
+                    <Scrollbars>
+                        <Row expanded>
+                            <Column>
+                                <H1>{currentSolution.frontmatter.title}</H1>
+                                <H2>{currentSolution.frontmatter.intro}</H2>
+                            </Column>
+                        </Row>
+                        <Row expanded>
+                            <Column large={6}>
+                                <ContentContainer>
+                                    <p>
+                                        {
+                                            currentSolution.frontmatter
+                                                .description1
+                                        }
+                                    </p>
+                                </ContentContainer>
+                            </Column>
+                            <Column large={6}>
+                                <ContentContainer>
+                                    <p>
+                                        {
+                                            currentSolution.frontmatter
+                                                .description2
+                                        }
+                                    </p>
+                                </ContentContainer>
+                            </Column>
+                        </Row>
+                        <Row expanded>
+                            <Column large={6}>
+                                <ButtonContainer>
+                                    {solutions[prevSolution] ? (
+                                        <Button
+                                            size="large"
+                                            color="white"
+                                            hollow
+                                            expanded
+                                            borderWidth={2}
+                                            onClick={() =>
+                                                this.handleClick(prevSolution)
+                                            }
+                                        >
+                                            {
+                                                solutions[prevSolution].node
+                                                    .frontmatter.title
+                                            }
+                                        </Button>
+                                    ) : (
+                                        <span>&nbsp;</span>
+                                    )}
+                                </ButtonContainer>
+                            </Column>
+                            <Column large={6}>
+                                <ButtonContainer>
+                                    {solutions[nextSolution] ? (
+                                        <Button
+                                            size="large"
+                                            color="white"
+                                            hollow
+                                            expanded
+                                            borderWidth={2}
+                                            onClick={() =>
+                                                this.handleClick(nextSolution)
+                                            }
+                                        >
+                                            {
+                                                solutions[nextSolution].node
+                                                    .frontmatter.title
+                                            }
+                                        </Button>
+                                    ) : (
+                                        <span>&nbsp;</span>
+                                    )}
+                                </ButtonContainer>
+                            </Column>
+                        </Row>
+                    </Scrollbars>
                 </Content>
             </Container>,
             this.el

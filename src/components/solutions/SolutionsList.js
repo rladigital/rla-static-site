@@ -291,9 +291,7 @@ class SolutionsVideo extends React.Component {
                                         key={index}
                                         fill={`url(#grad_${index})`}
                                         id={`orb_${index}`}
-                                        onClick={() =>
-                                            this.handleClick(solution)
-                                        }
+                                        onClick={() => this.handleClick(index)}
                                         {...orbs[index]}
                                     />
                                 ])}
@@ -305,6 +303,7 @@ class SolutionsVideo extends React.Component {
                         width={width}
                         height={height}
                         solution={activeSolution}
+                        solutions={solutions}
                         close={() => this.handleClick(null)}
                     />
                 )}
