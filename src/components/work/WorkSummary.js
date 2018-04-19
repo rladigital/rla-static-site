@@ -92,12 +92,9 @@ const WorkSummary = ({ work, index, heightMediaQuery }) => {
                     <Overlay index={index}>
                         <Content>
                             <Title>{work.frontmatter.title}</Title>
-                            {work.frontmatter.description && (
+                            {work.frontmatter.excerpt && (
                                 <Summary>
-                                    {work.frontmatter.description.substring(
-                                        0,
-                                        200
-                                    )}...
+                                    {work.frontmatter.excerpt.substring(0, 200)}...
                                 </Summary>
                             )}
                         </Content>

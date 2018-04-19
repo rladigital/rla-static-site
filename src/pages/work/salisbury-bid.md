@@ -12,4 +12,6 @@ solutionsList:
   - Brand Desire
 weighting: -2
 previewType: page
+excerpt:
+thumbnailAlignment: center
 ---

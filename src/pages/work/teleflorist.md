@@ -6,5 +6,8 @@ intro: tbc
 description: ''
 weighting: 0
 previewType: lightbox
----
 
+excerpt:
+
+thumbnailAlignment: center
+---

@@ -162,6 +162,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         description
+                        excerpt
                         templateKey
                         thumb
                         hero

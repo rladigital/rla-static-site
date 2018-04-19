@@ -12,4 +12,6 @@ solutionsList:
   - B
 weighting: -1
 previewType: page
+excerpt:
+thumbnailAlignment: center
 ---

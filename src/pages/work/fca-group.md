@@ -39,4 +39,8 @@ solutionsList:
   - Cortex
 weighting: -3
 previewType: page
+
+excerpt: Together, we became a valuable extension of FCA’s marketing team.
+
+thumbnailAlignment: center
 ---
