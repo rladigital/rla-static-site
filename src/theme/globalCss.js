@@ -6,24 +6,24 @@ function globalCss(theme) {
 
         @font-face {
             font-family: 'Gotham';
-            src: url('fonts/Gotham-Medium.woff2') format('woff2'),
-                url('fonts/Gotham-Medium.woff') format('woff');
+            src: url('/fonts/Gotham-Medium.woff2') format('woff2'),
+                url('/fonts/Gotham-Medium.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
         
         @font-face {
             font-family: 'Gotham';
-            src: url('fonts/Gotham-Bold.woff2') format('woff2'),
-                url('fonts/Gotham-Bold.woff') format('woff');
+            src: url('/fonts/Gotham-Bold.woff2') format('woff2'),
+                url('/fonts/Gotham-Bold.woff') format('woff');
             font-weight: bold;
             font-style: normal;
         }
 
         @font-face {
             font-family: 'Gotham';
-            src: url('fonts/Gotham-Ultra.woff2') format('woff2'),
-                url('fonts/Gotham-Ultra.woff') format('woff');
+            src: url('/fonts/Gotham-Ultra.woff2') format('woff2'),
+                url('/fonts/Gotham-Ultra.woff') format('woff');
             font-weight: 900;
             font-style: normal;
         }
