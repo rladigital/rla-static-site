@@ -82,7 +82,6 @@ const WorkSummaryWrapper = ({ children, slug, previewType }) => {
 };
 
 const WorkSummary = ({ work, index, heightMediaQuery }) => {
-    console.log(work.frontmatter.thumbnailAlignment);
     return (
         <WorkSummaryWrapper
             slug={work.fields.slug}
