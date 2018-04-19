@@ -214,6 +214,7 @@ class SolutionsVideo extends React.Component {
                                 <linearGradient
                                     key={index}
                                     id={`grad_${index}`}
+                                    key={`$gradient_${index}`}
                                 >
                                     <stop
                                         offset="5%"
@@ -262,6 +263,7 @@ class SolutionsVideo extends React.Component {
                                         textAnchor={
                                             orbs[index].cx < 0 ? "end" : "start"
                                         }
+                                        key={`solution_${index}`}
                                     >
                                         {solution.frontmatter.title
                                             .toUpperCase()
