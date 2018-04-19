@@ -2,7 +2,8 @@ import React from "react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
-import { Row, Column } from "rla-components";
+import { Row, Column, Button } from "rla-components";
+import FAIcon from "@fortawesome/react-fontawesome";
 
 import { dateFormat } from "../helpers/helpers";
 import { spacing, colors } from "../theme/theme";
@@ -16,6 +17,7 @@ import Hero from "../components/blog/Hero";
 const SummaryContainer = styled.section`
     padding: ${spacing.padding}em ${spacing.padding}em 0;
     background: #ebebeb;
+    margin-bottom: ${spacing.margin}em;
     p {
         margin: 0 0 0.8em;
     }
@@ -78,6 +80,16 @@ export const JobTemplate = props => {
                                 {dateFormat(closing)}
                             </SummaryItem>
                         </SummaryContainer>
+                        <a href="mailto:careers@rla.co.uk">
+                            <Button
+                                size="large"
+                                hollow
+                                color="background"
+                                borderWidth={3}
+                            >
+                                Apply for this job <FAIcon icon="arrow-right" />
+                            </Button>
+                        </a>
                     </Column>
                 </Row>
             </JobContainer>
