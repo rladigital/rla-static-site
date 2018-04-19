@@ -106,7 +106,9 @@ class SiteHeader extends React.Component {
                             </Link>
                         </Column>
                         <Column small={6} medium={9}>
-                            {!isMobile() && (scrolltop == 0 && isHome) ? (
+                            {isBrowser() &&
+                            !isMobile() &&
+                            (scrolltop == 0 && isHome) ? (
                                 <SiteNav>
                                     {items.map((item, index) => {
                                         return (
