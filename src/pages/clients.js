@@ -5,8 +5,9 @@ import { Row, Column } from "rla-components";
 import Carousel from "nuka-carousel";
 import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import FAIcon from "@fortawesome/react-fontawesome";
 
-import theme, { colors } from "../theme/theme";
+import theme, { colors, spacing } from "../theme/theme";
 import { isMobile, isBrowser } from "../helpers/helpers";
 import HeaderBlock from "../components/HeaderBlock";
 import SolutionModal from "../components/solutions/SolutionModal";
@@ -94,6 +95,16 @@ const SolutionText = styled.div`
     left: 30px;
 `;
 
+const Control = styled.a`
+    top: 50%;
+    font-size: 3em;
+    color: ${colors.white};
+    cursor: pointer;
+    position: absolute;
+    padding: ${spacing.padding}em;
+    transform: translateY(-335px);
+`;
+
 export default class ClientsPage extends React.Component {
     constructor(props) {
         super(props);
@@ -132,9 +143,34 @@ export default class ClientsPage extends React.Component {
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
-            renderCenterRightControls: ({ nextSlide }) => null,
-            renderCenterLeftControls: ({ previousSlide }) => null,
-            renderBottomCenterControls: ({ currentSlide }) => null
+            renderCenterRightControls: ({ nextSlide }) => (
+                <Control
+                    className="fa-layers fa-fw"
+                    onClick={nextSlide}
+                    style={{
+                        right: 0
+                    }}
+                >
+                    <FAIcon icon="chevron-right" transform="shrink-8" />
+                    <FAIcon icon={["far", "circle"]} />
+                </Control>
+            ),
+            renderCenterLeftControls: ({ previousSlide }) => (
+                <Control
+                    className="fa-layers fa-fw"
+                    onClick={previousSlide}
+                    style={{
+                        left: 0
+                    }}
+                >
+                    <FAIcon icon="chevron-left" transform="shrink-8" />
+                    <FAIcon icon={["far", "circle"]} />
+                </Control>
+            ),
+            renderBottomCenterControls: ({ currentSlide }) => null,
+            afterSlide: slideIndex => {
+                this.setSlide(slideIndex);
+            }
         };
 
         return (
@@ -201,7 +237,7 @@ export default class ClientsPage extends React.Component {
                                             }}
                                         />
                                     </Container>
-                                    <Container style={{ height: 300 }}>
+                                    <Container style={{ height: 500 }}>
                                         {isCurrent &&
                                             client.frontmatter.solutionsList.map(
                                                 (title, index) => {
