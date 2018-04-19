@@ -152,7 +152,9 @@ class MenuIcon extends React.Component {
         const { active } = nextProps;
         if (this.state.active != active) {
             this.animate.map((animate, i) => {
-                animate.beginElement();
+                if ("beginElement" in animate) {
+                    animate.beginElement();
+                }
             });
             this.setState({ active: active });
         }
