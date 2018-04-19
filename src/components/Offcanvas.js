@@ -102,7 +102,7 @@ class Offcanvas extends React.Component {
                             <Section padding={3}>
                                 {items.map((item, index) => {
                                     return (
-                                        <Item>
+                                        <Item key={index}>
                                             <StyledLink
                                                 to={item.to}
                                                 onClick={toggleOffcanvas()}
