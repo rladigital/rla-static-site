@@ -141,7 +141,6 @@ class ServicesSection extends React.Component {
                         </HeaderBlock>
                     </Column>
                 </Row>
-                {current}
                 <div style={{ position: "relative" }}>
                     <svg width={width} height={height}>
                         <defs>

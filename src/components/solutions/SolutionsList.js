@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors } from "../../theme/theme";
-import { transformScale, random } from "../../helpers/helpers";
+import { transformScale, random, isMobile } from "../../helpers/helpers";
 import SolutionModal from "./SolutionModal";
 
 const rotate360 = keyframes`
@@ -85,21 +85,43 @@ class SolutionsVideo extends React.Component {
     orbs(items) {
         const { width, height } = this.props;
         const { randoms, activeSolution } = this.state;
-        const r = 360;
+
         const array = new Array();
         const deviation = 50;
 
-        for (var i = 0; i < items.length; i++) {
-            array[i] = new Object();
-            const theta = Math.PI * 2 / items.length;
-            const angle = theta * i - Math.PI / 2;
-            const x = 0 + r * Math.cos(angle); // center point + radius * angle
-            const y = 0 + r * Math.sin(angle);
-            const size = random(18, 34);
+        if (isMobile()) {
+            const r = 240;
+            for (var i = 0; i < items.length; i++) {
+                array[i] = new Object();
+                const theta = Math.PI / items.length;
+                const count = items.length;
+                const angle =
+                    (i >= count / 2 ? theta * i : theta * (i - count / 2)) -
+                    Math.PI / count;
 
-            array[i].cx = x + random(-deviation, deviation);
-            array[i].cy = y + random(-deviation, deviation);
-            array[i].r = size;
+                const x = 0 + r * Math.cos(angle); // center point + radius * angle
+                const y = 0 + r * Math.sin(angle);
+                const size = 18;
+
+                array[i].cx = x;
+                array[i].cy = y;
+                array[i].r = size;
+            }
+        } else {
+            const r = 360;
+            for (var i = 0; i < items.length; i++) {
+                array[i] = new Object();
+                const theta = Math.PI * 2 / items.length;
+                const angle = theta * i - Math.PI / 2;
+
+                const x = 0 + r * Math.cos(angle); // center point + radius * angle
+                const y = 0 + r * Math.sin(angle);
+                const size = random(18, 34);
+
+                array[i].cx = x + random(-deviation, deviation);
+                array[i].cy = y + random(-deviation, deviation);
+                array[i].r = size;
+            }
         }
 
         return array;
@@ -240,7 +262,11 @@ class SolutionsVideo extends React.Component {
                         </defs>
                         <g
                             transform={`translate(${width / 2},${height /
-                                2}) scale(${transformScale(1080)})`}
+                                2}) scale(${
+                                isMobile()
+                                    ? transformScale(700)
+                                    : transformScale(1080)
+                            })`}
                         >
                             {this.state.lines}
                             <TitleCircle cx={0} cy={0} r={200} />
@@ -269,7 +295,11 @@ class SolutionsVideo extends React.Component {
                                     <Solution
                                         y={orbs[index].cy}
                                         textAnchor={
-                                            orbs[index].cx < 0 ? "end" : "start"
+                                            isMobile()
+                                                ? "middle"
+                                                : orbs[index].cx < 0
+                                                    ? "end"
+                                                    : "start"
                                         }
                                         key={`solution_${index}`}
                                     >
@@ -280,15 +310,22 @@ class SolutionsVideo extends React.Component {
                                                 <tspan
                                                     key={i}
                                                     x={
-                                                        orbs[index].cx +
-                                                        (orbs[index].cx < 0
-                                                            ? -orbs[index].r -
-                                                              10
-                                                            : orbs[index].r +
-                                                              10)
+                                                        isMobile()
+                                                            ? orbs[index].cx
+                                                            : orbs[index].cx +
+                                                              (orbs[index].cx <
+                                                              0
+                                                                  ? -orbs[index]
+                                                                        .r - 10
+                                                                  : orbs[index]
+                                                                        .r + 10)
                                                     }
                                                     dy={
-                                                        i == 0 ? "-3px" : "18px"
+                                                        isMobile()
+                                                            ? i == 0 ? 40 : 15
+                                                            : i == 0
+                                                                ? "-3px"
+                                                                : "18px"
                                                     }
                                                 >
                                                     {word}

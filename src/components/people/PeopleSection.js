@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 
-import { serveStatic } from "../../helpers/helpers";
+import { isBrowser } from "../../helpers/helpers";
 import HeaderBlock from "../HeaderBlock";
 import SectionContainer from "../SectionContainer";
-if (serveStatic()) {
-    var PeopleBrowser = require("./PeopleBrowserStatic");
-} else {
+if (isBrowser()) {
     var PeopleBrowser = require("./PeopleBrowser");
+} else {
+    var PeopleBrowser = require("./PeopleBrowserStatic");
 }
 
 class PeopleSection extends React.Component {

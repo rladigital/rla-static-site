@@ -5,7 +5,13 @@ import { Row, Column } from "rla-components";
 import { transformScale, shuffleArray } from "../../helpers/helpers";
 
 import { colors } from "../../theme/theme";
-import { hexToInt, scale, random, chunkArray } from "../../helpers/helpers";
+import {
+    hexToInt,
+    scale,
+    random,
+    chunkArray,
+    isMobile
+} from "../../helpers/helpers";
 
 const height = 600;
 
@@ -144,9 +150,17 @@ class PeopleBrowser extends React.Component {
         let size = 360;
 
         for (var i = 0; i < count; i++) {
-            let angle =
-                (i >= count / 2 ? theta * i : theta * (i - count / 2)) -
-                Math.PI / count * 4;
+            let angle;
+            if (isMobile()) {
+                angle =
+                    (i >= count / 2 ? theta * i : theta * (i - count / 2)) -
+                    Math.PI / count;
+            } else {
+                angle =
+                    (i >= count / 2 ? theta * i : theta * (i - count / 2)) -
+                    Math.PI / count * 4;
+            }
+
             let x = size * Math.cos(angle); // center point + radius * angle
             let y = size * Math.sin(angle);
 
