@@ -12,13 +12,9 @@ import MissionSection from "../components/mission/MissionSection";
 
 if (!isBrowser()) {
     var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
-} else {
-    var SolutionsSection = require("../components/solutions/SolutionsSection");
-}
-
-if (serveStatic()) {
     var ServicesSection = require("../components/services/ServicesSectionStatic");
 } else {
+    var SolutionsSection = require("../components/solutions/SolutionsSection");
     var ServicesSection = require("../components/services/ServicesSection");
 }
 

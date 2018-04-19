@@ -8,7 +8,7 @@ import ServiceSummary from "./ServiceSummary";
 import SectionContainer from "../SectionContainer";
 
 import { colors } from "../../theme/theme";
-import { hexToInt } from "../../helpers/helpers";
+import { isMobile, hexToInt } from "../../helpers/helpers";
 
 const Control = styled.a`
     font-size: 3em;
@@ -28,7 +28,7 @@ class ServicesSection extends React.Component {
 
     coords(elem) {
         const { current } = this.state;
-        const points = 7;
+        const points = isMobile() ? 5 : 7;
         const total = elem.getTotalLength();
         const segment = total / (points - 1);
         let coords = new Array();
@@ -40,8 +40,13 @@ class ServicesSection extends React.Component {
 
         // Coord other params
         for (var i = 0; i < coords.length; i++) {
-            coords[i].status =
-                i == 3 ? "active" : i < 6 && i > 0 ? "visible" : null;
+            if (isMobile()) {
+                coords[i].status =
+                    i == 2 ? "active" : i < 4 && i > 0 ? "visible" : null;
+            } else {
+                coords[i].status =
+                    i == 3 ? "active" : i < 6 && i > 0 ? "visible" : null;
+            }
         }
 
         // Slide the points
