@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: 'Facebook Dropped The Ball on Data, So How Does It Affect Marketers?'
-date: 17/04/2018
+date: 18/04/2018
 hero: /img/1150x460_rla_banner_facebook_luke_v1.jpg
 thumb: /img/1150x460_rla_banner_facebook_luke_v1.jpg
 category: Insight
