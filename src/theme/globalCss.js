@@ -4,6 +4,31 @@ function globalCss(theme) {
     return `   
         @import url("https://use.typekit.net/xsi0mvc.css");
 
+        @font-face {
+            font-family: 'Gotham';
+            src: url('fonts/Gotham-Medium.woff2') format('woff2'),
+                url('fonts/Gotham-Medium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Gotham';
+            src: url('fonts/Gotham-Bold.woff2') format('woff2'),
+                url('fonts/Gotham-Bold.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gotham';
+            src: url('fonts/Gotham-Ultra.woff2') format('woff2'),
+                url('fonts/Gotham-Ultra.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+        }
+        
+
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
