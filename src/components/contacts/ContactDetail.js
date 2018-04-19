@@ -58,6 +58,9 @@ const Details = styled.div`
     margin-bottom: 1em;
     font-weight: bold;
     font-size: 1em;
+    a {
+        color: ${colors.black};
+    }
 `;
 
 class ContactDetail extends React.Component {
@@ -94,7 +97,9 @@ class ContactDetail extends React.Component {
                         mask={["fas", "circle"]}
                         transform="shrink-9"
                     />
-                    {contact.frontmatter.email}
+                    <a href={`mailto:${contact.frontmatter.email}`}>
+                        {contact.frontmatter.email}
+                    </a>
                 </Details>
             </Container>
         );

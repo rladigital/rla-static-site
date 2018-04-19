@@ -54,9 +54,11 @@ const MissionSection = ({ percentage, text }) => (
                     challenging industry conventions. We also harness innovative
                     technologies and incredible creativity.
                 </P>
-                <Button hollow={true} size="large" color="white">
-                    More About the Mission &rarr;
-                </Button>
+                <a href="http://www.themission.co.uk/" target="_blank">
+                    <Button hollow={true} size="large" color="white">
+                        More About the Mission &rarr;
+                    </Button>
+                </a>
             </Column>
         </Row>
     </Container>

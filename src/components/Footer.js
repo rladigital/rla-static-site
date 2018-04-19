@@ -83,9 +83,21 @@ export default ({
             })}
 
             <Column large={2} style={{ textAlign: "right" }}>
-                <SocialIcon icon="facebook-f" />
-                <SocialIcon icon="linkedin-in" />
-                <SocialIcon icon="twitter" />
+                <SocialIcon
+                    icon="facebook-f"
+                    href="https://www.facebook.com/rlagroup/"
+                    target="_blank"
+                />
+                <SocialIcon
+                    icon="linkedin-in"
+                    href="https://www.linkedin.com/company/rla-group"
+                    target="_blank"
+                />
+                <SocialIcon
+                    icon="twitter"
+                    href="https://twitter.com/rlagroup"
+                    target="_blank"
+                />
             </Column>
         </Row>
         <Copyright>
