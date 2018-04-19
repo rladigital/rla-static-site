@@ -145,9 +145,22 @@ class MenuIcon extends React.Component {
         super(props);
         this.animate = [];
         this.state = {
-            active: this.props.active
+            active: false,
+            canAnimate: true,
+            menuPaths: ["M0,5 50,5", "M0,25 50,25", "M0,45 50,45"],
+            closePaths: ["M5,5 45,45", "M5,25 5,25", "M5,45 45,5"]
         };
     }
+
+    componentDidMount() {
+        if ("beginElement" in this.animate[0] === false) {
+            this.setState({
+                canAnimate: false,
+                closePaths: this.state.menuPaths
+            });
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         const { active } = nextProps;
         if (this.state.active != active) {
@@ -161,6 +174,7 @@ class MenuIcon extends React.Component {
     }
     render() {
         const { active, onClick, style } = this.props;
+        const { menuPaths, closePaths } = this.state;
 
         const pathProps = {
             stroke: "currentColor",
@@ -172,11 +186,6 @@ class MenuIcon extends React.Component {
             dur: "500ms",
             fill: "freeze"
         };
-
-        //const menuPaths = ["M5,5 45,5", "M5,25 45,25", "M5,45 45,45"];
-        const menuPaths = ["M0,5 50,5", "M0,25 50,25", "M0,45 50,45"];
-
-        const closePaths = ["M5,5 45,45", "M5,25 5,25", "M5,45 45,5"];
 
         return (
             <svg
