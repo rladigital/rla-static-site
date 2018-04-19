@@ -7,7 +7,7 @@ import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import FAIcon from "@fortawesome/react-fontawesome";
 
-import theme, { colors, spacing } from "../theme/theme";
+import theme, { colors, spacing, breakpoints } from "../theme/theme";
 import { isMobile, isBrowser } from "../helpers/helpers";
 import HeaderBlock from "../components/HeaderBlock";
 import SolutionModal from "../components/solutions/SolutionModal";
@@ -25,6 +25,7 @@ const rotate360 = keyframes`
 `;
 
 const Brand = styled.div`
+    margin-left: -2rem;
     transition opacity 0.5s ease;
 `;
 
@@ -101,8 +102,11 @@ const Control = styled.a`
     color: ${colors.white};
     cursor: pointer;
     position: absolute;
-    padding: ${spacing.padding}em;
+    padding: ${spacing.padding}em 0;
     transform: translateY(-335px);
+    @media (min-width: ${breakpoints.medium}px) {
+        padding: ${spacing.padding}em;
+    }
 `;
 
 export default class ClientsPage extends React.Component {
@@ -139,7 +143,7 @@ export default class ClientsPage extends React.Component {
         } = data;
 
         const settings = {
-            slideWidth: isBrowser() && isMobile() ? 0.8 : 0.25,
+            slideWidth: isBrowser() && isMobile() ? 0.75 : 0.25,
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
