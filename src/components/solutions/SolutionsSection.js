@@ -70,11 +70,9 @@ class SolutionsSection extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log("unmount");
         window.removeEventListener("scroll", this.handleScroll);
     }
     handleScroll() {
-        console.log("scroll");
         const { height } = this.props;
         const trigger = 50;
 

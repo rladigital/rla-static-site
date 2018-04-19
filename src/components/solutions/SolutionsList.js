@@ -291,20 +291,19 @@ class SolutionsVideo extends React.Component {
                                         key={index}
                                         fill={`url(#grad_${index})`}
                                         id={`orb_${index}`}
-                                        onClick={() =>
-                                            this.handleClick(solution)
-                                        }
+                                        onClick={() => this.handleClick(index)}
                                         {...orbs[index]}
                                     />
                                 ])}
                         </g>
                     </Svg>
                 </Container>
-                {activeSolution && (
+                {activeSolution != undefined && (
                     <SolutionModal
                         width={width}
                         height={height}
                         solution={activeSolution}
+                        solutions={solutions}
                         close={() => this.handleClick(null)}
                     />
                 )}

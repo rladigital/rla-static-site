@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import graphql from "graphql";
 import styled from "styled-components";
-import { Row, Column } from "rla-components";
+import { Row, Column, Button } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
 import { scale, random, isBrowser } from "../../helpers/helpers";
+import { Scrollbars } from "react-custom-scrollbars";
+
 import FAIcon from "@fortawesome/react-fontawesome";
 
 const modalRoot = isBrowser() ? document.getElementById("modal-root") : null;
@@ -28,20 +31,33 @@ const Svg = styled.svg`
     position: absolute;
 `;
 
-const Content = styled.div`
+const ContentWrapper = styled.div`
+    padding: 10vw 0 0;
     transition: all 1s ease;
     transform: translate(-50%, -50%);
     position: absolute;
-    padding: 10vw 0 0;
+    @media (min-width: ${breakpoints.xlarge}px) {
+        padding: 2vw 10vw 0 2vw;
+    }
+`;
+
+const Content = styled.div`
+    width: 100%;
+    height: 100%;
     font-size: 3vw;
+    display: table;
 
     @media (min-width: ${breakpoints.large}px) {
         font-size: 2vw;
     }
     @media (min-width: ${breakpoints.xlarge}px) {
         font-size: 1.4vw;
-        padding: 2vw 10vw 0 2vw;
+        // padding: 2vw 10vw 0 2vw;
     }
+`;
+
+const ContentRow = styled.div`
+    display: table-row;
 `;
 
 const H1 = styled.h1`
@@ -67,7 +83,7 @@ const H2 = styled.h2`
 `;
 
 const Circle = styled.circle`
-    transition: all 1s cubic-bezier(0.76, -0.46, 0.2, 1.38);
+    transition: all 1s cubic-bezier(0.76, -0.46, 0.2, 1.38), fill 1s ease;
 `;
 
 const BackButton = styled.a`
@@ -83,7 +99,14 @@ const BackButton = styled.a`
 `;
 
 const ContentContainer = styled.div`
-    padding-right: 5vw;
+    padding: 0 0 2em 0;
+    @media (min-width: ${breakpoints.xlarge}px) {
+        padding: 0 4vw 5em 0;
+    }
+`;
+
+const ButtonContainer = ContentContainer.extend`
+    padding-bottom: 0 !important;
 `;
 
 class SolutionModal extends React.Component {
@@ -91,6 +114,7 @@ class SolutionModal extends React.Component {
         super(props);
         this.el = document.createElement("div");
         this.state = {
+            current: this.props.solution,
             animation: 0
         };
     }
@@ -122,23 +146,31 @@ class SolutionModal extends React.Component {
         }, 1000);
     }
 
+    handleClick(x) {
+        this.setState({ current: x });
+    }
+
     render() {
-        const { animation } = this.state;
-        const { solution, width, height, close } = this.props;
+        const { animation, current } = this.state;
+        const { solutions, width, height, close } = this.props;
         const isLarge = Boolean(width > breakpoints.xlarge);
 
-        const w = isLarge ? width - width / 5 : width;
-        const h = isLarge ? height - height / 5 : height;
+        const w = width - width / 4;
+        const h = height - height / 4;
+
+        const currentSolution = solutions[current].node;
+        const prevSolution = current - 1;
+        const nextSolution = current + 1;
 
         const circleProps = {
             cx: isLarge ? width / 2 + 100 : width / 2,
-            cy: isLarge ? height / 2 : height / 2 + 100,
+            cy: height / 2,
             r: Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2)) / 2,
-            fill: "url(#active_solution_grad)",
+            fill: currentSolution.frontmatter.color2,
             transform: `translate(${width * (1 - animation)} 0)`
         };
 
-        console.log(solution);
+        console.log(currentSolution);
 
         return ReactDOM.createPortal(
             <Container
@@ -153,19 +185,9 @@ class SolutionModal extends React.Component {
                     <FAIcon icon="chevron-left" /> Back
                 </BackButton>
                 <Svg>
-                    <linearGradient id="active_solution_grad">
-                        <stop
-                            offset="5%"
-                            stopColor={solution.frontmatter.color2}
-                        />
-                        <stop
-                            offset="95%"
-                            stopColor={solution.frontmatter.color1}
-                        />
-                    </linearGradient>
-                    <Circle {...circleProps} />
+                    x <Circle {...circleProps} />
                 </Svg>
-                <Content
+                <ContentWrapper
                     style={{
                         width: w,
                         height: h,
@@ -174,27 +196,100 @@ class SolutionModal extends React.Component {
                         opacity: animation,
                         transitionDelay: animation ? "0.5s" : "0s"
                     }}
-                    onClick={e => e.stopPropagation()}
                 >
-                    <Row expanded>
-                        <Column collapse>
-                            <H1>{solution.frontmatter.title}</H1>
-                            <H2>{solution.frontmatter.intro}</H2>
-                        </Column>
-                    </Row>
-                    <Row expanded>
-                        <Column large={6} collapse>
-                            <ContentContainer>
-                                <p>{solution.frontmatter.description1}</p>
-                            </ContentContainer>
-                        </Column>
-                        <Column large={6} collapse>
-                            <ContentContainer>
-                                <p>{solution.frontmatter.description2}</p>
-                            </ContentContainer>
-                        </Column>
-                    </Row>
-                </Content>
+                    <Content onClick={e => e.stopPropagation()}>
+                        <ContentRow>
+                            <Row expanded>
+                                <Column>
+                                    <H1>{currentSolution.frontmatter.title}</H1>
+                                    <H2>{currentSolution.frontmatter.intro}</H2>
+                                </Column>
+                            </Row>
+                        </ContentRow>
+                        <ContentRow style={{ height: "100%" }}>
+                            <Scrollbars>
+                                <Row expanded>
+                                    <Column large={6}>
+                                        <ContentContainer>
+                                            <p>
+                                                {
+                                                    currentSolution.frontmatter
+                                                        .description1
+                                                }
+                                            </p>
+                                        </ContentContainer>
+                                    </Column>
+                                    <Column large={6}>
+                                        <ContentContainer>
+                                            <p>
+                                                {
+                                                    currentSolution.frontmatter
+                                                        .description2
+                                                }
+                                            </p>
+                                        </ContentContainer>
+                                    </Column>
+                                </Row>
+                            </Scrollbars>
+                        </ContentRow>
+                        <ContentRow>
+                            <Row expanded>
+                                <Column large={6}>
+                                    <ButtonContainer>
+                                        {solutions[prevSolution] ? (
+                                            <Button
+                                                size="large"
+                                                color="white"
+                                                hollow
+                                                expanded
+                                                borderWidth={2}
+                                                onClick={() =>
+                                                    this.handleClick(
+                                                        prevSolution
+                                                    )
+                                                }
+                                            >
+                                                <FAIcon icon="arrow-left" />{" "}
+                                                {
+                                                    solutions[prevSolution].node
+                                                        .frontmatter.title
+                                                }
+                                            </Button>
+                                        ) : (
+                                            <span>&nbsp;</span>
+                                        )}
+                                    </ButtonContainer>
+                                </Column>
+                                <Column large={6}>
+                                    <ButtonContainer>
+                                        {solutions[nextSolution] ? (
+                                            <Button
+                                                size="large"
+                                                color="white"
+                                                hollow
+                                                expanded
+                                                borderWidth={2}
+                                                onClick={() =>
+                                                    this.handleClick(
+                                                        nextSolution
+                                                    )
+                                                }
+                                            >
+                                                {
+                                                    solutions[nextSolution].node
+                                                        .frontmatter.title
+                                                }{" "}
+                                                <FAIcon icon="arrow-right" />
+                                            </Button>
+                                        ) : (
+                                            <span>&nbsp;</span>
+                                        )}
+                                    </ButtonContainer>
+                                </Column>
+                            </Row>
+                        </ContentRow>
+                    </Content>
+                </ContentWrapper>
             </Container>,
             this.el
         );

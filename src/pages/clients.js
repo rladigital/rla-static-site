@@ -212,7 +212,7 @@ export default class ClientsPage extends React.Component {
                                                             <Solution
                                                                 onClick={() =>
                                                                     this.handleClick(
-                                                                        solution
+                                                                        index
                                                                     )
                                                                 }
                                                                 style={{
@@ -262,6 +262,7 @@ export default class ClientsPage extends React.Component {
                         width={window.innerWidth}
                         height={window.innerHeight}
                         solution={activeSolution}
+                        solutions={solutions}
                         close={() => this.handleClick(null)}
                     />
                 )}
