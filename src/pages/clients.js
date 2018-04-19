@@ -7,7 +7,7 @@ import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import theme, { colors } from "../theme/theme";
-import { isMobile } from "../helpers/helpers";
+import { isMobile, isBrowser } from "../helpers/helpers";
 import HeaderBlock from "../components/HeaderBlock";
 import SolutionModal from "../components/solutions/SolutionModal";
 
@@ -128,7 +128,7 @@ export default class ClientsPage extends React.Component {
         } = data;
 
         const settings = {
-            slideWidth: isMobile() ? 0.8 : 0.25,
+            slideWidth: isBrowser() && isMobile() ? 0.8 : 0.25,
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
