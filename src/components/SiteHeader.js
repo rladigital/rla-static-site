@@ -72,16 +72,13 @@ class SiteHeader extends React.Component {
         const foregroundColor =
             scrolltop == 0 && isHome ? colors.background : colors.white;
 
-        const backgroundColor =
-            (isBrowser() && (scrolltop > window.innerHeight * 2.5 && isHome)) ||
+        const headerBackground =
+            (isBrowser() && (scrolltop > window.innerHeight && isHome)) ||
             (isBrowser() && !isHome)
-                ? colors.background
-                : "transparent";
-
-        const headerBackgroundColor =
-            (isBrowser() && (scrolltop > window.innerHeight * 2.5 && isHome)) ||
-            (isBrowser() && !isHome)
-                ? transparentize(colors.background, 0.4)
+                ? `linear-gradient(to bottom,  ${transparentize(
+                      colors.background,
+                      0.7
+                  )}, transparent)`
                 : "transparent";
 
         return (
@@ -90,7 +87,7 @@ class SiteHeader extends React.Component {
                     style={{
                         padding: `${headerPadding}px 1rem`,
                         color: foregroundColor,
-                        backgroundColor: headerBackgroundColor
+                        background: headerBackground
                     }}
                 >
                     <Row expanded>
