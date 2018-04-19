@@ -17,5 +17,5 @@ previewType:
 
 excerpt:
 
-thumbnailAlignment: center
+thumbnailAlignment: top
 ---
