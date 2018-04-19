@@ -7,21 +7,22 @@ description: >-
   # THE PROJECT
 
 
-  Transform the local marketing effectiveness for the whole UK Fiat Chrysler
-  Automobiles business – a network of 6 brands (Fiat, Alfa Romeo, Jeep,
-  Chrysler, Abarth and Fiat Professional), 315 dealer branches, 6 regions, 10
-  principle brand clients and 14 secondary clients across sales, product,
-  training, Aftersales and Financial Services.
+  Salisbury Business Improvement District tasked us to increase footfall and
+  engagement within the city and to encourage locals and people in the
+  surrounding areas to visit. So we grew an organic email database that is
+  specifically GDPR compliant. We also leveraged Facebook lead generation
+  adverts and third-party email newsletters, culminating in a Christmas campaign
+  promoting the hugely popular Christmas market.
 
 
   # THE OUTCOME
 
 
-  A modular Cortex solution was implemented, including Synapse (our data
-  unification platform) and Territory (our branch marketing platform). The
-  project resulted in a 52% saving in the total programme budget versus previous
-  suppliers, an 80% reduction on Cost Per Lead for targeted Facebook campaigns,
-  and a 324% growth in voluntary branch advertising asset usage over 3 years.
+  Within the first week our data capture campaign via Facebook lead generation
+  posts built up an organic email database of 1,500 and a substantial social
+  media following who can are now happy to be targeted with events, offers and
+  news. In light of the GDPR ruling requiring the public’s consent for further
+  communications we were delighted that 67% of recipients opted IN.
 excerpt: Bringing Client and customers together. Literally.
 galleryImages:
   - /img/Salisbury.png
