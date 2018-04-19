@@ -62,14 +62,19 @@ class SolutionsSection extends React.Component {
         this.state = {
             scrollY: window.scrollY
         };
+
+        this.handleScroll = this.handleScroll.bind(this);
     }
     componentDidMount() {
-        window.addEventListener("scroll", () => this.handleScroll());
+        window.addEventListener("scroll", this.handleScroll);
     }
+
     componentWillUnmount() {
-        window.removeEventListener("scroll", () => this.handleScroll());
+        console.log("unmount");
+        window.removeEventListener("scroll", this.handleScroll);
     }
     handleScroll() {
+        console.log("scroll");
         const { height } = this.props;
         const trigger = 50;
 
