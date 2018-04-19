@@ -31,20 +31,33 @@ const Svg = styled.svg`
     position: absolute;
 `;
 
-const Content = styled.div`
+const ContentWrapper = styled.div`
+    padding: 10vw 0 0;
     transition: all 1s ease;
     transform: translate(-50%, -50%);
     position: absolute;
-    padding: 10vw 0 0;
+    @media (min-width: ${breakpoints.xlarge}px) {
+        padding: 2vw 10vw 0 2vw;
+    }
+`;
+
+const Content = styled.div`
+    width: 100%;
+    height: 100%;
     font-size: 3vw;
+    display: table;
 
     @media (min-width: ${breakpoints.large}px) {
         font-size: 2vw;
     }
     @media (min-width: ${breakpoints.xlarge}px) {
         font-size: 1.4vw;
-        padding: 2vw 10vw 0 2vw;
+        // padding: 2vw 10vw 0 2vw;
     }
+`;
+
+const ContentRow = styled.div`
+    display: table-row;
 `;
 
 const H1 = styled.h1`
@@ -142,12 +155,12 @@ class SolutionModal extends React.Component {
         const { solutions, width, height, close } = this.props;
         const isLarge = Boolean(width > breakpoints.xlarge);
 
-        const w = isLarge ? width - width / 5 : width;
-        const h = isLarge ? height - height / 5 : height;
+        const w = width - width / 5;
+        const h = height - height / 5;
 
         const circleProps = {
             cx: isLarge ? width / 2 + 100 : width / 2,
-            cy: isLarge ? height / 2 : height / 2 + 100,
+            cy: height / 2,
             r: Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2)) / 2,
             fill: "url(#active_solution_grad)",
             transform: `translate(${width * (1 - animation)} 0)`
@@ -184,8 +197,7 @@ class SolutionModal extends React.Component {
                     </linearGradient>
                     <Circle {...circleProps} />
                 </Svg>
-
-                <Content
+                <ContentWrapper
                     style={{
                         width: w,
                         height: h,
@@ -194,88 +206,98 @@ class SolutionModal extends React.Component {
                         opacity: animation,
                         transitionDelay: animation ? "0.5s" : "0s"
                     }}
-                    onClick={e => e.stopPropagation()}
                 >
-                    {" "}
-                    <Scrollbars>
-                        <Row expanded>
-                            <Column>
-                                <H1>{currentSolution.frontmatter.title}</H1>
-                                <H2>{currentSolution.frontmatter.intro}</H2>
-                            </Column>
-                        </Row>
-                        <Row expanded>
-                            <Column large={6}>
-                                <ContentContainer>
-                                    <p>
-                                        {
-                                            currentSolution.frontmatter
-                                                .description1
-                                        }
-                                    </p>
-                                </ContentContainer>
-                            </Column>
-                            <Column large={6}>
-                                <ContentContainer>
-                                    <p>
-                                        {
-                                            currentSolution.frontmatter
-                                                .description2
-                                        }
-                                    </p>
-                                </ContentContainer>
-                            </Column>
-                        </Row>
-                        <Row expanded>
-                            <Column large={6}>
-                                <ButtonContainer>
-                                    {solutions[prevSolution] ? (
-                                        <Button
-                                            size="large"
-                                            color="white"
-                                            hollow
-                                            expanded
-                                            borderWidth={2}
-                                            onClick={() =>
-                                                this.handleClick(prevSolution)
-                                            }
-                                        >
-                                            {
-                                                solutions[prevSolution].node
-                                                    .frontmatter.title
-                                            }
-                                        </Button>
-                                    ) : (
-                                        <span>&nbsp;</span>
-                                    )}
-                                </ButtonContainer>
-                            </Column>
-                            <Column large={6}>
-                                <ButtonContainer>
-                                    {solutions[nextSolution] ? (
-                                        <Button
-                                            size="large"
-                                            color="white"
-                                            hollow
-                                            expanded
-                                            borderWidth={2}
-                                            onClick={() =>
-                                                this.handleClick(nextSolution)
-                                            }
-                                        >
-                                            {
-                                                solutions[nextSolution].node
-                                                    .frontmatter.title
-                                            }
-                                        </Button>
-                                    ) : (
-                                        <span>&nbsp;</span>
-                                    )}
-                                </ButtonContainer>
-                            </Column>
-                        </Row>
-                    </Scrollbars>
-                </Content>
+                    <Content onClick={e => e.stopPropagation()}>
+                        <ContentRow>
+                            <Row expanded>
+                                <Column>
+                                    <H1>{currentSolution.frontmatter.title}</H1>
+                                    <H2>{currentSolution.frontmatter.intro}</H2>
+                                </Column>
+                            </Row>
+                        </ContentRow>
+                        <ContentRow style={{ height: "100%" }}>
+                            <Scrollbars>
+                                <Row expanded>
+                                    <Column large={6}>
+                                        <ContentContainer>
+                                            <p>
+                                                {
+                                                    currentSolution.frontmatter
+                                                        .description1
+                                                }
+                                            </p>
+                                        </ContentContainer>
+                                    </Column>
+                                    <Column large={6}>
+                                        <ContentContainer>
+                                            <p>
+                                                {
+                                                    currentSolution.frontmatter
+                                                        .description2
+                                                }
+                                            </p>
+                                        </ContentContainer>
+                                    </Column>
+                                </Row>
+                            </Scrollbars>
+                        </ContentRow>
+                        <ContentRow>
+                            <Row expanded>
+                                <Column large={6}>
+                                    <ButtonContainer>
+                                        {solutions[prevSolution] ? (
+                                            <Button
+                                                size="large"
+                                                color="white"
+                                                hollow
+                                                expanded
+                                                borderWidth={2}
+                                                onClick={() =>
+                                                    this.handleClick(
+                                                        prevSolution
+                                                    )
+                                                }
+                                            >
+                                                {
+                                                    solutions[prevSolution].node
+                                                        .frontmatter.title
+                                                }
+                                            </Button>
+                                        ) : (
+                                            <span>&nbsp;</span>
+                                        )}
+                                    </ButtonContainer>
+                                </Column>
+                                <Column large={6}>
+                                    <ButtonContainer>
+                                        {solutions[nextSolution] ? (
+                                            <Button
+                                                size="large"
+                                                color="white"
+                                                hollow
+                                                expanded
+                                                borderWidth={2}
+                                                onClick={() =>
+                                                    this.handleClick(
+                                                        nextSolution
+                                                    )
+                                                }
+                                            >
+                                                {
+                                                    solutions[nextSolution].node
+                                                        .frontmatter.title
+                                                }
+                                            </Button>
+                                        ) : (
+                                            <span>&nbsp;</span>
+                                        )}
+                                    </ButtonContainer>
+                                </Column>
+                            </Row>
+                        </ContentRow>
+                    </Content>
+                </ContentWrapper>
             </Container>,
             this.el
         );

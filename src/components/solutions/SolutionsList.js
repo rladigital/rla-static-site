@@ -298,7 +298,7 @@ class SolutionsVideo extends React.Component {
                         </g>
                     </Svg>
                 </Container>
-                {activeSolution && (
+                {activeSolution != undefined && (
                     <SolutionModal
                         width={width}
                         height={height}
