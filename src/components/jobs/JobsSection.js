@@ -23,13 +23,31 @@ class JobsSection extends React.Component {
         return (
             <div>
                 <Row>
-                    <Column medium={9}>
-                        <JobSummary job={jobs[0].node} height={36} centred />
-                        <JobSummary job={jobs[2].node} height={18} />
+                    <Column medium={9} collapse>
+                        <Row collapse>
+                            <Column>
+                                <JobSummary
+                                    job={jobs[0].node}
+                                    height={36}
+                                    centred
+                                />
+                            </Column>
+                        </Row>
+
+                        <Row collapse>
+                            <Column large={4}>
+                                <span>&nbsp;</span>
+                            </Column>
+                            <Column large={8}>
+                                <JobSummary job={jobs[2].node} height={18} />
+                                <JobSummary job={jobs[1].node} height={18} />
+                            </Column>
+                        </Row>
                     </Column>
                     <Column medium={3}>
-                        <JobSummary job={jobs[1].node} height={18} />
+                        <JobSummary job={jobs[4].node} height={18} />
                         <PeoplePlaceholder height={36} />
+                        <JobSummary job={jobs[3].node} height={18} />
                     </Column>
                 </Row>
             </div>
@@ -43,7 +61,7 @@ const PeoplePlaceholder = ({ height }) => (
         background={colors.accent}
         padding={`${spacing.padding}rem `}
         fontSize={1}
-        style={{ height: `${height}rem` }}
+        style={{ height: `${height}rem`, marginBottom: `${spacing.margin}em` }}
     >
         <HeaderBlock
             textAlign="left"
