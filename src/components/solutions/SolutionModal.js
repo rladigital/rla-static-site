@@ -83,7 +83,7 @@ const H2 = styled.h2`
 `;
 
 const Circle = styled.circle`
-    transition: all 1s cubic-bezier(0.76, -0.46, 0.2, 1.38);
+    transition: all 1s cubic-bezier(0.76, -0.46, 0.2, 1.38), fill 1s ease;
 `;
 
 const BackButton = styled.a`
@@ -155,20 +155,20 @@ class SolutionModal extends React.Component {
         const { solutions, width, height, close } = this.props;
         const isLarge = Boolean(width > breakpoints.xlarge);
 
-        const w = width - width / 5;
-        const h = height - height / 5;
+        const w = width - width / 4;
+        const h = height - height / 4;
+
+        const currentSolution = solutions[current].node;
+        const prevSolution = current - 1;
+        const nextSolution = current + 1;
 
         const circleProps = {
             cx: isLarge ? width / 2 + 100 : width / 2,
             cy: height / 2,
             r: Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2)) / 2,
-            fill: "url(#active_solution_grad)",
+            fill: currentSolution.frontmatter.color2,
             transform: `translate(${width * (1 - animation)} 0)`
         };
-
-        const currentSolution = solutions[current].node;
-        const prevSolution = current - 1;
-        const nextSolution = current + 1;
 
         console.log(currentSolution);
 
@@ -185,17 +185,7 @@ class SolutionModal extends React.Component {
                     <FAIcon icon="chevron-left" /> Back
                 </BackButton>
                 <Svg>
-                    <linearGradient id="active_solution_grad">
-                        <stop
-                            offset="5%"
-                            stopColor={currentSolution.frontmatter.color2}
-                        />
-                        <stop
-                            offset="95%"
-                            stopColor={currentSolution.frontmatter.color1}
-                        />
-                    </linearGradient>
-                    <Circle {...circleProps} />
+                    x <Circle {...circleProps} />
                 </Svg>
                 <ContentWrapper
                     style={{
@@ -259,6 +249,7 @@ class SolutionModal extends React.Component {
                                                     )
                                                 }
                                             >
+                                                <FAIcon icon="arrow-left" />{" "}
                                                 {
                                                     solutions[prevSolution].node
                                                         .frontmatter.title
@@ -287,7 +278,8 @@ class SolutionModal extends React.Component {
                                                 {
                                                     solutions[nextSolution].node
                                                         .frontmatter.title
-                                                }
+                                                }{" "}
+                                                <FAIcon icon="arrow-right" />
                                             </Button>
                                         ) : (
                                             <span>&nbsp;</span>
