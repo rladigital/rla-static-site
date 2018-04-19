@@ -28,15 +28,17 @@ const fadeDown = keyframes`
   }
 `;
 
-let ScrollDown = styled.div`
+let ScrollDown = styled.div.attrs({
+    role: "button"
+})`
     width: 100%;
     bottom: 0;
     padding: 50px;
     position: fixed;
     text-align: center;
-    pointer-events: none;
     color: ${colors.background};
     transition: opacity 1s;
+    cursor: pointer;
 `;
 
 const Chevron = styled(FAIcon).attrs({
@@ -53,7 +55,7 @@ const ScrollDownText = styled.p.attrs({
     text-transform: uppercase;
 `;
 
-//#082748
+let hasScrolledTop = false;
 class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
@@ -68,15 +70,36 @@ class SolutionsSection extends React.Component {
         window.removeEventListener("scroll", () => this.handleScroll());
     }
     handleScroll() {
+        const { height } = this.props;
+        const trigger = 50;
+
         this.setState({
             scrollY: window.scrollY
         });
+
+        // Set scroll snapping if  scrolls below a certain point
+        if (
+            !hasScrolledTop &&
+            window.scrollY > trigger &&
+            window.scrollY < height * 2
+        ) {
+            this.scrollDown();
+            hasScrolledTop = true;
+        }
+
+        // Reset scroll snapping if scrolls to top of page
+        if (hasScrolledTop && window.scrollY < trigger) {
+            hasScrolledTop = false;
+        }
+    }
+    scrollDown() {
+        document.documentElement.scrollTop = this.props.height;
     }
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
         const { scrollY } = this.state;
-        const animation = "transform 0.25s ease, opacity 0.25s ease";
+        const animation = "transform 0.75s ease, opacity 0.75s ease";
 
         return (
             <StickyContainer style={{ height: height * 2.5 }}>
@@ -92,15 +115,14 @@ class SolutionsSection extends React.Component {
                                     solutions={solutions}
                                     animation={animation}
                                 />
-                                {scrollY < height && (
-                                    <SolutionsVideo
-                                        style={style}
-                                        width={width}
-                                        height={height}
-                                        scrollY={scrollY}
-                                        animation={animation}
-                                    />
-                                )}
+
+                                <SolutionsVideo
+                                    style={style}
+                                    width={width}
+                                    height={height}
+                                    scrollY={scrollY}
+                                    animation={animation}
+                                />
                             </div>
                         );
                     }}
@@ -108,8 +130,9 @@ class SolutionsSection extends React.Component {
 
                 <ScrollDown
                     style={{
-                        opacity: font && scrolltop != 0 ? 1 : 0
+                        opacity: scrollY == 0 ? 1 : 0
                     }}
+                    onClick={() => this.scrollDown()}
                 >
                     <ScrollDownText />
                     <Chevron />
