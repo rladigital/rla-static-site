@@ -59,7 +59,7 @@ const Image = styled.section`
     position: relative;
     background-image: url('${props => props.backgroundImage}');
     background-size: cover;
-    background-position: center;
+    background-position: ${props => props.alignment};
     overflow: hidden;
     transition: transform 0.25s ease;
     &:hover{
@@ -82,6 +82,7 @@ const WorkSummaryWrapper = ({ children, slug, previewType }) => {
 };
 
 const WorkSummary = ({ work, index, heightMediaQuery }) => {
+    console.log(work.frontmatter.thumbnailAlignment);
     return (
         <WorkSummaryWrapper
             slug={work.fields.slug}
