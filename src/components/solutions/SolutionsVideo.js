@@ -5,7 +5,7 @@ import { colors } from "../../theme/theme";
 import video from "../../videos/video.mp4";
 import placeholder from "../../img/static-video.png";
 import LoadingScreen from "../loading/LoadingScreen";
-import { transformScale } from "../../helpers/helpers";
+import { transformScale, isMobile } from "../../helpers/helpers";
 
 const Container = styled.div`
     width: 100%;
@@ -25,6 +25,16 @@ const Video = styled.video`
     width: 100%;
     height: 100%;
     position: absolute;
+`;
+
+const Img = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('${props => props.src}');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 `;
 
 class SolutionsVideo extends React.Component {
@@ -97,18 +107,22 @@ class SolutionsVideo extends React.Component {
                         />
                     </g>
                 </Svg>
-                <Video
-                    autoPlay
-                    muted
-                    loop
-                    innerRef={video => {
-                        this.video = video;
-                    }}
-                    preload="auto"
-                    poster={placeholder}
-                >
-                    <source src={video} type="video/mp4" />
-                </Video>
+                {isMobile() ? (
+                    <Img src={placeholder} />
+                ) : (
+                    <Video
+                        autoPlay
+                        muted
+                        loop
+                        innerRef={video => {
+                            this.video = video;
+                        }}
+                        preload="auto"
+                        poster={placeholder}
+                    >
+                        <source src={video} type="video/mp4" />
+                    </Video>
+                )}
             </Container>
         );
     }

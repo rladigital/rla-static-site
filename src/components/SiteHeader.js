@@ -8,7 +8,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import SiteNav from "./SiteNav";
 import SiteNavLink from "./SiteNavLink";
 import { spacing, colors } from "../theme/theme";
-import { isBrowser, transparentize } from "../helpers/helpers";
+import { isMobile, isBrowser, transparentize } from "../helpers/helpers";
 
 let resizeTimer;
 
@@ -106,7 +106,7 @@ class SiteHeader extends React.Component {
                             </Link>
                         </Column>
                         <Column small={6} medium={9}>
-                            {scrolltop == 0 && isHome ? (
+                            {!isMobile() && (scrolltop == 0 && isHome) ? (
                                 <SiteNav>
                                     {items.map((item, index) => {
                                         return (

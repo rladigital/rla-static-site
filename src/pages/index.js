@@ -10,11 +10,15 @@ import NewsSection from "../components/news/NewsSection";
 import LoadingScreen from "../components/loading/LoadingScreen";
 import MissionSection from "../components/mission/MissionSection";
 
-if (serveStatic()) {
+if (!isBrowser()) {
     var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
-    var ServicesSection = require("../components/services/ServicesSectionStatic");
 } else {
     var SolutionsSection = require("../components/solutions/SolutionsSection");
+}
+
+if (serveStatic()) {
+    var ServicesSection = require("../components/services/ServicesSectionStatic");
+} else {
     var ServicesSection = require("../components/services/ServicesSection");
 }
 
