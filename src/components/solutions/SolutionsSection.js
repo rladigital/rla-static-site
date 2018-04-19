@@ -60,7 +60,7 @@ class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            scrollY: window.scrollY
+            scrollY: window.pageYOffset
         };
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -77,21 +77,21 @@ class SolutionsSection extends React.Component {
         const trigger = 50;
 
         this.setState({
-            scrollY: window.scrollY
+            scrollY: window.pageYOffset
         });
 
         // Set scroll snapping if  scrolls below a certain point
         if (
             !hasScrolledTop &&
-            window.scrollY > trigger &&
-            window.scrollY < height * 2
+            window.pageYOffset > trigger &&
+            window.pageYOffset < height * 2
         ) {
             this.scrollDown();
             hasScrolledTop = true;
         }
 
         // Reset scroll snapping if scrolls to top of page
-        if (hasScrolledTop && window.scrollY < trigger) {
+        if (hasScrolledTop && window.pageYOffset < trigger) {
             hasScrolledTop = false;
         }
     }
