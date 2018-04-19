@@ -26,7 +26,11 @@ const Author = ({ tags }) => {
         <Container>
             <Title>Tags:</Title>
             {tags.map((tag, index) => {
-                return [<Tag>{tag}</Tag>, ", "];
+                return (
+                    <span key={index}>
+                        <Tag>{tag}</Tag>,{" "}
+                    </span>
+                );
             })}
         </Container>
     );
