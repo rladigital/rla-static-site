@@ -4,7 +4,7 @@ title: 10 QUESTIONS WITH… SAM SMITH
 date: 12/04/2018
 hero: /img/sam.jpg
 thumb: /img/sam.jpg
-category: News
+category: Culture
 tags:
   - CULTURE
   - 10 QUESTIONS
