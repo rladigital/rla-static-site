@@ -1,9 +1,9 @@
 ---
 templateKey: news
-title: HEADLINE REQUIRED
-date: 17/04/2018
-hero: /img/connected ambition-1.jpg
-thumb: /img/connected ambition-1.jpg
+title: 'Facebook Dropped The Ball on Data, So How Does It Affect Marketers?'
+date: 18/04/2018
+hero: /img/1150x460_rla_banner_facebook_luke_v1.jpg
+thumb: /img/1150x460_rla_banner_facebook_luke_v1.jpg
 category: Insight
 tags:
   - INSIGHT
