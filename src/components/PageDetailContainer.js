@@ -6,7 +6,6 @@ import { colors } from "../theme/theme";
 const PageDetailContainer = styled.section`
     position: relative;
     margin-top: 80px;
-    padding: 2rem;
     background-color: ${props => props.background};
     color: ${props => props.color};
 `;
