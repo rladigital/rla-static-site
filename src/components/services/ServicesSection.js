@@ -10,6 +10,8 @@ import SectionContainer from "../SectionContainer";
 import { colors } from "../../theme/theme";
 import { isMobile, hexToInt } from "../../helpers/helpers";
 
+const points = isMobile() ? 5 : 7;
+
 const Control = styled.a`
     font-size: 3em;
     color: ${colors.white};
@@ -28,7 +30,7 @@ class ServicesSection extends React.Component {
 
     coords(elem) {
         const { current } = this.state;
-        const points = isMobile() ? 5 : 7;
+
         const total = elem.getTotalLength();
         const segment = total / (points - 1);
         let coords = new Array();
@@ -39,7 +41,7 @@ class ServicesSection extends React.Component {
         }
 
         // Coord other params
-        for (var i = 0; i < coords.length; i++) {
+        for (var i = 0; i < points; i++) {
             if (isMobile()) {
                 coords[i].status =
                     i == 2 ? "active" : i < 4 && i > 0 ? "visible" : null;
@@ -92,13 +94,13 @@ class ServicesSection extends React.Component {
 
     prev() {
         const prev = this.state.current - 1;
-        const actual = prev < 0 ? this.props.services.length - 1 : prev;
+        const actual = prev < 0 ? points : prev;
         this.setCurrent(actual);
     }
 
     next() {
         const next = this.state.current + 1;
-        const actual = next > this.props.services.length - 1 ? 0 : next;
+        const actual = next > points ? 0 : next;
         this.setCurrent(actual);
     }
 
@@ -139,6 +141,7 @@ class ServicesSection extends React.Component {
                         </HeaderBlock>
                     </Column>
                 </Row>
+                {current}
                 <div style={{ position: "relative" }}>
                     <svg width={width} height={height}>
                         <defs>
