@@ -1,9 +1,28 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors } from "../../theme/theme";
 import { transformScale, random } from "../../helpers/helpers";
 import SolutionModal from "./SolutionModal";
+
+const rotate360 = keyframes`
+  0% {
+    opacity: 0
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0
+  }
+`;
+
+const Path = styled.path`
+    animation: ${rotate360} 8s ease;
+    animation-fill-mode: forwards;
+`;
 
 const Svg = styled.svg`
     position: absolute;
@@ -57,98 +76,94 @@ class SolutionsVideo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            randoms: null,
-            activeSolution: null
+            activeSolution: null,
+            lines: []
         };
+
+        this.lines = this.lines.bind(this);
     }
     orbs(items) {
         const { width, height } = this.props;
         const { randoms, activeSolution } = this.state;
         const r = 360;
         const array = new Array();
-
-        if (randoms) {
-            for (var i = 0; i < items.length; i++) {
-                array[i] = new Object();
-                const theta = Math.PI * 2 / items.length;
-                const angle = theta * i - Math.PI / 2;
-                const x = 0 + r * Math.cos(angle); // center point + radius * angle
-                const y = 0 + r * Math.sin(angle);
-                const size = randoms[i].orbs.size;
-
-                array[i].cx = x + randoms[i].orbs.x;
-                array[i].cy = y + randoms[i].orbs.y;
-                array[i].r = size;
-            }
-
-            return array;
-        }
-    }
-
-    randoms(items) {
         const deviation = 50;
-        const array = new Array();
 
         for (var i = 0; i < items.length; i++) {
             array[i] = new Object();
-            array[i].orbs = new Object();
-            array[i].lines = new Object();
+            const theta = Math.PI * 2 / items.length;
+            const angle = theta * i - Math.PI / 2;
+            const x = 0 + r * Math.cos(angle); // center point + radius * angle
+            const y = 0 + r * Math.sin(angle);
+            const size = random(18, 34);
 
-            // For the orbs
-            array[i].orbs.size = random(18, 34);
-            array[i].orbs.x = random(-deviation, deviation);
-            array[i].orbs.y = random(-deviation, deviation);
-
-            // For the lines
-            // For the lines
-            array[i].line = random(
-                Math.max(0, i - 4),
-                Math.min(items.length - 1, i + 4)
-            );
+            array[i].cx = x + random(-deviation, deviation);
+            array[i].cy = y + random(-deviation, deviation);
+            array[i].r = size;
         }
 
         return array;
     }
 
-    lines(coords) {
-        const { randoms } = this.state;
-        const lines = new Array();
-
-        if (coords) {
-            for (var i = 0; i < coords.length; i++) {
-                const current = coords[i];
-
-                const end = randoms[i].line;
-
-                const startX = current.cx;
-                const startY = current.cy;
-
-                const endX = coords[end].cx;
-                const endY = coords[end].cy;
-
-                const angleX = i > end ? endX - startX : startX - endX;
-                const angleY = i > end ? startY - endY : endY - startY;
-
-                const curve = Math.abs(i - end) * 0.2;
-
-                const midpointX = (startX + endX) / 2 + curve * angleY;
-                const midpointY = (startY + endY) / 2 + curve * angleX;
-
-                lines[i] = {
-                    d: `M${startX},${startY} Q${midpointX},${midpointY} ${endX}, ${endY}`,
-                    stroke: "url(#stroke_grad)",
-                    strokeWidth: "3",
-                    fill: "transparent"
-                };
-            }
-
-            return lines;
-        }
-    }
-
     componentDidMount() {
         const { solutions } = this.props;
-        this.setState({ randoms: this.randoms(solutions) });
+        this.setState({
+            orbs: this.orbs(solutions)
+        });
+
+        this.timer = setInterval(this.lines, 500);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.lines);
+    }
+
+    lines() {
+        let lines = this.state.lines.slice();
+
+        if (this.state.orbs) {
+            const current = random(0, this.state.orbs.length - 1);
+
+            const end = random(0, this.state.orbs.length - 1);
+
+            const startX = this.state.orbs[current].cx;
+            const startY = this.state.orbs[current].cy;
+
+            const endX = this.state.orbs[end].cx;
+            const endY = this.state.orbs[end].cy;
+
+            const angleX = current > end ? endX - startX : startX - endX;
+            const angleY = current > end ? startY - endY : endY - startY;
+
+            const curve = Math.abs(current - end) * 0.2;
+
+            const midpointX = (startX + endX) / 2 + curve * angleY;
+            const midpointY = (startY + endY) / 2 + curve * angleX;
+
+            const lineProps = {
+                d: `M${startX},${startY} Q${midpointX},${midpointY} ${endX}, ${endY}`,
+                stroke: "url(#stroke_grad)",
+                strokeWidth: "3",
+                fill: "transparent"
+            };
+
+            const randomKey =
+                Math.random()
+                    .toString(36)
+                    .substring(2, 15) +
+                Math.random()
+                    .toString(36)
+                    .substring(2, 15);
+
+            // Array
+            lines.push(<Path key={randomKey} {...lineProps} />);
+
+            if (lines.length > 20) {
+                lines.shift();
+            }
+
+            this.setState({ lines });
+        }
     }
 
     handleClick(x) {
@@ -166,13 +181,9 @@ class SolutionsVideo extends React.Component {
             solutions,
             animation
         } = this.props;
-        const { activeSolution } = this.state;
+        const { activeSolution, orbs } = this.state;
 
         const scale = Math.min(scrollY / height, 1);
-
-        const orbs = this.orbs(solutions);
-
-        const lines = this.lines(orbs);
 
         return (
             <Gradient style={style}>
@@ -231,10 +242,7 @@ class SolutionsVideo extends React.Component {
                             transform={`translate(${width / 2},${height /
                                 2}) scale(${transformScale(1080)})`}
                         >
-                            {lines &&
-                                lines.map((line, index) => (
-                                    <path key={index} {...line} />
-                                ))}
+                            {this.state.lines}
                             <TitleCircle cx={0} cy={0} r={200} />
                             <Title
                                 style={{ filter: "url(#shadow)" }}
