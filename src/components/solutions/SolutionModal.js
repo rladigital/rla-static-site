@@ -32,10 +32,16 @@ const Content = styled.div`
     transition: all 1s ease;
     transform: translate(-50%, -50%);
     position: absolute;
-    padding: 200px 0 0;
-
+    padding: 3vw 0 0;
+    font-size: 5vw;
     @media (min-width: ${breakpoints.medium}px) {
-        padding: 5% 2%;
+        font-size: 3vw;
+    }
+    @media (min-width: ${breakpoints.large}px) {
+        font-size: 2vw;
+    }
+    @media (min-width: ${breakpoints.xlarge}px) {
+        font-size: 1.5vw;
     }
 `;
 
@@ -153,8 +159,8 @@ class SolutionModal extends React.Component {
                     }}
                     onClick={e => e.stopPropagation()}
                 >
-                    <Row>
-                        <Column>
+                    <Row expanded>
+                        <Column collapse>
                             <H1>{solution.frontmatter.title}</H1>
                             <p>{solution.frontmatter.intro}</p>
                         </Column>
