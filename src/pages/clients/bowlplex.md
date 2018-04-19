@@ -6,6 +6,5 @@ solutionLookup: ''
 solutionsList:
   - Brand Desire
   - Customer Acquisition
-  - Customer Relationship
 ---
 
