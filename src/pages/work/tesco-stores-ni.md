@@ -1,6 +1,7 @@
 ---
 templateKey: work
 title: Tesco
+hero: /img/tesco-hero.jpg
 thumb: /img/RLA_Work_Page_1200x1200_Tesco.jpg
 intro: Using coordinated communications to harmonise the community.
 description: >-
