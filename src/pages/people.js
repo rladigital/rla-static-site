@@ -4,14 +4,14 @@ import graphql from "graphql";
 import { Row, Column } from "rla-components";
 import styled from "styled-components";
 
-import { serveStatic } from "../helpers/helpers";
+import { isBrowser } from "../helpers/helpers";
 import theme from "../theme/theme";
 import HeaderBlock from "../components/HeaderBlock";
 
-if (serveStatic()) {
-    var PeopleBrowser = require("../components/people/PeopleBrowserStatic");
-} else {
+if (isBrowser()) {
     var PeopleBrowser = require("../components/people/PeopleBrowser");
+} else {
+    var PeopleBrowser = require("../components/people/PeopleBrowserStatic");
 }
 
 const StyledP = styled.p`
@@ -31,15 +31,19 @@ export default class PeoplePage extends React.Component {
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
+                            padding={{
+                                top: 8,
+                                right: 0,
+                                bottom: 0,
+                                left: 0
+                            }}
                         >
                             <span>People</span> at our Core
                         </HeaderBlock>
                     </Column>
                 </Row>
-                <Row>
-                    <PeopleBrowser people={people} size={500} />
-                </Row>
+
+                <PeopleBrowser people={people} size={500} />
             </div>
         );
     }
