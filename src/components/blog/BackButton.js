@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "gatsby-link";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import FAIcon from "@fortawesome/react-fontawesome";
@@ -12,7 +11,9 @@ const StyledRow = styled(Row)`
     }
 `;
 
-const Button = styled(Link)`
+const Button = styled.a.attrs({
+    role: "button"
+})`
     font-size: 1.2em;
     display: inline-block;
     padding: ${spacing.padding}em 0;
@@ -22,10 +23,11 @@ const Button = styled(Link)`
     }
 `;
 
-const BackButton = ({ to }) => (
+const BackButton = ({ goBack }) => (
     <StyledRow expanded>
         <Column>
-            <Button to={to}>
+            <Button onClick={goBack}>
+                {console.log(goBack)}
                 <FAIcon icon="arrow-left" />
             </Button>
         </Column>

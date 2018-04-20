@@ -36,39 +36,34 @@ class WorkSection extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
-                    padding="1em 0 4em"
+                    padding="1em 0 6em"
                 >
                     <Row>
                         <Column large={7} centered>
                             <HeaderBlock
                                 baseColor={colors.background}
                                 padding={{
-                                    top: 8,
+                                    top: 6,
                                     right: 0,
                                     bottom: 3,
                                     left: 0
                                 }}
                                 fontSize={3.4}
                             >
-                                <span>NO</span> EXCUSES
+                                WORKING <span>TOGETHER</span>
                             </HeaderBlock>
                             <StyledP>
-                                We have a lot to offer at RLA, but if there’s
-                                one thing we don’t have - it’s excuses. We’re
-                                world-leaders in connecting the front-line with
-                                your brand, offering a rare level of
-                                commerciality that doesn’t exist in your usual
-                                agency.
-                            </StyledP>
-                            <StyledP>
-                                We strive to understand our clients’ needs
-                                fully, and we’ve got the tech and creativity to
-                                match.
-                            </StyledP>
-                            <StyledP>
-                                It’s time to unite sales with marketing, and
-                                stay at the forefront of opportunity - no
-                                excuses.
+                                We’re all about building connections. It’s all
+                                very well having great individual components
+                                within your marketing strategy, but unless they
+                                are properly coordinated, integrated and working
+                                efficiently together then by definition you
+                                won’t be operating at your maximum potential.
+                                Our ambition is to connect creative thinking to
+                                commercial strategy and ultimately to help you
+                                connect better with your customers. We won’t
+                                just answer your briefs, we’ll look at your
+                                whole business holistically.
                             </StyledP>
                         </Column>
                     </Row>

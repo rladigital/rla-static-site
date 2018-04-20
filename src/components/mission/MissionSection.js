@@ -22,7 +22,7 @@ const P = styled.p`
 const MissionSection = ({ percentage, text }) => (
     <Container>
         <Row>
-            <Column large={8} xlarge={6}>
+            <Column large={8} xlarge={4}>
                 <HeaderBlock
                     textAlign="left"
                     accentColor={colors.background}
@@ -35,24 +35,25 @@ const MissionSection = ({ percentage, text }) => (
                     }}
                     fontSize={3.6}
                 >
-                    Be&nbsp;part&nbsp;of <span>something</span>
-                    <br /> big
+                    LOCAL <span>EXPERTISE</span> WITH GLOBAL REACH
                 </HeaderBlock>
             </Column>
         </Row>
         <Row>
-            <Column xlarge={5}>
+            <Column large={8} xlarge={5}>
                 <P>
-                    <strong>
-                        We are fast becoming the UK’s leading, most respected
-                        Agency group. Delivering outstanding results for our
-                        clients wherever they operate.
-                    </strong>
+                    Our marketing know-how knows no bounds. Helping our clients
+                    connect with their customers all across the world is
+                    business as usual for us. With extensive experience working
+                    with Euro Repar Car Service and launching Scanias in South
+                    Africa, we’ll be only too happy to discuss your wider
+                    interests.
                 </P>
                 <P>
-                    We achieve this by providing impartial advice and
-                    challenging industry conventions. We also harness innovative
-                    technologies and incredible creativity.
+                    A major advantage we offer is that being part of The
+                    Mission, one of the UK’s leading and most respected Agency
+                    Groups, all the additional specialist skills and resources
+                    you could need will always be available.
                 </P>
                 <a href="http://www.themission.co.uk/" target="_blank">
                     <Button hollow={true} size="large" color="white">

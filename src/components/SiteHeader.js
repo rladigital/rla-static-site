@@ -45,20 +45,19 @@ class SiteHeader extends React.Component {
         this.state = {
             scrolltop: 0
         };
+
+        this.handleScroll = this.handleScroll.bind(this);
     }
 
     componentDidMount() {
-        window.addEventListener("scroll", () => this.handleScroll());
+        window.addEventListener("scroll", this.handleScroll);
     }
 
     componentWillUnmount() {
-        window.removeEventListener("scroll", () => this.handleScroll());
+        window.removeEventListener("scroll", this.handleScroll);
     }
     handleScroll() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            this.setState({ scrolltop: window.scrollY });
-        }, 250);
+        this.setState({ scrolltop: window.scrollY });
     }
 
     render() {
