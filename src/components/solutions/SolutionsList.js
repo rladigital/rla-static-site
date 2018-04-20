@@ -19,7 +19,10 @@ const rotate360 = keyframes`
   }
 `;
 
-const Path = styled.path``;
+const Path = styled.path`
+    animation: ${rotate360} 8s ease;
+    animation-fill-mode: forwards;
+`;
 
 const Svg = styled.svg`
     position: absolute;
@@ -71,6 +74,8 @@ const Orb = styled.circle`
         r: 16px;
     }
 `;
+
+let lineId = 0;
 
 class SolutionsVideo extends React.Component {
     constructor(props) {
@@ -129,27 +134,30 @@ class SolutionsVideo extends React.Component {
 
     componentDidMount() {
         const { solutions } = this.props;
-        const orbs = this.orbs(solutions);
         this.setState({
-            orbs: orbs
+            orbs: this.orbs(solutions)
         });
 
-        this.lines(orbs);
+        this.timer = setInterval(this.lines, 500);
     }
 
-    lines(orbs) {
-        let lines = new Array();
+    componentWillUnmount() {
+        clearInterval(this.lines);
+    }
 
-        for (var i = 0; i < 80; i++) {
-            const current = random(0, orbs.length - 1);
+    lines() {
+        let lines = this.state.lines.slice();
 
-            const end = random(0, orbs.length - 1);
+        if (this.state.orbs) {
+            const current = random(0, this.state.orbs.length - 1);
 
-            const startX = orbs[current].cx;
-            const startY = orbs[current].cy;
+            const end = random(0, this.state.orbs.length - 1);
 
-            const endX = orbs[end].cx;
-            const endY = orbs[end].cy;
+            const startX = this.state.orbs[current].cx;
+            const startY = this.state.orbs[current].cy;
+
+            const endX = this.state.orbs[end].cx;
+            const endY = this.state.orbs[end].cy;
 
             const angleX = current > end ? endX - startX : startX - endX;
             const angleY = current > end ? startY - endY : endY - startY;
@@ -163,17 +171,18 @@ class SolutionsVideo extends React.Component {
                 d: `M${startX},${startY} Q${midpointX},${midpointY} ${endX}, ${endY}`,
                 stroke: "url(#stroke_grad)",
                 strokeWidth: "3",
-                fill: "transparent",
-                style: { animationDelay: random(0, 4000) }
+                fill: "transparent"
             };
 
             // Array
-            lines.push(<Path key={i} {...lineProps} />);
+            lines.push(<Path key={`line_${lineId++}`} {...lineProps} />);
 
-            console.log(lines);
+            if (lines.length > 20) {
+                lines.shift();
+            }
+
+            this.setState({ lines });
         }
-
-        this.setState({ lines });
     }
 
     handleClick(x) {
