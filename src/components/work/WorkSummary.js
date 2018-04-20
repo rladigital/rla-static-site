@@ -54,7 +54,7 @@ const Title = styled.h3`
     font-size: 9vw;
     font-weight: 900;
     @media (min-width: ${breakpoints.medium}px) {
-        font-size: 3.8vw;
+        font-size: 3vw;
     }
 `;
 

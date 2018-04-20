@@ -18,6 +18,12 @@ const Control = styled.a`
     cursor: pointer;
 `;
 
+const IntroPara = styled.p`
+    text-align: center;
+    margin-bottom: 8rem;
+    color: ${colors.lightGray};
+`;
+
 let resizeTimer;
 
 class ServicesSection extends React.Component {
@@ -120,25 +126,28 @@ class ServicesSection extends React.Component {
             <SectionContainer
                 color={colors.white}
                 background={colors.background}
-                padding="2em 0 4em"
+                padding="2em 0 8em"
             >
                 <Row>
-                    <Column>
+                    <Column large={8} centered>
                         <HeaderBlock
                             baseColor={colors.white}
                             padding={{
                                 top: 4,
                                 right: 0,
-                                bottom: 6,
+                                bottom: 0,
                                 left: 0
                             }}
                             fontSize={3.4}
                             textAlign="center"
                         >
-                            <span>THE DEVIL</span>
-                            <br />
-                            IS IN THE DETAIL
+                            ALL <span>JOINED UP</span>
                         </HeaderBlock>
+                        <IntroPara>
+                            With our unique insight and range of talents, we can
+                            provide and seamlessly connect all of these key
+                            services. And everything in between.
+                        </IntroPara>
                     </Column>
                 </Row>
                 <div style={{ position: "relative" }}>
