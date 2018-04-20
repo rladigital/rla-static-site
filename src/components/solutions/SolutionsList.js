@@ -19,10 +19,7 @@ const rotate360 = keyframes`
   }
 `;
 
-const Path = styled.path`
-    animation: ${rotate360} 8s ease;
-    animation-fill-mode: forwards;
-`;
+const Path = styled.path``;
 
 const Svg = styled.svg`
     position: absolute;
@@ -87,6 +84,26 @@ class SolutionsVideo extends React.Component {
 
         this.lines = this.lines.bind(this);
     }
+
+    componentDidMount() {
+        const { solutions } = this.props;
+        this.setState({
+            orbs: this.orbs(solutions)
+        });
+
+        this.timer = setInterval(this.lines, 500);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.lines);
+    }
+
+    handleClick(x) {
+        this.setState({
+            activeSolution: x
+        });
+    }
+
     orbs(items) {
         const { width, height } = this.props;
         const { randoms, activeSolution } = this.state;
@@ -132,19 +149,6 @@ class SolutionsVideo extends React.Component {
         return array;
     }
 
-    componentDidMount() {
-        const { solutions } = this.props;
-        this.setState({
-            orbs: this.orbs(solutions)
-        });
-
-        this.timer = setInterval(this.lines, 500);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.lines);
-    }
-
     lines() {
         let lines = this.state.lines.slice();
 
@@ -183,12 +187,6 @@ class SolutionsVideo extends React.Component {
 
             this.setState({ lines });
         }
-    }
-
-    handleClick(x) {
-        this.setState({
-            activeSolution: x
-        });
     }
 
     render() {
@@ -233,7 +231,7 @@ class SolutionsVideo extends React.Component {
                             <linearGradient id="stroke_grad">
                                 <stop
                                     offset="25%"
-                                    stopColor="rgba(130, 155, 227, 0)"
+                                    stopColor="rgba(130, 155, 227, 0.2)"
                                 />
                                 <stop
                                     offset="100%"
