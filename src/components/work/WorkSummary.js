@@ -43,6 +43,7 @@ const Content = styled.div`
     left: 50%;
     margin: 0;
     max-width: 90%;
+    width: 100%;
     margin-top: 0;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -50,8 +51,11 @@ const Content = styled.div`
 `;
 
 const Title = styled.h3`
-    font-size: 2.6em;
+    font-size: 9vw;
     font-weight: 900;
+    @media (min-width: ${breakpoints.medium}px) {
+        font-size: 3.8vw;
+    }
 `;
 
 const Image = styled.section`
@@ -68,7 +72,14 @@ const Image = styled.section`
 `;
 
 const Summary = styled.p`
-    font-size: 0.8vw;
+    font-size: 3vw;
+    margin-bottom: 0;
+    @media (min-width: ${breakpoints.medium}px) {
+        font-size: 2vw;
+    }
+    @media (min-width: ${breakpoints.large}px) {
+        font-size: 1vw;
+    }
 `;
 
 const WorkSummaryWrapper = ({ children, slug, previewType }) => {
@@ -96,9 +107,7 @@ const WorkSummary = ({ work, index, heightMediaQuery }) => {
                         <Content>
                             <Title>{work.frontmatter.title}</Title>
                             {work.frontmatter.excerpt && (
-                                <Summary>
-                                    {work.frontmatter.excerpt.substring(0, 200)}...
-                                </Summary>
+                                <Summary>{work.frontmatter.excerpt}</Summary>
                             )}
                         </Content>
                     </Overlay>
