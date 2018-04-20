@@ -4,7 +4,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import { Row, Column } from "rla-components";
 import { transformScale, shuffleArray } from "../../helpers/helpers";
 
-import { colors } from "../../theme/theme";
+import { colors, breakpoints } from "../../theme/theme";
 import {
     hexToInt,
     scale,
@@ -13,7 +13,7 @@ import {
     isMobile
 } from "../../helpers/helpers";
 
-const height = 600;
+const height = isMobile() ? 680 : 600;
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -147,7 +147,7 @@ class PeopleBrowser extends React.Component {
         let main = 1;
         let theta = Math.PI / count;
         let items = new Array();
-        let size = 360;
+        let size = isMobile() ? 300 : 360;
 
         for (var i = 0; i < count; i++) {
             let angle;
@@ -254,7 +254,11 @@ class PeopleBrowser extends React.Component {
                     <div
                         style={{
                             height: height,
-                            transform: `scale(${transformScale(1400, 1200)})`
+                            transform: `scale(${
+                                isMobile()
+                                    ? transformScale(750, 340)
+                                    : transformScale(1400, 1200)
+                            })`
                         }}
                     >
                         {coords &&
