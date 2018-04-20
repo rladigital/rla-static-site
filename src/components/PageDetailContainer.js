@@ -7,6 +7,7 @@ const PageDetailContainer = styled.section`
     position: relative;
     margin-top: 80px;
     padding-top: ${spacing.padding}em;
+    padding-bottom: ${spacing.padding}em;
     background-color: ${props => props.background};
     color: ${props => props.color};
 `;
