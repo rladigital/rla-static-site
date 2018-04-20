@@ -282,6 +282,34 @@ function globalCss(theme) {
         div.leaflet-container {
             background: ${colors.background};
         }
+
+        
+        div .optanon-show-settings-popup-wrapper  {
+            display: inline;
+        }
+        
+        div .optanon-show-settings-button  {
+            display: inline;
+        }
+
+        
+        div .optanon-show-settings-popup-wrapper .optanon-show-settings-left {
+            display: none;
+        }
+        div .optanon-show-settings-popup-wrapper .optanon-show-settings-middle {
+            display: inline;
+            background: none !important;
+            border: none;
+            float: none;
+            a.optanon-show-settings {
+                color: #86c3c4 !important;
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+        div .optanon-show-settings-popup-wrapper .optanon-show-settings-right {
+            display: none;
+        }
     `;
 }
 

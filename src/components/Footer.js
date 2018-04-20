@@ -102,7 +102,11 @@ export default ({
         </Row>
         <Copyright>
             <Row>
-                <Column>Copyright RLA Group Ltd. | Cookie Policy</Column>
+                <Column>
+                    Copyright RLA Group Ltd. |{" "}
+                    <Link to="/cookie-policy">Cookie Policy</Link> |{" "}
+                    <a className="optanon-show-settings">Cookie Settings</a>
+                </Column>
             </Row>
         </Copyright>
     </SectionContainer>
