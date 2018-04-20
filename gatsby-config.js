@@ -35,7 +35,9 @@ module.exports = {
                 name: "images"
             }
         },
+        "gatsby-plugin-sharp",
         "gatsby-plugin-styled-components",
+        "gatsby-transformer-sharp",
         {
             resolve: "gatsby-transformer-remark",
             options: {
