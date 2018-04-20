@@ -170,7 +170,7 @@ class SolutionModal extends React.Component {
             transform: `translate(${width * (1 - animation)} 0)`
         };
 
-        console.log(currentSolution);
+        //console.log("Current Solution", currentSolution);
 
         return ReactDOM.createPortal(
             <Container
