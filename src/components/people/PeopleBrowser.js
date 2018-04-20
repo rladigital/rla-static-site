@@ -133,44 +133,12 @@ class PeopleBrowser extends React.Component {
 
     componentDidMount() {
         const { people } = this.props;
-        const coords = this.generateCoords(6, 360);
-        const data = chunkArray(6, shuffleArray(people));
+        const data = chunkArray(5, shuffleArray(people));
 
         this.setState({
-            coords: coords,
             data: data,
             selected: data[0][0].node
         });
-    }
-
-    generateCoords(count, r) {
-        let main = 1;
-        let theta = Math.PI / count;
-        let items = new Array();
-        let size = isMobile() ? 300 : 360;
-
-        for (var i = 0; i < count; i++) {
-            let angle;
-            if (isMobile()) {
-                angle =
-                    (i >= count / 2 ? theta * i : theta * (i - count / 2)) -
-                    Math.PI / count;
-            } else {
-                angle =
-                    (i >= count / 2 ? theta * i : theta * (i - count / 2)) -
-                    Math.PI / count * 4;
-            }
-
-            let x = size * Math.cos(angle); // center point + radius * angle
-            let y = size * Math.sin(angle);
-
-            items[i] = {
-                x: x,
-                y: y
-            };
-        }
-
-        return items;
     }
 
     navigateChunk(direction) {
@@ -215,7 +183,27 @@ class PeopleBrowser extends React.Component {
     }
 
     render() {
-        const { coords, data, current, selected } = this.state;
+        let coords;
+
+        if (!isMobile()) {
+            coords = [
+                { x: -180, y: -230, r: 100 },
+                { x: -300, y: -60, r: 80 },
+                { x: -260, y: 160, r: 120 },
+                { x: 300, y: 100, r: 140 },
+                { x: 220, y: -200, r: 120 }
+            ];
+        } else {
+            coords = [
+                { x: -200, y: -233, r: 100 },
+                { x: 28, y: -304, r: 130 },
+                { x: 220, y: -220, r: 80 },
+                { x: -185, y: 240, r: 150 },
+                { x: 100, y: 270, r: 100 }
+            ];
+        }
+
+        const { data, current, selected } = this.state;
         return (
             <Wrapper>
                 <Container>
@@ -261,7 +249,7 @@ class PeopleBrowser extends React.Component {
                             })`
                         }}
                     >
-                        {coords &&
+                        {data &&
                             data.map((row, i) => {
                                 return (
                                     <PersonGroup
@@ -305,6 +293,10 @@ class PeopleBrowser extends React.Component {
                                                 >
                                                     <PersonImage
                                                         style={{
+                                                            width:
+                                                                coords[index].r,
+                                                            height:
+                                                                coords[index].r,
                                                             backgroundImage: `url('${
                                                                 person
                                                                     .frontmatter
