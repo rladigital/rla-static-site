@@ -1,6 +1,7 @@
 ---
 templateKey: work
 title: THE CITY OF SALISBURY
+hero: /img/salisbury-hero.jpg
 thumb: /img/RLA_Work_Page_1200x1200_Salisbury.jpg
 intro: Connecting Salisbury with a new generation of city lovers.
 description: >-
