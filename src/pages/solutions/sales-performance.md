@@ -8,7 +8,7 @@ description1: >-
   engagement.
 description2: >-
   Channel incentives are just one part of our connected ambition for our
-  Clients. See how we can help you create them by getting in touch..
+  Clients. See how we can help you create them by getting in touch.
 color1: '#FD894E'
 color2: '#FB5126'
 ---
