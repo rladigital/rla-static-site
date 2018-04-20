@@ -41,14 +41,15 @@ export const JobTemplate = props => {
         hours,
         benefits,
         closing,
-        transition
+        transition,
+        history
     } = props;
     const PostContent = contentComponent || Content;
 
     return (
         <PageDetailContainer style={transition && transition.style}>
             {helmet || ""}
-            <BackButton to="/careers" />
+            <BackButton goBack={history.goBack} />
             {hero && (
                 <Row>
                     <Column>
@@ -109,7 +110,7 @@ const SummaryItem = ({ label, children }) => (
     </Row>
 );
 
-export default ({ transition, data }) => {
+export default ({ history, transition, data }) => {
     //console.log(data);
     const { markdownRemark: job } = data;
     return (
@@ -127,6 +128,7 @@ export default ({ transition, data }) => {
             benefits={job.frontmatter.benefits}
             closing={job.frontmatter.closing}
             transition={transition}
+            history={history}
         />
     );
 };

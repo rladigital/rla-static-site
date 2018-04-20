@@ -33,6 +33,7 @@ export const NewsTemplate = ({
     previous,
     next,
     transition,
+    history,
     tags
 }) => {
     const PostContent = contentComponent || HTMLContent;
@@ -40,7 +41,7 @@ export const NewsTemplate = ({
         <div style={transition && transition.style}>
             <PageDetailContainer>
                 {helmet || ""}
-                <BackButton to="/news" />
+                <BackButton goBack={history.goBack} />
                 {hero && (
                     <Row>
                         <Column>
@@ -137,7 +138,7 @@ export const NewsTemplate = ({
     );
 };
 
-export default ({ data, pathContext, transition }) => {
+export default ({ history, data, pathContext, transition }) => {
     //console.log(data, transition);
     const { markdownRemark: news } = data;
     const { previous, next } = pathContext;
@@ -155,6 +156,7 @@ export default ({ data, pathContext, transition }) => {
             previous={previous}
             next={next}
             transition={transition}
+            history={history}
             author={news.frontmatter.author}
             tags={news.frontmatter.tags}
         />

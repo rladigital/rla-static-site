@@ -81,7 +81,8 @@ class ReplaceComponentRenderer extends React.Component {
                             timeout,
                             style: getTransitionStyle({ status, timeout }),
                             nextPageResources: this.state.nextPageResources
-                        }
+                        },
+                        history: history
                     })
                 }
             </Transition>

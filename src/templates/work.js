@@ -74,12 +74,13 @@ export const WorkTemplate = ({
     title,
     intro,
     helmet,
-    transition
+    transition,
+    history
 }) => {
     return (
         <PageDetailContainer style={transition && transition.style}>
             {helmet || ""}
-            <BackButton to="/work" />
+            <BackButton goBack={history.goBack} />
             {hero && (
                 <Row>
                     <Column>
@@ -147,7 +148,7 @@ export const WorkTemplate = ({
     );
 };
 
-export default ({ transition, data }) => {
+export default ({ history, transition, data }) => {
     const { markdownRemark: work } = data;
     return (
         <WorkTemplate
@@ -161,6 +162,7 @@ export default ({ transition, data }) => {
             solutionsList={work.frontmatter.solutionsList}
             intro={work.frontmatter.intro}
             transition={transition}
+            history={history}
         />
     );
 };
