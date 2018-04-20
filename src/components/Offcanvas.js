@@ -7,6 +7,8 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import Scrollbars from "react-custom-scrollbars";
 import { Transition, TransitionGroup } from "react-transition-group";
 
+import Social from "../components/blog/Social";
+
 const duration = 500;
 
 const fade = {
@@ -60,7 +62,7 @@ const Menu = styled.div`
     width: 400px;
     height: 100%;
     position: fixed;
-    background: ${colors.background};
+    background: ${colors.reallyDarkBlueGray};
     padding: 0 2rem;
     text-align: right;
     z-index: 999;
@@ -70,9 +72,12 @@ const Section = styled.div`
     padding: ${props => props.padding}rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `;
+const SocialContainer = styled.div`
+    padding: ${props => props.padding}rem 0;
+`;
 
 const Item = styled.div`
-    font-weight: 900;
+    font-weight: 600;
     padding-bottom: 2rem;
     text-transform: uppercase;
 
@@ -82,7 +87,7 @@ const Item = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-    font-weight: 900;
+    font-weight: 600;
     color: ${colors.white};
     &:hover {
         color: ${colors.accent};
@@ -113,6 +118,24 @@ class Offcanvas extends React.Component {
                                     );
                                 })}
                             </Section>
+
+                            <SocialContainer padding={3}>
+                                <SocialIcon
+                                    icon="facebook-f"
+                                    href="https://www.facebook.com/rlagroup/"
+                                    target="_blank"
+                                />
+                                <SocialIcon
+                                    icon="twitter"
+                                    href="https://twitter.com/rlagroup"
+                                    target="_blank"
+                                />
+                                <SocialIcon
+                                    icon="linkedin-in"
+                                    href="https://www.linkedin.com/company/rla-group"
+                                    target="_blank"
+                                />
+                            </SocialContainer>
                         </Scrollbars>
                     </Slide>
                 )}
@@ -122,3 +145,14 @@ class Offcanvas extends React.Component {
 }
 
 export default Offcanvas;
+
+const SocialIcon = ({ ...rest }) => (
+    <Social
+        size={35}
+        borderColor={colors.accent}
+        color={colors.white}
+        margin="0 0 1rem 0.8rem"
+        transform="shrink-8 up-0.5"
+        {...rest}
+    />
+);

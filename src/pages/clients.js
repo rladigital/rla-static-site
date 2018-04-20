@@ -57,9 +57,9 @@ const Line = styled.div`
 const Solution = styled.div`
     height: 56px;
     margin-left: 4rem;
-    border-left: 1px solid ${colors.white};
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
     position: relative;
-    animation: ${rotate360} 0.5s linear;
+    animation: ${rotate360} 0.5s ease-out;
     animation-fill-mode: forwards;
 
     opacity: 0;
@@ -103,7 +103,7 @@ const Control = styled.a`
     cursor: pointer;
     position: absolute;
     padding: ${spacing.padding}em 0;
-    transform: translateY(-335px);
+    //transform: translateY(-335px);
     @media (min-width: ${breakpoints.medium}px) {
         padding: ${spacing.padding}em;
     }
@@ -120,13 +120,27 @@ export default class ClientsPage extends React.Component {
     setSlide(x) {
         this.setState({ currentSlide: x });
     }
-    handleClick(x) {
+    handleClick(selectedSolution) {
+        console.log(selectedSolution);
+        let selectedSolutionIndex = null;
+        if (selectedSolution) {
+            const { solutions: { edges: solutions } } = this.props.data;
+
+            selectedSolutionIndex = solutions.findIndex(solution => {
+                return (
+                    selectedSolution.frontmatter.title ===
+                    solution.node.frontmatter.title
+                );
+            });
+        }
+        console.log(selectedSolutionIndex);
         this.setState({
-            activeSolution: x
+            activeSolution: selectedSolutionIndex
         });
     }
 
     getSolution(solutionTitle) {
+        //console.log(solutionTitle);
         const solution = this.props.data.solutions.edges.filter(solution => {
             return solution.node.frontmatter.title === solutionTitle;
         })[0];
@@ -191,12 +205,12 @@ export default class ClientsPage extends React.Component {
                 </Row>
 
                 <Row expanded collapse>
-                    <Carousel {...settings}>
+                    <Carousel {...settings} style={{ minHeight: "400px" }}>
                         {clients.map(({ node: client }, index) => {
                             const isCurrent = Boolean(
                                 this.state.currentSlide == index
                             );
-                            console.log(client);
+                            //console.log(client);
                             return (
                                 <Brand
                                     key={index}
@@ -251,17 +265,13 @@ export default class ClientsPage extends React.Component {
                                                     if (solution) {
                                                         return (
                                                             <Solution
-                                                                onClick={() =>
-                                                                    this.handleClick(
-                                                                        index
-                                                                    )
-                                                                }
+                                                                onClick={this.handleClick.bind(
+                                                                    this,
+                                                                    solution
+                                                                )}
                                                                 style={{
                                                                     animationDelay: `${0.25 *
-                                                                        index}s`,
-                                                                    zIndex:
-                                                                        1 -
-                                                                        index
+                                                                        index}s`
                                                                 }}
                                                                 key={index}
                                                             >
@@ -350,6 +360,8 @@ export const pageQuery = graphql`
                         color1
                         color2
                         intro
+                        description1
+                        description2
                     }
                 }
             }

@@ -7,6 +7,7 @@ export const colors = {
     lightBlueGray: "#272E48",
     mediumBlueGray: "#272E48",
     darkBlueGray: "#07172C",
+    reallyDarkBlueGray: "#05101f",
     lightGray: "#868D98",
     mediumGray: "#5A677F",
     darkGray: "#22262c",
