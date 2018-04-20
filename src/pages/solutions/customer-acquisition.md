@@ -1,13 +1,13 @@
 ---
 templateKey: solutions
 title: Customer Acquisition
-intro: Going deep into the mind of the consumer.
+intro: CAPTURING IMAGINATIONS AND GETTING PEOPLE ON BOARD
 description1: >-
-  Driving meaningful connections between brand and consumer starts with
-  intelligent planning and strategising.
+  Whether you’re creating brand standout to grab attention or tipping the
+  balance in your favour on warm leads, your customer relationship starts here.
 description2: >-
-  By accessing what really matters to the audience, we can effectively and
-  competitively reach those customers who are ready for action.
+  Customer acquisition is just one part of our connected ambition for our
+  Clients. See how we can help you achieve it by getting in touch.
 color1: '#4EF6DC'
 color2: '#26E9B6'
 ---
