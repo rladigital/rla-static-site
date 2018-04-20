@@ -89,13 +89,13 @@ export default ({
                     target="_blank"
                 />
                 <SocialIcon
-                    icon="linkedin-in"
-                    href="https://www.linkedin.com/company/rla-group"
+                    icon="twitter"
+                    href="https://twitter.com/rlagroup"
                     target="_blank"
                 />
                 <SocialIcon
-                    icon="twitter"
-                    href="https://twitter.com/rlagroup"
+                    icon="linkedin-in"
+                    href="https://www.linkedin.com/company/rla-group"
                     target="_blank"
                 />
             </Column>
