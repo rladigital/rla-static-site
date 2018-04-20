@@ -4,6 +4,35 @@ import { Row, Column } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
 import { transformScale, random, isMobile } from "../../helpers/helpers";
 import SolutionModal from "./SolutionModal";
+import TransitionGroup from "react-transition-group/TransitionGroup";
+import Transition from "react-transition-group/Transition";
+
+const duration = 1000;
+
+const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0
+};
+
+const transitionStyles = {
+    entering: { opacity: 0 },
+    entered: { opacity: 1 }
+};
+
+const Fade = ({ in: inProp, children, ...otherProps }) => (
+    <Transition in={inProp} timeout={duration} {...otherProps}>
+        {state => (
+            <g
+                style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }}
+            >
+                {children}
+            </g>
+        )}
+    </Transition>
+);
 
 const rotate360 = keyframes`
   0% {
@@ -179,9 +208,13 @@ class SolutionsVideo extends React.Component {
             };
 
             // Array
-            lines.push(<Path key={`line_${lineId++}`} {...lineProps} />);
+            lines.push(
+                <Fade key={`line_${lineId++}`}>
+                    <Path id="xxxaaa" {...lineProps} />
+                </Fade>
+            );
 
-            if (lines.length > 20) {
+            if (lines.length > 10) {
                 lines.shift();
             }
 
@@ -263,7 +296,9 @@ class SolutionsVideo extends React.Component {
                                     : transformScale(1080)
                             })`}
                         >
-                            {this.state.lines}
+                            <TransitionGroup component="g">
+                                {this.state.lines}
+                            </TransitionGroup>
                             <TitleCircle cx={0} cy={0} r={200} />
                             <Title
                                 style={{ filter: "url(#shadow)" }}
