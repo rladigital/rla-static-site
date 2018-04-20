@@ -73,10 +73,11 @@ export const WorkTemplate = ({
     solutionsList,
     title,
     intro,
-    helmet
+    helmet,
+    transition
 }) => {
     return (
-        <PageDetailContainer>
+        <PageDetailContainer style={transition && transition.style}>
             {helmet || ""}
             <BackButton to="/work" />
             {hero && (
@@ -146,8 +147,7 @@ export const WorkTemplate = ({
     );
 };
 
-export default ({ data }) => {
-    //console.log(data);
+export default ({ transition, data }) => {
     const { markdownRemark: work } = data;
     return (
         <WorkTemplate
@@ -160,6 +160,7 @@ export default ({ data }) => {
             galleryImages={work.frontmatter.galleryImages}
             solutionsList={work.frontmatter.solutionsList}
             intro={work.frontmatter.intro}
+            transition={transition}
         />
     );
 };
