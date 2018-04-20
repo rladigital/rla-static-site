@@ -34,7 +34,7 @@ class ServicesSection extends React.Component {
         };
     }
 
-    coords(elem) {
+    coords(elem, servicesLength) {
         const { current } = this.state;
 
         const total = elem.getTotalLength();
@@ -42,8 +42,13 @@ class ServicesSection extends React.Component {
         let coords = new Array();
 
         // Generate points
-        for (var i = 0; i < points; i++) {
-            coords[i] = elem.getPointAtLength(segment * i);
+        for (var i = 0; i < servicesLength; i++) {
+            // if more items than points
+            if (i > points) {
+                coords[i] = { x: 0, y: 0 };
+            } else {
+                coords[i] = elem.getPointAtLength(segment * i);
+            }
         }
 
         // Coord other params
@@ -99,14 +104,14 @@ class ServicesSection extends React.Component {
     }
 
     prev() {
-        const prev = this.state.current - 1;
-        const actual = prev < 0 ? points : prev;
+        const next = this.state.current + 1;
+        const actual = next > this.props.services.length - 1 ? 0 : next;
         this.setCurrent(actual);
     }
 
     next() {
-        const next = this.state.current + 1;
-        const actual = next > points ? 0 : next;
+        const prev = this.state.current - 1;
+        const actual = prev < 0 ? this.props.services.length - 1 : prev;
         this.setCurrent(actual);
     }
 
@@ -120,7 +125,7 @@ class ServicesSection extends React.Component {
     render() {
         const { width, height, services } = this.props;
         const { current } = this.state;
-        const coords = this.path && this.coords(this.path);
+        const coords = this.path && this.coords(this.path, services.length);
 
         return (
             <SectionContainer
@@ -141,7 +146,7 @@ class ServicesSection extends React.Component {
                             fontSize={3.4}
                             textAlign="center"
                         >
-                            ALL <span>JOINED UP</span>
+                            ALL <span>JOINED UP</span>{" "}
                         </HeaderBlock>
                         <IntroPara>
                             With our unique insight and range of talents, we can
@@ -259,12 +264,21 @@ class ServicesSection extends React.Component {
                     >
                         <Row style={{ position: "relative" }}>
                             <Column small={8} centered>
-                                {services &&
-                                    services[current] && (
+                                {console.log(services)}
+                                {console.log(coords)}
+                                {coords &&
+                                    services && (
                                         <div
                                             dangerouslySetInnerHTML={{
                                                 __html:
-                                                    services[current].node.html
+                                                    services[
+                                                        coords
+                                                            .map(e => {
+                                                                console.log(e);
+                                                                return e.status;
+                                                            })
+                                                            .indexOf("active")
+                                                    ].node.html
                                             }}
                                         />
                                     )}
