@@ -19,10 +19,7 @@ const rotate360 = keyframes`
   }
 `;
 
-const Path = styled.path`
-    animation: ${rotate360} 8s ease;
-    animation-fill-mode: forwards;
-`;
+const Path = styled.path``;
 
 const Svg = styled.svg`
     position: absolute;
@@ -132,30 +129,27 @@ class SolutionsVideo extends React.Component {
 
     componentDidMount() {
         const { solutions } = this.props;
+        const orbs = this.orbs(solutions);
         this.setState({
-            orbs: this.orbs(solutions)
+            orbs: orbs
         });
 
-        this.timer = setInterval(this.lines, 500);
+        this.lines(orbs);
     }
 
-    componentWillUnmount() {
-        clearInterval(this.lines);
-    }
+    lines(orbs) {
+        let lines = new Array();
 
-    lines() {
-        let lines = this.state.lines.slice();
+        for (var i = 0; i < 80; i++) {
+            const current = random(0, orbs.length - 1);
 
-        if (this.state.orbs) {
-            const current = random(0, this.state.orbs.length - 1);
+            const end = random(0, orbs.length - 1);
 
-            const end = random(0, this.state.orbs.length - 1);
+            const startX = orbs[current].cx;
+            const startY = orbs[current].cy;
 
-            const startX = this.state.orbs[current].cx;
-            const startY = this.state.orbs[current].cy;
-
-            const endX = this.state.orbs[end].cx;
-            const endY = this.state.orbs[end].cy;
+            const endX = orbs[end].cx;
+            const endY = orbs[end].cy;
 
             const angleX = current > end ? endX - startX : startX - endX;
             const angleY = current > end ? startY - endY : endY - startY;
@@ -169,26 +163,17 @@ class SolutionsVideo extends React.Component {
                 d: `M${startX},${startY} Q${midpointX},${midpointY} ${endX}, ${endY}`,
                 stroke: "url(#stroke_grad)",
                 strokeWidth: "3",
-                fill: "transparent"
+                fill: "transparent",
+                style: { animationDelay: random(0, 4000) }
             };
 
-            const randomKey =
-                Math.random()
-                    .toString(36)
-                    .substring(2, 15) +
-                Math.random()
-                    .toString(36)
-                    .substring(2, 15);
-
             // Array
-            lines.push(<Path key={randomKey} {...lineProps} />);
+            lines.push(<Path key={i} {...lineProps} />);
 
-            if (lines.length > 20) {
-                lines.shift();
-            }
-
-            this.setState({ lines });
+            console.log(lines);
         }
+
+        this.setState({ lines });
     }
 
     handleClick(x) {
