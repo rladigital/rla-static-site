@@ -34,12 +34,6 @@ const Fade = ({ in: inProp, children, ...otherProps }) => (
     </Transition>
 );
 
-const Gradient = styled.div`
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(#2e3e60 10%, ${colors.background});
-`;
-
 const TitleCircle = styled.circle`
     fill: #344470;
 `;
@@ -113,10 +107,11 @@ class SolutionsVideo extends React.Component {
         const { randoms, activeSolution } = this.state;
 
         const array = new Array();
-        const deviation = 50;
 
         if (isMobile()) {
             const r = 340;
+            const deviation = 50;
+
             for (var i = 0; i < items.length; i++) {
                 array[i] = new Object();
                 const theta = Math.PI / items.length;
@@ -134,7 +129,9 @@ class SolutionsVideo extends React.Component {
                 array[i].r = size;
             }
         } else {
-            const r = 360;
+            const r = 400;
+            const deviation = 70;
+
             for (var i = 0; i < items.length; i++) {
                 array[i] = new Object();
                 const theta = Math.PI * 2 / items.length;

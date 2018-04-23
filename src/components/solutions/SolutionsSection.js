@@ -33,6 +33,13 @@ const transitionStyles = {
     }
 };
 
+const StyledStickyContainer = styled(StickyContainer)`
+    background-image: url("img/background.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+`;
+
 const Fade = ({ in: inProp, children, style, ...rest }) => (
     <Transition in={inProp} timeout={500} unmountOnExit={true} {...rest}>
         {state => (
@@ -55,11 +62,6 @@ const Fade = ({ in: inProp, children, style, ...rest }) => (
         )}
     </Transition>
 );
-
-const StyledStickyContainer = styled(StickyContainer)`
-    background-image: radial-gradient(#2e3e60 10%, ${colors.background});
-    background-attachment: fixed;
-`;
 
 let hasScrolledTop = false;
 class SolutionsSection extends React.Component {
