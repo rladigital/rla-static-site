@@ -210,7 +210,7 @@ class SolutionsVideo extends React.Component {
             // Array
             lines.push(
                 <Fade key={`line_${lineId++}`}>
-                    <Path id="xxxaaa" {...lineProps} />
+                    <Path {...lineProps} />
                 </Fade>
             );
 
