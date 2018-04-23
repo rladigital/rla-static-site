@@ -48,11 +48,15 @@ const FaUl = styled.ul`
     padding-left: 0;
 `;
 
+const Footer = SectionContainer.extend`
+    font-family: Gotham, Avenir, sans-serif;
+`;
+
 export default ({
     data: { allMarkdownRemark: { edges: contacts } },
     items
 }) => (
-    <SectionContainer padding="5em 0 0">
+    <Footer padding="5em 0 0">
         <Row>
             <Column large={2}>
                 <img src={logo} alt="RLA" style={{ width: "120px" }} />
@@ -109,7 +113,7 @@ export default ({
                 </Column>
             </Row>
         </Copyright>
-    </SectionContainer>
+    </Footer>
 );
 
 const Location = ({ to, children, address, phone, email }) => (

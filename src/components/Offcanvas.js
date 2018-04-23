@@ -66,6 +66,7 @@ const Menu = styled.div`
     padding: 0 2rem;
     text-align: right;
     z-index: 999;
+    font-family: Gotham, Avenir, sans-serif;
 `;
 
 const Section = styled.div`
