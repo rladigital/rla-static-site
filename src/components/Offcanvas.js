@@ -41,7 +41,7 @@ const slide = {
 };
 
 const Slide = ({ in: inProp, children }) => (
-    <Transition in={inProp} timeout={duration}>
+    <Transition in={inProp} timeout={duration} appear={true}>
         {state => (
             <Menu
                 onClick={e => e.stopPropagation()}
@@ -99,7 +99,7 @@ class Offcanvas extends React.Component {
         const { items, toggleOffcanvas, offcanvasActive } = this.props;
 
         return (
-            <TransitionGroup className="todo-list">
+            <TransitionGroup>
                 {offcanvasActive && (
                     <Slide>
                         <Scrollbars autoHide>

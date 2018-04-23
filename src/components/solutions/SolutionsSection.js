@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { StickyContainer, Sticky } from "react-sticky";
-import TransitionGroup from "react-transition-group/TransitionGroup";
-import Transition from "react-transition-group/Transition";
+import { TransitionGroup, Transition } from "react-transition-group";
 
 import { colors } from "../../theme/theme";
 import { hexToInt } from "../../helpers/helpers";
@@ -20,13 +19,13 @@ const defaultStyle = {
     height: "100%",
     opacity: 0,
     transform: "scale(0.5)",
-    transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`
+    transition: `opacity ${500}ms ease-in-out, transform ${duration}ms ease-in-out`
 };
 
 const transitionStyles = {
     entering: {
         opacity: 0,
-        transform: "scale(2)"
+        transform: "scale(0)"
     },
     entered: {
         opacity: 1,
@@ -35,7 +34,7 @@ const transitionStyles = {
 };
 
 const Fade = ({ in: inProp, children, style, ...rest }) => (
-    <Transition in={inProp} timeout={duration} unmountOnExit={true} {...rest}>
+    <Transition in={inProp} timeout={500} unmountOnExit={true} {...rest}>
         {state => (
             <div
                 style={{
@@ -96,7 +95,7 @@ class SolutionsSection extends React.Component {
 
         return (
             <StyledStickyContainer style={{ height: height * 2 }}>
-                <Sticky>
+                <Sticky style={{ height: "50%", background: "red" }}>
                     {({ style }) => {
                         return (
                             <TransitionGroup>
@@ -104,7 +103,7 @@ class SolutionsSection extends React.Component {
                                     <Fade style={style}>
                                         <SolutionsList
                                             style={style}
-                                            width={width - 16}
+                                            width={width}
                                             height={height}
                                             solutions={solutions}
                                             animation={animation}

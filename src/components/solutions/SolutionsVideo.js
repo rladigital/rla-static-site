@@ -9,11 +9,6 @@ import placeholder from "../../img/static-video.png";
 import LoadingScreen from "../loading/LoadingScreen";
 import { transformScale, isMobile } from "../../helpers/helpers";
 
-const Container = styled.div`
-    width: 100%;
-    height: 100%;
-`;
-
 const Svg = styled.svg`
     position: absolute;
     top: 50%;
@@ -114,7 +109,7 @@ class SolutionsVideo extends React.Component {
                 : transformScale(1000);
 
         return (
-            <Container>
+            <div style={{ height: height }}>
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={size}
@@ -169,7 +164,7 @@ class SolutionsVideo extends React.Component {
                         <source src={video} type="video/mp4" />
                     </Video>
                 )}
-            </Container>
+            </div>
         );
     }
 }
