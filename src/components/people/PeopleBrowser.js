@@ -9,7 +9,7 @@ import {
     hexToInt,
     scale,
     random,
-    chunkArray,
+    randomChunkArray,
     isMobile
 } from "../../helpers/helpers";
 
@@ -133,7 +133,13 @@ class PeopleBrowser extends React.Component {
 
     componentDidMount() {
         const { people } = this.props;
-        const data = chunkArray(5, shuffleArray(people));
+        let data = randomChunkArray(shuffleArray(people), 3, 5);
+
+        // Don't allow singles
+        if (data[data.length - 1].length == 1) {
+            let tempArray = data.splice(-1);
+            data[data.length - 1].concat(tempArray);
+        }
 
         this.setState({
             data: data,
@@ -188,10 +194,10 @@ class PeopleBrowser extends React.Component {
         if (!isMobile()) {
             coords = [
                 { x: -180, y: -230, r: 100 },
-                { x: -300, y: -60, r: 80 },
-                { x: -260, y: 160, r: 120 },
                 { x: 300, y: 100, r: 140 },
-                { x: 220, y: -200, r: 120 }
+                { x: -300, y: -60, r: 80 },
+                { x: 220, y: -200, r: 120 },
+                { x: -260, y: 160, r: 120 }
             ];
         } else {
             coords = [
@@ -204,6 +210,7 @@ class PeopleBrowser extends React.Component {
         }
 
         const { data, current, selected } = this.state;
+
         return (
             <Wrapper>
                 <Container>
@@ -271,7 +278,8 @@ class PeopleBrowser extends React.Component {
                                                         ? 1
                                                         : 0,
                                             pointerEvents:
-                                                current + 1 == i
+                                                current + 1 == i ||
+                                                current == data.length - 1
                                                     ? "auto"
                                                     : "none"
                                         }}
