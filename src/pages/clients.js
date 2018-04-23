@@ -103,7 +103,7 @@ const Control = styled.a`
     cursor: pointer;
     position: absolute;
     padding: ${spacing.padding}em 0;
-    //transform: translateY(-335px);
+    transform: translateY(-335px);
     @media (min-width: ${breakpoints.medium}px) {
         padding: ${spacing.padding}em;
     }
@@ -308,13 +308,14 @@ export default class ClientsPage extends React.Component {
                         })}
                     </Carousel>
                 </Row>
-                {activeSolution && (
+                {activeSolution != null && (
                     <SolutionModal
                         width={window.innerWidth}
                         height={window.innerHeight}
                         solution={activeSolution}
                         solutions={solutions}
                         close={() => this.handleClick(null)}
+                        showButtons={false}
                     />
                 )}
             </div>

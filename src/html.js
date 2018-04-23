@@ -31,7 +31,7 @@ module.exports = class HTML extends React.Component {
                     />
                     {this.props.headComponents}
                     {css}
-                    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default" />
+                    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.findIndex" />
                 </head>
                 <body {...this.props.bodyAttributes}>
                     {this.props.preBodyComponents}
