@@ -49,7 +49,7 @@ const FaUl = styled.ul`
 `;
 
 const Footer = SectionContainer.extend`
-    font-family: Gotham, Avenir, sans-serif;
+    font-family: ${props => props.theme.headings.fontFamily};
 `;
 
 export default ({

@@ -12,7 +12,7 @@ const Container = styled.div`
     font-weight: ${props => props.weight};
     margin: ${props => props.margin};
     float: right;
-    font-family: Gotham, Avenir, sans-serif;
+    font-family: ${props => props.theme.headings.fontFamily};
 `;
 
 class MainNavMenu extends React.Component {

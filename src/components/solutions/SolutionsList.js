@@ -35,7 +35,7 @@ const Fade = ({ in: inProp, children, ...otherProps }) => (
 );
 
 const Svg = styled.svg`
-    font-family: Gotham, Avenir, sans-serif;
+    font-family: ${props => props.theme.headings.fontFamily};
 `;
 
 const TitleCircle = styled.circle`

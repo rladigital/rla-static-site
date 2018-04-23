@@ -53,6 +53,7 @@ const Title = styled.p`
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 1.2;
+    font-family: ${props => props.theme.headings.fontFamily};
 `;
 
 const JobSummary = ({ job, height, centred }) => {

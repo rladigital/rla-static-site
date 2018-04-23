@@ -32,7 +32,15 @@ function globalCss(theme) {
             font-family: 'Avenir';
             src: url('./fonts/Avenir-Medium.woff2') format('woff2'),
             url('./fonts/Avenir-Medium.woff') format('woff');
-            font-weight: 500;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Avenir';
+            src: url('Avenir-Black.woff2') format('woff2'),
+                url('Avenir-Black.woff') format('woff');
+            font-weight: bold;
             font-style: normal;
         }
         
@@ -100,8 +108,8 @@ function globalCss(theme) {
             -webkit-font-smoothing: antialiased;
 	        -moz-osx-font-smoothing: grayscale;
         }
-        h1,h2,h3,h4,h5,h5{
-            font-family: Gotham;
+        h1,h2,h3,h4,h5,h6{
+            font-family: ${theme.headings.fontFamily};
         }
         h1,h2,h3,h4,h5,h6,button {
             text-transform: uppercase;

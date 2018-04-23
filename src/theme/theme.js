@@ -65,6 +65,9 @@ const theme = {
         border: "1px solid " + colors.secondary,
         padding: spacing.padding
     },
+    headings: {
+        fontFamily: "Gotham, Avenir, sans-serif"
+    },
     header: {
         logoMargin: spacing.margin + "em 0"
     },

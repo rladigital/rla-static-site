@@ -24,6 +24,10 @@ const IntroPara = styled.p`
     color: ${colors.lightGray};
 `;
 
+const Service = styled.text`
+    font-family: ${props => props.theme.headings.fontFamily};
+`;
+
 let resizeTimer;
 
 class ServicesSection extends React.Component {
@@ -224,7 +228,7 @@ class ServicesSection extends React.Component {
                                             >
                                                 {i}
                                             </circle>
-                                            <text
+                                            <Service
                                                 y={-30}
                                                 textAnchor="middle"
                                                 style={{
@@ -238,7 +242,7 @@ class ServicesSection extends React.Component {
                                                 }
                                             >
                                                 {service.node.frontmatter.title.toUpperCase()}
-                                            </text>
+                                            </Service>
                                             <line
                                                 x={0}
                                                 y={0}

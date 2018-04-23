@@ -47,7 +47,7 @@ let ScrollDown = styled.div.attrs({
     z-index: 1;
 `;
 
-const ScrollDownText = styled.p.attrs({
+const ScrollDownText = styled.h6.attrs({
     children: "Scroll Down"
 })`
     font-size: 0.8rem;
