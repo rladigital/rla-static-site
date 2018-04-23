@@ -1,9 +1,8 @@
 ---
 templateKey: job
 area: Client Services
-title: We're looking for a Senior Account Manager to join our Client Services team.
+title: Are you our next Account Manager?
 closing: 11/04/2018
-location: Bournemouth
 description: >-
   # About Us
 
@@ -104,9 +103,8 @@ description: >-
   maintain quality control across the account.
 
   * Able to form and maintain relationships at all levels.
-skills:
-  - N/a
 level: Senior
+location: Bournemouth
 salary: DOE
 hours: '9:00am - 5:30pm'
 benefits:
@@ -119,8 +117,6 @@ benefits:
   - Cycle to work scheme
   - Reward & Recognition Scheme
   - Fridge Friday
-tags:
-  - Client Services
 hero: /img/account handler role b img_7616.jpg
 ---
 
