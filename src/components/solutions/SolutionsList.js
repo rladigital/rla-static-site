@@ -34,6 +34,10 @@ const Fade = ({ in: inProp, children, ...otherProps }) => (
     </Transition>
 );
 
+const Svg = styled.svg`
+    font-family: Gotham, Avenir, sans-serif;
+`;
+
 const TitleCircle = styled.circle`
     fill: #6e7291;
 `;
@@ -223,7 +227,7 @@ class SolutionsVideo extends React.Component {
 
         return (
             <div>
-                <svg width={width} height={height}>
+                <Svg width={width} height={height}>
                     <defs>
                         <filter
                             id="shadow"
@@ -343,7 +347,7 @@ class SolutionsVideo extends React.Component {
                                 />
                             ])}
                     </g>
-                </svg>
+                </Svg>
 
                 {activeSolution != undefined && (
                     <SolutionModal

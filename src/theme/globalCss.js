@@ -27,6 +27,14 @@ function globalCss(theme) {
             font-weight: 900;
             font-style: normal;
         }
+
+        @font-face {
+            font-family: 'Avenir';
+            src: url('./fonts/Avenir-Medium.woff2') format('woff2'),
+            url('./fonts/Avenir-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
         
 
         html, body, div, span, applet, object, iframe,
@@ -91,6 +99,9 @@ function globalCss(theme) {
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
 	        -moz-osx-font-smoothing: grayscale;
+        }
+        h1,h2,h3,h4,h5,h5{
+            font-family: Gotham;
         }
         h1,h2,h3,h4,h5,h6,button {
             text-transform: uppercase;

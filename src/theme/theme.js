@@ -46,7 +46,7 @@ const theme = {
     body: {
         color: colors.white,
         background: colors.background,
-        fontFamily: "Gotham, sans-serif"
+        fontFamily: "Avenir, sans-serif"
     },
     anchor: {
         color: colors.primary,
