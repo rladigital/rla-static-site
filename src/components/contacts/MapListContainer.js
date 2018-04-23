@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { colors, sizes } from "../../theme/theme";
 
-const Container = styled.div`
-    background: ${colors.mediumBlueGray};
-    height: 100%;
-`;
+const Container = styled.div``;
 
 class MapListContainer extends React.Component {
     render() {

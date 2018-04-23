@@ -7,8 +7,8 @@ export const MapWrapper = styled.div`
 `;
 
 export const MapListHeader = styled.h5`
-    margin: 0;
-    padding: ${spacing.padding}em;
+    padding-top: ${spacing.padding}em;
+    margin: 0 0 0.5em ${spacing.padding}em;
     color: ${colors.lightGray};
 `;
 
@@ -18,8 +18,7 @@ export const ContactListItem = styled.li`
     padding: 0.8em ${spacing.padding}em;
     background: ${props =>
         props.active ? colors.darkBlueGray : colors.mediumBlueGray};
-    font-size: ${props =>
-        props.fontSize === "small" ? sizes.small : sizes.default};
+    // font-size: ${props => (props.fontSize === "small" ? 0.8 : 1.2)}em;
     cursor: pointer;
     &:hover {
         background: ${colors.darkBlueGray};
