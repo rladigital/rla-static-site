@@ -1,6 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
+import FAIcon from "@fortawesome/react-fontawesome";
+
 import { colors } from "../../theme/theme";
 import video from "../../videos/video.mp4";
 import placeholder from "../../img/static-video.png";
@@ -10,7 +12,6 @@ import { transformScale, isMobile } from "../../helpers/helpers";
 const Container = styled.div`
     width: 100%;
     height: 100%;
-    position: fixed;
 `;
 
 const Svg = styled.svg`
@@ -37,6 +38,49 @@ const Img = styled.div`
     background-repeat: no-repeat;
 `;
 
+let ScrollDown = styled.div.attrs({
+    role: "button"
+})`
+    width: 100%;
+    bottom: 0;
+    padding: 50px;
+    position: fixed;
+    text-align: center;
+    color: ${colors.background};
+    transition: opacity 1s;
+    cursor: pointer;
+    z-index: 1;
+`;
+
+const ScrollDownText = styled.p.attrs({
+    children: "Scroll Down"
+})`
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+`;
+
+const Chevron = styled(FAIcon).attrs({
+    icon: "chevron-down"
+})`
+    animation: ${fadeDown} 2s linear infinite;
+`;
+
+const fadeDown = keyframes`
+  0%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+`;
 class SolutionsVideo extends React.Component {
     constructor(props) {
         super(props);
@@ -54,11 +98,13 @@ class SolutionsVideo extends React.Component {
         }
     }
 
+    scrollDown() {
+        document.documentElement.scrollTop = this.props.height;
+    }
+
     render() {
         const { loadedPercentage } = this.state;
         const { width, height, scrollY, style, animation } = this.props;
-
-        const scale = Math.max(1 - scrollY / height, 0);
 
         const size = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
 
@@ -68,13 +114,7 @@ class SolutionsVideo extends React.Component {
                 : transformScale(1000);
 
         return (
-            <Container
-                style={{
-                    opacity: scale,
-                    transform: `scale(${scale})`,
-                    transition: animation
-                }}
-            >
+            <Container>
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={size}
@@ -107,6 +147,12 @@ class SolutionsVideo extends React.Component {
                         />
                     </g>
                 </Svg>
+
+                <ScrollDown onClick={() => this.scrollDown()}>
+                    <ScrollDownText />
+                    <Chevron />
+                </ScrollDown>
+
                 {isMobile() ? (
                     <Img src={placeholder} />
                 ) : (

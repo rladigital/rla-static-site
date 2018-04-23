@@ -1,8 +1,9 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { StickyContainer, Sticky } from "react-sticky";
-import FAIcon from "@fortawesome/react-fontawesome";
+import TransitionGroup from "react-transition-group/TransitionGroup";
+import Transition from "react-transition-group/Transition";
 
 import { colors } from "../../theme/theme";
 import { hexToInt } from "../../helpers/helpers";
@@ -12,47 +13,53 @@ import SolutionsList from "./SolutionsList";
 import SolutionsVideo from "./SolutionsVideo";
 import SectionContainer from "../SectionContainer";
 
-const fadeDown = keyframes`
-  0%{
-    opacity: 0;
-    transform: translateY(-10px);
-  }
+const duration = 1000;
 
-  50%{
-    opacity: 1;
-  }
+const defaultStyle = {
+    width: "100%",
+    height: "100%",
+    opacity: 0,
+    transform: "scale(0.5)",
+    transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`
+};
 
-  100% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-`;
+const transitionStyles = {
+    entering: {
+        opacity: 0,
+        transform: "scale(2)"
+    },
+    entered: {
+        opacity: 1,
+        transform: "scale(1)"
+    }
+};
 
-let ScrollDown = styled.div.attrs({
-    role: "button"
-})`
-    width: 100%;
-    bottom: 0;
-    padding: 50px;
-    position: fixed;
-    text-align: center;
-    color: ${colors.background};
-    transition: opacity 1s;
-    cursor: pointer;
-`;
+const Fade = ({ in: inProp, children, style, ...rest }) => (
+    <Transition in={inProp} timeout={duration} unmountOnExit={true} {...rest}>
+        {state => (
+            <div
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    ...style
+                }}
+            >
+                <div
+                    style={{
+                        ...defaultStyle,
+                        ...transitionStyles[state]
+                    }}
+                >
+                    {children}
+                </div>
+            </div>
+        )}
+    </Transition>
+);
 
-const Chevron = styled(FAIcon).attrs({
-    icon: "chevron-down"
-})`
-    animation: ${fadeDown} 2s linear infinite;
-`;
-
-const ScrollDownText = styled.p.attrs({
-    children: "Scroll Down"
-})`
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
+const StyledStickyContainer = styled(StickyContainer)`
+    background-image: radial-gradient(#2e3e60 10%, ${colors.background});
+    background-attachment: fixed;
 `;
 
 let hasScrolledTop = false;
@@ -73,76 +80,52 @@ class SolutionsSection extends React.Component {
         window.removeEventListener("scroll", this.handleScroll);
     }
     handleScroll() {
-        const { height } = this.props;
-        const trigger = 50;
-
         this.setState({
             scrollY: window.pageYOffset
         });
-
-        // Set scroll snapping if  scrolls below a certain point
-        if (
-            !hasScrolledTop &&
-            window.pageYOffset > trigger &&
-            window.pageYOffset < height * 2
-        ) {
-            this.scrollDown();
-            hasScrolledTop = true;
-        }
-
-        // Reset scroll snapping if scrolls to top of page
-        if (hasScrolledTop && window.pageYOffset < trigger) {
-            hasScrolledTop = false;
-        }
-    }
-    scrollDown() {
-        document.documentElement.scrollTop = this.props.height;
     }
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
         const { scrollY } = this.state;
         const animation = "transform 0.75s ease, opacity 0.75s ease";
+        const visibleSection =
+            scrollY > height * 2
+                ? "none"
+                : scrollY > height / 2 ? "list" : "video";
 
         return (
-            <StickyContainer style={{ height: height * 2.5 }}>
+            <StyledStickyContainer style={{ height: height * 2 }}>
                 <Sticky>
                     {({ style }) => {
                         return (
-                            <div>
-                                {window.pageYOffset > 0 &&
-                                    window.pageYOffset < height * 2.5 && (
+                            <TransitionGroup>
+                                {visibleSection == "list" && (
+                                    <Fade style={style}>
                                         <SolutionsList
                                             style={style}
                                             width={width - 16}
                                             height={height}
-                                            scrollY={scrollY}
                                             solutions={solutions}
                                             animation={animation}
                                         />
-                                    )}
-                                <SolutionsVideo
-                                    style={style}
-                                    width={width}
-                                    height={height}
-                                    scrollY={scrollY}
-                                    animation={animation}
-                                />
-                            </div>
+                                    </Fade>
+                                )}
+                                {visibleSection == "video" && (
+                                    <Fade style={style}>
+                                        <SolutionsVideo
+                                            style={style}
+                                            width={width}
+                                            height={height}
+                                            animation={animation}
+                                        />
+                                    </Fade>
+                                )}
+                            </TransitionGroup>
                         );
                     }}
                 </Sticky>
-
-                <ScrollDown
-                    style={{
-                        opacity: scrollY == 0 ? 1 : 0
-                    }}
-                    onClick={() => this.scrollDown()}
-                >
-                    <ScrollDownText />
-                    <Chevron />
-                </ScrollDown>
-            </StickyContainer>
+            </StyledStickyContainer>
         );
     }
 }

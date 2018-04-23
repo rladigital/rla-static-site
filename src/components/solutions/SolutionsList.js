@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
 import { transformScale, random, isMobile } from "../../helpers/helpers";
@@ -33,31 +33,6 @@ const Fade = ({ in: inProp, children, ...otherProps }) => (
         )}
     </Transition>
 );
-
-const rotate360 = keyframes`
-  0% {
-    opacity: 0
-  }
-
-  50%{
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0
-  }
-`;
-
-const Path = styled.path``;
-
-const Svg = styled.svg`
-    position: absolute;
-`;
-
-const Container = styled.div`
-    width: 100%;
-    height: 100%;
-`;
 
 const Gradient = styled.div`
     width: 100%;
@@ -210,7 +185,7 @@ class SolutionsVideo extends React.Component {
             // Array
             lines.push(
                 <Fade key={`line_${lineId++}`}>
-                    <Path {...lineProps} />
+                    <path {...lineProps} />
                 </Fade>
             );
 
@@ -223,157 +198,133 @@ class SolutionsVideo extends React.Component {
     }
 
     render() {
-        const {
-            width,
-            height,
-            scrollY,
-            style,
-            solutions,
-            animation
-        } = this.props;
+        const { width, height, solutions, animation } = this.props;
         const { activeSolution, orbs } = this.state;
 
-        const scale = Math.min(scrollY / height, 1);
-
         return (
-            <Gradient style={style}>
-                <Container
-                    style={{
-                        opacity: scale,
-                        transform: `scale(${scale})`,
-                        transition: animation
-                    }}
-                >
-                    <Svg width={width} height={height}>
-                        <defs>
-                            <filter
-                                id="shadow"
-                                x="-20%"
-                                y="-20%"
-                                width="140%"
-                                height="140%"
+            <div>
+                <svg width={width} height={height}>
+                    <defs>
+                        <filter
+                            id="shadow"
+                            x="-20%"
+                            y="-20%"
+                            width="140%"
+                            height="140%"
+                        >
+                            <feDropShadow
+                                dx="0"
+                                dy="4"
+                                stdDeviation="5"
+                                floodColor="#55555"
+                                floodOpacity="0.2"
+                            />
+                        </filter>
+                        <linearGradient id="stroke_grad">
+                            <stop
+                                offset="25%"
+                                stopColor="rgba(130, 155, 227, 0.2)"
+                            />
+                            <stop
+                                offset="100%"
+                                stopColor="rgba(130, 155, 227, 0.4)"
+                            />
+                        </linearGradient>
+                        {solutions.map(({ node: solution }, index) => (
+                            <linearGradient
+                                key={index}
+                                id={`grad_${index}`}
+                                key={`$gradient_${index}`}
                             >
-                                <feDropShadow
-                                    dx="0"
-                                    dy="4"
-                                    stdDeviation="5"
-                                    floodColor="#55555"
-                                    floodOpacity="0.2"
-                                />
-                            </filter>
-                            <linearGradient id="stroke_grad">
                                 <stop
-                                    offset="25%"
-                                    stopColor="rgba(130, 155, 227, 0.2)"
+                                    offset="5%"
+                                    stopColor={solution.frontmatter.color1}
                                 />
                                 <stop
-                                    offset="100%"
-                                    stopColor="rgba(130, 155, 227, 0.4)"
+                                    offset="95%"
+                                    stopColor={solution.frontmatter.color2}
                                 />
                             </linearGradient>
-                            {solutions.map(({ node: solution }, index) => (
-                                <linearGradient
-                                    key={index}
-                                    id={`grad_${index}`}
-                                    key={`$gradient_${index}`}
+                        ))}
+                    </defs>
+                    <g
+                        transform={`translate(${width / 2},${height /
+                            2}) scale(${
+                            isMobile()
+                                ? transformScale(700)
+                                : transformScale(1080)
+                        })`}
+                    >
+                        <TransitionGroup component="g">
+                            {this.state.lines}
+                        </TransitionGroup>
+                        <TitleCircle cx={0} cy={0} r={200} />
+                        <Title style={{ filter: "url(#shadow)" }} x={0} y={0}>
+                            <tspan dy="-30px" x={0}>
+                                CONNECTED
+                            </tspan>
+                            <tspan dy="70px" x={0}>
+                                AMBITION
+                            </tspan>
+                        </Title>
+                        <Subtitle x={0} y={0}>
+                            <tspan dy="85px" x={0}>
+                                WORLD CLASS CONNECTED
+                            </tspan>
+                            <tspan dy="25px" x={0}>
+                                MARKETING SOLUTIONS
+                            </tspan>
+                        </Subtitle>
+                        {orbs &&
+                            solutions.map(({ node: solution }, index) => [
+                                <Solution
+                                    y={orbs[index].cy}
+                                    textAnchor={
+                                        isMobile()
+                                            ? "middle"
+                                            : orbs[index].cx < 0
+                                                ? "end"
+                                                : "start"
+                                    }
+                                    key={`solution_${index}`}
                                 >
-                                    <stop
-                                        offset="5%"
-                                        stopColor={solution.frontmatter.color1}
-                                    />
-                                    <stop
-                                        offset="95%"
-                                        stopColor={solution.frontmatter.color2}
-                                    />
-                                </linearGradient>
-                            ))}
-                        </defs>
-                        <g
-                            transform={`translate(${width / 2},${height /
-                                2}) scale(${
-                                isMobile()
-                                    ? transformScale(700)
-                                    : transformScale(1080)
-                            })`}
-                        >
-                            <TransitionGroup component="g">
-                                {this.state.lines}
-                            </TransitionGroup>
-                            <TitleCircle cx={0} cy={0} r={200} />
-                            <Title
-                                style={{ filter: "url(#shadow)" }}
-                                x={0}
-                                y={0}
-                            >
-                                <tspan dy="-30px" x={0}>
-                                    CONNECTED
-                                </tspan>
-                                <tspan dy="70px" x={0}>
-                                    AMBITION
-                                </tspan>
-                            </Title>
-                            <Subtitle x={0} y={0}>
-                                <tspan dy="85px" x={0}>
-                                    WORLD CLASS CONNECTED
-                                </tspan>
-                                <tspan dy="25px" x={0}>
-                                    MARKETING SOLUTIONS
-                                </tspan>
-                            </Subtitle>
-                            {orbs &&
-                                solutions.map(({ node: solution }, index) => [
-                                    <Solution
-                                        y={orbs[index].cy}
-                                        textAnchor={
-                                            isMobile()
-                                                ? "middle"
-                                                : orbs[index].cx < 0
-                                                    ? "end"
-                                                    : "start"
-                                        }
-                                        key={`solution_${index}`}
-                                    >
-                                        {solution.frontmatter.title
-                                            .toUpperCase()
-                                            .split(" ")
-                                            .map((word, i) => {
-                                                const x = isMobile()
-                                                    ? orbs[index].cx
-                                                    : orbs[index].cx +
-                                                      (orbs[index].cx < 0
-                                                          ? -orbs[index].r - 10
-                                                          : orbs[index].r + 10);
+                                    {solution.frontmatter.title
+                                        .toUpperCase()
+                                        .split(" ")
+                                        .map((word, i) => {
+                                            const x = isMobile()
+                                                ? orbs[index].cx
+                                                : orbs[index].cx +
+                                                  (orbs[index].cx < 0
+                                                      ? -orbs[index].r - 10
+                                                      : orbs[index].r + 10);
 
-                                                const dy = isMobile()
-                                                    ? i == 0
-                                                        ? orbs[index].cy > 0
-                                                            ? 60
-                                                            : -60
-                                                        : 20
-                                                    : i == 0 ? "-3px" : "18px";
+                                            const dy = isMobile()
+                                                ? i == 0
+                                                    ? orbs[index].cy > 0
+                                                        ? 60
+                                                        : -60
+                                                    : 20
+                                                : i == 0 ? "-3px" : "18px";
 
-                                                return (
-                                                    <tspan
-                                                        key={i}
-                                                        x={x}
-                                                        dy={dy}
-                                                    >
-                                                        {word}
-                                                    </tspan>
-                                                );
-                                            })}
-                                    </Solution>,
-                                    <Orb
-                                        key={index}
-                                        fill={`url(#grad_${index})`}
-                                        id={`orb_${index}`}
-                                        onClick={() => this.handleClick(index)}
-                                        {...orbs[index]}
-                                    />
-                                ])}
-                        </g>
-                    </Svg>
-                </Container>
+                                            return (
+                                                <tspan key={i} x={x} dy={dy}>
+                                                    {word}
+                                                </tspan>
+                                            );
+                                        })}
+                                </Solution>,
+                                <Orb
+                                    key={index}
+                                    fill={`url(#grad_${index})`}
+                                    id={`orb_${index}`}
+                                    onClick={() => this.handleClick(index)}
+                                    {...orbs[index]}
+                                />
+                            ])}
+                    </g>
+                </svg>
+
                 {activeSolution != undefined && (
                     <SolutionModal
                         width={width}
@@ -383,7 +334,7 @@ class SolutionsVideo extends React.Component {
                         close={() => this.handleClick(null)}
                     />
                 )}
-            </Gradient>
+            </div>
         );
     }
 }
