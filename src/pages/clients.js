@@ -116,9 +116,29 @@ export default class ClientsPage extends React.Component {
             currentSlide: 0,
             activeSolution: null
         };
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+    componentDidMount() {
+        window.addEventListener("keydown", this.handleKeyDown);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("keydown", this.handleKeyDown);
     }
     setSlide(x) {
         this.setState({ currentSlide: x });
+    }
+    handleKeyDown(e) {
+        if (e.key == "ArrowLeft") {
+            this.setSlide(Math.max(this.state.currentSlide - 1, 0));
+        }
+        if (e.key == "ArrowRight") {
+            this.setSlide(
+                Math.min(
+                    this.state.currentSlide + 1,
+                    this.props.data.clients.edges.length - 1
+                )
+            );
+        }
     }
     handleClick(selectedSolution) {
         console.log(selectedSolution);
