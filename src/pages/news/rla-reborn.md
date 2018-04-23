@@ -1,6 +1,6 @@
 ---
 templateKey: news
-title: A new Era for RLA
+title: A new era for RLA
 date: 13/04/2018
 hero: /img/rla.jpg
 thumb: /img/rla.jpg
@@ -14,7 +14,7 @@ galleryImages:
   - /img/mike-story@2x.jpg
 author: Mike Smith
 ---
-Now the clocks have moved forward, and the 'beast from east’ a distant, chilly memory, Spring is tentatively doing its thing.  The world around us is becoming more colourful, more positive - re-invigorated with the sense of growth and renewal, as Mother Nature moves to the tune of the season. 
+Now the clocks have moved forward, and the 'beast from the east’ a distant, chilly memory, Spring is tentatively doing its thing.  The world around us is becoming more colourful, more positive - re-invigorated with the sense of growth and renewal, as Mother Nature moves to the tune of the season. 
 
 Businesses, too, have to adapt and evolve to the changing seasons. In RLA’s case, responding to the changing nature of our client requirements, and the opportunities new media affords us. Standing still is never an option.
 
