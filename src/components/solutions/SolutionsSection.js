@@ -110,15 +110,17 @@ class SolutionsSection extends React.Component {
                     {({ style }) => {
                         return (
                             <div>
-                                <SolutionsList
-                                    style={style}
-                                    width={width - 16}
-                                    height={height}
-                                    scrollY={scrollY}
-                                    solutions={solutions}
-                                    animation={animation}
-                                />
-
+                                {window.pageYOffset > 0 &&
+                                    window.pageYOffset < height * 2.5 && (
+                                        <SolutionsList
+                                            style={style}
+                                            width={width - 16}
+                                            height={height}
+                                            scrollY={scrollY}
+                                            solutions={solutions}
+                                            animation={animation}
+                                        />
+                                    )}
                                 <SolutionsVideo
                                     style={style}
                                     width={width}

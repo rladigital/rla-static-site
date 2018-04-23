@@ -264,8 +264,6 @@ class ServicesSection extends React.Component {
                     >
                         <Row style={{ position: "relative" }}>
                             <Column small={8} centered>
-                                {console.log(services)}
-                                {console.log(coords)}
                                 {coords &&
                                     services && (
                                         <div
@@ -274,7 +272,6 @@ class ServicesSection extends React.Component {
                                                     services[
                                                         coords
                                                             .map(e => {
-                                                                console.log(e);
                                                                 return e.status;
                                                             })
                                                             .indexOf("active")
