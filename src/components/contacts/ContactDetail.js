@@ -76,31 +76,35 @@ class ContactDetail extends React.Component {
                 <Details>
                     <HTMLContent content={contact.frontmatter.address} />
                 </Details>
-                <SectionLabel>Lead Contact</SectionLabel>
-                <ProfileImage src={contact.frontmatter.contactImage} />
-                <Details>
-                    {contact.frontmatter.contactName}
-                    <br />
-                    {contact.frontmatter.contactRole}
-                </Details>
-                <Details>
-                    <Icon
-                        icon="phone"
-                        mask={["fas", "circle"]}
-                        transform="shrink-9"
-                    />
-                    {contact.frontmatter.tel}
-                </Details>
-                <Details>
-                    <Icon
-                        icon="envelope"
-                        mask={["fas", "circle"]}
-                        transform="shrink-9"
-                    />
-                    <a href={`mailto:${contact.frontmatter.email}`}>
-                        {contact.frontmatter.email}
-                    </a>
-                </Details>
+                {contact.frontmatter.group === "RLA" && (
+                    <div>
+                        <SectionLabel>Lead Contact</SectionLabel>
+                        <ProfileImage src={contact.frontmatter.contactImage} />
+                        <Details>
+                            {contact.frontmatter.contactName}
+                            <br />
+                            {contact.frontmatter.contactRole}
+                        </Details>
+                        <Details>
+                            <Icon
+                                icon="phone"
+                                mask={["fas", "circle"]}
+                                transform="shrink-9"
+                            />
+                            {contact.frontmatter.tel}
+                        </Details>
+                        <Details>
+                            <Icon
+                                icon="envelope"
+                                mask={["fas", "circle"]}
+                                transform="shrink-9"
+                            />
+                            <a href={`mailto:${contact.frontmatter.email}`}>
+                                {contact.frontmatter.email}
+                            </a>
+                        </Details>
+                    </div>
+                )}
             </Container>
         );
     }
