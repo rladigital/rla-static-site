@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { colors } from "../../theme/theme";
+import { Row, Column } from "rla-components";
+import { colors, breakpoints } from "../../theme/theme";
 import Social from "./Social";
 
 const Container = styled.div`
@@ -10,16 +11,11 @@ const Container = styled.div`
     color: ${colors.white};
 `;
 
-const ProfileRow = styled.div`
-    width: 100%;
-    display: table;
-    margin-bottom: 1.8em;
-`;
-
-const ProfileColumn = styled.div`
-    width: ${props => props.width}px;
-    display: table-cell;
-    vertical-align: top;
+const ProfileColumn = styled(Column)`
+    text-align: center;
+    @media (min-width: ${breakpoints.xlarge}px) {
+        text-align: left;
+    }
 `;
 
 const ProfileImage = styled.div`
@@ -29,22 +25,24 @@ const ProfileImage = styled.div`
     background-image: url('${props => props.src}');
     background-size: cover;
     background-position: center;
-    margin-right: 1em;
+    margin: 0 auto 1rem auto;
+    //margin-right: 1em;
 `;
 
-const Title = styled.h4`
+const Title = styled.h3`
     font-weight: 900;
     margin-bottom: 1em;
 `;
 
 const Name = Title.extend`
+    font-size: 1.2rem;
     margin: 0;
 `;
 
 const Role = styled.p`
     font-size: 14px;
     text-transform: uppercase;
-    margin-bottom: 0;
+    margin: 0;
     color: ${colors.lightGray};
 `;
 
@@ -70,16 +68,17 @@ const Email = styled.a`
 `;
 
 const Author = ({ author }) => {
+    console.log(author);
     return (
         <Container>
-            <ProfileRow>
-                <ProfileColumn width={110}>
+            <Row>
+                <ProfileColumn xlarge={5}>
                     <ProfileImage src={author.frontmatter.profile} />
                 </ProfileColumn>
-                <ProfileColumn>
+                <ProfileColumn xlarge={7}>
                     <Name>{author.frontmatter.title}</Name>
                     <Role>{author.frontmatter.role}</Role>
-                    <Email>{author.frontmatter.twitter}</Email>
+                    <Email>{author.frontmatter.email}</Email>
                     <div>
                         {author.frontmatter.linkedIn && (
                             <Social
@@ -90,7 +89,7 @@ const Author = ({ author }) => {
                         )}
                     </div>
                 </ProfileColumn>
-            </ProfileRow>
+            </Row>
             <Bio>{author.excerpt}</Bio>
             <Link>More articles by {author.frontmatter.title}</Link>
         </Container>

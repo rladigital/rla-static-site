@@ -95,6 +95,7 @@ collections:
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Description", name: "body", widget: "markdown"}
       - {label: "Profile", name: "profile", widget: "image", default: "/img/missing_avatar.svg"}
+      - {label: "Email", name: "email", widget: "string", required: false}
       - {label: "LinkedIn", name: "linkedIn", widget: "string", required: false}
       - {label: "Twitter", name: "twitter", widget: "string", required: false}
 
