@@ -12,7 +12,7 @@ description: >-
   Transform the local marketing effectiveness for the whole UK Fiat Chrysler
   Automobiles business – a network of 6 brands (Fiat, Alfa Romeo, Jeep,
   Chrysler, Abarth and Fiat Professional), 315 dealer branches, 6 regions, 10
-  principle brand clients and 14 secondary clients across sales, product,
+  principal brand clients and 14 secondary clients across sales, product,
   training, Aftersales and Financial Services.
 
 
