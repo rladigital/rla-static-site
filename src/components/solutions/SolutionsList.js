@@ -159,7 +159,7 @@ class SolutionsVideo extends React.Component {
         let lines = this.state.lines.slice();
 
         // Array
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 8; i++) {
             lines.push(this.generateLine(orbs));
         }
 
@@ -279,7 +279,7 @@ class SolutionsVideo extends React.Component {
                                 : transformScale(1080)
                         })`}
                     >
-                        <TransitionGroup component="g">
+                        <TransitionGroup component="g" appear={true}>
                             {this.state.lines}
                         </TransitionGroup>
                         <TitleCircle cx={0} cy={0} r={200} />
