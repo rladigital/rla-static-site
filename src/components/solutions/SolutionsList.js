@@ -7,7 +7,7 @@ import SolutionModal from "./SolutionModal";
 import TransitionGroup from "react-transition-group/TransitionGroup";
 import Transition from "react-transition-group/Transition";
 
-const duration = 1000;
+const duration = 800;
 
 const defaultStyle = {
     transition: `opacity ${duration}ms ease-in-out`,
@@ -35,7 +35,7 @@ const Fade = ({ in: inProp, children, ...otherProps }) => (
 );
 
 const TitleCircle = styled.circle`
-    fill: #344470;
+    fill: #6e7291;
 `;
 
 const Title = styled.text`
@@ -48,7 +48,7 @@ const Title = styled.text`
 
 const Subtitle = styled.text`
     font-size: 20px;
-    fill: #829be3;
+    fill: ${colors.white};
     text-anchor: middle;
     letter-spacing: 0px;
 `;
@@ -80,20 +80,21 @@ class SolutionsVideo extends React.Component {
             lines: []
         };
 
-        this.lines = this.lines.bind(this);
+        this.lineTicker = this.lineTicker.bind(this);
     }
 
     componentDidMount() {
         const { solutions } = this.props;
+        const orbs = this.orbs(solutions);
         this.setState({
-            orbs: this.orbs(solutions)
+            orbs: orbs
         });
-
-        this.timer = setInterval(this.lines, 1000);
+        this.preLoadLines(orbs);
+        this.timer = setInterval(this.lineTicker, 1000);
     }
 
     componentWillUnmount() {
-        clearInterval(this.lines);
+        clearInterval(this.lineTicker);
     }
 
     handleClick(x) {
@@ -150,19 +151,47 @@ class SolutionsVideo extends React.Component {
         return array;
     }
 
-    lines() {
+    preLoadLines(orbs) {
+        let lines = this.state.lines.slice();
+
+        // Array
+        for (var i = 0; i < 5; i++) {
+            lines.push(this.generateLine(orbs));
+        }
+
+        console.log(lines);
+
+        this.setState({ lines });
+    }
+
+    lineTicker() {
         let lines = this.state.lines.slice();
 
         if (this.state.orbs) {
-            const current = random(0, this.state.orbs.length - 1);
+            // Array
+            lines.push(this.generateLine());
 
-            const end = random(0, this.state.orbs.length - 1);
+            if (lines.length > 10) {
+                lines.shift();
+            }
 
-            const startX = this.state.orbs[current].cx;
-            const startY = this.state.orbs[current].cy;
+            console.log(lines);
 
-            const endX = this.state.orbs[end].cx;
-            const endY = this.state.orbs[end].cy;
+            this.setState({ lines });
+        }
+    }
+
+    generateLine(orbs = this.state.orbs) {
+        if (orbs) {
+            const current = random(0, orbs.length - 1);
+
+            const end = random(0, orbs.length - 1);
+
+            const startX = orbs[current].cx;
+            const startY = orbs[current].cy;
+
+            const endX = orbs[end].cx;
+            const endY = orbs[end].cy;
 
             const angleX = current > end ? endX - startX : startX - endX;
             const angleY = current > end ? startY - endY : endY - startY;
@@ -179,18 +208,12 @@ class SolutionsVideo extends React.Component {
                 fill: "transparent"
             };
 
-            // Array
-            lines.push(
+            // Return element
+            return (
                 <Fade key={`line_${lineId++}`}>
                     <path {...lineProps} />
                 </Fade>
             );
-
-            if (lines.length > 10) {
-                lines.shift();
-            }
-
-            this.setState({ lines });
         }
     }
 
@@ -214,7 +237,7 @@ class SolutionsVideo extends React.Component {
                                 dy="4"
                                 stdDeviation="5"
                                 floodColor="#55555"
-                                floodOpacity="0.2"
+                                floodOpacity="0.05"
                             />
                         </filter>
                         <linearGradient id="stroke_grad">
