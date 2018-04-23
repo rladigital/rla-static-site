@@ -63,7 +63,7 @@ class WorkSection extends React.Component {
                                 commercial strategy and ultimately to help you
                                 connect better with your customers. We won’t
                                 just answer your briefs, we’ll look at your
-                                whole business holistically.
+                                business holistically.
                             </StyledP>
                         </Column>
                     </Row>
