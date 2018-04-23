@@ -46,6 +46,9 @@ export default class ContactMap extends React.Component {
                     height: "100%",
                     width: "100%"
                 }}
+                scrollWheelZoom={false}
+                doubleClickZoom={false}
+                touchZoom={false}
             >
                 {/* <TileLayer
                     attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;http://cartodb.com/attributions&quot;>CartoDB</a>"
