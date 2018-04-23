@@ -120,7 +120,7 @@ class SolutionsVideo extends React.Component {
             orbs: this.orbs(solutions)
         });
 
-        this.timer = setInterval(this.lines, 500);
+        this.timer = setInterval(this.lines, 1000);
     }
 
     componentWillUnmount() {
