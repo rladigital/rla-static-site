@@ -38,8 +38,8 @@ function globalCss(theme) {
 
         @font-face {
             font-family: 'Avenir';
-            src: url('Avenir-Black.woff2') format('woff2'),
-                url('Avenir-Black.woff') format('woff');
+            src: url('./fonts/Avenir-Black.woff2') format('woff2'),
+                url('./fonts/Avenir-Black.woff') format('woff');
             font-weight: bold;
             font-style: normal;
         }
