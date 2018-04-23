@@ -88,6 +88,7 @@ export const JobTemplate = props => {
                                 hollow
                                 color="background"
                                 borderWidth={3}
+                                padding={2}
                             >
                                 Apply for this job <FAIcon icon="arrow-right" />
                             </Button>

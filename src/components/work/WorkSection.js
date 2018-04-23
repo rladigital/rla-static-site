@@ -104,6 +104,7 @@ class WorkSection extends React.Component {
                                 size="large"
                                 color="accent"
                                 borderWidth={3}
+                                padding={2}
                             >
                                 VIEW OUR WORK &rarr;
                             </StyledButton>

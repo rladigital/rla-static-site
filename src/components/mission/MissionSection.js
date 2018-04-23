@@ -56,7 +56,13 @@ const MissionSection = ({ percentage, text }) => (
                     you could need will always be available.
                 </P>
                 <a href="http://www.themission.co.uk/" target="_blank">
-                    <Button hollow={true} size="large" color="white">
+                    <Button
+                        hollow={true}
+                        size="large"
+                        color="white"
+                        padding={2}
+                        borderWidth={3}
+                    >
                         More About the Mission &rarr;
                     </Button>
                 </a>

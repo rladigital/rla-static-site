@@ -83,7 +83,7 @@ const PeoplePlaceholder = ({ height }) => (
             business inside out and back to front enables us to work alongside
             you and become an inseparable extension of your marketing team.
         </StyledP>
-        <Button hollow size="large" color="white" borderWidth={2}>
+        <Button hollow size="large" color="white" borderWidth={3} padding={2}>
             Check Us Out →
         </Button>
     </SectionContainer>
