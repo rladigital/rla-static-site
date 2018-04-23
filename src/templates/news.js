@@ -180,6 +180,7 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         role
+                        email
                         profile
                         twitter
                         linkedIn

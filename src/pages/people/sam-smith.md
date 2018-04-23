@@ -5,6 +5,7 @@ role: Managing Director
 profile: /img/sam-smith.jpg
 tags:
   - Management
+email:  samantha.smith@rla.co.uk
 linkedIn: https://www.linkedin.com/company/rla-group
 twitter:  samantha.smith@rla.co.uk
 ---

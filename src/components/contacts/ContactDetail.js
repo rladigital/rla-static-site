@@ -66,7 +66,7 @@ const Details = styled.div`
 class ContactDetail extends React.Component {
     render() {
         const { contact } = this.props;
-        console.log(contact);
+        //console.log(contact);
         return (
             <Container>
                 <ContactLocationName>
