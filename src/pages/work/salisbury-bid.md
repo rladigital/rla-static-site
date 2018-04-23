@@ -21,8 +21,8 @@ description: >-
 
   Within the first week our data capture campaign via Facebook lead generation
   posts built up an organic email database of 1,500 and a substantial social
-  media following who can are now happy to be targeted with events, offers and
-  news. In light of the GDPR ruling requiring the public’s consent for further
+  media following who are now happy to be targeted with events, offers and news.
+  In light of the GDPR ruling requiring the public’s consent for further
   communications we were delighted that 67% of recipients opted IN.
 excerpt: Bringing Client and customers together. Literally.
 galleryImages:
