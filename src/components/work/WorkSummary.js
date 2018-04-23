@@ -78,7 +78,7 @@ const Summary = styled.p`
         font-size: 2vw;
     }
     @media (min-width: ${breakpoints.large}px) {
-        font-size: 1vw;
+        font-size: 0.9vw;
     }
 `;
 
