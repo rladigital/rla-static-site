@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "gatsby-link";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import Img from "gatsby-image";
@@ -32,12 +33,12 @@ const ProfileImage = styled.div`
 `;
 
 const Title = styled.h3`
+    font-size: 1.2rem;
     font-weight: 900;
     margin-bottom: 1em;
 `;
 
 const Name = Title.extend`
-    font-size: 1.2rem;
     margin: 0;
 `;
 
@@ -53,7 +54,7 @@ const Bio = styled.p`
     margin-bottom: 2em;
 `;
 
-const Link = styled.a`
+const MoreLink = styled.a`
     color: ${colors.white}
     font-size: 14px;
     text-decoration: underline;
@@ -69,6 +70,21 @@ const Email = styled.a`
     font-size: 12px;
 `;
 
+const RecentPostList = styled.div`
+    display: table;
+    padding-bottom: 2rem;
+`;
+const PostLink = styled(Link)`
+    display: table-row;
+    font-size: 0.8rem;
+`;
+const PostDate = styled.div`
+    display: table-cell;
+    padding-right: 1rem;
+`;
+const PostTitle = styled.div`
+    display: table-cell;
+`;
 const Author = ({ author }) => {
     console.log(author);
     return (
@@ -100,7 +116,25 @@ const Author = ({ author }) => {
                 </ProfileColumn>
             </Row>
             <Bio>{author.excerpt}</Bio>
-            <Link>More articles by {author.frontmatter.title}</Link>
+            {author.fields.posts.length > 0 && (
+                <div>
+                    <Title>Recent Posts:</Title>
+                    <RecentPostList>
+                        {author.fields.posts.map((post, index) => {
+                            return (
+                                <PostLink to={post.fields.slug}>
+                                    <PostDate>{post.frontmatter.date}</PostDate>
+                                    <PostTitle>
+                                        {post.frontmatter.title}
+                                    </PostTitle>
+                                </PostLink>
+                            );
+                        })}
+                    </RecentPostList>
+                </div>
+            )}
+
+            <MoreLink>More articles by {author.frontmatter.title}</MoreLink>
         </Container>
     );
 };
