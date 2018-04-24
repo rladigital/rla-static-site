@@ -22,14 +22,34 @@ const defaultStyle = {
     transition: `opacity ${500}ms ease-in-out, transform ${duration}ms ease-in-out`
 };
 
-const transitionStyles = {
-    entering: {
-        opacity: 0,
-        transform: "scale(0)"
+const transitions = {
+    forwards: {
+        entering: {
+            opacity: 0,
+            transform: "scale(0)"
+        },
+        entered: {
+            opacity: 1,
+            transform: "scale(1)"
+        },
+        exiting: {
+            opacity: 0,
+            transform: "scale(2)"
+        }
     },
-    entered: {
-        opacity: 1,
-        transform: "scale(1)"
+    backwards: {
+        entering: {
+            opacity: 0,
+            transform: "scale(2)"
+        },
+        entered: {
+            opacity: 1,
+            transform: "scale(1)"
+        },
+        exiting: {
+            opacity: 0,
+            transform: "scale(0)"
+        }
     }
 };
 
@@ -40,7 +60,7 @@ const StyledStickyContainer = styled(StickyContainer)`
     background-repeat: no-repeat;
 `;
 
-const Fade = ({ in: inProp, children, style, ...rest }) => (
+const Fade = ({ in: inProp, children, style, animationDirection, ...rest }) => (
     <Transition in={inProp} timeout={500} unmountOnExit={true} {...rest}>
         {state => (
             <div
@@ -53,7 +73,7 @@ const Fade = ({ in: inProp, children, style, ...rest }) => (
                 <div
                     style={{
                         ...defaultStyle,
-                        ...transitionStyles[state]
+                        ...transitions[animationDirection][state]
                     }}
                 >
                     {children}
@@ -68,7 +88,8 @@ class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            scrollY: window.pageYOffset
+            scrollY: window.pageYOffset,
+            animationDirection: "forwards"
         };
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -85,10 +106,14 @@ class SolutionsSection extends React.Component {
             scrollY: window.pageYOffset
         });
     }
+    setAnimationDirection(x) {
+        console.log(x);
+        this.setState({ animationDirection: x });
+    }
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
-        const { scrollY } = this.state;
+        const { scrollY, animationDirection } = this.state;
         const animation = "transform 0.75s ease, opacity 0.75s ease";
         const visibleSection =
             scrollY > height * 2
@@ -102,7 +127,15 @@ class SolutionsSection extends React.Component {
                         return (
                             <TransitionGroup>
                                 {visibleSection == "list" && (
-                                    <Fade style={style}>
+                                    <Fade
+                                        animationDirection={animationDirection}
+                                        style={style}
+                                        onEntered={() =>
+                                            this.setAnimationDirection(
+                                                "forwards"
+                                            )
+                                        }
+                                    >
                                         <SolutionsList
                                             width={width}
                                             height={height}
@@ -113,11 +146,17 @@ class SolutionsSection extends React.Component {
                                 )}
                                 {visibleSection == "video" && (
                                     <Fade
+                                        animationDirection={animationDirection}
                                         style={{
                                             ...style,
                                             zIndex: isMobile() ? 0 : 4,
                                             position: "fixed"
                                         }}
+                                        onEntered={() =>
+                                            this.setAnimationDirection(
+                                                "backwards"
+                                            )
+                                        }
                                     >
                                         <SolutionsVideo
                                             width={width}
