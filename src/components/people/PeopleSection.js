@@ -15,6 +15,8 @@ class PeopleSection extends React.Component {
     render() {
         const { people } = this.props;
 
+        console.log(this.props.people);
+
         return (
             <SectionContainer padding="6em 0 4em">
                 <HeaderBlock

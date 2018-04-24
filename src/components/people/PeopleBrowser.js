@@ -12,6 +12,7 @@ import {
     randomChunkArray,
     isMobile
 } from "../../helpers/helpers";
+import { HTMLContent } from "../Content";
 
 const height = isMobile() ? 680 : 600;
 
@@ -356,7 +357,7 @@ class PeopleBrowser extends React.Component {
                                 <SelectedRole>
                                     {selected.frontmatter.role}
                                 </SelectedRole>
-                                <SelectedBiog>{selected.excerpt}</SelectedBiog>
+                                <HTMLContent content={selected.html} />
                             </SelectedText>
                         </Column>
                     </Row>
