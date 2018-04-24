@@ -5,7 +5,7 @@ import { StickyContainer, Sticky } from "react-sticky";
 import { TransitionGroup, Transition } from "react-transition-group";
 
 import { colors } from "../../theme/theme";
-import { hexToInt } from "../../helpers/helpers";
+import { hexToInt, isMobile } from "../../helpers/helpers";
 
 import HeaderBlock from "../HeaderBlock";
 import SolutionsList from "./SolutionsList";
@@ -104,7 +104,6 @@ class SolutionsSection extends React.Component {
                                 {visibleSection == "list" && (
                                     <Fade style={style}>
                                         <SolutionsList
-                                            style={style}
                                             width={width}
                                             height={height}
                                             solutions={solutions}
@@ -113,9 +112,13 @@ class SolutionsSection extends React.Component {
                                     </Fade>
                                 )}
                                 {visibleSection == "video" && (
-                                    <Fade style={style}>
+                                    <Fade
+                                        style={{
+                                            ...style,
+                                            zIndex: isMobile() ? 0 : 3
+                                        }}
+                                    >
                                         <SolutionsVideo
-                                            style={style}
                                             width={width}
                                             height={height}
                                             animation={animation}

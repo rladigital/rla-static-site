@@ -8,6 +8,7 @@ import video from "../../videos/video.mp4";
 import placeholder from "../../img/static-video.png";
 import LoadingScreen from "../loading/LoadingScreen";
 import { transformScale, isMobile } from "../../helpers/helpers";
+import SiteHeader from "../SiteHeader";
 
 const Svg = styled.svg`
     position: absolute;
@@ -47,20 +48,6 @@ let ScrollDown = styled.div.attrs({
     z-index: 1;
 `;
 
-const ScrollDownText = styled.h6.attrs({
-    children: "Scroll Down"
-})`
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-`;
-
-const Chevron = styled(FAIcon).attrs({
-    icon: "chevron-down"
-})`
-    animation: ${fadeDown} 2s linear infinite;
-`;
-
 const fadeDown = keyframes`
   0%{
     opacity: 0;
@@ -75,6 +62,20 @@ const fadeDown = keyframes`
     opacity: 0;
     transform: translateY(10px);
   }
+`;
+
+const ScrollDownText = styled.h6.attrs({
+    children: "Scroll Down"
+})`
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+`;
+
+const Chevron = styled(FAIcon).attrs({
+    icon: "chevron-down"
+})`
+    animation: ${fadeDown} 2s linear infinite;
 `;
 class SolutionsVideo extends React.Component {
     constructor(props) {
@@ -110,6 +111,7 @@ class SolutionsVideo extends React.Component {
 
         return (
             <div style={{ height: height }}>
+                <SiteHeader />
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={size}

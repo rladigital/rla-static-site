@@ -11,7 +11,6 @@ const Container = styled.div`
     font-size: ${props => props.size};
     font-weight: ${props => props.weight};
     margin: ${props => props.margin};
-    float: right;
     font-family: ${props => props.theme.headings.fontFamily};
 `;
 
