@@ -34,7 +34,10 @@ export const PeopleTemplate = ({
             </Row>
             <Row>
                 <Column medium={6}>
-                    <img src={profile} alt={`${title} Profile`} />{" "}
+                    <img
+                        src={profile.childImageSharp.original.src}
+                        alt={`${title} Profile`}
+                    />{" "}
                     {twitter && <div>{twitter}</div>}
                     {linkedIn && <div>{linkedIn}</div>}
                 </Column>
