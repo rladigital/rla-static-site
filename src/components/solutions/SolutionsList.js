@@ -98,7 +98,8 @@ class SolutionsVideo extends React.Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.lineTicker);
+        console.log("unmount");
+        clearInterval(this.timer);
     }
 
     handleClick(x) {
