@@ -28,7 +28,8 @@ const Author = ({ tags }) => {
             {tags.map((tag, index) => {
                 return (
                     <span key={index}>
-                        <Tag>{tag}</Tag>,{" "}
+                        <Tag>{tag}</Tag>
+                        {index != tags.length - 1 && ", "}
                     </span>
                 );
             })}

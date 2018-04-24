@@ -72,13 +72,13 @@ exports.sourceNodes = ({ boundActionCreators, getNodes, getNode }) => {
         .filter(node => node.internal.type === "MarkdownRemark")
         .forEach(node => {
             if (node.frontmatter.author) {
-                console.log(node.frontmatter.author);
+                //console.log(node.frontmatter.author);
                 const authorNode = getNodes().find(
                     node2 =>
                         node2.internal.type === "MarkdownRemark" &&
                         node2.frontmatter.title === node.frontmatter.author
                 );
-                console.log("authorNode", authorNode);
+                //console.log("authorNode", authorNode);
                 if (authorNode) {
                     createNodeField({
                         node,
