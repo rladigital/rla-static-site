@@ -3,7 +3,9 @@ module.exports = {
         title: "RLA Website"
     },
     mapping: {
-        "MarkdownRemark.frontmatter.author": `MarkdownRemark.frontmatter.title`
+        "MarkdownRemark.frontmatter.author": `MarkdownRemark.frontmatter.title`,
+        "MarkdownRemark.fields.author": "MarkdownRemark",
+        "MarkdownRemark.fields.posts": "MarkdownRemark"
     },
     plugins: [
         {

@@ -197,6 +197,17 @@ export const pageQuery = graphql`
                 tags
                 author {
                     excerpt(pruneLength: 400)
+                    fields {
+                        posts {
+                            fields {
+                                slug
+                            }
+                            frontmatter {
+                                title
+                                date
+                            }
+                        }
+                    }
                     frontmatter {
                         title
                         role
