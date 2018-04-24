@@ -70,7 +70,9 @@ const NewsSummary = ({ story, height }) => {
             <SummaryContainer height={height}>
                 <Image
                     className="news-image"
-                    backgroundImage={story.frontmatter.thumb}
+                    backgroundImage={
+                        story.frontmatter.thumb.childImageSharp.original.src
+                    }
                 >
                     {" "}
                 </Image>

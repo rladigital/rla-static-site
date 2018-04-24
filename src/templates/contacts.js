@@ -19,7 +19,7 @@ export const ContactTemplate = ({
         <section>
             {helmet || ""}
             <h1>{title}</h1>
-            <ProfileImage src={contactImage} />
+            <ProfileImage src={contactImage.childImageSharp.original.src} />
         </section>
     );
 };
@@ -47,7 +47,13 @@ export const pageQuery = graphql`
                 address
                 tel
                 email
-                contactImage
+                contactImage {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
+                }
             }
         }
     }

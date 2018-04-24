@@ -57,7 +57,13 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         role
-                        hero
+                        hero {
+                            childImageSharp {
+                                original {
+                                    src
+                                }
+                            }
+                        }
                         area
                         closing
                     }

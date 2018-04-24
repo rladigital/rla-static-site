@@ -100,7 +100,12 @@ const WorkSummary = ({ work, index, heightMediaQuery }) => {
         >
             <Container heightMediaQuery={heightMediaQuery}>
                 <Image
-                    backgroundImage={work.frontmatter.thumb}
+                    backgroundImage={
+                        work.frontmatter.thumb
+                            ? work.frontmatter.thumb.childImageSharp.original
+                                  .src
+                            : null
+                    }
                     alignment={work.frontmatter.thumbnailAlignment}
                 >
                     <Overlay index={index}>

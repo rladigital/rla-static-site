@@ -59,7 +59,14 @@ const Title = styled.p`
 const JobSummary = ({ job, height, centred }) => {
     return (
         <Link to={job.fields.slug}>
-            <Container backgroundImage={job.frontmatter.hero} height={height}>
+            <Container
+                backgroundImage={
+                    job.frontmatter.hero.childImageSharp
+                        ? job.frontmatter.hero.childImageSharp.original.src
+                        : null
+                }
+                height={height}
+            >
                 <Overlay>
                     <TitleContainer centred={centred}>
                         <Category>{job.frontmatter.area}</Category>

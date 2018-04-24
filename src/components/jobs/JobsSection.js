@@ -20,6 +20,7 @@ const StyledP = styled.p`
 class JobsSection extends React.Component {
     render() {
         const { jobs } = this.props;
+        console.log(jobs);
         return (
             <div>
                 <Row>

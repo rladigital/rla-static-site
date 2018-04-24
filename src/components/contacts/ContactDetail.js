@@ -79,7 +79,12 @@ class ContactDetail extends React.Component {
                 {contact.frontmatter.group === "RLA" && (
                     <div>
                         <SectionLabel>Lead Contact</SectionLabel>
-                        <ProfileImage src={contact.frontmatter.contactImage} />
+                        <ProfileImage
+                            src={
+                                contact.frontmatter.contactImage.childImageSharp
+                                    .original.src
+                            }
+                        />
                         <Details>
                             {contact.frontmatter.contactName}
                             <br />
