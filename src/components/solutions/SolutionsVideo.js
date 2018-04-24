@@ -8,6 +8,7 @@ import video from "../../videos/video.mp4";
 import placeholder from "../../img/static-video.png";
 import LoadingScreen from "../loading/LoadingScreen";
 import { transformScale, isMobile } from "../../helpers/helpers";
+import SiteHeader from "../SiteHeader";
 
 const Svg = styled.svg`
     position: absolute;
@@ -110,6 +111,7 @@ class SolutionsVideo extends React.Component {
 
         return (
             <div style={{ height: height }}>
+                <SiteHeader />
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={size}

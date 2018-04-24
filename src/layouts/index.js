@@ -5,70 +5,33 @@ import { ThemeProvider, injectGlobal } from "styled-components";
 import { Theme } from "rla-components";
 import merge from "lodash/merge";
 
-require("../theme/font-awesome-setup");
 import customTheme from "../theme/theme";
 import globalCss from "../theme/globalCss";
 import { serveStatic } from "../helpers/helpers";
+import Offcanvas from "../components/Offcanvas";
+import Footer from "../components/Footer";
+require("../theme/font-awesome-setup");
 
 //Add Global CSS
 injectGlobal`${globalCss(customTheme)}`;
 
-import SiteHeader from "../components/SiteHeader";
-import Offcanvas from "../components/Offcanvas";
-
-import Footer from "../components/Footer";
-
-const navigation = [
-    { to: "/Work", text: "Work" },
-    { to: "/clients", text: "Clients" },
-    { to: "/people", text: "People" },
-    { to: "/careers", text: "Careers" },
-    { to: "/news", text: "News" },
-    { to: "/contact", text: "Contact" }
-];
-
 class TemplateWrapper extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            offcanvasActive: false
-        };
-    }
-
-    toggleOffcanvas() {
-        this.setState({ offcanvasActive: !this.state.offcanvasActive });
-    }
-
     render() {
-        const { scrolltop } = this.state;
         const { children, location, ...rest } = this.props;
-        const isHome = Boolean(location && location.pathname == "/");
-        const offcanvasActive = Boolean(
-            (scrolltop != 0 || !isHome) && this.state.offcanvasActive
-        );
+
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>
                     <Helmet title="RLA" />
-
-                    <Offcanvas
-                        items={navigation}
-                        active={true}
-                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
-                        offcanvasActive={offcanvasActive}
-                    />
-                    <SiteHeader
+                    {/* <SiteHeader
                         items={navigation}
                         location={this.props.location}
-                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
-                        offcanvasActive={offcanvasActive}
                         scrolltop={scrolltop}
                         isHome={isHome}
-                    />
+                    /> */}
+                    <Offcanvas />
                     <div>{children()}</div>
-                    {this.props.data && (
-                        <Footer items={navigation} data={this.props.data} />
-                    )}
+                    {this.props.data && <Footer data={this.props.data} />}
                 </div>
             </ThemeProvider>
         );

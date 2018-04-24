@@ -8,6 +8,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import { HTMLContent } from "../components/Content";
 
 import { colors, spacing } from "../theme/theme";
+import { navigation } from "../utils/config";
 import logo from "../img/rla.svg";
 import SectionContainer from "./SectionContainer";
 import Social from "../components/blog/Social";
@@ -52,17 +53,14 @@ const Footer = SectionContainer.extend`
     font-family: ${props => props.theme.headings.fontFamily};
 `;
 
-export default ({
-    data: { allMarkdownRemark: { edges: contacts } },
-    items
-}) => (
+export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
     <Footer padding="5em 0 0">
         <Row>
             <Column large={2}>
                 <img src={logo} alt="RLA" style={{ width: "120px" }} />
             </Column>
             <Column large={2}>
-                {items.map((item, index) => {
+                {navigation.map((item, index) => {
                     return (
                         <StyledLink key={index} to={item.to}>
                             {item.text}
