@@ -23,12 +23,6 @@ class TemplateWrapper extends React.Component {
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div>
                     <Helmet title="RLA" />
-                    {/* <SiteHeader
-                        items={navigation}
-                        location={this.props.location}
-                        scrolltop={scrolltop}
-                        isHome={isHome}
-                    /> */}
                     <Offcanvas />
                     <div>{children()}</div>
                     {this.props.data && <Footer data={this.props.data} />}

@@ -48,20 +48,6 @@ let ScrollDown = styled.div.attrs({
     z-index: 1;
 `;
 
-const ScrollDownText = styled.h6.attrs({
-    children: "Scroll Down"
-})`
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-`;
-
-const Chevron = styled(FAIcon).attrs({
-    icon: "chevron-down"
-})`
-    animation: ${fadeDown} 2s linear infinite;
-`;
-
 const fadeDown = keyframes`
   0%{
     opacity: 0;
@@ -76,6 +62,20 @@ const fadeDown = keyframes`
     opacity: 0;
     transform: translateY(10px);
   }
+`;
+
+const ScrollDownText = styled.h6.attrs({
+    children: "Scroll Down"
+})`
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+`;
+
+const Chevron = styled(FAIcon).attrs({
+    icon: "chevron-down"
+})`
+    animation: ${fadeDown} 2s linear infinite;
 `;
 class SolutionsVideo extends React.Component {
     constructor(props) {
