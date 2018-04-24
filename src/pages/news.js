@@ -2,17 +2,14 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
-import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.min.css";
 
 import theme from "../theme/theme";
-import NewsSummary from "../components/news/NewsSummary";
+import generateLayout from "../theme/generatePostLayout";
 import HeaderBlock from "../components/HeaderBlock";
 import LoadMore from "../components/blog/LoadMore";
 
 import { randomChunkArray, random } from "../helpers/helpers";
-
-let lastarrayIndex = null;
 
 const rowsAdvance = 3;
 export default class NewsPage extends React.Component {
@@ -25,7 +22,7 @@ export default class NewsPage extends React.Component {
 
         const chunks = randomChunkArray(news, 2, 4);
 
-        const layout = this.generateLayout(chunks);
+        const layout = generateLayout(chunks);
 
         this.setState({
             rows: rowsAdvance,
@@ -33,318 +30,13 @@ export default class NewsPage extends React.Component {
             layout: layout
         });
 
-        console.log(chunks);
+        //console.log(chunks);
     }
 
     handleClick() {
         this.setState({
             rows: this.state.rows + rowsAdvance
         });
-    }
-
-    generateLayout(chunks) {
-        const result = new Array();
-
-        const layouts = {
-            0: [
-                function() {
-                    return null;
-                }
-            ],
-            1: [
-                function(data) {
-                    return (
-                        <Row collapse expanded>
-                            <Column collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={0}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[0].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                        </Row>
-                    );
-                }
-            ],
-            2: [
-                function(data) {
-                    return (
-                        <Row collapse expanded>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={0}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[1].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={8} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={250}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[0].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                        </Row>
-                    );
-                },
-                function(data) {
-                    return (
-                        <Row collapse expanded>
-                            <Column large={8} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={0}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[0].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={250}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[1].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                        </Row>
-                    );
-                }
-            ],
-            3: [
-                function(data) {
-                    return (
-                        <Row collapse expanded>
-                            <Column large={6} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={0}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[0].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={3} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={250}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[1].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={3} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={50}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[2].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                        </Row>
-                    );
-                },
-                function(data) {
-                    return (
-                        <Row collapse expanded>
-                            <Column large={6} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={0}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[0].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={6} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={250}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[1].node}
-                                        height={250}
-                                    />
-                                </ScrollAnimation>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={250}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[2].node}
-                                        height={250}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                        </Row>
-                    );
-                }
-            ],
-            4: [
-                function(data) {
-                    return (
-                        <Row collapse expanded>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={0}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[1].node}
-                                        height={250}
-                                    />
-                                </ScrollAnimation>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={250}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[2].node}
-                                        height={250}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={500}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[0].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={750}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[3].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                        </Row>
-                    );
-                },
-                function(data) {
-                    return (
-                        <Row collapse expanded>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={0}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[0].node}
-                                        height={500}
-                                    />
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={250}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[1].node}
-                                        height={500}
-                                    />{" "}
-                                </ScrollAnimation>
-                            </Column>
-                            <Column large={4} collapse expanded>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={500}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[2].node}
-                                        height={250}
-                                    />
-                                </ScrollAnimation>
-                                <ScrollAnimation
-                                    animateIn="fadeIn"
-                                    delay={750}
-                                    animateOnce={true}
-                                >
-                                    <NewsSummary
-                                        story={data[3].node}
-                                        height={250}
-                                    />{" "}
-                                </ScrollAnimation>
-                            </Column>
-                        </Row>
-                    );
-                }
-            ]
-        };
-
-        chunks.map((chunk, i) => {
-            const layoutArray = layouts[chunk.length];
-            const getArrayIndex = function() {
-                return random(0, layoutArray.length - 1);
-            };
-            let arrayIndex = 0;
-
-            // make sure that there are no duplicate rows if possible
-            if (layoutArray.length > 1) {
-                arrayIndex = getArrayIndex();
-                while (arrayIndex == lastarrayIndex) {
-                    arrayIndex = getArrayIndex();
-                }
-                lastarrayIndex = arrayIndex;
-            }
-
-            result.push(layoutArray[arrayIndex]);
-        });
-
-        return result;
     }
 
     render() {
