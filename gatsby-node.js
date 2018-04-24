@@ -10,6 +10,53 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
             name: `slug`,
             value: slug
         });
+
+        /*////////////////////////////////
+        //Deal with getting Netlify uploaded images processing
+        ////////////////////////////////*/
+        //Get the list of image fields - TODO Automatically pull these from the config (perhaps then add as a plugin?)
+        const imageFields = [
+            // "hero",
+            // "thumb",
+            "profile"
+            // "contactImage",
+            // "logo",
+            // "image"
+        ];
+
+        const { frontmatter } = node;
+        if (frontmatter) {
+            //console.log("Got frontmatter");
+            const frontMatterKeys = Object.keys(frontmatter);
+            //console.log("Got frontmatter keys", frontMatterKeys);
+
+            //TODO - Make this recursive???
+            frontMatterKeys.forEach(key => {
+                //Check the key is in the image field list
+                if (imageFields.indexOf(key) != -1) {
+                    console.log("Got an image field: " + key);
+                    const image = frontmatter[key];
+                    if (image) {
+                        if (image.indexOf("/img") === 0) {
+                            console.log("Creating Node Field: " + key + "Rel");
+                            createNodeField({
+                                node,
+                                name: key + "Rel",
+                                value: path.relative(
+                                    path.dirname(node.fileAbsolutePath),
+                                    path.join(__dirname, "/static/", image)
+                                )
+                            });
+
+                            frontmatter[key] = path.relative(
+                                path.dirname(node.fileAbsolutePath),
+                                path.join(__dirname, "/static/", image)
+                            );
+                        }
+                    }
+                }
+            });
+        }
     }
 };
 
@@ -82,34 +129,3 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         });
     });
 };
-
-// const ExtractTextPlugin = require("extract-text-webpack-plugin");
-// const extractCss = new ExtractTextPlugin({
-//     filename: "stylesCMS.css"
-//     // use: `${cssModulesConfig(stage)}&modules&importLoaders=1`
-// });
-
-// exports.modifyWebpackConfig = ({ config, stage }) => {
-//     switch (stage) {
-//         case "develop":
-//             //case "build-css":
-//             config.removeLoader("css");
-//             config.loader("css", {
-//                 test: /\.css$/,
-//                 loader: extractCss.extract({
-//                     use: [
-//                         {
-//                             loader: `css-loader?modules&importLoaders=1`
-//                         }
-//                     ]
-//                 })
-//             });
-
-//             config.merge({
-//                 plugins: [extractCss]
-//             });
-//             break;
-//     }
-
-//     return config;
-// };

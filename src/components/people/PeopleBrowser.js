@@ -309,6 +309,9 @@ class PeopleBrowser extends React.Component {
                                                                 person
                                                                     .frontmatter
                                                                     .profile
+                                                                    .childImageSharp
+                                                                    .original
+                                                                    .src
                                                             }')`
                                                         }}
                                                     />
@@ -335,6 +338,7 @@ class PeopleBrowser extends React.Component {
                                 style={{
                                     backgroundImage: `url('${
                                         selected.frontmatter.profile
+                                            .childImageSharp.original.src
                                     }')`
                                 }}
                             />

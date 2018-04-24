@@ -45,7 +45,7 @@ module.exports = class HTML extends React.Component {
                     <script
                         src="https://cdn.cookielaw.org/consent/b96996cf-1232-4300-878b-3ab79555ca3f.js"
                         type="text/javascript"
-                        charset="UTF-8"
+                        charSet="UTF-8"
                     />
                     <script
                         dangerouslySetInnerHTML={{

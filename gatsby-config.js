@@ -35,6 +35,13 @@ module.exports = {
                 name: "images"
             }
         },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                path: `${__dirname}/static/img`,
+                name: "cmsimages"
+            }
+        },
         "gatsby-plugin-sharp",
         "gatsby-plugin-styled-components",
         "gatsby-transformer-sharp",
@@ -42,6 +49,16 @@ module.exports = {
             resolve: "gatsby-transformer-remark",
             options: {
                 plugins: [
+                    // gatsby-remark-relative-images must
+                    // go before gatsby-remark-images
+                    {
+                        resolve: `gatsby-remark-relative-images`,
+                        options: {
+                            // Set the name option to the same
+                            // name you set for gatsby-source-filesystem
+                            name: "cmsimages" // default
+                        }
+                    },
                     {
                         resolve: `gatsby-remark-images`,
                         options: {

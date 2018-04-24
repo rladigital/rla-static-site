@@ -73,7 +73,13 @@ export const pageQuery = graphql`
                 title
                 role
                 tags
-                profile
+                profile {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
+                }
                 linkedIn
                 twitter
             }

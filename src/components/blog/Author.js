@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
+import Img from "gatsby-image";
+
 import { colors, breakpoints } from "../../theme/theme";
 import Social from "./Social";
 
@@ -22,10 +24,10 @@ const ProfileImage = styled.div`
     width: 100px;
     height: 100px;
     border-radius: 100px;
-    background-image: url('${props => props.src}');
     background-size: cover;
     background-position: center;
     margin: 0 auto 1rem auto;
+    overflow: hidden;
     //margin-right: 1em;
 `;
 
@@ -73,7 +75,14 @@ const Author = ({ author }) => {
         <Container>
             <Row>
                 <ProfileColumn xlarge={5}>
-                    <ProfileImage src={author.frontmatter.profile} />
+                    <ProfileImage>
+                        <Img
+                            resolutions={
+                                author.frontmatter.profile.childImageSharp
+                                    .resolutions
+                            }
+                        />
+                    </ProfileImage>
                 </ProfileColumn>
                 <ProfileColumn xlarge={7}>
                     <Name>{author.frontmatter.title}</Name>

@@ -65,7 +65,13 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         role
-                        profile
+                        profile {
+                            childImageSharp {
+                                original {
+                                    src
+                                }
+                            }
+                        }
                     }
                 }
             }
