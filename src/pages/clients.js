@@ -248,6 +248,8 @@ export default class ClientsPage extends React.Component {
                                                 style={{
                                                     backgroundImage: `url('${
                                                         client.frontmatter.logo
+                                                            .childImageSharp
+                                                            .original.src
                                                     }')`
                                                 }}
                                             />
@@ -358,7 +360,13 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        logo
+                        logo {
+                            childImageSharp {
+                                original {
+                                    src
+                                }
+                            }
+                        }
                         color
                         solutionsList
                     }

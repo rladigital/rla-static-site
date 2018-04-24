@@ -164,7 +164,13 @@ export const pageQuery = graphql`
                         description
                         excerpt
                         templateKey
-                        thumb
+                        thumb {
+                            childImageSharp {
+                                original {
+                                    src
+                                }
+                            }
+                        }
                         previewType
                         thumbnailAlignment
                     }

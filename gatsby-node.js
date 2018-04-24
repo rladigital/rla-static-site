@@ -17,11 +17,11 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         //Get the list of image fields - TODO Automatically pull these from the config (perhaps then add as a plugin?)
         const imageFields = [
             "hero",
-            // "thumb",
-            "profile"
-            // "contactImage",
-            // "logo",
-            // "image"
+            "thumb",
+            "profile",
+            "contactImage",
+            "logo",
+            "image"
         ];
 
         const { frontmatter } = node;
@@ -84,7 +84,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                         frontmatter {
                             templateKey
                             title
-                            thumb
+                            thumb {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
                             category
                         }
                         fields {

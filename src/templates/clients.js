@@ -19,7 +19,7 @@ export const ClientTemplate = ({ logo, color, solutions, title, helmet }) => {
             <Row>
                 <Column>
                     <img
-                        src={logo}
+                        src={logo.childImageSharp.original.src}
                         alt={`${title} Logo`}
                         title={`${title} Logo`}
                     />
@@ -60,7 +60,13 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
-                logo
+                logo {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
+                }
                 color
                 solutionsList
             }

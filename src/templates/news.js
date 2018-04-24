@@ -123,7 +123,7 @@ export const NewsTemplate = ({
                                 return (
                                     <img
                                         key={index}
-                                        src={image}
+                                        src={image.childImageSharp.original.src}
                                         alt={`${title} Gallery Image`}
                                     />
                                 );

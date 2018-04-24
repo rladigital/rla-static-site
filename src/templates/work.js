@@ -91,7 +91,10 @@ export const WorkTemplate = ({
             {logo && (
                 <Row>
                     <Column>
-                        <Logo src={logo} id="logo" />
+                        <Logo
+                            src={logo.childImageSharp.orginal.src}
+                            id="logo"
+                        />
                     </Column>
                 </Row>
             )}
@@ -174,7 +177,13 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 intro
-                logo
+                logo {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
+                }
                 hero {
                     childImageSharp {
                         original {

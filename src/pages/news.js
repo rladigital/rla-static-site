@@ -399,7 +399,13 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        thumb
+                        thumb {
+                            childImageSharp {
+                                original {
+                                    src
+                                }
+                            }
+                        }
                         category
                     }
                 }
