@@ -21,7 +21,7 @@ const fade = {
         opacity: 0
     },
     entering: {
-        opacity: 1
+        opacity: 0
     },
     entered: {
         opacity: 1
@@ -35,8 +35,8 @@ const slide = {
         opacity: 0
     },
     entering: {
-        transform: "translateX(0)",
-        opacity: 1
+        transform: "translateX(100%)",
+        opacity: 0
     },
     entered: {
         transform: "translateX(0)",
@@ -56,6 +56,15 @@ const HeaderContainer = styled.div`
         ${transparentize(colors.background, 0.7)},
         transparent
     );
+    z-index: 1;
+`;
+
+const Overlay = styled.div`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 4;
+    background: ${transparentize(colors.reallyDarkBlueGray, 0.1)};
     z-index: 2;
 `;
 
@@ -68,8 +77,8 @@ const Menu = styled.div`
     background: ${colors.reallyDarkBlueGray};
     padding: 0 2rem;
     text-align: right;
-    z-index: 1;
     font-family: ${props => props.theme.headings.fontFamily};
+    z-index: 3;
 `;
 
 const Section = styled.div`
@@ -81,10 +90,13 @@ const Item = styled.div`
     font-weight: 600;
     padding-bottom: 2rem;
     text-transform: uppercase;
-
     &:last-child {
         padding-bottom: 0;
     }
+`;
+
+const Logo = styled.img`
+    width: 88px;
 `;
 
 const StyledLink = styled(Link)`
@@ -106,32 +118,45 @@ class Offcanvas extends React.Component {
             offcanvasActive: false
         };
 
-        this.toggleOffcanvas = this.toggleOffcanvas.bind(this);
+        this.openOffcanvas = this.openOffcanvas.bind(this);
+        this.closeOffcanvas = this.closeOffcanvas.bind(this);
     }
 
-    toggleOffcanvas() {
-        this.setState({ offcanvasActive: !this.state.offcanvasActive });
+    openOffcanvas() {
+        this.setState({ offcanvasActive: true });
+    }
+
+    closeOffcanvas() {
+        this.setState({ offcanvasActive: false });
     }
 
     render() {
         const { offcanvasActive } = this.state;
+
+        const transitionProps = {
+            in: offcanvasActive,
+            timeout: duration,
+            appear: true,
+            unmountOnExit: true,
+            mountOnEnter: true
+        };
 
         return [
             <HeaderContainer>
                 <Row expanded>
                     <Column small={6} medium={3}>
                         <Link to="/">
-                            <img
-                                src={logo}
-                                alt="RLA"
-                                style={{ width: "88px" }}
-                            />
+                            <Logo src={logo} alt="RLA" />
                         </Link>
                     </Column>
                     <Column small={6} medium={9}>
                         <MenuIcon
                             active={offcanvasActive}
-                            onClick={this.toggleOffcanvas}
+                            onClick={
+                                offcanvasActive
+                                    ? this.closeOffcanvas
+                                    : this.openOffcanvas
+                            }
                             style={{
                                 float: "right",
                                 marginTop: "0.7rem",
@@ -142,16 +167,38 @@ class Offcanvas extends React.Component {
                 </Row>
             </HeaderContainer>,
 
-            <TransitionGroup>
-                {offcanvasActive && (
-                    <Slide>
+            <Transition {...transitionProps}>
+                {state => (
+                    <Overlay
+                        onClick={this.closeOffcanvas}
+                        id="overlay"
+                        style={{
+                            ...fade.default,
+                            ...fade[state]
+                        }}
+                    />
+                )}
+            </Transition>,
+
+            <Transition {...transitionProps}>
+                {state => (
+                    <Menu
+                        onClick={e => e.stopPropagation()}
+                        style={{
+                            ...slide.default,
+                            ...slide[state]
+                        }}
+                    >
                         <Scrollbars autoHide>
                             <Section padding={2.05}>&nbsp;</Section>
                             <Section padding={3}>
                                 {navigation.map((item, index) => {
                                     return (
                                         <Item key={index}>
-                                            <StyledLink to={item.to}>
+                                            <StyledLink
+                                                to={item.to}
+                                                onClick={this.closeOffcanvas}
+                                            >
                                                 {item.text}
                                             </StyledLink>
                                         </Item>
@@ -177,9 +224,9 @@ class Offcanvas extends React.Component {
                                 />
                             </SocialContainer>
                         </Scrollbars>
-                    </Slide>
+                    </Menu>
                 )}
-            </TransitionGroup>
+            </Transition>
         ];
     }
 }
@@ -229,7 +276,7 @@ class MenuIcon extends React.Component {
         }
     }
     render() {
-        const { active, onClick, style } = this.props;
+        const { active, onClick, innerRef, ...rest } = this.props;
         const { menuPaths, closePaths } = this.state;
 
         const pathProps = {
@@ -249,7 +296,8 @@ class MenuIcon extends React.Component {
                 height="20"
                 viewBox="0 0 50 50"
                 onClick={onClick}
-                style={style}
+                ref={innerRef}
+                {...rest}
             >
                 {menuPaths.map((path, i) => {
                     return (
@@ -272,19 +320,3 @@ class MenuIcon extends React.Component {
         );
     }
 }
-
-const Slide = ({ in: inProp, children }) => (
-    <Transition in={inProp} timeout={duration} appear={true}>
-        {state => (
-            <Menu
-                onClick={e => e.stopPropagation()}
-                style={{
-                    ...slide.default,
-                    ...slide[state]
-                }}
-            >
-                {children}
-            </Menu>
-        )}
-    </Transition>
-);

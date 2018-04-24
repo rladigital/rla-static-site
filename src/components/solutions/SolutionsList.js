@@ -98,7 +98,7 @@ class SolutionsVideo extends React.Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.lineTicker);
+        clearInterval(this.timer);
     }
 
     handleClick(x) {
@@ -163,8 +163,6 @@ class SolutionsVideo extends React.Component {
             lines.push(this.generateLine(orbs));
         }
 
-        console.log(lines);
-
         this.setState({ lines });
     }
 
@@ -178,8 +176,6 @@ class SolutionsVideo extends React.Component {
             if (lines.length > 10) {
                 lines.shift();
             }
-
-            console.log(lines);
 
             this.setState({ lines });
         }
