@@ -81,7 +81,6 @@ const Item = styled.div`
     font-weight: 600;
     padding-bottom: 2rem;
     text-transform: uppercase;
-
     &:last-child {
         padding-bottom: 0;
     }
@@ -106,11 +105,25 @@ class Offcanvas extends React.Component {
             offcanvasActive: false
         };
 
-        this.toggleOffcanvas = this.toggleOffcanvas.bind(this);
+        this.openOffcanvas = this.openOffcanvas.bind(this);
+        this.closeOffcanvas = this.closeOffcanvas.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    toggleOffcanvas() {
-        this.setState({ offcanvasActive: !this.state.offcanvasActive });
+    openOffcanvas() {
+        window.addEventListener("click", this.handleClick);
+        this.setState({ offcanvasActive: true });
+    }
+
+    closeOffcanvas() {
+        window.removeEventListener("click", this.handleClick);
+        this.setState({ offcanvasActive: false });
+    }
+
+    handleClick(event) {
+        if (!this.menuIcon.contains(event.target)) {
+            this.closeOffcanvas();
+        }
     }
 
     render() {
@@ -130,8 +143,13 @@ class Offcanvas extends React.Component {
                     </Column>
                     <Column small={6} medium={9}>
                         <MenuIcon
+                            innerRef={ref => (this.menuIcon = ref)}
                             active={offcanvasActive}
-                            onClick={this.toggleOffcanvas}
+                            onClick={
+                                offcanvasActive
+                                    ? this.closeOffcanvas
+                                    : this.openOffcanvas
+                            }
                             style={{
                                 float: "right",
                                 marginTop: "0.7rem",
@@ -142,44 +160,51 @@ class Offcanvas extends React.Component {
                 </Row>
             </HeaderContainer>,
 
-            <TransitionGroup>
-                {offcanvasActive && (
-                    <Slide>
-                        <Scrollbars autoHide>
-                            <Section padding={2.05}>&nbsp;</Section>
-                            <Section padding={3}>
-                                {navigation.map((item, index) => {
-                                    return (
-                                        <Item key={index}>
-                                            <StyledLink to={item.to}>
-                                                {item.text}
-                                            </StyledLink>
-                                        </Item>
-                                    );
-                                })}
-                            </Section>
+            <div ref={ref => (this.menu = ref)}>
+                <TransitionGroup>
+                    {offcanvasActive && (
+                        <Slide>
+                            <Scrollbars autoHide>
+                                <Section padding={2.05}>&nbsp;</Section>
+                                <Section padding={3}>
+                                    {navigation.map((item, index) => {
+                                        return (
+                                            <Item key={index}>
+                                                <StyledLink
+                                                    to={item.to}
+                                                    onClick={
+                                                        this.closeOffcanvas
+                                                    }
+                                                >
+                                                    {item.text}
+                                                </StyledLink>
+                                            </Item>
+                                        );
+                                    })}
+                                </Section>
 
-                            <SocialContainer padding={3}>
-                                <SocialIcon
-                                    icon="facebook-f"
-                                    href="https://www.facebook.com/rlagroup/"
-                                    target="_blank"
-                                />
-                                <SocialIcon
-                                    icon="twitter"
-                                    href="https://twitter.com/rlagroup"
-                                    target="_blank"
-                                />
-                                <SocialIcon
-                                    icon="linkedin-in"
-                                    href="https://www.linkedin.com/company/rla-group"
-                                    target="_blank"
-                                />
-                            </SocialContainer>
-                        </Scrollbars>
-                    </Slide>
-                )}
-            </TransitionGroup>
+                                <SocialContainer padding={3}>
+                                    <SocialIcon
+                                        icon="facebook-f"
+                                        href="https://www.facebook.com/rlagroup/"
+                                        target="_blank"
+                                    />
+                                    <SocialIcon
+                                        icon="twitter"
+                                        href="https://twitter.com/rlagroup"
+                                        target="_blank"
+                                    />
+                                    <SocialIcon
+                                        icon="linkedin-in"
+                                        href="https://www.linkedin.com/company/rla-group"
+                                        target="_blank"
+                                    />
+                                </SocialContainer>
+                            </Scrollbars>
+                        </Slide>
+                    )}
+                </TransitionGroup>
+            </div>
         ];
     }
 }
@@ -229,7 +254,7 @@ class MenuIcon extends React.Component {
         }
     }
     render() {
-        const { active, onClick, style } = this.props;
+        const { active, onClick, innerRef, ...rest } = this.props;
         const { menuPaths, closePaths } = this.state;
 
         const pathProps = {
@@ -249,7 +274,8 @@ class MenuIcon extends React.Component {
                 height="20"
                 viewBox="0 0 50 50"
                 onClick={onClick}
-                style={style}
+                ref={innerRef}
+                {...rest}
             >
                 {menuPaths.map((path, i) => {
                     return (
