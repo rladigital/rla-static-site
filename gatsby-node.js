@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         ////////////////////////////////*/
         //Get the list of image fields - TODO Automatically pull these from the config (perhaps then add as a plugin?)
         const imageFields = [
-            // "hero",
+            "hero",
             // "thumb",
             "profile"
             // "contactImage",
@@ -39,15 +39,17 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
                     if (image) {
                         if (image.indexOf("/img") === 0) {
                             console.log("Creating Node Field: " + key + "Rel");
+
+                            //This is how it's recommended but the gatsby image plugins don't seem to kick in
                             createNodeField({
                                 node,
-                                name: key + "Rel",
+                                name: key,
                                 value: path.relative(
                                     path.dirname(node.fileAbsolutePath),
                                     path.join(__dirname, "/static/", image)
                                 )
                             });
-
+                            //This works, but apparently shouldn't, so it'd be good to work out away around it
                             frontmatter[key] = path.relative(
                                 path.dirname(node.fileAbsolutePath),
                                 path.join(__dirname, "/static/", image)

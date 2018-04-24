@@ -84,7 +84,7 @@ export const WorkTemplate = ({
             {hero && (
                 <Row>
                     <Column>
-                        <Hero src={hero} />{" "}
+                        <Hero src={hero.childImageSharp.original.src} />{" "}
                     </Column>
                 </Row>
             )}
@@ -175,7 +175,13 @@ export const pageQuery = graphql`
                 title
                 intro
                 logo
-                hero
+                hero {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
+                }
                 description
                 galleryImages
                 solutionsList

@@ -53,7 +53,13 @@ export const JobTemplate = props => {
             {hero && (
                 <Row>
                     <Column>
-                        <Hero src={hero}>
+                        <Hero
+                            src={
+                                hero.childImageSharp
+                                    ? hero.childImageSharp.original.src
+                                    : null
+                            }
+                        >
                             <JobHeader area={area} title={title} hero={hero} />
                         </Hero>
                     </Column>
@@ -143,7 +149,13 @@ export const pageQuery = graphql`
                 description
                 area
                 tags
-                hero
+                hero {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
+                }
                 level
                 location
                 salary

@@ -124,7 +124,13 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        hero
+                        hero {
+                            childImageSharp {
+                                original {
+                                    src
+                                }
+                            }
+                        }
                         thumb
                         excerpt
                         previewType

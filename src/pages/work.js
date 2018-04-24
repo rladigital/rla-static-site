@@ -165,7 +165,6 @@ export const pageQuery = graphql`
                         excerpt
                         templateKey
                         thumb
-                        hero
                         previewType
                         thumbnailAlignment
                     }

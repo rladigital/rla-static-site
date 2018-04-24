@@ -45,7 +45,7 @@ export const NewsTemplate = ({
                 {hero && (
                     <Row>
                         <Column>
-                            <Hero src={hero} />{" "}
+                            <Hero src={hero.childImageSharp.original.src} />{" "}
                         </Column>
                     </Row>
                 )}
@@ -83,7 +83,14 @@ export const NewsTemplate = ({
                         <Social
                             size={50}
                             icon="linkedin-in"
-                            href={"https://www.linkedin.com/shareArticle?mini=true&url="+(window.location.href)+"&title="+title+"&summary="+sideHeading}
+                            href={
+                                "https://www.linkedin.com/shareArticle?mini=true&url=" +
+                                window.location.href +
+                                "&title=" +
+                                title +
+                                "&summary=" +
+                                sideHeading
+                            }
                             color={colors.background}
                             borderColor={colors.background}
                             margin="0 1rem 3rem 0"
@@ -93,7 +100,14 @@ export const NewsTemplate = ({
                         <Social
                             size={50}
                             icon="twitter"
-                            href={"https://twitter.com/home?status="+title+" - "+sideHeading+ " - "+(window.location.href)}
+                            href={
+                                "https://twitter.com/home?status=" +
+                                title +
+                                " - " +
+                                sideHeading +
+                                " - " +
+                                window.location.href
+                            }
                             color={colors.background}
                             borderColor={colors.background}
                             margin="0 1rem 3rem 0"
@@ -170,7 +184,13 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 date
-                hero
+                hero {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
+                }
                 intro
                 sideHeading
                 galleryImages
