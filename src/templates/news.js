@@ -83,7 +83,7 @@ export const NewsTemplate = ({
                         <Social
                             size={50}
                             icon="linkedin-in"
-                            href={author.frontmatter.linkedIn}
+                            href={"https://www.linkedin.com/shareArticle?mini=true&url="+(window.location.href)+"&title="+title+"&summary="+sideHeading}
                             color={colors.background}
                             borderColor={colors.background}
                             margin="0 1rem 3rem 0"
@@ -93,7 +93,7 @@ export const NewsTemplate = ({
                         <Social
                             size={50}
                             icon="twitter"
-                            href={author.frontmatter.linkedIn}
+                            href={"https://twitter.com/home?status="+title+" - "+sideHeading+ " - "+(window.location.href)}
                             color={colors.background}
                             borderColor={colors.background}
                             margin="0 1rem 3rem 0"

@@ -20,7 +20,7 @@ const Circle = styled.a`
 
 const Social = ({ icon, transform, ...rest }) => {
     return (
-        <Circle {...rest}>
+        <Circle {...rest} target="_blank">
             <FAIcon icon={["fab", icon]} transform={transform} />
         </Circle>
     );
