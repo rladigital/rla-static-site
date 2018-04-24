@@ -44,7 +44,8 @@ export default class ContactMap extends React.Component {
                 style={{
                     minHeight: "680px",
                     height: "100%",
-                    width: "100%"
+                    width: "100%",
+                    zIndex: 1
                 }}
                 scrollWheelZoom={false}
                 doubleClickZoom={false}

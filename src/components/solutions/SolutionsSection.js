@@ -115,7 +115,8 @@ class SolutionsSection extends React.Component {
                                     <Fade
                                         style={{
                                             ...style,
-                                            zIndex: isMobile() ? 0 : 3
+                                            zIndex: isMobile() ? 0 : 4,
+                                            position: "fixed"
                                         }}
                                     >
                                         <SolutionsVideo

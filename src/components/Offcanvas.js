@@ -21,7 +21,7 @@ const fade = {
         opacity: 0
     },
     entering: {
-        opacity: 1
+        opacity: 0
     },
     entered: {
         opacity: 1
@@ -35,8 +35,8 @@ const slide = {
         opacity: 0
     },
     entering: {
-        transform: "translateX(0)",
-        opacity: 1
+        transform: "translateX(100%)",
+        opacity: 0
     },
     entered: {
         transform: "translateX(0)",
@@ -56,6 +56,15 @@ const HeaderContainer = styled.div`
         ${transparentize(colors.background, 0.7)},
         transparent
     );
+    z-index: 1;
+`;
+
+const Overlay = styled.div`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 4;
+    background: ${transparentize(colors.reallyDarkBlueGray, 0.1)};
     z-index: 2;
 `;
 
@@ -68,8 +77,8 @@ const Menu = styled.div`
     background: ${colors.reallyDarkBlueGray};
     padding: 0 2rem;
     text-align: right;
-    z-index: 1;
     font-family: ${props => props.theme.headings.fontFamily};
+    z-index: 3;
 `;
 
 const Section = styled.div`
@@ -84,6 +93,10 @@ const Item = styled.div`
     &:last-child {
         padding-bottom: 0;
     }
+`;
+
+const Logo = styled.img`
+    width: 88px;
 `;
 
 const StyledLink = styled(Link)`
@@ -107,43 +120,37 @@ class Offcanvas extends React.Component {
 
         this.openOffcanvas = this.openOffcanvas.bind(this);
         this.closeOffcanvas = this.closeOffcanvas.bind(this);
-        this.handleClick = this.handleClick.bind(this);
     }
 
     openOffcanvas() {
-        window.addEventListener("click", this.handleClick);
         this.setState({ offcanvasActive: true });
     }
 
     closeOffcanvas() {
-        window.removeEventListener("click", this.handleClick);
         this.setState({ offcanvasActive: false });
-    }
-
-    handleClick(event) {
-        if (!this.menuIcon.contains(event.target)) {
-            this.closeOffcanvas();
-        }
     }
 
     render() {
         const { offcanvasActive } = this.state;
+
+        const transitionProps = {
+            in: offcanvasActive,
+            timeout: duration,
+            appear: true,
+            unmountOnExit: true,
+            mountOnEnter: true
+        };
 
         return [
             <HeaderContainer>
                 <Row expanded>
                     <Column small={6} medium={3}>
                         <Link to="/">
-                            <img
-                                src={logo}
-                                alt="RLA"
-                                style={{ width: "88px" }}
-                            />
+                            <Logo src={logo} alt="RLA" />
                         </Link>
                     </Column>
                     <Column small={6} medium={9}>
                         <MenuIcon
-                            innerRef={ref => (this.menuIcon = ref)}
                             active={offcanvasActive}
                             onClick={
                                 offcanvasActive
@@ -160,51 +167,66 @@ class Offcanvas extends React.Component {
                 </Row>
             </HeaderContainer>,
 
-            <div ref={ref => (this.menu = ref)}>
-                <TransitionGroup>
-                    {offcanvasActive && (
-                        <Slide>
-                            <Scrollbars autoHide>
-                                <Section padding={2.05}>&nbsp;</Section>
-                                <Section padding={3}>
-                                    {navigation.map((item, index) => {
-                                        return (
-                                            <Item key={index}>
-                                                <StyledLink
-                                                    to={item.to}
-                                                    onClick={
-                                                        this.closeOffcanvas
-                                                    }
-                                                >
-                                                    {item.text}
-                                                </StyledLink>
-                                            </Item>
-                                        );
-                                    })}
-                                </Section>
+            <Transition {...transitionProps}>
+                {state => (
+                    <Overlay
+                        onClick={this.closeOffcanvas}
+                        id="overlay"
+                        style={{
+                            ...fade.default,
+                            ...fade[state]
+                        }}
+                    />
+                )}
+            </Transition>,
 
-                                <SocialContainer padding={3}>
-                                    <SocialIcon
-                                        icon="facebook-f"
-                                        href="https://www.facebook.com/rlagroup/"
-                                        target="_blank"
-                                    />
-                                    <SocialIcon
-                                        icon="twitter"
-                                        href="https://twitter.com/rlagroup"
-                                        target="_blank"
-                                    />
-                                    <SocialIcon
-                                        icon="linkedin-in"
-                                        href="https://www.linkedin.com/company/rla-group"
-                                        target="_blank"
-                                    />
-                                </SocialContainer>
-                            </Scrollbars>
-                        </Slide>
-                    )}
-                </TransitionGroup>
-            </div>
+            <Transition {...transitionProps}>
+                {state => (
+                    <Menu
+                        onClick={e => e.stopPropagation()}
+                        style={{
+                            ...slide.default,
+                            ...slide[state]
+                        }}
+                    >
+                        <Scrollbars autoHide>
+                            <Section padding={2.05}>&nbsp;</Section>
+                            <Section padding={3}>
+                                {navigation.map((item, index) => {
+                                    return (
+                                        <Item key={index}>
+                                            <StyledLink
+                                                to={item.to}
+                                                onClick={this.closeOffcanvas}
+                                            >
+                                                {item.text}
+                                            </StyledLink>
+                                        </Item>
+                                    );
+                                })}
+                            </Section>
+
+                            <SocialContainer padding={3}>
+                                <SocialIcon
+                                    icon="facebook-f"
+                                    href="https://www.facebook.com/rlagroup/"
+                                    target="_blank"
+                                />
+                                <SocialIcon
+                                    icon="twitter"
+                                    href="https://twitter.com/rlagroup"
+                                    target="_blank"
+                                />
+                                <SocialIcon
+                                    icon="linkedin-in"
+                                    href="https://www.linkedin.com/company/rla-group"
+                                    target="_blank"
+                                />
+                            </SocialContainer>
+                        </Scrollbars>
+                    </Menu>
+                )}
+            </Transition>
         ];
     }
 }
@@ -298,19 +320,3 @@ class MenuIcon extends React.Component {
         );
     }
 }
-
-const Slide = ({ in: inProp, children }) => (
-    <Transition in={inProp} timeout={duration} appear={true}>
-        {state => (
-            <Menu
-                onClick={e => e.stopPropagation()}
-                style={{
-                    ...slide.default,
-                    ...slide[state]
-                }}
-            >
-                {children}
-            </Menu>
-        )}
-    </Transition>
-);
