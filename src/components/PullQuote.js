@@ -10,7 +10,7 @@ const PullQuote = styled.blockquote`
     font-size: ${props => props.fontSize / 1.5}rem;
     padding-bottom: ${props => props.padding}rem;
     font-family: "Adobe Caslon Pro";
-    line-height: 1.3;
+    line-height: 1.2;
     @media (min-width: ${breakpoints.large}px) {
         font-size: ${props => props.fontSize}rem;
         padding-bottom: ${props => props.padding}rem;
