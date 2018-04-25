@@ -93,6 +93,7 @@ class SolutionsSection extends React.Component {
         };
 
         this.handleScroll = this.handleScroll.bind(this);
+        this.pauseScroll = this.pauseScroll.bind(this);
     }
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
@@ -103,12 +104,26 @@ class SolutionsSection extends React.Component {
     }
     handleScroll() {
         this.setState({
-            scrollY: window.pageYOffset
+            scrollY: window.pageYOffset,
+            scrollDirection:
+                window.pageYOffset < this.state.scrollY ? "up" : "down"
         });
     }
     setAnimationDirection(x) {
         console.log(x);
         this.setState({ animationDirection: x });
+    }
+
+    pauseScroll() {
+        const { scrollDirection } = this.state;
+        const html = document.querySelector("html");
+
+        if (scrollDirection == "down") {
+            html.style.overflowY = "hidden";
+            setTimeout(function() {
+                html.style.overflowY = "auto";
+            }, 2000);
+        }
     }
 
     render() {
@@ -126,24 +141,6 @@ class SolutionsSection extends React.Component {
                     {({ style }) => {
                         return (
                             <TransitionGroup>
-                                {visibleSection == "list" && (
-                                    <Fade
-                                        animationDirection={animationDirection}
-                                        style={style}
-                                        onEntered={() =>
-                                            this.setAnimationDirection(
-                                                "forwards"
-                                            )
-                                        }
-                                    >
-                                        <SolutionsList
-                                            width={width}
-                                            height={height}
-                                            solutions={solutions}
-                                            animation={animation}
-                                        />
-                                    </Fade>
-                                )}
                                 {visibleSection == "video" && (
                                     <Fade
                                         animationDirection={animationDirection}
@@ -161,6 +158,25 @@ class SolutionsSection extends React.Component {
                                         <SolutionsVideo
                                             width={width}
                                             height={height}
+                                            animation={animation}
+                                        />
+                                    </Fade>
+                                )}
+                                {visibleSection == "list" && (
+                                    <Fade
+                                        animationDirection={animationDirection}
+                                        style={style}
+                                        onEnter={this.pauseScroll}
+                                        onEntered={() =>
+                                            this.setAnimationDirection(
+                                                "forwards"
+                                            )
+                                        }
+                                    >
+                                        <SolutionsList
+                                            width={width}
+                                            height={height}
+                                            solutions={solutions}
                                             animation={animation}
                                         />
                                     </Fade>

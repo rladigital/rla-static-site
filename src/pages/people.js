@@ -59,7 +59,7 @@ export const pageQuery = graphql`
                     fields {
                         slug
                     }
-                    excerpt(pruneLength: 400)
+                    html
                     id
                     frontmatter {
                         title

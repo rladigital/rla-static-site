@@ -26,8 +26,8 @@ export const sizes = {
 
 export const spacing = {
     radius: "0.2",
-    padding: "1.4",
-    margin: "1.4"
+    padding: "1.5",
+    margin: "1.5"
 };
 
 export const breakpoints = {

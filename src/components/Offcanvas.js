@@ -9,7 +9,7 @@ import { Transition, TransitionGroup } from "react-transition-group";
 import Social from "../components/blog/Social";
 import logo from "../img/rla.svg";
 
-import { spacing, colors } from "../theme/theme";
+import { spacing, colors, breakpoints } from "../theme/theme";
 import { navigation } from "../utils/config";
 import { transparentize } from "../helpers/helpers";
 
@@ -44,19 +44,32 @@ const slide = {
     }
 };
 
-const HeaderContainer = styled.div`
+const HeaderBackground = styled.div`
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
+    height: 80px;
     position: fixed;
-    color: ${colors.white};
-    padding: 1.2rem 1rem;
+    pointer-events: none;
     background: linear-gradient(
         to bottom,
         ${transparentize(colors.background, 0.7)},
         transparent
     );
     z-index: 1;
+`;
+
+const HeaderContainer = styled.div`
+    top: 0;
+    z-index: 4;
+    position: fixed;
+    text-align: center;
+    color: ${colors.white};
+    padding: ${spacing.padding}rem;
+    @media (min-width: ${breakpoints.medium}px) {
+        z-index: ${props => props.zIndex};
+    }
 `;
 
 const Overlay = styled.div`
@@ -71,14 +84,17 @@ const Overlay = styled.div`
 const Menu = styled.div`
     top: 0;
     right: 0;
-    width: 400px;
+    z-index: 3;
+    width: 100%;
     height: 100%;
     position: fixed;
-    background: ${colors.reallyDarkBlueGray};
-    padding: 0 2rem;
     text-align: right;
+    padding: 0 ${spacing.padding}rem;
+    background: ${colors.reallyDarkBlueGray};
     font-family: ${props => props.theme.headings.fontFamily};
-    z-index: 3;
+    @media (min-width: ${breakpoints.medium}px) {
+        width: 400px;
+    }
 `;
 
 const Section = styled.div`
@@ -142,31 +158,25 @@ class Offcanvas extends React.Component {
         };
 
         return [
-            <HeaderContainer>
-                <Row expanded>
-                    <Column small={6} medium={3}>
-                        <Link to="/">
-                            <Logo src={logo} alt="RLA" />
-                        </Link>
-                    </Column>
-                    <Column small={6} medium={9}>
-                        <MenuIcon
-                            active={offcanvasActive}
-                            onClick={
-                                offcanvasActive
-                                    ? this.closeOffcanvas
-                                    : this.openOffcanvas
-                            }
-                            style={{
-                                float: "right",
-                                marginTop: "0.7rem",
-                                cursor: "pointer"
-                            }}
-                        />
-                    </Column>
-                </Row>
+            <HeaderBackground />,
+            <HeaderContainer zIndex={1} style={{ left: 0 }}>
+                <Logo src={logo} alt="RLA" />
             </HeaderContainer>,
-
+            <HeaderContainer zIndex={4} style={{ right: 0 }}>
+                <MenuIcon
+                    active={offcanvasActive}
+                    onClick={
+                        offcanvasActive
+                            ? this.closeOffcanvas
+                            : this.openOffcanvas
+                    }
+                    style={{
+                        float: "right",
+                        margin: "0.7rem",
+                        cursor: "pointer"
+                    }}
+                />
+            </HeaderContainer>,
             <Transition {...transitionProps}>
                 {state => (
                     <Overlay
@@ -190,7 +200,7 @@ class Offcanvas extends React.Component {
                         }}
                     >
                         <Scrollbars autoHide>
-                            <Section padding={2.05}>&nbsp;</Section>
+                            <Section padding={2.2}>&nbsp;</Section>
                             <Section padding={3}>
                                 {navigation.map((item, index) => {
                                     return (
