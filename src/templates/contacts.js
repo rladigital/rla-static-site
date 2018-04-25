@@ -19,7 +19,9 @@ export const ContactTemplate = ({
         <section>
             {helmet || ""}
             <h1>{title}</h1>
-            <ProfileImage src={contactImage.childImageSharp.original.src} />
+            {contactImage.childImageSharp && (
+                <ProfileImage src={contactImage.childImageSharp.original.src} />
+            )}
         </section>
     );
 };
