@@ -86,11 +86,16 @@ export class WorkTemplate extends React.Component {
         return (
             <PageDetailContainer style={transition && transition.style}>
                 {helmet || ""}
-                <BackButton goBack={history.goBack} />
+                {history && <BackButton goBack={history.goBack} />}
                 {hero && (
                     <Row>
                         <Column>
-                            <Hero src={hero.childImageSharp.original.src} />{" "}
+                            <Hero
+                                src={
+                                    hero.childImageSharp &&
+                                    hero.childImageSharp.original.src
+                                }
+                            />{" "}
                         </Column>
                     </Row>
                 )}
@@ -98,7 +103,10 @@ export class WorkTemplate extends React.Component {
                     <Row>
                         <Column>
                             <Logo
-                                src={logo.childImageSharp.original.src}
+                                src={
+                                    logo.childImageSharp &&
+                                    logo.childImageSharp.original.src
+                                }
                                 id="logo"
                             />
                         </Column>
