@@ -60,34 +60,56 @@ const StyledStickyContainer = styled(StickyContainer)`
     background-repeat: no-repeat;
 `;
 
-const Fade = ({ in: inProp, children, style, animationDirection, ...rest }) => (
-    <Transition in={inProp} timeout={500} unmountOnExit={true} {...rest}>
-        {state => (
-            <div
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    ...style
-                }}
+class Fade extends React.Component {
+    render() {
+        const {
+            in: inProp,
+            children,
+            style,
+            animationDirection,
+            ...rest
+        } = this.props;
+
+        return (
+            <Transition
+                in={inProp}
+                timeout={500}
+                unmountOnExit={true}
+                {...rest}
             >
-                <div
-                    style={{
-                        ...defaultStyle,
-                        ...transitions[animationDirection][state]
-                    }}
-                >
-                    {children}
-                </div>
-            </div>
-        )}
-    </Transition>
-);
+                {state => (
+                    <div
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                            ...style
+                        }}
+                    >
+                        <div
+                            style={{
+                                ...defaultStyle,
+                                ...transitions[animationDirection][state]
+                            }}
+                        >
+                            {React.Children.map(children, child =>
+                                React.cloneElement(child, {
+                                    transitionState: state
+                                })
+                            )}
+                        </div>
+                    </div>
+                )}
+            </Transition>
+        );
+    }
+}
 
 let hasScrolledTop = false;
 class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loaded: false,
             scrollY: window.pageYOffset,
             animationDirection: "forwards"
         };
@@ -97,6 +119,11 @@ class SolutionsSection extends React.Component {
     }
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
+
+        // Don't play animations until page has loaded
+        setTimeout(() => {
+            this.setState({ loaded: true });
+        }, duration);
     }
 
     componentWillUnmount() {
@@ -110,7 +137,6 @@ class SolutionsSection extends React.Component {
         });
     }
     setAnimationDirection(x) {
-        console.log(x);
         this.setState({ animationDirection: x });
     }
 
@@ -128,7 +154,7 @@ class SolutionsSection extends React.Component {
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
-        const { scrollY, animationDirection } = this.state;
+        const { loaded, scrollY, animationDirection } = this.state;
         const animation = "transform 0.75s ease, opacity 0.75s ease";
         const visibleSection =
             scrollY > height * 2
@@ -143,6 +169,8 @@ class SolutionsSection extends React.Component {
                             <TransitionGroup>
                                 {visibleSection == "video" && (
                                     <Fade
+                                        enter={loaded}
+                                        exit={loaded}
                                         animationDirection={animationDirection}
                                         style={{
                                             ...style,
@@ -164,6 +192,8 @@ class SolutionsSection extends React.Component {
                                 )}
                                 {visibleSection == "list" && (
                                     <Fade
+                                        enter={loaded}
+                                        exit={loaded}
                                         animationDirection={animationDirection}
                                         style={style}
                                         onEnter={this.pauseScroll}
