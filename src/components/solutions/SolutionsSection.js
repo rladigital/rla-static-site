@@ -110,6 +110,7 @@ class SolutionsSection extends React.Component {
         super(props);
         this.state = {
             loaded: false,
+            animationReady: false,
             scrollY: window.pageYOffset,
             animationDirection: "forwards"
         };
@@ -120,6 +121,11 @@ class SolutionsSection extends React.Component {
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
         this.setState({ loaded: true });
+
+        // Don't play animations until page has loaded
+        setTimeout(() => {
+            this.setState({ animationReady: true });
+        }, duration);
     }
 
     componentWillUnmount() {
@@ -150,10 +156,15 @@ class SolutionsSection extends React.Component {
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
-        const { loaded, scrollY, animationDirection } = this.state;
+        const {
+            loaded,
+            animationReady,
+            scrollY,
+            animationDirection
+        } = this.state;
         const animation = "transform 0.75s ease, opacity 0.75s ease";
         const visibleSection =
-            scrollY > height * 2 || !loaded
+            scrollY > height * 2
                 ? "none"
                 : scrollY > height / 2 ? "list" : "video";
 
@@ -165,7 +176,8 @@ class SolutionsSection extends React.Component {
                             <TransitionGroup>
                                 {visibleSection == "video" && (
                                     <Fade
-                                        exit={!Boolean(scrollY == 0)}
+                                        enter={animationReady}
+                                        exit={animationReady}
                                         animationDirection={animationDirection}
                                         style={{
                                             ...style,
