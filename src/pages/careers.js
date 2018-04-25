@@ -11,11 +11,8 @@ import SectionContainer from "../components/SectionContainer";
 
 export default class JobPage extends React.Component {
     render() {
-        const {
-            data: { allMarkdownRemark: { edges: jobs } },
-            transition
-        } = this.props;
-        //console.log(news);
+        const { data, transition } = this.props;
+        const { jobs: { edges: jobs }, news: { edges: news } } = data;
         return (
             <div style={transition && transition.style}>
                 <Row>
@@ -34,7 +31,7 @@ export default class JobPage extends React.Component {
                     background={colors.white}
                     padding={`${spacing.padding}rem 0`}
                 >
-                    <JobSection jobs={jobs} />
+                    <JobSection jobs={jobs} news={news} />
                 </SectionContainer>
             </div>
         );
@@ -43,7 +40,7 @@ export default class JobPage extends React.Component {
 
 export const pageQuery = graphql`
     query JobQuery {
-        allMarkdownRemark(
+        jobs: allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "job" } } }
         ) {
             edges {
@@ -66,6 +63,31 @@ export const pageQuery = graphql`
                         }
                         area
                         closing
+                    }
+                }
+            }
+        }
+        news: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "news" } } }
+            limit: 10
+        ) {
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+                    id
+                    frontmatter {
+                        title
+                        templateKey
+                        thumb {
+                            childImageSharp {
+                                original {
+                                    src
+                                }
+                            }
+                        }
+                        category
                     }
                 }
             }

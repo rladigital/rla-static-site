@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import Img from "gatsby-image";
 
-import { colors, breakpoints } from "../../theme/theme";
+import { colors, breakpoints, spacing } from "../../theme/theme";
 import Social from "./Social";
 
 const Container = styled.div`
@@ -29,7 +29,9 @@ const ProfileImage = styled.div`
     background-position: center;
     margin: 0 auto 1rem auto;
     overflow: hidden;
-    //margin-right: 1em;
+    @media (min-width: ${breakpoints.xlarge}px) {
+        margin: 0;
+    }
 `;
 
 const Title = styled.h3`
@@ -77,6 +79,7 @@ const RecentPostList = styled.div`
 const PostLink = styled(Link)`
     display: table-row;
     font-size: 0.8rem;
+    color: ${colors.white};
 `;
 const PostDate = styled.div`
     display: table-cell;
@@ -89,7 +92,7 @@ const Author = ({ author }) => {
     console.log(author);
     return (
         <Container>
-            <Row>
+            <Row collapse>
                 <ProfileColumn xlarge={5}>
                     <ProfileImage>
                         <Img
