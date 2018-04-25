@@ -49,7 +49,7 @@ const theme = {
         fontFamily: "Avenir, sans-serif"
     },
     anchor: {
-        color: colors.primary,
+        color: colors.lightGray,
         textDecoration: "none",
         fontWeight: "bold"
     },
