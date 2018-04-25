@@ -74,6 +74,7 @@ const SolutionDot = styled.div`
     position: absolute;
     border-radius: 50px;
     z-index: 1;
+    cursor: pointer;
     &:after {
         width: 24px;
         height: 24px;
@@ -94,6 +95,7 @@ const SolutionText = styled.div`
     text-transform: uppercase;
     bottom: 5px;
     left: 30px;
+    cursor: pointer;
 `;
 
 const Control = styled.a`
