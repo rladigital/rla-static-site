@@ -18,6 +18,7 @@ const Button = styled.a.attrs({
     display: inline-block;
     padding: ${spacing.padding}em 0;
     color: ${colors.lightGray};
+    cursor: pointer;
     @media (min-width: 1516px) {
         padding: 0;
     }

@@ -5,7 +5,7 @@ import Link from "gatsby-link";
 import { Row, Column } from "rla-components";
 import styled from "styled-components";
 
-import { colors, spacing } from "../theme/theme";
+import { colors, spacing, breakpoints } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
@@ -18,6 +18,14 @@ import Author from "../components/blog/Author";
 import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
 import Tags from "../components/blog/Tags";
+import { isBrowser } from "../helpers/helpers";
+
+const Sidebar = styled(Column)`
+    @media (min-width: ${breakpoints.xlarge}px) {
+        max-width: 400px;
+        float: right;
+    }
+`;
 
 export const NewsTemplate = ({
     content,
@@ -74,45 +82,49 @@ export const NewsTemplate = ({
                         />
                     </Column>
                     <Column medium={1}>&nbsp;</Column>
-                    <Column medium={4}>
+                    <Sidebar medium={4}>
                         <SidebarDate date={date} />
                         <PullQuote fontSize={1.8} padding="0 0 2.6rem">
                             {sideHeading}
                         </PullQuote>
 
-                        <Social
-                            size={50}
-                            icon="linkedin-in"
-                            href={
-                                "https://www.linkedin.com/shareArticle?mini=true&url=" +
-                                window.location.href +
-                                "&title=" +
-                                title +
-                                "&summary=" +
-                                sideHeading
-                            }
-                            color={colors.background}
-                            borderColor={colors.background}
-                            margin="0 1rem 3rem 0"
-                            transform="shrink-10 up-0.5"
-                        />
+                        {isBrowser() && (
+                            <Social
+                                size={50}
+                                icon="linkedin-in"
+                                href={
+                                    "https://www.linkedin.com/shareArticle?mini=true&url=" +
+                                    window.location.href +
+                                    "&title=" +
+                                    title +
+                                    "&summary=" +
+                                    sideHeading
+                                }
+                                color={colors.background}
+                                borderColor={colors.background}
+                                margin="0 1rem 3rem 0"
+                                transform="shrink-10 up-0.5"
+                            />
+                        )}
 
-                        <Social
-                            size={50}
-                            icon="twitter"
-                            href={
-                                "https://twitter.com/home?status=" +
-                                title +
-                                " - " +
-                                sideHeading +
-                                " - " +
-                                window.location.href
-                            }
-                            color={colors.background}
-                            borderColor={colors.background}
-                            margin="0 1rem 3rem 0"
-                            transform="shrink-10 "
-                        />
+                        {isBrowser() && (
+                            <Social
+                                size={50}
+                                icon="twitter"
+                                href={
+                                    "https://twitter.com/home?status=" +
+                                    title +
+                                    " - " +
+                                    sideHeading +
+                                    " - " +
+                                    window.location.href
+                                }
+                                color={colors.background}
+                                borderColor={colors.background}
+                                margin="0 1rem 3rem 0"
+                                transform="shrink-10 "
+                            />
+                        )}
 
                         {author && <Author author={author} />}
 
@@ -129,7 +141,7 @@ export const NewsTemplate = ({
                                 );
                             }
                         })} */}
-                    </Column>
+                    </Sidebar>
                 </Row>
             </PageDetailContainer>
             <Row collapse expanded>
