@@ -11,7 +11,7 @@ import logo from "../img/rla.svg";
 
 import { spacing, colors, breakpoints } from "../theme/theme";
 import { navigation } from "../utils/config";
-import { transparentize } from "../helpers/helpers";
+import { transparentize, isBrowser } from "../helpers/helpers";
 
 const duration = 500;
 
@@ -147,6 +147,7 @@ class Offcanvas extends React.Component {
     }
 
     render() {
+        const { location } = this.props;
         const { offcanvasActive } = this.state;
 
         const transitionProps = {
@@ -160,7 +161,16 @@ class Offcanvas extends React.Component {
         return [
             <HeaderBackground />,
             <HeaderContainer zIndex={1} style={{ left: 0 }}>
-                <Link to="/">
+                <Link
+                    to="/"
+                    onClick={e => {
+                        // If homepage, scroll to top instead of reload
+                        if (isBrowser() && location.pathname == "/") {
+                            e.preventDefault();
+                            document.documentElement.scrollTop = 0;
+                        }
+                    }}
+                >
                     <Logo src={logo} alt="RLA" />
                 </Link>
             </HeaderContainer>,
