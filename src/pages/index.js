@@ -100,7 +100,7 @@ export default class IndexPage extends React.Component {
                         <MissionSection />
                     </div>
                 ) : (
-                    <LoadingScreen text="Loading" />
+                    <LoadingScreen text="Loading..." />
                 )}
             </section>
         );
