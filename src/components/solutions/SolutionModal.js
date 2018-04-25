@@ -109,6 +109,11 @@ const ContentContainer = styled.div`
         line-height: 1.5;
         margin: 0 0 1.5rem 0;
     }
+    a {
+        font-weight: bold;
+        color: #fff;
+        text-decoration: underline;
+    }
     @media (min-width: ${breakpoints.medium}px) {
         padding: 0 4vw 0 0;
         p {
