@@ -21,6 +21,14 @@ const StyledLink = styled(Link)`
     font-size: 16px;
     font-weight: 700;
 `;
+const LocationHeading = styled.div`
+    display: block;
+    text-transform: uppercase;
+    color: ${colors.white};
+    margin-bottom: ${spacing.padding}rem;
+    font-size: 16px;
+    font-weight: 700;
+`;
 
 const ContactDetail = styled.li`
     font-size: 16px;
@@ -116,7 +124,7 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
 
 const Location = ({ to, children, address, phone, email }) => (
     <div>
-        <StyledLink to={to}>{children}</StyledLink>
+        <LocationHeading>{children}</LocationHeading>
 
         <FaUl>
             {address && (
