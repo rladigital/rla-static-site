@@ -134,7 +134,7 @@ const Author = ({ author }) => {
                 </div>
             )}
 
-            <MoreLink>More articles by {author.frontmatter.title}</MoreLink>
+            {/*<MoreLink>More articles by {author.frontmatter.title}</MoreLink>*/}
         </Container>
     );
 };
