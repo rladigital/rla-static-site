@@ -69,12 +69,6 @@ class TagsPage extends React.Component {
                             return layout[i](items);
                         })}
                 </Row>
-
-                {/*
-              This links to a page that does not yet exist.
-              We'll come back to it!
-            */}
-                <Link to="/tags">All tags</Link>
             </div>
         );
     }
