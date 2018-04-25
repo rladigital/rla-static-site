@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { colors, breakpoints } from "../../theme/theme";
 
 const pathProps = {
     d:
@@ -13,31 +14,35 @@ const Svg = styled.svg`
 `;
 
 const animation = keyframes`
-    from {opacity: 0;}
+    from {opacity: 0.5;}
     to {opacity: 1;}
 `;
 
 const Loader = ({ percentage, text }) => (
-    <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 90" width="200">
+    <Svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 148 100"
+        width="100"
+        style={{
+            animation: percentage
+                ? "none"
+                : `${animation} ${1}s infinite alternate`,
+            transition: `width ${1}s ease`
+        }}
+    >
         <defs>
             <mask id="loader_mask">
                 <path {...pathProps} />
             </mask>
         </defs>
-        <path {...pathProps} stroke="#eeeeee" strokeWidth={1} />
+        <path {...pathProps} />
         <rect
-            style={{
-                animation: percentage
-                    ? "none"
-                    : `${animation} ${1}s infinite alternate`,
-                transition: `width ${1}s ease`
-            }}
             width={percentage ? `${percentage}%` : "100%"}
             height={60}
             mask="url(#loader_mask)"
-            fill="#dddddd"
+            fill={colors.background}
         />
-        <text x={74} y={80} textAnchor="middle" fill="#dddddd">
+        <text x={74} y={90} textAnchor="middle" fill={colors.background}>
             {text}
         </text>
     </Svg>
