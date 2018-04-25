@@ -128,7 +128,7 @@ export class WorkTemplate extends React.Component {
                             <tbody>
                                 <tr>
                                     <Td>
-                                        <h2>Our areas of expertise — </h2>
+                                        <h2>Our areas of expertise</h2>
                                     </Td>
                                     <Td>
                                         {solutionsList &&
