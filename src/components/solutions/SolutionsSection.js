@@ -60,28 +60,49 @@ const StyledStickyContainer = styled(StickyContainer)`
     background-repeat: no-repeat;
 `;
 
-const Fade = ({ in: inProp, children, style, animationDirection, ...rest }) => (
-    <Transition in={inProp} timeout={500} unmountOnExit={true} {...rest}>
-        {state => (
-            <div
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    ...style
-                }}
+class Fade extends React.Component {
+    render() {
+        const {
+            in: inProp,
+            children,
+            style,
+            animationDirection,
+            ...rest
+        } = this.props;
+
+        return (
+            <Transition
+                in={inProp}
+                timeout={500}
+                unmountOnExit={true}
+                {...rest}
             >
-                <div
-                    style={{
-                        ...defaultStyle,
-                        ...transitions[animationDirection][state]
-                    }}
-                >
-                    {children}
-                </div>
-            </div>
-        )}
-    </Transition>
-);
+                {state => (
+                    <div
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                            ...style
+                        }}
+                    >
+                        <div
+                            style={{
+                                ...defaultStyle,
+                                ...transitions[animationDirection][state]
+                            }}
+                        >
+                            {React.Children.map(children, child =>
+                                React.cloneElement(child, {
+                                    transitionState: state
+                                })
+                            )}
+                        </div>
+                    </div>
+                )}
+            </Transition>
+        );
+    }
+}
 
 let hasScrolledTop = false;
 class SolutionsSection extends React.Component {

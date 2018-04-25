@@ -100,7 +100,14 @@ class SolutionsVideo extends React.Component {
 
     render() {
         const { loadedPercentage } = this.state;
-        const { width, height, scrollY, style, animation } = this.props;
+        const {
+            width,
+            height,
+            scrollY,
+            style,
+            animation,
+            transitionState
+        } = this.props;
 
         const size = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
 
@@ -109,9 +116,11 @@ class SolutionsVideo extends React.Component {
                 ? transformScale(1600)
                 : transformScale(1000);
 
+        console.log(transitionState);
+
         return (
             <div style={{ height: height }}>
-                <SiteHeader />
+                {transitionState == "entered" && <SiteHeader />}
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={size}
@@ -145,10 +154,12 @@ class SolutionsVideo extends React.Component {
                     </g>
                 </Svg>
 
-                <ScrollDown onClick={() => this.scrollDown()}>
-                    <ScrollDownText />
-                    <Chevron />
-                </ScrollDown>
+                {transitionState == "entered" && (
+                    <ScrollDown onClick={() => this.scrollDown()}>
+                        <ScrollDownText />
+                        <Chevron />
+                    </ScrollDown>
+                )}
 
                 {isMobile() ? (
                     <Img src={placeholder} />
