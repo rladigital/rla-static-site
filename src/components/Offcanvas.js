@@ -160,7 +160,9 @@ class Offcanvas extends React.Component {
         return [
             <HeaderBackground />,
             <HeaderContainer zIndex={1} style={{ left: 0 }}>
-                <Logo src={logo} alt="RLA" />
+                <Link to="/">
+                    <Logo src={logo} alt="RLA" />
+                </Link>
             </HeaderContainer>,
             <HeaderContainer zIndex={4} style={{ right: 0 }}>
                 <MenuIcon
