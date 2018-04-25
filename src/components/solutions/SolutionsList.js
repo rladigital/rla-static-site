@@ -219,7 +219,7 @@ class SolutionsVideo extends React.Component {
 
     render() {
         const { width, height, solutions, animation } = this.props;
-        const { activeSolution, orbs } = this.state;
+        const { activeSolution, orbs, lines } = this.state;
 
         return (
             <div>
@@ -275,8 +275,11 @@ class SolutionsVideo extends React.Component {
                                 : transformScale(1080)
                         })`}
                     >
-                        <TransitionGroup component="g" appear={true}>
-                            {this.state.lines}
+                        <TransitionGroup
+                            component="g"
+                            enter={Boolean(lines.length > 8)}
+                        >
+                            {lines}
                         </TransitionGroup>
                         <TitleCircle cx={0} cy={0} r={200} />
                         <Title style={{ filter: "url(#shadow)" }} x={0} y={0}>
