@@ -18,6 +18,7 @@ import Author from "../components/blog/Author";
 import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
 import Tags from "../components/blog/Tags";
+import { isBrowser } from "../helpers/helpers";
 
 const Sidebar = styled(Column)`
     @media (min-width: ${breakpoints.xlarge}px) {
@@ -87,39 +88,43 @@ export const NewsTemplate = ({
                             {sideHeading}
                         </PullQuote>
 
-                        <Social
-                            size={50}
-                            icon="linkedin-in"
-                            href={
-                                "https://www.linkedin.com/shareArticle?mini=true&url=" +
-                                window.location.href +
-                                "&title=" +
-                                title +
-                                "&summary=" +
-                                sideHeading
-                            }
-                            color={colors.background}
-                            borderColor={colors.background}
-                            margin="0 1rem 3rem 0"
-                            transform="shrink-10 up-0.5"
-                        />
+                        {isBrowser && (
+                            <Social
+                                size={50}
+                                icon="linkedin-in"
+                                href={
+                                    "https://www.linkedin.com/shareArticle?mini=true&url=" +
+                                    window.location.href +
+                                    "&title=" +
+                                    title +
+                                    "&summary=" +
+                                    sideHeading
+                                }
+                                color={colors.background}
+                                borderColor={colors.background}
+                                margin="0 1rem 3rem 0"
+                                transform="shrink-10 up-0.5"
+                            />
+                        )}
 
-                        <Social
-                            size={50}
-                            icon="twitter"
-                            href={
-                                "https://twitter.com/home?status=" +
-                                title +
-                                " - " +
-                                sideHeading +
-                                " - " +
-                                window.location.href
-                            }
-                            color={colors.background}
-                            borderColor={colors.background}
-                            margin="0 1rem 3rem 0"
-                            transform="shrink-10 "
-                        />
+                        {isBrowser && (
+                            <Social
+                                size={50}
+                                icon="twitter"
+                                href={
+                                    "https://twitter.com/home?status=" +
+                                    title +
+                                    " - " +
+                                    sideHeading +
+                                    " - " +
+                                    window.location.href
+                                }
+                                color={colors.background}
+                                borderColor={colors.background}
+                                margin="0 1rem 3rem 0"
+                                transform="shrink-10 "
+                            />
+                        )}
 
                         {author && <Author author={author} />}
 
