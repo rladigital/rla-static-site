@@ -114,7 +114,9 @@ export class WorkTemplate extends React.Component {
                 )}
                 <Row>
                     <Column large={6}>
-                        <PullQuote fontSize={4}>{intro}</PullQuote>
+                        <PullQuote fontSize={3} padding={2}>
+                            {intro}
+                        </PullQuote>
                     </Column>
                     <Column large={6}>
                         <Content
