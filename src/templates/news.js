@@ -88,7 +88,7 @@ export const NewsTemplate = ({
                             {sideHeading}
                         </PullQuote>
 
-                        {isBrowser && (
+                        {isBrowser() && (
                             <Social
                                 size={50}
                                 icon="linkedin-in"
@@ -107,7 +107,7 @@ export const NewsTemplate = ({
                             />
                         )}
 
-                        {isBrowser && (
+                        {isBrowser() && (
                             <Social
                                 size={50}
                                 icon="twitter"
