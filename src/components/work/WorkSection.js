@@ -14,6 +14,8 @@ import { height } from "window-size";
 const StyledButton = Button.extend`
     color: ${colors.white};
     margin: 0.5rem 0 4rem;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
 `;
 
 const StyledP = styled.p`

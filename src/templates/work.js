@@ -31,7 +31,7 @@ const StyledButton = Button.extend`
     position: absolute;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    font-weight 900;
+    font-weight: 600;
 `;
 
 const Table = styled.table`
@@ -46,7 +46,11 @@ const Td = styled.td`
 const Solution = styled.div`
     margin-bottom: 1.2rem;
 `;
-
+const WorkContent = styled.div`
+    h1 {
+        font-weight: 700;
+    }
+`;
 export class WorkTemplate extends React.Component {
     constructor(props) {
         super(props);
@@ -113,39 +117,43 @@ export class WorkTemplate extends React.Component {
                     </Row>
                 )}
                 <Row>
-                    <Column large={6}>
-                        <PullQuote fontSize={3} padding={2}>
-                            {intro}
-                        </PullQuote>
-                    </Column>
-                    <Column large={6}>
-                        <Content
-                            content={description}
-                            className="cms-content"
-                        />
+                    <WorkContent>
+                        <Column large={6}>
+                            <PullQuote fontSize={3} padding={2}>
+                                {intro}
+                            </PullQuote>
+                        </Column>
+                        <Column large={6}>
+                            <Content
+                                content={description}
+                                className="cms-content"
+                            />
 
-                        <Table className="cms-content">
-                            <tbody>
-                                <tr>
-                                    <Td>
-                                        <h2>Our areas of expertise</h2>
-                                    </Td>
-                                    <Td>
-                                        {solutionsList &&
-                                            solutionsList.map(
-                                                (solution, index) => {
-                                                    return (
-                                                        <Solution key={index}>
-                                                            {solution}
-                                                        </Solution>
-                                                    );
-                                                }
-                                            )}
-                                    </Td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Column>
+                            <Table className="cms-content">
+                                <tbody>
+                                    <tr>
+                                        <Td>
+                                            <h1>Our areas of expertise</h1>
+                                        </Td>
+                                        <Td>
+                                            {solutionsList &&
+                                                solutionsList.map(
+                                                    (solution, index) => {
+                                                        return (
+                                                            <Solution
+                                                                key={index}
+                                                            >
+                                                                {solution}
+                                                            </Solution>
+                                                        );
+                                                    }
+                                                )}
+                                        </Td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Column>
+                    </WorkContent>
                 </Row>
                 <Row>
                     <Column>
