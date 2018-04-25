@@ -35,7 +35,7 @@ const Control = styled.a`
     cursor: pointer;
     position: absolute;
     padding: ${spacing.padding}em 0;
-    transform: translateY(-335px);
+    //transform: translateY(-335px);
     @media (min-width: ${breakpoints.medium}px) {
         padding: ${spacing.padding}em;
     }
@@ -87,7 +87,7 @@ export class GalleryModal extends React.Component {
 
     render() {
         const settings = {
-            slideWidth: isBrowser() && isMobile() ? 1 : 1,
+            slideWidth: isBrowser() && isMobile() ? 0.8 : 0.8,
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
@@ -131,7 +131,10 @@ export class GalleryModal extends React.Component {
                 <Carousel {...settings} style={{ minHeight: "400px" }}>
                     {images.map((image, index) => {
                         return (
-                            <div key={index}>
+                            <div
+                                key={index}
+                                onClick={() => this.setSlide(index)}
+                            >
                                 <img src={image} />
                             </div>
                         );

@@ -57,12 +57,12 @@ export class WorkTemplate extends React.Component {
     }
 
     setModalVisibility(visibility, selectedImageIndex = 0) {
-        console.log(
-            "visibility",
-            visibility,
-            "selectedImageIndex",
-            selectedImageIndex
-        );
+        // console.log(
+        //     "visibility",
+        //     visibility,
+        //     "selectedImageIndex",
+        //     selectedImageIndex
+        // );
         this.setState({
             modalVisible: visibility,
             selectedImageIndex: selectedImageIndex
@@ -165,12 +165,16 @@ export class WorkTemplate extends React.Component {
                                 </StyledButton>
                             </Link>
                         </GalleryItem>
-                        <GalleryModal
-                            images={galleryImages}
-                            showModal={this.setModalVisibility.bind(this)}
-                            modalVisible={this.state.modalVisible}
-                            selectedImageIndex={this.state.selectedImageIndex}
-                        />
+                        {galleryImages && (
+                            <GalleryModal
+                                images={galleryImages}
+                                showModal={this.setModalVisibility.bind(this)}
+                                modalVisible={this.state.modalVisible}
+                                selectedImageIndex={
+                                    this.state.selectedImageIndex
+                                }
+                            />
+                        )}
                     </Column>
                 </Row>
             </PageDetailContainer>
