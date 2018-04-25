@@ -203,9 +203,9 @@ class PeopleBrowser extends React.Component {
         } else {
             coords = [
                 { x: -200, y: -233, r: 100 },
-                { x: 28, y: -304, r: 130 },
-                { x: 220, y: -220, r: 80 },
                 { x: -185, y: 240, r: 150 },
+                { x: 220, y: -220, r: 80 },
+                { x: 28, y: -304, r: 130 },
                 { x: 100, y: 270, r: 100 }
             ];
         }
