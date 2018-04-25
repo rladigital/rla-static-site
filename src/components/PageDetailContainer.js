@@ -5,7 +5,7 @@ import { colors, spacing } from "../theme/theme";
 
 const PageDetailContainer = styled.section`
     position: relative;
-    margin-top: 80px;
+    margin-top: 88px;
     padding-top: ${spacing.padding}em;
     padding-bottom: ${spacing.padding}em;
     background-color: ${props => props.background};
