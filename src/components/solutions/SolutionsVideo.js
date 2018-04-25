@@ -116,8 +116,6 @@ class SolutionsVideo extends React.Component {
                 ? transformScale(1600)
                 : transformScale(1000);
 
-        console.log(transitionState);
-
         return (
             <div style={{ height: height }}>
                 {transitionState == "entered" && <SiteHeader />}

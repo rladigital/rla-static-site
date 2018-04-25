@@ -131,7 +131,6 @@ class SolutionsSection extends React.Component {
         });
     }
     setAnimationDirection(x) {
-        console.log(x);
         this.setState({ animationDirection: x });
     }
 
