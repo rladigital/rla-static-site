@@ -11,6 +11,10 @@ import { colors, spacing, breakpoints } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
+import GalleryImage, {
+    GalleryItem,
+    GalleryModal
+} from "../components/GalleryImage";
 import HeaderBlock from "../components/HeaderBlock";
 import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
@@ -18,27 +22,6 @@ import Hero from "../components/blog/Hero";
 const Logo = styled.img`
     height: 70px;
     margin-bottom: 3rem;
-`;
-
-const GalleryItem = styled.div`
-    width: 100%;
-    height: 80vw;
-    margin: 0 0 8vw 0;
-    float: left;
-    position: relative;
-    @media (min-width: ${breakpoints.medium}px) {
-        width: 18vw;
-        height: 18vw;
-        max-width: 340px;
-        max-height: 340px;
-        margin: 0 2.4vw 2.4vw 0;
-    }
-`;
-
-const GalleryImage = GalleryItem.extend`
-    background-image: url('${props => props.src}');
-    background-size: cover;
-    background-position: center;
 `;
 
 const StyledButton = Button.extend`
@@ -64,92 +47,136 @@ const Solution = styled.div`
     margin-bottom: 1.2rem;
 `;
 
-export const WorkTemplate = ({
-    content,
-    logo,
-    hero,
-    description,
-    galleryImages,
-    solutionsList,
-    title,
-    intro,
-    helmet,
-    transition,
-    history
-}) => {
-    return (
-        <PageDetailContainer style={transition && transition.style}>
-            {helmet || ""}
-            <BackButton goBack={history.goBack} />
-            {hero && (
+export class WorkTemplate extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalVisible: false,
+            selectedImageIndex: 0
+        };
+    }
+
+    setModalVisibility(visibility, selectedImageIndex = 0) {
+        console.log(
+            "visibility",
+            visibility,
+            "selectedImageIndex",
+            selectedImageIndex
+        );
+        this.setState({
+            modalVisible: visibility,
+            selectedImageIndex: selectedImageIndex
+        });
+    }
+    render() {
+        const {
+            content,
+            logo,
+            hero,
+            description,
+            galleryImages,
+            solutionsList,
+            title,
+            intro,
+            helmet,
+            transition,
+            history
+        } = this.props;
+
+        return (
+            <PageDetailContainer style={transition && transition.style}>
+                {helmet || ""}
+                <BackButton goBack={history.goBack} />
+                {hero && (
+                    <Row>
+                        <Column>
+                            <Hero src={hero.childImageSharp.original.src} />{" "}
+                        </Column>
+                    </Row>
+                )}
+                {logo && (
+                    <Row>
+                        <Column>
+                            <Logo
+                                src={logo.childImageSharp.original.src}
+                                id="logo"
+                            />
+                        </Column>
+                    </Row>
+                )}
                 <Row>
-                    <Column>
-                        <Hero src={hero.childImageSharp.original.src} />{" "}
+                    <Column large={6}>
+                        <PullQuote fontSize={4}>{intro}</PullQuote>
+                    </Column>
+                    <Column large={6}>
+                        <Content
+                            content={description}
+                            className="cms-content"
+                        />
+
+                        <Table className="cms-content">
+                            <tbody>
+                                <tr>
+                                    <Td>
+                                        <h2>Our areas of expertise — </h2>
+                                    </Td>
+                                    <Td>
+                                        {solutionsList &&
+                                            solutionsList.map(
+                                                (solution, index) => {
+                                                    return (
+                                                        <Solution key={index}>
+                                                            {solution}
+                                                        </Solution>
+                                                    );
+                                                }
+                                            )}
+                                    </Td>
+                                </tr>
+                            </tbody>
+                        </Table>
                     </Column>
                 </Row>
-            )}
-            {logo && (
                 <Row>
                     <Column>
-                        <Logo
-                            src={logo.childImageSharp.orginal.src}
-                            id="logo"
+                        {galleryImages &&
+                            galleryImages.map((image, index) => {
+                                return (
+                                    <GalleryImage
+                                        key={index}
+                                        index={index}
+                                        src={image}
+                                        showModal={this.setModalVisibility.bind(
+                                            this
+                                        )}
+                                    />
+                                );
+                            })}
+
+                        <GalleryItem>
+                            <Link to="/work">
+                                <StyledButton
+                                    size="large"
+                                    color="background"
+                                    borderWidth={3}
+                                    hollow
+                                >
+                                    SEE MORE WORK →
+                                </StyledButton>
+                            </Link>
+                        </GalleryItem>
+                        <GalleryModal
+                            images={galleryImages}
+                            showModal={this.setModalVisibility.bind(this)}
+                            modalVisible={this.state.modalVisible}
+                            selectedImageIndex={this.state.selectedImageIndex}
                         />
                     </Column>
                 </Row>
-            )}
-            <Row>
-                <Column large={6}>
-                    <PullQuote fontSize={4}>{intro}</PullQuote>
-                </Column>
-                <Column large={6}>
-                    <Content content={description} className="cms-content" />
-
-                    <Table className="cms-content">
-                        <tbody>
-                            <tr>
-                                <Td>
-                                    <h2>Our areas of expertise — </h2>
-                                </Td>
-                                <Td>
-                                    {solutionsList &&
-                                        solutionsList.map((solution, index) => {
-                                            return (
-                                                <Solution key={index}>
-                                                    {solution}
-                                                </Solution>
-                                            );
-                                        })}
-                                </Td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                </Column>
-            </Row>
-            <Row>
-                <Column>
-                    {galleryImages &&
-                        galleryImages.map((image, index) => {
-                            return <GalleryImage key={index} src={image} />;
-                        })}
-
-                    <GalleryItem>
-                        <Link to="/work">
-                            <StyledButton
-                                size="large"
-                                color="background"
-                                borderWidth={3}
-                                hollow
-                            >
-                                SEE MORE WORK →
-                            </StyledButton>
-                        </Link>
-                    </GalleryItem>
-                </Column>
-            </Row>
-        </PageDetailContainer>
-    );
-};
+            </PageDetailContainer>
+        );
+    }
+}
 
 export default ({ history, transition, data }) => {
     const { markdownRemark: work } = data;
