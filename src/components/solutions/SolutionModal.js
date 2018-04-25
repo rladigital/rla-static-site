@@ -168,7 +168,7 @@ class SolutionModal extends React.Component {
     }
 
     calculateHeight(windowHeight, showButtons) {
-        console.log("window Height", windowHeight);
+        //console.log("window Height", windowHeight);
         const windowHeightDivisor = showButtons ? 4 : 6;
         if (windowHeight < 500) {
             return windowHeight;
@@ -190,7 +190,7 @@ class SolutionModal extends React.Component {
         const isLarge = Boolean(width > breakpoints.xlarge);
         const w = width - width / 4;
         const h = this.calculateHeight(height, showButtons);
-        console.log(h);
+        //console.log(h);
 
         const currentSolution = solutions[current].node;
         const prevSolution = current - 1;
@@ -270,66 +270,69 @@ class SolutionModal extends React.Component {
                                 </Row>
                             </ContentRow>
                         </Scrollbars>
-                        {this.props.showButtons && (
-                            <ContentRow>
-                                <Row expanded>
-                                    <Column large={6}>
-                                        <ButtonContainer>
-                                            {solutions[prevSolution] ? (
-                                                <Button
-                                                    size="large"
-                                                    color="white"
-                                                    hollow
-                                                    expanded
-                                                    borderWidth={2}
-                                                    onClick={() =>
-                                                        this.handleClick(
-                                                            prevSolution
-                                                        )
-                                                    }
-                                                >
-                                                    <FAIcon icon="arrow-left" />{" "}
-                                                    {
-                                                        solutions[prevSolution]
-                                                            .node.frontmatter
-                                                            .title
-                                                    }
-                                                </Button>
-                                            ) : (
-                                                <span>&nbsp;</span>
-                                            )}
-                                        </ButtonContainer>
-                                    </Column>
-                                    <Column large={6}>
-                                        <ButtonContainer>
-                                            {solutions[nextSolution] ? (
-                                                <Button
-                                                    size="large"
-                                                    color="white"
-                                                    hollow
-                                                    expanded
-                                                    borderWidth={2}
-                                                    onClick={() =>
-                                                        this.handleClick(
-                                                            nextSolution
-                                                        )
-                                                    }
-                                                >
-                                                    {
-                                                        solutions[nextSolution]
-                                                            .node.frontmatter
-                                                            .title
-                                                    }{" "}
-                                                    <FAIcon icon="arrow-right" />
-                                                </Button>
-                                            ) : (
-                                                <span>&nbsp;</span>
-                                            )}
-                                        </ButtonContainer>
-                                    </Column>
-                                </Row>
-                            </ContentRow>
-                        )}
+                        {this.props.showButtons &&
+                            width > 500 && (
+                                <ContentRow>
+                                    <Row expanded>
+                                        <Column large={6}>
+                                            <ButtonContainer>
+                                                {solutions[prevSolution] ? (
+                                                    <Button
+                                                        size="large"
+                                                        color="white"
+                                                        hollow
+                                                        expanded
+                                                        borderWidth={2}
+                                                        onClick={() =>
+                                                            this.handleClick(
+                                                                prevSolution
+                                                            )
+                                                        }
+                                                    >
+                                                        <FAIcon icon="arrow-left" />{" "}
+                                                        {
+                                                            solutions[
+                                                                prevSolution
+                                                            ].node.frontmatter
+                                                                .title
+                                                        }
+                                                    </Button>
+                                                ) : (
+                                                    <span>&nbsp;</span>
+                                                )}
+                                            </ButtonContainer>
+                                        </Column>
+                                        <Column large={6}>
+                                            <ButtonContainer>
+                                                {solutions[nextSolution] ? (
+                                                    <Button
+                                                        size="large"
+                                                        color="white"
+                                                        hollow
+                                                        expanded
+                                                        borderWidth={2}
+                                                        onClick={() =>
+                                                            this.handleClick(
+                                                                nextSolution
+                                                            )
+                                                        }
+                                                    >
+                                                        {
+                                                            solutions[
+                                                                nextSolution
+                                                            ].node.frontmatter
+                                                                .title
+                                                        }{" "}
+                                                        <FAIcon icon="arrow-right" />
+                                                    </Button>
+                                                ) : (
+                                                    <span>&nbsp;</span>
+                                                )}
+                                            </ButtonContainer>
+                                        </Column>
+                                    </Row>
+                                </ContentRow>
+                            )}
                     </Content>
                 </ContentWrapper>
             </Container>,
