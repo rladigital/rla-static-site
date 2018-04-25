@@ -64,9 +64,9 @@ const ContentRow = styled.div`
 
 const H1 = styled.h1`
     font-weight: 900;
-    font-size: 10vw;
+    font-size: 8vw;
     @media (min-width: ${breakpoints.medium}px) {
-        padding-bottom: 1.7rem;
+        padding-bottom: 1.3rem;
         font-size: 8vw;
     }
     @media (min-width: ${breakpoints.large}px) {
@@ -78,10 +78,7 @@ const H2 = styled.h2`
     font-size: 1rem;
     letter-spacing: 0.1rem;
     @media (min-width: ${breakpoints.large}px) {
-        font-weight: 700;
-        font-size: 1rem;
-    }
-    @media (min-width: ${breakpoints.large}px) {
+        padding-bottom: 1.3rem;
         font-weight: 700;
         font-size: 1rem;
     }
@@ -104,7 +101,7 @@ const BackButton = styled.a`
 `;
 
 const ContentContainer = styled.div`
-    font-size: 0.9rem;
+    font-size: 1rem;
     p {
         line-height: 1.5;
         margin: 0 0 1.5rem 0;
@@ -183,7 +180,7 @@ class SolutionModal extends React.Component {
         if (windowHeight < 500) {
             return windowHeight / 4;
         }
-        return showButtons ? windowHeight / 2.7 : windowHeight / 1.9;
+        return showButtons ? windowHeight / 2.6 : windowHeight / 1.9;
     }
 
     render() {
