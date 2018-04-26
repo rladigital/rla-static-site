@@ -18,7 +18,7 @@ const defaultStyle = {
     width: "100%",
     height: "100%",
     transform: "scale(1)",
-    transition: `opacity ${800}ms ease-in-out, transform ${duration}ms ease-in-out`,
+    transition: `opacity ${600}ms ease-in-out, transform ${duration}ms ease-in-out`,
     opacity: 0
 };
 
