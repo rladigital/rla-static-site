@@ -17,44 +17,23 @@ const duration = 1000;
 const defaultStyle = {
     width: "100%",
     height: "100%",
-    opacity: 0,
-    transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`
+    transform: "scale(1)",
+    transition: `opacity ${800}ms ease-in-out, transform ${duration}ms ease-in-out`,
+    opacity: 0
 };
 
 const transitions = {
-    down: {
-        default: {
-            transform: "scale(2)"
-        },
-        entering: {
-            opacity: 0,
-            transform: "scale(0)"
-        },
-        entered: {
-            opacity: 1,
-            transform: "scale(1)"
-        },
-        exiting: {
-            opacity: 0,
-            transform: "scale(2)"
-        }
+    entering: {
+        opacity: 0,
+        transform: "scale(1)"
     },
-    up: {
-        default: {
-            transform: "scale(0)"
-        },
-        entering: {
-            opacity: 0,
-            transform: "scale(2)"
-        },
-        entered: {
-            opacity: 1,
-            transform: "scale(1)"
-        },
-        exiting: {
-            opacity: 0,
-            transform: "scale(0)"
-        }
+    entered: {
+        opacity: 1,
+        transform: "scale(2)"
+    },
+    exiting: {
+        opacity: 0,
+        transform: "scale(1)"
     }
 };
 
@@ -69,10 +48,8 @@ class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loaded: false,
             scrollY: window.pageYOffset,
-            scrollDirection: "down",
-            count: 0
+            scrollDirection: "down"
         };
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -80,11 +57,6 @@ class SolutionsSection extends React.Component {
     }
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
-
-        // Don't play animations until page has loaded
-        setTimeout(() => {
-            this.setState({ loaded: true });
-        }, duration);
     }
 
     componentWillUnmount() {
@@ -113,7 +85,7 @@ class SolutionsSection extends React.Component {
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
-        const { loaded, scrollY, scrollDirection } = this.state;
+        const { scrollY, scrollDirection } = this.state;
         const animation = "transform 0.75s ease, opacity 0.75s ease";
         const visibleSection =
             scrollY > height * 2
@@ -123,40 +95,42 @@ class SolutionsSection extends React.Component {
         return (
             <StyledStickyContainer style={{ height: height * 2 }}>
                 <Sticky style={{ height: "50%", background: "red" }}>
-                    {({ style }) => {
+                    {({ style, isSticky }) => {
                         return (
-                            <div>
-                                {loaded && [
-                                    <Fade
-                                        visible={visibleSection == "video"}
-                                        animationDirection={scrollDirection}
-                                        style={{
-                                            ...style,
-                                            position: "fixed"
-                                        }}
-                                        zIndex={isMobile() ? 0 : 4}
-                                    >
-                                        <SolutionsVideo
-                                            width={width}
-                                            height={height}
-                                            animation={animation}
-                                        />
-                                    </Fade>,
-                                    <Fade
-                                        visible={visibleSection == "list"}
-                                        animationDirection={scrollDirection}
-                                        style={style}
-                                        onEnter={this.pauseScroll}
-                                        zIndex={0}
-                                    >
-                                        <SolutionsList
-                                            width={width}
-                                            height={height}
-                                            solutions={solutions}
-                                            animation={animation}
-                                        />
-                                    </Fade>
-                                ]}
+                            <div
+                                style={{
+                                    ...style,
+                                    transform: "scale(0.5)",
+                                    width: "100%",
+                                    height: "100%",
+                                    zIndex:
+                                        visibleSection == "video" && !isMobile()
+                                            ? 4
+                                            : 0,
+                                    visibility: isSticky ? "visible" : "hidden"
+                                }}
+                            >
+                                <TransitionGroup>
+                                    {visibleSection == "video" && (
+                                        <Fade>
+                                            <SolutionsVideo
+                                                width={width}
+                                                height={height}
+                                                animation={animation}
+                                            />
+                                        </Fade>
+                                    )}
+                                    {visibleSection == "list" && (
+                                        <Fade onEnter={this.pauseScroll}>
+                                            <SolutionsList
+                                                width={width}
+                                                height={height}
+                                                solutions={solutions}
+                                                animation={animation}
+                                            />
+                                        </Fade>
+                                    )}
+                                </TransitionGroup>
                             </div>
                         );
                     }}
@@ -171,30 +145,28 @@ export default SolutionsSection;
 class Fade extends React.Component {
     render() {
         const {
-            visible,
+            in: inProp,
             children,
-            style,
             zIndex,
             animationDirection,
             ...rest
         } = this.props;
 
         return (
-            <Transition in={visible} timeout={500} {...rest}>
+            <Transition in={inProp} timeout={500} {...rest}>
                 {state => (
                     <div
                         style={{
                             width: "100%",
                             height: "100%",
-                            zIndex: state != "exited" ? zIndex : 0,
-                            ...style
+                            position: "absolute",
+                            zIndex: state != "exited" ? zIndex : 0
                         }}
                     >
                         <div
                             style={{
                                 ...defaultStyle,
-                                ...transitions[animationDirection].default,
-                                ...transitions[animationDirection][state]
+                                ...transitions[state]
                             }}
                         >
                             {React.Children.map(children, child =>
