@@ -83,7 +83,20 @@ export const JobTemplate = props => {
                                 {dateFormat(closing)}
                             </SummaryItem>
                         </SummaryContainer>
-                        <a href="mailto:careers@rla.co.uk">
+                        <SummaryContainer>
+                            <h4>TO APPLY</h4>
+                            <p style={{ paddingBottom: "1rem" }}>
+                                Please send your Cover Letter, CV and other
+                                supporting documents to{" "}
+                                <a href="mailto:careers@rla.co.uk">
+                                    careers@rla.co.uk
+                                </a>
+                            </p>
+                        </SummaryContainer>
+
+                        {/*
+                            //TODO - UNHIDE WHEN WE GET A CHANCE TO DO PROPER FORM IN MODAL SUBMISSIONS
+                            <a href="mailto:careers@rla.co.uk">
                             <Button
                                 size="large"
                                 hollow
@@ -93,7 +106,9 @@ export const JobTemplate = props => {
                             >
                                 Apply for this job <FAIcon icon="arrow-right" />
                             </Button>
-                        </a>
+                            </a>
+                        
+                        */}
                     </Column>
                 </Row>
             </JobContainer>
