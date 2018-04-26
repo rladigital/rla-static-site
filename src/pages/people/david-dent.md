@@ -1,7 +1,7 @@
 ---
 templateKey: people
 title: David Dent
-role: Senior Planner
+role: Head of Planning
 tags:
   - Strategy
 profile: /img/david dent.jpg
