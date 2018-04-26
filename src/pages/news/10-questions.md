@@ -1,6 +1,6 @@
 ---
 templateKey: news
-title: 10 QUESTIONS WITH… SAM SMITH
+title: 10 Questions with… Sam Smith
 date: 12/04/2018
 hero: /img/sam.jpg
 thumb: /img/sam.jpg
