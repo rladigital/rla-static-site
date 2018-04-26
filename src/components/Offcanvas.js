@@ -303,7 +303,7 @@ class MenuIcon extends React.Component {
 
         const pathProps = {
             stroke: "currentColor",
-            strokeWidth: 6
+            strokeWidth: 5
         };
 
         const animateProps = {
