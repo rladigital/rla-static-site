@@ -59,6 +59,7 @@ const PersonRole = styled.h4`
 `;
 
 const Control = styled.a`
+    top: 280px;
     position: absolute;
     font-size: 3em;
     color: ${colors.white};
@@ -213,7 +214,6 @@ class PeopleBrowser extends React.Component {
             <PeopleBrowserContainer>
                 <Row
                     style={{
-                        top: "50%",
                         position: "relative"
                     }}
                 >
