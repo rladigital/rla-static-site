@@ -42,6 +42,7 @@ const StyledStickyContainer = styled(StickyContainer)`
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
 `;
 
 class SolutionsSection extends React.Component {
