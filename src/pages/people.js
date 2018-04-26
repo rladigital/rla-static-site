@@ -66,11 +66,14 @@ export const pageQuery = graphql`
                         templateKey
                         role
                         profile {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                     }
                 }

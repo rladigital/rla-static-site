@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
 
+import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
@@ -94,25 +95,14 @@ export class WorkTemplate extends React.Component {
                 {hero && (
                     <Row>
                         <Column>
-                            <Hero
-                                src={
-                                    hero.childImageSharp &&
-                                    hero.childImageSharp.original.src
-                                }
-                            />{" "}
+                            <Hero src={getOriginalImageSrc(hero)} />{" "}
                         </Column>
                     </Row>
                 )}
                 {logo && (
                     <Row>
                         <Column>
-                            <Logo
-                                src={
-                                    logo.childImageSharp &&
-                                    logo.childImageSharp.original.src
-                                }
-                                id="logo"
-                            />
+                            <Logo src={getOriginalImageSrc(logo)} id="logo" />
                         </Column>
                     </Row>
                 )}
@@ -227,18 +217,24 @@ export const pageQuery = graphql`
                 title
                 intro
                 logo {
-                    childImageSharp {
-                        original {
-                            src
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
                         }
                     }
+                    original
                 }
                 hero {
-                    childImageSharp {
-                        original {
-                            src
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
                         }
                     }
+                    original
                 }
                 description
                 galleryImages

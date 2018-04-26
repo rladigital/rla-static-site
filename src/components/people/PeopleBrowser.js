@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 import { Row, Column } from "rla-components";
-import { transformScale, shuffleArray } from "../../helpers/helpers";
 
+import { getOriginalImageSrc } from "../../utils/image";
+import { transformScale, shuffleArray } from "../../helpers/helpers";
 import { colors, breakpoints } from "../../theme/theme";
 import {
     hexToInt,
@@ -306,14 +307,11 @@ class PeopleBrowser extends React.Component {
                                                                 coords[index].r,
                                                             height:
                                                                 coords[index].r,
-                                                            backgroundImage: `url('${
+                                                            backgroundImage: `url('${getOriginalImageSrc(
                                                                 person
                                                                     .frontmatter
                                                                     .profile
-                                                                    .childImageSharp
-                                                                    .original
-                                                                    .src
-                                                            }')`
+                                                            )}')`
                                                         }}
                                                     />
                                                     <PersonTitle>
@@ -337,10 +335,9 @@ class PeopleBrowser extends React.Component {
                         {selected && (
                             <Selected
                                 style={{
-                                    backgroundImage: `url('${
+                                    backgroundImage: `url('${getOriginalImageSrc(
                                         selected.frontmatter.profile
-                                            .childImageSharp.original.src
-                                    }')`
+                                    )}')`
                                 }}
                             />
                         )}

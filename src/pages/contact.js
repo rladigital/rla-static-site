@@ -173,11 +173,14 @@ export const pageQuery = graphql`
                         address
                         contactName
                         contactImage {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         contactRole
                         tel

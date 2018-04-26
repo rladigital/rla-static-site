@@ -55,11 +55,14 @@ export const pageQuery = graphql`
                         templateKey
                         role
                         hero {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         area
                         closing
@@ -81,11 +84,14 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         thumb {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         category
                     }

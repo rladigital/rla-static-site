@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import Link from "gatsby-link";
 
+import { getOriginalImageSrc } from "../../utils/image";
 import { breakpoints, colors, spacing } from "../../theme/theme";
 import { transparentize } from "../../helpers/helpers";
 
@@ -60,11 +61,7 @@ const JobSummary = ({ job, height, centred }) => {
     return (
         <Link to={job.fields.slug}>
             <Container
-                backgroundImage={
-                    job.frontmatter.hero.childImageSharp
-                        ? job.frontmatter.hero.childImageSharp.original.src
-                        : null
-                }
+                backgroundImage={getOriginalImageSrc(job.frontmatter.hero)}
                 height={height}
             >
                 <Overlay>

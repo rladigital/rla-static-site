@@ -116,11 +116,14 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         thumb {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         category
                     }

@@ -5,6 +5,7 @@ import Link from "gatsby-link";
 import { Row, Column } from "rla-components";
 import styled from "styled-components";
 
+import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
@@ -53,7 +54,7 @@ export const NewsTemplate = ({
                 {hero && (
                     <Row>
                         <Column>
-                            <Hero src={hero.childImageSharp.original.src} />{" "}
+                            <Hero src={getOriginalImageSrc(hero)} />{" "}
                         </Column>
                     </Row>
                 )}
@@ -135,7 +136,7 @@ export const NewsTemplate = ({
                                 return (
                                     <img
                                         key={index}
-                                        src={image.childImageSharp.original.src}
+                                        src={getOriginalImageSrc(image)}
                                         alt={`${title} Gallery Image`}
                                     />
                                 );
@@ -197,11 +198,14 @@ export const pageQuery = graphql`
                 title
                 date
                 hero {
-                    childImageSharp {
-                        original {
-                            src
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
                         }
                     }
+                    original
                 }
                 intro
                 sideHeading
@@ -225,13 +229,17 @@ export const pageQuery = graphql`
                         role
                         email
                         profile {
-                            childImageSharp {
-                                # Specify the image processing specifications right in the query.
-                                # Makes it trivial to update as your page's design changes.
-                                resolutions(width: 100, height: 100) {
-                                    ...GatsbyImageSharpResolutions
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                    resolutions(width: 100, height: 100) {
+                                        ...GatsbyImageSharpResolutions
+                                    }
                                 }
                             }
+                            original
                         }
                         twitter
                         linkedIn

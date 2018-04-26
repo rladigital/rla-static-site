@@ -8,6 +8,8 @@ import PageDetailContainer from "../components/PageDetailContainer";
 import HeaderBlock from "../components/HeaderBlock";
 
 import styled from "styled-components";
+
+import { getOriginalImageSrc } from "../utils/image";
 import { colors, breakpoints, spacing } from "../theme/theme";
 import FAIcon from "@fortawesome/react-fontawesome";
 
@@ -96,10 +98,9 @@ export class ContactTemplate extends React.Component {
                         <div>
                             <SectionLabel>Lead Contact</SectionLabel>
                             <ProfileImage
-                                src={
+                                src={getOriginalImageSrc(
                                     contact.frontmatter.contactImage
-                                        .childImageSharp.original.src
-                                }
+                                )}
                             />
                             <Details>
                                 {contact.frontmatter.contactName}
@@ -154,11 +155,14 @@ export const pageQuery = graphql`
                 email
                 group
                 contactImage {
-                    childImageSharp {
-                        original {
-                            src
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
                         }
                     }
+                    original
                 }
             }
         }

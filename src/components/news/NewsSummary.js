@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "gatsby-link";
 
+import { getOriginalImageSrc } from "../../utils/image";
 import { transparentize } from "../../helpers/helpers";
 import { colors, breakpoints } from "../../theme/theme";
 
@@ -70,9 +71,9 @@ const NewsSummary = ({ story, height }) => {
             <SummaryContainer height={height}>
                 <Image
                     className="news-image"
-                    backgroundImage={
-                        story.frontmatter.thumb.childImageSharp.original.src
-                    }
+                    backgroundImage={getOriginalImageSrc(
+                        story.frontmatter.thumb
+                    )}
                 >
                     {" "}
                 </Image>
