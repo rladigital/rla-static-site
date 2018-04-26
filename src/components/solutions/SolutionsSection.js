@@ -18,12 +18,14 @@ const defaultStyle = {
     width: "100%",
     height: "100%",
     opacity: 0,
-    transform: "scale(0.5)",
-    transition: `opacity ${500}ms ease-in-out, transform ${duration}ms ease-in-out`
+    transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`
 };
 
 const transitions = {
-    forwards: {
+    down: {
+        default: {
+            transform: "scale(2)"
+        },
         entering: {
             opacity: 0,
             transform: "scale(0)"
@@ -37,7 +39,10 @@ const transitions = {
             transform: "scale(2)"
         }
     },
-    backwards: {
+    up: {
+        default: {
+            transform: "scale(0)"
+        },
         entering: {
             opacity: 0,
             transform: "scale(2)"
@@ -63,31 +68,29 @@ const StyledStickyContainer = styled(StickyContainer)`
 class Fade extends React.Component {
     render() {
         const {
-            in: inProp,
+            visible,
             children,
             style,
+            zIndex,
             animationDirection,
             ...rest
         } = this.props;
 
         return (
-            <Transition
-                in={inProp}
-                timeout={500}
-                unmountOnExit={true}
-                {...rest}
-            >
+            <Transition in={visible} timeout={500} {...rest}>
                 {state => (
                     <div
                         style={{
                             width: "100%",
                             height: "100%",
+                            zIndex: state != "exited" ? zIndex : 0,
                             ...style
                         }}
                     >
                         <div
                             style={{
                                 ...defaultStyle,
+                                ...transitions[animationDirection].default,
                                 ...transitions[animationDirection][state]
                             }}
                         >
@@ -111,7 +114,8 @@ class SolutionsSection extends React.Component {
         this.state = {
             loaded: false,
             scrollY: window.pageYOffset,
-            animationDirection: "forwards"
+            scrollDirection: "down",
+            count: 0
         };
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -136,10 +140,6 @@ class SolutionsSection extends React.Component {
                 window.pageYOffset < this.state.scrollY ? "up" : "down"
         });
     }
-    setAnimationDirection(x) {
-        this.setState({ animationDirection: x });
-    }
-
     pauseScroll() {
         const { scrollDirection } = this.state;
         const html = document.querySelector("html");
@@ -154,7 +154,7 @@ class SolutionsSection extends React.Component {
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
-        const { loaded, scrollY, animationDirection } = this.state;
+        const { loaded, scrollY, scrollDirection } = this.state;
         const animation = "transform 0.75s ease, opacity 0.75s ease";
         const visibleSection =
             scrollY > height * 2
@@ -166,42 +166,29 @@ class SolutionsSection extends React.Component {
                 <Sticky style={{ height: "50%", background: "red" }}>
                     {({ style }) => {
                         return (
-                            <TransitionGroup>
-                                {visibleSection == "video" && (
+                            <div>
+                                {loaded && [
                                     <Fade
-                                        enter={loaded}
-                                        exit={loaded}
-                                        animationDirection={animationDirection}
+                                        visible={visibleSection == "video"}
+                                        animationDirection={scrollDirection}
                                         style={{
                                             ...style,
-                                            zIndex: isMobile() ? 0 : 4,
                                             position: "fixed"
                                         }}
-                                        onEntered={() =>
-                                            this.setAnimationDirection(
-                                                "backwards"
-                                            )
-                                        }
+                                        zIndex={isMobile() ? 0 : 4}
                                     >
                                         <SolutionsVideo
                                             width={width}
                                             height={height}
                                             animation={animation}
                                         />
-                                    </Fade>
-                                )}
-                                {visibleSection == "list" && (
+                                    </Fade>,
                                     <Fade
-                                        enter={loaded}
-                                        exit={loaded}
-                                        animationDirection={animationDirection}
+                                        visible={visibleSection == "list"}
+                                        animationDirection={scrollDirection}
                                         style={style}
                                         onEnter={this.pauseScroll}
-                                        onEntered={() =>
-                                            this.setAnimationDirection(
-                                                "forwards"
-                                            )
-                                        }
+                                        zIndex={0}
                                     >
                                         <SolutionsList
                                             width={width}
@@ -210,8 +197,8 @@ class SolutionsSection extends React.Component {
                                             animation={animation}
                                         />
                                     </Fade>
-                                )}
-                            </TransitionGroup>
+                                ]}
+                            </div>
                         );
                     }}
                 </Sticky>
