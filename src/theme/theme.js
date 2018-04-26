@@ -123,10 +123,10 @@ const theme = {
         }
     },
     modal: {
-        padding: spacing.padding,
+        padding: 0,
         margin: spacing.margin,
         radius: spacing.radius,
-        background: colors.white,
+        background: colors.black,
         color: colors.black,
         closeButtonColor: colors.black
     },

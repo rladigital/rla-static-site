@@ -28,6 +28,10 @@ background-size: cover;
 background-position: center;
 `;
 
+const CarouselItem = styled.div`
+    text-align: center;
+`;
+
 const Control = styled.a`
     top: 50%;
     font-size: 3em;
@@ -35,6 +39,8 @@ const Control = styled.a`
     cursor: pointer;
     position: absolute;
     padding: ${spacing.padding}em 0;
+    //text-shadow: 5px 5px 5px #000;
+    filter: drop-shadow(0 0 1px #777);
     //transform: translateY(-335px);
     @media (min-width: ${breakpoints.medium}px) {
         padding: ${spacing.padding}em;
@@ -87,7 +93,7 @@ export class GalleryModal extends React.Component {
 
     render() {
         const settings = {
-            slideWidth: isBrowser() && isMobile() ? 0.8 : 0.8,
+            slideWidth: 1,
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
@@ -122,7 +128,7 @@ export class GalleryModal extends React.Component {
         };
 
         const { images, selectedImageIndex } = this.props;
-        console.log(selectedImageIndex, this.state.currentSlide);
+        //console.log(selectedImageIndex, this.state.currentSlide);
         return (
             <Modal
                 onClose={this.props.showModal.bind(this, false)}
@@ -131,12 +137,12 @@ export class GalleryModal extends React.Component {
                 <Carousel {...settings} style={{ minHeight: "400px" }}>
                     {images.map((image, index) => {
                         return (
-                            <div
+                            <CarouselItem
                                 key={index}
                                 onClick={() => this.setSlide(index)}
                             >
                                 <img src={image} />
-                            </div>
+                            </CarouselItem>
                         );
                     })}
                 </Carousel>

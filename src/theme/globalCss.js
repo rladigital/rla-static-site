@@ -298,11 +298,13 @@ function globalCss(theme) {
             }
         }
 
+        /* ----- Map Styles ----- */
         div.leaflet-container {
             background: ${colors.background};
         }
 
         
+        /* ----- Cookie (One trust) Style Overides ----- */
         div .optanon-show-settings-popup-wrapper  {
             display: inline;
         }
@@ -329,6 +331,7 @@ function globalCss(theme) {
         div .optanon-show-settings-popup-wrapper .optanon-show-settings-right {
             display: none;
         }
+
     `;
 }
 
