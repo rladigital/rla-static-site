@@ -7,7 +7,7 @@ import SectionContainer from "../../SectionContainer";
 import { colors, spacing } from "../../../theme/theme";
 
 const StyledP = styled.p`
-    margin: 3rem 0;
+    margin: 2rem 0;
 `;
 
 const PeoplePlaceholder = ({ height }) => (
@@ -22,7 +22,7 @@ const PeoplePlaceholder = ({ height }) => (
             textAlign="left"
             accentColor={colors.background}
             baseColor={colors.white}
-            fontSize={3.2}
+            fontSize={3.1}
             padding={{
                 top: 0,
                 left: 0,
