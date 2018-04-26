@@ -216,38 +216,23 @@ class PeopleBrowser extends React.Component {
         return (
             <Wrapper>
                 <Container>
-                    <Row
-                        style={{
-                            top: "50%",
-                            position: "relative"
-                        }}
+                    <Control
+                        className="fa-layers fa-fw"
+                        onClick={() => this.navigateChunk("prev")}
+                        style={{ left: 0 }}
                     >
-                        <Column>
-                            <Control
-                                className="fa-layers fa-fw"
-                                onClick={() => this.navigateChunk("prev")}
-                                style={{ left: 0 }}
-                            >
-                                <FAIcon
-                                    icon="chevron-left"
-                                    transform="shrink-8"
-                                />
-                                <FAIcon icon={["far", "circle"]} />
-                            </Control>
+                        <FAIcon icon="chevron-left" transform="shrink-8" />
+                        <FAIcon icon={["far", "circle"]} />
+                    </Control>
 
-                            <Control
-                                className="fa-layers fa-fw"
-                                onClick={() => this.navigateChunk("next")}
-                                style={{ right: 0 }}
-                            >
-                                <FAIcon
-                                    icon="chevron-right"
-                                    transform="shrink-8"
-                                />
-                                <FAIcon icon={["far", "circle"]} />
-                            </Control>
-                        </Column>
-                    </Row>
+                    <Control
+                        className="fa-layers fa-fw"
+                        onClick={() => this.navigateChunk("next")}
+                        style={{ right: 0 }}
+                    >
+                        <FAIcon icon="chevron-right" transform="shrink-8" />
+                        <FAIcon icon={["far", "circle"]} />
+                    </Control>
                     <div
                         style={{
                             height: height,
