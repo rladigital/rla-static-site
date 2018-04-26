@@ -29,11 +29,21 @@ background-position: center;
 `;
 
 const CarouselItem = styled.div`
+    position: relative;
+    width: 100%;
+    height: 640px;
     text-align: center;
+    padding: 1rem;
+    img {
+        position: relative;
+        transform: translateY(-50%);
+        top: 50%;
+        margin: auto;
+    }
 `;
 
 const Control = styled.a`
-    top: 50%;
+    top: 75%;
     font-size: 3em;
     color: ${colors.white};
     cursor: pointer;
