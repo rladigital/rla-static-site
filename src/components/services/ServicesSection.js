@@ -135,7 +135,8 @@ class ServicesSection extends React.Component {
             <SectionContainer
                 color={colors.white}
                 background={colors.background}
-                padding="2em 0 8em"
+                padding="2em 0"
+                style={{ marginBottom: "-8em" }}
             >
                 <Row>
                     <Column large={8} centered>
@@ -273,12 +274,12 @@ class ServicesSection extends React.Component {
                     <div
                         style={{
                             width: "100%",
-                            position: "absolute",
+
                             top: height / 2,
                             textAlign: "center"
                         }}
                     >
-                        <Row style={{ position: "relative" }}>
+                        <Row style={{ position: "relative", top: -200 }}>
                             <Column small={8} centered>
                                 {coords &&
                                     services && (
