@@ -1,6 +1,6 @@
 ---
 templateKey: news
-title: A new era for RLA
+title: A New Era for RLA
 date: 13/04/2018
 hero: /img/rla.jpg
 thumb: /img/rla.jpg
