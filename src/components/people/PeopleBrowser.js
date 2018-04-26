@@ -15,7 +15,7 @@ import {
 } from "../../helpers/helpers";
 import { HTMLContent } from "../Content";
 
-const height = isMobile() ? 680 : 600;
+const height = 600;
 
 const PeopleBrowserContainer = styled.div`
     position: relative;
