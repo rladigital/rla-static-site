@@ -65,49 +65,6 @@ const StyledStickyContainer = styled(StickyContainer)`
     background-repeat: no-repeat;
 `;
 
-class Fade extends React.Component {
-    render() {
-        const {
-            visible,
-            children,
-            style,
-            zIndex,
-            animationDirection,
-            ...rest
-        } = this.props;
-
-        return (
-            <Transition in={visible} timeout={500} {...rest}>
-                {state => (
-                    <div
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            zIndex: state != "exited" ? zIndex : 0,
-                            ...style
-                        }}
-                    >
-                        <div
-                            style={{
-                                ...defaultStyle,
-                                ...transitions[animationDirection].default,
-                                ...transitions[animationDirection][state]
-                            }}
-                        >
-                            {React.Children.map(children, child =>
-                                React.cloneElement(child, {
-                                    transitionState: state
-                                })
-                            )}
-                        </div>
-                    </div>
-                )}
-            </Transition>
-        );
-    }
-}
-
-let hasScrolledTop = false;
 class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
@@ -133,6 +90,7 @@ class SolutionsSection extends React.Component {
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
     }
+
     handleScroll() {
         this.setState({
             scrollY: window.pageYOffset,
@@ -140,6 +98,7 @@ class SolutionsSection extends React.Component {
                 window.pageYOffset < this.state.scrollY ? "up" : "down"
         });
     }
+
     pauseScroll() {
         const { scrollDirection } = this.state;
         const html = document.querySelector("html");
@@ -208,3 +167,45 @@ class SolutionsSection extends React.Component {
 }
 
 export default SolutionsSection;
+
+class Fade extends React.Component {
+    render() {
+        const {
+            visible,
+            children,
+            style,
+            zIndex,
+            animationDirection,
+            ...rest
+        } = this.props;
+
+        return (
+            <Transition in={visible} timeout={500} {...rest}>
+                {state => (
+                    <div
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                            zIndex: state != "exited" ? zIndex : 0,
+                            ...style
+                        }}
+                    >
+                        <div
+                            style={{
+                                ...defaultStyle,
+                                ...transitions[animationDirection].default,
+                                ...transitions[animationDirection][state]
+                            }}
+                        >
+                            {React.Children.map(children, child =>
+                                React.cloneElement(child, {
+                                    transitionState: state
+                                })
+                            )}
+                        </div>
+                    </div>
+                )}
+            </Transition>
+        );
+    }
+}
