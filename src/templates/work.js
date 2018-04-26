@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
 
+import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
@@ -31,7 +32,7 @@ const StyledButton = Button.extend`
     position: absolute;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    font-weight 900;
+    font-weight: 600;
 `;
 
 const Table = styled.table`
@@ -46,7 +47,11 @@ const Td = styled.td`
 const Solution = styled.div`
     margin-bottom: 1.2rem;
 `;
-
+const WorkContent = styled.div`
+    h1 {
+        font-weight: 700;
+    }
+`;
 export class WorkTemplate extends React.Component {
     constructor(props) {
         super(props);
@@ -86,56 +91,59 @@ export class WorkTemplate extends React.Component {
         return (
             <PageDetailContainer style={transition && transition.style}>
                 {helmet || ""}
-                <BackButton goBack={history.goBack} />
+                {history && <BackButton goBack={history.goBack} />}
                 {hero && (
                     <Row>
                         <Column>
-                            <Hero src={hero.childImageSharp.original.src} />{" "}
+                            <Hero src={getOriginalImageSrc(hero)} />{" "}
                         </Column>
                     </Row>
                 )}
                 {logo && (
                     <Row>
                         <Column>
-                            <Logo
-                                src={logo.childImageSharp.original.src}
-                                id="logo"
-                            />
+                            <Logo src={getOriginalImageSrc(logo)} id="logo" />
                         </Column>
                     </Row>
                 )}
                 <Row>
-                    <Column large={6}>
-                        <PullQuote fontSize={4}>{intro}</PullQuote>
-                    </Column>
-                    <Column large={6}>
-                        <Content
-                            content={description}
-                            className="cms-content"
-                        />
+                    <WorkContent>
+                        <Column large={6}>
+                            <PullQuote fontSize={3} padding={2}>
+                                {intro}
+                            </PullQuote>
+                        </Column>
+                        <Column large={6}>
+                            <Content
+                                content={description}
+                                className="cms-content"
+                            />
 
-                        <Table className="cms-content">
-                            <tbody>
-                                <tr>
-                                    <Td>
-                                        <h2>Our areas of expertise — </h2>
-                                    </Td>
-                                    <Td>
-                                        {solutionsList &&
-                                            solutionsList.map(
-                                                (solution, index) => {
-                                                    return (
-                                                        <Solution key={index}>
-                                                            {solution}
-                                                        </Solution>
-                                                    );
-                                                }
-                                            )}
-                                    </Td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Column>
+                            <Table className="cms-content">
+                                <tbody>
+                                    <tr>
+                                        <Td>
+                                            <h1>Our areas of expertise</h1>
+                                        </Td>
+                                        <Td>
+                                            {solutionsList &&
+                                                solutionsList.map(
+                                                    (solution, index) => {
+                                                        return (
+                                                            <Solution
+                                                                key={index}
+                                                            >
+                                                                {solution}
+                                                            </Solution>
+                                                        );
+                                                    }
+                                                )}
+                                        </Td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Column>
+                    </WorkContent>
                 </Row>
                 <Row>
                     <Column>
@@ -209,18 +217,24 @@ export const pageQuery = graphql`
                 title
                 intro
                 logo {
-                    childImageSharp {
-                        original {
-                            src
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
                         }
                     }
+                    original
                 }
                 hero {
-                    childImageSharp {
-                        original {
-                            src
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
                         }
                     }
+                    original
                 }
                 description
                 galleryImages

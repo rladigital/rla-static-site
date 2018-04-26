@@ -7,12 +7,12 @@ import WorkPreview from "./preview-templates/WorkPreview";
 import SolutionPreview from "./preview-templates/SolutionPreview";
 import NewsPreview from "./preview-templates/NewsPreview";
 
-CMS.registerPreviewStyle("/styles.css");
-CMS.registerPreviewTemplate("people", PeoplePreview);
-CMS.registerPreviewTemplate("solutions", SolutionPreview);
-CMS.registerPreviewTemplate("news", NewsPreview);
-CMS.registerPreviewTemplate("clients", ClientPreview);
-CMS.registerPreviewTemplate("work", WorkPreview);
+//CMS.registerPreviewStyle("/styles.css");
+//CMS.registerPreviewTemplate("people", PeoplePreview);
+//CMS.registerPreviewTemplate("solutions", SolutionPreview);
+//CMS.registerPreviewTemplate("news", NewsPreview);
+//CMS.registerPreviewTemplate("clients", ClientPreview);
+//CMS.registerPreviewTemplate("work", WorkPreview);
 
 CMS.registerEditorComponent({
     // Internal id of the component

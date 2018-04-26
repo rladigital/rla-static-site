@@ -97,8 +97,8 @@ const Author = ({ author }) => {
                     <ProfileImage>
                         <Img
                             resolutions={
-                                author.frontmatter.profile.childImageSharp
-                                    .resolutions
+                                author.frontmatter.profile.responsive
+                                    .childImageSharp.resolutions
                             }
                         />
                     </ProfileImage>

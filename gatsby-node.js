@@ -37,25 +37,28 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
                 if (imageFields.indexOf(key) != -1) {
                     //console.log("Got an image field: " + key);
                     const image = frontmatter[key];
-                    if (image) {
-                        if (image.indexOf("/img") === 0) {
-                            //console.log("Creating Node Field: " + key + "Rel");
+                    if (image && image.indexOf("/img") === 0) {
+                        //console.log("Creating Node Field: " + key + "Rel");
 
-                            //This is how it's recommended but the gatsby image plugins don't seem to kick in
-                            createNodeField({
-                                node,
-                                name: key,
-                                value: path.relative(
-                                    path.dirname(node.fileAbsolutePath),
-                                    path.join(__dirname, "/static/", image)
-                                )
-                            });
-                            //This works, but apparently shouldn't, so it'd be good to work out away around it
-                            frontmatter[key] = path.relative(
+                        //This is how it's recommended but the gatsby image plugins don't seem to kick in
+                        createNodeField({
+                            node,
+                            name: key,
+                            value: path.relative(
                                 path.dirname(node.fileAbsolutePath),
                                 path.join(__dirname, "/static/", image)
-                            );
-                        }
+                            )
+                        });
+                        //This works, but apparently shouldn't, so it'd be good to work out away around it
+                        frontmatter[key] = {
+                            responsive: path.relative(
+                                path.dirname(node.fileAbsolutePath),
+                                path.join(__dirname, "/static/", image)
+                            ),
+                            original: image
+                        };
+                        //Copy the original image into another field for image types that the gatsby image plugins don't handle
+                        //frontmatter[key + "Original"] = image;
                     }
                 }
             });
@@ -128,11 +131,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                             templateKey
                             title
                             thumb {
-                                childImageSharp {
-                                    original {
-                                        src
+                                responsive {
+                                    childImageSharp {
+                                        original {
+                                            src
+                                        }
                                     }
                                 }
+                                original
                             }
                             category
                             tags
@@ -205,3 +211,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         });
     });
 };
+
+// const imageCanBeProcessed = image => {
+//     //Get the file extension as we only want to process images that
+//     //the gatsby sharp transformer can handle (e.g. no GIF's)
+//     const extension = image.substr(image.lastIndexOf(".") + 1);
+//     //Extensions gatsby image sharp can process
+//     const extensions = [`jpeg`, `jpg`, `png`, `webp`, `tif`, `tiff`];
+//     return image.indexOf("/img") === 0 && _.includes(extensions, extension);
+// };

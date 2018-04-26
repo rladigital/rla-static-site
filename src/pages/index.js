@@ -125,18 +125,24 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         hero {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         thumb {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         excerpt
                         previewType
@@ -197,11 +203,14 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         thumb {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         category
                     }
@@ -223,11 +232,14 @@ export const pageQuery = graphql`
                         templateKey
                         role
                         profile {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                     }
                 }

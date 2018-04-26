@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import Link from "gatsby-link";
 
+import { getOriginalImageSrc } from "../../utils/image";
 import { colors, spacing, breakpoints } from "../../theme/theme";
 import { transparentize } from "../../helpers/helpers";
 
@@ -100,12 +101,9 @@ const WorkSummary = ({ work, index, heightMediaQuery }) => {
         >
             <Container heightMediaQuery={heightMediaQuery}>
                 <Image
-                    backgroundImage={
+                    backgroundImage={getOriginalImageSrc(
                         work.frontmatter.thumb
-                            ? work.frontmatter.thumb.childImageSharp.original
-                                  .src
-                            : null
-                    }
+                    )}
                     alignment={work.frontmatter.thumbnailAlignment}
                 >
                     <Overlay index={index}>

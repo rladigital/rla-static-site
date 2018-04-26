@@ -7,6 +7,7 @@ import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import FAIcon from "@fortawesome/react-fontawesome";
 
+import { getOriginalImageSrc } from "../utils/image";
 import theme, { colors, spacing, breakpoints } from "../theme/theme";
 import { isMobile, isBrowser } from "../helpers/helpers";
 import HeaderBlock from "../components/HeaderBlock";
@@ -74,6 +75,7 @@ const SolutionDot = styled.div`
     position: absolute;
     border-radius: 50px;
     z-index: 1;
+    cursor: pointer;
     &:after {
         width: 24px;
         height: 24px;
@@ -94,6 +96,7 @@ const SolutionText = styled.div`
     text-transform: uppercase;
     bottom: 5px;
     left: 30px;
+    cursor: pointer;
 `;
 
 const Control = styled.a`
@@ -246,11 +249,9 @@ export default class ClientsPage extends React.Component {
                                         >
                                             <Logo
                                                 style={{
-                                                    backgroundImage: `url('${
+                                                    backgroundImage: `url('${getOriginalImageSrc(
                                                         client.frontmatter.logo
-                                                            .childImageSharp
-                                                            .original.src
-                                                    }')`
+                                                    )}')`
                                                 }}
                                             />
                                         </LogoContainer>
@@ -361,11 +362,14 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         logo {
-                            childImageSharp {
-                                original {
-                                    src
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
                                 }
                             }
+                            original
                         }
                         color
                         solutionsList

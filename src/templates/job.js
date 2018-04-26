@@ -6,6 +6,7 @@ import { Row, Column, Button } from "rla-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 
 import { dateFormat } from "../helpers/helpers";
+import { getOriginalImageSrc } from "../utils/image";
 import { spacing, colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
@@ -53,13 +54,7 @@ export const JobTemplate = props => {
             {hero && (
                 <Row>
                     <Column>
-                        <Hero
-                            src={
-                                hero.childImageSharp
-                                    ? hero.childImageSharp.original.src
-                                    : null
-                            }
-                        >
+                        <Hero src={getOriginalImageSrc(hero)}>
                             <JobHeader area={area} title={title} hero={hero} />
                         </Hero>
                     </Column>
@@ -150,11 +145,14 @@ export const pageQuery = graphql`
                 area
                 tags
                 hero {
-                    childImageSharp {
-                        original {
-                            src
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
                         }
                     }
+                    original
                 }
                 level
                 location

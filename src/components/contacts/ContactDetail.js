@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+
+import { getOriginalImageSrc } from "../../utils/image";
 import { colors, breakpoints, spacing } from "../../theme/theme";
 import { HTMLContent } from "../Content";
 import FAIcon from "@fortawesome/react-fontawesome";
@@ -80,10 +82,9 @@ class ContactDetail extends React.Component {
                     <div>
                         <SectionLabel>Lead Contact</SectionLabel>
                         <ProfileImage
-                            src={
-                                contact.frontmatter.contactImage.childImageSharp
-                                    .original.src
-                            }
+                            src={getOriginalImageSrc(
+                                contact.frontmatter.contactImage
+                            )}
                         />
                         <Details>
                             {contact.frontmatter.contactName}
