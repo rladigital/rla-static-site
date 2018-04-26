@@ -17,14 +17,10 @@ import { HTMLContent } from "../Content";
 
 const height = isMobile() ? 680 : 600;
 
-const Wrapper = styled.div`
-    overflow: hidden;
-`;
-
-const Container = styled.div`
+const PeopleBrowserContainer = styled.div`
     position: relative;
-    height: ${height}px;
     margin-bottom: -80px;
+    overflow: hidden;
 `;
 
 const PersonGroup = styled.div`
@@ -214,121 +210,117 @@ class PeopleBrowser extends React.Component {
         const { data, current, selected } = this.state;
 
         return (
-            <Wrapper>
-                <Container>
-                    <Control
-                        className="fa-layers fa-fw"
-                        onClick={() => this.navigateChunk("prev")}
-                        style={{ left: 0 }}
-                    >
-                        <FAIcon icon="chevron-left" transform="shrink-8" />
-                        <FAIcon icon={["far", "circle"]} />
-                    </Control>
+            <PeopleBrowserContainer>
+                <Row
+                    style={{
+                        top: "50%",
+                        position: "relative"
+                    }}
+                >
+                    <Column>
+                        <Control
+                            className="fa-layers fa-fw"
+                            onClick={() => this.navigateChunk("prev")}
+                            style={{ left: 0 }}
+                        >
+                            <FAIcon icon="chevron-left" transform="shrink-8" />
+                            <FAIcon icon={["far", "circle"]} />
+                        </Control>
 
-                    <Control
-                        className="fa-layers fa-fw"
-                        onClick={() => this.navigateChunk("next")}
-                        style={{ right: 0 }}
-                    >
-                        <FAIcon icon="chevron-right" transform="shrink-8" />
-                        <FAIcon icon={["far", "circle"]} />
-                    </Control>
-                    <div
-                        style={{
-                            height: height,
-                            transform: `scale(${
-                                isMobile()
-                                    ? transformScale(750, 340)
-                                    : transformScale(1400, 1200)
-                            })`
-                        }}
-                    >
-                        {data &&
-                            data.map((row, i) => {
-                                return (
-                                    <PersonGroup
-                                        key={i}
-                                        style={{
-                                            transform: `scale(${this.getTransform(
-                                                i
-                                            ) / 1.4})`,
-                                            filter: `blur(${
-                                                current == i ? 10 : 0
-                                            }px)`,
-                                            opacity:
-                                                current == i
-                                                    ? 0.5
-                                                    : current + 1 == i ||
-                                                      (current ==
-                                                          data.length - 1 &&
-                                                          i == 0)
-                                                        ? 1
-                                                        : 0,
-                                            pointerEvents:
-                                                current + 1 == i ||
-                                                current == data.length - 1
-                                                    ? "auto"
-                                                    : "none"
-                                        }}
-                                    >
-                                        {row.map(({ node: person }, index) => {
-                                            return (
-                                                <Person
-                                                    key={index}
-                                                    onClick={() => {
-                                                        current + 1 == i &&
-                                                            this.handleSelect(
-                                                                person
-                                                            );
-                                                    }}
+                        <Control
+                            className="fa-layers fa-fw"
+                            onClick={() => this.navigateChunk("next")}
+                            style={{ right: 0 }}
+                        >
+                            <FAIcon icon="chevron-right" transform="shrink-8" />
+                            <FAIcon icon={["far", "circle"]} />
+                        </Control>
+                    </Column>
+                </Row>
+                <div
+                    style={{
+                        height: height,
+                        transform: `scale(${
+                            isMobile()
+                                ? transformScale(750, 340)
+                                : transformScale(1400, 1200)
+                        })`
+                    }}
+                >
+                    {data &&
+                        data.map((row, i) => {
+                            return (
+                                <PersonGroup
+                                    key={i}
+                                    style={{
+                                        transform: `scale(${this.getTransform(
+                                            i
+                                        ) / 1.4})`,
+                                        filter: `blur(${
+                                            current == i ? 10 : 0
+                                        }px)`,
+                                        opacity:
+                                            current == i
+                                                ? 0.5
+                                                : current + 1 == i ||
+                                                  (current == data.length - 1 &&
+                                                      i == 0)
+                                                    ? 1
+                                                    : 0,
+                                        pointerEvents:
+                                            current + 1 == i ||
+                                            current == data.length - 1
+                                                ? "auto"
+                                                : "none"
+                                    }}
+                                >
+                                    {row.map(({ node: person }, index) => {
+                                        return (
+                                            <Person
+                                                key={index}
+                                                onClick={() => {
+                                                    current + 1 == i &&
+                                                        this.handleSelect(
+                                                            person
+                                                        );
+                                                }}
+                                                style={{
+                                                    top: coords[index].y,
+                                                    left: coords[index].x
+                                                }}
+                                            >
+                                                <PersonImage
                                                     style={{
-                                                        top: coords[index].y,
-                                                        left: coords[index].x
+                                                        width: coords[index].r,
+                                                        height: coords[index].r,
+                                                        backgroundImage: `url('${getOriginalImageSrc(
+                                                            person.frontmatter
+                                                                .profile
+                                                        )}')`
                                                     }}
-                                                >
-                                                    <PersonImage
-                                                        style={{
-                                                            width:
-                                                                coords[index].r,
-                                                            height:
-                                                                coords[index].r,
-                                                            backgroundImage: `url('${getOriginalImageSrc(
-                                                                person
-                                                                    .frontmatter
-                                                                    .profile
-                                                            )}')`
-                                                        }}
-                                                    />
-                                                    <PersonTitle>
-                                                        {
-                                                            person.frontmatter
-                                                                .title
-                                                        }
-                                                    </PersonTitle>
-                                                    <PersonRole>
-                                                        {
-                                                            person.frontmatter
-                                                                .role
-                                                        }
-                                                    </PersonRole>
-                                                </Person>
-                                            );
-                                        })}
-                                    </PersonGroup>
-                                );
-                            })}
-                        {selected && (
-                            <Selected
-                                style={{
-                                    backgroundImage: `url('${getOriginalImageSrc(
-                                        selected.frontmatter.profile
-                                    )}')`
-                                }}
-                            />
-                        )}
-                    </div>
-                </Container>
-
+                                                />
+                                                <PersonTitle>
+                                                    {person.frontmatter.title}
+                                                </PersonTitle>
+                                                <PersonRole>
+                                                    {person.frontmatter.role}
+                                                </PersonRole>
+                                            </Person>
+                                        );
+                                    })}
+                                </PersonGroup>
+                            );
+                        })}
+                    {selected && (
+                        <Selected
+                            style={{
+                                backgroundImage: `url('${getOriginalImageSrc(
+                                    selected.frontmatter.profile
+                                )}')`
+                            }}
+                        />
+                    )}
+                </div>
                 {selected && (
                     <Row>
                         <Column xlarge={6} large={8} centered>
@@ -344,7 +336,7 @@ class PeopleBrowser extends React.Component {
                         </Column>
                     </Row>
                 )}
-            </Wrapper>
+            </PeopleBrowserContainer>
         );
     }
 }
