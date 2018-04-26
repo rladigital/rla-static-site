@@ -6,6 +6,11 @@ import HeaderBlock from "../components/HeaderBlock";
 import PageDetailContainer from "../components/PageDetailContainer";
 
 export default class CookiePolicyPage extends React.Component {
+    componentDidMount() {
+        setTimeout(() => {
+            window.dispatchEvent(new Event("load"));
+        }, 0);
+    }
     render() {
         const { transition } = this.props;
         return (
