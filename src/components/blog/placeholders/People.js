@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "gatsby-link";
 import styled from "styled-components";
 import { Button } from "rla-components";
 import HeaderBlock from "../../HeaderBlock";
@@ -37,9 +38,17 @@ const PeoplePlaceholder = ({ height }) => (
             business inside out and back to front enables us to work alongside
             you and become an inseparable extension of your marketing team.
         </StyledP>
-        <Button hollow size="large" color="white" borderWidth={3} padding={2}>
-            Check Us Out →
-        </Button>
+        <Link to="/people">
+            <Button
+                hollow
+                size="large"
+                color="white"
+                borderWidth={3}
+                padding={2}
+            >
+                Check Us Out →
+            </Button>
+        </Link>
     </SectionContainer>
 );
 
