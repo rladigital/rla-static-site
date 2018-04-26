@@ -75,37 +75,37 @@ class ServicesSection extends React.Component {
         return coords;
     }
 
-    splitPath() {
-        var numPieces = 20,
-            pieceSizes = [],
-            pieces = [];
+    // splitPath() {
+    //     var numPieces = 20,
+    //         pieceSizes = [],
+    //         pieces = [];
 
-        for (var i = 0; i < numPieces; i++) {
-            pieceSizes.push({ i: i, size: Math.floor(Math.random() * 20) + 5 });
-        }
+    //     for (var i = 0; i < numPieces; i++) {
+    //         pieceSizes.push({ i: i, size: Math.floor(Math.random() * 20) + 5 });
+    //     }
 
-        var size = pieceSizes.reduce(function(a, b) {
-            return a + b.size;
-        }, 0);
+    //     var size = pieceSizes.reduce(function(a, b) {
+    //         return a + b.size;
+    //     }, 0);
 
-        var pieceSize = pLength / size;
+    //     var pieceSize = pLength / size;
 
-        pieceSizes.forEach(function(x, j) {
-            var segs = [];
-            for (var i = 0; i <= x.size + sampleInterval; i += sampleInterval) {
-                pt = p.getPointAtLength(i * pieceSize + cumu * pieceSize);
-                segs.push([pt.x, pt.y]);
-            }
-            angle =
-                Math.atan2(segs[1][1] - segs[0][1], segs[1][0] - segs[0][0]) *
-                180 /
-                Math.PI;
-            pieces.push({ id: j, segs: segs, angle: angle });
-            cumu += x.size;
-        });
+    //     pieceSizes.forEach(function(x, j) {
+    //         var segs = [];
+    //         for (var i = 0; i <= x.size + sampleInterval; i += sampleInterval) {
+    //             pt = p.getPointAtLength(i * pieceSize + cumu * pieceSize);
+    //             segs.push([pt.x, pt.y]);
+    //         }
+    //         angle =
+    //             Math.atan2(segs[1][1] - segs[0][1], segs[1][0] - segs[0][0]) *
+    //             180 /
+    //             Math.PI;
+    //         pieces.push({ id: j, segs: segs, angle: angle });
+    //         cumu += x.size;
+    //     });
 
-        return pieces;
-    }
+    //     return pieces;
+    // }
 
     prev() {
         const next = this.state.current + 1;
@@ -199,6 +199,7 @@ class ServicesSection extends React.Component {
                         {coords &&
                             services &&
                             services.map((service, i) => {
+                                console.log(coords[i]);
                                 return (
                                     coords[i] && (
                                         <g
@@ -229,11 +230,18 @@ class ServicesSection extends React.Component {
                                                 {i}
                                             </circle>
                                             <Service
-                                                y={-30}
                                                 textAnchor="middle"
                                                 style={{
                                                     fill: colors.white,
-                                                    fontWeight: 900
+                                                    fontWeight: 700,
+                                                    letterSpacing: "0.05rem",
+                                                    transform: `translateY(${
+                                                        coords[i].status ==
+                                                        "active"
+                                                            ? "-45px"
+                                                            : "-30px"
+                                                    })`,
+                                                    transition: "all 1s ease"
                                                 }}
                                                 fillOpacity={
                                                     coords[i].status == "active"
@@ -249,7 +257,11 @@ class ServicesSection extends React.Component {
                                                 x1={0}
                                                 y1={0}
                                                 x2={0}
-                                                y2={-20}
+                                                y2={
+                                                    coords[i].status == "active"
+                                                        ? -35
+                                                        : -20
+                                                }
                                                 strokeWidth="1"
                                                 stroke="white"
                                             />
