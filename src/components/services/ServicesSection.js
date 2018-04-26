@@ -231,16 +231,16 @@ class ServicesSection extends React.Component {
                                             </circle>
                                             <Service
                                                 textAnchor="middle"
+                                                transform={`translate(0 ${
+                                                    coords[i].status == "active"
+                                                        ? "-45"
+                                                        : "-30"
+                                                })`}
                                                 style={{
                                                     fill: colors.white,
                                                     fontWeight: 700,
                                                     letterSpacing: "0.05rem",
-                                                    transform: `translateY(${
-                                                        coords[i].status ==
-                                                        "active"
-                                                            ? "-45px"
-                                                            : "-30px"
-                                                    })`,
+
                                                     transition: "all 1s ease"
                                                 }}
                                                 fillOpacity={
