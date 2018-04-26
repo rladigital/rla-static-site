@@ -12,6 +12,6 @@ benefits:
   - 28 Days Hoilday
   - Pension
   - Fun Environment
-hero: /img/missing_avatar.svg
+hero: /img/oliur-rahman-272875.jpg
 ---
 
