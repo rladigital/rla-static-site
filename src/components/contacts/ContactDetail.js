@@ -97,7 +97,9 @@ class ContactDetail extends React.Component {
                                 mask={["fas", "circle"]}
                                 transform="shrink-9"
                             />
-                            {contact.frontmatter.tel}
+                            <a href={`tel:${contact.frontmatter.tel}`}>
+                                {contact.frontmatter.tel}
+                            </a>
                         </Details>
                         <Details>
                             <Icon
