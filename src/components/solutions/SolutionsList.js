@@ -282,7 +282,7 @@ class SolutionsVideo extends React.Component {
                             {lines}
                         </TransitionGroup>
                         <TitleCircle cx={0} cy={0} r={200} />
-                        <Title style={{ filter: "url(#shadow)" }} x={0} y={0}>
+                        <Title x={0} y={0}>
                             <tspan dy="-30px" x={0}>
                                 CONNECTED
                             </tspan>
