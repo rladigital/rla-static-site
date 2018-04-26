@@ -238,8 +238,9 @@ class PeopleBrowser extends React.Component {
                     </Column>
                 </Row>
                 <div
+                    id="people-browser-wrapper"
                     style={{
-                        height: height,
+                        height: 600,
                         transform: `scale(${
                             isMobile()
                                 ? transformScale(750, 340)
