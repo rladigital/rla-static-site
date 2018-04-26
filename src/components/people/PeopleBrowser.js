@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 import { Row, Column } from "rla-components";
+import { Transition, TransitionGroup } from "react-transition-group";
 
 import { getOriginalImageSrc } from "../../utils/image";
 import { transformScale, shuffleArray } from "../../helpers/helpers";
@@ -15,26 +16,48 @@ import {
 } from "../../helpers/helpers";
 import { HTMLContent } from "../Content";
 
-const height = 600;
+const height = isMobile() ? 680 : 600;
+
+const duration = 800;
+
+const defaultStyle = {
+    transform: "scale(1)",
+    transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
+    opacity: 0
+};
+
+const transitionStyles = {
+    entering: {
+        opacity: 0,
+        transform: "scale(0)"
+    },
+    entered: {
+        opacity: 1,
+        transform: "scale(1)"
+    },
+    exiting: {
+        opacity: 0,
+        transform: "scale(2)"
+    }
+};
 
 const PeopleBrowserContainer = styled.div`
     position: relative;
-    margin-bottom: -80px;
     overflow: hidden;
 `;
 
 const PersonGroup = styled.div`
-    margin-left: 50%;
-    margin-top: ${height / 2}px;
     position: absolute;
-    transition: transform 1s ease, opacity 1s ease, filter 1s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `;
 
 const Person = styled.div`
     position: absolute;
     text-align: center;
-    transform: translate(-50%, -50%);
-    width: 200px;
+    transform: translateX(-50%);
+
     cursor: pointer;
 `;
 
@@ -48,12 +71,12 @@ const PersonImage = styled.div`
 `;
 
 const PersonTitle = styled.h3`
-    font-size: 12px;
+    font-size: 16px;
     white-space: nowrap;
     margin: 0 0 0.2rem;
 `;
 const PersonRole = styled.h4`
-    font-size: 10px;
+    font-size: 14px;
     white-space: nowrap;
     margin: 0;
 `;
@@ -84,7 +107,6 @@ const Selected = styled.div`
         content: " ";
         width: 100%;
         height: 100%;
-
         position: absolute;
         top: -20px;
         left: -20px;
@@ -116,6 +138,22 @@ const SelectedRole = styled.h1`
 const SelectedBiog = styled.p`
     position: relative;
 `;
+
+const Fade = ({ in: inProp, children, ...otherProps }) => (
+    <Transition in={inProp} timeout={duration} {...otherProps}>
+        {state => (
+            <PersonGroup
+                id="person-group"
+                style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }}
+            >
+                {children}
+            </PersonGroup>
+        )}
+    </Transition>
+);
 
 class PeopleBrowser extends React.Component {
     constructor(props) {
@@ -192,19 +230,19 @@ class PeopleBrowser extends React.Component {
 
         if (!isMobile()) {
             coords = [
-                { x: -180, y: -230, r: 100 },
-                { x: 300, y: 100, r: 140 },
-                { x: -300, y: -60, r: 80 },
-                { x: 220, y: -200, r: 120 },
-                { x: -260, y: 160, r: 120 }
+                { x: -280, y: -360, r: 140 },
+                { x: 320, y: 100, r: 140 },
+                { x: -380, y: -130, r: 80 },
+                { x: 320, y: -300, r: 120 },
+                { x: -330, y: 100, r: 120 }
             ];
         } else {
             coords = [
-                { x: -200, y: -233, r: 100 },
-                { x: -185, y: 240, r: 150 },
-                { x: 220, y: -220, r: 80 },
-                { x: 28, y: -304, r: 130 },
-                { x: 100, y: 270, r: 100 }
+                { x: -260, y: -360, r: 150 },
+                { x: -200, y: 220, r: 200 },
+                { x: 260, y: -350, r: 130 },
+                { x: 28, y: -480, r: 180 },
+                { x: 140, y: 270, r: 150 }
             ];
         }
 
@@ -238,57 +276,32 @@ class PeopleBrowser extends React.Component {
                     </Column>
                 </Row>
                 <div
-                    id="people-browser-wrapper"
                     style={{
-                        height: 600,
+                        height: height,
+                        position: "relative",
                         transform: `scale(${
                             isMobile()
                                 ? transformScale(750, 340)
-                                : transformScale(1400, 1200)
-                        })`
+                                : transformScale(1200, 1000)
+                        })`,
+                        marginBottom: -50
                     }}
                 >
-                    {data &&
-                        data.map((row, i) => {
-                            return (
-                                <PersonGroup
-                                    key={i}
-                                    style={{
-                                        transform: `scale(${this.getTransform(
-                                            i
-                                        ) / 1.4})`,
-                                        filter: `blur(${
-                                            current == i ? 10 : 0
-                                        }px)`,
-                                        opacity:
-                                            current == i
-                                                ? 0.5
-                                                : current + 1 == i ||
-                                                  (current == data.length - 1 &&
-                                                      i == 0)
-                                                    ? 1
-                                                    : 0,
-                                        pointerEvents:
-                                            current + 1 == i ||
-                                            current == data.length - 1
-                                                ? "auto"
-                                                : "none"
-                                    }}
-                                >
-                                    {row.map(({ node: person }, index) => {
+                    {data && (
+                        <TransitionGroup>
+                            <Fade key={`people_${current}`}>
+                                {data[current].map(
+                                    ({ node: person }, index) => {
                                         return (
                                             <Person
                                                 key={index}
-                                                onClick={() => {
-                                                    current + 1 == i &&
-                                                        this.handleSelect(
-                                                            person
-                                                        );
-                                                }}
                                                 style={{
                                                     top: coords[index].y,
                                                     left: coords[index].x
                                                 }}
+                                                onClick={() =>
+                                                    this.handleSelect(person)
+                                                }
                                             >
                                                 <PersonImage
                                                     style={{
@@ -308,10 +321,11 @@ class PeopleBrowser extends React.Component {
                                                 </PersonRole>
                                             </Person>
                                         );
-                                    })}
-                                </PersonGroup>
-                            );
-                        })}
+                                    }
+                                )}
+                            </Fade>
+                        </TransitionGroup>
+                    )}
                     {selected && (
                         <Selected
                             style={{
