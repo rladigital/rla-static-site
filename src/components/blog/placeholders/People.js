@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "gatsby-link";
 import styled from "styled-components";
 import { Button } from "rla-components";
 import HeaderBlock from "../../HeaderBlock";
@@ -6,7 +7,7 @@ import SectionContainer from "../../SectionContainer";
 import { colors, spacing } from "../../../theme/theme";
 
 const StyledP = styled.p`
-    margin: 3rem 0;
+    margin: 2rem 0;
 `;
 
 const PeoplePlaceholder = ({ height }) => (
@@ -21,7 +22,7 @@ const PeoplePlaceholder = ({ height }) => (
             textAlign="left"
             accentColor={colors.background}
             baseColor={colors.white}
-            fontSize={3.2}
+            fontSize={3.1}
             padding={{
                 top: 0,
                 left: 0,
@@ -37,9 +38,17 @@ const PeoplePlaceholder = ({ height }) => (
             business inside out and back to front enables us to work alongside
             you and become an inseparable extension of your marketing team.
         </StyledP>
-        <Button hollow size="large" color="white" borderWidth={3} padding={2}>
-            Check Us Out →
-        </Button>
+        <Link to="/people">
+            <Button
+                hollow
+                size="large"
+                color="white"
+                borderWidth={3}
+                padding={2}
+            >
+                Check Us Out →
+            </Button>
+        </Link>
     </SectionContainer>
 );
 

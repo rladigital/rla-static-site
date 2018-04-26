@@ -37,7 +37,7 @@ const Container = styled.div`
 
 const LogoContainer = styled.div`
     padding: 4vw 3vw;
-    cursor: pointer;
+    //cursor: pointer;
 `;
 
 const Logo = styled.div`

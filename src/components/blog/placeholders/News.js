@@ -18,10 +18,17 @@ const Section = styled.div`
     padding: ${spacing.padding}rem;
     border-bottom: 1px solid #ddd;
     display: table;
+    width: 100%;
+    transition: all 500ms ease-out;
+    &:hover {
+        background-color: rgba(7, 23, 44, 0.1);
+    }
 `;
 
-const TitleSection = Section.extend`
-    padding-bottom: 0;
+const TitleSection = styled.div`
+    width: 100%;
+    padding: ${spacing.padding}rem ${spacing.padding}rem
+        ${spacing.padding / 2}rem ${spacing.padding}rem;
     border-bottom: none;
 `;
 

@@ -184,7 +184,7 @@ class SolutionModal extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        //console.log(this.props);
         const { animation, current } = this.state;
         const { solutions, width, height, close, showButtons } = this.props;
         const isLarge = Boolean(width > breakpoints.xlarge);

@@ -64,10 +64,10 @@ const Footer = SectionContainer.extend`
 export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
     <Footer padding="5em 0 0">
         <Row>
-            <Column large={2}>
+            <Column large={2} style={{ paddingBottom: "2rem" }}>
                 <img src={logo} alt="RLA" style={{ width: "120px" }} />
             </Column>
-            <Column large={2}>
+            <Column large={2} style={{ paddingBottom: "2rem" }}>
                 {navigation.map((item, index) => {
                     return (
                         <StyledLink key={index} to={item.to}>
@@ -123,7 +123,7 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
 );
 
 const Location = ({ to, children, address, phone, email }) => (
-    <div>
+    <div style={{ paddingBottom: "2rem" }}>
         <LocationHeading>{children}</LocationHeading>
 
         <FaUl>
