@@ -110,6 +110,7 @@ class SolutionsSection extends React.Component {
                                     height: "100%",
                                     transform: "scale(0.5)",
                                     visibility: loaded ? "visible" : "hidden",
+                                    position: "fixed",
                                     zIndex:
                                         visibleSection == "video" && !isMobile()
                                             ? 4
