@@ -9,6 +9,6 @@ description2: >-
   Customer acquisition is just one part of our connected ambition for our
   Clients. See how we can help you achieve it by getting in touch.
 color1: '#42d6c0'
-color2: '#23cea0'
+color2: '#1dba90'
 ---
 
