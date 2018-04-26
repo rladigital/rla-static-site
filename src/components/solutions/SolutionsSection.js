@@ -49,7 +49,8 @@ class SolutionsSection extends React.Component {
         super(props);
         this.state = {
             scrollY: window.pageYOffset,
-            scrollDirection: "down"
+            scrollDirection: "down",
+            loaded: false
         };
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -57,6 +58,11 @@ class SolutionsSection extends React.Component {
     }
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
+        setTimeout(() => {
+            this.setState({
+                loaded: true
+            });
+        }, duration);
     }
 
     componentWillUnmount() {
@@ -85,7 +91,7 @@ class SolutionsSection extends React.Component {
 
     render() {
         const { width, height, font, scrolltop, solutions } = this.props;
-        const { scrollY, scrollDirection } = this.state;
+        const { scrollY, scrollDirection, loaded } = this.state;
         const animation = "transform 0.75s ease, opacity 0.75s ease";
         const visibleSection =
             scrollY > height * 2
@@ -94,20 +100,20 @@ class SolutionsSection extends React.Component {
 
         return (
             <StyledStickyContainer style={{ height: height * 2 }}>
-                <Sticky style={{ height: "50%", background: "red" }}>
-                    {({ style, isSticky }) => {
+                <Sticky>
+                    {({ style }) => {
                         return (
                             <div
                                 style={{
                                     ...style,
-                                    transform: "scale(0.5)",
                                     width: "100%",
                                     height: "100%",
+                                    transform: "scale(0.5)",
+                                    visibility: loaded ? "visible" : "hidden",
                                     zIndex:
                                         visibleSection == "video" && !isMobile()
                                             ? 4
-                                            : 0,
-                                    visibility: isSticky ? "visible" : "hidden"
+                                            : 0
                                 }}
                             >
                                 <TransitionGroup>
@@ -147,7 +153,7 @@ class Fade extends React.Component {
         const {
             in: inProp,
             children,
-            zIndex,
+
             animationDirection,
             ...rest
         } = this.props;
@@ -159,8 +165,7 @@ class Fade extends React.Component {
                         style={{
                             width: "100%",
                             height: "100%",
-                            position: "absolute",
-                            zIndex: state != "exited" ? zIndex : 0
+                            position: "absolute"
                         }}
                     >
                         <div
