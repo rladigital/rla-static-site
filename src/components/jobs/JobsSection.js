@@ -36,15 +36,29 @@ class JobsSection extends React.Component {
                                 <NewsPlaceholder height={37.5} news={news} />
                             </Column>
                             <Column large={6} xlarge={8}>
-                                <JobSummary job={jobs[2].node} height={18} />
-                                <JobSummary job={jobs[1].node} height={18} />
+                                {jobs[2] && (
+                                    <JobSummary
+                                        job={jobs[2].node}
+                                        height={18}
+                                    />
+                                )}
+                                {jobs[1] && (
+                                    <JobSummary
+                                        job={jobs[1].node}
+                                        height={18}
+                                    />
+                                )}
                             </Column>
                         </Row>
                     </Column>
                     <Column medium={6} large={5} xlarge={3}>
-                        <JobSummary job={jobs[4].node} height={18} />
+                        {jobs[4] && (
+                            <JobSummary job={jobs[4].node} height={18} />
+                        )}
                         <PeoplePlaceholder height={36} />
-                        <JobSummary job={jobs[3].node} height={18} />
+                        {jobs[3] && (
+                            <JobSummary job={jobs[3].node} height={18} />
+                        )}
                     </Column>
                 </Row>
             </div>
