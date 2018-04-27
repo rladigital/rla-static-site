@@ -8,6 +8,9 @@ export function scale(width, screenWidth) {
     return width / 1800 * window.innerWidth;
 }
 export function transformScale(size, limit) {
+    if (!isBrowser()) {
+        return 1;
+    }
     if (limit) {
         return Math.min(window.innerWidth, window.innerHeight, limit) / size;
     } else {
