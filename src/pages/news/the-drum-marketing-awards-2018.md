@@ -5,6 +5,9 @@ date: 27/04/2018
 hero: /img/1160x450_banner_x2_drumawards.jpg
 thumb: /img/1200x1200_rla_social_drumawards.jpg
 category: News
+tags:
+  - NEWS
+  - AWARDS
 intro: tbc
 sideHeading: >-
   PERKS has been, and continues to be, a successful fusion of creativity,
