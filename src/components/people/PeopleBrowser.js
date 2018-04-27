@@ -12,11 +12,12 @@ import {
     scale,
     random,
     randomChunkArray,
-    isMobile
+    isMobile,
+    isBrowser
 } from "../../helpers/helpers";
 import { HTMLContent } from "../Content";
 
-const height = isMobile() ? 680 : 600;
+const height = isBrowser() && isMobile() ? 680 : 600;
 
 const duration = 800;
 
@@ -228,7 +229,7 @@ class PeopleBrowser extends React.Component {
     render() {
         let coords;
 
-        if (!isMobile()) {
+        if (isBrowser() && !isMobile()) {
             coords = [
                 { x: -280, y: -360, r: 140 },
                 { x: 320, y: 100, r: 140 },
@@ -280,7 +281,7 @@ class PeopleBrowser extends React.Component {
                         height: height,
                         position: "relative",
                         transform: `scale(${
-                            isMobile()
+                            isBrowser() && isMobile()
                                 ? transformScale(750, 340)
                                 : transformScale(1200, 1000)
                         })`,
