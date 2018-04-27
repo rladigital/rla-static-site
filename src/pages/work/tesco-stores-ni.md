@@ -26,6 +26,7 @@ excerpt: Cultivating support for farmers.
 galleryImages:
   - /img/tesco_1.jpg
   - /img/tesco_2.jpg
+  - /img/tesco_3.jpg
 solutionsList:
   - Brand desire
 weighting: -1
