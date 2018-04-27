@@ -24,7 +24,7 @@ description: >-
   for the actual farmers and growers. A little ironic, perhaps!
 excerpt: Cultivating support for farmers.
 galleryImages:
-  - /img/Tesco.png
+  - /img/tesco_1.jpg
 solutionsList:
   - Brand desire
 weighting: -1
