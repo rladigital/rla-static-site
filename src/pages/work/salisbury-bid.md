@@ -26,7 +26,10 @@ description: >-
   communications we were delighted that 67% of recipients opted IN.
 excerpt: Bringing Client and customers together. Literally.
 galleryImages:
-  - /img/Salisbury.png
+  - /img/1200x1200_rla_site_images_salisbury1.jpg
+  - /img/1200x1200_rla_site_images_salisbury2.jpg
+  - /img/1200x1200_rla_site_images_salisbury3.jpg
+  - /img/1200x1200_rla_site_images_salisbury4.jpg
 solutionsList:
   - Brand Desire
 weighting: -2
