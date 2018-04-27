@@ -44,7 +44,7 @@ const transitionStyles = {
 
 const PeopleBrowserContainer = styled.div`
     position: relative;
-    overflow: hidden;
+    //overflow: hidden;
 `;
 
 const PersonGroup = styled.div`
@@ -338,7 +338,7 @@ class PeopleBrowser extends React.Component {
                     )}
                 </div>
                 {selected && (
-                    <Row>
+                    <Row style={{ marginTop: "-100px" }}>
                         <Column xlarge={6} large={8} centered>
                             <SelectedText>
                                 <SelectedTitle>
