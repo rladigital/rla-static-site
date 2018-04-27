@@ -27,7 +27,7 @@ description: >-
 excerpt: Bringing Client and customers together. Literally.
 galleryImages:
   - /img/1200x1200_rla_site_images_salisbury1.jpg
-  - null
+  - /img/1200x1200_rla_site_images_salisbury2.jpg
 solutionsList:
   - Brand Desire
 weighting: -2
