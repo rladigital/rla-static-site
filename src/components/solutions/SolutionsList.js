@@ -218,11 +218,11 @@ class SolutionsVideo extends React.Component {
     }
 
     render() {
-        const { width, height, solutions, animation } = this.props;
+        const { width, height, solutions, style } = this.props;
         const { activeSolution, orbs, lines } = this.state;
 
         return (
-            <div>
+            <div style={style}>
                 <Svg width={width} height={height}>
                     <defs>
                         <filter

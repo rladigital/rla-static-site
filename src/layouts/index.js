@@ -21,10 +21,10 @@ class TemplateWrapper extends React.Component {
 
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
-                <div>
+                <div style={{ height: "100%" }}>
                     <Helmet title="RLA" />
                     <Offcanvas location={location} />
-                    <div>{children()}</div>
+                    <div style={{ height: "100%" }}>{children()}</div>
                     {this.props.data && <Footer data={this.props.data} />}
                 </div>
             </ThemeProvider>
