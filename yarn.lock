@@ -8912,6 +8912,15 @@ react-dom@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-dom@^16.2.0:
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.2.tgz#cb90f107e09536d683d84ed5d4888e9640e0e4df"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+
 react-dom@^16.3.1:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.1.tgz#6a3c90a4fb62f915bdbcf6204422d93a7d4ca573"
@@ -8934,6 +8943,12 @@ react-dropzone@^4.2.1:
   dependencies:
     attr-accept "^1.0.3"
     prop-types "^15.5.7"
+
+react-easy-swipe@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/react-easy-swipe/-/react-easy-swipe-0.0.14.tgz#a53ba5708a540cd4ba854888291d813edda50889"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-equalizer@^1.3.0:
   version "1.3.0"
@@ -9165,6 +9180,15 @@ react-style-proptype@^3.0.0:
   resolved "https://registry.yarnpkg.com/react-style-proptype/-/react-style-proptype-3.2.1.tgz#7cfeb9b87ec7ab9dcbde9715170ed10c11fb86aa"
   dependencies:
     prop-types "^15.5.4"
+
+react-swipe-events@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-swipe-events/-/react-swipe-events-1.0.3.tgz#65db1abc9fd9b816ca427ae3d500497c38bebd4d"
+  dependencies:
+    babel-runtime "^6.6.1"
+    prop-types "^15.6.0"
+    react "^16.2.0"
+    react-dom "^16.2.0"
 
 react-textarea-autosize@^5.2.0:
   version "5.2.1"

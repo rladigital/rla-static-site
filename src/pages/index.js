@@ -72,33 +72,32 @@ export default class IndexPage extends React.Component {
             transition
         } = data;
         return (
-            <section style={transition && transition.style}>
+            <section
+                style={{ height: "100%", ...(transition && transition.style) }}
+            >
                 <Script
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
                 {this.state.hasMounted ? (
-                    <div>
-                        <SolutionsSection
-                            width={width}
-                            height={height}
-                            solutions={solutions}
-                            font={font}
-                            scrolltop={scrolltop}
-                        />
+                    <SolutionsSection
+                        width={width}
+                        height={height}
+                        solutions={solutions}
+                        font={font}
+                        scrolltop={scrolltop}
+                    >
                         <WorkSection work={work} />
-
                         <ServicesSection
                             width={width}
                             height={Math.max(height / 2, 400)}
                             services={services}
                             font={font}
                         />
-
                         <NewsSection width={width} news={news} />
                         <PeopleSection people={people} />
                         <MissionSection />
-                    </div>
+                    </SolutionsSection>
                 ) : (
                     <LoadingScreen text="Loading..." />
                 )}
