@@ -29,6 +29,7 @@ module.exports = class HTML extends React.Component {
                         name="viewport"
                         content="width=device-width, initial-scale=1, shrink-to-fit=no"
                     />
+                    <meta name="theme-color" content="#07172C" />
                     {this.props.headComponents}
                     {css}
                     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.findIndex" />
