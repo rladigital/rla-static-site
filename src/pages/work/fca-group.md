@@ -28,7 +28,7 @@ excerpt: How Cortex unified the FCA group.
 galleryImages:
   - /img/alfa@2x.png
   - /img/650px-x-650px_abarth-595-moving-sky.gif
-  - /img/fca-infographic.png
+  - /img/fca-infographic-thumb.png
   - /img/128101 jeep compass launch invite gif_7.gif
   - /img/fca-dashboard.png
 solutionsList:
