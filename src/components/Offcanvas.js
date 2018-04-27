@@ -146,6 +146,30 @@ class Offcanvas extends React.Component {
         this.setState({ offcanvasActive: false });
     }
 
+    renderLogo() {
+        const visibility =
+            isBrowser() &&
+            location.pathname == "/" &&
+            document.documentElement.scrollTop
+                ? 0
+                : 1;
+
+        return (
+            <Link
+                to="/"
+                onClick={e => {
+                    // If homepage, scroll to top instead of reload
+                    if (isBrowser() && location.pathname == "/") {
+                        e.preventDefault();
+                        document.documentElement.scrollTop = 0;
+                    }
+                }}
+            >
+                <Logo src={logo} alt="RLA" />
+            </Link>
+        );
+    }
+
     render() {
         const { location } = this.props;
         const { offcanvasActive } = this.state;
@@ -161,18 +185,7 @@ class Offcanvas extends React.Component {
         return [
             <HeaderBackground />,
             <HeaderContainer zIndex={1} style={{ left: 0 }}>
-                <Link
-                    to="/"
-                    onClick={e => {
-                        // If homepage, scroll to top instead of reload
-                        if (isBrowser() && location.pathname == "/") {
-                            e.preventDefault();
-                            document.documentElement.scrollTop = 0;
-                        }
-                    }}
-                >
-                    <Logo src={logo} alt="RLA" />
-                </Link>
+                {this.renderLogo.apply(this)}
             </HeaderContainer>,
             <HeaderContainer zIndex={4} style={{ right: 0 }}>
                 <MenuIcon
