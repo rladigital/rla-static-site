@@ -72,9 +72,7 @@ export default class IndexPage extends React.Component {
             transition
         } = data;
         return (
-            <section
-                style={{ height: "100%", ...(transition && transition.style) }}
-            >
+            <section style={transition && transition.style}>
                 <Script
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}

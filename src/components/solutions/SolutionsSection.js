@@ -7,6 +7,17 @@ import SolutionsList from "./SolutionsList";
 import SolutionsVideo from "./SolutionsVideo";
 import SectionContainer from "../SectionContainer";
 
+let scrollTimer;
+let lastScrollTop = 0;
+
+const Container = styled.div`
+    background-image: url("img/background.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+`;
+
 class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +27,28 @@ class SolutionsSection extends React.Component {
 
         this.nextSection = this.nextSection.bind(this);
         this.prevSection = this.prevSection.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
+        this.shouldScrollPage = this.shouldScrollPage.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+    }
+
+    handleScroll(e) {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            if (window.pageYOffset > lastScrollTop) {
+                this.nextSection();
+            } else {
+                this.prevSection();
+            }
+            lastScrollTop = window.pageYOffset;
+        }, 250);
     }
 
     nextSection() {
@@ -24,8 +57,19 @@ class SolutionsSection extends React.Component {
     }
 
     prevSection() {
-        let section = Math.max(this.state.section - 1, 0);
-        this.setState({ section: section });
+        const { height } = this.props;
+        if (window.pageYOffset == 0) {
+            let section = Math.max(this.state.section - 1, 0);
+            this.setState({ section: section });
+        }
+    }
+
+    shouldScrollPage() {
+        if (this.state.section == 2) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     render() {
@@ -57,18 +101,16 @@ class SolutionsSection extends React.Component {
         ];
 
         return (
-            <Swipe
-                onSwipeMove={() => {
-                    return true;
-                }}
-                onSwipeDown={this.prevSection}
-                onSwipeUp={this.nextSection}
-                allowMouseEvents
-            >
-                <TransitionGroup style={{ height: "100%" }}>
-                    {sections[section]}
-                </TransitionGroup>
-            </Swipe>
+            <Container style={{ minHeight: height }}>
+                <Swipe
+                    onSwipeMove={this.shouldScrollPage}
+                    onSwipeDown={this.prevSection}
+                    onSwipeUp={this.nextSection}
+                    allowMouseEvents
+                >
+                    <TransitionGroup>{sections[section]}</TransitionGroup>
+                </Swipe>
+            </Container>
         );
     }
 }
@@ -85,13 +127,13 @@ class Zoom extends React.Component {
             ...rest
         } = this.props;
 
-        const duration = 1000;
+        const duration = 800;
 
         const defaultStyle = {
             width: "100%",
             height: "100%",
             transform: "scale(1)",
-            transition: `opacity ${600}ms ease-in-out, transform ${duration}ms ease-in-out`,
+            transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
             opacity: 0
         };
 
@@ -151,10 +193,10 @@ class Slide extends React.Component {
             ...rest
         } = this.props;
 
-        const duration = 1000;
+        const duration = 500;
 
         const defaultStyle = {
-            transition: `opacity ${600}ms ease-in-out, transform ${duration}ms ease-in-out`,
+            transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
             opacity: 0
         };
 
@@ -195,6 +237,7 @@ class Slide extends React.Component {
 class Section extends React.Component {
     render() {
         const { children, ...rest } = this.props;
+        console.log(this.props);
         return (
             <div style={{ minHeight: "100%", overflow: "hidden" }}>
                 {React.Children.map(children, child =>
