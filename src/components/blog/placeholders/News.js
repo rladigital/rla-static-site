@@ -37,7 +37,7 @@ const SectionDivider = styled.div`
     vertical-align: middle;
 `;
 
-const Number = styled.div`
+const NumberPrefix = styled.div`
     font-size: 1.2em;
     font-weight: bold;
     color: ${colors.lightGray};
@@ -67,9 +67,6 @@ const NewsPlaceholder = ({ height, news }) => (
             return (
                 <StyledLink to={item.fields.slug}>
                     <Section>
-                        <SectionDivider>
-                            <Number>{index + 1}</Number>
-                        </SectionDivider>
                         <SectionDivider>
                             {item.frontmatter.title}
                         </SectionDivider>
