@@ -164,9 +164,11 @@ class PeopleBrowser extends React.Component {
             current: 1,
             coords: null,
             data: null,
-            array: [0, 1, 2, 3]
+            array: [0, 1, 2, 3],
+            widthAdjustment: isBrowser() ? window.innerWidth / 10 : 0,
+            sizeAdjustment: isBrowser() ? window.innerWidth / 25 : 0
         };
-        //this.width = window.innerWidth;
+        this.width = window.innerWidth;
     }
 
     componentDidMount() {
@@ -227,27 +229,34 @@ class PeopleBrowser extends React.Component {
     }
 
     render() {
+        console.log(this.props);
+
+        const {
+            data,
+            current,
+            selected,
+            widthAdjustment,
+            sizeAdjustment
+        } = this.state;
         let coords;
 
         if (isBrowser() && !isMobile()) {
             coords = [
-                { x: -280, y: -360, r: 140 },
-                { x: 320, y: 100, r: 140 },
-                { x: -380, y: -130, r: 80 },
-                { x: 320, y: -300, r: 120 },
-                { x: -330, y: 100, r: 120 }
+                { x: -280 - widthAdjustment, y: -380, r: 150 + sizeAdjustment },
+                { x: 320 + widthAdjustment, y: 100, r: 150 + sizeAdjustment },
+                { x: -380 - widthAdjustment, y: -110, r: 90 + sizeAdjustment },
+                { x: 320 + widthAdjustment, y: -300, r: 130 + sizeAdjustment },
+                { x: -330 - widthAdjustment, y: 100, r: 130 + sizeAdjustment }
             ];
         } else {
             coords = [
-                { x: -260, y: -360, r: 150 },
-                { x: -200, y: 220, r: 200 },
-                { x: 260, y: -350, r: 130 },
-                { x: 28, y: -480, r: 180 },
-                { x: 140, y: 270, r: 150 }
+                { x: -230, y: -550, r: 150 },
+                { x: -200, y: 270, r: 200 },
+                { x: 240, y: -500, r: 130 },
+                { x: 28, y: -640, r: 180 },
+                { x: 140, y: 320, r: 150 }
             ];
         }
-
-        const { data, current, selected } = this.state;
 
         return (
             <PeopleBrowserContainer>
@@ -283,7 +292,7 @@ class PeopleBrowser extends React.Component {
                         transform: `scale(${
                             isBrowser() && isMobile()
                                 ? transformScale(750, 340)
-                                : transformScale(1200, 1000)
+                                : transformScale(1200, 1100)
                         })`,
                         marginBottom: -50
                     }}
