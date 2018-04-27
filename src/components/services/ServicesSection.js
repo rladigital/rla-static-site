@@ -200,7 +200,7 @@ class ServicesSection extends React.Component {
                         {coords &&
                             services &&
                             services.map((service, i) => {
-                                console.log(coords[i]);
+                                //console.log(coords[i]);
                                 return (
                                     coords[i] && (
                                         <g
