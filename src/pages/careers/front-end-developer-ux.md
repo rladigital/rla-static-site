@@ -91,6 +91,6 @@ benefits:
   - Cycle to work scheme
   - Reward & Recognition Scheme
   - Fridge Friday
-hero: /img/missing_avatar.svg
+hero: /img/belfast-senior-designer op 1 edit.jpg
 ---
 
