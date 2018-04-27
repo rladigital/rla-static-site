@@ -7,12 +7,13 @@ import styled from "styled-components";
 import { isBrowser } from "../helpers/helpers";
 import theme from "../theme/theme";
 import HeaderBlock from "../components/HeaderBlock";
+import PeopleBrowser from "../components/people/PeopleBrowser";
 
-if (isBrowser()) {
-    var PeopleBrowser = require("../components/people/PeopleBrowser");
-} else {
-    var PeopleBrowser = require("../components/people/PeopleBrowserStatic");
-}
+// if (isBrowser()) {
+//     var PeopleBrowser = require("../components/people/PeopleBrowser");
+// } else {
+//     var PeopleBrowser = require("../components/people/PeopleBrowserStatic");
+// }
 
 const StyledP = styled.p`
     text-align: center;
