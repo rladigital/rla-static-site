@@ -82,7 +82,7 @@ location: Bournemouth
 salary: DOE
 hours: '9:00am - 5:30pm'
 benefits:
-  - 28 Days Holiday
+  - 28 Days Hoilday
   - Your birthday as a day off
   - Continuous Professional Development
   - Childcare Vouchers
@@ -93,3 +93,4 @@ benefits:
   - Fridge Friday
 hero: /img/belfast-senior-designer op 1 edit.jpg
 ---
+
