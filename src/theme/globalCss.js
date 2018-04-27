@@ -226,6 +226,10 @@ function globalCss(theme) {
             
         }
 
+        button {
+            font-family: Gotham, Avenir, sans-serif;
+        }
+
         /* ----- Heading Styles ----- */
         ${headings()}    
 

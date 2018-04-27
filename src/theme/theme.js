@@ -94,7 +94,7 @@ const theme = {
         }
     },
     button: {
-        fontWeight: "900",
+        fontWeight: "600",
         textTransform: "uppercase",
         borderRadius: 0.6,
         padding: 5
