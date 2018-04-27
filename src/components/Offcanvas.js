@@ -147,24 +147,8 @@ class Offcanvas extends React.Component {
     }
 
     renderLogo() {
-        const visibility =
-            isBrowser() &&
-            location.pathname == "/" &&
-            document.documentElement.scrollTop
-                ? 0
-                : 1;
-
         return (
-            <Link
-                to="/"
-                onClick={e => {
-                    // If homepage, scroll to top instead of reload
-                    if (isBrowser() && location.pathname == "/") {
-                        e.preventDefault();
-                        document.documentElement.scrollTop = 0;
-                    }
-                }}
-            >
+            <Link to="/">
                 <Logo src={logo} alt="RLA" />
             </Link>
         );
@@ -184,7 +168,7 @@ class Offcanvas extends React.Component {
 
         return [
             <HeaderBackground />,
-            <HeaderContainer zIndex={1} style={{ left: 0 }}>
+            <HeaderContainer zIndex={2} style={{ left: 0 }}>
                 {this.renderLogo.apply(this)}
             </HeaderContainer>,
             <HeaderContainer zIndex={4} style={{ right: 0 }}>

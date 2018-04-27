@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
-import FAIcon from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../theme/theme";
 import video from "../../videos/video.mp4";
@@ -9,6 +8,7 @@ import placeholder from "../../img/static-video.png";
 import LoadingScreen from "../loading/LoadingScreen";
 import { transformScale, isMobile } from "../../helpers/helpers";
 import SiteHeader from "../SiteHeader";
+import ScrollDown from "./ScrollDown";
 
 const Svg = styled.svg`
     position: absolute;
@@ -32,50 +32,6 @@ const Img = styled.div`
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-`;
-
-let ScrollDown = styled.div.attrs({
-    role: "button"
-})`
-    width: 100%;
-    bottom: 0;
-    padding: 50px;
-    position: fixed;
-    text-align: center;
-    color: ${colors.background};
-    transition: opacity 1s;
-    cursor: pointer;
-    z-index: 1;
-`;
-
-const fadeDown = keyframes`
-  0%{
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  50%{
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-`;
-
-const ScrollDownText = styled.h6.attrs({
-    children: "Scroll Down"
-})`
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-`;
-
-const Chevron = styled(FAIcon).attrs({
-    icon: "chevron-down"
-})`
-    animation: ${fadeDown} 2s linear infinite;
 `;
 class SolutionsVideo extends React.Component {
     constructor(props) {
@@ -148,10 +104,10 @@ class SolutionsVideo extends React.Component {
                 </Svg>
 
                 {transitionState == "entered" && (
-                    <ScrollDown onClick={() => this.scrollDown()}>
-                        <ScrollDownText />
-                        <Chevron />
-                    </ScrollDown>
+                    <ScrollDown
+                        color={colors.background}
+                        onClick={this.props.scrollDown}
+                    />
                 )}
 
                 {isMobile() ? (

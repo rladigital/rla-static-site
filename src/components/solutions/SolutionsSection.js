@@ -32,23 +32,23 @@ class SolutionsSection extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll);
+        window.addEventListener("wheel", this.handleScroll);
     }
 
     componentWillUnmount() {
-        window.removeEventListener("scroll", this.handleScroll);
+        window.removeEventListener("wheel", this.handleScroll);
     }
 
     handleScroll(e) {
         clearTimeout(scrollTimer);
+        console.log(e);
         scrollTimer = setTimeout(() => {
-            if (window.pageYOffset > lastScrollTop) {
-                this.nextSection();
-            } else {
+            if (e.wheelDeltaY > 0) {
                 this.prevSection();
+            } else {
+                this.nextSection();
             }
-            lastScrollTop = window.pageYOffset;
-        }, 250);
+        }, 100);
     }
 
     nextSection() {
@@ -77,18 +77,23 @@ class SolutionsSection extends React.Component {
         const { section } = this.state;
 
         const sections = [
-            <Zoom zIndex={4} key="section_1">
+            <Zoom key="section_1">
                 <Section>
-                    <SolutionsVideo width={width} height={height} />
+                    <SolutionsVideo
+                        width={width}
+                        height={height}
+                        scrollDown={this.nextSection}
+                    />
                 </Section>
             </Zoom>,
 
-            <Zoom zIndex={1} key="section_2">
+            <Zoom key="section_2">
                 <Section>
                     <SolutionsList
                         width={width}
                         height={height}
                         solutions={solutions}
+                        scrollDown={this.nextSection}
                     />
                 </Section>
             </Zoom>,
@@ -101,7 +106,14 @@ class SolutionsSection extends React.Component {
         ];
 
         return (
-            <Container style={{ minHeight: height }}>
+            <Container
+                style={{
+                    width: "100%",
+                    minHeight: height,
+                    position: section >= 2 ? "static" : "fixed",
+                    zIndex: section == 0 ? 4 : 1
+                }}
+            >
                 <Swipe
                     onSwipeMove={this.shouldScrollPage}
                     onSwipeDown={this.prevSection}
@@ -158,7 +170,7 @@ class Zoom extends React.Component {
                     width: "100%",
                     height: "100%",
                     transform: "scale(0.5)",
-                    position: "absolute",
+                    position: "fixed",
                     zIndex: zIndex
                 }}
             >

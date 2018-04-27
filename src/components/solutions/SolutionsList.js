@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
+import TransitionGroup from "react-transition-group/TransitionGroup";
+import Transition from "react-transition-group/Transition";
+
 import { colors, breakpoints } from "../../theme/theme";
 import { transformScale, random, isMobile } from "../../helpers/helpers";
 import SolutionModal from "./SolutionModal";
-import TransitionGroup from "react-transition-group/TransitionGroup";
-import Transition from "react-transition-group/Transition";
+import ScrollDown from "./ScrollDown";
 
 const duration = 800;
 
@@ -218,7 +220,14 @@ class SolutionsVideo extends React.Component {
     }
 
     render() {
-        const { width, height, solutions, style } = this.props;
+        const {
+            width,
+            height,
+            solutions,
+            style,
+            transitionState,
+            nextSection
+        } = this.props;
         const { activeSolution, orbs, lines } = this.state;
 
         return (
@@ -355,6 +364,13 @@ class SolutionsVideo extends React.Component {
                         solution={activeSolution}
                         solutions={solutions}
                         close={() => this.handleClick(null)}
+                    />
+                )}
+
+                {transitionState == "entered" && (
+                    <ScrollDown
+                        color={colors.white}
+                        onClick={this.props.scrollDown}
                     />
                 )}
             </div>
