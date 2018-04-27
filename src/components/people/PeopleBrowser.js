@@ -168,7 +168,6 @@ class PeopleBrowser extends React.Component {
             widthAdjustment: isBrowser() ? window.innerWidth / 10 : 0,
             sizeAdjustment: isBrowser() ? window.innerWidth / 25 : 0
         };
-        this.width = window.innerWidth;
     }
 
     componentDidMount() {
