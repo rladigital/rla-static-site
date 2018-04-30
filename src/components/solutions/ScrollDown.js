@@ -42,6 +42,10 @@ const ScrollDownText = styled.h6.attrs({
     font-size: 0.8rem;
     font-weight: bold;
     text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    @media (min-width: ${breakpoints.medium}px) {
+        margin-bottom: 1rem;
+    }
 `;
 
 const Chevron = styled(FAIcon).attrs({

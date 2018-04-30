@@ -119,8 +119,8 @@ class SolutionsVideo extends React.Component {
         const array = new Array();
 
         if (isMobile()) {
-            const r = 340;
-            const deviation = 50;
+            const r = 400;
+            const deviation = 0;
 
             for (var i = 0; i < items.length; i++) {
                 array[i] = new Object();
@@ -284,7 +284,7 @@ class SolutionsVideo extends React.Component {
                         transform={`translate(${width / 2},${height /
                             2}) scale(${
                             isMobile()
-                                ? transformScale(700)
+                                ? transformScale(1000)
                                 : transformScale(1080)
                         })`}
                     >
@@ -294,23 +294,26 @@ class SolutionsVideo extends React.Component {
                         >
                             {lines}
                         </TransitionGroup>
-                        <TitleCircle cx={0} cy={0} r={200} />
-                        <Title x={0} y={0}>
-                            <tspan dy="-15px" x={0}>
-                                CONNECTED
-                            </tspan>
-                            <tspan dy="54px" x={0}>
-                                AMBITION
-                            </tspan>
-                        </Title>
-                        <Subtitle x={0} y={0}>
-                            <tspan dy="75px" x={0}>
-                                WORLD CLASS CONNECTED
-                            </tspan>
-                            <tspan dy="25px" x={0}>
-                                MARKETING SOLUTIONS
-                            </tspan>
-                        </Subtitle>
+
+                        <g transform={`scale(1.5)`}>
+                            <TitleCircle cx={0} cy={0} r={200} />
+                            <Title x={0} y={0}>
+                                <tspan dy="-15px" x={0}>
+                                    CONNECTED
+                                </tspan>
+                                <tspan dy="54px" x={0}>
+                                    AMBITION
+                                </tspan>
+                            </Title>
+                            <Subtitle x={0} y={0}>
+                                <tspan dy="75px" x={0}>
+                                    WORLD CLASS CONNECTED
+                                </tspan>
+                                <tspan dy="25px" x={0}>
+                                    MARKETING SOLUTIONS
+                                </tspan>
+                            </Subtitle>
+                        </g>
                         {orbs &&
                             solutions.map(({ node: solution }, index) => [
                                 <Solution
