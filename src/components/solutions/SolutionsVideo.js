@@ -123,6 +123,7 @@ class SolutionsVideo extends React.Component {
                     autoPlay
                     muted
                     loop
+                    playsInline
                     innerRef={video => {
                         this.video = video;
                     }}
