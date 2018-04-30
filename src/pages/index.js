@@ -61,7 +61,7 @@ export default class IndexPage extends React.Component {
     }
 
     render() {
-        const { data, scrolltop, font } = this.props;
+        const { data, scrolltop, setOffcanvasColor } = this.props;
         const { width, height } = this.state;
         const {
             work: { edges: work },
@@ -71,6 +71,7 @@ export default class IndexPage extends React.Component {
             people: { edges: people },
             transition
         } = data;
+
         return (
             <section style={transition && transition.style}>
                 <Script
@@ -82,15 +83,14 @@ export default class IndexPage extends React.Component {
                         width={width}
                         height={height}
                         solutions={solutions}
-                        font={font}
                         scrolltop={scrolltop}
+                        setOffcanvasColor={setOffcanvasColor}
                     >
                         <WorkSection work={work} />
                         <ServicesSection
                             width={width}
                             height={Math.max(height / 2, 400)}
                             services={services}
-                            font={font}
                         />
                         <NewsSection width={width} news={news} />
                         <PeopleSection people={people} />

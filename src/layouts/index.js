@@ -19,23 +19,31 @@ class TemplateWrapper extends React.Component {
     constructor(props) {
         super(props);
 
-        this.updateLayoutFuncton = this.updateLayoutFuncton.bind(this);
+        this.state = {
+            offcanvasColor: null
+        };
+
+        this.setOffcanvasColor = this.setOffcanvasColor.bind(this);
     }
-    updateLayoutFuncton(x) {
-        alert(x);
+    setOffcanvasColor(x) {
+        this.setState({ offcanvasColor: x });
     }
     render() {
+        const { offcanvasColor } = this.state;
         const { children, location, ...rest } = this.props;
 
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 <div style={{ height: "100%" }}>
                     <Helmet title="RLA" />
-                    <Offcanvas location={location} />
+                    <Offcanvas
+                        location={location}
+                        offcanvasColor={offcanvasColor}
+                    />
                     <div style={{ height: "100%" }}>
                         {children({
                             ...this.props,
-                            ...this.updateLayoutFuncton
+                            setOffcanvasColor: this.setOffcanvasColor
                         })}
                     </div>
                     {this.props.data && <Footer data={this.props.data} />}

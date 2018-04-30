@@ -65,8 +65,10 @@ const HeaderContainer = styled.div`
     z-index: 6;
     position: fixed;
     text-align: center;
-    color: ${isBrowser() && isMobile() ? colors.background : colors.white};
+    color: ${props =>
+        props.offcanvasColor ? props.offcanvasColor : colors.white};
     padding: ${spacing.padding}rem;
+    transition: color 1s ease;
     @media (min-width: ${breakpoints.medium}px) {
         z-index: ${props => props.zIndex};
     }
@@ -93,6 +95,7 @@ const Menu = styled.div`
     background: ${colors.reallyDarkBlueGray};
     font-family: ${props => props.theme.headings.fontFamily};
     @media (min-width: ${breakpoints.medium}px) {
+        z-index: 2;
         width: 400px;
     }
 `;
@@ -155,7 +158,7 @@ class Offcanvas extends React.Component {
     }
 
     render() {
-        const { location } = this.props;
+        const { location, offcanvasColor } = this.props;
         const { offcanvasActive } = this.state;
 
         const transitionProps = {
@@ -168,10 +171,18 @@ class Offcanvas extends React.Component {
 
         return [
             <HeaderBackground />,
-            <HeaderContainer zIndex={2} style={{ left: 0 }}>
+            <HeaderContainer
+                zIndex={2}
+                style={{ left: 0 }}
+                offcanvasColor={offcanvasColor}
+            >
                 {this.renderLogo.apply(this)}
             </HeaderContainer>,
-            <HeaderContainer zIndex={4} style={{ right: 0 }}>
+            <HeaderContainer
+                zIndex={4}
+                style={{ right: 0 }}
+                offcanvasColor={offcanvasActive ? colors.white : offcanvasColor}
+            >
                 <MenuIcon
                     active={offcanvasActive}
                     onClick={

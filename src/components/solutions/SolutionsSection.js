@@ -7,6 +7,8 @@ import SolutionsList from "./SolutionsList";
 import SolutionsVideo from "./SolutionsVideo";
 import SectionContainer from "../SectionContainer";
 
+import { colors } from "../../theme/theme";
+
 let scrollTimer;
 let lastScrollTop = 0;
 
@@ -37,6 +39,7 @@ class SolutionsSection extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener("wheel", this.handleScroll);
+        this.props.setOffcanvasColor(colors.white);
     }
 
     handleScroll(e) {
@@ -77,21 +80,25 @@ class SolutionsSection extends React.Component {
     }
 
     render() {
-        const { width, height, solutions } = this.props;
+        const { width, height, solutions, setOffcanvasColor } = this.props;
         const { section } = this.state;
 
         const sections = [
-            <Zoom key="section_1">
+            <Zoom
+                key="section_1"
+                cb={() => setOffcanvasColor(colors.background)}
+            >
                 <Section>
                     <SolutionsVideo
                         width={width}
                         height={height}
                         scrollDown={this.nextSection}
+                        offcanvasColor={colors.background}
                     />
                 </Section>
             </Zoom>,
 
-            <Zoom key="section_2">
+            <Zoom key="section_2" cb={() => setOffcanvasColor(colors.white)}>
                 <Section>
                     <SolutionsList
                         width={width}
@@ -134,6 +141,12 @@ class SolutionsSection extends React.Component {
 export default SolutionsSection;
 
 class Zoom extends React.Component {
+    componentDidMount() {
+        const { cb } = this.props;
+        if (cb) {
+            cb();
+        }
+    }
     render() {
         const {
             zIndex,
