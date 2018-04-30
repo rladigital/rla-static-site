@@ -146,6 +146,10 @@ const SelectedBiog = styled.p`
     position: relative;
 `;
 
+const StyledRow = styled(Row)`
+    position: relative;
+`;
+
 const Fade = ({ in: inProp, children, ...otherProps }) => (
     <Transition in={inProp} timeout={duration} {...otherProps}>
         {state => (
@@ -263,12 +267,8 @@ class PeopleBrowser extends React.Component {
 
         return (
             <PeopleBrowserContainer>
-                <Row
-                    style={{
-                        position: "relative"
-                    }}
-                >
-                    <Column>
+                <StyledRow>
+                    <Column large={12}>
                         <Control
                             className="fa-layers fa-fw"
                             onClick={() => this.navigateChunk("prev")}
@@ -295,7 +295,7 @@ class PeopleBrowser extends React.Component {
                             />
                         </Control>
                     </Column>
-                </Row>
+                </StyledRow>
                 <div
                     style={{
                         height: height,

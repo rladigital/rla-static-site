@@ -30,8 +30,7 @@ const Sidebar = styled(Column)`
 
 const SocialContainer = styled.div`
     margin: 0 1rem 3rem 0;
-    text-decoration: underline;
-    color: #bfbfbf;
+    color: #07172C;
     font-weight: 500;
     p{
         margin-bottom 0.5em;
@@ -94,7 +93,7 @@ export const NewsTemplate = ({
                     </Column>
                     <Column medium={1}>&nbsp;</Column>
                     <Sidebar medium={4}>
-                        <SidebarDate date={date} />
+                        <SidebarDate date={date.toLowerCase()} />
                         <PullQuote fontSize={1.8} padding="0 0 2.6rem">
                             {sideHeading}
                         </PullQuote>
