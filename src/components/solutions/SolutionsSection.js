@@ -35,7 +35,10 @@ class SolutionsSection extends React.Component {
         this.shouldScrollPage = this.shouldScrollPage.bind(this);
         this.setScrollable = this.setScrollable.bind(this);
 
-        this.handleScroll = _.throttle(this.handleScroll.bind(this), 1000);
+        this.handleScroll = _.throttle(this.handleScroll.bind(this), 1000, {
+            leading: true,
+            trailing: false
+        });
     }
 
     componentDidMount() {
@@ -54,7 +57,7 @@ class SolutionsSection extends React.Component {
     handleScroll(e) {
         console.log(e);
 
-        if (e.wheelDeltaY > 0) {
+        if (e.deltaY < 0) {
             this.prevSection();
         } else {
             this.nextSection();
@@ -243,7 +246,8 @@ class Slide extends React.Component {
             entering: {
                 opacity: 0,
                 transform: `translateY(${height}px)`,
-                position: "absolute"
+                position: "absolute",
+                zIndex: 2
             },
             entered: {
                 opacity: 1,
@@ -252,7 +256,8 @@ class Slide extends React.Component {
             exiting: {
                 opacity: 0,
                 transform: `translateY(${height}px)`,
-                position: "absolute"
+                position: "absolute",
+                zIndex: 2
             }
         };
 
