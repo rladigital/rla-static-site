@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Row, Column, Button, Modal } from "rla-components";
 import Carousel from "nuka-carousel";
 import FAIcon from "@fortawesome/react-fontawesome";
@@ -33,7 +33,6 @@ const CarouselItem = styled.div`
     width: 100%;
     height: 640px;
     text-align: center;
-    padding: 1rem;
     img {
         position: relative;
         transform: translateY(-50%);
@@ -51,10 +50,22 @@ const Control = styled.a`
     padding: ${spacing.padding}em 0;
     //text-shadow: 5px 5px 5px #000;
     filter: drop-shadow(0 0 1px #777);
-    //transform: translateY(-335px);
-    @media (min-width: ${breakpoints.medium}px) {
-        padding: ${spacing.padding}em;
-    }
+    transform: translateY(-50px);
+    ${props =>
+        props.right &&
+        css`
+            right: -70px;
+            @media (min-width: ${breakpoints.xlarge}px) {
+                right: 0;
+            }
+        `} ${props =>
+        props.left &&
+        css`
+            left: -70px;
+            @media (min-width: ${breakpoints.xlarge}px) {
+                left: 0;
+            }
+        `};
 `;
 
 export class GalleryModal extends React.Component {
@@ -63,6 +74,8 @@ export class GalleryModal extends React.Component {
         this.state = {
             currentSlide: 0
         };
+
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -95,12 +108,11 @@ export class GalleryModal extends React.Component {
             this.setSlide(
                 Math.min(
                     this.state.currentSlide + 1,
-                    this.props.data.clients.edges.length - 1
+                    this.props.images.length - 1
                 )
             );
         }
     }
-
     render() {
         const settings = {
             slideWidth: 1,
@@ -108,13 +120,7 @@ export class GalleryModal extends React.Component {
             dots: false,
             slideIndex: this.state.currentSlide,
             renderCenterRightControls: ({ nextSlide }) => (
-                <Control
-                    className="fa-layers fa-fw"
-                    onClick={nextSlide}
-                    style={{
-                        right: 0
-                    }}
-                >
+                <Control className="fa-layers fa-fw" onClick={nextSlide} left>
                     <FAIcon icon="chevron-right" transform="shrink-8" />
                     <FAIcon icon={["far", "circle"]} />
                 </Control>
@@ -123,9 +129,7 @@ export class GalleryModal extends React.Component {
                 <Control
                     className="fa-layers fa-fw"
                     onClick={previousSlide}
-                    style={{
-                        left: 0
-                    }}
+                    right
                 >
                     <FAIcon icon="chevron-left" transform="shrink-8" />
                     <FAIcon icon={["far", "circle"]} />

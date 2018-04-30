@@ -37,7 +37,7 @@ class WorkSection extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
-                    padding="1em 0 6em"
+                    padding="5em 0 6em"
                 >
                     <Row>
                         <Column large={7} centered>

@@ -11,7 +11,7 @@ import logo from "../img/rla.svg";
 
 import { spacing, colors, breakpoints } from "../theme/theme";
 import { navigation } from "../utils/config";
-import { transparentize, isBrowser } from "../helpers/helpers";
+import { transparentize, isBrowser, isMobile } from "../helpers/helpers";
 
 const duration = 500;
 
@@ -62,10 +62,10 @@ const HeaderBackground = styled.div`
 
 const HeaderContainer = styled.div`
     top: 0;
-    z-index: 4;
+    z-index: 6;
     position: fixed;
     text-align: center;
-    color: ${colors.white};
+    color: ${isBrowser() && isMobile() ? colors.background : colors.white};
     padding: ${spacing.padding}rem;
     @media (min-width: ${breakpoints.medium}px) {
         z-index: ${props => props.zIndex};
@@ -84,7 +84,7 @@ const Overlay = styled.div`
 const Menu = styled.div`
     top: 0;
     right: 0;
-    z-index: 3;
+    z-index: 5;
     width: 100%;
     height: 100%;
     position: fixed;

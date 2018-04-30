@@ -121,7 +121,7 @@ function globalCss(theme) {
             margin: ${theme.paragraph.margin}rem 0 ${
         theme.paragraph.margin
     }rem 0;
-            line-height: 1.5;
+            line-height: 1.8;
         }
         strong, b{
             font-weight: bold;

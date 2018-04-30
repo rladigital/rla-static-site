@@ -135,7 +135,7 @@ class ServicesSection extends React.Component {
             <SectionContainer
                 color={colors.white}
                 background={colors.background}
-                padding="2em 0"
+                padding="2em 0 10em"
                 style={{ marginBottom: "-8em" }}
             >
                 <Row>
@@ -145,7 +145,7 @@ class ServicesSection extends React.Component {
                             padding={{
                                 top: 4,
                                 right: 0,
-                                bottom: 0,
+                                bottom: 2,
                                 left: 0
                             }}
                             fontSize={3.4}
@@ -153,6 +153,10 @@ class ServicesSection extends React.Component {
                         >
                             ALL <span>JOINED UP</span>{" "}
                         </HeaderBlock>
+                    </Column>
+                </Row>
+                <Row>
+                    <Column large={6} centered>
                         <IntroPara>
                             With our unique insight and range of talents, we can
                             provide and seamlessly connect all of these key
@@ -309,7 +313,7 @@ class ServicesSection extends React.Component {
                                 >
                                     <FAIcon
                                         icon="chevron-left"
-                                        transform="shrink-8"
+                                        transform="shrink-10"
                                     />
                                     <FAIcon icon={["far", "circle"]} />
                                 </Control>
@@ -326,7 +330,7 @@ class ServicesSection extends React.Component {
                                 >
                                     <FAIcon
                                         icon="chevron-right"
-                                        transform="shrink-8"
+                                        transform="shrink-10"
                                     />
                                     <FAIcon icon={["far", "circle"]} />
                                 </Control>

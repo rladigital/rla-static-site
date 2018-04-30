@@ -65,7 +65,7 @@ const Person = styled.div`
 const PersonImage = styled.div`
     width: 100px;
     height: 100px;
-    border-radius: 100px;
+    border-radius: 200px;
     background-size: cover;
     background-position: center;
     display: inline-block;
@@ -77,9 +77,10 @@ const PersonTitle = styled.h3`
     margin: 0 0 0.2rem;
 `;
 const PersonRole = styled.h4`
-    font-size: 14px;
+    font-size: 13px;
     white-space: nowrap;
     margin: 0;
+    font-weight: lighter;
 `;
 
 const Control = styled.a`
@@ -124,6 +125,7 @@ const SelectedText = styled.div`
 `;
 
 const SelectedTitle = styled.h1`
+    margin-top: 1em;
     margin-bottom: 0.5em;
     position: relative;
     font-size: 30px;
@@ -137,6 +139,7 @@ const SelectedRole = styled.h1`
 `;
 
 const SelectedBiog = styled.p`
+    font-size: 14px;
     position: relative;
 `;
 
@@ -166,7 +169,7 @@ class PeopleBrowser extends React.Component {
             data: null,
             array: [0, 1, 2, 3],
             widthAdjustment: isBrowser() ? window.innerWidth / 10 : 0,
-            sizeAdjustment: isBrowser() ? window.innerWidth / 25 : 0
+            sizeAdjustment: isBrowser() ? window.innerWidth / 80 : 0
         };
     }
 
@@ -355,7 +358,9 @@ class PeopleBrowser extends React.Component {
                                 <SelectedRole>
                                     {selected.frontmatter.role}
                                 </SelectedRole>
-                                <HTMLContent content={selected.html} />
+                                <SelectedBiog>
+                                    <HTMLContent content={selected.html} />
+                                </SelectedBiog>
                             </SelectedText>
                         </Column>
                     </Row>

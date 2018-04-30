@@ -95,14 +95,15 @@ const BackButton = styled.a`
     position: absolute;
     z-index: 999;
     color: ${colors.white};
-    font-size: 1.2em;
+    font-size: 1em;
     cursor: pointer;
     text-shadow: 1px 2px 11px ${colors.background};
+    letter-spacing: 2px;
 `;
 
 const ContentContainer = styled.div`
     font-size: 1rem;
-    padding: 0 6vw 0 0;
+    padding: 0 2vw 0 0;
     p {
         line-height: 1.5;
         margin: 0 0 1.5rem 0;
@@ -113,18 +114,18 @@ const ContentContainer = styled.div`
         text-decoration: underline;
     }
     @media (min-width: ${breakpoints.medium}px) {
-        padding-bottom: 4vw;
         p {
             line-height: 1.8;
         }
-    }
-    @media (min-width: ${breakpoints.xlarge}px) {
-        padding-bottom: 4vw;
     }
 `;
 
 const ButtonContainer = ContentContainer.extend`
     padding-bottom: 0 !important;
+`;
+
+const StyledButton = styled(Button)`
+    letter-spacing: 2px;
 `;
 
 class SolutionModal extends React.Component {
@@ -218,7 +219,7 @@ class SolutionModal extends React.Component {
                     role="button"
                     onClick={() => this.handleClose(close)}
                 >
-                    <FAIcon icon="chevron-left" /> Back
+                    <FAIcon icon="chevron-left" /> BACK
                 </BackButton>
                 <Svg>
                     x <Circle {...circleProps} />
@@ -226,7 +227,7 @@ class SolutionModal extends React.Component {
                 <ContentWrapper
                     style={{
                         width: w,
-                        height: width < 500 ? h / 1.3 : h / 1.1,
+                        height: (width < 500 ? h / 1.3 : h / 1.1) - 100,
                         top: this.calculateTopOffset(height, showButtons),
                         left: circleProps.cx,
                         opacity: animation,
@@ -249,7 +250,7 @@ class SolutionModal extends React.Component {
                             </ContentRow>
                             <ContentRow>
                                 <Row expanded>
-                                    <Column large={6}>
+                                    <Column xlarge={5}>
                                         <ContentContainer>
                                             <ContentMarkdown
                                                 content={
@@ -259,7 +260,7 @@ class SolutionModal extends React.Component {
                                             />
                                         </ContentContainer>
                                     </Column>
-                                    <Column large={6}>
+                                    <Column xlarge={5}>
                                         <ContentContainer>
                                             <ContentMarkdown
                                                 content={
@@ -276,9 +277,9 @@ class SolutionModal extends React.Component {
                             width > 500 && (
                                 <ContentRow>
                                     <Row expanded>
-                                        <Column large={6}>
+                                        <Column xlarge={5}>
                                             <ButtonContainer>
-                                                <Button
+                                                <StyledButton
                                                     size="large"
                                                     color="white"
                                                     hollow
@@ -295,12 +296,12 @@ class SolutionModal extends React.Component {
                                                             .node.frontmatter
                                                             .title
                                                     }
-                                                </Button>
+                                                </StyledButton>
                                             </ButtonContainer>
                                         </Column>
-                                        <Column large={6}>
+                                        <Column xlarge={5}>
                                             <ButtonContainer>
-                                                <Button
+                                                <StyledButton
                                                     size="large"
                                                     color="white"
                                                     hollow
@@ -317,7 +318,7 @@ class SolutionModal extends React.Component {
                                                             .title
                                                     }{" "}
                                                     <FAIcon icon="arrow-right" />
-                                                </Button>
+                                                </StyledButton>
                                             </ButtonContainer>
                                         </Column>
                                     </Row>

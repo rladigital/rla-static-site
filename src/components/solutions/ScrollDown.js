@@ -16,7 +16,7 @@ let Container = styled.div.attrs({
     z-index: 1;
     color: ${props => props.color};
     @media (min-width: ${breakpoints.medium}px) {
-        padding: 50px;
+        padding: 20px;
     }
 `;
 

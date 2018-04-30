@@ -33,10 +33,10 @@ class NewsSection extends React.Component {
                         <Column xlarge={6} collapse>
                             <HeaderBlock
                                 baseColor={colors.background}
-                                fontSize={5}
+                                fontSize={3.4}
                                 textAlign="inherit"
                                 padding={{
-                                    top: 4,
+                                    top: 5.5,
                                     right: 0,
                                     bottom: 1,
                                     left: 0
@@ -50,6 +50,8 @@ class NewsSection extends React.Component {
                                     hollow={true}
                                     size="large"
                                     color="background"
+                                    borderWidth={3}
+                                    padding={2}
                                 >
                                     See All News &rarr;
                                 </Button>

@@ -30,7 +30,7 @@ const MissionSection = ({ percentage, text }) => (
                     padding={{
                         top: 4,
                         right: 0,
-                        bottom: 2,
+                        bottom: 0,
                         left: 0
                     }}
                     fontSize={3.6}
@@ -40,7 +40,7 @@ const MissionSection = ({ percentage, text }) => (
             </Column>
         </Row>
         <Row>
-            <Column large={8} xlarge={5}>
+            <Column large={6} xlarge={4}>
                 <P>
                     Our marketing know-how knows no bounds. Helping our clients
                     connect with their customers all across the world is

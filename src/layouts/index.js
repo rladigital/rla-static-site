@@ -16,6 +16,14 @@ require("../theme/font-awesome-setup");
 injectGlobal`${globalCss(customTheme)}`;
 
 class TemplateWrapper extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.updateLayoutFuncton = this.updateLayoutFuncton.bind(this);
+    }
+    updateLayoutFuncton(x) {
+        alert(x);
+    }
     render() {
         const { children, location, ...rest } = this.props;
 
@@ -24,7 +32,12 @@ class TemplateWrapper extends React.Component {
                 <div style={{ height: "100%" }}>
                     <Helmet title="RLA" />
                     <Offcanvas location={location} />
-                    <div style={{ height: "100%" }}>{children()}</div>
+                    <div style={{ height: "100%" }}>
+                        {children({
+                            ...this.props,
+                            ...this.updateLayoutFuncton
+                        })}
+                    </div>
                     {this.props.data && <Footer data={this.props.data} />}
                 </div>
             </ThemeProvider>

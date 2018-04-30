@@ -63,9 +63,7 @@ class SolutionsVideo extends React.Component {
         const logoScale =
             1600 > window.innerWidth
                 ? transformScale(1600)
-                : transformScale(1000);
-
-        console.log(this.props);
+                : transformScale(1200);
 
         return (
             <div>

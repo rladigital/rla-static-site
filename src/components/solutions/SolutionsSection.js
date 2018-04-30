@@ -56,9 +56,13 @@ class SolutionsSection extends React.Component {
         this.setState({ section: section });
     }
 
-    prevSection() {
+    prevSection(position, e) {
         const { height } = this.props;
         if (window.pageYOffset == 0) {
+            if (e) {
+                e.preventDefault();
+            }
+
             let section = Math.max(this.state.section - 1, 0);
             this.setState({ section: section });
         }

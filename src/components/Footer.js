@@ -17,7 +17,7 @@ const StyledLink = styled(Link)`
     display: block;
     text-transform: uppercase;
     color: ${colors.white};
-    margin-bottom: ${spacing.padding}rem;
+    margin-bottom: 0.8rem;
     font-size: 16px;
     font-weight: 700;
 `;
@@ -77,7 +77,7 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
                 })}
             </Column>
 
-            {contacts.map(({ node: contact }, index) => {
+            {contacts.reverse().map(({ node: contact }, index) => {
                 return (
                     <Column large={3} key={index}>
                         <Location
