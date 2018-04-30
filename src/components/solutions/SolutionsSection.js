@@ -13,6 +13,7 @@ let scrollTimer;
 let lastScrollTop = 0;
 
 const Container = styled.div`
+    background-color: #263453;
     background-image: url("img/background.png");
     background-attachment: fixed;
     background-size: cover;
