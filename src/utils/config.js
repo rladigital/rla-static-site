@@ -1,5 +1,5 @@
 export const navigation = [
-    { to: "/Work", text: "Work" },
+    { to: "/work", text: "Work" },
     { to: "/clients", text: "Clients" },
     { to: "/people", text: "People" },
     { to: "/careers", text: "Careers" },
