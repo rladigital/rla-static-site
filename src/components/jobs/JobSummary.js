@@ -42,7 +42,7 @@ const Category = styled.h5`
     display: inline-block;
     padding: 0.6rem 0.8rem;
     color: ${props => props.theme.lightColor};
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     background: ${props => props.theme.accent};
     font-size: 0.8rem;
 `;
@@ -54,7 +54,6 @@ const Title = styled.p`
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 1.2;
-    font-family: ${props => props.theme.headings.fontFamily};
 `;
 
 const JobSummary = ({ job, height, centred }) => {

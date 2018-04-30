@@ -62,7 +62,9 @@ const Subtitle = styled.text`
 
 const Solution = styled.text`
     font-size: 20px;
-    font-weight: 900;
+    font-weight: bold;
+    font-family: "Gotham" sans-serif;
+    letter-spacing: 2px;
     fill: ${colors.white};
     @media (min-width: ${breakpoints.medium}px) {
         font-size: 16px;

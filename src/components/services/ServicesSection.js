@@ -315,7 +315,7 @@ class ServicesSection extends React.Component {
                                     <Icon
                                         size={40}
                                         icon="chevron-left"
-                                        transform="shrink-10 up-1"
+                                        transform="shrink-10"
                                         iconColor={colors.white}
                                     />
                                 </Control>
@@ -333,7 +333,7 @@ class ServicesSection extends React.Component {
                                     <Icon
                                         size={40}
                                         icon="chevron-right"
-                                        transform="shrink-10 up-1"
+                                        transform="shrink-10"
                                         iconColor={colors.white}
                                     />
                                 </Control>

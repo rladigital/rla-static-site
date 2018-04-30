@@ -83,6 +83,7 @@ const PersonRole = styled.h4`
     margin: 0;
     font-weight: lighter;
     font-family: Avenir, sans-serif;
+    letter-spacing: 1px;
 `;
 
 const Control = styled.a`
@@ -278,7 +279,7 @@ class PeopleBrowser extends React.Component {
                             <Icon
                                 size={40}
                                 icon="chevron-left"
-                                transform="shrink-10 up-1"
+                                transform="shrink-10"
                                 iconColor={colors.white}
                             />
                         </Control>
@@ -291,7 +292,7 @@ class PeopleBrowser extends React.Component {
                             <Icon
                                 size={40}
                                 icon="chevron-right"
-                                transform="shrink-10 up-1"
+                                transform="shrink-10"
                                 iconColor={colors.white}
                             />
                         </Control>

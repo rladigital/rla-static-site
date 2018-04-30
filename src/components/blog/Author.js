@@ -84,9 +84,11 @@ const PostLink = styled(Link)`
 const PostDate = styled.div`
     display: table-cell;
     padding-right: 1rem;
+    padding-bottom: 1em;
 `;
 const PostTitle = styled.div`
     display: table-cell;
+    padding-bottom: 1em;
 `;
 const Author = ({ author }) => {
     console.log(author);

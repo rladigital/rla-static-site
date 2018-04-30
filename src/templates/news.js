@@ -28,6 +28,16 @@ const Sidebar = styled(Column)`
     }
 `;
 
+const SocialContainer = styled.div`
+    margin: 0 1rem 3rem 0;
+    text-decoration: underline;
+    color: #bfbfbf;
+    font-weight: 500;
+    p{
+        margin-bottom 0.5em;
+    }
+`;
+
 export const NewsTemplate = ({
     content,
     contentComponent,
@@ -89,43 +99,45 @@ export const NewsTemplate = ({
                             {sideHeading}
                         </PullQuote>
 
-                        {isBrowser() && (
-                            <Social
-                                size={50}
-                                icon="linkedin-in"
-                                href={
-                                    "https://www.linkedin.com/shareArticle?mini=true&url=" +
-                                    window.location.href +
-                                    "&title=" +
-                                    title +
-                                    "&summary=" +
-                                    sideHeading
-                                }
-                                color={colors.background}
-                                borderColor={colors.background}
-                                margin="0 1rem 3rem 0"
-                                transform="shrink-10 up-0.5"
-                            />
-                        )}
-
-                        {isBrowser() && (
-                            <Social
-                                size={50}
-                                icon="twitter"
-                                href={
-                                    "https://twitter.com/home?status=" +
-                                    title +
-                                    " - " +
-                                    sideHeading +
-                                    " - " +
-                                    window.location.href
-                                }
-                                color={colors.background}
-                                borderColor={colors.background}
-                                margin="0 1rem 3rem 0"
-                                transform="shrink-10 "
-                            />
-                        )}
+                        <SocialContainer>
+                            <p>Share This Post</p>
+                            {isBrowser() && (
+                                <Social
+                                    size={50}
+                                    icon="linkedin-in"
+                                    href={
+                                        "https://www.linkedin.com/shareArticle?mini=true&url=" +
+                                        window.location.href +
+                                        "&title=" +
+                                        title +
+                                        "&summary=" +
+                                        sideHeading
+                                    }
+                                    color={colors.background}
+                                    borderColor={colors.background}
+                                    transform="shrink-10 up-0.5"
+                                    margin="0 1rem 0 0"
+                                />
+                            )}
+                            {isBrowser() && (
+                                <Social
+                                    size={50}
+                                    icon="twitter"
+                                    href={
+                                        "https://twitter.com/home?status=" +
+                                        title +
+                                        " - " +
+                                        sideHeading +
+                                        " - " +
+                                        window.location.href
+                                    }
+                                    color={colors.background}
+                                    borderColor={colors.background}
+                                    transform="shrink-10 "
+                                    margin="0 1rem 0 0 "
+                                />
+                            )}
+                        </SocialContainer>
 
                         {author && <Author author={author} />}
 

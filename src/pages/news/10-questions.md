@@ -33,7 +33,7 @@ So, it’s been really important to me that RLA stays on top of the marketing au
 
 So many in my 15 years. But I think it has to be whilst in my first role as an AD on VW & VWCV, convincing the client to order a rain machine whilst on a photoshoot in South Africa after convincing him it would be more cost effective to shoot out there, saving on the cost of weather insurance in the UK - required in case of rain! And whilst on the same shoot, being a part of the team that wrote the ‘Let’s Go To Work’ line for VWCV. The client actually kicked the wall when we presented it to him, he loved it so much! For it then to go on and become one of the top 10 campaigns of the decade is an awesome accolade.
 
-![null](/img/sam-2.jpg)
+![null](/img/sam-2@2x.jpg)
 
 **When you’re not in the barn, what do you get up to?**
 

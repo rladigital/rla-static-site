@@ -25,6 +25,7 @@ const Title = styled.h2`
     font-weight: 900;
     text-align: center;
     color: ${props => props.theme.lightColor};
+    font-family: inherit;
     @media (min-width: ${breakpoints.xlarge}px) {
         font-size: 2.3rem;
     }
