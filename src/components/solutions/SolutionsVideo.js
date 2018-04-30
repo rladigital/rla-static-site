@@ -33,6 +33,16 @@ const Img = styled.div`
     background-position: center;
     background-repeat: no-repeat;
 `;
+
+const Background = styled.div`
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: ${colors.background};
+`;
+
 class SolutionsVideo extends React.Component {
     constructor(props) {
         super(props);
@@ -100,13 +110,14 @@ class SolutionsVideo extends React.Component {
                         />
                     </g>
                 </Svg>
-
                 {transitionState == "entered" && (
                     <ScrollDown
                         color={colors.background}
                         onClick={this.props.scrollDown}
                     />
                 )}
+
+                <Background />
 
                 <Video
                     autoPlay
