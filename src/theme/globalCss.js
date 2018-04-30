@@ -22,6 +22,14 @@ function globalCss(theme) {
 
         @font-face {
             font-family: 'Gotham';
+            src: url('/fonts/Gotham-Light.woff2') format('woff2'),
+                url('/fonts/Gotham-Light.woff') format('woff');
+            font-weight: lighter;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gotham';
             src: url('/fonts/Gotham-Ultra.woff2') format('woff2'),
                 url('/fonts/Gotham-Ultra.woff') format('woff');
             font-weight: 900;

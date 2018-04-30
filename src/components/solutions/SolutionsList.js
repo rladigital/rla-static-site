@@ -41,11 +41,11 @@ const Svg = styled.svg`
 `;
 
 const TitleCircle = styled.circle`
-    fill: #6e7291;
+    fill: ${colors.background};
 `;
 
 const Title = styled.text`
-    font-size: 80px;
+    font-size: 58px;
     font-weight: 900;
     fill: ${colors.white};
     text-anchor: middle;
@@ -53,10 +53,11 @@ const Title = styled.text`
 `;
 
 const Subtitle = styled.text`
-    font-size: 20px;
+    font-size: 18px;
     fill: ${colors.white};
     text-anchor: middle;
     letter-spacing: 0px;
+    font-weight: light;
 `;
 
 const Solution = styled.text`
@@ -293,15 +294,15 @@ class SolutionsVideo extends React.Component {
                         </TransitionGroup>
                         <TitleCircle cx={0} cy={0} r={200} />
                         <Title x={0} y={0}>
-                            <tspan dy="-30px" x={0}>
+                            <tspan dy="-15px" x={0}>
                                 CONNECTED
                             </tspan>
-                            <tspan dy="70px" x={0}>
+                            <tspan dy="54px" x={0}>
                                 AMBITION
                             </tspan>
                         </Title>
                         <Subtitle x={0} y={0}>
-                            <tspan dy="85px" x={0}>
+                            <tspan dy="75px" x={0}>
                                 WORLD CLASS CONNECTED
                             </tspan>
                             <tspan dy="25px" x={0}>
