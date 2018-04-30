@@ -108,22 +108,18 @@ class SolutionsVideo extends React.Component {
                     />
                 )}
 
-                {isMobile() ? (
-                    <Img src={placeholder} />
-                ) : (
-                    <Video
-                        autoPlay
-                        muted
-                        loop
-                        innerRef={video => {
-                            this.video = video;
-                        }}
-                        preload="auto"
-                        poster={placeholder}
-                    >
-                        <source src={video} type="video/mp4" />
-                    </Video>
-                )}
+                <Video
+                    autoPlay
+                    muted
+                    loop
+                    innerRef={video => {
+                        this.video = video;
+                    }}
+                    preload="auto"
+                    poster={placeholder}
+                >
+                    <source src={video} type="video/mp4" />
+                </Video>
             </div>
         );
     }
