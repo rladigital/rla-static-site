@@ -81,6 +81,7 @@ const PersonRole = styled.h4`
     white-space: nowrap;
     margin: 0;
     font-weight: lighter;
+    font-family: Avenir, sans-serif;
 `;
 
 const Control = styled.a`

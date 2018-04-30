@@ -43,7 +43,14 @@ function globalCss(theme) {
             font-weight: bold;
             font-style: normal;
         }
-        
+
+        @font-face {
+            font-family: 'Avenir';
+            src: url('/fonts/Avenir-Light.woff2') format('woff2'),
+                url('/fonts/Avenir-Light.woff') format('woff');
+            font-weight: lighter;
+            font-style: normal;
+        }        
 
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
