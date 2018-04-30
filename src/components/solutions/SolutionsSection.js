@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { TransitionGroup, Transition } from "react-transition-group";
 import Swipe from "react-easy-swipe";
+import _ from "lodash";
 
 import SolutionsList from "./SolutionsList";
 import SolutionsVideo from "./SolutionsVideo";
@@ -10,7 +11,6 @@ import SectionContainer from "../SectionContainer";
 import { colors } from "../../theme/theme";
 
 let scrollTimer;
-let lastScrollTop = 0;
 
 const Container = styled.div`
     background-color: #263453;
@@ -31,9 +31,11 @@ class SolutionsSection extends React.Component {
 
         this.nextSection = this.nextSection.bind(this);
         this.prevSection = this.prevSection.bind(this);
-        this.handleScroll = this.handleScroll.bind(this);
+
         this.shouldScrollPage = this.shouldScrollPage.bind(this);
         this.setScrollable = this.setScrollable.bind(this);
+
+        this.handleScroll = _.throttle(this.handleScroll.bind(this), 1000);
     }
 
     componentDidMount() {
@@ -50,15 +52,13 @@ class SolutionsSection extends React.Component {
     }
 
     handleScroll(e) {
-        clearTimeout(scrollTimer);
         console.log(e);
-        scrollTimer = setTimeout(() => {
-            if (e.wheelDeltaY > 0) {
-                this.prevSection();
-            } else {
-                this.nextSection();
-            }
-        }, 100);
+
+        if (e.wheelDeltaY > 0) {
+            this.prevSection();
+        } else {
+            this.nextSection();
+        }
     }
 
     nextSection() {
@@ -276,7 +276,6 @@ class Slide extends React.Component {
 class Section extends React.Component {
     render() {
         const { children, ...rest } = this.props;
-        console.log(this.props);
         return (
             <div style={{ minHeight: "100%", overflow: "hidden" }}>
                 {React.Children.map(children, child =>
