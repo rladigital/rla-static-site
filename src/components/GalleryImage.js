@@ -43,15 +43,12 @@ const CarouselItem = styled.div`
 `;
 
 const Control = styled.a`
-    top: 75%;
     font-size: 3em;
     color: ${colors.white};
     cursor: pointer;
     position: absolute;
-    padding: ${spacing.padding}em 0;
     //text-shadow: 5px 5px 5px #000;
     filter: drop-shadow(0 0 1px #777);
-    transform: translateY(-50px);
     ${props =>
         props.right &&
         css`
