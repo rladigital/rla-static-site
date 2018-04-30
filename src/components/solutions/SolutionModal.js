@@ -136,6 +136,7 @@ class SolutionModal extends React.Component {
             current: this.props.solution,
             animation: 0
         };
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     componentDidMount() {
@@ -152,6 +153,8 @@ class SolutionModal extends React.Component {
                 animation: 1
             });
         }, 25);
+
+        window.addEventListener("keydown", this.handleKeyDown);
     }
 
     componentWillUnmount() {
@@ -161,6 +164,23 @@ class SolutionModal extends React.Component {
 
         if (this.props.setScrollable) {
             this.props.setScrollable(true);
+        }
+
+        window.removeEventListener("keydown", this.handleKeyDown);
+    }
+
+    handleKeyDown(e) {
+        const { current } = this.state;
+        const { solutions } = this.props;
+        const prevSolution =
+            current - 1 < 0 ? solutions.length - 1 : current - 1;
+        const nextSolution = current + 1 >= solutions.length ? 0 : current + 1;
+
+        if (e.key == "ArrowLeft") {
+            this.handleClick(prevSolution);
+        }
+        if (e.key == "ArrowRight") {
+            this.handleClick(nextSolution);
         }
     }
 
