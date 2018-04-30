@@ -70,7 +70,7 @@ class SolutionsSection extends React.Component {
 
     prevSection(position, e) {
         const { height } = this.props;
-        if (this.state.scrollable && window.pageYOffset == 0) {
+        if (this.state.scrollable && window.pageYOffset < 10) {
             if (e) {
                 e.preventDefault();
             }
