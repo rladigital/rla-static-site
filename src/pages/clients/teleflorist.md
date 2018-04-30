@@ -1,6 +1,6 @@
 ---
 templateKey: clients
-title: Teleflorist
+title: Teleflorist.
 logo: /img/teleflorist@2x.png
 solutionLookup: Customer Relationship
 solutionsList:
