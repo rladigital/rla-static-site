@@ -3,9 +3,12 @@ templateKey: contacts
 title: San Francisco
 group: Mission
 address: |-
-  847 Sansome Street <br>\
-  Suite 100 <br>\
-  San Francisco\
+  847 Sansome Street
+
+  Suite 100
+
+  San Francisco
+
   CA94111
 contactName: Mission
 contactImage: /img/the-mission.svg
