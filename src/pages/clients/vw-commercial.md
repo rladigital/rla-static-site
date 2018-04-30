@@ -6,5 +6,6 @@ solutionLookup: Customer Loyalty
 solutionsList:
   - Customer Acquisition
   - Customer Relationship
+  - Brand Desire
 ---
 
