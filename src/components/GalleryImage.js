@@ -6,6 +6,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 
 import { isMobile, isBrowser } from "../helpers/helpers";
 import { colors, spacing, breakpoints } from "../theme/theme";
+import Icon from "./blog/Icon";
 
 export const GalleryItem = styled.div`
     width: 100%;
@@ -121,8 +122,12 @@ export class GalleryModal extends React.Component {
             slideIndex: this.state.currentSlide,
             renderCenterRightControls: ({ nextSlide }) => (
                 <Control className="fa-layers fa-fw" onClick={nextSlide} left>
-                    <FAIcon icon="chevron-right" transform="shrink-8" />
-                    <FAIcon icon={["far", "circle"]} />
+                    <Icon
+                        size={40}
+                        icon="chevron-right"
+                        transform="shrink-10"
+                        iconColor={colors.white}
+                    />
                 </Control>
             ),
             renderCenterLeftControls: ({ previousSlide }) => (
@@ -131,8 +136,12 @@ export class GalleryModal extends React.Component {
                     onClick={previousSlide}
                     right
                 >
-                    <FAIcon icon="chevron-left" transform="shrink-8" />
-                    <FAIcon icon={["far", "circle"]} />
+                    <Icon
+                        size={40}
+                        icon="chevron-left"
+                        transform="shrink-10"
+                        iconColor={colors.white}
+                    />
                 </Control>
             ),
             renderBottomCenterControls: ({ currentSlide }) => null,

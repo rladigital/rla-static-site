@@ -16,6 +16,7 @@ import {
     isBrowser
 } from "../../helpers/helpers";
 import { HTMLContent } from "../Content";
+import Icon from "../blog/Icon";
 
 const height = isBrowser() && isMobile() ? 680 : 600;
 
@@ -274,8 +275,12 @@ class PeopleBrowser extends React.Component {
                             onClick={() => this.navigateChunk("prev")}
                             style={{ left: 0 }}
                         >
-                            <FAIcon icon="chevron-left" transform="shrink-8" />
-                            <FAIcon icon={["far", "circle"]} />
+                            <Icon
+                                size={40}
+                                icon="chevron-left"
+                                transform="shrink-10 up-1"
+                                iconColor={colors.white}
+                            />
                         </Control>
 
                         <Control
@@ -283,8 +288,12 @@ class PeopleBrowser extends React.Component {
                             onClick={() => this.navigateChunk("next")}
                             style={{ right: 0 }}
                         >
-                            <FAIcon icon="chevron-right" transform="shrink-8" />
-                            <FAIcon icon={["far", "circle"]} />
+                            <Icon
+                                size={40}
+                                icon="chevron-right"
+                                transform="shrink-10 up-1"
+                                iconColor={colors.white}
+                            />
                         </Control>
                     </Column>
                 </Row>

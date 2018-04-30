@@ -16,9 +16,18 @@ const Circle = styled.a`
     text-align: center;
     display: inline-block;
     margin: ${props => props.margin};
+    position: relative;
 `;
 
-const Social = ({ icon, transform, ...rest }) => {
+const Icon = ({ icon, transform, ...rest }) => {
+    return (
+        <Circle {...rest} target="_blank">
+            <FAIcon icon={icon} transform={transform} />
+        </Circle>
+    );
+};
+
+export const Social = ({ icon, transform, ...rest }) => {
     return (
         <Circle {...rest} target="_blank">
             <FAIcon icon={["fab", icon]} transform={transform} />
@@ -26,7 +35,7 @@ const Social = ({ icon, transform, ...rest }) => {
     );
 };
 
-Social.defaultProps = {
+Icon.defaultProps = {
     size: 20,
     color: "#ffffff",
     borderColor: "#ffffff",
@@ -34,4 +43,6 @@ Social.defaultProps = {
     transform: "shrink-8 up-1"
 };
 
-export default Social;
+Social.defaultProps = Icon.defaultProps;
+
+export default Icon;

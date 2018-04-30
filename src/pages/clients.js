@@ -12,6 +12,7 @@ import theme, { colors, spacing, breakpoints } from "../theme/theme";
 import { isMobile, isBrowser } from "../helpers/helpers";
 import HeaderBlock from "../components/HeaderBlock";
 import SolutionModal from "../components/solutions/SolutionModal";
+import Icon from "../components/blog/Icon";
 
 const rotate360 = keyframes`
   from {
@@ -192,8 +193,12 @@ export default class ClientsPage extends React.Component {
                         right: 0
                     }}
                 >
-                    <FAIcon icon="chevron-right" transform="shrink-8" />
-                    <FAIcon icon={["far", "circle"]} />
+                    <Icon
+                        size={40}
+                        icon="chevron-right"
+                        transform="shrink-10 "
+                        iconColor={colors.white}
+                    />
                 </Control>
             ),
             renderCenterLeftControls: ({ previousSlide }) => (
@@ -204,8 +209,12 @@ export default class ClientsPage extends React.Component {
                         left: 0
                     }}
                 >
-                    <FAIcon icon="chevron-left" transform="shrink-8" />
-                    <FAIcon icon={["far", "circle"]} />
+                    <Icon
+                        size={40}
+                        icon="chevron-left"
+                        transform="shrink-10 "
+                        iconColor={colors.white}
+                    />
                 </Control>
             ),
             renderBottomCenterControls: ({ currentSlide }) => null,

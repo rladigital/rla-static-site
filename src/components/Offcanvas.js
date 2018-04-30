@@ -6,7 +6,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import Scrollbars from "react-custom-scrollbars";
 import { Transition, TransitionGroup } from "react-transition-group";
 
-import Social from "../components/blog/Social";
+import { Social } from "../components/blog/Icon";
 import logo from "../img/rla.svg";
 
 import { spacing, colors, breakpoints } from "../theme/theme";

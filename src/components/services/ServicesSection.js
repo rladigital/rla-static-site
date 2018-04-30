@@ -6,6 +6,7 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import HeaderBlock from "../HeaderBlock";
 import ServiceSummary from "./ServiceSummary";
 import SectionContainer from "../SectionContainer";
+import Icon from "../blog/Icon";
 
 import { colors } from "../../theme/theme";
 import { isMobile, hexToInt } from "../../helpers/helpers";
@@ -311,11 +312,12 @@ class ServicesSection extends React.Component {
                                     }}
                                     onClick={() => this.prev()}
                                 >
-                                    <FAIcon
+                                    <Icon
+                                        size={40}
                                         icon="chevron-left"
-                                        transform="shrink-10"
+                                        transform="shrink-10 up-1"
+                                        iconColor={colors.white}
                                     />
-                                    <FAIcon icon={["far", "circle"]} />
                                 </Control>
 
                                 <Control
@@ -328,11 +330,12 @@ class ServicesSection extends React.Component {
                                     }}
                                     onClick={() => this.next()}
                                 >
-                                    <FAIcon
+                                    <Icon
+                                        size={40}
                                         icon="chevron-right"
-                                        transform="shrink-10"
+                                        transform="shrink-10 up-1"
+                                        iconColor={colors.white}
                                     />
-                                    <FAIcon icon={["far", "circle"]} />
                                 </Control>
                             </Column>
                         </Row>

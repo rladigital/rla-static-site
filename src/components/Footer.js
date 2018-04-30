@@ -11,7 +11,7 @@ import { colors, spacing } from "../theme/theme";
 import { navigation } from "../utils/config";
 import logo from "../img/rla.svg";
 import SectionContainer from "./SectionContainer";
-import Social from "../components/blog/Social";
+import { Social } from "../components/blog/Icon";
 
 const StyledLink = styled(Link)`
     display: block;

@@ -12,7 +12,7 @@ import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
 import HeaderBlock from "../components/HeaderBlock";
 import SidebarDate from "../components/blog/SidebarDate";
-import Social from "../components/blog/Social";
+import { Social } from "../components/blog/Icon";
 import NewsSummary from "../components/news/NewsSummary";
 import Author from "../components/blog/Author";
 

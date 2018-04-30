@@ -6,7 +6,7 @@ import { Row, Column } from "rla-components";
 import Img from "gatsby-image";
 
 import { colors, breakpoints, spacing } from "../../theme/theme";
-import Social from "./Social";
+import { Social } from "./Icon";
 
 const Container = styled.div`
     padding: 1.3rem;
