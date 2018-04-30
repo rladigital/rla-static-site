@@ -24,13 +24,15 @@ class SolutionsSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            section: 0
+            section: 0,
+            scrollable: true
         };
 
         this.nextSection = this.nextSection.bind(this);
         this.prevSection = this.prevSection.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
         this.shouldScrollPage = this.shouldScrollPage.bind(this);
+        this.setScrollable = this.setScrollable.bind(this);
     }
 
     componentDidMount() {
@@ -40,6 +42,10 @@ class SolutionsSection extends React.Component {
     componentWillUnmount() {
         window.removeEventListener("wheel", this.handleScroll);
         this.props.setOffcanvasColor(colors.white);
+    }
+
+    setScrollable(x) {
+        this.setState({ scrollable: x });
     }
 
     handleScroll(e) {
@@ -55,13 +61,15 @@ class SolutionsSection extends React.Component {
     }
 
     nextSection() {
-        let section = Math.min(this.state.section + 1, 2);
-        this.setState({ section: section });
+        if (this.state.scrollable) {
+            let section = Math.min(this.state.section + 1, 2);
+            this.setState({ section: section });
+        }
     }
 
     prevSection(position, e) {
         const { height } = this.props;
-        if (window.pageYOffset == 0) {
+        if (this.state.scrollable && window.pageYOffset == 0) {
             if (e) {
                 e.preventDefault();
             }
@@ -105,6 +113,7 @@ class SolutionsSection extends React.Component {
                         height={height}
                         solutions={solutions}
                         scrollDown={this.nextSection}
+                        setScrollable={this.setScrollable}
                     />
                 </Section>
             </Zoom>,

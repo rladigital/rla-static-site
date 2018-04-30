@@ -226,7 +226,8 @@ class SolutionsVideo extends React.Component {
             solutions,
             style,
             transitionState,
-            nextSection
+            nextSection,
+            setScrollable
         } = this.props;
         const { activeSolution, orbs, lines } = this.state;
 
@@ -364,6 +365,7 @@ class SolutionsVideo extends React.Component {
                         solution={activeSolution}
                         solutions={solutions}
                         close={() => this.handleClick(null)}
+                        setScrollable={setScrollable}
                     />
                 )}
 

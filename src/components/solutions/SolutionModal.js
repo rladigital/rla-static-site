@@ -143,6 +143,10 @@ class SolutionModal extends React.Component {
             modalRoot.appendChild(this.el);
         }
 
+        if (this.props.setScrollable) {
+            this.props.setScrollable(false);
+        }
+
         setTimeout(() => {
             this.setState({
                 animation: 1
@@ -153,6 +157,10 @@ class SolutionModal extends React.Component {
     componentWillUnmount() {
         if (isBrowser()) {
             modalRoot.removeChild(this.el);
+        }
+
+        if (this.props.setScrollable) {
+            this.props.setScrollable(true);
         }
     }
 
