@@ -295,7 +295,11 @@ class SolutionsVideo extends React.Component {
                             {lines}
                         </TransitionGroup>
 
-                        <g transform={`scale(1.5)`}>
+                        <g
+                            transform={`scale(${
+                                isMobile() ? transformScale(1.5) : "1"
+                            })`}
+                        >
                             <TitleCircle cx={0} cy={0} r={200} />
                             <Title x={0} y={0}>
                                 <tspan dy="-15px" x={0}>

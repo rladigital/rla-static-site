@@ -77,20 +77,24 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
                 })}
             </Column>
 
-            {contacts.reverse().map(({ node: contact }, index) => {
-                return (
-                    <Column large={3} key={index}>
-                        <Location
-                            to={contact.fields.slug}
-                            address={contact.frontmatter.address}
-                            phone={contact.frontmatter.tel}
-                            email={contact.frontmatter.email}
-                        >
-                            {contact.frontmatter.title}
-                        </Location>
-                    </Column>
-                );
-            })}
+            {contacts
+                .sort(function(a, b) {
+                    return a.name - b.name;
+                })
+                .map(({ node: contact }, index) => {
+                    return (
+                        <Column large={3} key={index}>
+                            <Location
+                                to={contact.fields.slug}
+                                address={contact.frontmatter.address}
+                                phone={contact.frontmatter.tel}
+                                email={contact.frontmatter.email}
+                            >
+                                {contact.frontmatter.title}
+                            </Location>
+                        </Column>
+                    );
+                })}
 
             <Column large={2} style={{ textAlign: "right" }}>
                 <SocialIcon
