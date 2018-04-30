@@ -265,37 +265,37 @@ class PeopleBrowser extends React.Component {
             ];
         }
 
-        return (
-            <PeopleBrowserContainer>
-                <StyledRow>
-                    <Column large={12}>
-                        <Control
-                            className="fa-layers fa-fw"
-                            onClick={() => this.navigateChunk("prev")}
-                            style={{ left: 0 }}
-                        >
-                            <Icon
-                                size={40}
-                                icon="chevron-left"
-                                transform="shrink-10"
-                                iconColor={colors.white}
-                            />
-                        </Control>
+        return [
+            <StyledRow>
+                <Column large={12}>
+                    <Control
+                        className="fa-layers fa-fw"
+                        onClick={() => this.navigateChunk("prev")}
+                        style={{ left: 0 }}
+                    >
+                        <Icon
+                            size={40}
+                            icon="chevron-left"
+                            transform="shrink-10"
+                            iconColor={colors.white}
+                        />
+                    </Control>
 
-                        <Control
-                            className="fa-layers fa-fw"
-                            onClick={() => this.navigateChunk("next")}
-                            style={{ right: 0 }}
-                        >
-                            <Icon
-                                size={40}
-                                icon="chevron-right"
-                                transform="shrink-10"
-                                iconColor={colors.white}
-                            />
-                        </Control>
-                    </Column>
-                </StyledRow>
+                    <Control
+                        className="fa-layers fa-fw"
+                        onClick={() => this.navigateChunk("next")}
+                        style={{ right: 0 }}
+                    >
+                        <Icon
+                            size={40}
+                            icon="chevron-right"
+                            transform="shrink-10"
+                            iconColor={colors.white}
+                        />
+                    </Control>
+                </Column>
+            </StyledRow>,
+            <PeopleBrowserContainer>
                 <div
                     style={{
                         height: height,
@@ -375,7 +375,7 @@ class PeopleBrowser extends React.Component {
                     </Row>
                 )}
             </PeopleBrowserContainer>
-        );
+        ];
     }
 }
 
