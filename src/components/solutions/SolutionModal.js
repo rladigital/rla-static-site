@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
 import ContentMarkdown, { HTMLContent } from "../Content";
-import { scale, random, isBrowser } from "../../helpers/helpers";
+import { scale, random, isBrowser, isMobile } from "../../helpers/helpers";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import FAIcon from "@fortawesome/react-fontawesome";
@@ -255,7 +255,7 @@ class SolutionModal extends React.Component {
                 <ContentWrapper
                     style={{
                         width: w,
-                        height: (width < 500 ? h / 1.3 : h / 1.1) - 100,
+                        height: (width < 500 ? h / 1.3 : h / 1.1) - 50,
                         top: this.calculateTopOffset(height, showButtons),
                         left: circleProps.cx,
                         opacity: animation,
@@ -263,7 +263,7 @@ class SolutionModal extends React.Component {
                     }}
                 >
                     <Content onClick={e => e.stopPropagation()}>
-                        <Scrollbars>
+                        <Scrollbars autoHide>
                             <ContentRow>
                                 <Row expanded>
                                     <Column>
