@@ -207,7 +207,7 @@ class SolutionsVideo extends React.Component {
             const lineProps = {
                 d: `M${startX},${startY} Q${midpointX},${midpointY} ${endX}, ${endY}`,
                 stroke: "url(#stroke_grad)",
-                strokeWidth: "3",
+                strokeWidth: "2",
                 fill: "transparent"
             };
 
