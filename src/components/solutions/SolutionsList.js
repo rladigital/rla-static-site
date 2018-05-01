@@ -9,33 +9,6 @@ import { transformScale, random, isMobile } from "../../helpers/helpers";
 import SolutionModal from "./SolutionModal";
 import ScrollDown from "./ScrollDown";
 
-const duration = 800;
-
-const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-    opacity: 0
-};
-
-const transitionStyles = {
-    entering: { opacity: 0 },
-    entered: { opacity: 1 }
-};
-
-const Fade = ({ in: inProp, children, ...otherProps }) => (
-    <Transition in={inProp} timeout={duration} {...otherProps}>
-        {state => (
-            <g
-                style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state]
-                }}
-            >
-                {children}
-            </g>
-        )}
-    </Transition>
-);
-
 const Svg = styled.svg`
     font-family: ${props => props.theme.headings.fontFamily};
 `;
@@ -73,9 +46,16 @@ const Solution = styled.text`
 
 const Orb = styled.circle`
     cursor: pointer;
-    transition: r 1s cubic-bezier(1, -0.2, 0, 1.2);
+`;
+
+const G = styled.g`
+    circle {
+        transition: r 1s ease;
+    }
     &:hover {
-        r: 16px;
+        circle {
+            r: 12px;
+        }
     }
 `;
 
@@ -139,8 +119,8 @@ class SolutionsVideo extends React.Component {
                 array[i].r = size;
             }
         } else {
-            const r = 400;
-            const deviation = 70;
+            const r = 340;
+            const deviation = 50;
 
             for (var i = 0; i < items.length; i++) {
                 array[i] = new Object();
@@ -164,7 +144,7 @@ class SolutionsVideo extends React.Component {
         let lines = this.state.lines.slice();
 
         // Array
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 4; i++) {
             lines.push(this.generateLine(orbs));
         }
 
@@ -288,11 +268,10 @@ class SolutionsVideo extends React.Component {
                                 : transformScale(1080)
                         })`}
                     >
-                        <TransitionGroup
-                            component="g"
-                            enter={Boolean(lines.length > 8)}
-                        >
-                            {lines}
+                        <TransitionGroup component="g">
+                            {lines.length > 4 &&
+                                transitionState == "entered" &&
+                                lines}
                         </TransitionGroup>
 
                         <g transform={`scale(${isMobile() ? "1.5" : "1"})`}>
@@ -315,52 +294,68 @@ class SolutionsVideo extends React.Component {
                             </Subtitle>
                         </g>
                         {orbs &&
-                            solutions.map(({ node: solution }, index) => [
-                                <Solution
-                                    y={orbs[index].cy}
-                                    textAnchor={
-                                        isMobile()
-                                            ? "middle"
-                                            : orbs[index].cx < 0
-                                                ? "end"
-                                                : "start"
-                                    }
+                            solutions.map(({ node: solution }, index) => (
+                                <OrbAnimation
                                     key={`solution_${index}`}
+                                    visible={Boolean(
+                                        [
+                                            "enter",
+                                            "entering",
+                                            "entered"
+                                        ].indexOf(transitionState) > -1
+                                    )}
+                                    index={index}
+                                    appear={true}
                                 >
-                                    {solution.frontmatter.title
-                                        .toUpperCase()
-                                        .split(" ")
-                                        .map((word, i) => {
-                                            const x = isMobile()
-                                                ? orbs[index].cx
-                                                : orbs[index].cx +
-                                                  (orbs[index].cx < 0
-                                                      ? -orbs[index].r - 10
-                                                      : orbs[index].r + 10);
+                                    <Solution
+                                        y={orbs[index].cy}
+                                        textAnchor={
+                                            isMobile()
+                                                ? "middle"
+                                                : orbs[index].cx < 0
+                                                    ? "end"
+                                                    : "start"
+                                        }
+                                    >
+                                        {solution.frontmatter.title
+                                            .toUpperCase()
+                                            .split(" ")
+                                            .map((word, i) => {
+                                                const x = isMobile()
+                                                    ? orbs[index].cx
+                                                    : orbs[index].cx +
+                                                      (orbs[index].cx < 0
+                                                          ? -orbs[index].r - 10
+                                                          : orbs[index].r + 10);
 
-                                            const dy = isMobile()
-                                                ? i == 0
-                                                    ? orbs[index].cy > 0
-                                                        ? 60
-                                                        : -60
-                                                    : 20
-                                                : i == 0 ? "-3px" : "18px";
+                                                const dy = isMobile()
+                                                    ? i == 0
+                                                        ? orbs[index].cy > 0
+                                                            ? 60
+                                                            : -60
+                                                        : 20
+                                                    : i == 0 ? "-3px" : "18px";
 
-                                            return (
-                                                <tspan key={i} x={x} dy={dy}>
-                                                    {word}
-                                                </tspan>
-                                            );
-                                        })}
-                                </Solution>,
-                                <Orb
-                                    key={index}
-                                    fill={`url(#grad_${index})`}
-                                    id={`orb_${index}`}
-                                    onClick={() => this.handleClick(index)}
-                                    {...orbs[index]}
-                                />
-                            ])}
+                                                return (
+                                                    <tspan
+                                                        key={i}
+                                                        x={x}
+                                                        dy={dy}
+                                                    >
+                                                        {word}
+                                                    </tspan>
+                                                );
+                                            })}
+                                    </Solution>
+                                    <Orb
+                                        key={index}
+                                        fill={`url(#grad_${index})`}
+                                        id={`orb_${index}`}
+                                        onClick={() => this.handleClick(index)}
+                                        {...orbs[index]}
+                                    />
+                                </OrbAnimation>
+                            ))}
                     </g>
                 </Svg>
 
@@ -382,6 +377,80 @@ class SolutionsVideo extends React.Component {
                     />
                 )}
             </div>
+        );
+    }
+}
+
+class Fade extends React.Component {
+    render() {
+        const { in: inProp, children, ...otherProps } = this.props;
+
+        const duration = 1000;
+
+        const defaultStyle = {
+            transition: `opacity ${duration}ms ease-in-out`,
+            opacity: 0
+        };
+
+        const transitionStyles = {
+            entering: { opacity: 0 },
+            entered: { opacity: 1 }
+        };
+
+        return (
+            <Transition in={inProp} timeout={duration} {...otherProps}>
+                {state => (
+                    <g
+                        style={{
+                            ...defaultStyle,
+                            ...transitionStyles[state]
+                        }}
+                    >
+                        {children}
+                    </g>
+                )}
+            </Transition>
+        );
+    }
+}
+
+class OrbAnimation extends React.Component {
+    render() {
+        const { visible, children, index, ...otherProps } = this.props;
+
+        const duration = 1000;
+
+        const defaultStyle = {
+            transform: `scale(0.7)`,
+            transition: `opacity ${duration}ms ease, transform ${duration}ms ease`,
+            transitionDelay: `${index / 8}s`,
+            opacity: 0
+        };
+
+        const transitionStyles = {
+            entering: {
+                opacity: 0,
+                transform: `scale(0.7)`
+            },
+            entered: {
+                opacity: 1,
+                transform: `scale(1)`
+            }
+        };
+
+        return (
+            <Transition in={visible} timeout={duration} {...otherProps}>
+                {state => (
+                    <G
+                        style={{
+                            ...defaultStyle,
+                            ...transitionStyles[state]
+                        }}
+                    >
+                        {children}
+                    </G>
+                )}
+            </Transition>
         );
     }
 }

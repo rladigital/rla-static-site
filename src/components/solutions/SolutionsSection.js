@@ -56,8 +56,6 @@ class SolutionsSection extends React.Component {
     }
 
     handleScroll(e) {
-        console.log(e);
-
         if (e.deltaY < 0) {
             this.prevSection();
         } else {
