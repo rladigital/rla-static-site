@@ -18,7 +18,7 @@ author: Jack Davey
 ---
 Last week the creative and studio teams at RLA dusted their pork pie hats,  grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.
 
-A three-day programme of workshops, talks from industry leaders, expert panels and award winning work, the festival is now in its third year with RLA having attended for the last two.
+A three-day programme of workshops, talks from industry leaders, expert panels and award winning work, the festival is now in its third year with RLA having attended for the last two.
 
 We spoke to some of the creative team at RLA to get their take on the new ideas and noteworthy work on display at the show.
 
@@ -26,7 +26,7 @@ We spoke to some of the creative team at RLA to get their take on the new ideas 
 
 ## Scott Marlow / Senior Designer
 
-CGI and VFX is my jam. So I was drawn initially drawn to this years D&AD Festival by one thing – “Blade Runner 2049: Building a new world” a talk given by Paul Inglis (Supervising Art Director) and David Sheldon-Hicks (Founder and Executive Creative Director at Territory Studio – the industry leading CGI and VFX house).
+CGI and VFX are my jam. So I was drawn initially drawn to this years D&AD Festival by one thing – “Blade Runner 2049: Building a new world” a talk given by Paul Inglis (Supervising Art Director) and David Sheldon-Hicks (Founder and Executive Creative Director at Territory Studio – the industry leading CGI and VFX house).
 
 Sadly, Paul Inglis wasn’t able to make it, with Hicks apologising on his behalf that he was “Busy elsewhere, with lightsabers”. If you’re going to have an excuse, I suppose making Star Wars Episode 9 is as cool a one as I can think of.
 
@@ -44,7 +44,8 @@ Following a slightly frustrating experience at last year’s D&AD (the awards an
 
 The queue meant it took us about an hour to get in (the complimentary Pop Chips softened the blow), but once inside we went straight to Kit Altin’s talk on how to be more persuasive in advertising. On a packed Toolbox Stage, Kit talked the audience though Aristotle’s “Modes of Persuasion”, and discussed how brands can apply this to advertising.
 
-The ‘modes’ are divided into Pathos (an appeal to the audience’s emotion), Ethos (demonstrating the credibility of the presenter) and Logos (claims made through logic and facts). Kit then took us through some classic and modern ads, discussing as a group how much and in what combination of each of the three ‘modes’ the ads were using.
+The ‘modes’ are divided into Pathos (an appeal to the audience’s emotion), Ethos (demonstrating the credibility of the presenter) and Logos (claims made through logic and facts). Kit then took us through some classic and modern ads, discussing as a group
+ how much and in what combination of each of the three ‘modes’ the ads were using.
 
 Maybe unsurprisingly, IPA studies tend to suggest emotional appeals (Pathos) are the most powerful of the three, grabbing attention and triumphing over authority and logic (think of a John Lewis campaign).
 
@@ -52,11 +53,11 @@ It was a fascinating talk, and one that really made us think about how we positi
 
 ![](/img/1366x532 02 mid article image 4 andy.jpg)
 
-## Andy Orritt / Studio Manager 
+## Andy Orritt / Studio Manager
 
 Aside from the award winning creative work and the guests that are expected at the D&AD Festival, tech and software seemed to have a stronger focus this year.
 
-Microsoft and Adobe sponsored the festival and were front and centre – quite literally. Microsoft had you tripping over Surface Studios as you walked through the entrance hall, while Adobe staged, what seemed like, a rolling workshop, focusing primarily on XD. 
+Microsoft and Adobe sponsored the festival and were front and centre – quite literally. Microsoft had you tripping over Surface Studios as you walked through the entrance hall, while Adobe staged, what seemed like, a rolling workshop, focusing primarily on XD. 
 
 The Surface Studio certainly looks very impressive, particularly the drawing tools, but I can’t see it working that well putting layouts together in InDesign or XD (without an incredibly steep learning curve).
 
@@ -75,4 +76,3 @@ During Trott’s (highly quotable, sage-pearl-of-wisdom packed) talk, he discuss
 The talk, titled “How to do what you are not allowed to do” encouraged the packed audience of creatives to take a leaf from his book, and find wily, unconventional ways to make their own creative ideas survive client and committee reviews. He brilliantly summed up his talk by reassuring the audience that getting in trouble for boundary pushing work wasn’t the worst thing in the world, saying “You’re supposed to get in trouble, you’re supposed to get banned. Controversy is a currency. This is advertising, this isn’t for shy people. If you want to be boring, go and collect stamps.”
 
 Overall, despite the festival still finding its feet in many ways (changing the layout and structure of the festival quite significantly compared to the previous year), the creative and studio teams at RLA got a huge amount out of the festival, and are already eagerly looking forward to returning in 2019.
-
