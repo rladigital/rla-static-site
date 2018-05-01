@@ -52,6 +52,7 @@ export const pageQuery = graphql`
                     id
                     frontmatter {
                         title
+                        description
                         templateKey
                         role
                         hero {

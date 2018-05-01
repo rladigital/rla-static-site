@@ -57,8 +57,9 @@ const Title = styled.p`
 `;
 
 const JobSummary = ({ job, height, centred }) => {
+    console.log(job);
     return (
-        <Link to={job.fields.slug}>
+        <Link to={job.frontmatter.description ? job.fields.slug : "/contact"}>
             <Container
                 backgroundImage={getOriginalImageSrc(job.frontmatter.hero)}
                 height={height}
