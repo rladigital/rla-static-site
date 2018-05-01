@@ -3,7 +3,7 @@ templateKey: job
 area: Freelance
 title: We’re always looking for Freelance Creatives to help out.
 closing: 19/04/2018
-description: \-
+description: 
 level: Freelance
 location: Bournemouth
 salary: DOE
@@ -14,4 +14,3 @@ benefits:
   - Fun Environment
 hero: /img/igor-son-285029.jpg
 ---
-

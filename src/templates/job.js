@@ -62,11 +62,13 @@ export const JobTemplate = props => {
             )}
             <JobContainer>
                 <Row>
-                    <Column large={7} className="cms-content">
-                        <PostContent content={description} />
-                    </Column>
-                    <Column large={1}>&nbsp;</Column>
-                    <Column large={4}>
+                    {description && [
+                        <Column large={7} className="cms-content">
+                            <PostContent content={description} />
+                        </Column>,
+                        <Column large={1}>&nbsp;</Column>
+                    ]}
+                    <Column large={description && 4}>
                         <SummaryContainer>
                             <SummaryItem label="Level:">{level}</SummaryItem>
                             <SummaryItem label="Salary:">{salary}</SummaryItem>
