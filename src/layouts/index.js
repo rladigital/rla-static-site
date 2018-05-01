@@ -62,6 +62,7 @@ export default TemplateWrapper;
 export const query = graphql`
     query FooterQuery {
         allMarkdownRemark(
+            sort: { fields: [frontmatter___title], order: ASC }
             filter: {
                 fields: {
                     slug: { regex: "/contacts/(bournemouth)|(london)//" }

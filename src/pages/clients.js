@@ -44,8 +44,8 @@ const LogoContainer = styled.div`
 const Logo = styled.div`
     width: 100%;
     height: 10vw;
-    min-height: 80px;
-    max-height: 100px;
+    min-height: 60px;
+    max-height: 80px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -107,7 +107,7 @@ const Control = styled.a`
     cursor: pointer;
     position: absolute;
     padding: ${spacing.padding}em 0;
-    transform: translateY(-335px);
+    transform: translateY(-363px);
     @media (min-width: ${breakpoints.medium}px) {
         padding: ${spacing.padding}em;
     }
@@ -185,6 +185,7 @@ export default class ClientsPage extends React.Component {
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
+            wrapAround: true,
             renderCenterRightControls: ({ nextSlide }) => (
                 <Control
                     className="fa-layers fa-fw"
@@ -358,6 +359,7 @@ export default class ClientsPage extends React.Component {
 export const pageQuery = graphql`
     query clientsQuery {
         clients: allMarkdownRemark(
+            sort: { fields: [frontmatter___title], order: ASC }
             filter: { frontmatter: { templateKey: { eq: "clients" } } }
         ) {
             edges {
