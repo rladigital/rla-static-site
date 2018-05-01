@@ -33,10 +33,10 @@ class NewsSection extends React.Component {
                         <Column xlarge={6} collapse>
                             <HeaderBlock
                                 baseColor={colors.background}
-                                fontSize={3.4}
+                                fontSize={5}
                                 textAlign="inherit"
                                 padding={{
-                                    top: 5.5,
+                                    top: 4,
                                     right: 0,
                                     bottom: 1,
                                     left: 0
