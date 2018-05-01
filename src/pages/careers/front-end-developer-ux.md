@@ -3,7 +3,7 @@ templateKey: job
 area: DIGITAL
 title: Front End Developer
 closing: 27/04/2018
-description: >
+description: >-
   # About Us
 
 
@@ -72,7 +72,7 @@ description: >
   **Good to have**
 
   Native Application Experience, Design, CMS Experience (e.g. WordPress)
-level: Senior
+level: ' '
 location: Bournemouth
 salary: DOE
 hours: '9:00am - 5:30pm'
