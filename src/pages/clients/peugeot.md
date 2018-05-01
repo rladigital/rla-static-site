@@ -1,7 +1,7 @@
 ---
 templateKey: clients
-title: Peugeot
-logo: /img/peugeot.png
+title: PSA Group
+logo: /img/psagroup.png
 solutionsList:
   - Brand Desire
   - Customer Acquisition
