@@ -251,7 +251,10 @@ class SolutionModal extends React.Component {
                 style={{ opacity: animation }}
                 onClick={() => this.handleClose(close)}
                 style={{
-                    background: isMobile() && currentSolution.frontmatter.color2
+                    background:
+                        isMobile() && currentSolution.frontmatter.color2,
+                    opacity: animation,
+                    transitionDelay: animation ? "0.5s" : "0s"
                 }}
             >
                 <BackButton
