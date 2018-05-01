@@ -11,7 +11,7 @@ const Container = styled.div`
     padding: ${spacing.padding}em;
     background: ${colors.white};
     color: ${colors.darkBlueGray};
-    word-break: break-word;
+
     p {
         margin: 0.2rem 0;
         line-height: 1;
@@ -21,7 +21,7 @@ const Container = styled.div`
 const ContactLocationName = styled.h3`
     color: ${colors.accent};
     font-weight: bold;
-    font-size: 7vw;
+    font-size: 7em;
     @media (min-width: ${breakpoints.medium}px) {
         font-size: 4vw;
     }
@@ -59,10 +59,19 @@ const Details = styled.div`
     line-height: 1.2;
     margin-bottom: 1em;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.8em;
     a {
         color: ${colors.black};
     }
+    @media (min-width: ${breakpoints.medium}px) {
+        font-size: 1em;
+    }
+`;
+
+const IconDetails = Details.extend`
+    word-break: break-all;
+    text-indent: -29px;
+    margin-left: 29px;
 `;
 
 class ContactDetail extends React.Component {
@@ -91,7 +100,7 @@ class ContactDetail extends React.Component {
                             <br />
                             {contact.frontmatter.contactRole}
                         </Details>
-                        <Details>
+                        <IconDetails>
                             <Icon
                                 icon="phone"
                                 mask={["fas", "circle"]}
@@ -100,8 +109,8 @@ class ContactDetail extends React.Component {
                             <a href={`tel:${contact.frontmatter.tel}`}>
                                 {contact.frontmatter.tel}
                             </a>
-                        </Details>
-                        <Details>
+                        </IconDetails>
+                        <IconDetails>
                             <Icon
                                 icon="envelope"
                                 mask={["fas", "circle"]}
@@ -110,7 +119,7 @@ class ContactDetail extends React.Component {
                             <a href={`mailto:${contact.frontmatter.email}`}>
                                 {contact.frontmatter.email}
                             </a>
-                        </Details>
+                        </IconDetails>
                     </div>
                 )}
             </Container>
