@@ -63,6 +63,8 @@ The Surface Studio certainly looks very impressive, particularly the drawing too
 
 The rest of the tech on show ranged from gesture controlled cars, collaborative digital sketches, to an Augmented Reality game called Tosser (that gave you the opportunity to throw Donald Trump around the Oval Office while fragments of his many speeches blared out of the headphones). Which was all very cathartic, though I’m not sure where it fits into D&AD’s mission to promote creative excellence.
 
+![tbc](/img/1366x532 02 mid article image 5 jack.jpg)
+
 ## Jack Davey / Senior Art Director
 
 For me, the D&AD Festival is one of the highlights of the year when it comes to the creative industries, and this year’s show was no different. VR seemed to be being heavily pushed as the ‘technology du jour’, with about 8 of the 12 smaller displays focusing solely on the technology. And whilst the D&AD Award winning work was fantastic to see – the talks were what I was really here for.
