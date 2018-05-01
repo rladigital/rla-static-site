@@ -61,7 +61,7 @@ Microsoft and Adobe sponsored the festival and were front and centre – quite l
 
 The Surface Studio certainly looks very impressive, particularly the drawing tools, but I can’t see it working that well putting layouts together in InDesign or XD (without an incredibly steep learning curve).
 
-The rest of the tech on show ranged from gesture controlled cars, collaborative digital sketches, to an Augmented Reality game called Tosser (that gave you the opportunity to throw Donald Trump around the Oval Office while fragments of his many speeches blared out of the headphones). Which was all very cathartic, though I’m not sure where it fits into D&AD’s mission to promote creative excellence.
+The rest of the tech on show ranged from gesture controlled cars, collaborative digital sketches, to an Augmented Reality game called Tosser, that gave you the opportunity to throw Donald Trump around the Oval Office while fragments of his many speeches blared out of the headphones. Which was all very cathartic, though I’m not sure where it fits into D&AD’s mission to promote creative excellence.
 
 ![tbc](/img/1366x532 02 mid article image 5 jack.jpg)
 
