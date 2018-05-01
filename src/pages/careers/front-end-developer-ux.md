@@ -63,7 +63,6 @@ description: >-
 
   # The Person:
 
-
   **Key Skills**
 
   HTML, CSS, JavaScript - ES2015/16, React, Redux, WebPack
