@@ -44,8 +44,7 @@ Following a slightly frustrating experience at last year’s D&AD (the awards an
 
 The queue meant it took us about an hour to get in (the complimentary Pop Chips softened the blow), but once inside we went straight to Kit Altin’s talk on how to be more persuasive in advertising. On a packed Toolbox Stage, Kit talked the audience though Aristotle’s “Modes of Persuasion”, and discussed how brands can apply this to advertising.
 
-The ‘modes’ are divided into Pathos (an appeal to the audience’s emotion), Ethos (demonstrating the credibility of the presenter) and Logos (claims made through logic and facts). Kit then took us through some classic and modern ads, discussing as a group
- how much and in what combination of each of the three ‘modes’ the ads were using.
+The ‘modes’ are divided into Pathos (an appeal to the audience’s emotion), Ethos (demonstrating the credibility of the presenter) and Logos (claims made through logic and facts). Kit then took us through some classic and modern ads, discussing as a group how much and in what combination of each of the three ‘modes’ the ads were using.
 
 Maybe unsurprisingly, IPA studies tend to suggest emotional appeals (Pathos) are the most powerful of the three, grabbing attention and triumphing over authority and logic (think of a John Lewis campaign).
 
