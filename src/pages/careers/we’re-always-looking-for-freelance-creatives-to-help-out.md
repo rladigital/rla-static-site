@@ -1,7 +1,7 @@
 ---
 templateKey: job
 area: Freelance
-title: We’re always looking for Freelance Creatives to help out.
+title: We’re always looking for freelance creatives to help out.
 closing: 19/04/2018
 description: \-
 level: Freelance
