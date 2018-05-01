@@ -274,25 +274,6 @@ class SolutionsVideo extends React.Component {
                                 lines}
                         </TransitionGroup>
 
-                        <g transform={`scale(${isMobile() ? "1.5" : "1"})`}>
-                            <TitleCircle cx={0} cy={0} r={200} />
-                            <Title x={0} y={0}>
-                                <tspan dy="-15px" x={0}>
-                                    CONNECTED
-                                </tspan>
-                                <tspan dy="54px" x={0}>
-                                    AMBITION
-                                </tspan>
-                            </Title>
-                            <Subtitle x={0} y={0}>
-                                <tspan dy="75px" x={0}>
-                                    WORLD CLASS CONNECTED
-                                </tspan>
-                                <tspan dy="25px" x={0}>
-                                    MARKETING SOLUTIONS
-                                </tspan>
-                            </Subtitle>
-                        </g>
                         {orbs &&
                             solutions.map(({ node: solution }, index) => (
                                 <OrbAnimation
@@ -356,6 +337,25 @@ class SolutionsVideo extends React.Component {
                                     />
                                 </OrbAnimation>
                             ))}
+                        <g transform={`scale(${isMobile() ? "1.5" : "1"})`}>
+                            <TitleCircle cx={0} cy={0} r={200} />
+                            <Title x={0} y={0}>
+                                <tspan dy="-15px" x={0}>
+                                    CONNECTED
+                                </tspan>
+                                <tspan dy="54px" x={0}>
+                                    AMBITION
+                                </tspan>
+                            </Title>
+                            <Subtitle x={0} y={0}>
+                                <tspan dy="75px" x={0}>
+                                    WORLD CLASS CONNECTED
+                                </tspan>
+                                <tspan dy="25px" x={0}>
+                                    MARKETING SOLUTIONS
+                                </tspan>
+                            </Subtitle>
+                        </g>
                     </g>
                 </Svg>
 
