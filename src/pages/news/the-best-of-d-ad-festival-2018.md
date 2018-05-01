@@ -54,7 +54,7 @@ It was a fascinating talk, and one that really made us think about how we positi
 
 ## Andy Orritt / Studio Manager
 
-Aside from the award winning creative work and the guests that are expected at the D&AD Festival, tech and software seemed to have a stronger focus this year.
+Aside from the award winning creative work and guests that are expected at the D&AD Festival, tech and software seemed to have a stronger focus this year.
 
 Microsoft and Adobe sponsored the festival and were front and centre – quite literally. Microsoft had you tripping over Surface Studios as you walked through the entrance hall, while Adobe staged, what seemed like, a rolling workshop, focusing primarily on XD. 
 
