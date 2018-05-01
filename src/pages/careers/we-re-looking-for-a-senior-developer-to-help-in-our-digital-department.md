@@ -96,7 +96,7 @@ location: Bournemouth
 salary: DOE
 hours: '9:00am - 5:30pm'
 benefits:
-  - 28 Days Hoilday
+  - 28 Days Holiday
   - Your birthday as a day off
   - Continuous Professional Development
   - Childcare Vouchers
@@ -107,4 +107,3 @@ benefits:
   - Fridge Friday
 hero: /img/account handler role a img_7605.jpg
 ---
-

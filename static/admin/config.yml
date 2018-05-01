@@ -114,7 +114,7 @@ collections:
       - {label: "Location", name: "location", widget: "string"}
       - {label: "Salary", name: "salary", widget: "string"}
       - {label: "Hours", name: "hours", widget: "string", default: "9:00am - 5:30pm"}
-      - {label: "Benefits", name: "benefits", widget: "list", default: ["28 Days Hoilday", "Pension", "Fun Environment"]}
+      - {label: "Benefits", name: "benefits", widget: "list", default: ["28 Days Holiday", "Pension", "Fun Environment"]}
       - {label: "Hero", name: "hero", widget: "image", default: "/img/missing_avatar.svg"}
   - name: "contacts"
     label: "Contacts"
