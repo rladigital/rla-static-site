@@ -36,6 +36,8 @@ Seeing the internal briefs his team receive also provided some really great insi
 
 My main outtakes from the talk were: Step away from the computer. Break away from your normal practises. Question your process. We don’t all work with multi-million dollar budgets, but it’s still advice we can all learn from.
 
+![tbc](/img/1366x532 02 mid article image 3 james.jpg)
+
 ## James Coogan / Digital Designer
 
 Following a slightly frustrating experience at last year’s D&AD (the awards and work display rooms were closed on the day I was there) I had high hopes for 2018.
