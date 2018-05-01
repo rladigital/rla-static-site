@@ -1,7 +1,7 @@
 ---
 templateKey: job
 area: Client Services
-title: Are you our next Senior Account Manager?
+title: Are you our next senior account manager?
 closing: 11/04/2018
 description: >-
   # About Us
