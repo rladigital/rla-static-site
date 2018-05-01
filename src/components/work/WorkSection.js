@@ -51,20 +51,18 @@ class WorkSection extends React.Component {
                                 }}
                                 fontSize={3.4}
                             >
-                                WORKING <span>TOGETHER</span>
+                                THE <span>BIGGER PICTURE</span>
                             </HeaderBlock>
                             <StyledP>
-                                We’re all about building connections. It’s all
-                                very well having great individual components
-                                within your marketing strategy, but unless they
-                                are properly coordinated, integrated and working
-                                efficiently together then by definition you
-                                won’t be operating at your maximum potential.
-                                Our ambition is to connect creative thinking to
-                                commercial strategy and ultimately to help you
-                                connect better with your customers. We won’t
-                                just answer your briefs, we’ll look at your
-                                business holistically.
+                                We’re about building connections. It’s what we
+                                do. Whether it’s connecting creative thinking to
+                                commercial strategy, connecting brand awareness
+                                to customer engagement or ultimately helping
+                                your business connect better with it's customers
+                                – we’re here to help. It’s not about just
+                                answering your individual briefs, it’s about
+                                connecting the dots and taking a look at the
+                                bigger picture.
                             </StyledP>
                         </Column>
                     </Row>
