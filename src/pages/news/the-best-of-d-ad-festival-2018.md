@@ -51,6 +51,8 @@ Maybe unsurprisingly, IPA studies tend to suggest emotional appeals (Pathos) are
 
 It was a fascinating talk, and one that really made us think about how we position our work. We hope to use what we learnt as framework to create even more persuasive campaigns going forward.
 
+![tbc](/img/1366x532 02 mid article image 4 andy.jpg)
+
 ## Andy Orritt / Studio Manager
 
 Aside from the award winning creative work and the guests that are expected at the D&AD Festival, tech and software seemed to have a stronger focus this year.
