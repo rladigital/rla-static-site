@@ -31,15 +31,19 @@ const Svg = styled.svg`
     width: 100%;
     height: 100%;
     position: absolute;
+    display: none;
+    @media (min-width: ${breakpoints.medium}px) {
+        display: block;
+    }
 `;
 
 const ContentWrapper = styled.div`
-    padding: 10vw 0 0;
-    transition: all 1s ease;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    @media (min-width: ${breakpoints.xlarge}px) {
-        //padding: 2vw 10vw 0 2vw;
+    height: 100%;
+    @media (min-width: ${breakpoints.medium}px) {
+        position: absolute;
+        padding: 10vw 0 0;
+        transition: all 1s ease;
+        transform: translate(-50%, -50%);
     }
 `;
 
@@ -91,14 +95,18 @@ const Circle = styled.circle`
 const BackButton = styled.a`
     top: 0;
     left: 0;
-    padding: 2em;
-    position: absolute;
+    padding: 2em 1em;
     z-index: 999;
     color: ${colors.white};
     font-size: 1em;
     cursor: pointer;
-    text-shadow: 1px 2px 11px ${colors.background};
     letter-spacing: 2px;
+    display: block;
+    @media (min-width: ${breakpoints.medium}px) {
+        position: absolute;
+        padding: 2em;
+        text-shadow: 1px 2px 11px ${colors.background};
+    }
 `;
 
 const ContentContainer = styled.div`
@@ -242,6 +250,9 @@ class SolutionModal extends React.Component {
                 id="container"
                 style={{ opacity: animation }}
                 onClick={() => this.handleClose(close)}
+                style={{
+                    background: isMobile() && currentSolution.frontmatter.color2
+                }}
             >
                 <BackButton
                     role="button"
@@ -250,12 +261,14 @@ class SolutionModal extends React.Component {
                     <FAIcon icon="chevron-left" /> BACK
                 </BackButton>
                 <Svg>
-                    x <Circle {...circleProps} />
+                    <Circle {...circleProps} />
                 </Svg>
                 <ContentWrapper
                     style={{
-                        width: w,
-                        height: (width < 500 ? h / 1.3 : h / 1.1) - 50,
+                        width: !isMobile() && w,
+                        height: isMobile()
+                            ? height - 81
+                            : (width < 500 ? h / 1.3 : h / 1.1) - 50,
                         top: this.calculateTopOffset(height, showButtons),
                         left: circleProps.cx,
                         opacity: animation,
@@ -263,7 +276,7 @@ class SolutionModal extends React.Component {
                     }}
                 >
                     <Content onClick={e => e.stopPropagation()}>
-                        <Scrollbars autoHide>
+                        <Scrollbars style={{ height: "100%" }} autoHide>
                             <ContentRow>
                                 <Row expanded>
                                     <Column>
