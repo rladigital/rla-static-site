@@ -110,7 +110,9 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
                 <Column>
                     Copyright RLA Group Ltd. |{" "}
                     <Link to="/cookie-policy">Cookie Policy</Link> |{" "}
-                    <a className="optanon-show-settings">Cookie Settings</a>
+                    <a className="optanon-show-settings">Cookie Settings</a> |{" "}
+                    <Link to="/privacy-policy">Privacy Policy</Link> |{" "}
+                    <Link to="/terms">Terms and Conditions</Link>
                 </Column>
             </Row>
         </Copyright>
