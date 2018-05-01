@@ -72,7 +72,7 @@ description: >-
   **Good to have**
 
   Native Application Experience, Design, CMS Experience (e.g. WordPress)
-level: ' '
+level: ' Mid'
 location: Bournemouth
 salary: DOE
 hours: '9:00am - 5:30pm'
