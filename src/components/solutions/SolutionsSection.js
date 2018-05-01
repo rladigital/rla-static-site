@@ -245,7 +245,7 @@ class Slide extends React.Component {
             entering: {
                 opacity: 0,
                 transform: `translateY(${height}px)`,
-                position: "absolute",
+                position: "relative",
                 zIndex: 2
             },
             entered: {
@@ -255,7 +255,7 @@ class Slide extends React.Component {
             exiting: {
                 opacity: 0,
                 transform: `translateY(${height}px)`,
-                position: "absolute",
+                position: "relative",
                 zIndex: 2
             }
         };
