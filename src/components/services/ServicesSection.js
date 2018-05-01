@@ -152,7 +152,7 @@ class ServicesSection extends React.Component {
                             fontSize={3.4}
                             textAlign="center"
                         >
-                            ALL <span>JOINED UP</span>{" "}
+                            ALL <span>JOINED&nbsp;UP</span>{" "}
                         </HeaderBlock>
                     </Column>
                 </Row>
@@ -205,7 +205,12 @@ class ServicesSection extends React.Component {
                         {coords &&
                             services &&
                             services.map((service, i) => {
-                                //console.log(coords[i]);
+                                const isActive = Boolean(
+                                    coords[i].status == "active"
+                                );
+                                const mobileActive = Boolean(
+                                    (isActive && isMobile()) || !isMobile()
+                                );
                                 return (
                                     coords[i] && (
                                         <g
@@ -221,56 +226,51 @@ class ServicesSection extends React.Component {
                                             }}
                                         >
                                             <circle
-                                                r={
-                                                    coords[i].status == "active"
-                                                        ? 12
-                                                        : 6
-                                                }
+                                                r={isActive ? 12 : 6}
                                                 style={{
                                                     transition: "r 1s ease"
                                                 }}
                                                 fill={colors.white}
+                                                fillOpacity={
+                                                    mobileActive ? 1 : 0.5
+                                                }
                                                 cx={0}
                                                 cy={0}
                                             >
                                                 {i}
                                             </circle>
-                                            <Service
-                                                textAnchor="middle"
-                                                transform={`translate(0 ${
-                                                    coords[i].status == "active"
-                                                        ? "-45"
-                                                        : "-30"
-                                                })`}
-                                                style={{
-                                                    fill: colors.white,
-                                                    fontWeight: 700,
-                                                    letterSpacing: "0.05rem",
+                                            {mobileActive && [
+                                                <Service
+                                                    textAnchor="middle"
+                                                    transform={`translate(0 ${
+                                                        isActive ? "-45" : "-30"
+                                                    })`}
+                                                    style={{
+                                                        fill: colors.white,
+                                                        fontWeight: 700,
+                                                        letterSpacing:
+                                                            "0.05rem",
 
-                                                    transition: "all 1s ease"
-                                                }}
-                                                fillOpacity={
-                                                    coords[i].status == "active"
-                                                        ? 1
-                                                        : 0.5
-                                                }
-                                            >
-                                                {service.node.frontmatter.title.toUpperCase()}
-                                            </Service>
-                                            <line
-                                                x={0}
-                                                y={0}
-                                                x1={0}
-                                                y1={0}
-                                                x2={0}
-                                                y2={
-                                                    coords[i].status == "active"
-                                                        ? -35
-                                                        : -20
-                                                }
-                                                strokeWidth="1"
-                                                stroke="white"
-                                            />
+                                                        transition:
+                                                            "all 1s ease"
+                                                    }}
+                                                    fillOpacity={
+                                                        isActive ? 1 : 0.5
+                                                    }
+                                                >
+                                                    {service.node.frontmatter.title.toUpperCase()}
+                                                </Service>,
+                                                <line
+                                                    x={0}
+                                                    y={0}
+                                                    x1={0}
+                                                    y1={0}
+                                                    x2={0}
+                                                    y2={isActive ? -35 : -20}
+                                                    strokeWidth="1"
+                                                    stroke="white"
+                                                />
+                                            ]}
                                         </g>
                                     )
                                 );
