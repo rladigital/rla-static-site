@@ -16,7 +16,7 @@ galleryImages:
   - /img/1366x532 02 mid article image 4 andy.jpg
 author: Jack Davey
 ---
-Last week the creative and studio teams at RLA dusted their pork pie hats,  grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.
+Last week the creative and studio teams at RLA dusted off their pork pie hats,  grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.
 
 A three-day programme of workshops, talks from industry leaders, expert panels and award winning work, the festival is now in its third year with RLA having attended for the last two.
 
