@@ -60,24 +60,19 @@ description: >-
 
   * Troubleshooting front-end issues across websites & templates.
 
-  * 
-
 
   # The Person:
 
 
-  * **Key Skills
-    **
-      HTML
-      CSS
-      JavaScript - ES2015/16, React, Redux, WebPack
-      UX
-      **Good to have
-    **
-      Native Application Experience
-      Design
-      CMS Experience (e.g. WordPress)
-level: Senior
+  **Key Skills**
+
+  HTML, CSS, JavaScript - ES2015/16, React, Redux, WebPack
+
+
+  **Good to have**
+
+  Native Application Experience, Design, CMS Experience (e.g. WordPress)
+level: ' Mid'
 location: Bournemouth
 salary: DOE
 hours: '9:00am - 5:30pm'
