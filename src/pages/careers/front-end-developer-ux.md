@@ -1,7 +1,7 @@
 ---
 templateKey: job
 area: DIGITAL
-title: Front End Developer / UX
+title: Front End Developer
 closing: 27/04/2018
 description: >-
   # About Us
