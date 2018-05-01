@@ -420,17 +420,19 @@ class OrbAnimation extends React.Component {
 
         const duration = 1000;
 
+        const initialScale = 0.7;
+
         const defaultStyle = {
-            transform: `scale(0.7)`,
+            transform: `scale(${initialScale})`,
             transition: `opacity ${duration}ms ease, transform ${duration}ms ease`,
-            transitionDelay: `${index / 8}s`,
+            transitionDelay: `${random(0, 500)}ms`,
             opacity: 0
         };
 
         const transitionStyles = {
             entering: {
                 opacity: 0,
-                transform: `scale(0.7)`
+                transform: `scale(${initialScale})`
             },
             entered: {
                 opacity: 1,
