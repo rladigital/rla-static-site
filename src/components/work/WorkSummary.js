@@ -75,7 +75,7 @@ const Image = styled.section`
 const Summary = styled.p`
     font-size: 3vw;
     margin-bottom: 0;
-    font-weight: normal;
+    font-weight: bold;
     font-family: Avenir, sans-serif;
     @media (min-width: ${breakpoints.medium}px) {
         font-size: 2vw;
