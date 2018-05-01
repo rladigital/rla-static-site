@@ -11,7 +11,6 @@ contactImage: /img/the-mission.svg
 contactRole: Mission
 tel: Mission
 email: contact@themission.co.uk
-lat: '1.3324'
-lng: '103.8909'
+lat: 1.3324
+lng: 103.8909
 ---
-
