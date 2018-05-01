@@ -3,7 +3,7 @@ templateKey: job
 area: DIGITAL
 title: Front End Developer
 closing: 27/04/2018
-description: >-
+description: >
   # About Us
 
 
@@ -60,23 +60,18 @@ description: >-
 
   * Troubleshooting front-end issues across websites & templates.
 
-  * 
-
 
   # The Person:
 
 
-  * **Key Skills
-    **
-      HTML
-      CSS
-      JavaScript - ES2015/16, React, Redux, WebPack
-      UX
-      **Good to have
-    **
-      Native Application Experience
-      Design
-      CMS Experience (e.g. WordPress)
+  **Key Skills**
+
+  HTML, CSS, JavaScript - ES2015/16, React, Redux, WebPack
+
+
+  **Good to have**
+
+  Native Application Experience, Design, CMS Experience (e.g. WordPress)
 level: Senior
 location: Bournemouth
 salary: DOE
