@@ -200,7 +200,8 @@ class Zoom extends React.Component {
                     height: "100%",
                     transform: "scale(0.5)",
                     position: "fixed",
-                    zIndex: zIndex
+                    zIndex: zIndex,
+                    top: 0
                 }}
             >
                 <Transition in={inProp} timeout={500} {...rest}>
