@@ -2,8 +2,7 @@
 templateKey: job
 area: Client Services
 title: We're looking for an Account Manager to join our Client Services team.
-closing: 19/06/2018
-location: Bournemouth
+closing: 11/05/2018
 description: >-
   # ABOUT US
 
@@ -92,9 +91,8 @@ description: >-
   * Experience of agency processes and systems
 
   * Ability to build strong client relationships
-skills:
-  - ''
 level: Account Manager
+location: Bournemouth
 salary: DOE
 hours: '9:00am - 5:30pm'
 benefits:
@@ -107,7 +105,6 @@ benefits:
   - Cycle to work scheme
   - Reward & Recognition Scheme
   - Fridge Friday
-tags:
-  - Client Services
 hero: /img/account handler role a img_7605.jpg
 ---
+
