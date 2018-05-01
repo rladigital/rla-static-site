@@ -18,13 +18,11 @@ author: Jack Davey
 ---
 Last week the creative and studio teams at RLA dusted their pork pie hats,  grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.
 
-
 A three-day programme of workshops, talks from industry leaders, expert panels and award winning work, the festival is now in its third year with RLA having attended for the last two.
-
 
 We spoke to some of the creative team at RLA to get their take on the new ideas and noteworthy work on display at the show.
 
-![](/img/1366x532 02 mid article image 2 scott.jpg)
+![tbc](/img/1366x532 02 mid article image 2 scott.jpg)
 
 ## Scott Marlow / Senior Designer
 
@@ -37,8 +35,6 @@ Though I’d seen Hick’s talk once before at another event, his talk was still
 Seeing the internal briefs his team receive also provided some really great insights into process. Pushed by Director Denis Villeneuve, they photographed, scanned, destroyed and re-photographed items to create the ‘lived in’ world you see and feel in BR2049 – and its all the better for it.
 
 My main outtakes from the talk were: Step away from the computer. Break away from your normal practises. Question your process. We don’t all work with multi-million dollar budgets, but it’s still advice we can all learn from.
-
-![](/img/1366x532 02 mid article image 3 james.jpg)
 
 ## James Coogan / Digital Designer
 
@@ -53,8 +49,6 @@ Maybe unsurprisingly, IPA studies tend to suggest emotional appeals (Pathos) are
 
 It was a fascinating talk, and one that really made us think about how we position our work. We hope to use what we learnt as framework to create even more persuasive campaigns going forward.
 
-![](/img/1366x532 02 mid article image 4 andy.jpg)
-
 ## Andy Orritt / Studio Manager
 
 Aside from the award winning creative work and the guests that are expected at the D&AD Festival, tech and software seemed to have a stronger focus this year.
@@ -64,8 +58,6 @@ Microsoft and Adobe sponsored the festival and were front and centre – quite l
 The Surface Studio certainly looks very impressive, particularly the drawing tools, but I can’t see it working that well putting layouts together in InDesign or XD (without an incredibly steep learning curve).
 
 The rest of the tech on show ranged from gesture controlled cars, collaborative digital sketches, to an Augmented Reality game called Tosser (that gave you the opportunity to throw Donald Trump around the Oval Office while fragments of his many speeches blared out of the headphones). Which was all very cathartic, though I’m not sure where it fits into D&AD’s mission to promote creative excellence.
-
-![](/img/1366x532 02 mid article image 5 jack.jpg)
 
 ## Jack Davey / Senior Art Director
 
