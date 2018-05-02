@@ -14,7 +14,7 @@ let scrollTimer;
 
 const Container = styled.div`
     background-color: #263453;
-    background: url("img/background.png"),
+    background: url("/img/background.png"),
         radial-gradient(circle at 40%, #304063, #0e172c 75%);
     background-attachment: fixed;
     background-size: cover;
