@@ -21,7 +21,7 @@ const Container = styled.div`
 const ContactLocationName = styled.h3`
     color: ${colors.accent};
     font-weight: bold;
-    font-size: 7em;
+    font-size: 7vw;
     @media (min-width: ${breakpoints.medium}px) {
         font-size: 4vw;
     }
