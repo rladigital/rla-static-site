@@ -64,21 +64,25 @@ class SolutionsSection extends React.Component {
     }
 
     nextSection() {
-        if (this.state.scrollable) {
-            let section = Math.min(this.state.section + 1, 2);
+        const section = Math.min(this.state.section + 1, 2);
+
+        if (section != this.state.section && this.state.scrollable) {
             this.setState({ section: section });
+            this.pauseScroll();
         }
     }
 
     prevSection(position, e) {
         const { height } = this.props;
-        if (this.state.scrollable && window.pageYOffset < 10) {
-            if (e) {
-                e.preventDefault();
-            }
+        const section = Math.max(this.state.section - 1, 0);
 
-            let section = Math.max(this.state.section - 1, 0);
+        if (
+            section != this.state.section &&
+            this.state.scrollable &&
+            window.pageYOffset < 10
+        ) {
             this.setState({ section: section });
+            this.pauseScroll();
         }
     }
 
@@ -88,6 +92,21 @@ class SolutionsSection extends React.Component {
         } else {
             return true;
         }
+    }
+
+    pauseScroll() {
+        const element = document.querySelector("html");
+        // disable
+        this.setState({ scrollable: false });
+
+        element.style.overflow = "hidden";
+
+        setTimeout(() => {
+            // enable
+            this.setState({ scrollable: true });
+
+            element.style.overflow = "auto";
+        }, 1500);
     }
 
     render() {
