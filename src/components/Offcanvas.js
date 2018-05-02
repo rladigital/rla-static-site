@@ -238,11 +238,6 @@ class Offcanvas extends React.Component {
 
                             <SocialContainer padding={3}>
                                 <SocialIcon
-                                    icon="facebook-f"
-                                    href="https://www.facebook.com/rlagroup/"
-                                    target="_blank"
-                                />
-                                <SocialIcon
                                     icon="twitter"
                                     href="https://twitter.com/rlagroup"
                                     target="_blank"
