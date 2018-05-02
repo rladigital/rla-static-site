@@ -86,10 +86,9 @@ const PersonRole = styled.h4`
     letter-spacing: 1px;
 `;
 
-const Control = styled.a`
+const Control = styled(Icon)`
     top: 280px;
     position: absolute;
-    font-size: 3em;
     color: ${colors.white};
     cursor: pointer;
     z-index: 1;
@@ -269,30 +268,22 @@ class PeopleBrowser extends React.Component {
             <StyledRow>
                 <Column large={12}>
                     <Control
-                        className="fa-layers fa-fw"
+                        size={40}
+                        icon="chevron-left"
+                        transform="shrink-10"
+                        iconColor={colors.white}
                         onClick={() => this.navigateChunk("prev")}
                         style={{ left: 0 }}
-                    >
-                        <Icon
-                            size={40}
-                            icon="chevron-left"
-                            transform="shrink-10"
-                            iconColor={colors.white}
-                        />
-                    </Control>
+                    />
 
                     <Control
-                        className="fa-layers fa-fw"
+                        size={40}
+                        icon="chevron-right"
+                        transform="shrink-10"
+                        iconColor={colors.white}
                         onClick={() => this.navigateChunk("next")}
                         style={{ right: 0 }}
-                    >
-                        <Icon
-                            size={40}
-                            icon="chevron-right"
-                            transform="shrink-10"
-                            iconColor={colors.white}
-                        />
-                    </Control>
+                    />
                 </Column>
             </StyledRow>,
             <PeopleBrowserContainer>
