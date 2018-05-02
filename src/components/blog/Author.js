@@ -121,23 +121,26 @@ const Author = ({ author }) => {
                 </ProfileColumn>
             </Row>
             <Bio>{author.excerpt}</Bio>
-            {author.fields.posts.length > 0 && (
-                <div>
-                    <Title>Recent Posts:</Title>
-                    <RecentPostList>
-                        {author.fields.posts.map((post, index) => {
-                            return (
-                                <PostLink to={post.fields.slug}>
-                                    <PostDate>{post.frontmatter.date}</PostDate>
-                                    <PostTitle>
-                                        {post.frontmatter.title}
-                                    </PostTitle>
-                                </PostLink>
-                            );
-                        })}
-                    </RecentPostList>
-                </div>
-            )}
+            {author.fields.posts &&
+                author.fields.posts.length > 0 && (
+                    <div>
+                        <Title>Recent Posts:</Title>
+                        <RecentPostList>
+                            {author.fields.posts.map((post, index) => {
+                                return (
+                                    <PostLink to={post.fields.slug}>
+                                        <PostDate>
+                                            {post.frontmatter.date}
+                                        </PostDate>
+                                        <PostTitle>
+                                            {post.frontmatter.title}
+                                        </PostTitle>
+                                    </PostLink>
+                                );
+                            })}
+                        </RecentPostList>
+                    </div>
+                )}
 
             {/*<MoreLink>More articles by {author.frontmatter.title}</MoreLink>*/}
         </Container>
