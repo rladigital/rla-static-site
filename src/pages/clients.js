@@ -108,6 +108,7 @@ const Control = styled.a`
     position: absolute;
     padding: ${spacing.padding}em 0;
     transform: translateY(-363px);
+    transition: opacity 0.25s ease;
     @media (min-width: ${breakpoints.medium}px) {
         padding: ${spacing.padding}em;
     }
@@ -185,13 +186,16 @@ export default class ClientsPage extends React.Component {
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
-            wrapAround: true,
+            wrapAround: false,
             renderCenterRightControls: ({ nextSlide }) => (
                 <Control
-                    className="fa-layers fa-fw"
                     onClick={nextSlide}
                     style={{
-                        right: 0
+                        right: 0,
+                        ...(this.state.currentSlide == clients.length - 1 && {
+                            opacity: 0.1,
+                            cursor: "not-allowed"
+                        })
                     }}
                 >
                     <Icon
@@ -204,10 +208,13 @@ export default class ClientsPage extends React.Component {
             ),
             renderCenterLeftControls: ({ previousSlide }) => (
                 <Control
-                    className="fa-layers fa-fw"
                     onClick={previousSlide}
                     style={{
-                        left: 0
+                        left: 0,
+                        ...(this.state.currentSlide == 0 && {
+                            opacity: 0.1,
+                            cursor: "not-allowed"
+                        })
                     }}
                 >
                     <Icon
