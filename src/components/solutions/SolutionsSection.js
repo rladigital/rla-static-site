@@ -13,9 +13,9 @@ import { colors } from "../../theme/theme";
 let scrollTimer;
 
 const Container = styled.div`
-    background: #263453;
-    background: radial-gradient(circle at 40%, #304063, #0e172c 75%);
-    background-image: url("img/background.png");
+    background-color: #263453;
+    background: url("img/background.png"),
+        radial-gradient(circle at 40%, #304063, #0e172c 75%);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
