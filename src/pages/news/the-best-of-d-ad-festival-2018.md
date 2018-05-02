@@ -22,7 +22,7 @@ A three-day programme of workshops, talks from industry leaders, expert panels a
 
 We spoke to some of the creative team at RLA to get their take on the new ideas and noteworthy work on display at the show.
 
-![null](/img/d&ad image 2 scott.jpg)
+![null](/img/d&ad-image-2-scott.jpg)
 
 ## Scott Marlow / Senior Designer
 
@@ -36,7 +36,7 @@ Seeing the internal briefs his team receive also provided some really great insi
 
 My main outtakes from the talk were: Step away from the computer. Break away from your normal practises. Question your process. We don’t all work with multi-million dollar budgets, but it’s still advice we can all learn from.
 
-![null](/img/d&ad image 3 james.jpg)
+![null](/img/d&ad-image-3-james.jpg)
 
 ## James Coogan / Digital Designer
 
@@ -50,7 +50,7 @@ Maybe unsurprisingly, IPA studies tend to suggest emotional appeals (Pathos) are
 
 It was a fascinating talk, and one that really made us think about how we position our work. We hope to use what we learnt as framework to create even more persuasive campaigns going forward.
 
-![null](/img/d&ad image 4 andy.jpg)
+![null](/img/d&ad-image-4-andy.jpg)
 
 ## Andy Orritt / Studio Manager
 
@@ -62,7 +62,7 @@ The Surface Studio certainly looks very impressive, particularly the drawing too
 
 The rest of the tech on show ranged from gesture controlled cars, collaborative digital sketches, to an Augmented Reality game called Tosser, that gave you the opportunity to throw Donald Trump around the Oval Office while fragments of his many speeches blared out of the headphones. Which was all very cathartic, though I’m not sure where it fits into D&AD’s mission to promote creative excellence.
 
-![null](/img/d&ad image 5 jack.jpg)
+![null](/img/d&ad-image-5-jack.jpg)
 
 ## Jack Davey / Senior Art Director
 
