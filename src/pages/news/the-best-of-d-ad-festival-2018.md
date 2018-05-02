@@ -13,7 +13,7 @@ sideHeading: >-
   "This is advertising, this isn’t for shy people. If you want to be boring, go
   and collect stamps.”
 galleryImages:
-  - /img/1366x532 02 mid article image 4 andy.jpg
+  - /img/1160x450 01 article header image 1.jpg
 author: Jack Davey
 ---
 Last week the creative and studio teams at RLA dusted off their pork pie hats,  grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.
