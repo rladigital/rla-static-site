@@ -16,14 +16,13 @@ galleryImages:
   - /img/1366x532 02 mid article image 4 andy.jpg
 author: Jack Davey
 ---
-
-Last week the creative and studio teams at RLA dusted off their pork pie hats, grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.
+Last week the creative and studio teams at RLA dusted off their pork pie hats,  grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.
 
 A three-day programme of workshops, talks from industry leaders, expert panels and award winning work, the festival is now in its third year with RLA having attended for the last two.
 
 We spoke to some of the creative team at RLA to get their take on the new ideas and noteworthy work on display at the show.
 
-![null](/img/dandad-image-2-scott.jpg)
+![null](/img/d&ad image 2 scott.jpg)
 
 ## Scott Marlow / Senior Designer
 
@@ -37,7 +36,7 @@ Seeing the internal briefs his team receive also provided some really great insi
 
 My main outtakes from the talk were: Step away from the computer. Break away from your normal practises. Question your process. We don’t all work with multi-million dollar budgets, but it’s still advice we can all learn from.
 
-![](/img/d&ad image 3 james.jpg)
+![null](/img/d&ad image 3 james.jpg)
 
 ## James Coogan / Digital Designer
 
@@ -51,25 +50,25 @@ Maybe unsurprisingly, IPA studies tend to suggest emotional appeals (Pathos) are
 
 It was a fascinating talk, and one that really made us think about how we position our work. We hope to use what we learnt as framework to create even more persuasive campaigns going forward.
 
-![](/img/d&ad image 4 andy.jpg)
+![null](/img/d&ad image 4 andy.jpg)
 
 ## Andy Orritt / Studio Manager
 
 Aside from the award winning creative work and guests that are expected at the D&AD Festival, tech and software seemed to have a stronger focus this year.
 
-Microsoft and Adobe sponsored the festival and were front and centre – quite literally. Microsoft had you tripping over Surface Studios as you walked through the entrance hall, while Adobe staged, what seemed like, a rolling workshop, focusing primarily on XD.
+Microsoft and Adobe sponsored the festival and were front and centre – quite literally. Microsoft had you tripping over Surface Studios as you walked through the entrance hall, while Adobe staged, what seemed like, a rolling workshop, focusing primarily on XD. 
 
 The Surface Studio certainly looks very impressive, particularly the drawing tools, but I can’t see it working that well putting layouts together in InDesign or XD (without an incredibly steep learning curve).
 
 The rest of the tech on show ranged from gesture controlled cars, collaborative digital sketches, to an Augmented Reality game called Tosser, that gave you the opportunity to throw Donald Trump around the Oval Office while fragments of his many speeches blared out of the headphones. Which was all very cathartic, though I’m not sure where it fits into D&AD’s mission to promote creative excellence.
 
-![](/img/d&ad image 5 jack.jpg)
+![null](/img/d&ad image 5 jack.jpg)
 
 ## Jack Davey / Senior Art Director
 
 For me, the D&AD Festival is one of the highlights of the year when it comes to the creative industries, and this year’s show was no different. VR seemed to be being heavily pushed as the ‘technology du jour’, with about 8 of the 12 smaller displays focusing solely on the technology. And whilst the D&AD Award winning work was fantastic to see – the talks were what I was really here for.
 
-Kit Altin’s talk on Persuasion in the morning was fantastic (see James’ comments above) and provided us with some practical tools we can start using in creative reviews, but the main act was always going to be Dave ‘Couldn’t Talk Straighter If He Tried’ Trott.
+Kit Altin’s talk on Persuasion in the morning was fantastic (see James’ comments above)  and provided us with some practical tools we can start using in creative reviews, but the main act was always going to be Dave ‘Couldn’t Talk Straighter If He Tried’ Trott.
 
 During Trott’s (highly quotable, sage-pearl-of-wisdom packed) talk, he discussed the little tricks (or ‘weasels’ as he’d call them) that he had used during his career to ensure his sometimes controversial, occasionally contentious and often truth-stretching ads made it out the door intact.
 
