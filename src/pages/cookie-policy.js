@@ -36,6 +36,19 @@ export default class CookiePolicyPage extends React.Component {
 
                     <Row>
                         <Column>
+                            <p>
+                                Cookies are very small text files that are
+                                stored on your computer when you visit some
+                                websites. We use cookies to make our website
+                                easier for you to use. You can disable certain
+                                cookies on our site, but this may impact the
+                                performance of the sites we provide.
+                            </p>
+                        </Column>
+                    </Row>
+
+                    <Row>
+                        <Column>
                             <div id="optanon-cookie-policy" />
                         </Column>
                     </Row>
