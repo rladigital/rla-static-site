@@ -25,3 +25,5 @@ Algorithms were designed using propensity modelling, to deliver bespoke incentiv
 Research, testing, due diligence, and a brave client have created a customer centric programme that has transformed PSA’s trade marketing, sparked a desire amongst local garages to participate, and delivered unseen levels of engagement with communications and a quicker than unexpected impact on sales.
 
 PERKS has been, and continues to be, a successful fusion of creativity, technology, and strategic thinking. We are incredibly proud to have been shortlisted against some of the best B2B marketing strategies in the country, and are excited to see where our journey with PSA will continue to take us.
+
+Read more about The Drum Marketing Awards by clicking [here](http://www.thedrummarketingawards.com).
