@@ -11,7 +11,7 @@ import {
     hexToInt,
     scale,
     random,
-    randomChunkArray,
+    chunkArray,
     isMobile,
     isBrowser
 } from "../../helpers/helpers";
@@ -20,28 +20,11 @@ import Icon from "../blog/Icon";
 
 const height = isBrowser() && isMobile() ? 680 : 600;
 
+let coords;
+
+let direction = "test";
+
 const duration = 800;
-
-const defaultStyle = {
-    transform: "scale(1)",
-    transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
-    opacity: 0
-};
-
-const transitionStyles = {
-    entering: {
-        opacity: 0,
-        transform: "scale(0)"
-    },
-    entered: {
-        opacity: 1,
-        transform: "scale(1)"
-    },
-    exiting: {
-        opacity: 0,
-        transform: "scale(2)"
-    }
-};
 
 const PeopleBrowserContainer = styled.div`
     position: relative;
@@ -58,7 +41,7 @@ const PersonGroup = styled.div`
 const Person = styled.div`
     position: absolute;
     text-align: center;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 
     cursor: pointer;
 `;
@@ -149,39 +132,105 @@ const StyledRow = styled(Row)`
     position: relative;
 `;
 
-const Fade = ({ in: inProp, children, ...otherProps }) => (
-    <Transition in={inProp} timeout={duration} {...otherProps}>
-        {state => (
-            <PersonGroup
-                id="person-group"
-                style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state]
-                }}
-            >
-                {children}
-            </PersonGroup>
-        )}
-    </Transition>
-);
+if (isBrowser() && !isMobile()) {
+    coords,
+        (coords = [
+            [
+                { x: 300, y: -240, r: 120 },
+                { x: -380, y: 80, r: 120 },
+                { x: 380, y: -10, r: 80 },
+                { x: -320, y: -200, r: 100 },
+                { x: 330, y: 200, r: 120 }
+            ],
+            [
+                { x: -280, y: -280, r: 120 },
+                { x: 320, y: 200, r: 100 },
+                { x: -380, y: -10, r: 120 },
+                { x: 320, y: -200, r: 100 },
+                { x: -330, y: 200, r: 80 }
+            ],
+            [
+                { x: -320, y: -230, r: 120 },
+                { x: 240, y: -280, r: 100 },
+                { x: 400, y: -50, r: 120 },
+                { x: -340, y: 200, r: 100 },
+                { x: 300, y: 200, r: 80 }
+            ]
+        ]);
+} else {
+    coords = [
+        [
+            { x: -230, y: -380, r: 150 },
+            { x: -200, y: 370, r: 200 },
+            { x: 240, y: -340, r: 130 },
+            { x: 28, y: -480, r: 180 },
+            { x: 140, y: 420, r: 150 }
+        ]
+    ];
+}
+
+class Fade extends React.Component {
+    render() {
+        const { in: inProp, children, ...otherProps } = this.props;
+
+        const defaultStyle = {
+            transform: "scale(1)",
+            transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
+            opacity: 0
+        };
+
+        const transitionStyles = {
+            entering: {
+                opacity: 0,
+                transform: `scale(${direction == "prev" ? 2 : 0})`
+            },
+            entered: {
+                opacity: 1,
+                transform: `scale(1)`
+            },
+            exiting: {
+                opacity: 0,
+                transform: `scale(${direction == "prev" ? 0 : 2})`
+            }
+        };
+
+        return (
+            <Transition in={inProp} timeout={duration} {...otherProps}>
+                {state => (
+                    <PersonGroup
+                        id="person-group"
+                        style={{
+                            ...defaultStyle,
+                            ...transitionStyles[state]
+                        }}
+                    >
+                        {children}
+                    </PersonGroup>
+                )}
+            </Transition>
+        );
+    }
+}
 
 class PeopleBrowser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             selected: null,
-            current: 1,
+            current: 0,
             coords: null,
             data: null,
             array: [0, 1, 2, 3],
-            widthAdjustment: isBrowser() ? window.innerWidth / 10 : 0,
-            sizeAdjustment: isBrowser() ? window.innerWidth / 80 : 0
+            widthAdjustment: isBrowser() ? window.innerWidth / 20 : 0,
+            // widthAdjustment: 0,
+            sizeAdjustment: isBrowser() ? window.innerWidth / 80 : 0,
+            randomCoords: this.getRandomCoords()
         };
     }
 
     componentDidMount() {
         const { people } = this.props;
-        let data = randomChunkArray(shuffleArray(people), 3, 5);
+        let data = chunkArray(5, shuffleArray(people));
 
         // Don't allow singles
         if (data[data.length - 1].length == 1) {
@@ -195,13 +244,13 @@ class PeopleBrowser extends React.Component {
         });
     }
 
-    navigateChunk(direction) {
+    navigateChunk(buttonPressed) {
         let { data } = this.state;
         let array = [];
         let current;
         let length = data.length - 1;
 
-        if (direction == "prev") {
+        if (buttonPressed == "prev") {
             current = this.state.current + 1;
             if (current == length + 1) {
                 current = 0;
@@ -218,12 +267,22 @@ class PeopleBrowser extends React.Component {
         array[2] = current + 1 > length ? 0 : current + 1;
         array[3] = current + 1 > length ? 1 : current + 2;
 
-        this.setState({ current: current, array: array });
+        this.setState({
+            current: current,
+            array: array,
+            randomCoords: this.getRandomCoords()
+        });
+
+        direction = buttonPressed;
     }
 
     handleSelect(person) {
         //console.log(person);
         this.setState({ selected: person });
+    }
+
+    getRandomCoords() {
+        return coords[random(0, coords.length - 1)];
     }
 
     getTransform(x) {
@@ -242,27 +301,9 @@ class PeopleBrowser extends React.Component {
             current,
             selected,
             widthAdjustment,
-            sizeAdjustment
+            sizeAdjustment,
+            randomCoords
         } = this.state;
-        let coords;
-
-        if (isBrowser() && !isMobile()) {
-            coords = [
-                { x: -280 - widthAdjustment, y: -380, r: 150 + sizeAdjustment },
-                { x: 320 + widthAdjustment, y: 100, r: 150 + sizeAdjustment },
-                { x: -380 - widthAdjustment, y: -110, r: 90 + sizeAdjustment },
-                { x: 320 + widthAdjustment, y: -300, r: 130 + sizeAdjustment },
-                { x: -330 - widthAdjustment, y: 100, r: 130 + sizeAdjustment }
-            ];
-        } else {
-            coords = [
-                { x: -230, y: -550, r: 150 },
-                { x: -200, y: 270, r: 200 },
-                { x: 240, y: -500, r: 130 },
-                { x: 28, y: -640, r: 180 },
-                { x: 140, y: 320, r: 150 }
-            ];
-        }
 
         return [
             <StyledRow>
@@ -304,12 +345,20 @@ class PeopleBrowser extends React.Component {
                             <Fade key={`people_${current}`}>
                                 {data[current].map(
                                     ({ node: person }, index) => {
+                                        const x = randomCoords[index].x;
+                                        const y = randomCoords[index].y;
+                                        const r = randomCoords[index].r;
+
+                                        const widthAjustX = Math.sign(x < 0)
+                                            ? x - widthAdjustment
+                                            : x + widthAdjustment;
+
                                         return (
                                             <Person
                                                 key={index}
                                                 style={{
-                                                    top: coords[index].y,
-                                                    left: coords[index].x
+                                                    left: widthAjustX,
+                                                    top: y
                                                 }}
                                                 onClick={() =>
                                                     this.handleSelect(person)
@@ -317,8 +366,8 @@ class PeopleBrowser extends React.Component {
                                             >
                                                 <PersonImage
                                                     style={{
-                                                        width: coords[index].r,
-                                                        height: coords[index].r,
+                                                        width: r,
+                                                        height: r,
                                                         backgroundImage: `url('${getOriginalImageSrc(
                                                             person.frontmatter
                                                                 .profile
