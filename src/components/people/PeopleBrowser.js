@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 import { Row, Column } from "rla-components";
 import { Transition, TransitionGroup } from "react-transition-group";
 
 import { getOriginalImageSrc } from "../../utils/image";
 import { transformScale, shuffleArray } from "../../helpers/helpers";
-import { colors, breakpoints } from "../../theme/theme";
+import { colors, breakpoints, spacing } from "../../theme/theme";
 import {
     hexToInt,
     scale,
@@ -17,12 +17,13 @@ import {
 } from "../../helpers/helpers";
 import { HTMLContent } from "../Content";
 import Icon from "../blog/Icon";
+import { Z_ASCII } from "zlib";
 
 const height = isBrowser() && isMobile() ? 680 : 600;
 
 let coords;
 
-let direction = "test";
+let direction;
 
 const duration = 800;
 
@@ -132,6 +133,31 @@ const StyledRow = styled(Row)`
     position: relative;
 `;
 
+const Filters = styled.div`
+    text-align: center;
+`;
+
+const Filter = styled.a.attrs({
+    role: "button"
+})`
+    padding-bottom: 0.5rem;
+    margin: 0.5rem ${spacing.padding}rem 2.5rem;
+    font-family: ${props => props.theme.headings.fontFamily};
+    text-transform: uppercase;
+    display: inline-block;
+    cursor: pointer;
+    ${props =>
+        props.active
+            ? css`
+                  color: ${colors.accent};
+                  border-bottom: 5px dotted ${colors.white};
+                  border-image: url("/img/border.svg") 4 space;
+              `
+            : css`
+                  color: ${colors.white};
+              `};
+`;
+
 if (isBrowser() && !isMobile()) {
     coords,
         (coords = [
@@ -202,8 +228,7 @@ class Fade extends React.Component {
                         style={{
                             ...defaultStyle,
                             ...transitionStyles[state]
-                        }}
-                    >
+                        }}>
                         {children}
                     </PersonGroup>
                 )}
@@ -224,7 +249,9 @@ class PeopleBrowser extends React.Component {
             widthAdjustment: isBrowser() ? window.innerWidth / 20 : 0,
             // widthAdjustment: 0,
             sizeAdjustment: isBrowser() ? window.innerWidth / 80 : 0,
-            randomCoords: this.getRandomCoords()
+            randomCoords: this.getRandomCoords(),
+            filter: "All",
+            filters: this.getFilters()
         };
     }
 
@@ -295,6 +322,47 @@ class PeopleBrowser extends React.Component {
         }
     }
 
+    // for filtering the list of people by tag
+    setFilter(filter) {
+        let data;
+        const { people } = this.props;
+        if (filter == "All") {
+            data = people;
+        } else {
+            data = people.filter(({ node: { frontmatter: { tags } } }) => {
+                return Boolean(tags.indexOf(filter) != -1);
+            });
+        }
+
+        const chunkedData = chunkArray(5, shuffleArray(data));
+
+        this.setState({
+            current: 0,
+            data: chunkedData,
+            filter: filter,
+            selected: chunkedData[0][0].node
+        });
+
+        direction = "next";
+    }
+
+    // for getting all tags and creating filters
+    getFilters() {
+        const { people } = this.props;
+
+        let filters = ["All"];
+
+        people.map(({ node: { frontmatter: { tags } } }) => {
+            tags.map(tag => {
+                if (filters.indexOf(tag) == -1) {
+                    filters.push(tag);
+                }
+            });
+        });
+
+        return filters;
+    }
+
     render() {
         const {
             data,
@@ -302,10 +370,30 @@ class PeopleBrowser extends React.Component {
             selected,
             widthAdjustment,
             sizeAdjustment,
-            randomCoords
+            randomCoords,
+            filters,
+            filter
         } = this.state;
 
         return [
+            <Row>
+                <Column>
+                    <Filters>
+                        {filters &&
+                            filters.map(filter => {
+                                return (
+                                    <Filter
+                                        active={Boolean(
+                                            this.state.filter == filter
+                                        )}
+                                        onClick={() => this.setFilter(filter)}>
+                                        {filter}
+                                    </Filter>
+                                );
+                            })}
+                    </Filters>
+                </Column>
+            </Row>,
             <StyledRow>
                 <Column large={12}>
                     <Control
@@ -338,11 +426,10 @@ class PeopleBrowser extends React.Component {
                                 : transformScale(1200, 1100)
                         })`,
                         marginBottom: -50
-                    }}
-                >
+                    }}>
                     {data && (
                         <TransitionGroup>
-                            <Fade key={`people_${current}`}>
+                            <Fade key={`people_${filter}_${current}`}>
                                 {data[current].map(
                                     ({ node: person }, index) => {
                                         const x = randomCoords[index].x;
@@ -362,8 +449,7 @@ class PeopleBrowser extends React.Component {
                                                 }}
                                                 onClick={() =>
                                                     this.handleSelect(person)
-                                                }
-                                            >
+                                                }>
                                                 <PersonImage
                                                     style={{
                                                         width: r,

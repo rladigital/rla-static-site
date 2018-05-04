@@ -37,8 +37,7 @@ export default class PeoplePage extends React.Component {
                                 right: 0,
                                 bottom: 0,
                                 left: 0
-                            }}
-                        >
+                            }}>
                             <span>People</span> at our Core
                         </HeaderBlock>
                     </Column>
@@ -66,6 +65,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         role
+                        tags
                         profile {
                             responsive {
                                 childImageSharp {

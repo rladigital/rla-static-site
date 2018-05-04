@@ -84,8 +84,7 @@ export default class IndexPage extends React.Component {
                         height={height}
                         solutions={solutions}
                         scrolltop={scrolltop}
-                        setOffcanvasColor={setOffcanvasColor}
-                    >
+                        setOffcanvasColor={setOffcanvasColor}>
                         <WorkSection work={work} />
                         <ServicesSection
                             width={width}
@@ -228,6 +227,7 @@ export const pageQuery = graphql`
                         title
                         templateKey
                         role
+                        tags
                         profile {
                             responsive {
                                 childImageSharp {
