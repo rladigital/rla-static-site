@@ -137,21 +137,28 @@ const Filters = styled.div`
     text-align: center;
 `;
 
-const Filter = styled.a.attrs({
-    role: "button"
-})`
-    padding-bottom: 0.5rem;
-    margin: 0.5rem ${spacing.padding}rem 2.5rem;
-    font-family: ${props => props.theme.headings.fontFamily};
-    text-transform: uppercase;
+const FilterMarker = styled.svg`
+    left: 50%;
+    bottom: 0;
+    position: absolute;
+    transform: translateX(-50%);
+`;
+
+const FilterGroup = styled.div`
+    padding: 1em;
+    color: ${colors.white};
     display: inline-block;
+    position: relative;
+`;
+
+const FilterText = styled.a`
+    text-transform: uppercase;
+    font-family: ${props => props.theme.headings.fontFamily};
     cursor: pointer;
     ${props =>
         props.active
             ? css`
                   color: ${colors.accent};
-                  border-bottom: 5px dotted ${colors.white};
-                  border-image: url("/img/border.svg") 4 space;
               `
             : css`
                   color: ${colors.white};
@@ -194,6 +201,23 @@ if (isBrowser() && !isMobile()) {
         ]
     ];
 }
+
+const FilterItem = ({ children, active, onClick }) => {
+    return (
+        <FilterGroup>
+            <FilterText active={active} onClick={onClick}>
+                {children}
+            </FilterText>
+            {active && (
+                <FilterMarker width={30} viewBox="0 0 60 20">
+                    <circle r={4} cx={10} cy={10} fill="currentColor" />
+                    <circle r={4} cx={30} cy={10} fill="currentColor" />
+                    <circle r={4} cx={50} cy={10} fill="currentColor" />
+                </FilterMarker>
+            )}
+        </FilterGroup>
+    );
+};
 
 class Fade extends React.Component {
     render() {
@@ -382,13 +406,13 @@ class PeopleBrowser extends React.Component {
                         {filters &&
                             filters.map(filter => {
                                 return (
-                                    <Filter
+                                    <FilterItem
                                         active={Boolean(
                                             this.state.filter == filter
                                         )}
                                         onClick={() => this.setFilter(filter)}>
                                         {filter}
-                                    </Filter>
+                                    </FilterItem>
                                 );
                             })}
                     </Filters>
