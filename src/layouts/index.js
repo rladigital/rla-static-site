@@ -10,6 +10,7 @@ import globalCss from "../theme/globalCss";
 import { serveStatic } from "../helpers/helpers";
 import Offcanvas from "../components/Offcanvas";
 import Footer from "../components/Footer";
+import LoadingScreen from "../components/loading/LoadingScreen";
 require("../theme/font-awesome-setup");
 
 //Add Global CSS
@@ -20,10 +21,14 @@ class TemplateWrapper extends React.Component {
         super(props);
 
         this.state = {
+            hasMounted: false,
             offcanvasColor: null
         };
 
         this.setOffcanvasColor = this.setOffcanvasColor.bind(this);
+    }
+    componentDidMount() {
+        this.setState({ hasMounted: true });
     }
     setOffcanvasColor(x) {
         this.setState({ offcanvasColor: x });
@@ -34,20 +39,24 @@ class TemplateWrapper extends React.Component {
 
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
-                <div style={{ height: "100%" }}>
-                    <Helmet title="RLA" />
-                    <Offcanvas
-                        location={location}
-                        offcanvasColor={offcanvasColor}
-                    />
+                {this.state.hasMounted ? (
                     <div style={{ height: "100%" }}>
-                        {children({
-                            ...this.props,
-                            setOffcanvasColor: this.setOffcanvasColor
-                        })}
+                        <Helmet title="RLA" />
+                        <Offcanvas
+                            location={location}
+                            offcanvasColor={offcanvasColor}
+                        />
+                        <div style={{ height: "100%" }}>
+                            {children({
+                                ...this.props,
+                                setOffcanvasColor: this.setOffcanvasColor
+                            })}
+                        </div>
+                        {this.props.data && <Footer data={this.props.data} />}
                     </div>
-                    {this.props.data && <Footer data={this.props.data} />}
-                </div>
+                ) : (
+                    <LoadingScreen text="Loading..." />
+                )}
             </ThemeProvider>
         );
     }

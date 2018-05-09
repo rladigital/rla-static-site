@@ -7,7 +7,6 @@ import { serveStatic, isBrowser } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
 import WorkSection from "../components/work/WorkSection";
 import NewsSection from "../components/news/NewsSection";
-import LoadingScreen from "../components/loading/LoadingScreen";
 import MissionSection from "../components/mission/MissionSection";
 
 if (!isBrowser()) {
@@ -22,7 +21,6 @@ export default class IndexPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hasMounted: false,
             width: isBrowser() ? window.innerWidth : null,
             height: isBrowser() ? window.innerHeight : null
         };
@@ -40,7 +38,6 @@ export default class IndexPage extends React.Component {
         window.netlifyIdentity.init();
     }
     componentDidMount() {
-        this.setState({ hasMounted: true });
         if (isBrowser()) {
             window.addEventListener("resize", () => this.handleResize());
         }
@@ -78,26 +75,22 @@ export default class IndexPage extends React.Component {
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
-                {this.state.hasMounted ? (
-                    <SolutionsSection
+                <SolutionsSection
+                    width={width}
+                    height={height}
+                    solutions={solutions}
+                    scrolltop={scrolltop}
+                    setOffcanvasColor={setOffcanvasColor}>
+                    <WorkSection work={work} />
+                    <ServicesSection
                         width={width}
-                        height={height}
-                        solutions={solutions}
-                        scrolltop={scrolltop}
-                        setOffcanvasColor={setOffcanvasColor}>
-                        <WorkSection work={work} />
-                        <ServicesSection
-                            width={width}
-                            height={Math.max(height / 2, 400)}
-                            services={services}
-                        />
-                        <NewsSection width={width} news={news} />
-                        <PeopleSection people={people} />
-                        <MissionSection />
-                    </SolutionsSection>
-                ) : (
-                    <LoadingScreen text="Loading..." />
-                )}
+                        height={Math.max(height / 2, 400)}
+                        services={services}
+                    />
+                    <NewsSection width={width} news={news} />
+                    <PeopleSection people={people} />
+                    <MissionSection />
+                </SolutionsSection>
             </section>
         );
     }
