@@ -26,4 +26,4 @@ Research, testing, due diligence, and a brave client have created a customer cen
 
 PERKS has been, and continues to be, a successful fusion of creativity, technology, and strategic thinking. We are incredibly proud to have been shortlisted against some of the best B2B marketing strategies in the country, and are excited to see where our journey with PSA will continue to take us.
 
-Read more about The Drum Marketing Awards by click [here](http://www.thedrummarketingawards.com).
+Read more about The Drum Marketing Awards by clicking [here](http://www.thedrummarketingawards.com).
