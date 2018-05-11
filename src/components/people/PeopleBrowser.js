@@ -460,9 +460,10 @@ class PeopleBrowser extends React.Component {
                                         const y = randomCoords[index].y;
                                         const r = randomCoords[index].r;
 
-                                        const widthAjustX = Math.sign(x < 0)
-                                            ? x - widthAdjustment
-                                            : x + widthAdjustment;
+                                        const widthAjustX =
+                                            x < 0
+                                                ? x - widthAdjustment
+                                                : x + widthAdjustment;
 
                                         return (
                                             <Person
