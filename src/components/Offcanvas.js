@@ -174,15 +174,15 @@ class Offcanvas extends React.Component {
             <HeaderContainer
                 zIndex={2}
                 style={{ left: 0 }}
-                offcanvasColor={offcanvasColor}
-            >
+                offcanvasColor={offcanvasColor}>
                 {this.renderLogo.apply(this)}
             </HeaderContainer>,
             <HeaderContainer
                 zIndex={4}
                 style={{ right: 0 }}
-                offcanvasColor={offcanvasActive ? colors.white : offcanvasColor}
-            >
+                offcanvasColor={
+                    offcanvasActive ? colors.white : offcanvasColor
+                }>
                 <MenuIcon
                     active={offcanvasActive}
                     onClick={
@@ -217,8 +217,7 @@ class Offcanvas extends React.Component {
                         style={{
                             ...slide.default,
                             ...slide[state]
-                        }}
-                    >
+                        }}>
                         <Scrollbars autoHide>
                             <Section padding={2.2}>&nbsp;</Section>
                             <Section padding={3}>
@@ -227,8 +226,7 @@ class Offcanvas extends React.Component {
                                         <Item key={index}>
                                             <StyledLink
                                                 to={item.to}
-                                                onClick={this.closeOffcanvas}
-                                            >
+                                                onClick={this.closeOffcanvas}>
                                                 {item.text}
                                             </StyledLink>
                                         </Item>
@@ -275,6 +273,7 @@ class MenuIcon extends React.Component {
         this.state = {
             active: false,
             canAnimate: true,
+            shouldAnimate: false,
             menuPaths: ["M0,5 50,5", "M0,25 50,25", "M0,45 50,45"],
             closePaths: ["M5,5 45,45", "M5,25 5,25", "M5,45 45,5"]
         };
@@ -297,12 +296,12 @@ class MenuIcon extends React.Component {
                     animate.beginElement();
                 }
             });
-            this.setState({ active: active });
+            this.setState({ active: active, shouldAnimate: true });
         }
     }
     render() {
         const { active, onClick, innerRef, ...rest } = this.props;
-        const { menuPaths, closePaths } = this.state;
+        const { shouldAnimate, menuPaths, closePaths } = this.state;
 
         const pathProps = {
             stroke: "currentColor",
@@ -322,15 +321,13 @@ class MenuIcon extends React.Component {
                 viewBox="0 0 50 50"
                 onClick={onClick}
                 ref={innerRef}
-                {...rest}
-            >
+                {...rest}>
                 {menuPaths.map((path, i) => {
                     return (
                         <path
                             key={i}
-                            d={active ? path : closePaths[i]}
-                            {...pathProps}
-                        >
+                            d={!shouldAnimate || active ? path : closePaths[i]}
+                            {...pathProps}>
                             <animate
                                 {...animateProps}
                                 to={active ? closePaths[i] : path}
