@@ -296,7 +296,12 @@ class MenuIcon extends React.Component {
                     animate.beginElement();
                 }
             });
-            this.setState({ active: active, shouldAnimate: true });
+            this.setState({ active: active });
+
+            // update should animate
+            if (this.state.shouldAnimate == false) {
+                this.setState({ shouldAnimate: true });
+            }
         }
     }
     render() {
