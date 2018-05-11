@@ -52,8 +52,7 @@ export default class NewsPage extends React.Component {
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={theme.pageHeaderSection.padding}>
                             News &amp; <span>Insights</span>
                         </HeaderBlock>
                     </Column>
@@ -80,6 +79,7 @@ export default class NewsPage extends React.Component {
 export const pageQuery = graphql`
     query NewsQuery {
         allMarkdownRemark(
+            sort: { fields: [frontmatter___weighting, frontmatter___date] }
             filter: { frontmatter: { templateKey: { eq: "news" } } }
         ) {
             edges {

@@ -179,6 +179,7 @@ export const pageQuery = graphql`
             }
         }
         news: allMarkdownRemark(
+            sort: { fields: [frontmatter___weighting, frontmatter___date] }
             filter: { frontmatter: { templateKey: { eq: "news" } } }
             limit: 3
         ) {
