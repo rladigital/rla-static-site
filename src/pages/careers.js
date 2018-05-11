@@ -19,8 +19,7 @@ export default class JobPage extends React.Component {
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={theme.pageHeaderSection.padding}>
                             Careers
                         </HeaderBlock>
                     </Column>
@@ -29,8 +28,7 @@ export default class JobPage extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
-                    padding={`${spacing.padding}rem 0`}
-                >
+                    padding={`${spacing.padding}rem 0`}>
                     <JobSection jobs={jobs} news={news} />
                 </SectionContainer>
             </div>
@@ -41,6 +39,7 @@ export default class JobPage extends React.Component {
 export const pageQuery = graphql`
     query JobQuery {
         jobs: allMarkdownRemark(
+            sort: { fields: [frontmatter___weighting] }
             filter: { frontmatter: { templateKey: { eq: "job" } } }
         ) {
             edges {
@@ -72,6 +71,7 @@ export const pageQuery = graphql`
             }
         }
         news: allMarkdownRemark(
+            sort: { fields: [frontmatter___weighting, frontmatter___date] }
             filter: { frontmatter: { templateKey: { eq: "news" } } }
             limit: 10
         ) {

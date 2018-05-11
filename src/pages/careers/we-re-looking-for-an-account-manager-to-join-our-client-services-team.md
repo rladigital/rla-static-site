@@ -106,5 +106,5 @@ benefits:
   - Reward & Recognition Scheme
   - Fridge Friday
 hero: /img/account handler role a img_7605.jpg
-weighting: 0
+weighting: 2
 ---
