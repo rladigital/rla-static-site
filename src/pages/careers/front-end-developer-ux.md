@@ -86,5 +86,5 @@ benefits:
   - Reward & Recognition Scheme
   - Fridge Friday
 hero: /img/belfast-senior-designer op 1 edit.jpg
+weighting: 0
 ---
-

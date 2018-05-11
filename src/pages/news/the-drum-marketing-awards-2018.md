@@ -15,7 +15,9 @@ sideHeading: >-
 galleryImages:
   - /img/1160x450_banner_x2_drumawards.jpg
 author: Luke Fagg
+weighting: 0
 ---
+
 We are thrilled to announce that RLA have been shortlisted as a finalist for B2B Marketing Strategy of the year at The Drum Marketing Awards 2018. The nomination follows the effective launch of PERKS, the first car manufacturer trade loyalty programme for PSA (the holding company for Peugeot, Citroen and DS Automobiles) in June 2017.
 
 A 25% uplift in sales in a declining market for car manufacturers is the reward PSA got from a brave, and innovative approach to engaging with their customers. Fundamental to our success was building a tool that gave access to a centralised pool of customer and sales data that had previously been spread across the dealer network. This gave insight into customer behaviour that had not previously been possible, and allowed the development of an automated programme, transforming a very traditional approach to marketing into the leading-edge solution in the sector.

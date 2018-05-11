@@ -13,6 +13,7 @@ sideHeading: 'Fortunately for Facebook, the general public don’t actually care
 galleryImages:
   - /img/connected ambition-1.jpg
 author: Luke Fagg
+weighting: 0
 ---
 
 Facebook, Cambridge Analytica, data, Mark Zuckerberg.
