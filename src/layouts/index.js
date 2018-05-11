@@ -49,6 +49,7 @@ class TemplateWrapper extends React.Component {
                         <div style={{ height: "100%" }}>
                             {children({
                                 ...this.props,
+                                layout: false,
                                 setOffcanvasColor: this.setOffcanvasColor
                             })}
                         </div>
