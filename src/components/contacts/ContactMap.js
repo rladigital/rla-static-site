@@ -6,6 +6,7 @@ import L from "leaflet";
 import { colors } from "../../theme/theme";
 import iconUrl from "../../img/map-marker.svg";
 import geoData from "../../data/countries.geo.json";
+import { isMobile } from "../../helpers/helpers";
 
 require("leaflet/dist/leaflet.css");
 
@@ -47,10 +48,10 @@ export default class ContactMap extends React.Component {
                     width: "100%",
                     zIndex: 1
                 }}
+                dragging={!isMobile()}
                 scrollWheelZoom={false}
                 doubleClickZoom={false}
-                touchZoom={false}
-            >
+                touchZoom={false}>
                 {/* <TileLayer
                     attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;http://cartodb.com/attributions&quot;>CartoDB</a>"
                     url="https://cartocdn_{s}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}.png"
