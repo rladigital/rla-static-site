@@ -1,21 +1,10 @@
 ---
 templateKey: work
 title: Audi
-hero: 
-thumb: /img/RLA_Work_Page_1200x1200_Audi.jpg
-logo: 
-intro: 
-description: >-
-
-galleryImages:
-
-solutionsList:
-
+thumb: /img/rla_work_page_1200x1200_audic.jpg
+intro: tbc
+description: ''
 weighting: 0
-
-previewType:
-
-excerpt:
-
 thumbnailAlignment: top
 ---
+
