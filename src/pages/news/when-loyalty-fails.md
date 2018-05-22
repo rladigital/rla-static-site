@@ -2,8 +2,8 @@
 templateKey: news
 title: When Loyalty Fails
 date: 16/05/2018
-hero: /img/1160x450 loyalty article header image v1.jpg
-thumb: /img/1200x1200 loyalty article social square v1.jpg
+hero: /img/1160x450-loyalty-article-header-image-v1.jpg
+thumb: /img/1200x1200-loyalty-article-social-square-v1.jpg
 category: Insight
 tags:
   - INSIGHT
@@ -30,7 +30,7 @@ I will talk at a later date about what loyalty should look like in the future, b
 
 There is direct relationship between brand image, customer satisfaction, and brand loyalty.
 
-![](/img/1366x532 loyalty mid article image a v1.jpg)
+![null](/img/1366x532-loyalty-mid-article-image-a-v1.jpg)
 
 Simply put, if your customers don’t even fancy you, they’re never going to fall in love. Don’t see a loyalty programme as a substitute or mechanism for creating a strong brand, it’s only when you have created something desirable to consumers should you even contemplate dipping your toes into loyalty schemes.
 
@@ -50,6 +50,6 @@ Where there is a physical link between your customers and your company, be that 
 
 Creating loyalty is effectively motivating your customers to create a new habit, a new way of behaving. Habits are the small decisions your brain has to make every day. Even the most intelligent people have to automate many behaviours, relegating about 40% of decisions to the sub-conscious. In a research article published in 2009, Phillipa Lally established that it took anywhere between 18 and 254 days for people to form a new habit. The length of time for a loyalty scheme to start working will depend upon the frequency of purchase in your sector, and other blocks that need to be overcome. If you’re after an instant effect, don’t do it, you will be disappointed.
 
-![](/img/1366x532 loyalty mid article image b v1.jpg)
+![null](/img/1366x532-loyalty-mid-article-image-b-v1.jpg)
 
 If you have got this far, thank you for reading. Hopefully this article will have created more questions than given answers. If you want any of those questions answered, just drop me a line, and we can have a chat. I’m afraid there is no one solution for everyone, we take a tailored approach on what is best for you, we understand how a loyalty programme can work for you and then connect the different aspects of your business to make it deliver the ambitions you have. We have invested in the technologies to deliver programmes end to end, and a team with the skill sets to know what will work for you.
