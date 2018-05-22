@@ -42,7 +42,7 @@ Being a Planner, I’m bound to think this is the most important aspect of getti
 
 The Nielsen research highlighted that the only element of loyalty schemes the British over-index on, and in fact we are nearly twice the global average, is for an individual to be recognised as an important customer. This was easy in the early days of retail when a shop owner knew every customer personally, even your bank manager knew your name, and why we consider our ‘local’ as the pub where the landlord knows us. Technology and data now allow us to communicate to customers personally and create a sense of community. Moving beyond traditional segmentation methods, the serving of dynamic content based upon an individual’s preferences or behaviour allows millions of iterations of a single e-mail or landing page. Personalisation boosts effectiveness, and for loyalty programmes it will move your relationship with a customer to the next level.
 
-**4. Your Employees Have To Be Motivate.**
+**4. Your Employees Have To Be Motivated.**
 
 Where there is a physical link between your customers and your company, be that a store, call centre, or delivery, customer satisfaction is driven by their experiences with your company. Whilst you won’t be able to get every person to behave properly every time, you can increase the chance of this happening. We run an employee engagement programme for Volvo, that measures and rewards sales people at dealerships, not just on volume sales, but a number of ‘soft dimensions’ that consider speed of response, product knowledge, and customer satisfaction. If you are considering, or have a loyalty programme, extend it throughout your organisation to make a clear link between key employee behaviour and customer loyalty.
 
