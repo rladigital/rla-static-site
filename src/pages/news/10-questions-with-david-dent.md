@@ -17,11 +17,11 @@ weighting: '1'
 ---
 **Ok, so what do you actually do?**
 
-I consider clients problems and objectives and translate these into a strategy.  I see things from the eyes of the consumer to understand what messages (and where) will help them reach a positive buying decision.  I work closely with our creative teams to develop effective work, and with Client Services on the delivery.  I am ably supported by a great team who are brilliant at surfacing insight from the vast amounts of client data we access, and am ultimately accountable for effectiveness.
+I consider clients problems and objectives and translate these into a strategy. I see things from the eyes of the consumer to understand what messages (and where) will help them reach a positive buying decision. I work closely with our creative teams to develop effective work, and with Client Services on the delivery. I am ably supported by a great team who are brilliant at surfacing insight from the vast amounts of client data we access, and am ultimately accountable for effectiveness.
 
 **What makes working at RLA different to other agencies?**
 
-It has to be the people, that’s what makes any agency special.  I think we have a lot of individuals with very diverse skills and approaches.  It somehow seems to gel, which is why we are very comfortable fusing technology and creativity, something many agencies without our culture struggle to do properly.
+It has to be the people, that’s what makes any agency special. I think we have a lot of individuals with very diverse skills and approaches. It somehow seems to gel, which is why we are very comfortable fusing technology and creativity, something many agencies without our culture struggle to do properly.
 
 **What industry trend or technology are you most excited about?**
 
@@ -33,7 +33,7 @@ My team winning the Summer Sports Day trophy from Lucy, our FD – she’s so co
 
 **When you’re not in the barn, what do you get up to?**
 
-I love anything to do with water, sailing, windsurfing, kayaking, that’s my main escape.  Spending time with my family and friends is when I’m happiest but mowing lawns and weeding often gets in the way.  I enjoy watching sport, lots of Rugby and the mighty Chelsea FC.
+I love anything to do with water, sailing, windsurfing, kayaking, that’s my main escape. Spending time with my family and friends is when I’m happiest but mowing lawns and weeding often gets in the way. I enjoy watching sport, lots of Rugby and the mighty Chelsea FC.
 
 **What are you most proud of (career, personal, go for broke)?**
 
@@ -43,7 +43,7 @@ Well I’ve worked on award winning campaigns, won National and European sailing
 
 **What would you do if you weren’t in the marketing industry?**
 
-Probably live a lot longer!  I have tried to escape our industry, but always been drawn back - I did a degree in Acupuncture and studied for a Masters in Sports Science, I owned a pub and did some yachting.  My ultimate dream though would be to own a Rum distillery in the Caribbean.
+Probably live a lot longer! I have tried to escape our industry, but always been drawn back - I did a degree in Acupuncture and studied for a Masters in Sports Science, I owned a pub and did some yachting. My ultimate dream though would be to own a Rum distillery in the Caribbean.
 
 **You’re in control of the Sonos, what are we listening to?**
 
@@ -55,7 +55,7 @@ Passionate.
 
 **Which other RLAer is most awesome and why?**
 
-Now I know I’m going to be ribbed for saying this but it has to be Sam, our MD.  She embraces all things good, has time for everyone no matter how busy, and always has a smile on her face whatever.
+Now I know I’m going to be ribbed for saying this but it has to be Sam, our MD. She embraces all things good, has time for everyone no matter how busy, and always has a smile on her face whatever.
 
 **It’s Friday, its 4 o’clock, the beer fridge is open. What are you grabbing?**
 
