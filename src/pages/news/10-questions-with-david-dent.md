@@ -39,7 +39,7 @@ I love anything to do with water, sailing, windsurfing, kayaking, that’s my ma
 
 Well I’ve worked on award winning campaigns, won National and European sailing championships, I probably should say my kids, but the one thing that really stands out is learning to play the Bongos (I’m tone deaf).
 
-![](/img/1366x532 10 questions mid article image david dent.jpg)
+![](/img/1366x532-10-questions-mid-article-image-david-dent.jpg)
 
 **What would you do if you weren’t in the marketing industry?**
 
