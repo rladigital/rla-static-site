@@ -49,10 +49,6 @@ Probably live a lot longer!  I have tried to escape our industry, but always bee
 
 I’ve got a really eclectic taste, maybe some reggae, dance, or rock - definitely something that would embarrass my daughter.
 
-**We’re on a pitch and it’s pizza time, what are you ordering?**
-
-A Kebab, much better than a Pizza.
-
 **Summarise RLA in one word.**
 
 Passionate.
