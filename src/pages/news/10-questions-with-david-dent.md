@@ -38,14 +38,8 @@ Probably live a lot longer! I have tried to escape our industry, but always been
 **You’re in control of the Sonos, what are we listening to?**
 I’ve got a really eclectic taste, maybe some reggae, dance, or rock - definitely something that would embarrass my daughter.
 
-**Summarise RLA in one word.**
-Passionate.
-
 **Which other RLAer is most awesome and why?**
 Now I know I’m going to be ribbed for saying this but it has to be Sam, our MD. She embraces all things good, has time for everyone no matter how busy, and always has a smile on her face whatever.
-
-**It’s Friday, its 4 o’clock, the beer fridge is open. What are you grabbing?**
-You have to be pretty quick to beat the digital team to the fridge, but if I’m lucky and get a head-start, then I’m usually seen sipping on a chilled glass of white wine.
 
 **What is your dream client?**
 That would have to be Mount Gay Rum – the head office visits to Barbados, and the product tasting.
