@@ -1,7 +1,7 @@
 ---
 templateKey: job
 area: DIGITAL
-title: Front End Developer
+title: Are you a great Front End Developer?
 closing: 27/04/2018
 description: >-
   # About Us
@@ -88,3 +88,4 @@ benefits:
 hero: /img/belfast-senior-designer op 1 edit.jpg
 weighting: 0
 ---
+
