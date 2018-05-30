@@ -2,8 +2,8 @@
 templateKey: news
 title: 10 questions with... David Dent
 date: 30/05/2018
-hero: /img/sam-2.jpg
-thumb: /img/sam.jpg
+hero: /img/1160x450 10 questions article header image david dent.jpg
+thumb: /img/1160x450 10 questions article header image david dent.jpg
 category: Culture
 tags:
   - CULTURE
@@ -38,6 +38,8 @@ I love anything to do with water, sailing, windsurfing, kayaking, that’s my ma
 **What are you most proud of (career, personal, go for broke)?**
 
 Well I’ve worked on award winning campaigns, won National and European sailing championships, I probably should say my kids, but the one thing that really stands out is learning to play the Bongos (I’m tone deaf).
+
+![](/img/1366x532 10 questions mid article image david dent.jpg)
 
 **What would you do if you weren’t in the marketing industry?**
 
