@@ -39,7 +39,7 @@ I love anything to do with water, sailing, windsurfing, kayaking, that’s my ma
 
 Well I’ve worked on award winning campaigns, won National and European sailing championships, I probably should say my kids, but the one thing that really stands out is learning to play the Bongos (I’m tone deaf).
 
-![](/img/1366x532 10 questions mid article image david dent.jpg)
+![](/img/1366x532-10-questions-mid-article-image-david-dent.jpg)
 
 **What would you do if you weren’t in the marketing industry?**
 
@@ -49,16 +49,13 @@ Probably live a lot longer!  I have tried to escape our industry, but always bee
 
 I’ve got a really eclectic taste, maybe some reggae, dance, or rock - definitely something that would embarrass my daughter.
 
-**
-We’re on a pitch and it’s pizza time, what are you ordering?**
+**We’re on a pitch and it’s pizza time, what are you ordering?**
 
 A Kebab, much better than a Pizza.
 
-**
-Summarise RLA in one word.**
+**Summarise RLA in one word.**
 
-Passionate
-.
+Passionate.
 
 **Which other RLAer is most awesome and why?**
 
@@ -68,8 +65,7 @@ Now I know I’m going to be ribbed for saying this but it has to be Sam, our MD
 
 You have to be pretty quick to beat the digital team to the fridge, but if I’m lucky and get a head-start, then I’m usually seen sipping on a chilled glass of white wine.
 
-**
-What’s your favourite part of the job?**
+**What’s your favourite part of the job?**
 
 I love the variety and the intellectual challenges.
 
@@ -77,11 +73,8 @@ I love the variety and the intellectual challenges.
 
 That would have to be Mount Gay Rum – the head office visits to Barbados, and the product tasting.
 
-**
-What makes a good Planner?
-**
+**What makes a good Planner?**
 
-For me it’s about being curious.  You have to love people and want to understand what makes them tick.  The Apple ‘Think Different’ ad from 1997 captured it:
+For me it’s about being curious. You have to love people and want to understand what makes them tick. The Apple ‘Think Different’ ad from 1997 captured it:
 
-_“Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.”
-_
+_“Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.”_
