@@ -15,7 +15,7 @@ sideHeading: >-
 galleryImages:
   - /img/sam-2.jpg
 author: Samantha Smith
-weighting: 0
+weighting: '-6'
 ---
 
 **Ok, so what do you actually do?**
