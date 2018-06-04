@@ -2,7 +2,7 @@
 templateKey: job
 area: Client Services
 title: Have you got what it takes to join us as an Account Executive?
-closing: 30/05/2018
+closing: 06/03/2019
 description: >-
   # About us
 
