@@ -2,7 +2,7 @@
 templateKey: job
 area: Client Services
 title: Have you got what it takes to join us as an Account Executive?
-closing: 30/05/2018
+closing: 06/08/2018
 description: >-
   # About us
 
@@ -114,4 +114,3 @@ benefits:
 hero: /img/account handler role b img_7616 copy.jpg
 weighting: 0
 ---
-
