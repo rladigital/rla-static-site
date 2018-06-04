@@ -1,6 +1,6 @@
 ---
 templateKey: news
-title: 10 questions with... David Dent
+title: 10 Questions with… David Dent
 date: 30/05/2018
 hero: /img/1160x450 10 questions article header image david dent.jpg
 thumb: /img/1160x450 10 questions article header image david dent.jpg
