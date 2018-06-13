@@ -2,7 +2,7 @@
 templateKey: news
 title: 'PERKS: A year of points and prizes'
 date: 13/06/2018
-hero: /img/1160x450 perks header image v1 gif.gif
+hero: /img/1200x1200 perks 1 year article thumbnail v1.jpg
 thumb: /img/1200x1200 perks 1 year article thumbnail v1.jpg
 category: News
 tags:
@@ -12,7 +12,7 @@ sideHeading: >-
   The programme has transformed how we reach, engage and drive sales amongst our
   audience
 galleryImages:
-  - /img/1160x450 perks header image v1 gif.gif
+  - /img/1200x1200 perks 1 year article thumbnail v1.jpg
 author: Pamela Williams
 weighting: 0
 ---
