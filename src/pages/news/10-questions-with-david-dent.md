@@ -13,7 +13,7 @@ sideHeading: You have to love people and want to understand what makes them tick
 galleryImages:
   - /img/david dent.jpg
 author: David Dent
-weighting: '1'
+weighting: '0'
 ---
 **Ok, so what do you actually do?**
 
