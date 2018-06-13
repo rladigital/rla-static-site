@@ -2,7 +2,7 @@
 templateKey: news
 title: PERKS is one year old
 date: 12/06/2018
-hero: /img/rla.jpg
+hero: /img/juggle.gif
 thumb: /img/rla-square.jpg
 category: News
 tags:
