@@ -10,7 +10,7 @@ tags:
 intro: tbc
 sideHeading: >-
   The programme has transformed how we reach, engage and drive sales amongst our
-  audience
+  audience.
 galleryImages:
   - /img/1200x1200 perks 1 year article thumbnail v1.jpg
 author: Pamela Williams
