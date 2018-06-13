@@ -14,7 +14,7 @@ sideHeading: >-
 galleryImages:
   - /img/rla.jpg
 author: Pamela Williams
-weighting: '2'
+weighting: '0'
 ---
 A year ago this month, RLA gave birth to something pretty unique in the automotive market.
 
