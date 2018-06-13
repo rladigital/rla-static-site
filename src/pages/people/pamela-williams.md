@@ -2,6 +2,8 @@
 templateKey: people
 title: Pamela Williams
 role: Account Director
+tags:
+  - Client Services
 profile: /img/missing_avatar.svg
 email: pamela.williams@rla.co.uk
 ---
