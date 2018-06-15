@@ -27,17 +27,17 @@ I make sure that when the work leaves the agency it is the best it can possibly 
 
 **What makes working at RLA different to other agencies?**
 
-The spirit. When everyone and everything somehow comes together on a project and we all pull together, even it’s a 2am finish, there’s nothing quite that satisfying in this business.
+The spirit. When everyone and everything somehow comes together on a project and we all pull together, even it’s a 2am finish, there’s nothing quite as satisfying in this business.
 
 **What industry trend or technology are you most excited about?**
 
-Being studio based, it would have to be the ever-evolving tools we have, things like Cinema 4D and Adobe XD. we’re able to render 3D environments or prototype an entire site or application, with functionality, for approval and then into build or design really efficiently.
+Being studio based, it would have to be the ever-evolving tools we have, things like Cinema 4D and Adobe XD. We’re able to render 3D environments or prototype an entire site or application, with functionality, for approval and then into build or design really efficiently.
 
 **What’s your best memory from RLA so far?**
 
 Screaming “grab the balls” repeatedly at our commercial director, Paul Smith, while we were taking part in human Hungry, Hungry Hippos on our inaugural Sports Day.
 
-![](/img/1366x532-10-questions-mid-article-image-andy-orritt.jpg)
+![null](/img/1366x532-10-questions-mid-article-image-andy-orritt.jpg)
 
 **When you’re not in the barn, what do you get up to?**
 
