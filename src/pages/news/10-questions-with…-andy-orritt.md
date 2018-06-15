@@ -31,7 +31,7 @@ The spirit. When everyone and everything somehow comes together on a project and
 
 **What industry trend or technology are you most excited about?**
 
-Being studio based, it would have to be the ever-evolving tools we have, things like Cinema 4D and Adobe XD. We’re able to render 3D environments or prototype an entire site or application, with functionality, for approval and then into build or design really efficiently.
+Being studio based, it would have to be the ever-evolving tools we have, things like Cinema 4D and Adobe XD. We’re able to render 3D environments or prototype an entire site or application, with functionality, for approval and get them into build or design really efficiently.
 
 **What’s your best memory from RLA so far?**
 
