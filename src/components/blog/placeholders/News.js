@@ -1,12 +1,14 @@
 import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
+import Scrollbars from "react-custom-scrollbars";
 
 import HeaderBlock from "../../HeaderBlock";
 import { colors, spacing } from "../../../theme/theme";
 
-const Container = styled.div`
+const Container = styled(Scrollbars).attrs({ autoHide: true })`
     border: 1px solid #ddd;
+    overflow: hidden;
 `;
 
 const Title = styled.h1`
@@ -57,8 +59,7 @@ const NewsPlaceholder = ({ height, news }) => (
         background={colors.white}
         padding={`${spacing.padding}rem `}
         fontSize={1}
-        style={{ height: `${height}rem`, marginBottom: `${spacing.margin}em` }}
-    >
+        style={{ height: `${height}rem`, marginBottom: `${spacing.margin}em` }}>
         {console.log(news)}
         <TitleSection>
             <Title>Featured Stories</Title>

@@ -72,7 +72,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "date", format: "DD/MM/YYYY"}
+      - {label: "Date", name: "date", widget: "date", format: "MM/DD/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Thumbnail Image", name: "thumb", widget: "image"}
       - {label: "Category", name: "category", widget: "select", options: ["News", "Insight", "Culture"]}
@@ -109,7 +109,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "job"}
       - {label: "Area", name: "area", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Closing Date", name: "closing", widget: "date", format: "DD/MM/YYYY"}
+      - {label: "Closing Date", name: "closing", widget: "date", format: "MM/DD/YYYY"}
       - {label: "Description", name: "description", widget: "markdown", required: false}
       - {label: "Level", name: "level", widget: "string"}
       - {label: "Location", name: "location", widget: "string"}

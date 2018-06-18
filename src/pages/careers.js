@@ -71,7 +71,10 @@ export const pageQuery = graphql`
             }
         }
         news: allMarkdownRemark(
-            sort: { fields: [frontmatter___weighting, frontmatter___date] }
+            sort: {
+                fields: [frontmatter___date, frontmatter___weighting]
+                order: DESC
+            }
             filter: { frontmatter: { templateKey: { eq: "news" } } }
             limit: 10
         ) {

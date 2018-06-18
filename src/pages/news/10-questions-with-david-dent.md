@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: 10 Questions with… David Dent
-date: 30/05/2018
+date: 05/30/2018
 hero: /img/1160x450 10 questions article header image david dent.jpg
 thumb: /img/1160x450 10 questions article header image david dent.jpg
 category: Culture
@@ -13,8 +13,9 @@ sideHeading: You have to love people and want to understand what makes them tick
 galleryImages:
   - /img/david dent.jpg
 author: David Dent
-weighting: '0'
+weighting: 0
 ---
+
 **Ok, so what do you actually do?**
 
 I consider clients problems and objectives and translate these into a strategy. I see things from the eyes of the consumer to understand what messages (and where) will help them reach a positive buying decision. I work closely with our creative teams to develop effective work, and with Client Services on the delivery. I am ably supported by a great team who are brilliant at surfacing insight from the vast amounts of client data we access, and am ultimately accountable for effectiveness.

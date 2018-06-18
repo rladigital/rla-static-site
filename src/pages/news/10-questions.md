@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: 10 Questions with… Sam Smith
-date: 12/04/2018
+date: 04/12/2018
 hero: /img/sam.jpg
 thumb: /img/sam.jpg
 category: Culture
@@ -15,7 +15,7 @@ sideHeading: >-
 galleryImages:
   - /img/sam-2.jpg
 author: Samantha Smith
-weighting: '-6'
+weighting: 0
 ---
 
 **Ok, so what do you actually do?**

@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: The Best of D&AD Festival 2018
-date: 01/05/2018
+date: 05/01/2018
 hero: /img/1160x450 01 article header image 1.jpg
 thumb: /img/1160x450 01 article header image 1.jpg
 category: Culture

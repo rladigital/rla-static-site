@@ -2,7 +2,7 @@
 templateKey: job
 area: INTERNSHIPS
 title: We’re always looking for people interested in internships and apprenticeships.
-closing: 19/04/2018
+closing: 04/19/2018
 level: Internships / Apprenticeships
 location: Bournemouth
 salary: DOE

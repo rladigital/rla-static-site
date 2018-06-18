@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: A New Era for RLA
-date: 13/04/2018
+date: 04/13/2018
 hero: /img/rla.jpg
 thumb: /img/rla-square.jpg
 category: News

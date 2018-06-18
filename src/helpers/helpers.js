@@ -76,5 +76,5 @@ export function shuffleArray(o) {
     return o;
 }
 export function dateFormat(date, format = "DD MMMM YYYY") {
-    return moment(date, "DD/MM/YYYY").format(format);
+    return moment(date, "MM/DD/YYYY").format(format);
 }

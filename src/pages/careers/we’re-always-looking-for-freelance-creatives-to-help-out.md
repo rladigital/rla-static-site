@@ -2,7 +2,7 @@
 templateKey: job
 area: Freelance
 title: We’re always looking for Freelance Creatives to help out.
-closing: 19/04/2018
+closing: 04/19/2018
 level: Freelance
 location: Bournemouth
 salary: DOE

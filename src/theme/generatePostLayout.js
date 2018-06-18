@@ -24,8 +24,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={0}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[0].node}
                                     height={500}
@@ -44,10 +43,9 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={0}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
-                                    story={data[1].node}
+                                    story={data[0].node}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -56,10 +54,9 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={250}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[1].node}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -74,8 +71,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={0}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[0].node}
                                     height={500}
@@ -86,8 +82,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={250}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[1].node}
                                     height={500}
@@ -106,8 +101,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={0}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[0].node}
                                     height={500}
@@ -118,8 +112,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={250}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[1].node}
                                     height={500}
@@ -130,8 +123,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={50}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[2].node}
                                     height={500}
@@ -148,8 +140,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={0}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[0].node}
                                     height={500}
@@ -160,8 +151,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={250}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[1].node}
                                     height={250}
@@ -170,8 +160,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={250}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[2].node}
                                     height={250}
@@ -189,31 +178,8 @@ export default chunks => {
                         <Column large={4} collapse expanded>
                             <ScrollAnimation
                                 animateIn="fadeIn"
-                                delay={0}
-                                animateOnce={true}
-                            >
-                                <NewsSummary
-                                    story={data[1].node}
-                                    height={250}
-                                />
-                            </ScrollAnimation>
-                            <ScrollAnimation
-                                animateIn="fadeIn"
-                                delay={250}
-                                animateOnce={true}
-                            >
-                                <NewsSummary
-                                    story={data[2].node}
-                                    height={250}
-                                />
-                            </ScrollAnimation>
-                        </Column>
-                        <Column large={4} collapse expanded>
-                            <ScrollAnimation
-                                animateIn="fadeIn"
                                 delay={500}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[0].node}
                                     height={500}
@@ -223,9 +189,28 @@ export default chunks => {
                         <Column large={4} collapse expanded>
                             <ScrollAnimation
                                 animateIn="fadeIn"
+                                delay={0}
+                                animateOnce={true}>
+                                <NewsSummary
+                                    story={data[1].node}
+                                    height={250}
+                                />
+                            </ScrollAnimation>
+                            <ScrollAnimation
+                                animateIn="fadeIn"
+                                delay={250}
+                                animateOnce={true}>
+                                <NewsSummary
+                                    story={data[2].node}
+                                    height={250}
+                                />
+                            </ScrollAnimation>
+                        </Column>
+                        <Column large={4} collapse expanded>
+                            <ScrollAnimation
+                                animateIn="fadeIn"
                                 delay={750}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[3].node}
                                     height={500}
@@ -242,8 +227,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={0}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[0].node}
                                     height={500}
@@ -254,8 +238,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={250}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[1].node}
                                     height={500}
@@ -266,8 +249,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={500}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[2].node}
                                     height={250}
@@ -276,8 +258,7 @@ export default chunks => {
                             <ScrollAnimation
                                 animateIn="fadeIn"
                                 delay={750}
-                                animateOnce={true}
-                            >
+                                animateOnce={true}>
                                 <NewsSummary
                                     story={data[3].node}
                                     height={250}

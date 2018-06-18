@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: The Drum Marketing Awards 2018
-date: 27/04/2018
+date: 04/27/2018
 hero: /img/1160x450_banner_x2_drumawards.jpg
 thumb: /img/1200x1200_rla_social_drumawards.jpg
 category: News

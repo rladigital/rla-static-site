@@ -67,14 +67,13 @@ const Title = styled.h3`
 const NewsSummary = ({ story, height }) => {
     //console.log(story);
     return (
-        <Link to={story.fields.slug}>
+        <Link to={story.fields && story.fields.slug}>
             <SummaryContainer height={height}>
                 <Image
                     className="news-image"
                     backgroundImage={getOriginalImageSrc(
                         story.frontmatter.thumb
-                    )}
-                >
+                    )}>
                     {" "}
                 </Image>
                 <TitleBackground>

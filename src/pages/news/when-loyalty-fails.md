@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: When Loyalty Fails
-date: 16/05/2018
+date: 05/16/2018
 hero: /img/1160x450-loyalty-article-header-image-v1.jpg
 thumb: /img/1200x1200-loyalty-article-social-square-v1.jpg
 category: Insight
@@ -16,6 +16,7 @@ galleryImages:
 author: David Dent
 weighting: 0
 ---
+
 The Nielsen Global Retail Loyalty Sentiment report published at the end of 2016 indicated the UK has one of the highest levels in Europe of the population participating in a loyalty scheme (89%), and with an average person holding 3.6 cards, on the surface us Brits appear to love the incentives offered by the retailers we most value. However, the research goes on to reveal that the impact these programmes have on buying behaviour is incredibly low, in fact we are ranked second lowest of the 63 countries measured globally, with only half of British loyalty card holders stating they would buy from a retailer with a scheme over one without. Of the 23 statements in the study about attitudes, behaviour and benefits, the UK performed below the global average – something is going wrong!
 
 Enough of the statistics and research, they give a great overview of the loyalty sector, but for me they highlight the fact that there are probably a lot of clients and agencies out there scratching their heads as to why their brilliant loyalty programme is failing to generate the ROI they had forecast and having to give more and more away to keep the programme relevant to their customers.

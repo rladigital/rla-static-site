@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: 10 Questions with… Andy Orritt
-date: 13/06/2018
+date: 06/13/2018
 hero: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
 thumb: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
 category: Culture
@@ -17,6 +17,7 @@ galleryImages:
 author: Andy Orritt
 weighting: 0
 ---
+
 **What’s your role at RLA?**
 
 Studio and Traffic Manager.
