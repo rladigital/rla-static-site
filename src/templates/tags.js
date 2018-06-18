@@ -5,48 +5,16 @@ import { Row, Column } from "rla-components";
 // Components
 import Link from "gatsby-link";
 
-import theme, { colors, spacing } from "../theme/theme";
+import theme from "../theme/theme";
 import HeaderBlock from "../components/HeaderBlock";
-import generateLayout from "../theme/generatePostLayout";
-import { randomChunkArray, random } from "../helpers/helpers";
-
-const rowsAdvance = 3;
-
+import NewsList from "../components/news/NewsList";
 class TagsPage extends React.Component {
-    //const Tags = ({ pathContext, data, transition }) => {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-    componentDidMount() {
-        const { data: { allMarkdownRemark: { edges: news } } } = this.props;
-
-        const chunks = randomChunkArray(news, 2, 4);
-
-        const layout = generateLayout(chunks);
-
-        this.setState({
-            rows: rowsAdvance,
-            chunkedNews: chunks,
-            layout: layout
-        });
-
-        //console.log(chunks);
-    }
-
-    handleClick() {
-        this.setState({
-            rows: this.state.rows + rowsAdvance
-        });
-    }
-
     render() {
         const { tag } = this.props.pathContext;
         let {
             data: { allMarkdownRemark: { edges: news, totalCount } },
             transition
         } = this.props;
-        const { chunkedNews, rows, layout } = this.state;
 
         //const { edges, totalCount } = this.props.data.allMarkdownRemark;
         return (
@@ -55,20 +23,14 @@ class TagsPage extends React.Component {
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={theme.pageHeaderSection.padding}>
                             {totalCount} post{totalCount === 1 ? "" : "s"}{" "}
                             tagged with <span>{tag}</span>
                         </HeaderBlock>
                     </Column>
                 </Row>
 
-                <Row expanded collapse>
-                    {chunkedNews &&
-                        chunkedNews.slice(0, rows).map((items, i) => {
-                            return layout[i](items);
-                        })}
-                </Row>
+                <NewsList news={news} />
             </div>
         );
     }

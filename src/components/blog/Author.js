@@ -139,6 +139,9 @@ const Author = ({ author }) => {
                                 );
                             })}
                         </RecentPostList>
+                        <Link to="/">
+                            All posts by {author.frontmatter.title}
+                        </Link>
                     </div>
                 )}
 
