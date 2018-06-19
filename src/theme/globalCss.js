@@ -359,6 +359,10 @@ function globalCss(theme) {
             display: none;
         }
 
+        /* ----- Iframe Styles ----- */
+        iframe{
+            max-width: 100%;
+        }
     `;
 }
 
