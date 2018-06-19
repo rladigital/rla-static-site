@@ -16,6 +16,8 @@ class AuthorPage extends React.Component {
             transition
         } = this.props;
 
+        console.log(news[0].node.fields.posts);
+
         //const { edges, totalCount } = this.props.data.allMarkdownRemark;
         return (
             <div style={transition && transition.style}>
@@ -30,7 +32,7 @@ class AuthorPage extends React.Component {
                     </Column>
                 </Row>
 
-                <NewsList news={news} />
+                <NewsList news={news[0].node.fields.posts} />
             </div>
         );
     }

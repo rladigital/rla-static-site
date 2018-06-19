@@ -209,6 +209,30 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                 }
             });
         });
+
+        // Author pages:
+
+        const authorTemplate = path.resolve("src/templates/authors.js");
+        let authors = [];
+        // Iterate through each post, putting all found authors into `authors`
+        _.each(pages, edge => {
+            if (_.get(edge, "node.frontmatter.tags")) {
+                authors = authors.concat(edge.node.frontmatter.tags);
+            }
+        });
+        // Eliminate duplicate authors
+        authors = _.uniq(authors);
+
+        // Make tag pages
+        authors.forEach(tag => {
+            createPage({
+                path: `/authors/${_.kebabCase(tag)}/`,
+                component: authorTemplate,
+                context: {
+                    tag
+                }
+            });
+        });
     });
 };
 
