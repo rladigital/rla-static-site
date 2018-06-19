@@ -16,6 +16,8 @@ class TagsPage extends React.Component {
             transition
         } = this.props;
 
+        console.log(news);
+
         //const { edges, totalCount } = this.props.data.allMarkdownRemark;
         return (
             <div style={transition && transition.style}>

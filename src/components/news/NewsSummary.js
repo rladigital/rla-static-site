@@ -65,7 +65,6 @@ const Title = styled.h3`
 `;
 
 const NewsSummary = ({ story, height }) => {
-    //console.log(story);
     return (
         <Link to={story.fields && story.fields.slug}>
             <SummaryContainer height={height}>

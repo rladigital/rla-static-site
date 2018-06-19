@@ -8,15 +8,18 @@ import Link from "gatsby-link";
 import theme from "../theme/theme";
 import HeaderBlock from "../components/HeaderBlock";
 import NewsList from "../components/news/NewsList";
-class AuthorPage extends React.Component {
+class AuthorsPage extends React.Component {
     render() {
-        const { tag } = this.props.pathContext;
+        const tag = `/people/${this.props.pathContext.tag}/`;
+
         let {
-            data: { allMarkdownRemark: { edges: news, totalCount } },
+            data: { allMarkdownRemark: { edges: data, totalCount } },
             transition
         } = this.props;
 
-        console.log(news[0].node.fields.posts);
+        const posts = data[0].node.fields.posts;
+
+        const person = data[0].node.frontmatter.title;
 
         //const { edges, totalCount } = this.props.data.allMarkdownRemark;
         return (
@@ -26,19 +29,19 @@ class AuthorPage extends React.Component {
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
                             padding={theme.pageHeaderSection.padding}>
-                            {totalCount} post{totalCount === 1 ? "" : "s"}{" "}
-                            tagged with <span>{tag}</span>
+                            {posts.length} post{posts.length === 1 ? "" : "s"}{" "}
+                            by <span>{person}</span>
                         </HeaderBlock>
                     </Column>
                 </Row>
 
-                <NewsList news={news[0].node.fields.posts} />
+                <NewsList news={posts} />
             </div>
         );
     }
 }
 
-AuthorPage.propTypes = {
+AuthorsPage.propTypes = {
     pathContext: PropTypes.shape({
         tag: PropTypes.string.isRequired
     }),
@@ -61,13 +64,12 @@ AuthorPage.propTypes = {
     })
 };
 
-export default AuthorPage;
+export default AuthorsPage;
 
 export const pageQuery = graphql`
-    query AuthorPage {
-        allMarkdownRemark(
-            filter: { fields: { slug: { eq: "/people/david-dent/" } } }
-        ) {
+    query AuthorPage($tag: String) {
+        allMarkdownRemark(filter: { fields: { slug: { eq: $tag } } }) {
+            totalCount
             edges {
                 node {
                     fields {

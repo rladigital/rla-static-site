@@ -212,24 +212,24 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
         // Author pages:
 
-        const authorTemplate = path.resolve("src/templates/authors.js");
-        let authors = [];
-        // Iterate through each post, putting all found authors into `authors`
+        const authorTemplate = path.resolve("src/templates/people.js");
+        let people = [];
+        // Iterate through each post, putting all found people into `people`
         _.each(pages, edge => {
-            if (_.get(edge, "node.frontmatter.tags")) {
-                authors = authors.concat(edge.node.frontmatter.tags);
+            if (_.get(edge, "node.frontmatter.title")) {
+                people = people.concat(edge.node.frontmatter.title);
             }
         });
-        // Eliminate duplicate authors
-        authors = _.uniq(authors);
+        // Eliminate duplicate people
+        people = _.uniq(people);
 
-        // Make tag pages
-        authors.forEach(tag => {
+        // Make author pages
+        people.forEach(author => {
             createPage({
-                path: `/authors/${_.kebabCase(tag)}/`,
-                component: authorTemplate,
+                path: `/authors/${_.kebabCase(author)}/`,
+                component: path.resolve("src/templates/authors.js"),
                 context: {
-                    tag
+                    author
                 }
             });
         });

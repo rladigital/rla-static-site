@@ -26,7 +26,7 @@ export default chunks => {
                                 delay={0}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[0].node || data[0]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -45,7 +45,7 @@ export default chunks => {
                                 delay={0}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[0].node || data[0]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -56,7 +56,7 @@ export default chunks => {
                                 delay={250}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[1].node}
+                                    story={data[1].node || data[1]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -73,7 +73,7 @@ export default chunks => {
                                 delay={0}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[0].node || data[0]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -84,7 +84,7 @@ export default chunks => {
                                 delay={250}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[1].node}
+                                    story={data[1].node || data[1]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -103,7 +103,7 @@ export default chunks => {
                                 delay={0}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[0].node || data[0]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -114,7 +114,7 @@ export default chunks => {
                                 delay={250}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[1].node}
+                                    story={data[1].node || data[1]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -125,7 +125,7 @@ export default chunks => {
                                 delay={50}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[2].node}
+                                    story={data[2].node || data[2]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -142,7 +142,7 @@ export default chunks => {
                                 delay={0}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[0].node || data[0]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -153,7 +153,7 @@ export default chunks => {
                                 delay={250}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[1].node}
+                                    story={data[1].node || data[1]}
                                     height={250}
                                 />
                             </ScrollAnimation>
@@ -162,7 +162,7 @@ export default chunks => {
                                 delay={250}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[2].node}
+                                    story={data[2].node || data[2]}
                                     height={250}
                                 />
                             </ScrollAnimation>
@@ -181,7 +181,7 @@ export default chunks => {
                                 delay={500}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[0].node || data[0]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -192,7 +192,7 @@ export default chunks => {
                                 delay={0}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[1].node}
+                                    story={data[1].node || data[1]}
                                     height={250}
                                 />
                             </ScrollAnimation>
@@ -201,7 +201,7 @@ export default chunks => {
                                 delay={250}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[2].node}
+                                    story={data[2].node || data[2]}
                                     height={250}
                                 />
                             </ScrollAnimation>
@@ -212,7 +212,7 @@ export default chunks => {
                                 delay={750}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[3].node}
+                                    story={data[3].node || data[3]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -229,7 +229,7 @@ export default chunks => {
                                 delay={0}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[0].node}
+                                    story={data[0].node || data[0]}
                                     height={500}
                                 />
                             </ScrollAnimation>
@@ -240,7 +240,7 @@ export default chunks => {
                                 delay={250}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[1].node}
+                                    story={data[1].node || data[1]}
                                     height={500}
                                 />{" "}
                             </ScrollAnimation>
@@ -251,7 +251,7 @@ export default chunks => {
                                 delay={500}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[2].node}
+                                    story={data[2].node || data[2]}
                                     height={250}
                                 />
                             </ScrollAnimation>
@@ -260,7 +260,7 @@ export default chunks => {
                                 delay={750}
                                 animateOnce={true}>
                                 <NewsSummary
-                                    story={data[3].node}
+                                    story={data[3].node || data[3]}
                                     height={250}
                                 />{" "}
                             </ScrollAnimation>
