@@ -91,21 +91,26 @@ const PostTitle = styled.div`
     padding-bottom: 1em;
 `;
 const Author = ({ author }) => {
-    console.log(author);
+    const hasProfileImage = Boolean(
+        author.frontmatter.profile.responsive.childImageSharp
+    );
+
     return (
         <Container>
             <Row collapse>
-                <ProfileColumn xlarge={5}>
-                    <ProfileImage>
-                        <Img
-                            resolutions={
-                                author.frontmatter.profile.responsive
-                                    .childImageSharp.resolutions
-                            }
-                        />
-                    </ProfileImage>
-                </ProfileColumn>
-                <ProfileColumn xlarge={7}>
+                {hasProfileImage && (
+                    <ProfileColumn xlarge={5}>
+                        <ProfileImage>
+                            <Img
+                                resolutions={
+                                    author.frontmatter.profile.responsive
+                                        .childImageSharp.resolutions
+                                }
+                            />
+                        </ProfileImage>
+                    </ProfileColumn>
+                )}
+                <ProfileColumn collapse={!hasProfileImage} xlarge={7}>
                     <Name>{author.frontmatter.title}</Name>
                     <Role>{author.frontmatter.role}</Role>
                     <Email>{author.frontmatter.email}</Email>
