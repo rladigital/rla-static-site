@@ -4,6 +4,7 @@ import Link from "gatsby-link";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import Img from "gatsby-image";
+import FAIcon from "@fortawesome/react-fontawesome";
 
 import { colors, breakpoints, spacing } from "../../theme/theme";
 import { Social } from "./Icon";
@@ -144,8 +145,15 @@ const Author = ({ author }) => {
                                 );
                             })}
                         </RecentPostList>
-                        <Link to="/">
-                            All posts by {author.frontmatter.title}
+                        <Link
+                            to={`/authors/${_.kebabCase(
+                                author.frontmatter.title
+                            )}`}>
+                            More posts by {author.frontmatter.title}{" "}
+                            <FAIcon
+                                icon="arrow-right"
+                                transform="shrink-3 down-2"
+                            />
                         </Link>
                     </div>
                 )}

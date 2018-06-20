@@ -10,14 +10,14 @@ import HeaderBlock from "../components/HeaderBlock";
 import NewsList from "../components/news/NewsList";
 class AuthorsPage extends React.Component {
     render() {
-        const tag = `/people/${this.props.pathContext.tag}/`;
-
         let {
             data: { allMarkdownRemark: { edges: data, totalCount } },
             transition
         } = this.props;
 
         const posts = data[0].node.fields.posts;
+
+        const postsCount = posts ? posts.length : 0;
 
         const person = data[0].node.frontmatter.title;
 
@@ -29,13 +29,13 @@ class AuthorsPage extends React.Component {
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
                             padding={theme.pageHeaderSection.padding}>
-                            {posts.length} post{posts.length === 1 ? "" : "s"}{" "}
-                            by <span>{person}</span>
+                            {postsCount} post{postsCount === 1 ? "" : "s"} by{" "}
+                            <span>{person}</span>
                         </HeaderBlock>
                     </Column>
                 </Row>
 
-                <NewsList news={posts} />
+                {postsCount ? <NewsList news={posts} /> : null}
             </div>
         );
     }
@@ -43,7 +43,7 @@ class AuthorsPage extends React.Component {
 
 AuthorsPage.propTypes = {
     pathContext: PropTypes.shape({
-        tag: PropTypes.string.isRequired
+        author: PropTypes.string.isRequired
     }),
     data: PropTypes.shape({
         allMarkdownRemark: PropTypes.shape({
@@ -67,8 +67,8 @@ AuthorsPage.propTypes = {
 export default AuthorsPage;
 
 export const pageQuery = graphql`
-    query AuthorPage($tag: String) {
-        allMarkdownRemark(filter: { fields: { slug: { eq: $tag } } }) {
+    query AuthorPage($author: String) {
+        allMarkdownRemark(filter: { fields: { slug: { eq: $author } } }) {
             totalCount
             edges {
                 node {
@@ -77,6 +77,9 @@ export const pageQuery = graphql`
                         posts {
                             fields {
                                 slug
+                                author {
+                                    id
+                                }
                             }
                             frontmatter {
                                 title

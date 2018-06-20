@@ -225,11 +225,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
         // Make author pages
         people.forEach(author => {
+            const authorString = _.kebabCase(author);
             createPage({
-                path: `/authors/${_.kebabCase(author)}/`,
+                path: `/authors/${authorString}/`,
                 component: path.resolve("src/templates/authors.js"),
                 context: {
-                    author
+                    author: `/people/${authorString}/`
                 }
             });
         });
