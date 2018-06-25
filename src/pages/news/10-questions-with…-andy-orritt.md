@@ -2,8 +2,10 @@
 templateKey: news
 title: 10 Questions with… Andy Orritt
 date: 06/13/2018
-hero: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
-thumb: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
+hero: >-
+  /img/1160x450-10-questions-article-header-image-andy-orritt-0f05899493465ac7406fea18cea140f2.jpg
+thumb: >-
+  /img/1160x450-10-questions-article-header-image-andy-orritt-0f05899493465ac7406fea18cea140f2.jpg
 category: Culture
 tags:
   - CULTURE
@@ -37,11 +39,11 @@ Being studio based, it would have to be the ever-evolving tools we have, things 
 
 Screaming “grab the balls” repeatedly at our commercial director, Paul Smith, while we were taking part in human Hungry, Hungry Hippos on our inaugural Sports Day.
 
-![null](/img/1366x532-10-questions-mid-article-image-andy-orritt.jpg)
+![null](/img/1366x532-10-questions-mid-article-image-andy-orritt-d6cf16bb9989acb16fa23950018f4682-37d36.jpg)
 
 **When you’re not in the barn, what do you get up to?**
 
-During the week, mainly being tired. I have 3 children, so weeknights are essentially my wife and I taking turns playing good cop/bad cop in tense siege negotiation until all 3 are in bed. My weekends are filled with under-12s football, trips to the beach/forest, constantly 'sorting out' the garage and going to the park When I do get a couple of hours to myself, I’ll more than likely fall asleep watching either Match of the Day, or the worst film currently available on Netflix.
+During the week, mainly being tired. I have 3 children, so weeknights are essentially my wife and I taking turns playing good cop/bad cop in a tense siege negotiation until all 3 are in bed. My weekends are filled with under-12s football, trips to the beach/forest, constantly 'sorting out' the garage and going to the park When I do get a couple of hours to myself, I’ll more than likely fall asleep watching either Match of the Day, or the worst film currently available on Netflix.
 
 **What would you do if you weren’t in the marketing industry?**
 
