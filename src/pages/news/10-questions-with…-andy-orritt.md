@@ -2,8 +2,10 @@
 templateKey: news
 title: 10 Questions with… Andy Orritt
 date: 06/13/2018
-hero: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
-thumb: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
+hero: >-
+  /img/1160x450-10-questions-article-header-image-andy-orritt-0f05899493465ac7406fea18cea140f2.jpg
+thumb: >-
+  /img/1160x450-10-questions-article-header-image-andy-orritt-0f05899493465ac7406fea18cea140f2.jpg
 category: Culture
 tags:
   - CULTURE
