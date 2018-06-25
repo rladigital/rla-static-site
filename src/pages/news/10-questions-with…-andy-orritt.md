@@ -39,7 +39,7 @@ Being studio based, it would have to be the ever-evolving tools we have, things 
 
 Screaming “grab the balls” repeatedly at our commercial director, Paul Smith, while we were taking part in human Hungry, Hungry Hippos on our inaugural Sports Day.
 
-![null](/img/1366x532-10-questions-mid-article-image-andy-orritt.jpg)
+![null](/img/1366x532-10-questions-mid-article-image-andy-orritt-d6cf16bb9989acb16fa23950018f4682-37d36.jpg)
 
 **When you’re not in the barn, what do you get up to?**
 
