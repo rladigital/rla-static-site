@@ -21,7 +21,7 @@ To say it’s been a busy few weeks at RLA, is perhaps putting it lightly. Autom
 
 Automechanika is the world's leading trade fair for the automotive service industry and is held annually in the UK at Birmingham’s NEC. It is a global brand and holds its trade fairs in several major cities around the world. The event attracts garage owners, motor factors, dealerships and other key buyers and suppliers in the aftersales market.
 
-![null](/img/1366x532 automechanika mid article image a v1.jpg)
+![null](/img/1366x532-automechanika-mid-article-image-a-v1.jpg)
 
 PSA’s stand was dual focus – Euro Repar Car Service on one side and Distrigo on the other. Both are relatively new brands for PSA in the UK. Euro Repar Car Service is a fast-growing all-makes garage maintenance and repair network with over 3,000 sites already worldwide. Relatively new to the UK, launched last year, Euro Repar Car Service already has 145 garages nationwide and an ambitious growth target of over 600 within the UK by 2020. 
 
