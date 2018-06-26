@@ -2,10 +2,8 @@
 templateKey: news
 title: 10 Questions with… Andy Orritt
 date: 06/13/2018
-hero: >-
-  /img/1160x450-10-questions-article-header-image-andy-orritt-0f05899493465ac7406fea18cea140f2.jpg
-thumb: >-
-  /img/1160x450-10-questions-article-header-image-andy-orritt-0f05899493465ac7406fea18cea140f2.jpg
+hero: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
+thumb: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
 category: Culture
 tags:
   - CULTURE
@@ -39,7 +37,7 @@ Being studio based, it would have to be the ever-evolving tools we have, things 
 
 Screaming “grab the balls” repeatedly at our commercial director, Paul Smith, while we were taking part in human Hungry, Hungry Hippos on our inaugural Sports Day.
 
-![null](/img/1366x532-10-questions-mid-article-image-andy-orritt-d6cf16bb9989acb16fa23950018f4682-37d36.jpg)
+![null](/img/1366x532-10-questions-mid-article-image-andy-orritt.jpg)
 
 **When you’re not in the barn, what do you get up to?**
 
