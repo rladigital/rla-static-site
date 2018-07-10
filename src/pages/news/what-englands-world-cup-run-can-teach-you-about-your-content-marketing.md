@@ -1,6 +1,6 @@
 ---
 templateKey: news
-title: What Englands World Cup Run can teach you about your Content Marketing
+title: What England's World Cup Run can teach you about your Content Marketing
 date: 07/10/2018
 hero: /img/1160x450 world cup run article header image v1.jpg
 thumb: /img/1160x450 world cup run article header image v1.jpg
@@ -9,8 +9,8 @@ tags:
   - Insight
 intro: tbc
 sideHeading: >-
-  As marketers, our content marketing strategies have a lot to learn from
-  England’s world cup heroics
+  Our content marketing strategies have a lot to learn from England’s world cup
+  heroics
 galleryImages:
   - /img/1160x450 world cup run article header image v1.jpg
 author: Luke Fagg
