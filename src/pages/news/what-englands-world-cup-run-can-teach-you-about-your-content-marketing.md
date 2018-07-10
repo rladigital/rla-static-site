@@ -32,19 +32,19 @@ Thought leadership content drives awareness and engagement for your brand – bu
 30% say poor thought leadership has led them to decide NOT to award business to a company.\
 91% of business decision makers describe brand thought leadership content as ‘important’.\
 45% say thought leadership has led them directly to award business to a company.\
-37% have included a company on an RFP after seeing its thought leadership.\
+37% have included a company on an RFP after seeing its thought leadership.
 
 **Set Piece Specialist:**\
 Of the 11 goals scored at this year’s world cup (to date) 3 have come from open play. England are set piece specialists. There is no fortune about it. It is well documented that Gareth Southgate’s stroke of genius was bringing in a team of specialists to help them improve their set pieces. The team’s planning is meticulous. Every player has a role to play, and they stick to it like glue. Most importantly they all work together as a unit to score (do you remember Stones’ headed goal against Panama? Incredible.).\
 
-A well thought out coherent marketing strategy is key to its eventual success. It is imperative that you carefully research and plan what content you are going to use and why. Above-the line/below-the-line, whatever your channels, whatever the content, they should all compliment each other, and work together towards a common goal. Doing so improves share of thought, reinforces your message, improves ROI, and help you achieve your goals.\
+A well thought out coherent marketing strategy is key to its eventual success. It is imperative that you carefully research and plan what content you are going to use and why. Above-the line/below-the-line, whatever your channels, whatever the content, they should all compliment each other, and work together towards a common goal. Doing so improves share of thought, reinforces your message, improves ROI, and help you achieve your goals.
 
 **Perspective:**\
-VAR has played a key role for England. Usually undone by injustice in tournaments past, England can now play with confidence knowing that VAR has their back if the referee doesn’t. Should a questionable decision arise, VAR ensures the referee can switch between viewpoints so that he can see key events unfold from multiple perspectives (apart from when Harry Kane was wrestled to the ground against Tunisia, but who even remembers that anymore?!).\
+VAR has played a key role for England. Usually undone by injustice in tournaments past, England can now play with confidence knowing that VAR has their back if the referee doesn’t. Should a questionable decision arise, VAR ensures the referee can switch between viewpoints so that he can see key events unfold from multiple perspectives (apart from when Harry Kane was wrestled to the ground against Tunisia, but who even remembers that anymore?!).
 
-Examining your content plan from the perspective of your various audiences is critical. Your brand’s story will be more engaging when it is individualised to fit within the context of specific audience segments.\
+Examining your content plan from the perspective of your various audiences is critical. Your brand’s story will be more engaging when it is individualised to fit within the context of specific audience segments.
 
-As you work on content, think about the needs, interests, experiences and potential biases of the people you are trying to reach by truly immersing yourself in their world.\
+As you work on content, think about the needs, interests, experiences and potential biases of the people you are trying to reach by truly immersing yourself in their world.
 
 **Emotion:**\
 Cast your mind back to England vs Columbia; Henderson steps up to take his penalty…misses. Heart stops. Through the gaps of your fingers you see Columbia miss one penalty and Pickford sensationally save another. Heart stops again. Eric Dier (please no, not Eric Dier) steps up to take the decisive winning penalty… he scores!! Complete euphoria!! We never doubted you Dier! Top is off swirling overhead. Singing ‘Three lions‘ at the top of our lungs in the garden. Life could not be better.\
