@@ -23,16 +23,14 @@ England’s meteoric rise from quarter final hopefuls to World Cup final favouri
 As marketers, our content marketing strategies have a lot to learn from England’s world cup heroics:
 
 **Leadership:**\
-Gareth Southgate has proven to be the leader that English football has been crying out for 28 years. His leadership has got the squad, the media and the country actually believe that football is coming home.  
-
-Like Southgate, you can help your consumers believe in your business by demonstrating thought leadership through your content strategy.
-
+Gareth Southgate has proven to be the leader that English football has been crying out for 28 years. His leadership has got the squad, the media and the country actually believe that football is coming home.\
+Like Southgate, you can help your consumers believe in your business by demonstrating thought leadership through your content strategy.\
 Thought leadership content drives awareness and engagement for your brand – but how much impact does it have on B2B buying decisions? Linkedin recently did a survey of over 1,300 business decision-makers to find out. Some of their key findings were:
 
-* • 30% say poor thought leadership has led them to decide NOT to award business to a company.\
-  • 91% of business decision makers describe brand thought leadership content as ‘important’.\
-  • 45% say thought leadership has led them directly to award business to a company.\
-  • 37% have included a company on an RFP after seeing its thought leadership.
+30% say poor thought leadership has led them to decide NOT to award business to a company.\
+91% of business decision makers describe brand thought leadership content as ‘important’.\
+45% say thought leadership has led them directly to award business to a company.\
+37% have included a company on an RFP after seeing its thought leadership.
 
 **Set Piece Specialist:**\
 Of the 11 goals scored at this year’s world cup (to date) 3 have come from open play. England are set piece specialists. There is no fortune about it. It is well documented that Gareth Southgate’s stroke of genius was bringing in a team of specialists to help them improve their set pieces. The team’s planning is meticulous. Every player has a role to play, and they stick to it like glue. Most importantly they all work together as a unit to score (do you remember Stones’ headed goal against Panama? Incredible.).
