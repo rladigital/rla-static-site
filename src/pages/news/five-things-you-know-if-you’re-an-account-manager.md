@@ -1,0 +1,40 @@
+---
+templateKey: news
+title: Five Things You Know If You’re An Account Manager
+date: 07/10/2018
+hero: /img/1.png
+thumb: /img/1.png
+category: Insight
+tags:
+  - Insight
+intro: tbc
+sideHeading: Please send the KPIs for the SEO and PPC activity ASAP
+galleryImages:
+  - /img/1.png
+author: Hannah Bennett
+weighting: 0
+---
+Resource Wars are a common battleground 
+
+The Studio Traffic Manager can be your best friend and worst enemy, because the power is in their hands. With loads of different clients all having different needs it’s all about planning ahead and keeping them updated throughout projects…plus having an endless supply of Kit Kats and food bribery helps… but seriously they are like the Agony Aunt of the agency and help to solve problems whilst keeping work on track and orchestrating the studio. 
+
+
+
+Acronyms are our second language:
+
+We use them all of the time… “Please send the KPIs for the SEO and PPC activity ASAP” is a normal sentence to us: EOP, KPI, ROI, CMS, CPC, CRM, CTA, DM, PPC, SEO, FTP, and most popularly used, ASAP.
+
+
+
+“I don’t know what I want but I’ll know it when I see” it is our favourite type of brief…
+
+We try our best to use telepathy, but it can prove challenging, after all we only want to deliver the best for our clients. That’s why we massively appreciate a client brief and a clear understanding of the client’s objectives. Whilst getting to the bottom of a client’s requirements can sometimes be challenging there’s nothing more rewarding than a happy client when collectively everyone is proud of the work produced. 
+
+
+
+Agency nights out – if you can’t make it back in by 9am you aren’t cut out for this. 
+
+No matter how late you stayed out and even if you turn up with a kebab still in hand, it’s ok so long as you’re ready to start work at 9am. And that means work! Plus, you’ll often make it in on time just to hear about the antics and gossip from the night before. Moaning about hangovers is allowed but slacking is absolutely not. The bell for the food van at our agency is the most anticipated event of the morning and the queue for the bacon butties is always longest after a night out!
+
+Everyone thinks your work life is like Mad Men.\
+There are similarities, what with the agency buzz, pitch frenzies and some sassy discussions in order to generate the best work but there is certainly no time for taking a cheeky post whisky nap nowadays.  When trying to explain what we do, our friends still think it’s cool compared to their ‘normal’ jobs and for us normality is something we’re not familiar with because every day is different and can bring new challenges, briefs, excitements, pitches, achievements, ideas and fires (sometimes real ones in the cigarette bin which is about as mad as it gets!)
