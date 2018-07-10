@@ -12,7 +12,7 @@ sideHeading: >-
   As marketers, our content marketing strategies have a lot to learn from
   England’s world cup heroics
 galleryImages:
-  - /img/1.png
+  - /img/1160x450 world cup run article header image v1.jpg
 author: Luke Fagg
 weighting: 0
 ---
