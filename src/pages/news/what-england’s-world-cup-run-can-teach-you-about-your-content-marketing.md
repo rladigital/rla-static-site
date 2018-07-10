@@ -29,12 +29,9 @@ Like Southgate, you can help your consumers believe in your business by demonstr
 
 Thought leadership content drives awareness and engagement for your brand – but how much impact does it have on B2B buying decisions? Linkedin recently did a survey of over 1,300 business decision-makers to find out. Some of their key findings were:
 
-30% say poor thought leadership has led them to decide NOT to award business to a company.
-
-91% of business decision makers describe brand thought leadership content as ‘important’.
-
-45% say thought leadership has led them directly to award business to a company.
-
+30% say poor thought leadership has led them to decide NOT to award business to a company.\
+91% of business decision makers describe brand thought leadership content as ‘important’.\
+45% say thought leadership has led them directly to award business to a company.\
 37% have included a company on an RFP after seeing its thought leadership.
 
 **Set Piece Specialist:
