@@ -2,8 +2,8 @@
 templateKey: news
 title: What England’s World Cup Run can teach you about your Content Marketing
 date: 07/10/2018
-hero: /img/1.png
-thumb: /img/1.png
+hero: /img/1160x450 world cup run article header image v1.jpg
+thumb: /img/1160x450 world cup run article header image v1.jpg
 category: Insight
 tags:
   - Insight
