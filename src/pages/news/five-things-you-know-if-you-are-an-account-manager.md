@@ -27,8 +27,7 @@ _Andy, our traffic manager updating Trello._
 **Acronyms are our second language:**\
 We use them all of the time… “Please send the KPIs for the SEO and PPC activity ASAP” is a normal sentence to us: EOP, KPI, ROI, CMS, CPC, CRM, CTA, DM, PPC, SEO, FTP, and most popularly used, ASAP.
 
-**
-“I don’t know what I want but I’ll know it when I see” it is our favourite type of brief…**\
+**“I don’t know what I want but I’ll know it when I see” it is our favourite type of brief…**\
 We try our best to use telepathy, but it can prove challenging, after all we only want to deliver the best for our clients. That’s why we massively appreciate a client brief and a clear understanding of the client’s objectives. Whilst getting to the bottom of a client’s requirements can sometimes be challenging there’s nothing more rewarding than a happy client when collectively everyone is proud of the work produced. 
 
 ![null](/img/1366x532-hannah-5-mid-article-image-b-v1.jpg)
