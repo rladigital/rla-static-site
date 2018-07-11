@@ -41,7 +41,7 @@ Screaming “grab the balls” repeatedly at our commercial director, Paul Smith
 
 **When you’re not in the barn, what do you get up to?**
 
-During the week, mainly being tired. I have 3 children, so weeknights are essentially my wife and I taking turns playing good cop/bad cop in a tense siege negotiation until all 3 are in bed. My weekends are filled with under-12s football, trips to the beach/forest, constantly 'sorting out' the garage and going to the park When I do get a couple of hours to myself, I’ll more than likely fall asleep watching either Match of the Day, or the worst film currently available on Netflix.
+During the week, mainly being tired. I have 3 children, so weeknights are essentially my wife and I taking turns playing good cop/bad cop in a tense siege negotiation until all 3 are in bed. My weekends are filled with under-12s football, trips to the beach/forest, constantly 'sorting out' the garage and going to the park. When I do get a couple of hours to myself, I’ll more than likely fall asleep watching either Match of the Day, or the worst film currently available on Netflix.
 
 **What would you do if you weren’t in the marketing industry?**
 
