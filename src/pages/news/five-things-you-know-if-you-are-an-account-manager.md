@@ -17,8 +17,7 @@ author: Hannah Bennett
 weighting: 0
 ---
 **Resource Wars are a common battleground**\
-The Studio Traffic Manager can be your best friend and worst enemy, because the power is in their hands. With loads of different clients all having different needs it’s all about planning ahead and keeping them updated throughout projects…plus having an endless supply of Kit Kats and food bribery helps… but seriously they are like the Agony Aunt of the agency and help to solve problems 
-whilst keeping work on track and orchestrating the studio.
+The Studio Traffic Manager can be your best friend and worst enemy, because the power is in their hands. With different clients having different needs it’s all about planning ahead and keeping them updated throughout projects… having an endless supply of Kit Kats as bribes helps… but seriously they are like the Agony Aunt of the agency,  they help to solve problems, keep work on track and orchestrate the studio.
 
 ![null](/img/1366x532-hannah-5-mid-article-image-a-v1.jpg)
 
