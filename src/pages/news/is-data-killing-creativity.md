@@ -6,8 +6,8 @@ hero: /img/1160x450-data-creative-header-image-v1.jpg
 thumb: /img/1160x450-data-creative-header-image-v1.jpg
 category: Insight
 tags:
-  - ''
-intro: 'Data doesn’t give insight, understanding human behaviour does.'
+  - NEWS
+intro: tbc
 sideHeading: 'Data doesn’t give insight, understanding human behaviour does.'
 galleryImages:
   - /img/1160x450-data-creative-header-image-v1.jpg
