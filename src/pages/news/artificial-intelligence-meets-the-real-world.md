@@ -22,7 +22,7 @@ There has been monumental hype about AI and how it’s going to transform the wo
 
 
 
-**What Is AI?**
+**What Is AI?**
 
 
 
@@ -38,7 +38,7 @@ So where is AI leveraged on a day to day basis right now?
 
 
 
-**Wimbledon**
+**Wimbledon**
 
 
 
@@ -50,13 +50,13 @@ IBM have had Watson watching thousands of hours of tennis footage, reviewing sta
 
 
 
-**So what does Wimbledon do with this data? **
+**So what does Wimbledon do with this data?**
 
 * A cognitive chatbot allowing fans to ask questions about matches, the order of play and live scores
 * Using player movement, noise level, crowd reaction and tennis understanding, Watson is able to curate and release short highlight video clips of a tennis match.
 * Allow pundits and commentators to see deep insight into a match, uncovering the real reasons to a players victory.
 
-**Commuting & Route Planning**
+**Commuting & Route Planning**
 
 
 
@@ -68,7 +68,7 @@ The same technology is used by companies like Uber to calculate an accurate pric
 
 
 
-**Email Spam Filters**
+**Email Spam Filters**
 
 
 
@@ -76,7 +76,7 @@ There are over 200 billion emails sent per day, and obviously there is a lot of 
 
 
 
-**Credit Decisions**
+**Credit Decisions**
 
 
 
@@ -88,7 +88,7 @@ MIT researchers found that [machine learning could lead to reducing a bank’s l
 
 
 
-**Pinterest**
+**Pinterest**
 
 
 
