@@ -1,6 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: "RLA Website"
+        title: "RLA Website",
+        siteUrl: "https://www.rla.co.uk",
     },
     mapping: {
         "MarkdownRemark.frontmatter.author": `MarkdownRemark.frontmatter.title`,
@@ -77,6 +78,15 @@ module.exports = {
             resolve: "gatsby-plugin-netlify-cms",
             options: {
                 modulePath: `${__dirname}/src/cms/cms.js`
+            }
+        },
+        {
+            resolve: "gatsby-plugin-sitemap"
+        },
+        {
+            resolve: "gatsby-plugin-robots-txt",
+            options: {
+                output: `/robots_static.txt`
             }
         }
     ]
