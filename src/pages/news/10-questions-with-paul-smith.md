@@ -14,7 +14,7 @@ galleryImages:
 author: Paul Smith
 weighting: 0
 ---
-**What’s your role at RLA?**
+**What’s your role at RLA?**
 
 I’m Commercial Director and one of the four board members of the business.
 
@@ -22,7 +22,8 @@ I’m Commercial Director and one of the four board members of the business.
 
 **Ok, so what do you actually do?**
 
-My role is one of the less definable by pure job title because I get involved in a number of diverse activities due to my experience and skill set.  I’m principally responsible for handling all business development opportunities we are presented with at RLA; new business pitches and tenders and large projects with existing clients. I’m therefore also responsible for our outbound marketing, social activity, presentations and speaking schedule and our new business campaign drives.
+My role is one of the less definable by pure job title because I get involved in a number of diverse activities due to my experience and skill set.  I’m principally responsible for handling all business development opportunities we are presented with at RLA; new business pitches and tenders and large projects with existing clients. I’m therefore also responsible for our outbound marketing, social activity, presentations and speaking schedule and our new business campaign drives.
+
 
 I have the privilege of representing our parent group, the Mission Marketing Group plc on collaborative projects which may involve pulling together multi-discipline expert teams to answer a specialist client brief or collaborating on new innovations to take to market or even simply delivering an international campaign with the aid of our global offices, such as Shanghai or San Francisco.
 
@@ -74,7 +75,7 @@ But when I do, Sam and I are always renovating or building something, travelling
 
 
 
-**You’re in control of the Sonos, what are we listening to?**
+**You’re in control of the Sonos, what are we listening to?**
 
 METAL!!! A big disappointment to some I know, but I grew up around rock music at high school and I had a great bunch of friends where almost my entire social circle revolved around the fantastic heavy metal scene in Glasgow. We had several vinyl record shops, several rock bars and a couple of sizable rock clubs and almost every band who was anybody, always gigged Glasgow, so it was easy to see live music at any one of the several venues (there’s about 40 live venues or so in Glasgow overall) but my favourite has always been the Barra’s (Glasgow Barrowland Ballroom) – for me, the best live venue outside of London.
 
@@ -88,12 +89,12 @@ I almost chose Architecture at Uni but I’ve a good friend who’s in that game
 
 
 
-**Which other RLAer is most awesome and why?**
+**Which other RLAer is most awesome and why?**
 
 Our MD, Sam Smith. She's my wife so I guess I should say that eh? But the best is, she is exactly who I would choose because for me, Sam is the most dedicated and trustworthy colleague I have ever worked with in my career. And we're very different too, which adds a healthy degree of Ying to my Yang. A perfect partnership. In my eyes anyway ;)
 
 
 
-**Summarise RLA in one word.**
+**Summarise RLA in one word.**
 
 Dedicated.
