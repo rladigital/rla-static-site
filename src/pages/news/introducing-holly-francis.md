@@ -41,7 +41,7 @@ Whilst studying my degree in marketing I did a placement year in a creative agen
 
 The processes – there are 5000 different platforms and every day seems to bring a new password. 
 
-![null]("/img/1366x532-introducing-holly-francis-mid-article.jpg")
+![null](/img/1366x532-introducing-holly-francis-mid-article.jpg)
 
 
 
