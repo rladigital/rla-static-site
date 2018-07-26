@@ -4,12 +4,14 @@ import ReactRenderer from "remark-react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
-import { Row, Column, Button } from "rla-components";
+import { Row, Column, Button, Modal } from "rla-components";
 import Link from "gatsby-link";
 import { Parallax, Background } from "react-parallax";
 
 import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
+import { transparentize } from "../helpers/helpers";
+
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
@@ -46,7 +48,7 @@ const Td = styled.td`
 `;
 
 const Solution = styled.div`
-    padding: 0 20px;
+    padding: 0 30px;
     margin-bottom: 1.2rem;
     display: inline-block;
 `;
@@ -80,6 +82,23 @@ const Img = styled.div`
     background-size: cover;
 `;
 
+const Video = styled.button.attrs({ role: "play " })`
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    position: absolute;
+    background-image: url("/img/play.svg");
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+        box-shadow: 0px 0px 5px 4px ${transparentize(colors.accent, 0.5)};
+    }
+`;
+
 export class WorkTemplate extends React.Component {
     constructor(props) {
         super(props);
@@ -102,18 +121,18 @@ export class WorkTemplate extends React.Component {
         });
     }
     render() {
+        const { data, helmet, transition, history } = this.props;
+
         const {
-            content,
-            logo,
-            hero,
-            solutionsList,
             copySections,
-            title,
+            hero,
             intro,
-            helmet,
-            transition,
-            history
-        } = this.props;
+            logo,
+            solutionsList,
+            title
+        } = data.work.frontmatter;
+
+        const solutions = data.solutions.edges;
 
         const parallaxStyle = {
             height: "35vw",
@@ -163,29 +182,50 @@ export class WorkTemplate extends React.Component {
                                             )}
                                         />
                                     </Background>
+                                    {section.video && <Video />}
                                 </Parallax>
                             ) : (
                                 <Hero
                                     style={parallaxStyle}
-                                    src={getOriginalImageSrc(section.image)}
-                                />
+                                    src={getOriginalImageSrc(section.image)}>
+                                    {section.video && <Video />}
+                                </Hero>
                             )}
                         </div>
                     ))}
 
                 <Row>
                     <Column style={{ textAlign: "center" }}>
-                        <H2>Our areas of expertise</H2>
+                        <H2>Areas of expertise</H2>
 
                         {solutionsList &&
                             solutionsList.map((solution, index) => {
+                                const colors = solutions.filter(
+                                    item =>
+                                        item.node.frontmatter.title === solution
+                                );
+
                                 return (
                                     <Solution key={index}>
-                                        <SolutionDot />
+                                        {colors.length && (
+                                            <SolutionDot
+                                                style={{
+                                                    background: `linear-gradient(to bottom, ${
+                                                        colors[0].node
+                                                            .frontmatter.color1
+                                                    }, ${
+                                                        colors[0].node
+                                                            .frontmatter.color2
+                                                    })`
+                                                }}
+                                            />
+                                        )}
+
                                         <span>{solution}</span>
                                     </Solution>
                                 );
                             })}
+                        <div style={{ height: 100 }} />
                     </Column>
                 </Row>
             </PageDetailContainer>
@@ -194,16 +234,12 @@ export class WorkTemplate extends React.Component {
 }
 
 export default ({ history, transition, data }) => {
-    const { markdownRemark: work } = data;
     return (
         <WorkTemplate
-            helmet={<Helmet title={`Our Work | ${work.frontmatter.title}`} />}
-            title={work.frontmatter.title}
-            logo={work.frontmatter.logo}
-            hero={work.frontmatter.hero}
-            copySections={work.frontmatter.copySections}
-            solutionsList={work.frontmatter.solutionsList}
-            intro={work.frontmatter.intro}
+            helmet={
+                <Helmet title={`Our Work | ${data.work.frontmatter.title}`} />
+            }
+            data={data}
             transition={transition}
             history={history}
         />
@@ -212,7 +248,7 @@ export default ({ history, transition, data }) => {
 
 export const pageQuery = graphql`
     query WorkByPath($path: String!) {
-        markdownRemark(fields: { slug: { eq: $path } }) {
+        work: markdownRemark(fields: { slug: { eq: $path } }) {
             html
             frontmatter {
                 hero {
@@ -242,8 +278,22 @@ export const pageQuery = graphql`
                     description
                     image
                     parallax
+                    video
                 }
                 solutionsList
+            }
+        }
+        solutions: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "solutions" } } }
+        ) {
+            edges {
+                node {
+                    frontmatter {
+                        title
+                        color1
+                        color2
+                    }
+                }
             }
         }
     }

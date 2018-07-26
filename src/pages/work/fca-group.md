@@ -7,7 +7,7 @@ logo: /img/fga group logos update@2x.png
 intro: 'Together, we became a valuable extension of FCA’s marketing team.'
 excerpt: How Cortex unified the FCA group.
 solutionsList:
-  - Sales Performance
+  - Brand Desire
   - Customer Acquisition
   - Cortex
 weighting: -3
@@ -27,6 +27,7 @@ copySections:
     description: Lorem Ipsum dolor sit amet
     image: /img/test2.png
     parallax: true
+    video: https://player.vimeo.com/video/246992866?title=0&byline=0&portrait=0
   - title: THE OUTCOME
     description: >-
       A modular Cortex solution was implemented, including Synapse (our data
@@ -37,6 +38,8 @@ copySections:
       asset usage over 3 years.
     image: /img/test3.png
     parallax: true
+    video: 
   - image: /img/test4.png
     parallax: false
+    video: https://player.vimeo.com/video/246992866?title=0&byline=0&portrait=0
 ---
