@@ -22,7 +22,7 @@ import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
-    height: 70px;
+    max-height: 70px;
     margin-bottom: -2em;
 `;
 
@@ -70,6 +70,16 @@ const StyledContent = styled(Content)`
     padding-bottom: 4em;
 `;
 
+const Img = styled.div`
+    width: 100vw;
+    height: 35vw;
+    min-height: 600px;
+    max-height: 800px;
+    background-image: url('${props => props.src}');
+    background-position: center;
+    background-size: cover;
+`;
+
 export class WorkTemplate extends React.Component {
     constructor(props) {
         super(props);
@@ -105,6 +115,12 @@ export class WorkTemplate extends React.Component {
             history
         } = this.props;
 
+        const parallaxStyle = {
+            height: "35vw",
+            maxHeight: 800,
+            minHeight: 300
+        };
+
         return (
             <PageDetailContainer
                 padding={0}
@@ -137,20 +153,23 @@ export class WorkTemplate extends React.Component {
                                     )}
                                 </Column>
                             </Row>
-                            <Parallax
-                                disabled={!section.parallax}
-                                bgImage={getOriginalImageSrc(section.image)}
-                                bgImageAlt="the dog"
-                                strength={200}
-                                reverse>
-                                <div
-                                    style={{
-                                        height: "40vw",
-                                        maxHeight: 500,
-                                        minHeight: 200
-                                    }}
+                            {section.parallax ? (
+                                <Parallax strength={200}>
+                                    <div style={parallaxStyle} />
+                                    <Background className="custom-bg">
+                                        <Img
+                                            src={getOriginalImageSrc(
+                                                section.image
+                                            )}
+                                        />
+                                    </Background>
+                                </Parallax>
+                            ) : (
+                                <Hero
+                                    style={parallaxStyle}
+                                    src={getOriginalImageSrc(section.image)}
                                 />
-                            </Parallax>
+                            )}
                         </div>
                     ))}
 
