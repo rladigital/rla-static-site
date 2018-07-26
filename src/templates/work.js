@@ -45,9 +45,23 @@ const Td = styled.td`
 `;
 
 const Solution = styled.div`
+    padding: 0 20px;
     margin-bottom: 1.2rem;
+    display: inline-block;
 `;
+
+const SolutionDot = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: red;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+`;
+
 const WorkContent = styled.div`
+    text-align: center;
     h1 {
         font-weight: 700;
     }
@@ -99,91 +113,41 @@ export class WorkTemplate extends React.Component {
                         </Column>
                     </Row>
                 )}
-                {logo && (
-                    <Row>
-                        <Column>
-                            <Logo src={getOriginalImageSrc(logo)} id="logo" />
-                        </Column>
-                    </Row>
-                )}
+
                 <Row>
-                    <WorkContent>
-                        <Column large={5}>
+                    <Column large={7} centered>
+                        <WorkContent>
                             <PullQuote fontSize={3} padding={2}>
                                 {intro}
                             </PullQuote>
-                        </Column>
-                        <Column large={1}>&nbsp;</Column>
-                        <Column large={6}>
+
+                            {logo && (
+                                <Logo
+                                    src={getOriginalImageSrc(logo)}
+                                    id="logo"
+                                />
+                            )}
+
                             <Content
                                 content={description}
                                 className="cms-content"
                             />
-
-                            <Table className="cms-content">
-                                <tbody>
-                                    <tr>
-                                        <Td>
-                                            <h1>Our areas of expertise</h1>
-                                        </Td>
-                                        <Td>
-                                            {solutionsList &&
-                                                solutionsList.map(
-                                                    (solution, index) => {
-                                                        return (
-                                                            <Solution
-                                                                key={index}
-                                                            >
-                                                                {solution}
-                                                            </Solution>
-                                                        );
-                                                    }
-                                                )}
-                                        </Td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                        </Column>
-                    </WorkContent>
+                        </WorkContent>
+                    </Column>
                 </Row>
                 <Row>
-                    <Column>
-                        {galleryImages &&
-                            galleryImages.map((image, index) => {
+                    <Column style={{ textAlign: "center" }}>
+                        <h6>Our areas of expertise</h6>
+
+                        {solutionsList &&
+                            solutionsList.map((solution, index) => {
                                 return (
-                                    <GalleryImage
-                                        key={index}
-                                        index={index}
-                                        src={image}
-                                        showModal={this.setModalVisibility.bind(
-                                            this
-                                        )}
-                                    />
+                                    <Solution key={index}>
+                                        <SolutionDot />
+                                        <span>{solution}</span>
+                                    </Solution>
                                 );
                             })}
-
-                        <GalleryItem>
-                            <Link to="/work">
-                                <StyledButton
-                                    size="large"
-                                    color="background"
-                                    borderWidth={3}
-                                    hollow
-                                >
-                                    SEE MORE WORK →
-                                </StyledButton>
-                            </Link>
-                        </GalleryItem>
-                        {galleryImages && (
-                            <GalleryModal
-                                images={galleryImages}
-                                showModal={this.setModalVisibility.bind(this)}
-                                modalVisible={this.state.modalVisible}
-                                selectedImageIndex={
-                                    this.state.selectedImageIndex
-                                }
-                            />
-                        )}
                     </Column>
                 </Row>
             </PageDetailContainer>

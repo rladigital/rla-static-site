@@ -15,6 +15,14 @@ description: >-
   principal brand clients and 14 secondary clients across sales, product,
   training, Aftersales and Financial Services.
 
+  # THE STRATEGY
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan id 
+  ligula blandit congue. Praesent posuere pulvinar malesuada. Quisque bibendum 
+  lobortis urna in dictum. Cras a pellentesque felis, at ultrices ante. Quisque 
+  sodales et nunc sed facilisis. Cras rhoncus elit mauris, in suscipit ipsum 
+  ornare vitae. Quisque tristique, quam id iaculis convallis, purus mauris 
+  elementum nulla, congue pharetra nulla sapien in massa.
 
   # THE OUTCOME
 
@@ -39,4 +47,3 @@ weighting: -3
 previewType: page
 thumbnailAlignment: center
 ---
-
