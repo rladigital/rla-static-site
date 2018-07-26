@@ -46,8 +46,10 @@ copy-sections:
       Chrysler, Abarth and Fiat Professional), 315 dealer branches, 6 regions,
       10 principal brand clients and 14 secondary clients across sales, product,
       training, Aftersales and Financial Services.
+    image: /img/test1.png
   - title: THE STRATEGY
     description: Lorem Ipsum dolor sit amet
+    image: /img/test2.png
   - title: THE OUTCOME
     description: >-
       A modular Cortex solution was implemented, including Synapse (our data
@@ -56,5 +58,7 @@ copy-sections:
       previous suppliers, an 80% reduction on Cost Per Lead for targeted
       Facebook campaigns, and a 324% growth in voluntary branch advertising
       asset usage over 3 years.
+    image: /img/test3.png
+  - image: /img/test4.png
 ---
 
