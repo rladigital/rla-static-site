@@ -37,6 +37,7 @@
         "react-helmet": "^5.2.0",
         "react-leaflet": "^1.8.0",
         "react-load-script": "0.0.6",
+        "react-parallax": "^1.8.0",
         "react-slick": "^0.21.0",
         "react-sticky": "^6.0.1",
         "react-swipe-events": "^1.0.3",

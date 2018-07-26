@@ -6,6 +6,7 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
+import { Parallax, Background } from "react-parallax";
 
 import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
@@ -22,7 +23,7 @@ import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
     height: 70px;
-    margin-bottom: 3rem;
+    margin-bottom: -2em;
 `;
 
 const StyledButton = Button.extend`
@@ -60,12 +61,15 @@ const SolutionDot = styled.div`
     margin-right: 5px;
 `;
 
-const WorkContent = styled.div`
-    text-align: center;
-    h1 {
-        font-weight: 700;
-    }
+const H2 = styled.h2`
+    font-size: 1.2em;
+    padding-top: 4.5em;
 `;
+
+const StyledContent = styled(Content)`
+    padding-bottom: 4em;
+`;
+
 export class WorkTemplate extends React.Component {
     constructor(props) {
         super(props);
@@ -92,9 +96,8 @@ export class WorkTemplate extends React.Component {
             content,
             logo,
             hero,
-            description,
-            galleryImages,
             solutionsList,
+            copySections,
             title,
             intro,
             helmet,
@@ -103,41 +106,57 @@ export class WorkTemplate extends React.Component {
         } = this.props;
 
         return (
-            <PageDetailContainer style={transition && transition.style}>
+            <PageDetailContainer
+                padding={0}
+                style={{ textAlign: "center", ...transition.style }}>
                 {helmet || ""}
-                {history && <BackButton goBack={history.goBack} />}
-                {hero && (
-                    <Row>
-                        <Column>
-                            <Hero src={getOriginalImageSrc(hero)} />{" "}
-                        </Column>
-                    </Row>
-                )}
+                {hero && <Hero src={getOriginalImageSrc(hero)} />}
 
                 <Row>
                     <Column large={7} centered>
-                        <WorkContent>
-                            <PullQuote fontSize={3} padding={2}>
-                                {intro}
-                            </PullQuote>
+                        <PullQuote fontSize={3} padding={2}>
+                            {intro}
+                        </PullQuote>
 
-                            {logo && (
-                                <Logo
-                                    src={getOriginalImageSrc(logo)}
-                                    id="logo"
-                                />
-                            )}
-
-                            <Content
-                                content={description}
-                                className="cms-content"
-                            />
-                        </WorkContent>
+                        {logo && (
+                            <Logo src={getOriginalImageSrc(logo)} id="logo" />
+                        )}
                     </Column>
                 </Row>
+
+                {copySections &&
+                    copySections.map(section => (
+                        <div>
+                            <Row>
+                                <Column large={7} centered>
+                                    {section.title && <H2>{section.title}</H2>}
+                                    {section.description && (
+                                        <StyledContent
+                                            content={section.description}
+                                        />
+                                    )}
+                                </Column>
+                            </Row>
+                            <Parallax
+                                disabled={!section.parallax}
+                                bgImage={getOriginalImageSrc(section.image)}
+                                bgImageAlt="the dog"
+                                strength={200}
+                                reverse>
+                                <div
+                                    style={{
+                                        height: "40vw",
+                                        maxHeight: 500,
+                                        minHeight: 200
+                                    }}
+                                />
+                            </Parallax>
+                        </div>
+                    ))}
+
                 <Row>
                     <Column style={{ textAlign: "center" }}>
-                        <h6>Our areas of expertise</h6>
+                        <H2>Our areas of expertise</H2>
 
                         {solutionsList &&
                             solutionsList.map((solution, index) => {
@@ -159,13 +178,11 @@ export default ({ history, transition, data }) => {
     const { markdownRemark: work } = data;
     return (
         <WorkTemplate
-            description={work.frontmatter.description}
             helmet={<Helmet title={`Our Work | ${work.frontmatter.title}`} />}
             title={work.frontmatter.title}
             logo={work.frontmatter.logo}
             hero={work.frontmatter.hero}
-            description={work.frontmatter.description}
-            galleryImages={work.frontmatter.galleryImages}
+            copySections={work.frontmatter.copySections}
             solutionsList={work.frontmatter.solutionsList}
             intro={work.frontmatter.intro}
             transition={transition}
@@ -179,6 +196,16 @@ export const pageQuery = graphql`
         markdownRemark(fields: { slug: { eq: $path } }) {
             html
             frontmatter {
+                hero {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
                 title
                 intro
                 logo {
@@ -191,18 +218,12 @@ export const pageQuery = graphql`
                     }
                     original
                 }
-                hero {
-                    responsive {
-                        childImageSharp {
-                            original {
-                                src
-                            }
-                        }
-                    }
-                    original
+                copySections {
+                    title
+                    description
+                    image
+                    parallax
                 }
-                description
-                galleryImages
                 solutionsList
             }
         }
