@@ -26,6 +26,7 @@ collections:
       - {label: "Weighting", name: "weighting", widget: "number", default: 0, required: false}
       - {label: "Preview Type", name: "previewType", widget: "select", required: false, options: [{ label: "Go to page", value: "page" }, { label: "Lightbox", value: "lightbox"}]}
       - {label: "Thumbnail Alignment", name: "thumbnailAlignment", widget: "select", default: "center", options: [{ label: "Top", value: "top" }, { label: "Center", value: "center"}, { label: "Bottom", value: "bottom"}]}
+      - {label: "Copy Sections", name: "copy-sections", widget: "list", required: false, fields: [{label: "Title", name: "title", widget: "string", required: false}, {label: "Description", name: "description", widget: "markdown", required: false}, {label: "Image", name: "image", widget: "image", required: false}] }
   - name: "solutions"
     label: "Solutions"
     folder: "src/pages/solutions"
