@@ -41,14 +41,15 @@ const transitionStyles = {
     entered: { opacity: 1 }
 };
 
-const Fade = ({ visible, children }) => (
+const Fade = ({ visible, children, onClick }) => (
     <Transition in={visible} timeout={duration} unmountOnExit>
         {state => (
             <Overlay
                 style={{
                     ...defaultStyle,
                     ...transitionStyles[state]
-                }}>
+                }}
+                onClick={onClick}>
                 {children}
             </Overlay>
         )}
@@ -59,9 +60,14 @@ export default class VideoOverlay extends React.Component {
     render() {
         const { url, visible, handleClose } = this.props;
         return ReactDOM.createPortal(
-            <Fade visible={visible}>
+            <Fade onClick={handleClose} visible={visible}>
                 <CloseButton onClick={handleClose}>&times;</CloseButton>
-                <ReactPlayer width="100%" height="100%" url={url} playing />
+                <ReactPlayer
+                    onClick={e => e.preventDefault()}
+                    width="100%"
+                    height="100%"
+                    url={url}
+                />
             </Fade>,
             document.getElementById("modal-root")
         );

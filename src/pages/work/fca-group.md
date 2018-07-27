@@ -41,5 +41,5 @@ copySections:
     video: 
   - image: /img/test4.png
     parallax: false
-    video: https://vimeo.com/251312620
+    video: https://player.vimeo.com/video/251312620?autoplay=1
 ---
