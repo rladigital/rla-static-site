@@ -67,6 +67,8 @@ export default class VideoOverlay extends React.Component {
                     width="100%"
                     height="100%"
                     url={url}
+                    playing
+                    muted
                 />
             </Fade>,
             document.getElementById("modal-root")
