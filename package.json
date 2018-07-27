@@ -38,6 +38,7 @@
         "react-leaflet": "^1.8.0",
         "react-load-script": "0.0.6",
         "react-parallax": "^1.8.0",
+        "react-player": "^1.6.4",
         "react-slick": "^0.21.0",
         "react-sticky": "^6.0.1",
         "react-swipe-events": "^1.0.3",

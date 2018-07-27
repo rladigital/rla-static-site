@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Row, Column, Button, Modal } from "rla-components";
 import Link from "gatsby-link";
 import { Parallax, Background } from "react-parallax";
+import uuidv4 from "uuid/v4";
 
 import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
@@ -22,6 +23,7 @@ import GalleryImage, {
 import HeaderBlock from "../components/HeaderBlock";
 import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
+import VideoOverlay from "../components/blog/VideoOverlay";
 
 const Logo = styled.img`
     max-height: 70px;
@@ -103,23 +105,21 @@ export class WorkTemplate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalVisible: false,
-            selectedImageIndex: 0
+            videoVisible: null
         };
+
+        this.showVideo = this.showVideo.bind(this);
+        this.hideVideo = this.hideVideo.bind(this);
     }
 
-    setModalVisibility(visibility, selectedImageIndex = 0) {
-        // console.log(
-        //     "visibility",
-        //     visibility,
-        //     "selectedImageIndex",
-        //     selectedImageIndex
-        // );
-        this.setState({
-            modalVisible: visibility,
-            selectedImageIndex: selectedImageIndex
-        });
+    showVideo(id) {
+        this.setState({ videoVisible: id });
     }
+
+    hideVideo() {
+        this.setState({ videoVisible: null });
+    }
+
     render() {
         const { data, helmet, transition, history } = this.props;
 
@@ -160,39 +160,62 @@ export class WorkTemplate extends React.Component {
                 </Row>
 
                 {copySections &&
-                    copySections.map(section => (
-                        <div>
-                            <Row>
-                                <Column large={7} centered>
-                                    {section.title && <H2>{section.title}</H2>}
-                                    {section.description && (
-                                        <StyledContent
-                                            content={section.description}
-                                        />
-                                    )}
-                                </Column>
-                            </Row>
-                            {section.parallax ? (
-                                <Parallax strength={200}>
-                                    <div style={parallaxStyle} />
-                                    <Background className="custom-bg">
-                                        <Img
+                    copySections.map((section, index) => {
+                        const videoId = `video_${index}`;
+                        const showVideo = () => this.showVideo(videoId);
+                        const VideoButton = () => <Video onClick={showVideo} />;
+
+                        return (
+                            <div>
+                                <div onClick={section.video && showVideo}>
+                                    <Row>
+                                        <Column large={7} centered>
+                                            {section.title && (
+                                                <H2>{section.title}</H2>
+                                            )}
+                                            {section.description && (
+                                                <StyledContent
+                                                    content={
+                                                        section.description
+                                                    }
+                                                />
+                                            )}
+                                        </Column>
+                                    </Row>
+                                    {section.parallax ? (
+                                        <Parallax strength={200}>
+                                            <div style={parallaxStyle} />
+                                            <Background className="custom-bg">
+                                                <Img
+                                                    src={getOriginalImageSrc(
+                                                        section.image
+                                                    )}
+                                                />
+                                            </Background>
+                                            {section.video && <VideoButton />}
+                                        </Parallax>
+                                    ) : (
+                                        <Hero
+                                            style={parallaxStyle}
                                             src={getOriginalImageSrc(
                                                 section.image
-                                            )}
-                                        />
-                                    </Background>
-                                    {section.video && <Video />}
-                                </Parallax>
-                            ) : (
-                                <Hero
-                                    style={parallaxStyle}
-                                    src={getOriginalImageSrc(section.image)}>
-                                    {section.video && <Video />}
-                                </Hero>
-                            )}
-                        </div>
-                    ))}
+                                            )}>
+                                            {section.video && <VideoButton />}
+                                        </Hero>
+                                    )}
+                                </div>
+                                {section.video && (
+                                    <VideoOverlay
+                                        visible={
+                                            this.state.videoVisible == videoId
+                                        }
+                                        url={section.video}
+                                        handleClose={this.hideVideo}
+                                    />
+                                )}
+                            </div>
+                        );
+                    })}
 
                 <Row>
                     <Column style={{ textAlign: "center" }}>
