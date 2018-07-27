@@ -140,7 +140,7 @@ export class WorkTemplate extends React.Component {
             minHeight: 300
         };
 
-        return (
+        return [
             <PageDetailContainer
                 padding={0}
                 style={{ textAlign: "center", ...transition.style }}>
@@ -161,8 +161,7 @@ export class WorkTemplate extends React.Component {
 
                 {copySections &&
                     copySections.map((section, index) => {
-                        const videoId = `video_${index}`;
-                        const showVideo = () => this.showVideo(videoId);
+                        const showVideo = () => this.showVideo(section.video);
                         const VideoButton = () => <Video onClick={showVideo} />;
 
                         return (
@@ -204,15 +203,6 @@ export class WorkTemplate extends React.Component {
                                         </Hero>
                                     )}
                                 </div>
-                                {section.video && (
-                                    <VideoOverlay
-                                        visible={
-                                            this.state.videoVisible == videoId
-                                        }
-                                        url={section.video}
-                                        handleClose={this.hideVideo}
-                                    />
-                                )}
                             </div>
                         );
                     })}
@@ -251,8 +241,13 @@ export class WorkTemplate extends React.Component {
                         <div style={{ height: 100 }} />
                     </Column>
                 </Row>
-            </PageDetailContainer>
-        );
+            </PageDetailContainer>,
+            <VideoOverlay
+                visible={this.state.videoVisible != null}
+                url={this.state.videoVisible}
+                handleClose={this.hideVideo}
+            />
+        ];
     }
 }
 

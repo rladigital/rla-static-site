@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
 import Transition from "react-transition-group/Transition";
@@ -57,11 +58,12 @@ const Fade = ({ visible, children }) => (
 export default class VideoOverlay extends React.Component {
     render() {
         const { url, visible, handleClose } = this.props;
-        return (
+        return ReactDOM.createPortal(
             <Fade visible={visible}>
                 <CloseButton onClick={handleClose}>&times;</CloseButton>
                 <ReactPlayer width="100%" height="100%" url={url} playing />
-            </Fade>
+            </Fade>,
+            document.getElementById("modal-root")
         );
     }
 }
