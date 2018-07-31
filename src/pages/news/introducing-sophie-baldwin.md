@@ -18,7 +18,7 @@ galleryImages: []
 author: Sophie Baldwin
 weighting: 0
 ---
-**Hey Sophie, what’s your new role at RLA, and how are you settling into it?**
+** Hey Sophie, what’s your new role at RLA, and how are you settling into it? **
 
 
 
@@ -26,13 +26,13 @@ I’ve joined RLA as an Account Manager and the first few weeks have been great!
 
 
 
-**What were your first impressions of your team?**
+** What were your first impressions of your team? **
 
 Hannah and Faye are lovely team members. As with any new role, there are always lots of processes to learn but my team are always more than happy to help and point me in the right direction or pop out for a coffee at lunch. 
 
 
 
-**What did you do before starting at RLA? Give us the career/education highlights!**
+** What did you do before starting at RLA? Give us the career/education highlights! **
 
 
 
@@ -40,7 +40,7 @@ Before RLA, I was living and working abroad in Paris doing software sales, which
 
 
 
-**What’s different about RLA so far?**
+** What’s different about RLA so far? **
 
 
 
@@ -48,19 +48,19 @@ The atmosphere at work. You can tell that everyone enjoys their job and everyone
 
 
 
-**What’s your dream client?**
+** What’s your dream client? **
 
 Luckily, we get to work with some pretty cool clients here at RLA, but I’d probably say anything that allows me to travel to an exotic location for business or take part in some cool experiential projects; like a wine or spirits brand maybe. 
 
 
 
-**What do you get up to outside of work?**
+** What do you get up to outside of work? **
 
 Outside of work you can usually find me on the beach or finding new local spots for food, and attempting to maintain a regular gym schedule. 
 
 
 
-**What made you choose RLA?**
+** What made you choose RLA? **
 
 
 
@@ -68,12 +68,12 @@ Location and company culture were strong factors for me, as well as an impressiv
 
 
 
-**If you could have a superpower what would it be, and why?**
+** If you could have a superpower what would it be, and why? **
 
 I think it would have to be time travel. Or the ability to stop time. Because who doesn’t need an extra hour in their day?
 
 
 
-**What is your favourite movie, and why?**
+** What is your favourite movie, and why? **
 
 Anything with Leonardo di Caprio, which is self-explanatory really!
