@@ -7,7 +7,7 @@ thumb: /img/1160x450 5 things james article header image v1.jpg
 category: Insight
 tags:
   - 5 things
-  - Culture
+  - insight
 intro: >-
   You may have created the most beautiful design in the world, but if it doesn’t
   work for the client - it’s useless. 
