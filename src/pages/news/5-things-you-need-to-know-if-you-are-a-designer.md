@@ -33,8 +33,8 @@ Sounds ridiculous, but it’s not far off. Clients will test you on occasion. Ti
 
 Don’t get angry, don’t write your story on ‘clients from hell’. Remember two things: 
 
-1. 1. It’s your job to make sure what you design is right, even if the client is wrong.  Fight for what you believe in.
-2. 2. Remember they are paying the bills. So make them happy, compromise if you have to.  Make sure whatever you present fits the brief, is useful and works to the best of its ability.  It’s all you can do. It’ll take patience, but it’ll serve you well in the long run.
+1. It’s your job to make sure what you design is right, even if the client is wrong.  Fight for what you believe in.
+2. Remember they are paying the bills. So make them happy, compromise if you have to.  Make sure whatever you present fits the brief, is useful and works to the best of its ability.  It’s all you can do. It’ll take patience, but it’ll serve you well in the long run.
 
 **3. The details are not the details.**
 
