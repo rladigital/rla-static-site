@@ -6,7 +6,8 @@ hero: /img/1160x450-hannah-5-article-header-image-v1.jpg
 thumb: /img/1160x450-hannah-5-article-header-image-v1.jpg
 category: Insight
 tags:
-  - Insight
+  - 5 things
+  - insight
 intro: tbc
 sideHeading: >-
   There’s nothing more rewarding than a happy client when collectively everyone
