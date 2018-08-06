@@ -27,7 +27,6 @@ import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
     max-height: 70px;
-    margin-bottom: -2em;
 `;
 
 const StyledButton = Button.extend`
@@ -53,6 +52,7 @@ const Solution = styled.div`
     padding: 0 30px;
     margin-bottom: 1.2rem;
     display: inline-block;
+    margin-bottom: 2.5em;
 `;
 
 const SolutionDot = styled.div`
@@ -67,11 +67,10 @@ const SolutionDot = styled.div`
 
 const H2 = styled.h2`
     font-size: 1.2em;
-    padding-top: 4.5em;
 `;
 
-const StyledContent = styled(Content)`
-    padding-bottom: 4em;
+const Container = styled.div`
+    padding: 4.5rem 3rem 3em;
 `;
 
 const Img = styled.div`
@@ -129,75 +128,109 @@ export class WorkTemplate extends React.Component {
                     copySections.map((section, index) => {
                         return (
                             <div>
-                                <Row>
-                                    <Column large={7} centered>
-                                        {section.title && (
-                                            <H2>{section.title}</H2>
-                                        )}
-                                        {section.description && (
-                                            <StyledContent
-                                                content={section.description}
-                                            />
-                                        )}
-                                    </Column>
-                                </Row>
-                                {section.video ? (
-                                    <div style={parallaxStyle}>
-                                        <Video src={section.video} />
-                                    </div>
-                                ) : section.parallax ? (
-                                    <Parallax strength={200}>
-                                        <div style={parallaxStyle} />
-                                        <Background className="custom-bg">
-                                            <Img
+                                <Row
+                                    expanded
+                                    collapse
+                                    equaliseChildHeight={!section.stacked}>
+                                    {(section.title || section.description) && (
+                                        <Column
+                                            large={!section.stacked ? 6 : 7}
+                                            collapse
+                                            centered={section.stacked}
+                                            style={{ position: "relative" }}>
+                                            <Container
+                                                style={{
+                                                    ...(!section.stacked && {
+                                                        top: "50%",
+                                                        position: "absolute",
+                                                        transform:
+                                                            "translateY(-50%)"
+                                                    }),
+                                                    ...(index == 0 && {
+                                                        marginTop: "-1em"
+                                                    })
+                                                }}>
+                                                {section.title && (
+                                                    <H2>{section.title}</H2>
+                                                )}
+                                                {section.description && (
+                                                    <Content
+                                                        content={
+                                                            section.description
+                                                        }
+                                                    />
+                                                )}
+                                            </Container>
+                                        </Column>
+                                    )}
+                                    <Column
+                                        large={!section.stacked ? 6 : 12}
+                                        collapse>
+                                        {section.video ? (
+                                            <div style={parallaxStyle}>
+                                                <Video src={section.video} />
+                                            </div>
+                                        ) : section.parallax ? (
+                                            <Parallax strength={200}>
+                                                <div style={parallaxStyle} />
+                                                <Background className="custom-bg">
+                                                    <Img
+                                                        src={getOriginalImageSrc(
+                                                            section.image
+                                                        )}
+                                                    />
+                                                </Background>
+                                            </Parallax>
+                                        ) : (
+                                            <Hero
+                                                style={parallaxStyle}
                                                 src={getOriginalImageSrc(
                                                     section.image
                                                 )}
                                             />
-                                        </Background>
-                                    </Parallax>
-                                ) : (
-                                    <Hero
-                                        style={parallaxStyle}
-                                        src={getOriginalImageSrc(section.image)}
-                                    />
-                                )}
+                                        )}
+                                    </Column>
+                                </Row>
                             </div>
                         );
                     })}
 
                 <Row>
                     <Column style={{ textAlign: "center" }}>
-                        <H2>Areas of expertise</H2>
+                        <Container>
+                            <H2>Areas of expertise</H2>
 
-                        {solutionsList &&
-                            solutionsList.map((solution, index) => {
-                                const colors = solutions.filter(
-                                    item =>
-                                        item.node.frontmatter.title === solution
-                                );
+                            {solutionsList &&
+                                solutionsList.map((solution, index) => {
+                                    const colors = solutions.filter(
+                                        item =>
+                                            item.node.frontmatter.title ===
+                                            solution
+                                    );
 
-                                return (
-                                    <Solution key={index}>
-                                        {colors.length && (
-                                            <SolutionDot
-                                                style={{
-                                                    background: `linear-gradient(to bottom, ${
-                                                        colors[0].node
-                                                            .frontmatter.color1
-                                                    }, ${
-                                                        colors[0].node
-                                                            .frontmatter.color2
-                                                    })`
-                                                }}
-                                            />
-                                        )}
+                                    return (
+                                        <Solution key={index}>
+                                            {colors.length && (
+                                                <SolutionDot
+                                                    style={{
+                                                        background: `linear-gradient(to bottom, ${
+                                                            colors[0].node
+                                                                .frontmatter
+                                                                .color1
+                                                        }, ${
+                                                            colors[0].node
+                                                                .frontmatter
+                                                                .color2
+                                                        })`
+                                                    }}
+                                                />
+                                            )}
 
-                                        <span>{solution}</span>
-                                    </Solution>
-                                );
-                            })}
-                        <div style={{ height: 100 }} />
+                                            <span>{solution}</span>
+                                        </Solution>
+                                    );
+                                })}
+                        </Container>
                     </Column>
                 </Row>
             </PageDetailContainer>
@@ -232,7 +265,8 @@ class Video extends React.Component {
                 } else if (this.videoRef) {
                     this.videoRef.pause();
                 }
-            }
+            },
+            loop: true
         };
 
         return (
@@ -277,6 +311,7 @@ export const pageQuery = graphql`
                     description
                     image
                     parallax
+                    stacked
                     video
                 }
                 solutionsList

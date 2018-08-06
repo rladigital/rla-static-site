@@ -23,10 +23,12 @@ copySections:
       training, Aftersales and Financial Services.
     image: /img/test1.png
     parallax: true
+    stacked: true
   - title: THE STRATEGY
     description: Lorem Ipsum dolor sit amet
     image: /img/test2.png
     parallax: true
+    stacked: true
     video: https://s3.eu-west-2.amazonaws.com/volvofirstclass/uat/videos/125455_VOLVO_Training_video_Adding_New_Users_v2.mp4
   - title: THE OUTCOME
     description: >-
@@ -38,8 +40,10 @@ copySections:
       asset usage over 3 years.
     image: /img/test3.png
     parallax: true
+    stacked: true
     video: 
   - image: /img/test4.png
     parallax: false
+    stacked: true
     video:
 ---
