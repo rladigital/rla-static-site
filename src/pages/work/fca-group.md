@@ -27,7 +27,7 @@ copySections:
     description: Lorem Ipsum dolor sit amet
     image: /img/test2.png
     parallax: true
-    video: https://player.vimeo.com/video/246992866?title=0&byline=0&portrait=0
+    video: https://s3.eu-west-2.amazonaws.com/volvofirstclass/uat/videos/125455_VOLVO_Training_video_Adding_New_Users_v2.mp4
   - title: THE OUTCOME
     description: >-
       A modular Cortex solution was implemented, including Synapse (our data
@@ -41,5 +41,5 @@ copySections:
     video: 
   - image: /img/test4.png
     parallax: false
-    video: https://www.youtube.com/watch?v=_vhf0RZg0fg
+    video:
 ---

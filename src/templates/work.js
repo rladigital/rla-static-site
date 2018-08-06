@@ -7,7 +7,8 @@ import styled from "styled-components";
 import { Row, Column, Button, Modal } from "rla-components";
 import Link from "gatsby-link";
 import { Parallax, Background } from "react-parallax";
-import uuidv4 from "uuid/v4";
+import VideoCover from "react-video-cover";
+import ScrollTrigger from "react-scroll-trigger";
 
 import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
@@ -23,7 +24,6 @@ import GalleryImage, {
 import HeaderBlock from "../components/HeaderBlock";
 import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
-import VideoOverlay from "../components/blog/VideoOverlay";
 
 const Logo = styled.img`
     max-height: 70px;
@@ -84,42 +84,7 @@ const Img = styled.div`
     background-size: cover;
 `;
 
-const Video = styled.button.attrs({ role: "play " })`
-    top: 50%;
-    left: 50%;
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    position: absolute;
-    background-image: url("/img/play.svg");
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    &:focus {
-        outline: none;
-        box-shadow: 0px 0px 5px 4px ${transparentize(colors.accent, 0.5)};
-    }
-`;
-
 export class WorkTemplate extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            videoVisible: null
-        };
-
-        this.showVideo = this.showVideo.bind(this);
-        this.hideVideo = this.hideVideo.bind(this);
-    }
-
-    showVideo(id) {
-        this.setState({ videoVisible: id });
-    }
-
-    hideVideo() {
-        this.setState({ videoVisible: null });
-    }
-
     render() {
         const { data, helmet, transition, history } = this.props;
 
@@ -137,7 +102,8 @@ export class WorkTemplate extends React.Component {
         const parallaxStyle = {
             height: "35vw",
             maxHeight: 800,
-            minHeight: 300
+            minHeight: 300,
+            overflow: "hidden"
         };
 
         return [
@@ -161,48 +127,41 @@ export class WorkTemplate extends React.Component {
 
                 {copySections &&
                     copySections.map((section, index) => {
-                        const showVideo = () => this.showVideo(section.video);
-                        const VideoButton = () => <Video onClick={showVideo} />;
-
                         return (
                             <div>
-                                <div onClick={section.video && showVideo}>
-                                    <Row>
-                                        <Column large={7} centered>
-                                            {section.title && (
-                                                <H2>{section.title}</H2>
-                                            )}
-                                            {section.description && (
-                                                <StyledContent
-                                                    content={
-                                                        section.description
-                                                    }
-                                                />
-                                            )}
-                                        </Column>
-                                    </Row>
-                                    {section.parallax ? (
-                                        <Parallax strength={200}>
-                                            <div style={parallaxStyle} />
-                                            <Background className="custom-bg">
-                                                <Img
-                                                    src={getOriginalImageSrc(
-                                                        section.image
-                                                    )}
-                                                />
-                                            </Background>
-                                            {section.video && <VideoButton />}
-                                        </Parallax>
-                                    ) : (
-                                        <Hero
-                                            style={parallaxStyle}
-                                            src={getOriginalImageSrc(
-                                                section.image
-                                            )}>
-                                            {section.video && <VideoButton />}
-                                        </Hero>
-                                    )}
-                                </div>
+                                <Row>
+                                    <Column large={7} centered>
+                                        {section.title && (
+                                            <H2>{section.title}</H2>
+                                        )}
+                                        {section.description && (
+                                            <StyledContent
+                                                content={section.description}
+                                            />
+                                        )}
+                                    </Column>
+                                </Row>
+                                {section.video ? (
+                                    <div style={parallaxStyle}>
+                                        <Video src={section.video} />
+                                    </div>
+                                ) : section.parallax ? (
+                                    <Parallax strength={200}>
+                                        <div style={parallaxStyle} />
+                                        <Background className="custom-bg">
+                                            <Img
+                                                src={getOriginalImageSrc(
+                                                    section.image
+                                                )}
+                                            />
+                                        </Background>
+                                    </Parallax>
+                                ) : (
+                                    <Hero
+                                        style={parallaxStyle}
+                                        src={getOriginalImageSrc(section.image)}
+                                    />
+                                )}
                             </div>
                         );
                     })}
@@ -241,12 +200,7 @@ export class WorkTemplate extends React.Component {
                         <div style={{ height: 100 }} />
                     </Column>
                 </Row>
-            </PageDetailContainer>,
-            <VideoOverlay
-                visible={this.state.videoVisible != null}
-                url={this.state.videoVisible}
-                handleClose={this.hideVideo}
-            />
+            </PageDetailContainer>
         ];
     }
 }
@@ -263,6 +217,33 @@ export default ({ history, transition, data }) => {
         />
     );
 };
+
+class Video extends React.Component {
+    render() {
+        const { src } = this.props;
+        const videoOptions = {
+            src: src,
+            ref: videoRef => {
+                this.videoRef = videoRef;
+            },
+            onClick: () => {
+                if (this.videoRef && this.videoRef.paused) {
+                    this.videoRef.play();
+                } else if (this.videoRef) {
+                    this.videoRef.pause();
+                }
+            }
+        };
+
+        return (
+            <ScrollTrigger
+                onEnter={() => this.videoRef.play()}
+                onExit={() => this.videoRef.pause()}>
+                <VideoCover videoOptions={videoOptions} />
+            </ScrollTrigger>
+        );
+    }
+}
 
 export const pageQuery = graphql`
     query WorkByPath($path: String!) {
