@@ -15,15 +15,15 @@ copySections:
       training, Aftersales and Financial Services.
     image: /img/test1.png
     parallax: true
+    stacked: false
     title: THE PROJECT
     video: ''
-    stacked: false
-  - description: Lorem Ipsum dolor sit amet
+  - description: ''
     image: /img/test2.png
     parallax: true
+    stacked: false
     title: THE STRATEGY
     video: ''
-    stacked: false
   - description: >-
       A modular Cortex solution was implemented, including Synapse (our data
       unification platform) and Territory (our branch marketing platform). The
@@ -33,9 +33,9 @@ copySections:
       asset usage over 3 years.
     image: /img/test3.png
     parallax: true
+    stacked: false
     title: THE OUTCOME
     video: ''
-    stacked: false
   - image: /img/test4.png
     parallax: false
     stacked: false
@@ -48,3 +48,4 @@ solutionsList:
 weighting: -3
 previewType: page
 ---
+
