@@ -15,6 +15,7 @@ copySections:
       training, Aftersales and Financial Services.
     image: /img/2674x1218 fca email examples- real phone.jpg
     parallax: true
+    stacked: true
     title: THE PROJECT
   - description: >-
       The key to driving dealer engagement was a combination of both our unique
@@ -26,6 +27,7 @@ copySections:
       dealers and assisting them to improve sales.
     image: /img/2674x1218 fca portal - real laptop.jpg
     parallax: true
+    stacked: true
     title: THE STRATEGY
     video: ''
   - description: >-
@@ -44,6 +46,7 @@ copySections:
       * 80% Cost Per Lead Reduction
     image: /img/2674x1218 fca 500 carousel.jpg
     parallax: true
+    stacked: true
     title: THE OUTCOME
   - {}
 excerpt: How RLA unified the FCA group.
@@ -54,4 +57,3 @@ solutionsList:
 weighting: -3
 previewType: page
 ---
-
