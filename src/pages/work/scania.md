@@ -10,6 +10,8 @@ copySections:
       status versus the competition of Volvo and Mercedes truck, who were
       rapidly closing the gap on the UK’s number 1 heavy truck brand.
     image: /img/2674x1218 scania close-up.jpg
+    parallax: true
+    stacked: true
     title: The Project
   - description: >-
       With a ground-up rebuild of the brands statement in the market, RLA’s “You
@@ -18,6 +20,8 @@ copySections:
       brand marketing mix; ATL through Dealer templates and digital / social
       content, the brand platform quickly took hold of the industry.
     image: /img/2674x1218 scania yes you can.jpg
+    parallax: true
+    stacked: true
     title: The Strategy
   - description: >-
       With market share growing for the first time in three years, and
@@ -32,6 +36,8 @@ copySections:
 
       2017 saw our first campaigns break for our latest market, China.
     image: /img/2674x1218 scania ads.jpg
+    parallax: true
+    stacked: true
     title: The Outcome
 weighting: 0
 previewType: page
