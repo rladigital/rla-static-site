@@ -48,7 +48,6 @@ copySections:
     parallax: true
     stacked: true
     title: THE OUTCOME
-  - {}
 excerpt: How RLA unified the FCA group.
 solutionsList:
   - Brand Desire
@@ -57,3 +56,4 @@ solutionsList:
 weighting: -3
 previewType: page
 ---
+
