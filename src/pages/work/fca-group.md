@@ -16,11 +16,14 @@ copySections:
     image: /img/test1.png
     parallax: true
     title: THE PROJECT
+    video: ''
+    stacked: false
   - description: Lorem Ipsum dolor sit amet
     image: /img/test2.png
     parallax: true
     title: THE STRATEGY
     video: ''
+    stacked: false
   - description: >-
       A modular Cortex solution was implemented, including Synapse (our data
       unification platform) and Territory (our branch marketing platform). The
@@ -31,8 +34,12 @@ copySections:
     image: /img/test3.png
     parallax: true
     title: THE OUTCOME
+    video: ''
+    stacked: false
   - image: /img/test4.png
     parallax: false
+    stacked: false
+    video: ''
 excerpt: How Cortex unified the FCA group.
 solutionsList:
   - Brand Desire
@@ -41,4 +48,3 @@ solutionsList:
 weighting: -3
 previewType: page
 ---
-
