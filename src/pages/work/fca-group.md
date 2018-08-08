@@ -13,34 +13,40 @@ copySections:
       Chrysler, Abarth and Fiat Professional), 315 dealer branches, 6 regions,
       10 principal brand clients and 14 secondary clients across sales, product,
       training, Aftersales and Financial Services.
-    image: /img/test1.png
+    image: /img/2674x1218 fca email examples- real phone.jpg
     parallax: true
-    stacked: true
     title: THE PROJECT
-    video: ''
-  - description: ''
-    image: /img/test2.png
+  - description: >-
+      The key to driving dealer engagement was a combination of both our unique
+      portal technology and the quality of our in-house dealer service
+      infrastructure. Interaction through the portal had to be seamless,
+      intuitive and deliver to dealer needs. The FCA portal  we created provided
+      complete transparency on dealer performance and marketing activity,
+      meaning RLA could deliver a proactive service, focusing on underperforming
+      dealers and assisting them to improve sales.
+    image: /img/2674x1218 fca portal - real laptop.jpg
     parallax: true
-    stacked: true
     title: THE STRATEGY
     video: ''
   - description: >-
-      A modular Cortex solution was implemented, including Synapse (our data
-      unification platform) and Territory (our branch marketing platform). The
-      project resulted in a 52% saving in the total programme budget versus
-      previous suppliers, an 80% reduction on Cost Per Lead for targeted
-      Facebook campaigns, and a 324% growth in voluntary branch advertising
-      asset usage over 3 years.
-    image: /img/test3.png
+      In three years, amongst the plethora of KPI measures for each brand, we
+      are extremely proud to have achieved the following selection of results:
+
+
+      * 324% growth in voluntary branch advertising asset usage over 3 years
+
+      * 41% increase in Digital Asset usage
+
+      * 52% saving in the total programme budget versus previous suppliers
+
+      * Supported Jeep sales growth by 612%
+
+      * 80% Cost Per Lead Reduction
+    image: /img/2674x1218 fca 500 carousel.jpg
     parallax: true
-    stacked: true
     title: THE OUTCOME
-    video: ''
-  - image: /img/test4.png
-    parallax: false
-    stacked: true
-    video: ''
-excerpt: How Cortex unified the FCA group.
+  - {}
+excerpt: How RLA unified the FCA group.
 solutionsList:
   - Brand Desire
   - Customer Acquisition
@@ -48,3 +54,4 @@ solutionsList:
 weighting: -3
 previewType: page
 ---
+
