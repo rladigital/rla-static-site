@@ -363,6 +363,10 @@ function globalCss(theme) {
         iframe{
             max-width: 100%;
         }
+
+        .parallax-custom-bg{
+            width: 100vw;
+        }
     `;
 }
 

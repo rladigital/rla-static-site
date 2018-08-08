@@ -9,6 +9,7 @@ const Hero = styled.div`
     background-position: center;
     background-image: url('${props => props.src}');
     margin-bottom: 2.8em;
+    position: relative;
 `;
 
 export default Hero;

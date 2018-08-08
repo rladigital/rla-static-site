@@ -4,11 +4,16 @@ import ReactRenderer from "remark-react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
-import { Row, Column, Button } from "rla-components";
+import { Row, Column, Button, Modal } from "rla-components";
 import Link from "gatsby-link";
+import { Parallax, Background } from "react-parallax";
+import VideoCover from "react-video-cover";
+import ScrollTrigger from "react-scroll-trigger";
 
 import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
+import { transparentize } from "../helpers/helpers";
+
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
@@ -21,8 +26,7 @@ import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
-    height: 70px;
-    margin-bottom: 3rem;
+    max-height: 70px;
 `;
 
 const StyledButton = Button.extend`
@@ -45,176 +49,251 @@ const Td = styled.td`
 `;
 
 const Solution = styled.div`
+    padding: 0 30px;
     margin-bottom: 1.2rem;
+    display: inline-block;
+    margin-bottom: 2.5em;
 `;
-const WorkContent = styled.div`
-    h1 {
-        font-weight: 700;
-    }
+
+const SolutionDot = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: red;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
 `;
+
+const H2 = styled.h2`
+    font-size: 1.2em;
+`;
+
+const Container = styled.div`
+    padding: 4.5rem 3rem 3em;
+`;
+
+const Img = styled.div`
+    width: 100vw;
+    height: 35vw;
+    min-height: 600px;
+    max-height: 800px;
+    background-image: url('${props => props.src}');
+    background-position: center;
+    background-size: cover;
+`;
+
 export class WorkTemplate extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modalVisible: false,
-            selectedImageIndex: 0
-        };
-    }
-
-    setModalVisibility(visibility, selectedImageIndex = 0) {
-        // console.log(
-        //     "visibility",
-        //     visibility,
-        //     "selectedImageIndex",
-        //     selectedImageIndex
-        // );
-        this.setState({
-            modalVisible: visibility,
-            selectedImageIndex: selectedImageIndex
-        });
-    }
     render() {
+        const { data, helmet, transition, history } = this.props;
+
         const {
-            content,
-            logo,
+            copySections,
             hero,
-            description,
-            galleryImages,
-            solutionsList,
-            title,
             intro,
-            helmet,
-            transition,
-            history
-        } = this.props;
+            logo,
+            solutionsList,
+            title
+        } = data.work.frontmatter;
 
-        return (
-            <PageDetailContainer style={transition && transition.style}>
+        const solutions = data.solutions.edges;
+
+        const parallaxStyle = {
+            height: "35vw",
+            maxHeight: 800,
+            minHeight: 300,
+            overflow: "hidden"
+        };
+
+        return [
+            <PageDetailContainer
+                padding={0}
+                style={{ textAlign: "center", ...transition.style }}>
                 {helmet || ""}
-                {history && <BackButton goBack={history.goBack} />}
-                {hero && (
-                    <Row>
-                        <Column>
-                            <Hero src={getOriginalImageSrc(hero)} />{" "}
-                        </Column>
-                    </Row>
-                )}
-                {logo && (
-                    <Row>
-                        <Column>
+                {hero && <Hero src={getOriginalImageSrc(hero)} />}
+
+                <Row>
+                    <Column large={7} centered>
+                        <PullQuote fontSize={3} padding={2}>
+                            {intro}
+                        </PullQuote>
+
+                        {logo && (
                             <Logo src={getOriginalImageSrc(logo)} id="logo" />
-                        </Column>
-                    </Row>
-                )}
-                <Row>
-                    <WorkContent>
-                        <Column large={5}>
-                            <PullQuote fontSize={3} padding={2}>
-                                {intro}
-                            </PullQuote>
-                        </Column>
-                        <Column large={1}>&nbsp;</Column>
-                        <Column large={6}>
-                            <Content
-                                content={description}
-                                className="cms-content"
-                            />
-
-                            <Table className="cms-content">
-                                <tbody>
-                                    <tr>
-                                        <Td>
-                                            <h1>Our areas of expertise</h1>
-                                        </Td>
-                                        <Td>
-                                            {solutionsList &&
-                                                solutionsList.map(
-                                                    (solution, index) => {
-                                                        return (
-                                                            <Solution
-                                                                key={index}
-                                                            >
-                                                                {solution}
-                                                            </Solution>
-                                                        );
-                                                    }
-                                                )}
-                                        </Td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                        </Column>
-                    </WorkContent>
-                </Row>
-                <Row>
-                    <Column>
-                        {galleryImages &&
-                            galleryImages.map((image, index) => {
-                                return (
-                                    <GalleryImage
-                                        key={index}
-                                        index={index}
-                                        src={image}
-                                        showModal={this.setModalVisibility.bind(
-                                            this
-                                        )}
-                                    />
-                                );
-                            })}
-
-                        <GalleryItem>
-                            <Link to="/work">
-                                <StyledButton
-                                    size="large"
-                                    color="background"
-                                    borderWidth={3}
-                                    hollow
-                                >
-                                    SEE MORE WORK →
-                                </StyledButton>
-                            </Link>
-                        </GalleryItem>
-                        {galleryImages && (
-                            <GalleryModal
-                                images={galleryImages}
-                                showModal={this.setModalVisibility.bind(this)}
-                                modalVisible={this.state.modalVisible}
-                                selectedImageIndex={
-                                    this.state.selectedImageIndex
-                                }
-                            />
                         )}
                     </Column>
                 </Row>
+
+                {copySections &&
+                    copySections.map((section, index) => {
+                        return (
+                            <div>
+                                <Row
+                                    expanded
+                                    collapse
+                                    equaliseChildHeight={!section.stacked}>
+                                    {(section.title || section.description) && (
+                                        <Column
+                                            large={!section.stacked ? 6 : 7}
+                                            collapse
+                                            centered={section.stacked}
+                                            style={{ position: "relative" }}>
+                                            <Container
+                                                style={{
+                                                    ...(!section.stacked && {
+                                                        top: "50%",
+                                                        position: "absolute",
+                                                        transform:
+                                                            "translateY(-50%)"
+                                                    }),
+                                                    ...(index == 0 && {
+                                                        marginTop: "-1em"
+                                                    })
+                                                }}>
+                                                {section.title && (
+                                                    <H2>{section.title}</H2>
+                                                )}
+                                                {section.description && (
+                                                    <Content
+                                                        content={
+                                                            section.description
+                                                        }
+                                                    />
+                                                )}
+                                            </Container>
+                                        </Column>
+                                    )}
+                                    <Column
+                                        large={!section.stacked ? 6 : 12}
+                                        collapse>
+                                        {section.video ? (
+                                            <div style={parallaxStyle}>
+                                                <Video src={section.video} />
+                                            </div>
+                                        ) : section.parallax ? (
+                                            <Parallax strength={200}>
+                                                <div style={parallaxStyle} />
+                                                <Background className="custom-bg">
+                                                    <Img
+                                                        src={getOriginalImageSrc(
+                                                            section.image
+                                                        )}
+                                                    />
+                                                </Background>
+                                            </Parallax>
+                                        ) : (
+                                            <Hero
+                                                style={parallaxStyle}
+                                                src={getOriginalImageSrc(
+                                                    section.image
+                                                )}
+                                            />
+                                        )}
+                                    </Column>
+                                </Row>
+                            </div>
+                        );
+                    })}
+
+                <Row>
+                    <Column style={{ textAlign: "center" }}>
+                        <Container>
+                            <H2>Areas of expertise</H2>
+
+                            {solutionsList &&
+                                solutionsList.map((solution, index) => {
+                                    const colors = solutions.filter(
+                                        item =>
+                                            item.node.frontmatter.title ===
+                                            solution
+                                    );
+
+                                    return (
+                                        <Solution key={index}>
+                                            {colors.length && (
+                                                <SolutionDot
+                                                    style={{
+                                                        background: `linear-gradient(to bottom, ${
+                                                            colors[0].node
+                                                                .frontmatter
+                                                                .color1
+                                                        }, ${
+                                                            colors[0].node
+                                                                .frontmatter
+                                                                .color2
+                                                        })`
+                                                    }}
+                                                />
+                                            )}
+
+                                            <span>{solution}</span>
+                                        </Solution>
+                                    );
+                                })}
+                        </Container>
+                    </Column>
+                </Row>
             </PageDetailContainer>
-        );
+        ];
     }
 }
 
 export default ({ history, transition, data }) => {
-    const { markdownRemark: work } = data;
     return (
         <WorkTemplate
-            description={work.frontmatter.description}
-            helmet={<Helmet title={`Our Work | ${work.frontmatter.title}`} />}
-            title={work.frontmatter.title}
-            logo={work.frontmatter.logo}
-            hero={work.frontmatter.hero}
-            description={work.frontmatter.description}
-            galleryImages={work.frontmatter.galleryImages}
-            solutionsList={work.frontmatter.solutionsList}
-            intro={work.frontmatter.intro}
+            helmet={
+                <Helmet title={`Our Work | ${data.work.frontmatter.title}`} />
+            }
+            data={data}
             transition={transition}
             history={history}
         />
     );
 };
 
+class Video extends React.Component {
+    render() {
+        const { src } = this.props;
+        const videoOptions = {
+            src: src,
+            ref: videoRef => {
+                this.videoRef = videoRef;
+            },
+            onClick: () => {
+                if (this.videoRef && this.videoRef.paused) {
+                    this.videoRef.play();
+                } else if (this.videoRef) {
+                    this.videoRef.pause();
+                }
+            },
+            loop: true
+        };
+
+        return (
+            <ScrollTrigger
+                onEnter={() => this.videoRef.play()}
+                onExit={() => this.videoRef.pause()}>
+                <VideoCover videoOptions={videoOptions} />
+            </ScrollTrigger>
+        );
+    }
+}
+
 export const pageQuery = graphql`
     query WorkByPath($path: String!) {
-        markdownRemark(fields: { slug: { eq: $path } }) {
+        work: markdownRemark(fields: { slug: { eq: $path } }) {
             html
             frontmatter {
+                hero {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
                 title
                 intro
                 logo {
@@ -227,19 +306,28 @@ export const pageQuery = graphql`
                     }
                     original
                 }
-                hero {
-                    responsive {
-                        childImageSharp {
-                            original {
-                                src
-                            }
-                        }
-                    }
-                    original
+                copySections {
+                    title
+                    description
+                    image
+                    parallax
+                    stacked
+                    video
                 }
-                description
-                galleryImages
                 solutionsList
+            }
+        }
+        solutions: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "solutions" } } }
+        ) {
+            edges {
+                node {
+                    frontmatter {
+                        title
+                        color1
+                        color2
+                    }
+                }
             }
         }
     }
