@@ -15,13 +15,13 @@ copySections:
       training, Aftersales and Financial Services.
     image: /img/test1.png
     parallax: true
-    stacked: false
+    stacked: true
     title: THE PROJECT
     video: ''
   - description: ''
     image: /img/test2.png
     parallax: true
-    stacked: false
+    stacked: true
     title: THE STRATEGY
     video: ''
   - description: >-
@@ -33,12 +33,12 @@ copySections:
       asset usage over 3 years.
     image: /img/test3.png
     parallax: true
-    stacked: false
+    stacked: true
     title: THE OUTCOME
     video: ''
   - image: /img/test4.png
     parallax: false
-    stacked: false
+    stacked: true
     video: ''
 excerpt: How Cortex unified the FCA group.
 solutionsList:
@@ -48,4 +48,3 @@ solutionsList:
 weighting: -3
 previewType: page
 ---
-
