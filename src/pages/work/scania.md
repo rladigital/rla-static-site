@@ -34,5 +34,6 @@ copySections:
     image: /img/2674x1218 scania ads.jpg
     title: The Outcome
 weighting: 0
+previewType: page
 ---
 
