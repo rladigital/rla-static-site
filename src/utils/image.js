@@ -1,4 +1,7 @@
 export const getOriginalImageSrc = imageField => {
+    if (imageField == null) {
+        return;
+    }
     if (typeof imageField.responsive === "undefined") {
         return imageField;
     }
