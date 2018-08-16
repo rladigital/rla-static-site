@@ -1,7 +1,7 @@
 ---
 templateKey: people
 title: Jack Davey
-role: Senior Art Director
+role: Head of Creative
 tags:
   - Studio
 profile: /img/jack-davey.jpg
