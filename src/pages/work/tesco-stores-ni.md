@@ -3,34 +3,42 @@ templateKey: work
 title: Tesco
 hero: /img/tesco-hero.jpg
 thumb: /img/RLA_Work_Page_1200x1200_Tesco.jpg
+thumbnailAlignment: top
 intro: Using coordinated communications to harmonise the community.
-description: >-
-  # THE PROJECT
+logo: /img/tesco-01.png
+copySections:
+  - description: >-
+      The problem for Tesco has always been vocal minority belief that their
+      growth aspirations will 'kill' local town communities by forcing local
+      butchers, bakers and farmers out of business. RLA were challenged to help
+      change this perception in Northern Ireland.
+    image: /img/2674x1218 tesco poster_2.jpg
+    title: The Project
+  - description: >-
+      In 2014 our localisation campaign "Switch to Local" utilised beautiful
+      photography of numerous key local farmers and suppliers in the province to
+      bring the diverse and committed local suppliers in the front of Tesco
+      Advertising. 
 
 
-  To counter the incorrect perception that Tesco’s growth aspiration will
-  squeeze local farmers, butchers and bakers out of business. ‘Switch to Local’
-  is support-building campaign that features beautiful photos to showcase the
-  impressive number of local farmers who are happily supplying the supermarket
-  chain.
+      Through a heavy weight regional broadcast campaign in outdoor and press we
+      also integrated the campaign with personalised POS, DM, email, local press
+      and local events for each of the stores.
+    image: /img/2674x1218 tesco poster.jpg
+    title: The Strategy
+  - description: >-
+      After 20 years, Tesco has started to thrive in the Irish community and now
+      the largest grocer in the market.
 
 
-  # THE OUTCOME
-
-
-  Through a heavyweight regional broadcast campaign in outdoor and press, also
-  including POS, DM, eDM, local press and events, RLA became the first agency to
-  be awarded Tesco’s Supplier of the Month award. An accolade normally reserved
-  for the actual farmers and growers. A little ironic, perhaps!
+      The success of the campaign meant that RLA were the first ever agency to
+      be awarded Tesco's 'Supplier of the Month' Award (which is normally
+      reserved for suppliers such as growers and farmers).
+    title: The Outcome
 excerpt: Cultivating support for farmers.
-galleryImages:
-  - /img/tesco_1.jpg
-  - /img/tesco_2.jpg
-  - /img/tesco_3.jpg
 solutionsList:
   - Brand desire
 weighting: -1
 previewType: page
-thumbnailAlignment: top
 ---
 
