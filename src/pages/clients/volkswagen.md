@@ -47,6 +47,10 @@ copySections:
       the decade by B2B Marketing.
     image: /img/2674x1218 vw ads.jpg
     title: The Outcome
+excerpt: >-
+  ‘Let’s Go To Work’ tripled purchase consideration, leapfrogged Volkswagen from
+  8th to 2nd in the Brand pressure Index and grew Dealer participation and local
+  marketing engagement by 440%
 solutionLookup: Customer Relationship
 solutionsList:
   - Brand Desire
