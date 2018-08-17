@@ -39,6 +39,5 @@ excerpt: Cultivating support for farmers.
 solutionsList:
   - Brand desire
 weighting: -1
-previewType: page
+previewType:
 ---
-

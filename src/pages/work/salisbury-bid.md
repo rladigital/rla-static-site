@@ -33,7 +33,6 @@ galleryImages:
 solutionsList:
   - Brand Desire
 weighting: -2
-previewType: page
+previewType: 
 thumbnailAlignment: center
 ---
-
