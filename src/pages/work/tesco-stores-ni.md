@@ -42,8 +42,9 @@ copySections:
     stacked: true
     title: The Outcome
 excerpt: Cultivating support for farmers.
+solutionLookup: ''
 solutionsList:
-  - Brand desire
+  - Brand Desire
 weighting: -1
 previewType: page
 ---
