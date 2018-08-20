@@ -13,6 +13,8 @@ copySections:
       butchers, bakers and farmers out of business. RLA were challenged to help
       change this perception in Northern Ireland.
     image: /img/2674x1218 tesco poster_2.jpg
+    parallax: true
+    stacked: true
     title: The Project
   - description: >-
       In 2014 our localisation campaign "Switch to Local" utilised beautiful
@@ -25,6 +27,8 @@ copySections:
       also integrated the campaign with personalised POS, DM, email, local press
       and local events for each of the stores.
     image: /img/2674x1218 tesco poster.jpg
+    parallax: true
+    stacked: true
     title: The Strategy
   - description: >-
       After 20 years, Tesco has started to thrive in the Irish community and now
@@ -34,10 +38,13 @@ copySections:
       The success of the campaign meant that RLA were the first ever agency to
       be awarded Tesco's 'Supplier of the Month' Award (which is normally
       reserved for suppliers such as growers and farmers).
+    parallax: true
+    stacked: true
     title: The Outcome
 excerpt: Cultivating support for farmers.
 solutionsList:
   - Brand desire
 weighting: -1
-previewType:
+previewType: page
 ---
+
