@@ -155,6 +155,7 @@ export class WorkTemplate extends React.Component {
                                                 )}
                                                 {section.description && (
                                                     <Content
+                                                        className="work-cms-content"
                                                         content={
                                                             section.description
                                                         }

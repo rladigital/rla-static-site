@@ -325,6 +325,22 @@ function globalCss(theme) {
             }
         }
 
+        .work-cms-content{
+            ul{
+                margin-left: 25px;
+                list-style-type: none;
+                > li{
+                    line-height: 1.8;
+                    text-indent: -25px;
+                    margin-bottom: 20px;
+                    &:before{
+                        content: "— ";
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+
         /* ----- Map Styles ----- */
         div.leaflet-container {
             background: ${colors.background};
