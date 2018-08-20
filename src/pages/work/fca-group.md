@@ -54,5 +54,6 @@ solutionsList:
   - Customer Acquisition
   - Cortex
 weighting: -3
-previewType:
+previewType: page
 ---
+
