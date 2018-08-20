@@ -40,5 +40,6 @@ copySections:
     stacked: true
     title: The Outcome
 weighting: 0
-previewType:
+previewType: page
 ---
+
