@@ -41,7 +41,16 @@ class TemplateWrapper extends React.Component {
             <ThemeProvider theme={merge(Theme, customTheme)}>
                 {this.state.hasMounted ? (
                     <div style={{ height: "100%" }}>
-                        <Helmet title="RLA Group | Full Service Advertising Agency | Bournemouth" />
+                        <Helmet title="RLA Group | Full Service Advertising Agency | Bournemouth">
+                            <meta
+                                name="title"
+                                content="RLA Group | Full Service Advertising Agency | Bournemouth"
+                            />
+                            <meta
+                                name="description"
+                                content="RLA are a full service creative advertising agency who create connected experiences that help brands achieve their ambitions."
+                            />
+                        </Helmet>
                         <Offcanvas
                             location={location}
                             offcanvasColor={offcanvasColor}

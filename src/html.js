@@ -30,8 +30,6 @@ module.exports = class HTML extends React.Component {
                         content="width=device-width, initial-scale=1, shrink-to-fit=no"
                     />
                     <meta name="theme-color" content="#07172C" />
-                    <meta name="title" content="RLA Group | Full Service Advertising Agency | Bournemouth" />
-                    <meta name="description" content="RLA are a full service creative advertising agency who create connected experiences that help brands achieve their ambitions." />
                     <link
                         rel="apple-touch-icon"
                         sizes="180x180"
@@ -58,7 +56,7 @@ module.exports = class HTML extends React.Component {
                     <meta name="msapplication-TileColor" content="#ffffff" />
                     <meta name="theme-color" content="#ffffff" />
                     <meta name="keywords" content="RLA" />
-			{this.props.headComponents}
+                    {this.props.headComponents}
                     {css}
                     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.findIndex" />
                 </head>
@@ -91,15 +89,15 @@ module.exports = class HTML extends React.Component {
                         }}
                     />
                     <script
-                            dangerouslySetInnerHTML={{
-                                __html: `
+                        dangerouslySetInnerHTML={{
+                            __html: `
                                 (function(){var s = document.getElementsByTagName("script")[0];
                                 var b = document.createElement("script");
                                 b.type = "text/javascript";b.async = true;
                                 b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
                                 s.parentNode.insertBefore(b, s);})();
                             `
-                            }}
+                        }}
                     />
                 </body>
             </html>
