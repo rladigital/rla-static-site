@@ -78,8 +78,7 @@ export const NewsTemplate = ({
                                 right: 0,
                                 bottom: 2.4,
                                 left: 0
-                            }}
-                        >
+                            }}>
                             {title}
                         </HeaderBlock>
                     </Column>
@@ -180,10 +179,18 @@ export default ({ history, data, pathContext, transition }) => {
     //console.log(data, transition);
     const { markdownRemark: news } = data;
     const { previous, next } = pathContext;
+    const { title, metaTitle, metaDescription } = news.frontmatter;
     return (
         <NewsTemplate
             description={news.frontmatter.description}
-            helmet={<Helmet title={`News | ${news.frontmatter.title}`} />}
+            helmet={
+                <Helmet title={`News | ${title}`}>
+                    {metaTitle && <meta name="title" content={metaTitle} />}
+                    {metaDescription && (
+                        <meta name="description" content={metaDescription} />
+                    )}
+                </Helmet>
+            }
             title={news.frontmatter.title}
             date={news.frontmatter.date}
             hero={news.frontmatter.hero}
@@ -219,6 +226,8 @@ export const pageQuery = graphql`
                     original
                 }
                 intro
+                metaTitle
+                metaDescription
                 sideHeading
                 galleryImages
                 tags

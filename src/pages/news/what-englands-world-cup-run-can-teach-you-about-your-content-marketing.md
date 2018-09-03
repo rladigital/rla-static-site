@@ -15,7 +15,10 @@ galleryImages:
   - /img/1160x450 world cup run article header image v1.jpg
 author: Luke Fagg
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
+
 In case you haven’t heard…Football’s coming home! Well, at least as England fans, we still dare to dream...
 
 England’s meteoric rise from quarter final hopefuls to World Cup final favourites has no doubt come as a shock to all of us. But to Gareth Southgate and his team of heroes this has come as no surprise. For them, luck has had little to do with it. Countless hours of work, research, trial and error have all placed them on the path to success.

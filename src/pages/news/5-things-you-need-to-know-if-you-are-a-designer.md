@@ -18,7 +18,10 @@ galleryImages:
   - /img/1160x450 5 things james article header image v1.jpg
 author: James Coogan
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
+
 There’s a lot you need to think about if you’re a designer, a lot a lot.
 
 **1. Don’t be precious.**
@@ -29,9 +32,9 @@ This is a big one for me. It depends on what kind of Studio you’re in, but it�
 
 “Fear is the path to the dark side. Fear leads to anger. Anger leads to hate.  Hate leads to suffering.” - Yoda.
 
-Sounds ridiculous, but it’s not far off. Clients will test you on occasion. Tiny amends that you don’t agree with, and that seem to go on forever and ever. Then you realise you’re on version 47 of the job. 
+Sounds ridiculous, but it’s not far off. Clients will test you on occasion. Tiny amends that you don’t agree with, and that seem to go on forever and ever. Then you realise you’re on version 47 of the job.
 
-Don’t get angry, don’t write your story on ‘clients from hell’. Remember two things: 
+Don’t get angry, don’t write your story on ‘clients from hell’. Remember two things:
 
 It’s your job to make sure what you design is right, even if the client is wrong.  Fight for what you believe in.
 
@@ -41,13 +44,13 @@ Remember they are paying the bills. So make them happy, compromise if you have t
 
 As Charlie Eames said “The details are not the details. They make the design”.
 
-I’m not talking about adding lens flare to a sunny image here (although sometimes that can help). 
+I’m not talking about adding lens flare to a sunny image here (although sometimes that can help).
 
-Use the guidelines, check your grids, line up type and make sure everything is spot on. Check your work, have someone else check it and then play with it again. If something isn’t needed, bin it! There’s nothing wrong with space in a design, allowing the work to breathe can sometimes be the best thing for it. Make sure you’re on guidelines and for god’s sake, SPELLCHECK!!! 
+Use the guidelines, check your grids, line up type and make sure everything is spot on. Check your work, have someone else check it and then play with it again. If something isn’t needed, bin it! There’s nothing wrong with space in a design, allowing the work to breathe can sometimes be the best thing for it. Make sure you’re on guidelines and for god’s sake, SPELLCHECK!!!
 
 **4. You are not an island.**
 
-Work with your team, talk to users, talk to anyone! Ideas flow when you bounce them off each other. It’s hard to work alone. Share that pressure with the rest of your team and the work you will produce will be far better for it. Everyone has different skill-sets and specialties, use them! The best work comes from collaboration. 
+Work with your team, talk to users, talk to anyone! Ideas flow when you bounce them off each other. It’s hard to work alone. Share that pressure with the rest of your team and the work you will produce will be far better for it. Everyone has different skill-sets and specialties, use them! The best work comes from collaboration.
 
 E-learning services like Lynda and YouTube are fantastic, but can only show you so much. If you have people in your team who can do things you can’t - learn from them!
 
@@ -55,7 +58,7 @@ E-learning services like Lynda and YouTube are fantastic, but can only show you 
 
 **5. Content is King.**
 
-They say great design is invisible. Design is merely a vessel for housing content, if that content can’t be transferred to the user - then what’s the point #Fail. 
+They say great design is invisible. Design is merely a vessel for housing content, if that content can’t be transferred to the user - then what’s the point #Fail.
 
 Look after your content, nurture it. Do it well and your designs will be considerably better received by the client – and your creatives and copywriters will give you the highest of 5’s.
 

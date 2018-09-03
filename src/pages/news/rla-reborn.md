@@ -14,6 +14,8 @@ galleryImages:
   - /img/mike-story@2x.jpg
 author: Mike Smith
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
 
 Now the clocks have moved forward, and the 'beast from the east’ a distant, chilly memory, Spring is tentatively doing its thing. The world around us is becoming more colourful, more positive - re-invigorated with the sense of growth and renewal, as Mother Nature moves to the tune of the season.

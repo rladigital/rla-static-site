@@ -15,7 +15,10 @@ galleryImages:
   - /img/1200x1200-perks-1-year-article-thumbnail-v1.jpg
 author: Pamela Williams
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
+
 A year ago this month, RLA gave birth to something pretty unique in the automotive market.
 
 PERKS was born to Trade Team, PSA Group's Trade Parts Programme. The first car manufacturer trade rewards scheme was launched to encourage independent garages to buy more and more often. . Quite simply for every pound they spend they earn a point, which can be redeemed at Amazon.co.uk or with Snap-On tools. In addition we run weekly and monthly competitions for great prizes including the chance to win a weekend stay at Dracula’s castle in Transylvania, Drive a Supercar, and receive a bundle of the latest gadgets - Trade Team’s customers love it.

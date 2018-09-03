@@ -14,6 +14,8 @@ galleryImages:
   - /img/david dent.jpg
 author: David Dent
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
 
 **Ok, so what do you actually do?**

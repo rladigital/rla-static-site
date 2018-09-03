@@ -14,6 +14,8 @@ galleryImages:
   - /img/connected ambition-1.jpg
 author: Luke Fagg
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
 
 Facebook, Cambridge Analytica, data, Mark Zuckerberg.

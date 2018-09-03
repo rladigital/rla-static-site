@@ -16,7 +16,10 @@ galleryImages:
   - /img/1160x450-10-questions-article-header-image-luke-fagg.jpg
 author: Luke Fagg
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
+
 **What's your role at RLA?**
 
 Marketing Manager
@@ -27,7 +30,7 @@ Aside from being the resident office duster, my primary responsibility is to sho
 
 **What makes working at RLA different to other agencies?**
 
-RLA care. Simple as that. We care about our work. We care about our clients. And we care about each other. Since I joined RLA, we have had plenty of ups and some downs as an agency, but I have also had plenty of ups and downs of my own since joining RLA 2 years ago (grab a violin). RLA’s support through these ‘downs’ has been incredible and I feel so lucky to work with such genuinely good people. 
+RLA care. Simple as that. We care about our work. We care about our clients. And we care about each other. Since I joined RLA, we have had plenty of ups and some downs as an agency, but I have also had plenty of ups and downs of my own since joining RLA 2 years ago (grab a violin). RLA’s support through these ‘downs’ has been incredible and I feel so lucky to work with such genuinely good people.
 
 **What’s your best memory from RLA so far?**
 
@@ -35,7 +38,7 @@ Our Christmas parties have always been VERY memorable. But my favourite memory h
 
 **When you’re not in the barn, what do you get up to?**
 
-I have always loved being outdoors. Since moving down to Bournemouth I have taken up surfing and love nothing more than to battle the waves all year round. A keen sportsman, I play a lot of football, basketball and volleyball; and particularly love a run along the beach after work.  I also have a 3 year old daughter who likes to keep me on my toes!
+I have always loved being outdoors. Since moving down to Bournemouth I have taken up surfing and love nothing more than to battle the waves all year round. A keen sportsman, I play a lot of football, basketball and volleyball; and particularly love a run along the beach after work. I also have a 3 year old daughter who likes to keep me on my toes!
 
 **What would you do if you weren’t in the marketing industry?**
 
@@ -47,7 +50,7 @@ There is so much to choose from! For me, I am most excited to see the influence 
 
 **We’re on a pitch and it’s pizza time, what are you ordering?**
 
-If we are going to go by our latest pitch, then I am ordering double the amount of pizza than the team actually need…much to the bemusement of my colleagues. I LOVE food. Especially Pizza. Papa John’s over Dominos all day. 
+If we are going to go by our latest pitch, then I am ordering double the amount of pizza than the team actually need…much to the bemusement of my colleagues. I LOVE food. Especially Pizza. Papa John’s over Dominos all day.
 
 **Which other RLAer is most awesome and why?**
 

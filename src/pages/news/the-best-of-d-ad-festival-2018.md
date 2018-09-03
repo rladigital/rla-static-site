@@ -16,6 +16,8 @@ galleryImages:
   - /img/1160x450 01 article header image 1.jpg
 author: Jack Davey
 weighting: 0
+metaTitle: 
+metaDescription:
 ---
 
 Last week the creative and studio teams at RLA dusted off their pork pie hats, grabbed their moustache wax and Air Max’s and travelled to Shoreditch for this years D&AD Festival.

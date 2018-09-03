@@ -73,6 +73,8 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Meta Title", name: "metaTitle", widget: "string"}
+      - {label: "Meta Description", name: "metaDescription", widget: "string"}
       - {label: "Date", name: "date", widget: "date", format: "MM/DD/YYYY"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Thumbnail Image", name: "thumb", widget: "image"}
