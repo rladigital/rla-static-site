@@ -14,8 +14,8 @@ galleryImages:
   - /img/connected ambition-1.jpg
 author: Luke Fagg
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: 'Facebook dropped the ball on data, so what does it mean for Marketers?'
+metaDescription: 'In 2018 Facebook came under increased public scrutiny to improve and tighten their data processes and roll-out multiple changes to their platforms. So what are these changes?'
 ---
 
 Facebook, Cambridge Analytica, data, Mark Zuckerberg.

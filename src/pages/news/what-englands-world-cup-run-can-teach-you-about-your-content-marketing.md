@@ -15,8 +15,8 @@ galleryImages:
   - /img/1160x450 world cup run article header image v1.jpg
 author: Luke Fagg
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: Content lessons learnt from England's World Cup run
+metaDescription: Find out 4 things your content marketing strategy can learn from England’s world cup heroics
 ---
 
 In case you haven’t heard…Football’s coming home! Well, at least as England fans, we still dare to dream...

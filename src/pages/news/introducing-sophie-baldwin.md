@@ -17,8 +17,8 @@ sideHeading: >-
 galleryImages: []
 author: Sophie Baldwin
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: Introducing Sophie Baldwin | RLA Group
+metaDescription: Introducing RLA Group's latest recruit Sophie Baldwin to the world.
 ---
 
 **Hey Sophie, what’s your new role at RLA, and how are you settling into it?**

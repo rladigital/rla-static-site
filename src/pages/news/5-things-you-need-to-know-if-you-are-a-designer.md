@@ -18,8 +18,8 @@ galleryImages:
   - /img/1160x450 5 things james article header image v1.jpg
 author: James Coogan
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: 5 things you need to know if you are a designer
+metaDescription: You may have created the most beautiful design in the world, but if it doesn’t work for the client - it’s useless.
 ---
 
 There’s a lot you need to think about if you’re a designer, a lot a lot.

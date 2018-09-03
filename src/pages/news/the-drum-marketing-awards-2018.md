@@ -16,8 +16,8 @@ galleryImages:
   - /img/1160x450_banner_x2_drumawards.jpg
 author: Luke Fagg
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: RLA nominated for Drum Marketing Awards 2018
+metaDescription: RLA Have been shortlisted for a Drum Marketing Award 2018 for our outstanding work on PSA's PERKS campaign. Find out what the fuss is all about below.
 ---
 
 We are thrilled to announce that RLA have been shortlisted as a finalist for B2B Marketing Strategy of the year at The Drum Marketing Awards 2018. The nomination follows the effective launch of PERKS, the first car manufacturer trade loyalty programme for PSA (the holding company for Peugeot, Citroen and DS Automobiles) in June 2017.

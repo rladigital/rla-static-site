@@ -16,8 +16,8 @@ galleryImages:
   - /img/sam-2.jpg
 author: Samantha Smith
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: '10 Questions with Sam Smith | RLA Group'
+metaDescription: '10 Questions with our Managing Director Sam Smith'
 ---
 
 **Ok, so what do you actually do?**

@@ -13,8 +13,8 @@ galleryImages:
   - /img/1160x450-data-creative-header-image-v1.jpg
 author: David Dent
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: Is Data Killing Creativity | RLA Group
+metaDescription: Data without empathy and insight is hollow and lifeless. Data doesn’t give insight, understanding human behaviour does.
 ---
 
 I had a thought this morning driving into work, listening to the fascinating Revisionist History podcast by Malcolm Gladwell, author of Tipping Point and Blink. There seems to be this ongoing debate within our industry around creativity being killed by data.

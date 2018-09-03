@@ -16,8 +16,8 @@ galleryImages:
   - /img/1160x450-10-questions-article-header-image-luke-fagg.jpg
 author: Luke Fagg
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: 10 Questions with Luke Fagg | RLA Group
+metaDescription: 10 Questions with our Marketing Manager Luke Fagg
 ---
 
 **What's your role at RLA?**

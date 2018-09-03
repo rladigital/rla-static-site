@@ -15,8 +15,8 @@ galleryImages:
   - /img/1366x532 loyalty mid article image b v1.jpg
 author: David Dent
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: When Customer Loyalty Fails | RLA Group
+metaDescription: Marketing reports published at the end of 2016 indicate that the UK has one of the highest levels in Europe of the population participating in a loyalty scheme (89%), with an average person holding 3.6 cards...
 ---
 
 The Nielsen Global Retail Loyalty Sentiment report published at the end of 2016 indicated the UK has one of the highest levels in Europe of the population participating in a loyalty scheme (89%), and with an average person holding 3.6 cards, on the surface us Brits appear to love the incentives offered by the retailers we most value. However, the research goes on to reveal that the impact these programmes have on buying behaviour is incredibly low, in fact we are ranked second lowest of the 63 countries measured globally, with only half of British loyalty card holders stating they would buy from a retailer with a scheme over one without. Of the 23 statements in the study about attitudes, behaviour and benefits, the UK performed below the global average – something is going wrong!

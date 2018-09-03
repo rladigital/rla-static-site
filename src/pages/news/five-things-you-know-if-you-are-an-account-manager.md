@@ -16,8 +16,8 @@ galleryImages:
   - /img/1160x450-hannah-5-article-header-image-v1.jpg
 author: Hannah Bennett
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: 5 things you know if you're an Account Manager
+metaDescription: Are you looking to become an Advertising Agency Account Manager? There are 5 key things you need to know...
 ---
 
 **Resource Wars are a common battleground**\

@@ -16,8 +16,8 @@ galleryImages:
   - /img/1366x532-automechanika-mid-article-image-stand-v1.jpg
 author: Marina Guirey
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: Automechanika 2018 Update | RLA Group
+metaDescription: Automechanika is the world's leading trade fair for the automotive service industry and is held annually in the UK at Birmingham’s NEC
 ---
 
 To say it’s been a busy few weeks at RLA, is perhaps putting it lightly. Automechanika was mentioned so many times in the agency, it was almost a \*dirty word\*. At the Drum awards, mid-Automechanika-production-mayhem, our Client told us straight up, that the first person to mention the “A” word buys the drinks. But seriously, it has been amazing to be a part of such an exciting time for PSA. RLA was asked to design the stand walls for Automechanika, produce multiple TV screens, banners and other collateral all required for the exhibition – in a little over two weeks.

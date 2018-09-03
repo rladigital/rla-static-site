@@ -14,8 +14,8 @@ galleryImages:
   - /img/david dent.jpg
 author: David Dent
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: 10 Questions with David Dent | RLA Group
+metaDescription: 10 Questions with our Head of Planning David Dent
 ---
 
 **Ok, so what do you actually do?**

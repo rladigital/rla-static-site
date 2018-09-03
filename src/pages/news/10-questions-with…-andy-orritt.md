@@ -16,8 +16,8 @@ galleryImages:
   - /img/1366x532-10-questions-mid-article-image-andy-orritt.jpg
 author: Andy Orritt
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: 10 Questions with Andy Orritt | RLA Group
+metaDescription: 10 Questions with our Studio Manager Andy Orritt
 ---
 
 **What’s your role at RLA?**

@@ -17,8 +17,8 @@ galleryImages:
   - /img/1160x450 ai article header image v1.jpg
 author: Luke Fowell
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: Artificial Intellingence meets the Real World
+metaDescription: AI is already affecting your life in a multitude of ways, and it’s only going to become even more entwined. So, what examples of AI are you already using – even without realising it?
 ---
 
 There has been monumental hype about AI and how it’s going to transform the world as we know it. The issue is that AI and machine learning is such an abstract concept for most and not understanding how it effects our regular lives means it stays abstract. So what examples of AI or machine learning are you already using – even without realising it?

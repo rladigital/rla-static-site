@@ -15,8 +15,8 @@ galleryImages:
   - /img/1200x1200-perks-1-year-article-thumbnail-v1.jpg
 author: Pamela Williams
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: Perks. A year of points and prizes | RLA Group
+metaDescription: The Perks programme has transformed how we reach, engage and drive sales amongst PSA's audience.
 ---
 
 A year ago this month, RLA gave birth to something pretty unique in the automotive market.

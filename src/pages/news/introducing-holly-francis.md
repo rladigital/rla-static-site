@@ -18,8 +18,8 @@ galleryImages:
   - /img/1160x450 introducing holly francis article header.jpg
 author: Holly Francis
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: Introducing Holly Francis | RLA Group
+metaDescription: Introducing RLA Group's latest recruit Holly Francis to the world.
 ---
 
 **Hey Holly, what’s your new role at RLA, and how are you settling into it?**

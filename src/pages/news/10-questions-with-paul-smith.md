@@ -13,8 +13,8 @@ galleryImages:
   - /img/1160x450 10 questions article header image paul smith.jpg
 author: Paul Smith
 weighting: 0
-metaTitle: 
-metaDescription:
+metaTitle: 10 Questions with Paul Smith | RLA Group
+metaDescription: 10 Questions with our Commercial Director Paul Smith
 ---
 
 **What’s your role at RLA?**
