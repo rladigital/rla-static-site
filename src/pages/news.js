@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
+import Helmet from "react-helmet";
 
 import theme from "../theme/theme";
 import NewsList from "../components/news/NewsList";
@@ -17,6 +18,16 @@ export default class NewsPage extends React.Component {
 
         return (
             <div style={transition && transition.style}>
+                <Helmet>
+                    <meta
+                        name="title"
+                        content="News | RLA Group | Full Service Advertising Agency"
+                    />
+                    <meta
+                        name="description"
+                        content="Check out the latest news, insights, trends in the advertising industry and culture pieces from RLA Group here."
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock
