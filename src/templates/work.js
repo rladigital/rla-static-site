@@ -245,11 +245,9 @@ export default ({ history, transition, data }) => {
         <WorkTemplate
             helmet={
                 <Helmet title={`Our Work | ${title}`}>
-                    {metaTitle && (
-                        <meta name="description" content={metaTitle} />
-                    )}
+                    {metaTitle && <meta name="title" content={metaTitle} />}
                     {metaDescription && (
-                        <meta name="title" content={metaDescription} />
+                        <meta name="description" content={metaDescription} />
                     )}
                 </Helmet>
             }
