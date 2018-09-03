@@ -18,4 +18,6 @@ previewType:
 excerpt:
 
 thumbnailAlignment: center
+metaTitle: 
+metaDescription:
 ---

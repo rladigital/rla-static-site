@@ -35,4 +35,6 @@ solutionsList:
 weighting: -2
 previewType: 
 thumbnailAlignment: center
+metaTitle: 
+metaDescription:
 ---

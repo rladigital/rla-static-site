@@ -14,6 +14,8 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work"}
       - {label: "Name", name: "title", widget: "string"}
+      - {label: "Meta Title", name: "metaTitle", widget: "string"}
+      - {label: "Meta Description", name: "metaDescription", widget: "string"}
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Thumbnail Image", name: "thumb", widget: "image", required: false}
       - {label: "Thumbnail Alignment", name: "thumbnailAlignment", widget: "select", default: "center", options: [{ label: "Top", value: "top" }, { label: "Center", value: "center"}, { label: "Bottom", value: "bottom"}]}

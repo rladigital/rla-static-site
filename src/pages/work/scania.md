@@ -41,5 +41,6 @@ copySections:
     title: The Outcome
 weighting: 0
 previewType: ''
+metaTitle: 
+metaDescription:
 ---
-

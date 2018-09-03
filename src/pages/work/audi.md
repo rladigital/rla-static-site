@@ -6,5 +6,6 @@ intro: tbc
 description: ''
 weighting: 0
 thumbnailAlignment: top
+metaTitle: 
+metaDescription:
 ---
-

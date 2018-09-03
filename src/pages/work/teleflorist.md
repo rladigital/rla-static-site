@@ -8,5 +8,6 @@ description: ''
 weighting: 0
 previewType: lightbox
 thumbnailAlignment: center
+metaTitle: 
+metaDescription:
 ---
-

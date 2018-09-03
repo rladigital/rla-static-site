@@ -47,5 +47,6 @@ solutionsList:
   - Brand Desire
 weighting: -1
 previewType: page
+metaTitle: 
+metaDescription:
 ---
-

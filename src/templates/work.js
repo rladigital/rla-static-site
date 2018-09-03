@@ -240,10 +240,18 @@ export class WorkTemplate extends React.Component {
 }
 
 export default ({ history, transition, data }) => {
+    const { title, metaTitle, metaDescription } = data.work.frontmatter;
     return (
         <WorkTemplate
             helmet={
-                <Helmet title={`Our Work | ${data.work.frontmatter.title}`} />
+                <Helmet title={`Our Work | ${title}`}>
+                    {metaTitle && (
+                        <meta name="description" content={metaTitle} />
+                    )}
+                    {metaDescription && (
+                        <meta name="title" content={metaDescription} />
+                    )}
+                </Helmet>
             }
             data={data}
             transition={transition}
@@ -297,6 +305,8 @@ export const pageQuery = graphql`
                 }
                 title
                 intro
+                metaTitle
+                metaDescription
                 logo {
                     responsive {
                         childImageSharp {
