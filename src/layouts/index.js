@@ -39,8 +39,11 @@ class TemplateWrapper extends React.Component {
 
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
-                {this.state.hasMounted ? (
-                    <div style={{ height: "100%" }}>
+                <div style={{ height: "100%" }}>
+                    <div
+                        style={{
+                            height: "100%"
+                        }}>
                         <Helmet title="RLA Group | Full Service Advertising Agency | Bournemouth">
                             <meta
                                 name="title"
@@ -64,9 +67,14 @@ class TemplateWrapper extends React.Component {
                         </div>
                         {this.props.data && <Footer data={this.props.data} />}
                     </div>
-                ) : (
-                    <LoadingScreen text="Loading..." />
-                )}
+                    <div
+                        style={{
+                            height: "100%",
+                            ...(this.state.hasMounted && { display: "none" })
+                        }}>
+                        <LoadingScreen text="Loading..." />
+                    </div>
+                </div>
             </ThemeProvider>
         );
     }

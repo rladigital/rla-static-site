@@ -108,7 +108,10 @@ export class WorkTemplate extends React.Component {
         return [
             <PageDetailContainer
                 padding={0}
-                style={{ textAlign: "center", ...transition.style }}>
+                style={{
+                    textAlign: "center",
+                    ...(transition && transition.style)
+                }}>
                 {helmet || ""}
                 {hero && <Hero src={getOriginalImageSrc(hero)} />}
 

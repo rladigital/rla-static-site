@@ -10,34 +10,41 @@ import HeaderBlock from "../components/HeaderBlock";
 import NewsList from "../components/news/NewsList";
 class AuthorsPage extends React.Component {
     render() {
-        let {
-            data: { allMarkdownRemark: { edges: data, totalCount } },
-            transition
-        } = this.props;
+        if (this.props.data.allMarkdownRemark != undefined) {
+            let {
+                data: {
+                    allMarkdownRemark: { edges: data, totalCount }
+                },
+                transition
+            } = this.props;
 
-        const posts = data[0].node.fields.posts;
+            const posts = data[0].node.fields.posts;
 
-        const postsCount = posts ? posts.length : 0;
+            const postsCount = posts ? posts.length : 0;
 
-        const person = data[0].node.frontmatter.title;
+            const person = data[0].node.frontmatter.title;
 
-        //const { edges, totalCount } = this.props.data.allMarkdownRemark;
-        return (
-            <div style={transition && transition.style}>
-                <Row>
-                    <Column>
-                        <HeaderBlock
-                            fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}>
-                            {postsCount} post{postsCount === 1 ? "" : "s"} by{" "}
-                            <span>{person}</span>
-                        </HeaderBlock>
-                    </Column>
-                </Row>
+            //const { edges, totalCount } = this.props.data.allMarkdownRemark;
+            return (
+                <div style={transition && transition.style}>
+                    <Row>
+                        <Column>
+                            <HeaderBlock
+                                fontSize={theme.pageHeaderSection.fontSize}
+                                padding={theme.pageHeaderSection.padding}>
+                                {postsCount} post
+                                {postsCount === 1 ? "" : "s"} by{" "}
+                                <span>{person}</span>
+                            </HeaderBlock>
+                        </Column>
+                    </Row>
 
-                {postsCount ? <NewsList news={posts} /> : null}
-            </div>
-        );
+                    {postsCount ? <NewsList news={posts} /> : null}
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
 }
 
@@ -62,6 +69,15 @@ AuthorsPage.propTypes = {
             )
         })
     })
+};
+
+AuthorsPage.defaultProps = {
+    data: {
+        allMarkdownRemark: {
+            totalCount: null,
+            edges: []
+        }
+    }
 };
 
 export default AuthorsPage;
