@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 
 import { isBrowser } from "../helpers/helpers";
 import theme from "../theme/theme";
@@ -28,6 +29,12 @@ export default class PeoplePage extends React.Component {
         //console.log(news);
         return (
             <div style={transition && transition.style}>
+                <Helmet title="People | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="People | RLA Group | Full Service Advertising Agency"
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock

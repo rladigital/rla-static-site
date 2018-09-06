@@ -244,12 +244,14 @@ export class WorkTemplate extends React.Component {
 
 export default ({ history, transition, data }) => {
     const { title, metaTitle, metaDescription } = data.work.frontmatter;
-    const pageTitle = `Our Work | ${title}`;
+    const pageTitle =
+        metaTitle ||
+        `${title} | News | RLA Group | Full Service Advertising Agency`;
     return (
         <WorkTemplate
             helmet={
                 <Helmet title={pageTitle}>
-                    <meta name="title" content={metaTitle || pageTitle} />
+                    <meta name="title" content={pageTitle} />
                     {metaDescription && (
                         <meta name="description" content={metaDescription} />
                     )}

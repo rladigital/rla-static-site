@@ -6,6 +6,7 @@ import Carousel from "nuka-carousel";
 import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import FAIcon from "@fortawesome/react-fontawesome";
+import Helmet from "react-helmet";
 
 import { getOriginalImageSrc } from "../utils/image";
 import theme, { colors, spacing, breakpoints } from "../theme/theme";
@@ -196,8 +197,7 @@ export default class ClientsPage extends React.Component {
                             opacity: 0.1,
                             cursor: "not-allowed"
                         })
-                    }}
-                >
+                    }}>
                     <Icon
                         size={40}
                         icon="chevron-right"
@@ -215,8 +215,7 @@ export default class ClientsPage extends React.Component {
                             opacity: 0.1,
                             cursor: "not-allowed"
                         })
-                    }}
-                >
+                    }}>
                     <Icon
                         size={40}
                         icon="chevron-left"
@@ -233,12 +232,17 @@ export default class ClientsPage extends React.Component {
 
         return (
             <div style={transition && transition.style}>
+                <Helmet title="Clients | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="Clients | RLA Group | Full Service Advertising Agency"
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={theme.pageHeaderSection.padding}>
                             <span>CLIENT</span> EXPERIENCE
                         </HeaderBlock>
                     </Column>
@@ -254,16 +258,16 @@ export default class ClientsPage extends React.Component {
                             return (
                                 <Brand
                                     key={index}
-                                    style={{ opacity: isCurrent ? 1 : 0.1 }}
-                                >
+                                    style={{ opacity: isCurrent ? 1 : 0.1 }}>
                                     <Container>
                                         <LogoContainer
                                             style={{
                                                 backgroundColor:
                                                     client.frontmatter.color
                                             }}
-                                            onClick={() => this.setSlide(index)}
-                                        >
+                                            onClick={() =>
+                                                this.setSlide(index)
+                                            }>
                                             <Logo
                                                 style={{
                                                     backgroundImage: `url('${getOriginalImageSrc(
@@ -286,8 +290,7 @@ export default class ClientsPage extends React.Component {
                                                     this.state.currentSlide - 1
                                                     ? "-2rem"
                                                     : 0
-                                        }}
-                                    >
+                                        }}>
                                         <Line
                                             style={{
                                                 marginTop: isCurrent ? 30 : 34,
@@ -313,8 +316,7 @@ export default class ClientsPage extends React.Component {
                                                                     animationDelay: `${0.25 *
                                                                         index}s`
                                                                 }}
-                                                                key={index}
-                                                            >
+                                                                key={index}>
                                                                 <SolutionDot
                                                                     style={{
                                                                         background: `linear-gradient(to bottom, ${

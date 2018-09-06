@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
+import Helmet from "react-helmet";
 
 import { serveStatic } from "../helpers/helpers";
 import theme, { colors, spacing } from "../theme/theme";
@@ -15,6 +16,12 @@ export default class JobPage extends React.Component {
         const { jobs: { edges: jobs }, news: { edges: news } } = data;
         return (
             <div style={transition && transition.style}>
+                <Helmet title="Careers | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="Careers | RLA Group | Full Service Advertising Agency"
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock

@@ -180,13 +180,15 @@ export default ({ history, data, pathContext, transition }) => {
     const { markdownRemark: news } = data;
     const { previous, next } = pathContext;
     const { title, metaTitle, metaDescription } = news.frontmatter;
-    const pageTitle = `News | ${title}`;
+    const pageTitle =
+        metaTitle ||
+        `${title} | News | RLA Group | Full Service Advertising Agency`;
     return (
         <NewsTemplate
             description={news.frontmatter.description}
             helmet={
                 <Helmet title={pageTitle}>
-                    <meta name="title" content={metaTitle || pageTitle} />
+                    <meta name="title" content={pageTitle} />
                     {metaDescription && (
                         <meta name="description" content={metaDescription} />
                     )}

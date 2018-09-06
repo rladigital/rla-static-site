@@ -18,7 +18,7 @@ export default class NewsPage extends React.Component {
 
         return (
             <div style={transition && transition.style}>
-                <Helmet>
+                <Helmet title="News | RLA Group | Full Service Advertising Agency">
                     <meta
                         name="title"
                         content="News | RLA Group | Full Service Advertising Agency"

@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import graphql from "graphql";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
+import Helmet from "react-helmet";
 
 import { isBrowser } from "../helpers/helpers";
 import { colors, sizes, spacing } from "../theme/theme";
@@ -56,12 +57,17 @@ export default class ContactPage extends React.Component {
         } = this.props;
         return (
             <div style={transition && transition.style}>
+                <Helmet title="Contact | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="Contact | RLA Group | Full Service Advertising Agency"
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={theme.pageHeaderSection.padding}>
                             Get in <span>Touch</span>
                         </HeaderBlock>
                     </Column>
@@ -73,8 +79,7 @@ export default class ContactPage extends React.Component {
                             <MapListContainer
                                 contacts={contacts}
                                 onItemClick={this.selectContactBySlug}
-                                selectedContact={this.state.selectedContact}
-                            >
+                                selectedContact={this.state.selectedContact}>
                                 <MapContactListGroup
                                     heading="RLA Locations"
                                     group="RLA"

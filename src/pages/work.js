@@ -4,6 +4,7 @@ import graphql from "graphql";
 import { Row, Column } from "rla-components";
 import styled, { css } from "styled-components";
 import ScrollAnimation from "react-animate-on-scroll";
+import Helmet from "react-helmet";
 import "animate.css/animate.min.css";
 
 import theme, { colors, breakpoints } from "../theme/theme";
@@ -91,12 +92,17 @@ export default class PeoplePage extends React.Component {
 
         return (
             <div style={transition && transition.style}>
+                <Helmet title="Work | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="Work | RLA Group | Full Service Advertising Agency"
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={theme.pageHeaderSection.padding}>
                             Our <span>Work</span>
                         </HeaderBlock>
                     </Column>
@@ -113,13 +119,11 @@ export default class PeoplePage extends React.Component {
                                                 medium={6}
                                                 large={layout[i][index]}
                                                 key={index}
-                                                collapse
-                                            >
+                                                collapse>
                                                 <ScrollAnimation
                                                     animateIn="fadeIn"
                                                     delay={250 * index}
-                                                    animateOnce={true}
-                                                >
+                                                    animateOnce={true}>
                                                     <WorkSummary
                                                         heightMediaQuery={
                                                             heightMediaQuery

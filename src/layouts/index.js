@@ -44,7 +44,9 @@ class TemplateWrapper extends React.Component {
                         style={{
                             height: "100%"
                         }}>
-                        <Helmet title="RLA Group | Full Service Advertising Agency | Bournemouth">
+                        <Helmet
+                            encodeSpecialCharacters={false}
+                            title="RLA Group | Full Service Advertising Agency | Bournemouth">
                             <meta
                                 name="title"
                                 content="RLA Group | Full Service Advertising Agency | Bournemouth"
