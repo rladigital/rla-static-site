@@ -49,7 +49,6 @@ copySections:
     parallax: true
     stacked: true
     title: The Outcome
-  - image: /img/2674x1218-scania-kieron-owen-image.jpg
 solutionsList:
   - Brand Desire
   - Customer Acquisition
@@ -57,4 +56,3 @@ solutionsList:
 weighting: 0
 previewType: page
 ---
-
