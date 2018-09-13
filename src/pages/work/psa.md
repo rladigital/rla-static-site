@@ -24,6 +24,7 @@ copySections:
     parallax: true
     stacked: true
     title: The Outcome
+footer: /img/2674x1218-peugeot-photo-2.jpg
 solutionLookup: ''
 solutionsList:
   - Brand Desire
