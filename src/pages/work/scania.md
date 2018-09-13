@@ -9,7 +9,8 @@ metaDescription: >-
   engaged in significant multi-market, multi-race creative to match the scale of
   the African task.  In four years we have helped take Scania from 8th to 2nd in
   market. 2017 saw our first campaigns break for our latest market, China.
-hero: /img/scania-logo.jpg
+logo: /img/scania-logo.jpg
+hero: /img/2674x1218-scania-hero.jpg
 thumb: /img/2674x1218-scania-hero.jpg
 thumbnailAlignment: top
 intro: Repositioning a Commercial Brand
@@ -50,5 +51,8 @@ copySections:
     title: The Outcome
 weighting: 0
 previewType: page
+solutionsList:
+  - Brand Desire
+  - Customer Acquisition
+  - Customer Relationship
 ---
-
