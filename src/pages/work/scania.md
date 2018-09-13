@@ -40,7 +40,7 @@ copySections:
       Southern Africa region
 
       Start of the ‘global market leader’ 5yr goal for China.
-    parallax: true
+    parallax: false
     stacked: true
     title: In the end.
 solutionsList:
@@ -50,4 +50,3 @@ solutionsList:
 weighting: 0
 previewType: page
 ---
-

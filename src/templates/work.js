@@ -174,24 +174,29 @@ export class WorkTemplate extends React.Component {
                                             <div style={parallaxStyle}>
                                                 <Video src={section.video} />
                                             </div>
-                                        ) : section.parallax ? (
-                                            <Parallax strength={200}>
-                                                <div style={parallaxStyle} />
-                                                <Background className="custom-bg">
-                                                    <Img
-                                                        src={getOriginalImageSrc(
-                                                            section.image
-                                                        )}
-                                                    />
-                                                </Background>
-                                            </Parallax>
                                         ) : (
-                                            <Hero
-                                                style={parallaxStyle}
-                                                src={getOriginalImageSrc(
-                                                    section.image
-                                                )}
-                                            />
+                                            section.image &&
+                                            (section.parallax ? (
+                                                <Parallax strength={200}>
+                                                    <div
+                                                        style={parallaxStyle}
+                                                    />
+                                                    <Background className="custom-bg">
+                                                        <Img
+                                                            src={getOriginalImageSrc(
+                                                                section.image
+                                                            )}
+                                                        />
+                                                    </Background>
+                                                </Parallax>
+                                            ) : (
+                                                <Hero
+                                                    style={parallaxStyle}
+                                                    src={getOriginalImageSrc(
+                                                        section.image
+                                                    )}
+                                                />
+                                            ))
                                         )}
                                     </Column>
                                 </Row>
