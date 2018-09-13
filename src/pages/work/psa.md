@@ -6,7 +6,7 @@ metaDescription: ' '
 hero: /img/2674x1218-perks-5.jpg
 thumb: /img/1218x1218-perks-5-.jpg
 thumbnailAlignment: center
-intro: 'Lorem '
+intro: 'PSA '
 logo: /img/logo.png
 copySections:
   - description: "For years, PSA (the holding company for Peugeot, Citroen and DS Automobiles) always used traditional advertising to encourage independent garages to buy their parts. Results were fair, but understandably they wanted better. We were tasked with taking their parts sales to the next level.\r"
