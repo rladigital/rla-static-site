@@ -324,16 +324,7 @@ export const pageQuery = graphql`
                     }
                     original
                 }
-                footer {
-                    responsive {
-                        childImageSharp {
-                            original {
-                                src
-                            }
-                        }
-                    }
-                    original
-                }
+
                 title
                 intro
                 metaTitle

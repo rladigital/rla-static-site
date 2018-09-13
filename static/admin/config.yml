@@ -98,6 +98,12 @@ collections:
                     ],
             }
           - {
+                label: "Footer Image",
+                name: "footer",
+                widget: "image",
+                required: false,
+            }
+          - {
                 label: "Excerpt",
                 name: "excerpt",
                 widget: "string",
