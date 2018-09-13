@@ -1,7 +1,16 @@
 ---
 templateKey: work
 title: Scania
-thumb: /img/RLA_Work_Page_1200x1200_Scania.jpg
+metaTitle: Scania | RLA Group
+metaDescription: >-
+  With market share growing for the first time in three years, and continuing
+  every year (growing from 14% – 22%), we were invited to pitch for the Southern
+  African market to repeat our success. We won and since 2013 we have been
+  engaged in significant multi-market, multi-race creative to match the scale of
+  the African task.  In four years we have helped take Scania from 8th to 2nd in
+  market. 2017 saw our first campaigns break for our latest market, China.
+hero: /img/scania-logo.jpg
+thumb: /img/2674x1218-scania-hero.jpg
 thumbnailAlignment: top
 intro: Repositioning a Commercial Brand
 copySections:
@@ -9,7 +18,7 @@ copySections:
       Our initial task was to recover growing lost ground in their premium
       status versus the competition of Volvo and Mercedes truck, who were
       rapidly closing the gap on the UK’s number 1 heavy truck brand.
-    image: /img/2674x1218 scania close-up.jpg
+    image: /img/2674x1218-scania-soutions.jpg
     parallax: true
     stacked: true
     title: The Project
@@ -19,7 +28,7 @@ copySections:
       imagination of the industry en-mass. Fully integrated across the entire
       brand marketing mix; ATL through Dealer templates and digital / social
       content, the brand platform quickly took hold of the industry.
-    image: /img/2674x1218 scania yes you can.jpg
+    image: /img/2674x1218-scania-studio-image.jpg
     parallax: true
     stacked: true
     title: The Strategy
@@ -35,12 +44,11 @@ copySections:
 
 
       2017 saw our first campaigns break for our latest market, China.
-    image: /img/2674x1218 scania ads.jpg
+    image: /img/2674x1218-scania-kieron-owen-image.jpg
     parallax: true
     stacked: true
     title: The Outcome
 weighting: 0
 previewType: ''
-metaTitle: 
-metaDescription:
 ---
+
