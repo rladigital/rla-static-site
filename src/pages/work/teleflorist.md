@@ -10,4 +10,5 @@ previewType: lightbox
 thumbnailAlignment: center
 metaTitle: 
 metaDescription:
+footer:
 ---

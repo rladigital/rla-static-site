@@ -42,7 +42,7 @@ copySections:
       Southern Africa region
 
       Start of the ‘global market leader’ 5yr goal for China.
-    image: /img/2674x1218-scania-kieron-owen-image.jpg
+    image: 
     parallax: false
     stacked: true
     title: In the end.
@@ -52,5 +52,5 @@ solutionsList:
   - Customer Relationship
 weighting: 0
 previewType: page
+footer: /img/2674x1218-scania-kieron-owen-image.jpg
 ---
-

@@ -37,4 +37,5 @@ previewType:
 thumbnailAlignment: center
 metaTitle: 
 metaDescription:
+footer:
 ---

@@ -244,7 +244,7 @@ export class WorkTemplate extends React.Component {
                         </Container>
                     </Column>
                 </Row>
-                {footer && (
+                {footer ? (
                     <Row expanded collapse>
                         <Column collapse>
                             <Hero
@@ -253,6 +253,8 @@ export class WorkTemplate extends React.Component {
                             />
                         </Column>
                     </Row>
+                ) : (
+                    <div style={{ height: 80 }} />
                 )}
             </PageDetailContainer>
         ];
@@ -324,7 +326,7 @@ export const pageQuery = graphql`
                     }
                     original
                 }
-
+                footer
                 title
                 intro
                 metaTitle

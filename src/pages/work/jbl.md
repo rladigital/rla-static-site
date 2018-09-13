@@ -20,4 +20,5 @@ excerpt:
 thumbnailAlignment: center
 metaTitle: 
 metaDescription:
+footer:
 ---
