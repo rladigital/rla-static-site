@@ -12,7 +12,7 @@ import ScrollTrigger from "react-scroll-trigger";
 
 import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
-import { transparentize } from "../helpers/helpers";
+import { transparentize, isBrowser } from "../helpers/helpers";
 
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
@@ -172,7 +172,7 @@ export class WorkTemplate extends React.Component {
                                     <Column
                                         large={!section.stacked ? 6 : 12}
                                         collapse>
-                                        {section.video ? (
+                                        {section.video && isBrowser() ? (
                                             <div style={parallaxStyle}>
                                                 <Video src={section.video} />
                                             </div>
