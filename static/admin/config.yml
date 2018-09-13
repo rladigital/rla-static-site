@@ -1,142 +1,423 @@
 backend:
-  name: git-gateway
-  branch: master
+    name: git-gateway
+    branch: master
 publish_mode: editorial_workflow
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "work"
-    label: "Work"
-    folder: "src/pages/work"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work"}
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Meta Title", name: "metaTitle", widget: "string"}
-      - {label: "Meta Description", name: "metaDescription", widget: "string"}
-      - {label: "Hero Image", name: "hero", widget: "image", required: false}
-      - {label: "Thumbnail Image", name: "thumb", widget: "image", required: false}
-      - {label: "Thumbnail Alignment", name: "thumbnailAlignment", widget: "select", default: "center", options: [{ label: "Top", value: "top" }, { label: "Center", value: "center"}, { label: "Bottom", value: "bottom"}]}
-      - {label: "Intro", name: "intro", widget: "string"}
-      - {label: "Logo", name: "logo", widget: "image", required: false}
-      - {label: "Copy Sections", name: "copySections", widget: "list", required: false, fields: [{label: "Title", name: "title", widget: "string", required: false}, {label: "Description", name: "description", widget: "markdown", required: false}, {label: "Image", name: "image", widget: "image", required: false}, {label: "Parallax", name: "parallax", widget: "boolean", default: true}, {label: "Stacked", name: "stacked", widget: "boolean", default: true}, {label: "Hosted Video URL", name: "video", widget: "string", default: null, required: false}] }
-      - {label: "Footer Image", name: "footer", widget: "image", required: false}
-      - {label: "Excerpt", name: "excerpt", widget: "string", required: false}
-      - {label: "Solution Lookup (Not used in content, just for finding titles to copy)", name: "solutionLookup", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title", required: false}
-      - {label: "Solutions (Exact Title of Solutions, separated with commas)", name: "solutionsList", widget: "list", required: false}
-      - {label: "Weighting", name: "weighting", widget: "number", default: 0, required: false}
-      - {label: "Preview Type", name: "previewType", widget: "select", required: false, options: [{ label: "Go to page", value: "page" }, { label: "Lightbox", value: "lightbox"}]}
-  - name: "solutions"
-    label: "Solutions"
-    folder: "src/pages/solutions"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "solutions"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Intro Heading", name: "intro", widget: "string"}
-      - {label: "Description Part 1", name: "description1", widget: "markdown" }
-      - {label: "Description Part 2", name: "description2", widget: "markdown", required: false}
-      - {label: "Colour 1", name: "color1", widget: "string"}
-      - {label: "Colour 2", name: "color2", widget: "string"}
-  - name: "clients"
-    label: "Clients"
-    folder: "src/pages/clients"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "clients"}
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Logo", name: "logo", widget: "image"}
-      - {label: "Background Colour", name: "color", widget: "string", required: false}
-      - {label: "Solution Lookup (Not used in content, just for finding titles to copy)", name: "solutionLookup", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title", required: false}
-      - {label: "Solutions (Exact Title of Solutions, separated with commas)", name: "solutionsList", widget: "list"}
-      # - {label: "Solution1", name: "solution1", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
-      # - {label: "Solution2", name: "solution2", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
-      # - {label: "Solution3", name: "solution3", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
-      # - {label: "Solution4", name: "solution4", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
-  - name: "services"
-    label: "Services"
-    folder: "src/pages/services"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "services"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "body", widget: "markdown"}
-  - name: "news"
-    label: "News"
-    folder: "src/pages/news"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Meta Title", name: "metaTitle", widget: "string"}
-      - {label: "Meta Description", name: "metaDescription", widget: "string"}
-      - {label: "Date", name: "date", widget: "date", format: "MM/DD/YYYY"}
-      - {label: "Hero Image", name: "hero", widget: "image"}
-      - {label: "Thumbnail Image", name: "thumb", widget: "image"}
-      - {label: "Category", name: "category", widget: "select", options: ["News", "Insight", "Culture"]}
-      - {label: "Tags", name: "tags", widget: "list", required: false}
-      - {label: "Intro Heading", name: "intro", widget: "string"}
-      - {label: "Side Heading", name: "sideHeading", widget: "string"}
-      - {label: "Story", name: "body", widget: "markdown"}
-      - {label: "Gallery", name: "galleryImages", widget: "list", field: {label: Image, name: image, widget: image}}
-      - {label: "Author", name: "author", widget: "relation", collection: "people", searchFields: ["title"], valueField: "title"}
-      - {label: "Weighting", name: "weighting", widget: "number", default: 0, required: false}
+    - name: "work"
+      label: "Work"
+      folder: "src/pages/work"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "work",
+            }
+          - { label: "Name", name: "title", widget: "string" }
+          - { label: "Meta Title", name: "metaTitle", widget: "string" }
+          - {
+                label: "Meta Description",
+                name: "metaDescription",
+                widget: "string",
+            }
+          - {
+                label: "Hero Image",
+                name: "hero",
+                widget: "image",
+                required: false,
+            }
+          - {
+                label: "Thumbnail Image",
+                name: "thumb",
+                widget: "image",
+                required: false,
+            }
+          - {
+                label: "Thumbnail Alignment",
+                name: "thumbnailAlignment",
+                widget: "select",
+                default: "center",
+                options:
+                    [
+                        { label: "Top", value: "top" },
+                        { label: "Center", value: "center" },
+                        { label: "Bottom", value: "bottom" },
+                    ],
+            }
+          - { label: "Intro", name: "intro", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - {
+                label: "Copy Sections",
+                name: "copySections",
+                widget: "list",
+                required: false,
+                fields:
+                    [
+                        {
+                            label: "Title",
+                            name: "title",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Description",
+                            name: "description",
+                            widget: "markdown",
+                            required: false,
+                        },
+                        {
+                            label: "Image",
+                            name: "image",
+                            widget: "image",
+                            required: false,
+                        },
+                        {
+                            label: "Parallax",
+                            name: "parallax",
+                            widget: "boolean",
+                            default: true,
+                        },
+                        {
+                            label: "Stacked",
+                            name: "stacked",
+                            widget: "boolean",
+                            default: true,
+                        },
+                        {
+                            label: "Hosted Video URL",
+                            name: "video",
+                            widget: "string",
+                            default: null,
+                            required: false,
+                        },
+                    ],
+            }
+          - {
+                label: "Excerpt",
+                name: "excerpt",
+                widget: "string",
+                required: false,
+            }
+          - {
+                label: "Solution Lookup (Not used in content, just for finding titles to copy)",
+                name: "solutionLookup",
+                widget: "relation",
+                collection: "solutions",
+                searchFields: ["title"],
+                valueField: "title",
+                required: false,
+            }
+          - {
+                label: "Solutions (Exact Title of Solutions, separated with commas)",
+                name: "solutionsList",
+                widget: "list",
+                required: false,
+            }
+          - {
+                label: "Weighting",
+                name: "weighting",
+                widget: "number",
+                default: 0,
+                required: false,
+            }
+          - {
+                label: "Preview Type",
+                name: "previewType",
+                widget: "select",
+                required: false,
+                options:
+                    [
+                        { label: "Go to page", value: "page" },
+                        { label: "Lightbox", value: "lightbox" },
+                    ],
+            }
+    - name: "solutions"
+      label: "Solutions"
+      folder: "src/pages/solutions"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "solutions",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro Heading", name: "intro", widget: "string" }
+          - {
+                label: "Description Part 1",
+                name: "description1",
+                widget: "markdown",
+            }
+          - {
+                label: "Description Part 2",
+                name: "description2",
+                widget: "markdown",
+                required: false,
+            }
+          - { label: "Colour 1", name: "color1", widget: "string" }
+          - { label: "Colour 2", name: "color2", widget: "string" }
+    - name: "clients"
+      label: "Clients"
+      folder: "src/pages/clients"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "clients",
+            }
+          - { label: "Name", name: "title", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - {
+                label: "Background Colour",
+                name: "color",
+                widget: "string",
+                required: false,
+            }
+          - {
+                label: "Solution Lookup (Not used in content, just for finding titles to copy)",
+                name: "solutionLookup",
+                widget: "relation",
+                collection: "solutions",
+                searchFields: ["title"],
+                valueField: "title",
+                required: false,
+            }
+          - {
+                label: "Solutions (Exact Title of Solutions, separated with commas)",
+                name: "solutionsList",
+                widget: "list",
+            }
+          # - {label: "Solution1", name: "solution1", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
+          # - {label: "Solution2", name: "solution2", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
+          # - {label: "Solution3", name: "solution3", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
+          # - {label: "Solution4", name: "solution4", widget: "relation", collection: "solutions", searchFields: ["title"], valueField: "title"}
+    - name: "services"
+      label: "Services"
+      folder: "src/pages/services"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "services",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "body", widget: "markdown" }
+    - name: "news"
+      label: "News"
+      folder: "src/pages/news"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "news",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Title", name: "metaTitle", widget: "string" }
+          - {
+                label: "Meta Description",
+                name: "metaDescription",
+                widget: "string",
+            }
+          - {
+                label: "Date",
+                name: "date",
+                widget: "date",
+                format: "MM/DD/YYYY",
+            }
+          - { label: "Hero Image", name: "hero", widget: "image" }
+          - { label: "Thumbnail Image", name: "thumb", widget: "image" }
+          - {
+                label: "Category",
+                name: "category",
+                widget: "select",
+                options: ["News", "Insight", "Culture"],
+            }
+          - { label: "Tags", name: "tags", widget: "list", required: false }
+          - { label: "Intro Heading", name: "intro", widget: "string" }
+          - { label: "Side Heading", name: "sideHeading", widget: "string" }
+          - { label: "Story", name: "body", widget: "markdown" }
+          - {
+                label: "Gallery",
+                name: "galleryImages",
+                widget: "list",
+                field: { label: Image, name: image, widget: image },
+            }
+          - {
+                label: "Author",
+                name: "author",
+                widget: "relation",
+                collection: "people",
+                searchFields: ["title"],
+                valueField: "title",
+            }
+          - {
+                label: "Weighting",
+                name: "weighting",
+                widget: "number",
+                default: 0,
+                required: false,
+            }
 
-  - name: "people"
-    label: "People"
-    folder: "src/pages/people"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "people"}
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Role", name: "role", widget: "string"}
-      - {label: "Tags", name: "tags", widget: "list", required: false}
-      - {label: "Description", name: "body", widget: "markdown"}
-      - {label: "Profile", name: "profile", widget: "image", default: "/img/missing_avatar.svg"}
-      - {label: "Email", name: "email", widget: "string", required: false}
-      - {label: "LinkedIn", name: "linkedIn", widget: "string", required: false}
-      - {label: "Twitter", name: "twitter", widget: "string", required: false}
+    - name: "people"
+      label: "People"
+      folder: "src/pages/people"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "people",
+            }
+          - { label: "Name", name: "title", widget: "string" }
+          - { label: "Role", name: "role", widget: "string" }
+          - { label: "Tags", name: "tags", widget: "list", required: false }
+          - { label: "Description", name: "body", widget: "markdown" }
+          - {
+                label: "Profile",
+                name: "profile",
+                widget: "image",
+                default: "/img/missing_avatar.svg",
+            }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - {
+                label: "LinkedIn",
+                name: "linkedIn",
+                widget: "string",
+                required: false,
+            }
+          - {
+                label: "Twitter",
+                name: "twitter",
+                widget: "string",
+                required: false,
+            }
 
-  - name: "job"
-    label: "Job"
-    folder: "src/pages/careers"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "job"}
-      - {label: "Area", name: "area", widget: "string"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Closing Date", name: "closing", widget: "date", format: "MM/DD/YYYY"}
-      - {label: "Description", name: "description", widget: "markdown", required: false}
-      - {label: "Level", name: "level", widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
-      - {label: "Salary", name: "salary", widget: "string"}
-      - {label: "Hours", name: "hours", widget: "string", default: "9:00am - 5:30pm"}
-      - {label: "Benefits", name: "benefits", widget: "list", default: ["28 Days Holiday", "Pension", "Fun Environment"]}
-      - {label: "Hero", name: "hero", widget: "image", default: "/img/missing_avatar.svg"}
-      - {label: "Weighting", name: "weighting", widget: "number", default: 0, required: false}
-  - name: "contacts"
-    label: "Contacts"
-    folder: "src/pages/contacts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contacts"}
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Group", name: "group", widget: "select", options: ["RLA", "Mission", "Other"]}
-      - {label: "Address", name: "address", widget: "markdown", required: false}      
-      - {label: "Lead Contact Name", name: "contactName", widget: "string", required: false}
-      - {label: "Lead Contact Image", name: "contactImage", widget: "image", required: false}
-      - {label: "Lead Contact Role", name: "contactRole", widget: "string", required: false}
-      - {label: "Tel", name: "tel", widget: "string", required: false}
-      - {label: "Email", name: "email", widget: "string", required: false}
-      - {label: "Latitude", name: "lat", widget: "number", required: false}
-      - {label: "Longitude", name: "lng", widget: "number", required: false}
-
+    - name: "job"
+      label: "Job"
+      folder: "src/pages/careers"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "job",
+            }
+          - { label: "Area", name: "area", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+                label: "Closing Date",
+                name: "closing",
+                widget: "date",
+                format: "MM/DD/YYYY",
+            }
+          - {
+                label: "Description",
+                name: "description",
+                widget: "markdown",
+                required: false,
+            }
+          - { label: "Level", name: "level", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Salary", name: "salary", widget: "string" }
+          - {
+                label: "Hours",
+                name: "hours",
+                widget: "string",
+                default: "9:00am - 5:30pm",
+            }
+          - {
+                label: "Benefits",
+                name: "benefits",
+                widget: "list",
+                default: ["28 Days Holiday", "Pension", "Fun Environment"],
+            }
+          - {
+                label: "Hero",
+                name: "hero",
+                widget: "image",
+                default: "/img/missing_avatar.svg",
+            }
+          - {
+                label: "Weighting",
+                name: "weighting",
+                widget: "number",
+                default: 0,
+                required: false,
+            }
+    - name: "contacts"
+      label: "Contacts"
+      folder: "src/pages/contacts"
+      create: true
+      slug: "{{slug}}"
+      fields:
+          - {
+                label: "Template Key",
+                name: "templateKey",
+                widget: "hidden",
+                default: "contacts",
+            }
+          - { label: "Name", name: "title", widget: "string" }
+          - {
+                label: "Group",
+                name: "group",
+                widget: "select",
+                options: ["RLA", "Mission", "Other"],
+            }
+          - {
+                label: "Address",
+                name: "address",
+                widget: "markdown",
+                required: false,
+            }
+          - {
+                label: "Lead Contact Name",
+                name: "contactName",
+                widget: "string",
+                required: false,
+            }
+          - {
+                label: "Lead Contact Image",
+                name: "contactImage",
+                widget: "image",
+                required: false,
+            }
+          - {
+                label: "Lead Contact Role",
+                name: "contactRole",
+                widget: "string",
+                required: false,
+            }
+          - { label: "Tel", name: "tel", widget: "string", required: false }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - {
+                label: "Latitude",
+                name: "lat",
+                widget: "number",
+                required: false,
+            }
+          - {
+                label: "Longitude",
+                name: "lng",
+                widget: "number",
+                required: false,
+            }
