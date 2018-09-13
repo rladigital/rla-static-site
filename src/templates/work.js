@@ -93,7 +93,8 @@ export class WorkTemplate extends React.Component {
             intro,
             logo,
             solutionsList,
-            title
+            title,
+            footer
         } = data.work.frontmatter;
 
         const solutions = data.solutions.edges;
@@ -109,6 +110,7 @@ export class WorkTemplate extends React.Component {
             <PageDetailContainer
                 padding={0}
                 style={{
+                    paddingBottom: 0,
                     textAlign: "center",
                     ...(transition && transition.style)
                 }}>
@@ -242,6 +244,16 @@ export class WorkTemplate extends React.Component {
                         </Container>
                     </Column>
                 </Row>
+                {footer && (
+                    <Row expanded collapse>
+                        <Column collapse>
+                            <Hero
+                                style={{ marginBottom: 0 }}
+                                src={getOriginalImageSrc(footer)}
+                            />
+                        </Column>
+                    </Row>
+                )}
             </PageDetailContainer>
         ];
     }
@@ -303,6 +315,16 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 hero {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
+                footer {
                     responsive {
                         childImageSharp {
                             original {
