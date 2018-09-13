@@ -10,7 +10,7 @@ metaDescription: >-
   the African task.  In four years we have helped take Scania from 8th to 2nd in
   market. 2017 saw our first campaigns break for our latest market, China.
 hero: /img/2674x1218-scania-hero.jpg
-thumb: /img/2674x1218-scania-hero.jpg
+thumb: /img/RLA_Work_Page_1200x1200_Scania.jpg
 thumbnailAlignment: top
 intro: Repositioning a Commercial Brand
 logo: /img/scania-logo.jpg
