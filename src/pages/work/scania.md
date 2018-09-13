@@ -9,17 +9,17 @@ metaDescription: >-
   engaged in significant multi-market, multi-race creative to match the scale of
   the African task.  In four years we have helped take Scania from 8th to 2nd in
   market. 2017 saw our first campaigns break for our latest market, China.
-logo: /img/scania-logo.jpg
 hero: /img/2674x1218-scania-hero.jpg
 thumb: /img/2674x1218-scania-hero.jpg
 thumbnailAlignment: top
 intro: Repositioning a Commercial Brand
+logo: /img/scania-logo.jpg
 copySections:
   - description: >-
       Our initial task was to recover growing lost ground in their premium
       status versus the competition of Volvo and Mercedes truck, who were
       rapidly closing the gap on the UK’s number 1 heavy truck brand.
-    image: /img/2674x1218-scania-soutions.jpg
+    image: /img/2674x1218-scania-yes-you-can-2.jpg
     parallax: true
     stacked: true
     title: The Project
@@ -29,7 +29,7 @@ copySections:
       imagination of the industry en-mass. Fully integrated across the entire
       brand marketing mix; ATL through Dealer templates and digital / social
       content, the brand platform quickly took hold of the industry.
-    image: /img/2674x1218-scania-studio-image.jpg
+    image: /img/2674x1218-scania-soutions.jpg
     parallax: true
     stacked: true
     title: The Strategy
@@ -45,14 +45,16 @@ copySections:
 
 
       2017 saw our first campaigns break for our latest market, China.
-    image: /img/2674x1218-scania-kieron-owen-image.jpg
+    image: /img/2674x1218-scania-studio-image.jpg
     parallax: true
     stacked: true
     title: The Outcome
-weighting: 0
-previewType: page
+  - image: /img/2674x1218-scania-kieron-owen-image.jpg
 solutionsList:
   - Brand Desire
   - Customer Acquisition
   - Customer Relationship
+weighting: 0
+previewType: page
 ---
+
