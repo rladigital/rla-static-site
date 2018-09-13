@@ -25,10 +25,12 @@ copySections:
     stacked: true
     title: Then there was light
   - description: "Our operational success brought numerous market extensions to RLA. The Southern Africa region, Central Eastern Europe and South East Asia with projects as diverse as ownership CRM, Parts loyalty campaigns and a premium launch event for the new luxury coach in Singapore to name a few. Culminating in RLA’s latest major account which is to propel the Chinese market performance from unmentionably small to the largest truck market for Scania in the world by 2023. \r"
-    image: /img/2674x1218-scania-kieron-owen-image.jpg
+    image: ''
     parallax: true
     stacked: true
     title: The Global expansion
+    video: >-
+      https://s3.eu-west-2.amazonaws.com/rla-website/Scania+V8+long+%26+wide+load+final+version.mp4
   - description: >-
       An outstanding collection of brand-driven results:
 
@@ -40,6 +42,7 @@ copySections:
       Southern Africa region
 
       Start of the ‘global market leader’ 5yr goal for China.
+    image: /img/2674x1218-scania-kieron-owen-image.jpg
     parallax: false
     stacked: true
     title: In the end.
@@ -50,3 +53,4 @@ solutionsList:
 weighting: 0
 previewType: page
 ---
+
