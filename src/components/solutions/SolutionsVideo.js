@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { Row, Column } from "rla-components";
 
 import { colors } from "../../theme/theme";
-import video from "../../videos/video.mp4";
 import placeholder from "../../img/static-video.png";
 import LoadingScreen from "../loading/LoadingScreen";
 import { transformScale, isMobile } from "../../helpers/helpers";
@@ -78,8 +77,7 @@ class SolutionsVideo extends React.Component {
                 <Svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={size}
-                    height={size}
-                >
+                    height={size}>
                     <defs>
                         <mask id="mask" x="0" y="0">
                             <g transform={`translate(${size / 2} ${size / 2})`}>
@@ -125,9 +123,11 @@ class SolutionsVideo extends React.Component {
                         this.video = video;
                     }}
                     preload="auto"
-                    poster={placeholder}
-                >
-                    <source src={video} type="video/mp4" />
+                    poster={placeholder}>
+                    <source
+                        src="https://s3.eu-west-2.amazonaws.com/rla-website/video.mp4"
+                        type="video/mp4"
+                    />
                 </Video>
             </div>
         );
