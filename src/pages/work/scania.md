@@ -50,7 +50,7 @@ solutionsList:
   - Brand Desire
   - Customer Acquisition
   - Customer Relationship
-weighting: 0
+weighting: -5
 previewType: page
 footer: /img/2674x1218-scania-kieron-owen-image.jpg
 ---

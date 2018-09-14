@@ -30,7 +30,6 @@ solutionsList:
   - Brand Desire
   - Customer Acquisition
   - Customer Relationship
-weighting: 0
+weighting: -4
 previewType: page
 ---
-
