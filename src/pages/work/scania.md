@@ -48,23 +48,9 @@ copySections:
     image: /img/2674x1218-scania-studio-image.jpg
     parallax: true
     stacked: true
-    title: FRESH PERSPECTIVE
+    title: GLOBAL EXPANSION
   - description: >-
-      Our work with Scania has resulted in an outstanding collection of
-      brand-driven results which we are very proud of:  \
-
-      **No.1** for brand awareness, consideration, likeability and impact.  \
-
-      **From 14% to 22%** sustained market share in UK   \
-
-      From 8th to 2nd in-market position within four years for Southern Africa
-      region 
-
-
-      Our work with Scania has culminated in RLA’s latest major win – a truly
-      exciting five-year project aiming to propel Scania’s market performance in
-      China from that of a minor contender, to the largest global market for
-      Scania by 2023.
+      Our operational success brought numerous market extensions to RLA, including the Southern Africa region, Central Eastern Europe and South East Asia. The breadth of RLA’s involvement expanded too, with projects as diverse as ownership CRM, Parts loyalty campaigns and a premium launch event for the new luxury coach in Singapore – to name just a few.
     image: ''
     parallax: true
     stacked: true
@@ -72,19 +58,24 @@ copySections:
     video: >-
       https://s3.eu-west-2.amazonaws.com/rla-website/Scania+V8+long+%26+wide+load+final+version.mp4
   - description: >-
-      An outstanding collection of brand-driven results:
+      Our work with Scania has resulted in an outstanding collection of
+      brand-driven results which we are very proud of:  
 
-      No.1 for brand awareness, consideration, likeability and impact.
+      **No.1** for brand awareness, consideration, likeability and impact.  
 
-      From 14% to 22% sustained market share in UK
+      **From 14% to 22%** sustained market share in UK  
 
-      From 8<sup>th</sup> to 2<sup>nd</sup> in-market position within 4 yrs for
-      Southern Africa region
+      **From 8th to 2nd** in-market position within four years for Southern Africa
+      region  
 
-      Start of the ‘global market leader’ 5yr goal for China.
+
+      Our work with Scania has culminated in RLA’s latest major win – a truly
+      exciting five-year project aiming to propel Scania’s market performance in
+      China from that of a minor contender, to the largest global market for
+      Scania by 2023.
     parallax: false
     stacked: true
-    title: In the end.
+    title: 'MEASURABLE RESULTS, EXCITING FUTURES'
 footer: /img/2674x1218-scania-kieron-owen-image.jpg
 solutionLookup: ''
 solutionsList:
@@ -96,4 +87,3 @@ solutionsList:
 weighting: -5
 previewType: page
 ---
-

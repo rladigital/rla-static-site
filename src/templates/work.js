@@ -209,7 +209,7 @@ export class WorkTemplate extends React.Component {
                 <Row>
                     <Column style={{ textAlign: "center" }}>
                         <Container>
-                            <H2>Areas of expertise</H2>
+                            <div style={{ height: 12 }} />
 
                             {solutionsList &&
                                 solutionsList.map((solution, index) => {
