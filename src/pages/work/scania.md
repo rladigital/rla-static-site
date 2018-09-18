@@ -5,7 +5,7 @@ metaTitle: Scania | RLA Group
 metaDescription: From below potential to market leader across 17 markets in 8 years
 hero: /img/2674x1218-scania-china.jpg
 thumb: /img/2674x1218-scania-china.jpg
-thumbnailAlignment: top
+thumbnailAlignment: center
 intro: From below potential to market leader across 17 markets in 8 years
 logo: /img/scania-logo.jpg
 copySections:
