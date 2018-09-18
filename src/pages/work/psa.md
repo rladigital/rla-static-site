@@ -61,6 +61,7 @@ copySections:
       events and planning support in innumerate different guises across numerous
       projects to assist in driving the growth that Groupe PSA demands.
     title: 'FULL-SERVICE, STRATEGIC AND CREATIVE MARCOMMS'
+    stacked: true
 footer: /img/2017equipauto_psa-1-edit.jpg
 solutionLookup: ''
 solutionsList:
@@ -73,4 +74,3 @@ solutionsList:
 weighting: -4
 previewType: page
 ---
-
