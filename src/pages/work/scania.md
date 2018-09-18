@@ -3,8 +3,8 @@ templateKey: work
 title: Scania
 metaTitle: Scania | RLA Group
 metaDescription: From below potential to market leader across 17 markets in 8 years
-hero: /img/2674x1218-scania-hero.jpg
-thumb: /img/RLA_Work_Page_1200x1200_Scania.jpg
+hero: /img/2674x1218-scania-china.jpg
+thumb: /img/2674x1218-scania-china.jpg
 thumbnailAlignment: top
 intro: From below potential to market leader across 17 markets in 8 years
 logo: /img/scania-logo.jpg
@@ -50,11 +50,15 @@ copySections:
     stacked: true
     title: FRESH PERSPECTIVE
   - description: >-
-      Our operational success brought numerous market extensions to RLA, including the Southern Africa region, Central Eastern Europe and South East Asia. The breadth of RLA’s involvement expanded too, with projects as diverse as ownership CRM, Parts loyalty campaigns and a premium launch event for the new luxury coach in Singapore – to name just a few.
+      Our operational success brought numerous market extensions to RLA,
+      including the Southern Africa region, Central Eastern Europe and South
+      East Asia. The breadth of RLA’s involvement expanded too, with projects as
+      diverse as ownership CRM, Parts loyalty campaigns and a premium launch
+      event for the new luxury coach in Singapore – to name just a few.
     image: ''
     parallax: true
     stacked: true
-    title: 'GLOBAL EXPANSION'
+    title: GLOBAL EXPANSION
     video: >-
       https://s3.eu-west-2.amazonaws.com/rla-website/Scania+V8+long+%26+wide+load+final+version.mp4
   - description: >-
@@ -65,8 +69,8 @@ copySections:
 
       **From 14% to 22%** sustained market share in UK  
 
-      **From 8th to 2nd** in-market position within four years for Southern Africa
-      region  
+      **From 8th to 2nd** in-market position within four years for Southern
+      Africa region  
 
 
       Our work with Scania has culminated in RLA’s latest major win – a truly
@@ -87,3 +91,4 @@ solutionsList:
 weighting: -5
 previewType: page
 ---
+
