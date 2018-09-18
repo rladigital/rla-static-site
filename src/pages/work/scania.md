@@ -9,26 +9,66 @@ thumbnailAlignment: top
 intro: From below potential to market leader across 17 markets in 8 years
 logo: /img/scania-logo.jpg
 copySections:
-  - description: "When we first met Scania in 2010, we met a world-leader in engineering capability, quality and technology. Revered by diehard customers and those in the know inside the industry. But we also met a company losing ground to resurgent competitors in Mercedes and Volvo. Scania, the best built, but most expensive truck on the market (by some margin) wasn’t justifying it’s premium in a meaningful way to repel the competition.\r"
+  - description: >-
+      When we first met Scania in 2010, we met a world-leader in engineering
+      capability, quality and technology. The brand was revered by diehard
+      customers and those in the know within the industry. But we also met a
+      company losing ground to resurgent competitors in Mercedes and Volvo.
+      Scania, the best built, but most expensive truck on the market (by some
+      margin), just wasn’t justifying its premium enough to hold off the
+      competition.
     image: /img/2674x1218-scania-yes-you-can-2.jpg
     parallax: true
     stacked: true
-    title: In the beginning there was dark
-  - description: "At Scania, the engineers rule the roost. Product is king. And oh boy, is Scania’s product supreme in almost every commercially important KPI when running a haulage business. So why then, is this strength not accepted by too many customers across several markets? Because a chronic lack of focus on brand positioning and compelling persuasion was contriving to ensure that the Scania proposition lacked purpose and difference. On a global scale. A criminal situation when the core product was so good.\r"
+    title: ''
+  - description: >-
+      At Scania, the engineers rule the roost. Product is king and Scania’s
+      product reigns supreme in almost every commercial KPI when running a
+      haulage business. If the product itself was performing, then the problem
+      was a lack of awareness. A lack of focus on brand positioning and
+      compelling persuasion was contriving to ensure that Scania’s proposition
+      lacked purpose and standout – a problem with a global scale.
     image: /img/2674x1218-scania-soutions.jpg
     parallax: true
     stacked: true
     title: A product vs brand imbalance
-  - description: "In the UK, the competition had closed the gap. They had successfully raised awareness and the belief they were as good, if not better, than Scania. So, we undertook a root and branch review of the UK marketplace and rebuilt the brand’s positioning within the UK. A rallying call, “You Can”, with the backing of a full-throttle, through-the-line campaign captured the imagination of the industry, propelling Scania up the desirability stakes. Reinforced extensively internally, the campaign ran in multiple stages for 7 years and re-established Scania as the number one, most desirable brand in the market.\r"
+  - description: >-
+      In the UK, the competition had closed the gap. They had successfully
+      raised awareness of themselves as viable (if not better) alternatives to
+      Scania. We began by undertaking a root and branch review of the UK
+      marketplace, rebuilding the brand’s positioning within the UK. 
+
+
+      Distilling the essence of what the haulage industry is about, we launched
+      the rallying call, “You Can”. With the backing of a full-throttle,
+      through-the-line campaign, this message of empowerment captured the
+      imagination of the industry. The campaign, reinforced extensively with
+      internal activity, ran in multiple stages for seven years, re-asserting
+      Scania as the number one, most desirable brand in the market.
     image: /img/2674x1218-scania-studio-image.jpg
     parallax: true
     stacked: true
-    title: Then there was light
-  - description: "Our operational success brought numerous market extensions to RLA. The Southern Africa region, Central Eastern Europe and South East Asia with projects as diverse as ownership CRM, Parts loyalty campaigns and a premium launch event for the new luxury coach in Singapore to name a few. Culminating in RLA’s latest major account which is to propel the Chinese market performance from unmentionably small to the largest truck market for Scania in the world by 2023. \r"
+    title: FRESH PERSPECTIVE
+  - description: >-
+      Our work with Scania has resulted in an outstanding collection of
+      brand-driven results which we are very proud of:  \
+
+      **No.1** for brand awareness, consideration, likeability and impact.  \
+
+      **From 14% to 22%** sustained market share in UK   \
+
+      From 8th to 2nd in-market position within four years for Southern Africa
+      region 
+
+
+      Our work with Scania has culminated in RLA’s latest major win – a truly
+      exciting five-year project aiming to propel Scania’s market performance in
+      China from that of a minor contender, to the largest global market for
+      Scania by 2023.
     image: ''
     parallax: true
     stacked: true
-    title: The Global expansion
+    title: 'MEASURABLE RESULTS, EXCITING FUTURES'
     video: >-
       https://s3.eu-west-2.amazonaws.com/rla-website/Scania+V8+long+%26+wide+load+final+version.mp4
   - description: >-
@@ -42,15 +82,18 @@ copySections:
       Southern Africa region
 
       Start of the ‘global market leader’ 5yr goal for China.
-    image: 
     parallax: false
     stacked: true
     title: In the end.
+footer: /img/2674x1218-scania-kieron-owen-image.jpg
+solutionLookup: ''
 solutionsList:
   - Brand Desire
   - Customer Acquisition
   - Customer Relationship
+  - Cortex
+  - Employee Engagement
 weighting: -5
 previewType: page
-footer: /img/2674x1218-scania-kieron-owen-image.jpg
 ---
+
