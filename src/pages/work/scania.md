@@ -48,13 +48,13 @@ copySections:
     image: /img/2674x1218-scania-studio-image.jpg
     parallax: true
     stacked: true
-    title: GLOBAL EXPANSION
+    title: FRESH PERSPECTIVE
   - description: >-
       Our operational success brought numerous market extensions to RLA, including the Southern Africa region, Central Eastern Europe and South East Asia. The breadth of RLA’s involvement expanded too, with projects as diverse as ownership CRM, Parts loyalty campaigns and a premium launch event for the new luxury coach in Singapore – to name just a few.
     image: ''
     parallax: true
     stacked: true
-    title: 'MEASURABLE RESULTS, EXCITING FUTURES'
+    title: 'GLOBAL EXPANSION'
     video: >-
       https://s3.eu-west-2.amazonaws.com/rla-website/Scania+V8+long+%26+wide+load+final+version.mp4
   - description: >-
