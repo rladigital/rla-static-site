@@ -25,6 +25,9 @@ copySections:
       the UK, Volvo began to completely refocus their network’s confidence and
       their approach to market. Enter ‘Cortex Engage’ – RLA’s employee
       engagement platform.
+    image: /img/2674x1218-volvo-photo-butler.jpg
+    parallax: true
+    stacked: true
   - description: >-
       In 2013, RLA undertook an important brief – to affect a ground-up rebuild
       of the business’ approach to aligning the network for growth. As a result,
