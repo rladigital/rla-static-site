@@ -53,14 +53,14 @@ copySections:
     stacked: true
     title: TECHNOLOGY AND CREATIVITY IN PERFECT HARMONY
   - description: |-
-      The results speak for themselves: 
-      1,500 unique users, 101 Dealers, 8 Regions for Sales and Aftersales 
-      25-year sales record broken in 2018 
-      45% growth in sales and share 
-      17% net growth in Brand Balanced Scorecard 2018 vs 2017 
-      82.5% reduction in cash prizes fund 
-      218% growth in voluntary dealer participation 
-      90% recommendation score from last Dealer survey
+      * The results speak for themselves: 
+        1,500 unique users, 101 Dealers, 8 Regions for Sales and Aftersales 
+        25-year sales record broken in 2018 
+        45% growth in sales and share 
+        17% net growth in Brand Balanced Scorecard 2018 vs 2017 
+        82.5% reduction in cash prizes fund 
+        218% growth in voluntary dealer participation 
+        90% recommendation score from last Dealer survey
     image: /img/2674x1218-volvo-game-real-laptop_v2.jpg
     parallax: true
     stacked: true
