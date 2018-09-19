@@ -297,7 +297,7 @@ class Video extends React.Component {
     render() {
         const { src } = this.props;
         const videoOptions = {
-            src: src,
+            width: "100%",
             ref: videoRef => {
                 this.videoRef = videoRef;
             },
@@ -315,7 +315,9 @@ class Video extends React.Component {
             <ScrollTrigger
                 onEnter={() => this.videoRef.play()}
                 onExit={() => this.videoRef.pause()}>
-                <VideoCover videoOptions={videoOptions} />
+                <video {...videoOptions}>
+                    <source src={src} />
+                </video>
             </ScrollTrigger>
         );
     }
