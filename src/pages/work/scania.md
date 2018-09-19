@@ -46,6 +46,7 @@ copySections:
       internal activity, ran in multiple stages for seven years, re-asserting
       Scania as the number one, most desirable brand in the market.
     image: /img/2674x1218-scania-studio-image.jpg
+    imageAlignment: center
     parallax: true
     stacked: true
     title: FRESH PERSPECTIVE
@@ -56,6 +57,7 @@ copySections:
       diverse as ownership CRM, Parts loyalty campaigns and a premium launch
       event for the new luxury coach in Singapore – to name just a few.
     image: ''
+    imageAlignment: center
     parallax: true
     stacked: true
     title: GLOBAL EXPANSION
@@ -91,3 +93,4 @@ solutionsList:
 weighting: -5
 previewType: page
 ---
+
