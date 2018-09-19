@@ -4,10 +4,11 @@ title: PSA
 metaTitle: PSA | RLA Group
 metaDescription: ' Transforming the automotive aftermarket, one massive project at a time'
 hero: /img/2674x1218-peugeot-photo-4.jpg
-thumb: /img/2674x1218-peugeot-photo-4.jpg
+thumb: /img/rla_work_page_1200x1200_psa.jpg
 thumbnailAlignment: center
 intro: >-
-    Transforming the automotive aftermarket, one massive project at&nbsp;a&nbsp;time
+  Transforming the automotive aftermarket, one massive project
+  at&nbsp;a&nbsp;time
 logo: /img/logos.png
 copySections:
   - description: >-
@@ -61,8 +62,8 @@ copySections:
       content and social, PR, print, TTL advertising, website, DAM portal,
       events and planning support in innumerate different guises across numerous
       projects to assist in driving the growth that Groupe PSA demands.
-    title: 'FULL-SERVICE, STRATEGIC AND CREATIVE MARCOMMS'
     stacked: true
+    title: 'FULL-SERVICE, STRATEGIC AND CREATIVE MARCOMMS'
 footer: /img/2017equipauto_psa-1-edit.jpg
 solutionLookup: ''
 solutionsList:
@@ -75,3 +76,4 @@ solutionsList:
 weighting: -4
 previewType: page
 ---
+
