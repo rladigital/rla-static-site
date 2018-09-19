@@ -75,9 +75,9 @@ const Container = styled.div`
 
 const Img = styled.div`
     width: 100vw;
-    height: 60vw;
+    height: 35vw;
     min-height: 600px;
-    max-height: 1000px;
+    max-height: 800px;
     background-image: url('${props => props.src}');
     background-position: center;
     background-size: cover;
@@ -100,11 +100,10 @@ export class WorkTemplate extends React.Component {
         const solutions = data.solutions.edges;
 
         const parallaxStyle = {
-            height: "50vw",
-            maxHeight: 1000,
-            minHeight: 500,
-            overflow: "hidden",
-            marginBottom: 0
+            height: "35vw",
+            maxHeight: 800,
+            minHeight: 300,
+            overflow: "hidden"
         };
 
         return [
