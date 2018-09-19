@@ -330,7 +330,7 @@ class Video extends React.Component {
                 }
             },
             loop: true,
-            playsinline: true,
+            playsInline: true,
             preload: "auto"
         };
 
