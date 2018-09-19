@@ -1,6 +1,6 @@
 ---
 templateKey: work
-title: Volvo First Class
+title: Volvo
 metaTitle: Volvo | RLA
 metaDescription: ' With 145% growth and the coveted ‘Franchise of the Year’ accolade in 2018, Volvo are one of the biggest successes of the last four years.'
 hero: /img/2674x1218-volvo-photo-1.jpg
