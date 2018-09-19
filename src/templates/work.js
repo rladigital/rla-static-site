@@ -84,8 +84,36 @@ const Img = styled.div`
 `;
 
 export class WorkTemplate extends React.Component {
+    constructor() {
+        super();
+
+        this.state = { parallaxEnabled: true };
+
+        if (isBrowser()) {
+            window.addEventListener("resize", this.isParallaxEnabled);
+        }
+    }
+    componentWillUnmount() {
+        if (isBrowser()) {
+            window.removeEventListener("resize", this.isParallaxEnabled);
+        }
+    }
+    isParallaxEnabled = () => {
+        const { parallaxEnabled } = this.state;
+
+        if (window.innerWidth < 800) {
+            if (parallaxEnabled) {
+                this.setState({ parallaxEnabled: false });
+            }
+        } else {
+            if (!parallaxEnabled) {
+                this.setState({ parallaxEnabled: true });
+            }
+        }
+    };
     render() {
         const { data, helmet, transition, history } = this.props;
+        const { parallaxEnabled } = this.state;
 
         const {
             copySections,
@@ -181,7 +209,8 @@ export class WorkTemplate extends React.Component {
                                             <Video src={section.video} />
                                         ) : (
                                             section.image &&
-                                            (section.parallax ? (
+                                            (section.parallax &&
+                                            parallaxEnabled ? (
                                                 <Parallax strength={200}>
                                                     <div
                                                         style={parallaxStyle}
