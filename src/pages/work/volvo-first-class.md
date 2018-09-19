@@ -37,7 +37,7 @@ copySections:
       communications, data, analysis, behaviour targeting, recognition and
       reward, and a direct link to Amazon’s Business API for fulfilment.
     image: /img/2674x1218-volvo-monaco-real-laptop.jpg
-    parallax: false
+    parallax: true
     stacked: true
     title: RESETTING THE FRAMEWORK FOR SUCCESS
   - description: >-
