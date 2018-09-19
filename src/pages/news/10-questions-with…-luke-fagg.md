@@ -7,7 +7,7 @@ thumb: /img/1160x450-10-questions-article-header-image-luke-fagg.jpg
 category: Culture
 tags:
   - CULTURE
-  - 10 QUESTIONS
+  - 10 Questions
 intro: tbc
 sideHeading: >-
   RLA care. Simple as that. We care about our work. We care about our clients.
