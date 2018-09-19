@@ -75,9 +75,9 @@ const Container = styled.div`
 
 const Img = styled.div`
     width: 100vw;
-    height: 35vw;
+    height: 60vw;
     min-height: 600px;
-    max-height: 800px;
+    max-height: 1000px;
     background-image: url('${props => props.src}');
     background-position: center;
     background-size: cover;
@@ -100,10 +100,11 @@ export class WorkTemplate extends React.Component {
         const solutions = data.solutions.edges;
 
         const parallaxStyle = {
-            height: "35vw",
-            maxHeight: 800,
+            height: "50vw",
+            maxHeight: 1000,
             minHeight: 300,
-            overflow: "hidden"
+            overflow: "hidden",
+            marginBottom: 0
         };
 
         return [
@@ -115,7 +116,12 @@ export class WorkTemplate extends React.Component {
                     ...(transition && transition.style)
                 }}>
                 {helmet || ""}
-                {hero && <Hero src={getOriginalImageSrc(hero)} />}
+                {hero && (
+                    <Hero
+                        src={getOriginalImageSrc(hero)}
+                        style={{ maxHeight: 500 }}
+                    />
+                )}
 
                 <Row>
                     <Column large={7} centered>
@@ -173,9 +179,7 @@ export class WorkTemplate extends React.Component {
                                         large={!section.stacked ? 6 : 12}
                                         collapse>
                                         {section.video && isBrowser() ? (
-                                            <div style={parallaxStyle}>
-                                                <Video src={section.video} />
-                                            </div>
+                                            <Video src={section.video} />
                                         ) : (
                                             section.image &&
                                             (section.parallax ? (
