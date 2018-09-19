@@ -190,11 +190,18 @@ export default ({ history, data, pathContext, transition }) => {
                 <Helmet title={pageTitle}>
                     <meta name="title" content={pageTitle} />
                     <meta property="og:title" content={pageTitle} />
-                    <meta
-                        property="og:image"
-                        content={`http://www.rla.co.uk${hero.original}`}
-                    />
-                    <meta property="og:description" content={metaDescription} />
+                    {hero && (
+                        <meta
+                            property="og:image"
+                            content={`http://www.rla.co.uk${hero.original}`}
+                        />
+                    )}
+                    {metaDescription && (
+                        <meta
+                            property="og:description"
+                            content={metaDescription}
+                        />
+                    )}
                     {metaDescription && (
                         <meta name="description" content={metaDescription} />
                     )}
