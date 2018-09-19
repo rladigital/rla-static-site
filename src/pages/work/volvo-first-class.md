@@ -4,10 +4,9 @@ title: Volvo First Class
 metaTitle: Volvo | RLA
 metaDescription: ' With 145% growth and the coveted ‘Franchise of the Year’ accolade in 2018, Volvo are one of the biggest successes of the last four years.'
 hero: /img/2674x1218-volvo-photo-1.jpg
-thumb: /img/2674x1218-volvo-photo-1.jpg
+thumb: /img/rla_work_page_1200x1200_volvo-2.jpg
 thumbnailAlignment: center
-intro: >-
-    A catalyst for smashing a 25 year sales&nbsp;record
+intro: A catalyst for smashing a 25 year sales&nbsp;record
 logo: /img/volvo-logo-2.png
 copySections:
   - description: >-
@@ -77,3 +76,4 @@ solutionsList:
 weighting: -6
 previewType: page
 ---
+
