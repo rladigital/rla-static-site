@@ -179,7 +179,7 @@ export default ({ history, data, pathContext, transition }) => {
     //console.log(data, transition);
     const { markdownRemark: news } = data;
     const { previous, next } = pathContext;
-    const { title, metaTitle, metaDescription } = news.frontmatter;
+    const { title, metaTitle, metaDescription, hero } = news.frontmatter;
     const pageTitle =
         metaTitle ||
         `${title} | News | RLA Group | Full Service Advertising Agency`;
@@ -189,6 +189,12 @@ export default ({ history, data, pathContext, transition }) => {
             helmet={
                 <Helmet title={pageTitle}>
                     <meta name="title" content={pageTitle} />
+                    <meta property="og:title" content={pageTitle} />
+                    <meta
+                        property="og:image"
+                        content={`http://www.rla.co.uk${hero.original}`}
+                    />
+                    <meta property="og:description" content={metaDescription} />
                     {metaDescription && (
                         <meta name="description" content={metaDescription} />
                     )}
