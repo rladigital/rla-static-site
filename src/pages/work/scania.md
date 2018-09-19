@@ -2,11 +2,11 @@
 templateKey: work
 title: Scania
 metaTitle: Scania | RLA Group
-metaDescription: From below potential to market leader across 17 markets in 8 years
+metaDescription: From below potential to market leader across 17 markets over 8 years
 hero: /img/2674x1218-scania-china.jpg
 thumb: /img/rla_work_page_1200x1200_scania-2.jpg
 thumbnailAlignment: center
-intro: From below potential to market leader across 17 markets in 8 years
+intro: From below potential to market leader across 17 markets in over 8 years
 logo: /img/scania-logo.jpg
 copySections:
   - description: >-
@@ -30,7 +30,7 @@ copySections:
       compelling persuasion was contriving to ensure that Scania’s proposition
       lacked purpose and standout – a problem with a global scale.
     image: /img/2674x1218-scania-soutions.jpg
-    parallax: false
+    parallax: true
     stacked: true
     title: A product vs brand imbalance
   - description: >-
@@ -63,7 +63,7 @@ copySections:
     stacked: true
     title: GLOBAL EXPANSION
     video: >-
-      https://s3.eu-west-2.amazonaws.com/rla-website/Scania+V8+long+%26+wide+load+final+version.mp4
+      https://s3.eu-west-2.amazonaws.com/rla-website/Scania%2BV8%2Blong%2B%2Bwide%2Bload%2Bfinal%2Bversion.mp4
   - description: >-
       Our work with Scania has resulted in an outstanding collection of
       brand-driven results which we are very proud of:  
@@ -94,3 +94,4 @@ solutionsList:
 weighting: -5
 previewType: page
 ---
+

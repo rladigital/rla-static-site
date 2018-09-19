@@ -75,17 +75,45 @@ const Container = styled.div`
 
 const Img = styled.div`
     width: 100vw;
-    height: 60vw;
+    height: 35vw;
     min-height: 600px;
-    max-height: 1000px;
+    max-height: 800px;
     background-image: url('${props => props.src}');
     background-position: center;
     background-size: cover;
 `;
 
 export class WorkTemplate extends React.Component {
+    constructor() {
+        super();
+
+        this.state = { parallaxEnabled: true };
+
+        if (isBrowser()) {
+            window.addEventListener("resize", this.isParallaxEnabled);
+        }
+    }
+    componentWillUnmount() {
+        if (isBrowser()) {
+            window.removeEventListener("resize", this.isParallaxEnabled);
+        }
+    }
+    isParallaxEnabled = () => {
+        const { parallaxEnabled } = this.state;
+
+        if (window.innerWidth < 800) {
+            if (parallaxEnabled) {
+                this.setState({ parallaxEnabled: false });
+            }
+        } else {
+            if (!parallaxEnabled) {
+                this.setState({ parallaxEnabled: true });
+            }
+        }
+    };
     render() {
         const { data, helmet, transition, history } = this.props;
+        const { parallaxEnabled } = this.state;
 
         const {
             copySections,
@@ -100,11 +128,10 @@ export class WorkTemplate extends React.Component {
         const solutions = data.solutions.edges;
 
         const parallaxStyle = {
-            height: "50vw",
-            maxHeight: 1000,
-            minHeight: 500,
-            overflow: "hidden",
-            marginBottom: 0
+            height: "35vw",
+            maxHeight: 800,
+            minHeight: 300,
+            overflow: "hidden"
         };
 
         return [
@@ -182,7 +209,8 @@ export class WorkTemplate extends React.Component {
                                             <Video src={section.video} />
                                         ) : (
                                             section.image &&
-                                            (section.parallax ? (
+                                            (section.parallax &&
+                                            parallaxEnabled ? (
                                                 <Parallax strength={200}>
                                                     <div
                                                         style={parallaxStyle}
@@ -301,7 +329,9 @@ class Video extends React.Component {
                     this.videoRef.pause();
                 }
             },
-            loop: true
+            loop: true,
+            playsInline: true,
+            preload: "auto"
         };
 
         return (

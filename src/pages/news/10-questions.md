@@ -7,7 +7,7 @@ thumb: /img/sam.jpg
 category: Culture
 tags:
   - CULTURE
-  - 10 QUESTIONS
+  - 10 Questions
 intro: test
 sideHeading: >-
   The ideal client relationship is a respected partnership, built on trust,

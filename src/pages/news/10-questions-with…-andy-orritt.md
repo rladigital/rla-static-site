@@ -7,7 +7,7 @@ thumb: /img/1160x450-10-questions-article-header-image-andy-orritt.jpg
 category: Culture
 tags:
   - CULTURE
-  - 10 QUESTIONS
+  - 10 Questions
 intro: test
 sideHeading: >-
   If the people around you day in, day out, don’t inspire you to better things

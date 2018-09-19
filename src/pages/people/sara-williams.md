@@ -1,7 +1,7 @@
 ---
 templateKey: people
 title: Sara Williams
-role: Account Executive
+role: Account Manager
 tags:
   - Client Services
 profile: /img/Sara Williams.jpg

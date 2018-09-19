@@ -37,8 +37,7 @@ class WorkSection extends React.Component {
                 <SectionContainer
                     color={colors.background}
                     background={colors.white}
-                    padding="5em 0 6em"
-                >
+                    padding="5em 0 6em">
                     <Row>
                         <Column large={7} centered>
                             <HeaderBlock
@@ -49,8 +48,7 @@ class WorkSection extends React.Component {
                                     bottom: 3,
                                     left: 0
                                 }}
-                                fontSize={3.4}
-                            >
+                                fontSize={3.4}>
                                 THE <span>BIGGER PICTURE</span>
                             </HeaderBlock>
                             <StyledP>
@@ -69,24 +67,17 @@ class WorkSection extends React.Component {
                 </SectionContainer>
                 <SectionContainer
                     color={colors.background}
-                    background={colors.white}
-                    padding="0"
-                >
+                    background={colors.background}
+                    padding="0">
                     <Row expanded collapse>
                         {work.slice(0, 6).map(({ node: work }, index) => {
                             return (
                                 <Column medium={4} key={index} collapse>
-                                    <ScrollAnimation
-                                        animateIn="fadeIn"
-                                        delay={250 * index}
-                                        animateOnce={true}
-                                    >
-                                        <WorkSummary
-                                            heightMediaQuery={heightMediaQuery}
-                                            work={work}
-                                            index={index}
-                                        />
-                                    </ScrollAnimation>
+                                    <WorkSummary
+                                        heightMediaQuery={heightMediaQuery}
+                                        work={work}
+                                        index={index}
+                                    />
                                 </Column>
                             );
                         })}
@@ -94,8 +85,7 @@ class WorkSection extends React.Component {
                 </SectionContainer>
                 <SectionContainer
                     color={colors.white}
-                    background={colors.background}
-                >
+                    background={colors.background}>
                     <Row style={{ textAlign: "center" }}>
                         <Link to="work">
                             <StyledButton
@@ -103,8 +93,7 @@ class WorkSection extends React.Component {
                                 size="large"
                                 color="accent"
                                 borderWidth={3}
-                                padding={2}
-                            >
+                                padding={2}>
                                 VIEW OUR WORK &rarr;
                             </StyledButton>
                         </Link>

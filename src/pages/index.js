@@ -101,7 +101,7 @@ export const pageQuery = graphql`
         work: allMarkdownRemark(
             sort: { fields: [frontmatter___weighting] }
             filter: { frontmatter: { templateKey: { eq: "work" } } }
-            limit: 3
+            limit: 6
         ) {
             edges {
                 node {

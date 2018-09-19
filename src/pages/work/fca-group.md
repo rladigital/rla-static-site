@@ -1,6 +1,10 @@
 ---
 templateKey: work
 title: FCA Group
+metaTitle: FCA Dealer Marketing | FCA | RLA Group
+metaDescription: >-
+  Transforming the local marketing effectiveness for the whole UK Fiat Chrysler
+  Automobiles Dealer Network
 hero: /img/fca group-hero2.jpg
 thumb: /img/fca group-thumbnail.jpg
 thumbnailAlignment: center
@@ -48,14 +52,12 @@ copySections:
     parallax: true
     stacked: true
     title: THE OUTCOME
-excerpt: How RLA unified the FCA group.
+excerpt: ''
 solutionsList:
   - Brand Desire
   - Customer Acquisition
   - Cortex
 weighting: -3
 previewType: page
-metaTitle: FCA Dealer Marketing | FCA | RLA Group
-metaDescription: Transforming the local marketing effectiveness for the whole UK Fiat Chrysler Automobiles Dealer Network
-footer:
 ---
+
