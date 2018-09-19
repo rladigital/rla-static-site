@@ -329,7 +329,9 @@ class Video extends React.Component {
                     this.videoRef.pause();
                 }
             },
-            loop: true
+            loop: true,
+            playsinline: true,
+            preload: "auto"
         };
 
         return (
