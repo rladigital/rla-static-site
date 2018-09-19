@@ -63,7 +63,7 @@ copySections:
     stacked: true
     title: GLOBAL EXPANSION
     video: >-
-      https://s3.eu-west-2.amazonaws.com/rla-website/Scania+V8+long+%26+wide+load+final+version.mp4
+      https://s3.eu-west-2.amazonaws.com/rla-website/Scania%2BV8%2Blong%2B%2Bwide%2Bload%2Bfinal%2Bversion.mp4
   - description: >-
       Our work with Scania has resulted in an outstanding collection of
       brand-driven results which we are very proud of:  
