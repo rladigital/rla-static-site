@@ -50,7 +50,7 @@ copySections:
       performance. These would deliver numerous recognition events, dinners,
       seminars and international trips from Rome to Japan.
     image: /img/2674x1218-volvo-dash-real-laptop.jpg
-    parallax: true
+    parallax: false
     stacked: true
     title: TECHNOLOGY AND CREATIVITY IN PERFECT HARMONY
   - description: |-
@@ -63,7 +63,7 @@ copySections:
         218% growth in voluntary dealer participation  
         90% recommendation score from last Dealer survey
     image: /img/2674x1218-volvo-game-real-laptop_v2.jpg
-    parallax: true
+    parallax: false
     stacked: true
     title: ‘MANUFACTURER OF THE YEAR’ 2018
 footer: /img/2674x1218-volvo-photo-2.jpg
@@ -76,4 +76,3 @@ solutionsList:
 weighting: -6
 previewType: page
 ---
-
