@@ -84,8 +84,7 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
                             to={contact.fields.slug}
                             address={contact.frontmatter.address}
                             phone={contact.frontmatter.tel}
-                            email={contact.frontmatter.email}
-                        >
+                            email={contact.frontmatter.email}>
                             {contact.frontmatter.title}
                         </Location>
                     </Column>
@@ -112,8 +111,10 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
                     <Link to="/cookie-policy">Cookie Policy</Link> |{" "}
                     <a className="optanon-show-settings">Cookie Settings</a> |{" "}
                     <Link to="/privacy-policy">Privacy Policy</Link> |{" "}
-                    <Link to="/employment-privacy-notice">Employment Privacy Notice</Link> |{" "}
-                    <Link to="/terms">Terms and Conditions</Link>
+                    <a href="http://www.themission.co.uk/media/1278/employee_privacy_notice.pdf">
+                        Employment Privacy Notice
+                    </a>{" "}
+                    | <Link to="/terms">Terms and Conditions</Link>
                 </Column>
             </Row>
         </Copyright>
