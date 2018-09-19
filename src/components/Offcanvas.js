@@ -81,6 +81,7 @@ const Overlay = styled.div`
     z-index: 4;
     background: ${transparentize(colors.reallyDarkBlueGray, 0.1)};
     z-index: 2;
+    top: 0;
 `;
 
 const Menu = styled.div`
