@@ -70,7 +70,7 @@ const H2 = styled.h2`
 `;
 
 const Container = styled.div`
-    padding: 4.5rem 3rem 3em;
+    padding: 4.5rem 3rem 4em;
 `;
 
 const Img = styled.div`
@@ -102,7 +102,7 @@ export class WorkTemplate extends React.Component {
         const parallaxStyle = {
             height: "50vw",
             maxHeight: 1000,
-            minHeight: 300,
+            minHeight: 500,
             overflow: "hidden",
             marginBottom: 0
         };
@@ -119,14 +119,14 @@ export class WorkTemplate extends React.Component {
                 {hero && (
                     <Hero
                         src={getOriginalImageSrc(hero)}
-                        style={{ maxHeight: 500 }}
+                        style={{ maxHeight: 500, marginBottom: "4rem" }}
                     />
                 )}
 
                 <Row>
-                    <Column large={7} centered>
-                        <PullQuote fontSize={3} padding={2}>
-                            {intro}
+                    <Column xlarge={7} centered>
+                        <PullQuote fontSize={3} padding={3}>
+                            <Content content={intro}>{intro}</Content>
                         </PullQuote>
 
                         {logo && (
@@ -145,7 +145,7 @@ export class WorkTemplate extends React.Component {
                                     equaliseChildHeight={!section.stacked}>
                                     {(section.title || section.description) && (
                                         <Column
-                                            large={!section.stacked ? 6 : 7}
+                                            xlarge={!section.stacked ? 6 : 7}
                                             collapse
                                             centered={section.stacked}
                                             style={{ position: "relative" }}>
@@ -258,7 +258,7 @@ export class WorkTemplate extends React.Component {
                     <Row expanded collapse>
                         <Column collapse>
                             <Hero
-                                style={{ marginBottom: 0 }}
+                                style={{ ...parallaxStyle, marginBottom: 0 }}
                                 src={getOriginalImageSrc(footer)}
                             />
                         </Column>

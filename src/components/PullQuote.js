@@ -15,6 +15,9 @@ const PullQuote = styled.blockquote`
         font-size: ${props => props.fontSize}rem;
         padding-bottom: ${props => props.padding}rem;
     }
+    p {
+        line-height: 1.2;
+    }
 `;
 
 PullQuote.propTypes = {

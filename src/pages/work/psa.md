@@ -6,7 +6,8 @@ metaDescription: ' Transforming the automotive aftermarket, one massive project 
 hero: /img/2674x1218-peugeot-photo-4.jpg
 thumb: /img/2674x1218-peugeot-photo-4.jpg
 thumbnailAlignment: center
-intro: 'Transforming the automotive aftermarket, one massive project at a time'
+intro: >-
+    Transforming the automotive aftermarket, one massive project at&nbsp;a&nbsp;time
 logo: /img/logos.png
 copySections:
   - description: >-
