@@ -18,6 +18,7 @@ copySections:
       margin), just wasn’t justifying its premium enough to hold off the
       competition.
     image: /img/2674x1218-scania-yes-you-can-2.jpg
+    imageAlignment: top
     parallax: false
     stacked: true
     title: ''
@@ -93,4 +94,3 @@ solutionsList:
 weighting: -5
 previewType: page
 ---
-

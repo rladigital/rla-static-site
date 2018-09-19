@@ -193,7 +193,13 @@ export class WorkTemplate extends React.Component {
                                                 </Parallax>
                                             ) : (
                                                 <Hero
-                                                    style={parallaxStyle}
+                                                    style={{
+                                                        ...parallaxStyle,
+                                                        ...(section.imageAlignment && {
+                                                            backgroundPosition:
+                                                                section.imageAlignment
+                                                        })
+                                                    }}
                                                     src={getOriginalImageSrc(
                                                         section.image
                                                     )}
@@ -346,6 +352,7 @@ export const pageQuery = graphql`
                     description
                     image
                     parallax
+                    imageAlignment
                     stacked
                     video
                 }
