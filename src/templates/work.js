@@ -279,7 +279,11 @@ export class WorkTemplate extends React.Component {
                     <Row expanded collapse>
                         <Column collapse>
                             <Hero
-                                style={{ ...parallaxStyle, marginBottom: 0 }}
+                                style={{
+                                    maxHeight: 500,
+                                    ...parallaxStyle,
+                                    marginBottom: 0
+                                }}
                                 src={getOriginalImageSrc(footer)}
                             />
                         </Column>
