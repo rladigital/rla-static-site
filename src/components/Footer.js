@@ -111,9 +111,9 @@ export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
                     <Link to="/cookie-policy">Cookie Policy</Link> |{" "}
                     <a className="optanon-show-settings">Cookie Settings</a> |{" "}
                     <Link to="/privacy-policy">Privacy Policy</Link> |{" "}
-                    <a href="http://www.themission.co.uk/media/1278/employee_privacy_notice.pdf">
+                    <Link to="/employment-privacy-notice">
                         Employment Privacy Notice
-                    </a>{" "}
+                    </Link>{" "}
                     | <Link to="/terms">Terms and Conditions</Link>
                 </Column>
             </Row>
