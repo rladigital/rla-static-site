@@ -30,7 +30,7 @@ copySections:
       compelling persuasion was contriving to ensure that Scania’s proposition
       lacked purpose and standout – a problem with a global scale.
     image: /img/2674x1218-scania-soutions.jpg
-    parallax: true
+    parallax: false
     stacked: true
     title: A product vs brand imbalance
   - description: >-

@@ -196,14 +196,7 @@ export class WorkTemplate extends React.Component {
                                                     </Background>
                                                 </Parallax>
                                             ) : (
-                                                <Hero
-                                                    style={{
-                                                        ...parallaxStyle,
-                                                        ...(section.imageAlignment && {
-                                                            backgroundPosition:
-                                                                section.imageAlignment
-                                                        })
-                                                    }}
+                                                <img
                                                     src={getOriginalImageSrc(
                                                         section.image
                                                     )}
