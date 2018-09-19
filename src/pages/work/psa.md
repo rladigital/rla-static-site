@@ -33,7 +33,7 @@ copySections:
       agency, to apply their proven aftermarket experience in managing your
       brands’ communications activities.
     image: /img/2674x1218-perks-4.jpg
-    parallax: true
+    parallax: false
     stacked: true
     title: WHEN UNDERSTANDING YOUR AUDIENCE IS EVERYTHING
   - description: >-
@@ -76,4 +76,3 @@ solutionsList:
 weighting: -4
 previewType: page
 ---
-
