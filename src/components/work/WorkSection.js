@@ -73,16 +73,11 @@ class WorkSection extends React.Component {
                         {work.slice(0, 6).map(({ node: work }, index) => {
                             return (
                                 <Column medium={4} key={index} collapse>
-                                    <ScrollAnimation
-                                        animateIn="fadeIn"
-                                        delay={250 * index}
-                                        animateOnce={true}>
-                                        <WorkSummary
-                                            heightMediaQuery={heightMediaQuery}
-                                            work={work}
-                                            index={index}
-                                        />
-                                    </ScrollAnimation>
+                                    <WorkSummary
+                                        heightMediaQuery={heightMediaQuery}
+                                        work={work}
+                                        index={index}
+                                    />
                                 </Column>
                             );
                         })}
