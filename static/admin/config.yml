@@ -89,6 +89,18 @@ collections:
                             default: true,
                         },
                         {
+                            label: "Image Alignment",
+                            name: "imageAlignment",
+                            widget: "select",
+                            default: "center",
+                            options:
+                                [
+                                    { label: "Top", value: "top" },
+                                    { label: "Center", value: "center" },
+                                    { label: "Bottom", value: "bottom" },
+                                ],
+                        },
+                        {
                             label: "Hosted Video URL",
                             name: "video",
                             widget: "string",
