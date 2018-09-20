@@ -7,7 +7,7 @@ thumb: /img/rla-square.jpg
 category: News
 tags:
   - NEWS
-  - CULTURE
+  - Culture
 intro: tbc
 sideHeading: Standing still is never an option.
 galleryImages:

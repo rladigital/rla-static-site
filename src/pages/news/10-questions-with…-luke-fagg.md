@@ -6,7 +6,7 @@ hero: /img/1160x450-10-questions-article-header-image-luke-fagg.jpg
 thumb: /img/1160x450-10-questions-article-header-image-luke-fagg.jpg
 category: Culture
 tags:
-  - CULTURE
+  - Culture
   - 10 Questions
 intro: tbc
 sideHeading: >-

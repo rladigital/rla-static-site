@@ -6,7 +6,7 @@ hero: /img/1160x450 10 questions article header image david dent.jpg
 thumb: /img/1160x450 10 questions article header image david dent.jpg
 category: Culture
 tags:
-  - CULTURE
+  - Culture
   - 10 Questions
 intro: test
 sideHeading: You have to love people and want to understand what makes them tick.

@@ -7,7 +7,7 @@ thumb: /img/1160x450 01 article header image 1.jpg
 category: Culture
 tags:
   - NEW & NOTED
-  - CULTURE
+  - Culture
 intro: tbc
 sideHeading: >-
   "This is advertising, this isn’t for shy people. If you want to be boring, go

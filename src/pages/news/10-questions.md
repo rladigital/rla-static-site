@@ -6,7 +6,7 @@ hero: /img/sam.jpg
 thumb: /img/sam.jpg
 category: Culture
 tags:
-  - CULTURE
+  - Culture
   - 10 Questions
 intro: test
 sideHeading: >-

@@ -7,6 +7,7 @@ thumb: /img/1160x450 10 questions article header image paul smith.jpg
 category: Culture
 tags:
   - 10 Questions
+  - Culture
 intro: '“It’s nice to be important, but more important to be nice”. I like that a lot.'
 sideHeading: '“It’s nice to be important, but more important to be nice”. I like that a lot.'
 galleryImages:
