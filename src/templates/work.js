@@ -296,12 +296,12 @@ export class WorkTemplate extends React.Component {
     }
 }
 
-export default ({ history, transition, data }) => {
+export default ({ history, transition, pathContext, data }) => {
     const { title, metaTitle, metaDescription, hero } = data.work.frontmatter;
     const pageTitle =
         metaTitle ||
         `${title} | News | RLA Group | Full Service Advertising Agency`;
-    console.log(hero);
+    const { previous, next, slug } = pathContext;
     return (
         <WorkTemplate
             helmet={
@@ -311,7 +311,7 @@ export default ({ history, transition, data }) => {
                     {hero && (
                         <meta
                             property="og:image"
-                            content={`http://www.rla.co.uk${hero.original}`}
+                            content={`//www.rla.co.uk${hero.original}`}
                         />
                     )}
                     {metaDescription && (
@@ -320,6 +320,10 @@ export default ({ history, transition, data }) => {
                             content={metaDescription}
                         />
                     )}
+                    <meta
+                        property="og:url"
+                        content={`//www.rla.co.uk${slug}`}
+                    />
                     {metaDescription && (
                         <meta name="description" content={metaDescription} />
                     )}

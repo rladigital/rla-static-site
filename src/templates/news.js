@@ -178,7 +178,7 @@ export const NewsTemplate = ({
 export default ({ history, data, pathContext, transition }) => {
     //console.log(data, transition);
     const { markdownRemark: news } = data;
-    const { previous, next } = pathContext;
+    const { previous, next, slug } = pathContext;
     const { title, metaTitle, metaDescription, hero } = news.frontmatter;
     const pageTitle =
         metaTitle ||
@@ -193,7 +193,7 @@ export default ({ history, data, pathContext, transition }) => {
                     {hero && (
                         <meta
                             property="og:image"
-                            content={`http://www.rla.co.uk${hero.original}`}
+                            content={`//www.rla.co.uk${hero.original}`}
                         />
                     )}
                     {metaDescription && (
@@ -202,6 +202,10 @@ export default ({ history, data, pathContext, transition }) => {
                             content={metaDescription}
                         />
                     )}
+                    <meta
+                        property="og:url"
+                        content={`//www.rla.co.uk${slug}`}
+                    />
                     {metaDescription && (
                         <meta name="description" content={metaDescription} />
                     )}
