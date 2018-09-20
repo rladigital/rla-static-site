@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: "RLA Website",
-        siteUrl: "https://www.rla.co.uk",
+        siteUrl: "https://www.rla.co.uk"
     },
     mapping: {
         "MarkdownRemark.frontmatter.author": `MarkdownRemark.frontmatter.title`,
@@ -69,6 +69,13 @@ module.exports = {
                             // the content container as this plugin uses this as the
                             // base for generating different widths of each image.
                             maxWidth: 1400
+                        }
+                    },
+                    {
+                        resolve: "gatsby-remark-external-links",
+                        options: {
+                            target: "_blank",
+                            rel: "nofollow"
                         }
                     }
                 ]
