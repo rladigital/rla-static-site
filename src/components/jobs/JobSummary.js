@@ -5,6 +5,7 @@ import Link from "gatsby-link";
 import { getOriginalImageSrc } from "../../utils/image";
 import { breakpoints, colors, spacing } from "../../theme/theme";
 import { transparentize } from "../../helpers/helpers";
+import Content, { HTMLContent } from "../../components/Content";
 
 const Container = styled.section`
     height: ${props => props.height}em;
@@ -27,6 +28,12 @@ const Overlay = styled.div`
 const TitleContainer = styled.div`
     max-width: 90%;
     padding: ${spacing.padding}em;
+    color: ${props => props.theme.lightColor};
+    font-weight: bold;
+    a {
+        color: ${props => props.theme.lightColor};
+        text-decoration: underline;
+    }
     ${props =>
         props.centred &&
         css`
@@ -56,22 +63,34 @@ const Title = styled.p`
     line-height: 1.2;
 `;
 
+const Wrapper = ({ isFreelance, href, children }) => {
+    if (isFreelance) {
+        return <div>{children}</div>;
+    } else {
+        return <Link to={href}>{children}</Link>;
+    }
+};
+
 const JobSummary = ({ job, height, centred }) => {
-    console.log(job);
+    const isFreelance = Boolean(job.frontmatter.area === "Freelance");
+    const href = job.frontmatter.description ? job.fields.slug : "/contact";
+
     return (
-        <Link to={job.frontmatter.description ? job.fields.slug : "/contact"}>
+        <Wrapper isFreelance={isFreelance} href={href}>
             <Container
                 backgroundImage={getOriginalImageSrc(job.frontmatter.hero)}
-                height={height}
-            >
+                height={height}>
                 <Overlay>
                     <TitleContainer centred={centred}>
                         <Category>{job.frontmatter.area}</Category>
                         <Title>{job.frontmatter.title}</Title>
+                        {isFreelance && (
+                            <Content content={job.frontmatter.description} />
+                        )}
                     </TitleContainer>
                 </Overlay>
             </Container>
-        </Link>
+        </Wrapper>
     );
 };
 

@@ -11,4 +11,5 @@ benefits:
   - Fun Environment
 hero: /img/igor-son-285029.jpg
 weighting: 4
+description: Get in touch. [jack.davey@rla.co.uk](mailto:jack.davey@rla.co.uk)
 ---
