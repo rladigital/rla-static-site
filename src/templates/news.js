@@ -189,7 +189,7 @@ export default ({ history, data, pathContext, transition }) => {
             helmet={
                 <Helmet title={pageTitle}>
                     <meta name="title" content={pageTitle} />
-                    <meta property="og:title" content={pageTitle} />
+                    {title && <meta property="og:title" content={title} />}
                     {hero && (
                         <meta
                             property="og:image"
