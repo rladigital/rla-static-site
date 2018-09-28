@@ -83,7 +83,7 @@ copySections:
     parallax: false
     stacked: true
     title: 'MEASURABLE RESULTS, EXCITING FUTURES'
-footer: /img/2674x1218-scania-kieron-owen-image.jpg
+footer: ''
 solutionLookup: ''
 solutionsList:
   - Brand Desire
