@@ -24,7 +24,7 @@ weighting: 0
 **Resource Wars are a common battleground**\
 The Studio Traffic Manager can be your best friend and worst enemy, because the power is in their hands. With different clients having different needs it’s all about planning ahead and keeping them updated throughout projects… having an endless supply of Kit Kats as bribes helps… but seriously they are like the Agony Aunt of the agency, they help to solve problems, keep work on track and orchestrate the studio.
 
-![Our studio overlord Andy, updating traffic on the Trello board. test](/img/1366x532-hannah-5-mid-article-image-a-v1.jpg)
+![Our studio overlord Andy, updating traffic on the Trello board.](/img/1366x532-hannah-5-mid-article-image-a-v1.jpg)
 
 **Acronyms are our second language:**\
 We use them all of the time… “Please send the KPIs for the SEO and PPC activity ASAP” is a normal sentence to us: EOP, KPI, ROI, CMS, CPC, CRM, CTA, DM, PPC, SEO, FTP, and most popularly used, ASAP.
