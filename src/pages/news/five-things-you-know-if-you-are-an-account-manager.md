@@ -1,6 +1,10 @@
 ---
 templateKey: news
 title: 5 Things You Should Know If You Are An Account Manager
+metaTitle: 5 things you know if you're an Account Manager
+metaDescription: >-
+  Are you looking to become an Advertising Agency Account Manager? There are 5
+  key things you need to know...
 date: 07/11/2018
 hero: /img/1160x450-hannah-5-article-header-image-v1.jpg
 thumb: /img/1160x450-hannah-5-article-header-image-v1.jpg
@@ -16,15 +20,11 @@ galleryImages:
   - /img/1160x450-hannah-5-article-header-image-v1.jpg
 author: Hannah Bennett
 weighting: 0
-metaTitle: 5 things you know if you're an Account Manager
-metaDescription: Are you looking to become an Advertising Agency Account Manager? There are 5 key things you need to know...
 ---
-
 **Resource Wars are a common battleground**\
 The Studio Traffic Manager can be your best friend and worst enemy, because the power is in their hands. With different clients having different needs it’s all about planning ahead and keeping them updated throughout projects… having an endless supply of Kit Kats as bribes helps… but seriously they are like the Agony Aunt of the agency, they help to solve problems, keep work on track and orchestrate the studio.
 
-![null](/img/1366x532-hannah-5-mid-article-image-a-v1.jpg)
-_Our studio overlord Andy, updating traffic on the Trello board._
+![Our studio overlord Andy, updating traffic on the Trello board.](/img/1366x532-hannah-5-mid-article-image-a-v1.jpg)
 
 **Acronyms are our second language:**\
 We use them all of the time… “Please send the KPIs for the SEO and PPC activity ASAP” is a normal sentence to us: EOP, KPI, ROI, CMS, CPC, CRM, CTA, DM, PPC, SEO, FTP, and most popularly used, ASAP.
