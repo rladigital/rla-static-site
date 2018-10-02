@@ -2,7 +2,7 @@
 templateKey: job
 area: Client Services
 title: 'Client Services Director, Bournemouth.'
-closing: 10/02/2018
+closing: 10/31/2018
 description: >-
   **About Us**  
 
