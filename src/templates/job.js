@@ -81,9 +81,11 @@ export const JobTemplate = props => {
                                     return <p key={index}>{benefit}</p>;
                                 })}
                             </SummaryItem>
-                            <SummaryItem label="Closing:">
-                                {dateFormat(closing)}
-                            </SummaryItem>
+                            {closing && (
+                                <SummaryItem label="Closing:">
+                                    {dateFormat(closing)}
+                                </SummaryItem>
+                            )}
                         </SummaryContainer>
                         <SummaryContainer>
                             <h4>TO APPLY</h4>

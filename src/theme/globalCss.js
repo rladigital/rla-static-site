@@ -316,7 +316,7 @@ function globalCss(theme) {
                 > li{
                     line-height: 1.8;
                     text-indent: -25px;
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                     &:before{
                         content: "— ";
                         margin-right: 5px;
