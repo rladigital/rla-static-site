@@ -51,15 +51,13 @@ export const JobTemplate = props => {
         <PageDetailContainer style={transition && transition.style}>
             {helmet || ""}
             <BackButton goBack={history.goBack} />
-            {hero && (
-                <Row>
-                    <Column>
-                        <Hero src={getOriginalImageSrc(hero)}>
-                            <JobHeader area={area} title={title} hero={hero} />
-                        </Hero>
-                    </Column>
-                </Row>
-            )}
+            <Row>
+                <Column>
+                    <Hero src={hero && getOriginalImageSrc(hero)}>
+                        <JobHeader area={area} title={title} hero={hero} />
+                    </Hero>
+                </Column>
+            </Row>
             <JobContainer>
                 <Row>
                     {description && [
