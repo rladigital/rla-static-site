@@ -107,6 +107,5 @@ benefits:
     - Cycle to Work Scheme
     - Reward & Recognition Scheme
     - Fridge Friday!
-hero: ""
 weighting: 0
 ---
