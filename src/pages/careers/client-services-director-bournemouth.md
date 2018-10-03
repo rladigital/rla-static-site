@@ -2,9 +2,9 @@
 templateKey: job
 area: Client Services
 title: 'Client Services Director, Bournemouth.'
-closing: 10/31/2018
+closing: 11/02/2018
 description: >-
-  **About Us**  
+  **About Us**\
 
   With a 30 year pedigree, RLA is a full-service advertising and marketing
   communications agency, focusing today on maximising the opportunity our
@@ -29,17 +29,18 @@ description: >-
   beaches of the South West!
 
 
-  **The Role**  
+  **The Role**\
 
-  The role will have a direct reporting line to the Managing Director and is
-  accountable for overall strategic management and growth of all retained or
-  project accounts. You’ll be responsible for leading the retained or project
-  team to meet key operational deliverables of the department which include;
-  managing the operational budget, leading the professional development and
-  continuous improvement of the department. 
+  This is a Board level role and will have a direct reporting line to the
+  Managing Director and is accountable for overall strategic management and
+  growth of all retained or project accounts. You’ll be responsible for leading
+  the retained or project team to meet key operational deliverables of the
+  department which include; managing the operational budget, leading the
+  professional development and continuous improvement of the department. 
 
 
   You will:  
+
 
   * Drive long term client planning and growth.
 
@@ -72,6 +73,7 @@ description: >-
 
 
   **About you**  
+
 
   * Experience of managing and developing a high performing team, an attentive
   listener and motivator of teams.
