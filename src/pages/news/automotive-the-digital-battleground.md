@@ -12,8 +12,13 @@ date: 10/03/2018
 hero: /img/1160x450-automotive-article-header-image-v1.jpg
 thumb: /img/1160x450-automotive-article-header-image-v1.jpg
 category: Insight
+tags:
+  - INSIGHT
+  - AUTOMOTIVE
 intro: '-'
-sideHeading: '-'
+sideHeading: >-
+  Meeting consumer needs using data and technology is the new battleground for
+  growth in the automotive industry.
 galleryImages:
   - /img/1160x450-automotive-article-header-image-v1.jpg
 author: Luke Fagg
