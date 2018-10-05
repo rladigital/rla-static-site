@@ -6,8 +6,6 @@ import ClientPreview from "./preview-templates/ClientPreview";
 import WorkPreview from "./preview-templates/WorkPreview";
 import SolutionPreview from "./preview-templates/SolutionPreview";
 import NewsPreview from "./preview-templates/NewsPreview";
-import ListControl from "./list/ListControl";
-import ListPreview from "./list/ListPreview";
 
 //CMS.registerPreviewStyle("/styles.css");
 //CMS.registerPreviewTemplate("people", PeoplePreview);
@@ -84,9 +82,3 @@ CMS.registerEditorComponent({
         );
     }
 });
-
-CMS.registerWidget(
-    "newWidget", // Widget name
-    ListControl, // Editor component
-    ListPreview // Preview component (this is optional)
-);

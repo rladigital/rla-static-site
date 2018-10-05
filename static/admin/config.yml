@@ -291,27 +291,7 @@ collections:
                 default: 0,
                 required: false,
             }
-          - {
-                label: "Copy Sections",
-                name: "copySections",
-                widget: "newWidget",
-                required: false,
-                types:
-                    [
-                        {
-                            label: "Title",
-                            name: "title",
-                            widget: "string",
-                            required: false,
-                        },
-                        {
-                            label: "Description",
-                            name: "description",
-                            widget: "markdown",
-                            required: false,
-                        },
-                    ],
-            }
+
     - name: "people"
       label: "People"
       folder: "src/pages/people"
