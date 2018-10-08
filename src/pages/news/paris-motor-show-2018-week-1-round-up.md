@@ -52,8 +52,6 @@ If they continue down this more aggressive style with nods to the old Quattro, c
 
 ![audir9gt3](/img/1160x450-paris-ms-article-header-image-v1.jpg)
 
-
-
 **Peugeot E-Legend**
 
 The next in the line of the retro-looking EV’s following the Honda Urban EV. Peugeot are showing that the future of cars can still look like cars. And that’s pretty cool.
