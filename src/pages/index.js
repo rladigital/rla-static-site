@@ -5,12 +5,11 @@ import graphql from "graphql";
 
 import { serveStatic, isBrowser } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
-import ClientsSection from "../components/clients/ClientsSection";
+import WorkSection from "../components/work/WorkSection";
 import NewsSection from "../components/news/NewsSection";
-import LoadingScreen from "../components/loading/LoadingScreen";
 import MissionSection from "../components/mission/MissionSection";
 
-if (serveStatic()) {
+if (!isBrowser()) {
     var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
     var ServicesSection = require("../components/services/ServicesSectionStatic");
 } else {
@@ -22,7 +21,6 @@ export default class IndexPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hasMounted: false,
             width: isBrowser() ? window.innerWidth : null,
             height: isBrowser() ? window.innerHeight : null
         };
@@ -40,7 +38,6 @@ export default class IndexPage extends React.Component {
         window.netlifyIdentity.init();
     }
     componentDidMount() {
-        this.setState({ hasMounted: true });
         if (isBrowser()) {
             window.addEventListener("resize", () => this.handleResize());
         }
@@ -61,47 +58,39 @@ export default class IndexPage extends React.Component {
     }
 
     render() {
-        const { data, scrolltop, font } = this.props;
+        const { data, scrolltop, setOffcanvasColor } = this.props;
         const { width, height } = this.state;
         const {
-            clients: { edges: clients },
+            work: { edges: work },
             solutions: { edges: solutions },
             services: { edges: services },
             news: { edges: news },
             people: { edges: people },
             transition
         } = data;
+
         return (
             <section style={transition && transition.style}>
                 <Script
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
-                {this.state.hasMounted ? (
-                    <div>
-                        <SolutionsSection
-                            width={width}
-                            height={height}
-                            solutions={solutions}
-                            font={font}
-                            scrolltop={scrolltop}
-                        />
-                        <ClientsSection clients={clients} />
-
-                        <ServicesSection
-                            width={width}
-                            height={Math.max(height / 2, 400)}
-                            services={services.concat(services)}
-                            font={font}
-                        />
-
-                        <NewsSection width={width} news={news} />
-                        <PeopleSection people={people.concat(people)} />
-                        <MissionSection />
-                    </div>
-                ) : (
-                    <LoadingScreen text="Loading" />
-                )}
+                <SolutionsSection
+                    width={width}
+                    height={height}
+                    solutions={solutions}
+                    scrolltop={scrolltop}
+                    setOffcanvasColor={setOffcanvasColor}>
+                    <WorkSection work={work} />
+                    <ServicesSection
+                        width={width}
+                        height={Math.max(height / 2, 400)}
+                        services={services}
+                    />
+                    <NewsSection width={width} news={news} />
+                    <PeopleSection people={people} />
+                    <MissionSection />
+                </SolutionsSection>
             </section>
         );
     }
@@ -109,9 +98,10 @@ export default class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
     query IndexQuery {
-        clients: allMarkdownRemark(
+        work: allMarkdownRemark(
+            sort: { fields: [frontmatter___weighting] }
             filter: { frontmatter: { templateKey: { eq: "work" } } }
-            limit: 3
+            limit: 6
         ) {
             edges {
                 node {
@@ -123,7 +113,28 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        hero
+                        hero {
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
+                            original
+                        }
+                        thumb {
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
+                            original
+                        }
+                        excerpt
+                        previewType
                     }
                 }
             }
@@ -161,13 +172,19 @@ export const pageQuery = graphql`
                         color1
                         color2
                         intro
+                        description1
+                        description2
                     }
                 }
             }
         }
         news: allMarkdownRemark(
+            sort: {
+                fields: [frontmatter___date, frontmatter___weighting]
+                order: DESC
+            }
             filter: { frontmatter: { templateKey: { eq: "news" } } }
-            limit: 3
+            limit: 4
         ) {
             edges {
                 node {
@@ -178,7 +195,16 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        thumb
+                        thumb {
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
+                            original
+                        }
                         category
                     }
                 }
@@ -192,13 +218,23 @@ export const pageQuery = graphql`
                     fields {
                         slug
                     }
-                    excerpt(pruneLength: 400)
+                    html
                     id
                     frontmatter {
                         title
                         templateKey
                         role
-                        profile
+                        tags
+                        profile {
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
+                            original
+                        }
                     }
                 }
             }

@@ -1,20 +1,14 @@
 ---
 templateKey: solutions
 title: Customer Acquisition
-intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+intro: CAPTURING IMAGINATIONS AND GETTING PEOPLE ON BOARD
 description1: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Whether you’re creating brand standout to grab attention or tipping the
+  balance in your favour on warm leads, your customer relationship starts here.
 description2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
-color1: '#4EF6DC'
-color2: '#26E9B6'
+  Customer acquisition is just one part of our connected ambition for our
+  Clients. See how we can help you achieve it by getting in touch.
+color1: '#42d6c0'
+color2: '#1dba90'
 ---
 

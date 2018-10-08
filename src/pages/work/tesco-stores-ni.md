@@ -1,25 +1,57 @@
 ---
 templateKey: work
-title: Tesco Stores NI
-hero: /img/Tesco@2x.png
-thumb: /img/Tesco.png
-intro: Tesco Stores NI
-project: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
-  augue id luctus. Sed ac nibh eget dui volutpat porttitor. Integer vel libero
-  sapien. Nunc eu nunc ac risus eleifend venenatis quis ac mauris. In viverra
-  tincidunt turpis. Integer et erat est. Fusce pharetra gravida sem, eu mattis
-  ipsum vulputate a.
-outcome: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
-  augue id luctus. Sed ac nibh eget dui volutpat porttitor. Integer vel libero
-  sapien. Nunc eu nunc ac risus eleifend venenatis quis ac mauris. In viverra
-  tincidunt turpis. Integer et erat est. Fusce pharetra gravida sem, eu mattis
-  ipsum vulputate a.
-galleryImages:
-  - /img/Tesco.png
+title: Tesco
+metaTitle: Tesco | RLA
+metaDescription: >-
+  After 20 years, Tesco has started to thrive in the Irish community and now the
+  largest grocer in the market.  The success of the campaign meant that RLA were
+  the first ever agency to be awarded Tesco's 'Supplier of the Month' Award
+  (which is normally reserved for suppliers such as growers and farmers).
+hero: /img/tesco-hero.jpg
+thumb: /img/RLA_Work_Page_1200x1200_Tesco.jpg
+thumbnailAlignment: top
+intro: Using coordinated communications to harmonise the community.
+logo: /img/tesco-01.png
+copySections:
+  - description: >-
+      The problem for Tesco has always been vocal minority belief that their
+      growth aspirations will 'kill' local town communities by forcing local
+      butchers, bakers and farmers out of business. RLA were challenged to help
+      change this perception in Northern Ireland.
+    image: /img/2674x1218 tesco poster_2.jpg
+    parallax: false
+    stacked: true
+    title: The Project
+  - description: >-
+      In 2014 our localisation campaign "Switch to Local" utilised beautiful
+      photography of numerous key local farmers and suppliers in the province to
+      bring the diverse and committed local suppliers in the front of Tesco
+      Advertising. 
+
+
+      Through a heavy weight regional broadcast campaign in outdoor and press we
+      also integrated the campaign with personalised POS, DM, email, local press
+      and local events for each of the stores.
+    image: /img/2674x1218-tesco-poster.jpg
+    parallax: false
+    stacked: true
+    title: The Strategy
+  - description: >-
+      After 20 years, Tesco has started to thrive in the Irish community and now
+      the largest grocer in the market.
+
+
+      The success of the campaign meant that RLA were the first ever agency to
+      be awarded Tesco's 'Supplier of the Month' Award (which is normally
+      reserved for suppliers such as growers and farmers).
+    parallax: true
+    stacked: true
+    title: The Outcome
+excerpt: ''
+solutionLookup: ''
 solutionsList:
-  - B
-weighting: 0
+  - Brand Desire
+weighting: -1
+previewType: page
 ---
 

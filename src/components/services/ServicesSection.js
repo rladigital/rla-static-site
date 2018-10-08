@@ -3,19 +3,30 @@ import styled from "styled-components";
 import { Row, Column } from "rla-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 
-import { TweenLite } from "gsap";
-
 import HeaderBlock from "../HeaderBlock";
 import ServiceSummary from "./ServiceSummary";
 import SectionContainer from "../SectionContainer";
+import Icon from "../blog/Icon";
 
 import { colors } from "../../theme/theme";
-import { hexToInt } from "../../helpers/helpers";
+import { isMobile, hexToInt } from "../../helpers/helpers";
+
+const points = isMobile() ? 5 : 7;
 
 const Control = styled.a`
     font-size: 3em;
     color: ${colors.white};
     cursor: pointer;
+`;
+
+const IntroPara = styled.p`
+    text-align: center;
+    margin-bottom: 8rem;
+    color: ${colors.lightGray};
+`;
+
+const Service = styled.text`
+    font-family: ${props => props.theme.headings.fontFamily};
 `;
 
 let resizeTimer;
@@ -28,22 +39,32 @@ class ServicesSection extends React.Component {
         };
     }
 
-    coords(elem) {
+    coords(elem, servicesLength) {
         const { current } = this.state;
-        const points = 7;
+
         const total = elem.getTotalLength();
         const segment = total / (points - 1);
         let coords = new Array();
 
         // Generate points
-        for (var i = 0; i < points; i++) {
-            coords[i] = elem.getPointAtLength(segment * i);
+        for (var i = 0; i < servicesLength; i++) {
+            // if more items than points
+            if (i > points) {
+                coords[i] = { x: 0, y: 0 };
+            } else {
+                coords[i] = elem.getPointAtLength(segment * i);
+            }
         }
 
         // Coord other params
-        for (var i = 0; i < coords.length; i++) {
-            coords[i].status =
-                i == 3 ? "active" : i < 6 && i > 0 ? "visible" : null;
+        for (var i = 0; i < points; i++) {
+            if (isMobile()) {
+                coords[i].status =
+                    i == 2 ? "active" : i < 4 && i > 0 ? "visible" : null;
+            } else {
+                coords[i].status =
+                    i == 3 ? "active" : i < 6 && i > 0 ? "visible" : null;
+            }
         }
 
         // Slide the points
@@ -55,47 +76,47 @@ class ServicesSection extends React.Component {
         return coords;
     }
 
-    splitPath() {
-        var numPieces = 20,
-            pieceSizes = [],
-            pieces = [];
+    // splitPath() {
+    //     var numPieces = 20,
+    //         pieceSizes = [],
+    //         pieces = [];
 
-        for (var i = 0; i < numPieces; i++) {
-            pieceSizes.push({ i: i, size: Math.floor(Math.random() * 20) + 5 });
-        }
+    //     for (var i = 0; i < numPieces; i++) {
+    //         pieceSizes.push({ i: i, size: Math.floor(Math.random() * 20) + 5 });
+    //     }
 
-        var size = pieceSizes.reduce(function(a, b) {
-            return a + b.size;
-        }, 0);
+    //     var size = pieceSizes.reduce(function(a, b) {
+    //         return a + b.size;
+    //     }, 0);
 
-        var pieceSize = pLength / size;
+    //     var pieceSize = pLength / size;
 
-        pieceSizes.forEach(function(x, j) {
-            var segs = [];
-            for (var i = 0; i <= x.size + sampleInterval; i += sampleInterval) {
-                pt = p.getPointAtLength(i * pieceSize + cumu * pieceSize);
-                segs.push([pt.x, pt.y]);
-            }
-            angle =
-                Math.atan2(segs[1][1] - segs[0][1], segs[1][0] - segs[0][0]) *
-                180 /
-                Math.PI;
-            pieces.push({ id: j, segs: segs, angle: angle });
-            cumu += x.size;
-        });
+    //     pieceSizes.forEach(function(x, j) {
+    //         var segs = [];
+    //         for (var i = 0; i <= x.size + sampleInterval; i += sampleInterval) {
+    //             pt = p.getPointAtLength(i * pieceSize + cumu * pieceSize);
+    //             segs.push([pt.x, pt.y]);
+    //         }
+    //         angle =
+    //             Math.atan2(segs[1][1] - segs[0][1], segs[1][0] - segs[0][0]) *
+    //             180 /
+    //             Math.PI;
+    //         pieces.push({ id: j, segs: segs, angle: angle });
+    //         cumu += x.size;
+    //     });
 
-        return pieces;
-    }
+    //     return pieces;
+    // }
 
     prev() {
-        const prev = this.state.current - 1;
-        const actual = prev < 0 ? this.props.services.length - 1 : prev;
+        const next = this.state.current + 1;
+        const actual = next > this.props.services.length - 1 ? 0 : next;
         this.setCurrent(actual);
     }
 
     next() {
-        const next = this.state.current + 1;
-        const actual = next > this.props.services.length - 1 ? 0 : next;
+        const prev = this.state.current - 1;
+        const actual = prev < 0 ? this.props.services.length - 1 : prev;
         this.setCurrent(actual);
     }
 
@@ -109,31 +130,39 @@ class ServicesSection extends React.Component {
     render() {
         const { width, height, services } = this.props;
         const { current } = this.state;
-        const coords = this.path && this.coords(this.path);
+        const coords = this.path && this.coords(this.path, services.length);
 
         return (
             <SectionContainer
                 color={colors.white}
                 background={colors.background}
-                padding="2em 0 4em"
+                padding="2em 0 10em"
+                style={{ marginBottom: "-8em" }}
             >
                 <Row>
-                    <Column large={5}>
+                    <Column large={8} centered>
                         <HeaderBlock
                             baseColor={colors.white}
                             padding={{
-                                top: 0,
+                                top: 4,
                                 right: 0,
                                 bottom: 2,
                                 left: 0
                             }}
-                            fontSize={5}
-                            textAlign="left"
+                            fontSize={3.4}
+                            textAlign="center"
                         >
-                            <span>Together,</span>
-                            <br />
-                            we can achieve more
+                            ALL <span>JOINED&nbsp;UP</span>{" "}
                         </HeaderBlock>
+                    </Column>
+                </Row>
+                <Row>
+                    <Column large={6} centered>
+                        <IntroPara>
+                            With our unique insight and range of talents, we can
+                            provide and seamlessly connect all of these key
+                            services. And everything in between.
+                        </IntroPara>
                     </Column>
                 </Row>
                 <div style={{ position: "relative" }}>
@@ -176,6 +205,12 @@ class ServicesSection extends React.Component {
                         {coords &&
                             services &&
                             services.map((service, i) => {
+                                const isActive = Boolean(
+                                    coords[i].status == "active"
+                                );
+                                const mobileActive = Boolean(
+                                    (isActive && isMobile()) || !isMobile()
+                                );
                                 return (
                                     coords[i] && (
                                         <g
@@ -191,45 +226,51 @@ class ServicesSection extends React.Component {
                                             }}
                                         >
                                             <circle
-                                                r={
-                                                    coords[i].status == "active"
-                                                        ? 12
-                                                        : 6
-                                                }
+                                                r={isActive ? 12 : 6}
                                                 style={{
                                                     transition: "r 1s ease"
                                                 }}
                                                 fill={colors.white}
+                                                fillOpacity={
+                                                    mobileActive ? 1 : 0.5
+                                                }
                                                 cx={0}
                                                 cy={0}
                                             >
                                                 {i}
                                             </circle>
-                                            <text
-                                                y={-30}
-                                                textAnchor="middle"
-                                                style={{
-                                                    fill: colors.white,
-                                                    fontWeight: 900
-                                                }}
-                                                fillOpacity={
-                                                    coords[i].status == "active"
-                                                        ? 1
-                                                        : 0.5
-                                                }
-                                            >
-                                                {service.node.frontmatter.title.toUpperCase()}
-                                            </text>
-                                            <line
-                                                x={0}
-                                                y={0}
-                                                x1={0}
-                                                y1={0}
-                                                x2={0}
-                                                y2={-20}
-                                                strokeWidth="1"
-                                                stroke="white"
-                                            />
+                                            {mobileActive && [
+                                                <Service
+                                                    textAnchor="middle"
+                                                    transform={`translate(0 ${
+                                                        isActive ? "-45" : "-30"
+                                                    })`}
+                                                    style={{
+                                                        fill: colors.white,
+                                                        fontWeight: 700,
+                                                        letterSpacing:
+                                                            "0.05rem",
+
+                                                        transition:
+                                                            "all 1s ease"
+                                                    }}
+                                                    fillOpacity={
+                                                        isActive ? 1 : 0.5
+                                                    }
+                                                >
+                                                    {service.node.frontmatter.title.toUpperCase()}
+                                                </Service>,
+                                                <line
+                                                    x={0}
+                                                    y={0}
+                                                    x1={0}
+                                                    y1={0}
+                                                    x2={0}
+                                                    y2={isActive ? -35 : -20}
+                                                    strokeWidth="1"
+                                                    stroke="white"
+                                                />
+                                            ]}
                                         </g>
                                     )
                                 );
@@ -238,19 +279,25 @@ class ServicesSection extends React.Component {
                     <div
                         style={{
                             width: "100%",
-                            position: "absolute",
+
                             top: height / 2,
                             textAlign: "center"
                         }}
                     >
-                        <Row style={{ position: "relative" }}>
+                        <Row style={{ position: "relative", top: -200 }}>
                             <Column small={8} centered>
-                                {services &&
-                                    services[current] && (
+                                {coords &&
+                                    services && (
                                         <div
                                             dangerouslySetInnerHTML={{
                                                 __html:
-                                                    services[current].node.html
+                                                    services[
+                                                        coords
+                                                            .map(e => {
+                                                                return e.status;
+                                                            })
+                                                            .indexOf("active")
+                                                    ].node.html
                                             }}
                                         />
                                     )}
@@ -265,11 +312,12 @@ class ServicesSection extends React.Component {
                                     }}
                                     onClick={() => this.prev()}
                                 >
-                                    <FAIcon
+                                    <Icon
+                                        size={40}
                                         icon="chevron-left"
-                                        transform="shrink-8"
+                                        transform="shrink-10"
+                                        iconColor={colors.white}
                                     />
-                                    <FAIcon icon={["far", "circle"]} />
                                 </Control>
 
                                 <Control
@@ -282,11 +330,12 @@ class ServicesSection extends React.Component {
                                     }}
                                     onClick={() => this.next()}
                                 >
-                                    <FAIcon
+                                    <Icon
+                                        size={40}
                                         icon="chevron-right"
-                                        transform="shrink-8"
+                                        transform="shrink-10"
+                                        iconColor={colors.white}
                                     />
-                                    <FAIcon icon={["far", "circle"]} />
                                 </Control>
                             </Column>
                         </Row>

@@ -1,24 +1,15 @@
 ---
 templateKey: work
-title: Salisbury BID
-hero: /img/Salisbury@2x.png
-thumb: /img/Salisbury.png
-intro: Salisbury BID
-project: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
-  augue id luctus. Sed ac nibh eget dui volutpat porttitor. Integer vel libero
-  sapien. Nunc eu nunc ac risus eleifend venenatis quis ac mauris. In viverra
-  tincidunt turpis. Integer et erat est. Fusce pharetra gravida sem, eu mattis
-  ipsum vulputate a.
-outcome: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis vitae
-  augue id luctus. Sed ac nibh eget dui volutpat porttitor. Integer vel libero
-  sapien. Nunc eu nunc ac risus eleifend venenatis quis ac mauris. In viverra
-  tincidunt turpis. Integer et erat est. Fusce pharetra gravida sem, eu mattis
-  ipsum vulputate a.
-galleryImages:
-  - /img/Salisbury.png
+title: The City of Salisbury
+metaTitle: RLA | Salisbury
+metaDescription: Connecting Salisbury with a new generation of city lovers.
+hero: /img/salisbury-hero.jpg
+thumb: /img/RLA_Work_Page_1200x1200_Salisbury.jpg
+thumbnailAlignment: center
+intro: Connecting Salisbury with a new generation of city lovers.
+excerpt: ''
 solutionsList:
   - Brand Desire
-weighting: 0
+weighting: -2
 ---
+

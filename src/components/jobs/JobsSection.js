@@ -3,41 +3,64 @@ import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
 import styled from "styled-components";
 
-import HeaderBlock from "../HeaderBlock";
 import JobSummary from "./JobSummary";
 import { colors, spacing } from "../../theme/theme";
-import SectionContainer from "../SectionContainer";
+import PeoplePlaceholder from "../blog/placeholders/People";
+import NewsPlaceholder from "../blog/placeholders/News";
 
 const StyledButton = Button.extend`
     color: ${colors.background};
-    margin-top: 4em;
-`;
-
-const StyledP = styled.p`
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 6rem;
+    margin-top: 0em;
 `;
 
 class JobsSection extends React.Component {
     render() {
-        const { jobs } = this.props;
+        const { jobs, news } = this.props;
+
         return (
             <div>
-                <SectionContainer
-                    color={colors.background}
-                    background={colors.white}
-                >
-                    <Row expanded collapse>
-                        {jobs.slice(0, 6).map(({ node: job }, index) => {
-                            return (
-                                <Column medium={4} key={index} collapse>
-                                    <JobSummary job={job} height={24} />
-                                </Column>
-                            );
-                        })}
-                    </Row>
-                </SectionContainer>
+                <Row>
+                    <Column medium={6} large={7} xlarge={9} collapse>
+                        <Row collapse>
+                            <Column>
+                                <JobSummary
+                                    job={jobs[0].node}
+                                    height={36}
+                                    centred
+                                />
+                            </Column>
+                        </Row>
+
+                        <Row collapse>
+                            <Column large={6} xlarge={4}>
+                                <NewsPlaceholder height={37.5} news={news} />
+                            </Column>
+                            <Column large={6} xlarge={8}>
+                                {jobs[2] && (
+                                    <JobSummary
+                                        job={jobs[2].node}
+                                        height={18}
+                                    />
+                                )}
+                                {jobs[3] && (
+                                    <JobSummary
+                                        job={jobs[3].node}
+                                        height={18}
+                                    />
+                                )}
+                            </Column>
+                        </Row>
+                    </Column>
+                    <Column medium={6} large={5} xlarge={3}>
+                        {jobs[1] && (
+                            <JobSummary job={jobs[1].node} height={18} />
+                        )}
+                        <PeoplePlaceholder height={36} />
+                        {jobs[4] && (
+                            <JobSummary job={jobs[4].node} height={18} />
+                        )}
+                    </Column>
+                </Row>
             </div>
         );
     }

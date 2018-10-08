@@ -5,6 +5,7 @@ import graphql from "graphql";
 import Helmet from "react-helmet";
 import { Row, Column } from "rla-components";
 
+import { getOriginalImageSrc } from "../utils/image";
 import { colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
@@ -19,7 +20,7 @@ export const ClientTemplate = ({ logo, color, solutions, title, helmet }) => {
             <Row>
                 <Column>
                     <img
-                        src={logo}
+                        src={getOriginalImageSrc(logo)}
                         alt={`${title} Logo`}
                         title={`${title} Logo`}
                     />
@@ -60,7 +61,16 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
-                logo
+                logo {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
                 color
                 solutionsList
             }

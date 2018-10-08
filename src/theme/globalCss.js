@@ -1,8 +1,72 @@
-import { breakpoints } from "./theme";
+import { breakpoints, colors } from "./theme";
 
 function globalCss(theme) {
     return `   
         @import url("https://use.typekit.net/xsi0mvc.css");
+
+        @font-face {
+            font-family: 'Gotham';
+            src: url('/fonts/Gotham-Medium.woff2') format('woff2'),
+                url('/fonts/Gotham-Medium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Gotham';
+            src: url('/fonts/Gotham-Bold.woff2') format('woff2'),
+                url('/fonts/Gotham-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gotham';
+            src: url('/fonts/Gotham-Black.woff2') format('woff2'),
+                url('/fonts/Gotham-Black.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gotham';
+            src: url('/fonts/Gotham-Light.woff2') format('woff2'),
+                url('/fonts/Gotham-Light.woff') format('woff');
+            font-weight: lighter;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gotham';
+            src: url('/fonts/Gotham-Ultra.woff2') format('woff2'),
+                url('/fonts/Gotham-Ultra.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Avenir';
+            src: url('/fonts/Avenir-Medium.woff2') format('woff2'),
+            url('/fonts/Avenir-Medium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Avenir';
+            src: url('/fonts/Avenir-Black.woff2') format('woff2'),
+                url('/fonts/Avenir-Black.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Avenir';
+            src: url('/fonts/Avenir-Light.woff2') format('woff2'),
+                url('/fonts/Avenir-Light.woff') format('woff');
+            font-weight: lighter;
+            font-style: normal;
+        }        
 
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -67,16 +131,20 @@ function globalCss(theme) {
             -webkit-font-smoothing: antialiased;
 	        -moz-osx-font-smoothing: grayscale;
         }
+        h1,h2,h3,h4,h5,h6{
+            font-family: ${theme.headings.fontFamily};
+        }
         h1,h2,h3,h4,h5,h6,button {
             text-transform: uppercase;
         }
         h1,h2,h3,h4,h5,h6,p,hr {
-            margin: 0 0 ${theme.paragraph.margin}em;
+            margin: 0 0 ${theme.paragraph.margin}rem;
         }
         p {
-            margin: ${theme.paragraph.margin}rem 0 ${theme.paragraph.margin *
-        4}rem 0;
-            line-height: 1.5;
+            margin: ${theme.paragraph.margin}rem 0 ${
+        theme.paragraph.margin
+    }rem 0;
+            line-height: 1.8;
         }
         strong, b{
             font-weight: bold;
@@ -181,6 +249,10 @@ function globalCss(theme) {
             
         }
 
+        button {
+            font-family: Gotham, Avenir, sans-serif;
+        }
+
         /* ----- Heading Styles ----- */
         ${headings()}    
 
@@ -208,6 +280,108 @@ function globalCss(theme) {
             padding: 2rem 2rem 1.2rem 2rem;
             background: #eaeaea;
             font-size: 2rem;
+        }
+
+        /* ----- CMS content style ----- */
+        .cms-content{
+            color: ${colors.lightGray};
+
+            h1, h2, h3, h4, h5, h6{
+                font-weight: 900;
+                color: ${colors.black};
+                margin: 4rem 0 1rem;
+                &:first-child{
+                    margin: 0 0 1rem;
+                    
+                }
+            }
+            h1{
+                font-size: 1.2rem;
+            }
+            h2{
+                font-size: 1rem;
+            }
+            p{
+                margin: 0 0 2rem;
+            }
+            a{
+                color: inherit;
+            }
+            a[href]{
+                text-decoration: underline;
+            }
+            ul{
+                margin-left: 25px;
+                list-style-type: none;
+                > li{
+                    line-height: 1.8;
+                    text-indent: -25px;
+                    margin-bottom: 10px;
+                    &:before{
+                        content: "— ";
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+
+        .work-cms-content{
+            ul{
+                margin-left: 25px;
+                list-style-type: none;
+                > li{
+                    line-height: 1.8;
+                    text-indent: -25px;
+                    margin-bottom: 20px;
+                    &:before{
+                        content: "— ";
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+
+        /* ----- Map Styles ----- */
+        div.leaflet-container {
+            background: ${colors.background};
+        }
+
+        
+        /* ----- Cookie (One trust) Style Overides ----- */
+        div .optanon-show-settings-popup-wrapper  {
+            display: inline;
+        }
+        
+        div .optanon-show-settings-button  {
+            display: inline;
+        }
+
+        
+        div .optanon-show-settings-popup-wrapper .optanon-show-settings-left {
+            display: none;
+        }
+        div .optanon-show-settings-popup-wrapper .optanon-show-settings-middle {
+            display: inline;
+            background: none !important;
+            border: none;
+            float: none;
+            a.optanon-show-settings {
+                color: ${theme.anchor.color} !important;
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+        div .optanon-show-settings-popup-wrapper .optanon-show-settings-right {
+            display: none;
+        }
+
+        /* ----- Iframe Styles ----- */
+        iframe{
+            max-width: 100%;
+        }
+
+        .parallax-custom-bg{
+            width: 100vw;
         }
     `;
 }

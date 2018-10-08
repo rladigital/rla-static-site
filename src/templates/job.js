@@ -2,19 +2,25 @@ import React from "react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
-import { Row, Column } from "rla-components";
+import { Row, Column, Button } from "rla-components";
+import FAIcon from "@fortawesome/react-fontawesome";
 
-import { colors } from "../theme/theme";
+import { dateFormat } from "../helpers/helpers";
+import { getOriginalImageSrc } from "../utils/image";
+import { spacing, colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import HeaderBlock from "../components/HeaderBlock";
 import JobHeader from "../components/jobs/JobHeader";
+import BackButton from "../components/blog/BackButton";
+import Hero from "../components/blog/Hero";
 
 const SummaryContainer = styled.section`
-    padding: 10px;
+    padding: ${spacing.padding}em ${spacing.padding}em 0;
     background: #ebebeb;
-    div {
-        margin: 0.3em 0;
+    margin-bottom: ${spacing.margin}em;
+    p {
+        margin: 0 0 0.8em;
     }
 `;
 const JobContainer = styled.section`
@@ -28,75 +34,83 @@ export const JobTemplate = props => {
         title,
         area,
         helmet,
-        role,
-        person,
-        skills,
+        description,
         hero,
         level,
+        location,
         salary,
         hours,
         benefits,
-        closing
+        closing,
+        transition,
+        history
     } = props;
     const PostContent = contentComponent || Content;
 
     return (
-        <PageDetailContainer>
+        <PageDetailContainer style={transition && transition.style}>
             {helmet || ""}
+            <BackButton goBack={history.goBack} />
             <Row>
-                <JobHeader area={area} title={title} hero={hero} />
+                <Column>
+                    <Hero src={hero && getOriginalImageSrc(hero)}>
+                        <JobHeader area={area} title={title} hero={hero} />
+                    </Hero>
+                </Column>
             </Row>
             <JobContainer>
                 <Row>
-                    <Column medium={8}>
-                        <h3>The Role</h3>
-                        <PostContent content={role} />
-                        <h3>The Person</h3>
-                        <PostContent content={person} />
-                        <h3>Key Skills</h3>
-                        <ul>
-                            {skills.map((skill, index) => {
-                                return <li key={index}>{skill}</li>;
-                            })}
-                        </ul>
-                    </Column>
-                    <Column medium={4}>
+                    {description && [
+                        <Column large={7} className="cms-content">
+                            <PostContent content={description} />
+                        </Column>,
+                        <Column large={1}>&nbsp;</Column>
+                    ]}
+                    <Column large={description && 4}>
                         <SummaryContainer>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Closing:</h5>
-                                </Column>
-                                <Column small={6}>{closing}</Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Level:</h5>
-                                </Column>
-                                <Column small={6}>{level}</Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Salary:</h5>
-                                </Column>
-                                <Column small={6}>{salary}</Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Hours:</h5>
-                                </Column>
-                                <Column small={6}>{hours}</Column>
-                            </Row>
-                            <Row>
-                                <Column small={6}>
-                                    <h5>Benefits:</h5>
-                                </Column>
-                                <Column small={6}>
-                                    {benefits.map((benefit, index) => {
-                                        return <div key={index}>{benefit}</div>;
-                                    })}
-                                </Column>
-                            </Row>
+                            <SummaryItem label="Level:">{level}</SummaryItem>
+                            <SummaryItem label="Salary:">{salary}</SummaryItem>
+                            <SummaryItem label="Hours:">{hours}</SummaryItem>
+                            <SummaryItem label="Location:">
+                                {location}
+                            </SummaryItem>
+                            <SummaryItem label="Benefits:">
+                                {benefits.map((benefit, index) => {
+                                    return <p key={index}>{benefit}</p>;
+                                })}
+                            </SummaryItem>
+                            {closing && (
+                                <SummaryItem label="Closing:">
+                                    {dateFormat(closing)}
+                                </SummaryItem>
+                            )}
                         </SummaryContainer>
+                        <SummaryContainer>
+                            <h4>TO APPLY</h4>
+                            <p style={{ paddingBottom: "1rem" }}>
+                                Please send your Cover Letter, CV and other
+                                supporting documents to{" "}
+                                <a href="mailto:careers@rla.co.uk">
+                                    careers@rla.co.uk
+                                </a>
+                            </p>
+                        </SummaryContainer>
+
+                        {/*
+                            //TODO - UNHIDE WHEN WE GET A CHANCE TO DO PROPER FORM IN MODAL SUBMISSIONS
+                            <a href="mailto:careers@rla.co.uk">
+                            <Button
+                                size="large"
+                                hollow
+                                color="background"
+                                borderWidth={3}
+                                padding={2}
+                            >
+                                Apply for this job <FAIcon icon="arrow-right" />
+                            </Button>
+                            </a>
+                        
+                        */}
                     </Column>
                 </Row>
             </JobContainer>
@@ -104,7 +118,18 @@ export const JobTemplate = props => {
     );
 };
 
-export default ({ data }) => {
+const SummaryItem = ({ label, children }) => (
+    <Row>
+        <Column large={6} xlarge={4} collapse>
+            <h5>{label}</h5>
+        </Column>
+        <Column large={6} xlarge={8} collapse>
+            {children}
+        </Column>
+    </Row>
+);
+
+export default ({ history, transition, data }) => {
     //console.log(data);
     const { markdownRemark: job } = data;
     return (
@@ -113,15 +138,16 @@ export default ({ data }) => {
             title={job.frontmatter.title}
             area={job.frontmatter.area}
             content={job.html}
-            role={job.frontmatter.role}
-            person={job.frontmatter.person}
-            skills={job.frontmatter.skills}
+            description={job.frontmatter.description}
             hero={job.frontmatter.hero}
             level={job.frontmatter.level}
+            location={job.frontmatter.location}
             salary={job.frontmatter.salary}
             hours={job.frontmatter.hours}
             benefits={job.frontmatter.benefits}
             closing={job.frontmatter.closing}
+            transition={transition}
+            history={history}
         />
     );
 };
@@ -132,13 +158,21 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
-                role
-                person
-                skills
+                description
                 area
                 tags
-                hero
+                hero {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
                 level
+                location
                 salary
                 hours
                 benefits

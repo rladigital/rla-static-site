@@ -1,70 +1,124 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "gatsby-link";
 
-import { colors, spacing } from "../../theme/theme";
-
-const Image = styled.section`
-    min-height: 200px;
-    max-height: 500px;
-    height: 30vw;
-    position: relative;
-    background-image: url(${props => props.backgroundImage});
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-`;
-
-const WorkTitle = styled.h5`
-    position: absolute;
-    margin: 0;
-    padding: ${props => props.theme.spacing.padding}rem;
-    max-width: 90%;
-    bottom: 0;
-    color: ${props => props.theme.darkColor};
-    background: ${props => props.theme.lightColor};
-    font-size: 1rem;
-    span {
-        color: ${props => props.theme.anchor.color};
-    }
-`;
+import { getOriginalImageSrc } from "../../utils/image";
+import { colors, spacing, breakpoints } from "../../theme/theme";
+import { transparentize } from "../../helpers/helpers";
 
 const Container = styled.div`
-    padding: 3px;
+    overflow: hidden;
+    height: 100vw;
+    ${props =>
+        props.heightMediaQuery
+            ? css`
+                  ${props.heightMediaQuery};
+              `
+            : css`
+                  height: 33.33vw;
+              `};
 `;
 
-const Description = styled.div`
-    height: 85px;
-    color: ${colors.mediumGray};
-    padding: ${spacing.padding}rem;
-    background: ${colors.white};
-    font-size: 0.8rem;
-    position: relative;
-    overflow: hidden;
-    &:after {
-        content: " ";
-        position: absolute;
-        width: 100%;
-        height: 20px;
-        background: linear-gradient(to bottom, transparent, ${colors.white});
-        bottom: 0;
-        left: 0;
+const Overlay = styled.div`
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: opacity 0.5s ease, transform 0.25s ease;
+
+    background: ${props =>
+        transparentize(
+            props.index % 2 ? colors.accent : colors.background,
+            0.52
+        )};
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1);
     }
 `;
 
-const WorkSummary = ({ work }) => {
-    //console.log(work);
+const Content = styled.div`
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    max-width: 90%;
+    width: 100%;
+    margin-top: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: ${props => colors.white};
+`;
+
+const Title = styled.h3`
+    font-size: 9vw;
+    font-weight: 800;
+    @media (min-width: ${breakpoints.medium}px) {
+        font-size: 3vw;
+    }
+`;
+
+const Image = styled.section`
+    height: 100%;
+    position: relative;
+    background-image: url('${props => props.backgroundImage}');
+    background-size: cover;
+    background-position: ${props => props.alignment};
+    overflow: hidden;
+    transition: transform 0.25s ease;
+    &:hover{
+        transform: scale(1.05);
+    }
+`;
+
+const Summary = styled.p`
+    font-size: 3vw;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-family: Avenir, sans-serif;
+    @media (min-width: ${breakpoints.medium}px) {
+        font-size: 2vw;
+    }
+    @media (min-width: ${breakpoints.large}px) {
+        font-size: 0.9vw;
+    }
+`;
+
+const WorkSummaryWrapper = ({ children, slug, previewType }) => {
+    switch (previewType) {
+        case "page":
+            return <Link to={slug}>{children}</Link>;
+            break;
+        default:
+            return children;
+    }
+};
+
+const WorkSummary = ({ work, index, heightMediaQuery }) => {
     return (
-        <Container>
-            <Link to={work.fields.slug}>
-                <Image backgroundImage={work.frontmatter.thumb}>
-                    <WorkTitle>
-                        {work.frontmatter.title} <span>&rarr;</span>
-                    </WorkTitle>
+        <WorkSummaryWrapper
+            slug={work.fields.slug}
+            previewType={work.frontmatter.previewType}
+        >
+            <Container heightMediaQuery={heightMediaQuery}>
+                <Image
+                    backgroundImage={getOriginalImageSrc(
+                        work.frontmatter.thumb
+                    )}
+                    alignment={work.frontmatter.thumbnailAlignment}
+                >
+                    <Overlay index={index}>
+                        <Content>
+                            <Title>{work.frontmatter.title}</Title>
+                            {work.frontmatter.excerpt && (
+                                <Summary>{work.frontmatter.excerpt}</Summary>
+                            )}
+                        </Content>
+                    </Overlay>
                 </Image>
-            </Link>
-            <Description>{work.frontmatter.outcome}</Description>
-        </Container>
+            </Container>
+        </WorkSummaryWrapper>
     );
 };
 

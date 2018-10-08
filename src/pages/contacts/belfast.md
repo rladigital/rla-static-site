@@ -4,14 +4,10 @@ title: Belfast
 group: RLA
 showOnMap:
 address: |-
-  4th floor, 
-
-  Elmwood exchange, 
-
-  90 Lisburn Road,
-
-  Belfast, 
-    
+  4th floor,<br/>
+  Elmwood exchange,<br/>
+  90 Lisburn Road,<br/>
+  Belfast,<br/>
   BT9 6AG
 contactName: Stephen Roycroft
 contactImage: /img/stephen-roycroft.png

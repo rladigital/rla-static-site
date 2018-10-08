@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "rla-components";
 
-import { serveStatic } from "../../helpers/helpers";
+import { isBrowser } from "../../helpers/helpers";
 import HeaderBlock from "../HeaderBlock";
 import SectionContainer from "../SectionContainer";
-if (serveStatic()) {
-    var PeopleBrowser = require("./PeopleBrowserStatic");
-} else {
+if (isBrowser()) {
     var PeopleBrowser = require("./PeopleBrowser");
+} else {
+    var PeopleBrowser = require("./PeopleBrowserStatic");
 }
 
 class PeopleSection extends React.Component {
@@ -17,11 +17,19 @@ class PeopleSection extends React.Component {
 
         return (
             <SectionContainer padding="6em 0 4em">
-                <HeaderBlock>
+                <HeaderBlock
+                    fontSize={3.4}
+                    padding={{
+                        top: 0,
+                        right: 0,
+                        bottom: 0,
+                        left: 0
+                    }}
+                >
                     <span>People</span> at our Core
                 </HeaderBlock>
 
-                <PeopleBrowser people={people.concat(people)} size={500} />
+                <PeopleBrowser people={people} size={500} />
             </SectionContainer>
         );
     }

@@ -2,11 +2,8 @@
 templateKey: people
 title: Richard Selby
 role: Full Stack Developer
-profile: /img/missing_avatar.svg
 tags:
   - Digital
-linkedIn: 
-twitter: 
+profile: /img/richard-selby.jpg
 ---
-
-Missing
+18 years programming, a self confessed faux geek who loves a challenge. When not at work problem solving he’ll be spending time with his kids and attempting to cram one of a hundred hobbies in the slither of remaining spare time.

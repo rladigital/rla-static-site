@@ -1,59 +1,78 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import FAIcon from "@fortawesome/react-fontawesome";
 import { Row, Column } from "rla-components";
-import { transformScale } from "../../helpers/helpers";
+import { Transition, TransitionGroup } from "react-transition-group";
 
-import { colors } from "../../theme/theme";
-import { hexToInt, scale, random } from "../../helpers/helpers";
+import { getOriginalImageSrc } from "../../utils/image";
+import { transformScale, shuffleArray } from "../../helpers/helpers";
+import { colors, breakpoints, spacing } from "../../theme/theme";
+import {
+    hexToInt,
+    scale,
+    random,
+    chunkArray,
+    isMobile,
+    isBrowser
+} from "../../helpers/helpers";
+import { HTMLContent } from "../Content";
+import Icon from "../blog/Icon";
+import { Z_ASCII } from "zlib";
 
-const height = 640;
+const height = isBrowser() && isMobile() ? 680 : 600;
 
-const Wrapper = styled.div`
-    overflow: hidden;
-`;
+let coords;
 
-const Container = styled.div`
+let direction;
+
+const duration = 800;
+
+const PeopleBrowserContainer = styled.div`
     position: relative;
-    height: ${height}px;
+    //overflow: hidden;
 `;
 
 const PersonGroup = styled.div`
-    margin-left: 50%;
-    margin-top: ${height / 2}px;
     position: absolute;
-    transition: transform 1s ease, opacity 1s ease, filter 1s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `;
 
 const Person = styled.div`
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
-    width: 200px;
+
     cursor: pointer;
 `;
 
 const PersonImage = styled.div`
     width: 100px;
     height: 100px;
-    border-radius: 100px;
+    border-radius: 200px;
     background-size: cover;
     background-position: center;
     display: inline-block;
 `;
 
 const PersonTitle = styled.h3`
-    font-size: 12px;
+    font-size: 16px;
     white-space: nowrap;
+    margin: 0 0 0.2rem;
 `;
 const PersonRole = styled.h4`
-    font-size: 10px;
+    font-size: 13px;
     white-space: nowrap;
+    margin: 0;
+    font-weight: lighter;
+    font-family: Avenir, sans-serif;
+    letter-spacing: 1px;
 `;
 
-const Control = styled.a`
+const Control = styled(Icon)`
+    top: 280px;
     position: absolute;
-    font-size: 3em;
     color: ${colors.white};
     cursor: pointer;
     z-index: 1;
@@ -62,10 +81,10 @@ const Control = styled.a`
 const Selected = styled.div`
     top: 50%;
     left: 50%;
-    width: 360px;
-    height: 360px;
+    width: 450px;
+    height: 450px;
     position: absolute;
-    border-radius 200px;
+    border-radius 400px;
     background-size: cover;
     background-position: center;
     transform: translate(-50%, -50%);
@@ -76,7 +95,6 @@ const Selected = styled.div`
         content: " ";
         width: 100%;
         height: 100%;
-
         position: absolute;
         top: -20px;
         left: -20px;
@@ -89,11 +107,11 @@ const Selected = styled.div`
 const SelectedText = styled.div`
     width: 100%;
     text-align: center;
-
     padding: 0 0 2em;
 `;
 
 const SelectedTitle = styled.h1`
+    margin-top: 1em;
     margin-bottom: 0.5em;
     position: relative;
     font-size: 30px;
@@ -106,78 +124,184 @@ const SelectedRole = styled.h1`
     font-weight: normal;
 `;
 
-const SelectedBiog = styled.div`
-    position: relative;
+const SelectedBiog = styled.p`
     font-size: 14px;
+    position: relative;
 `;
+
+const StyledRow = styled(Row)`
+    position: relative;
+`;
+
+const Filters = styled.div`
+    text-align: center;
+`;
+
+const FilterMarker = styled.svg`
+    left: 50%;
+    bottom: 0;
+    position: absolute;
+    transform: translateX(-50%);
+`;
+
+const FilterGroup = styled.div`
+    padding: 1em;
+    color: ${colors.white};
+    display: inline-block;
+    position: relative;
+`;
+
+const FilterText = styled.a`
+    text-transform: uppercase;
+    font-family: ${props => props.theme.headings.fontFamily};
+    cursor: pointer;
+    ${props =>
+        props.active
+            ? css`
+                  color: ${colors.accent};
+              `
+            : css`
+                  color: ${colors.white};
+              `};
+`;
+
+if (isBrowser() && !isMobile()) {
+    coords,
+        (coords = [
+            [
+                { x: 300, y: -240, r: 120 },
+                { x: -380, y: 80, r: 120 },
+                { x: 380, y: -10, r: 80 },
+                { x: -320, y: -200, r: 100 },
+                { x: 330, y: 200, r: 120 }
+            ],
+            [
+                { x: -280, y: -280, r: 120 },
+                { x: 320, y: 200, r: 100 },
+                { x: -380, y: -10, r: 120 },
+                { x: 320, y: -200, r: 100 },
+                { x: -330, y: 200, r: 80 }
+            ],
+            [
+                { x: -320, y: -230, r: 120 },
+                { x: 240, y: -280, r: 100 },
+                { x: 400, y: -50, r: 120 },
+                { x: -340, y: 200, r: 100 },
+                { x: 300, y: 200, r: 80 }
+            ]
+        ]);
+} else {
+    coords = [
+        [
+            { x: -230, y: -380, r: 150 },
+            { x: -200, y: 370, r: 200 },
+            { x: 240, y: -340, r: 130 },
+            { x: 28, y: -480, r: 180 },
+            { x: 140, y: 420, r: 150 }
+        ]
+    ];
+}
+
+const FilterItem = ({ children, active, onClick }) => {
+    return (
+        <FilterGroup>
+            <FilterText active={active} onClick={onClick}>
+                {children}
+            </FilterText>
+            {active && (
+                <FilterMarker width={30} viewBox="0 0 60 20">
+                    <circle r={4} cx={10} cy={10} fill="currentColor" />
+                    <circle r={4} cx={30} cy={10} fill="currentColor" />
+                    <circle r={4} cx={50} cy={10} fill="currentColor" />
+                </FilterMarker>
+            )}
+        </FilterGroup>
+    );
+};
+
+class Fade extends React.Component {
+    render() {
+        const { in: inProp, children, ...otherProps } = this.props;
+
+        const defaultStyle = {
+            transform: "scale(1)",
+            transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
+            opacity: 0
+        };
+
+        const transitionStyles = {
+            entering: {
+                opacity: 0,
+                transform: `scale(${direction == "prev" ? 2 : 0})`
+            },
+            entered: {
+                opacity: 1,
+                transform: `scale(1)`
+            },
+            exiting: {
+                opacity: 0,
+                transform: `scale(${direction == "prev" ? 0 : 2})`
+            }
+        };
+
+        return (
+            <Transition in={inProp} timeout={duration} {...otherProps}>
+                {state => (
+                    <PersonGroup
+                        id="person-group"
+                        style={{
+                            ...defaultStyle,
+                            ...transitionStyles[state]
+                        }}>
+                        {children}
+                    </PersonGroup>
+                )}
+            </Transition>
+        );
+    }
+}
 
 class PeopleBrowser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             selected: null,
-            current: 1,
+            current: 0,
             coords: null,
             data: null,
-            array: [0, 1, 2, 3]
+            array: [0, 1, 2, 3],
+            widthAdjustment: isBrowser() ? window.innerWidth / 20 : 0,
+            // widthAdjustment: 0,
+            sizeAdjustment: isBrowser() ? window.innerWidth / 80 : 0,
+            randomCoords: this.getRandomCoords(),
+            filter: "All",
+            filters: this.getFilters()
         };
-        this.width = window.innerWidth;
     }
 
     componentDidMount() {
         const { people } = this.props;
-        const coords = this.generateCoords(6, 360);
-        const data = this.chunkArray(6, people);
+        let data = chunkArray(5, shuffleArray(people));
+
+        // Don't allow singles
+        if (data[data.length - 1].length == 1) {
+            let tempArray = data.splice(-1);
+            data[data.length - 1].concat(tempArray);
+        }
 
         this.setState({
-            coords: coords,
             data: data,
             selected: data[0][0].node
         });
     }
 
-    chunkArray(chunk_size, myArray) {
-        var i = 0;
-        var chunk;
-        var tempArray = [];
-
-        for (i = 0; i < myArray.length; i += chunk_size) {
-            chunk = myArray.slice(i, i + chunk_size);
-            tempArray.push(chunk);
-        }
-
-        return tempArray;
-    }
-
-    generateCoords(count, r) {
-        let main = 1;
-        let theta = Math.PI / count;
-        let items = new Array();
-        let size = 360;
-
-        for (var i = 0; i < count; i++) {
-            let angle =
-                (i >= count / 2 ? theta * i : theta * (i - count / 2)) -
-                Math.PI / count * 4;
-            let x = size * Math.cos(angle); // center point + radius * angle
-            let y = size * Math.sin(angle);
-
-            items[i] = {
-                x: x,
-                y: y
-            };
-        }
-
-        return items;
-    }
-
-    navigateChunk(direction) {
+    navigateChunk(buttonPressed) {
         let { data } = this.state;
         let array = [];
         let current;
         let length = data.length - 1;
 
-        if (direction == "prev") {
+        if (buttonPressed == "prev") {
             current = this.state.current + 1;
             if (current == length + 1) {
                 current = 0;
@@ -194,12 +318,22 @@ class PeopleBrowser extends React.Component {
         array[2] = current + 1 > length ? 0 : current + 1;
         array[3] = current + 1 > length ? 1 : current + 2;
 
-        this.setState({ current: current, array: array });
+        this.setState({
+            current: current,
+            array: array,
+            randomCoords: this.getRandomCoords()
+        });
+
+        direction = buttonPressed;
     }
 
     handleSelect(person) {
         //console.log(person);
         this.setState({ selected: person });
+    }
+
+    getRandomCoords() {
+        return coords[random(0, coords.length - 1)];
     }
 
     getTransform(x) {
@@ -212,127 +346,170 @@ class PeopleBrowser extends React.Component {
         }
     }
 
-    render() {
-        const { coords, data, current, selected } = this.state;
-        return (
-            <Wrapper>
-                <Container>
-                    <Row
-                        style={{
-                            top: "50%",
-                            position: "relative"
-                        }}
-                    >
-                        <Column>
-                            <Control
-                                className="fa-layers fa-fw"
-                                onClick={() => this.navigateChunk("prev")}
-                                style={{ left: 0 }}
-                            >
-                                <FAIcon
-                                    icon="chevron-left"
-                                    transform="shrink-8"
-                                />
-                                <FAIcon icon={["far", "circle"]} />
-                            </Control>
+    // for filtering the list of people by tag
+    setFilter(filter) {
+        let data;
+        const { people } = this.props;
+        if (filter == "All") {
+            data = people;
+        } else {
+            data = people.filter(({ node: { frontmatter: { tags } } }) => {
+                return Boolean(tags.indexOf(filter) != -1);
+            });
+        }
 
-                            <Control
-                                className="fa-layers fa-fw"
-                                onClick={() => this.navigateChunk("next")}
-                                style={{ right: 0 }}
-                            >
-                                <FAIcon
-                                    icon="chevron-right"
-                                    transform="shrink-8"
-                                />
-                                <FAIcon icon={["far", "circle"]} />
-                            </Control>
-                        </Column>
-                    </Row>
-                    <div
-                        style={{
-                            height: height,
-                            transform: `scale(${transformScale(1200)})`
-                        }}
-                    >
-                        {coords &&
-                            data.map((row, i) => {
+        const chunkedData = chunkArray(5, shuffleArray(data));
+
+        this.setState({
+            current: 0,
+            data: chunkedData,
+            filter: filter,
+            selected: chunkedData[0][0].node
+        });
+
+        direction = "next";
+    }
+
+    // for getting all tags and creating filters
+    getFilters() {
+        const { people } = this.props;
+
+        let filters = ["All"];
+
+        people.map(({ node: { frontmatter: { tags } } }) => {
+            tags.map(tag => {
+                if (filters.indexOf(tag) == -1) {
+                    filters.push(tag);
+                }
+            });
+        });
+
+        return filters;
+    }
+
+    render() {
+        const {
+            data,
+            current,
+            selected,
+            widthAdjustment,
+            sizeAdjustment,
+            randomCoords,
+            filters,
+            filter
+        } = this.state;
+
+        return [
+            <Row>
+                <Column>
+                    <Filters>
+                        {filters &&
+                            filters.map(filter => {
                                 return (
-                                    <PersonGroup
-                                        key={i}
-                                        style={{
-                                            transform: `scale(${this.getTransform(
-                                                i
-                                            ) / 1.4})`,
-                                            filter: `blur(${
-                                                current == i ? 10 : 0
-                                            }px)`,
-                                            opacity:
-                                                current == i
-                                                    ? 0.5
-                                                    : current + 1 == i ? 1 : 0,
-                                            pointerEvents:
-                                                current + 1 == i
-                                                    ? "auto"
-                                                    : "none"
-                                        }}
-                                    >
-                                        {row.map(({ node: person }, index) => {
-                                            return (
-                                                <Person
-                                                    key={index}
-                                                    onClick={() => {
-                                                        current + 1 == i &&
-                                                            this.handleSelect(
-                                                                person
-                                                            );
-                                                    }}
-                                                    style={{
-                                                        top: coords[index].y,
-                                                        left: coords[index].x
-                                                    }}
-                                                >
-                                                    <PersonImage
-                                                        style={{
-                                                            backgroundImage: `url('${
-                                                                person
-                                                                    .frontmatter
-                                                                    .profile
-                                                            }')`
-                                                        }}
-                                                    />
-                                                    <PersonTitle>
-                                                        {
-                                                            person.frontmatter
-                                                                .title
-                                                        }
-                                                    </PersonTitle>
-                                                    <PersonRole>
-                                                        {
-                                                            person.frontmatter
-                                                                .role
-                                                        }
-                                                    </PersonRole>
-                                                </Person>
-                                            );
-                                        })}
-                                    </PersonGroup>
+                                    <FilterItem
+                                        active={Boolean(
+                                            this.state.filter == filter
+                                        )}
+                                        onClick={() => this.setFilter(filter)}>
+                                        {filter}
+                                    </FilterItem>
                                 );
                             })}
-                        {selected && (
-                            <Selected
-                                style={{
-                                    backgroundImage: `url('${
-                                        selected.frontmatter.profile
-                                    }')`
-                                }}
-                            />
-                        )}
-                    </div>
-                </Container>
+                    </Filters>
+                </Column>
+            </Row>,
+            <StyledRow>
+                <Column large={12}>
+                    <Control
+                        size={40}
+                        icon="chevron-left"
+                        transform="shrink-10"
+                        iconColor={colors.white}
+                        onClick={() => this.navigateChunk("prev")}
+                        style={{ left: 0 }}
+                    />
 
+                    <Control
+                        size={40}
+                        icon="chevron-right"
+                        transform="shrink-10"
+                        iconColor={colors.white}
+                        onClick={() => this.navigateChunk("next")}
+                        style={{ right: 0 }}
+                    />
+                </Column>
+            </StyledRow>,
+            <PeopleBrowserContainer>
+                <div
+                    style={{
+                        height: height,
+                        position: "relative",
+                        transform: `scale(${
+                            isBrowser() && isMobile()
+                                ? transformScale(750, 340)
+                                : transformScale(1200, 1100)
+                        })`,
+                        marginBottom: -50
+                    }}>
+                    {data && (
+                        <TransitionGroup>
+                            <Fade key={`people_${filter}_${current}`}>
+                                {data[current].map(
+                                    ({ node: person }, index) => {
+                                        const x = randomCoords[index].x;
+                                        const y = randomCoords[index].y;
+                                        const r = randomCoords[index].r;
+
+                                        const widthAjustX =
+                                            x < 0
+                                                ? x - widthAdjustment
+                                                : x + widthAdjustment;
+
+                                        return (
+                                            <Person
+                                                key={index}
+                                                style={{
+                                                    left: widthAjustX,
+                                                    top: y
+                                                }}
+                                                onClick={() =>
+                                                    this.handleSelect(person)
+                                                }>
+                                                <PersonImage
+                                                    style={{
+                                                        width: r,
+                                                        height: r,
+                                                        backgroundImage: `url('${getOriginalImageSrc(
+                                                            person.frontmatter
+                                                                .profile
+                                                        )}')`
+                                                    }}
+                                                />
+                                                <PersonTitle>
+                                                    {person.frontmatter.title}
+                                                </PersonTitle>
+                                                <PersonRole>
+                                                    {person.frontmatter.role}
+                                                </PersonRole>
+                                            </Person>
+                                        );
+                                    }
+                                )}
+                            </Fade>
+                        </TransitionGroup>
+                    )}
+                    {selected && (
+                        <Selected
+                            style={{
+                                backgroundImage: `url('${getOriginalImageSrc(
+                                    selected.frontmatter.profile
+                                )}')`
+                            }}
+                        />
+                    )}
+                </div>
                 {selected && (
-                    <Row>
+                    <Row style={{ marginTop: "-100px" }}>
                         <Column xlarge={6} large={8} centered>
                             <SelectedText>
                                 <SelectedTitle>
@@ -341,13 +518,15 @@ class PeopleBrowser extends React.Component {
                                 <SelectedRole>
                                     {selected.frontmatter.role}
                                 </SelectedRole>
-                                <SelectedBiog>{selected.excerpt}</SelectedBiog>
+                                <SelectedBiog>
+                                    <HTMLContent content={selected.html} />
+                                </SelectedBiog>
                             </SelectedText>
                         </Column>
                     </Row>
                 )}
-            </Wrapper>
-        );
+            </PeopleBrowserContainer>
+        ];
     }
 }
 

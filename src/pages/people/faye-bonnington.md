@@ -1,7 +1,7 @@
 ---
 templateKey: people
 title: Faye Prince
-role: Senior Account Manager
+role: Account Director
 tags:
   - Client Services
 profile: /img/faye-prince.jpg

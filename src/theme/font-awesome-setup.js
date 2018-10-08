@@ -8,7 +8,9 @@ import {
     faChevronUp,
     faChevronDown,
     faChevronLeft,
-    faChevronRight
+    faChevronRight,
+    faArrowLeft,
+    faArrowRight
 } from "@fortawesome/fontawesome-free-solid";
 
 import { faCircle } from "@fortawesome/fontawesome-free-regular";
@@ -31,5 +33,7 @@ fontawesome.library.add(
     faChevronUp,
     faChevronDown,
     faChevronLeft,
-    faChevronRight
+    faChevronRight,
+    faArrowLeft,
+    faArrowRight
 );

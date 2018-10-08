@@ -3,6 +3,7 @@ import graphql from "graphql";
 import Helmet from "react-helmet";
 import { Row, Column } from "rla-components";
 
+import { getOriginalImageSrc } from "../utils/image";
 import { colors } from "../theme/theme";
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
@@ -34,7 +35,10 @@ export const PeopleTemplate = ({
             </Row>
             <Row>
                 <Column medium={6}>
-                    <img src={profile} alt={`${title} Profile`} />{" "}
+                    <img
+                        src={getOriginalImageSrc(profile)}
+                        alt={`${title} Profile`}
+                    />{" "}
                     {twitter && <div>{twitter}</div>}
                     {linkedIn && <div>{linkedIn}</div>}
                 </Column>
@@ -73,7 +77,16 @@ export const pageQuery = graphql`
                 title
                 role
                 tags
-                profile
+                profile {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
                 linkedIn
                 twitter
             }

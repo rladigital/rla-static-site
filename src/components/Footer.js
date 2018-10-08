@@ -8,28 +8,26 @@ import FAIcon from "@fortawesome/react-fontawesome";
 import { HTMLContent } from "../components/Content";
 
 import { colors, spacing } from "../theme/theme";
+import { navigation } from "../utils/config";
 import logo from "../img/rla.svg";
 import SectionContainer from "./SectionContainer";
+import { Social } from "../components/blog/Icon";
 
 const StyledLink = styled(Link)`
+    display: block;
+    text-transform: uppercase;
+    color: ${colors.white};
+    margin-bottom: 0.8rem;
+    font-size: 16px;
+    font-weight: 700;
+`;
+const LocationHeading = styled.div`
     display: block;
     text-transform: uppercase;
     color: ${colors.white};
     margin-bottom: ${spacing.padding}rem;
     font-size: 16px;
     font-weight: 700;
-`;
-
-const SocialIcon = styled(Link)`
-    width: 42px;
-    height: 42px;
-    border-radius: 40px;
-    font-size: 20px;
-    line-height: 38px;
-    text-align: center;
-    margin-left: ${spacing.padding}rem;
-    border: 3px solid ${colors.accent};
-    display: inline-block;
 `;
 
 const ContactDetail = styled.li`
@@ -59,17 +57,18 @@ const FaUl = styled.ul`
     padding-left: 0;
 `;
 
-export default ({
-    data: { allMarkdownRemark: { edges: contacts } },
-    items
-}) => (
-    <SectionContainer padding="5em 0 0">
+const Footer = SectionContainer.extend`
+    font-family: ${props => props.theme.headings.fontFamily};
+`;
+
+export default ({ data: { allMarkdownRemark: { edges: contacts } } }) => (
+    <Footer padding="5em 0 0">
         <Row>
-            <Column large={2}>
+            <Column large={2} style={{ paddingBottom: "2rem" }}>
                 <img src={logo} alt="RLA" style={{ width: "120px" }} />
             </Column>
-            <Column large={2}>
-                {items.map((item, index) => {
+            <Column large={2} style={{ paddingBottom: "2rem" }}>
+                {navigation.map((item, index) => {
                     return (
                         <StyledLink key={index} to={item.to}>
                             {item.text}
@@ -85,8 +84,7 @@ export default ({
                             to={contact.fields.slug}
                             address={contact.frontmatter.address}
                             phone={contact.frontmatter.tel}
-                            email={contact.frontmatter.email}
-                        >
+                            email={contact.frontmatter.email}>
                             {contact.frontmatter.title}
                         </Location>
                     </Column>
@@ -94,22 +92,38 @@ export default ({
             })}
 
             <Column large={2} style={{ textAlign: "right" }}>
-                <Social icon="facebook-f" to="/contact" />
-                <Social icon="linkedin-in" to="/contact" />
-                <Social icon="twitter" to="/contact" />
+                <SocialIcon
+                    icon="twitter"
+                    href="https://twitter.com/rlagroup"
+                    target="_blank"
+                />
+                <SocialIcon
+                    icon="linkedin-in"
+                    href="https://www.linkedin.com/company/rla-group"
+                    target="_blank"
+                />
             </Column>
         </Row>
         <Copyright>
             <Row>
-                <Column>Copyright RLA Group Ltd. | Cookie Policy</Column>
+                <Column>
+                    Copyright RLA Group Ltd. |{" "}
+                    <Link to="/cookie-policy">Cookie Policy</Link> |{" "}
+                    <a className="optanon-show-settings">Cookie Settings</a> |{" "}
+                    <Link to="/privacy-policy">Privacy Policy</Link> |{" "}
+                    <Link to="/employment-privacy-notice">
+                        Employment Privacy Notice
+                    </Link>{" "}
+                    | <Link to="/terms">Terms and Conditions</Link>
+                </Column>
             </Row>
         </Copyright>
-    </SectionContainer>
+    </Footer>
 );
 
 const Location = ({ to, children, address, phone, email }) => (
-    <div>
-        <StyledLink to={to}>{children}</StyledLink>
+    <div style={{ paddingBottom: "2rem" }}>
+        <LocationHeading>{children}</LocationHeading>
 
         <FaUl>
             {address && (
@@ -136,8 +150,13 @@ const Location = ({ to, children, address, phone, email }) => (
     </div>
 );
 
-const Social = ({ icon, to }) => (
-    <SocialIcon to={to}>
-        <FAIcon color={colors.white} icon={["fab", icon]} />
-    </SocialIcon>
+const SocialIcon = ({ ...rest }) => (
+    <Social
+        size={35}
+        borderColor={colors.accent}
+        color={colors.white}
+        margin="0 0 1rem 0.5rem"
+        transform="shrink-8 up-0.5"
+        {...rest}
+    />
 );

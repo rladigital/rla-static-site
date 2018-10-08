@@ -3,10 +3,11 @@ export const colors = {
     accent: "#D72257",
     secondary: "#3a3e46",
     black: "#0C141B",
-    white: "#f9f9f9",
+    white: "#ffffff",
     lightBlueGray: "#272E48",
     mediumBlueGray: "#272E48",
     darkBlueGray: "#07172C",
+    reallyDarkBlueGray: "#05101f",
     lightGray: "#868D98",
     mediumGray: "#5A677F",
     darkGray: "#22262c",
@@ -25,8 +26,8 @@ export const sizes = {
 
 export const spacing = {
     radius: "0.2",
-    padding: "0.8",
-    margin: "0.2"
+    padding: "1.5",
+    margin: "1.5"
 };
 
 export const breakpoints = {
@@ -45,10 +46,10 @@ const theme = {
     body: {
         color: colors.white,
         background: colors.background,
-        fontFamily: "Montserrat, sans-serif"
+        fontFamily: "Avenir, sans-serif"
     },
     anchor: {
-        color: colors.primary,
+        color: colors.lightGray,
         textDecoration: "none",
         fontWeight: "bold"
     },
@@ -64,6 +65,9 @@ const theme = {
         border: "1px solid " + colors.secondary,
         padding: spacing.padding
     },
+    headings: {
+        fontFamily: "Gotham, Avenir, sans-serif"
+    },
     header: {
         logoMargin: spacing.margin + "em 0"
     },
@@ -76,24 +80,24 @@ const theme = {
             margin: 0,
             color: colors.white,
             activeColor: colors.accent,
-            padding: spacing.padding,
+            padding: 0.8,
             textTransform: "uppercase"
         }
     },
     pageHeaderSection: {
-        fontSize: 5,
+        fontSize: 4,
         padding: {
-            top: 5,
+            top: 8,
             right: 0,
-            bottom: 2.5,
+            bottom: 5,
             left: 0
         }
     },
     button: {
-        fontWeight: "900",
+        fontWeight: "600",
         textTransform: "uppercase",
-        borderRadius: spacing.radius,
-        borderWidth: "5px"
+        borderRadius: 0.6,
+        padding: 5
     },
     column: {
         columns: 12,
@@ -119,10 +123,10 @@ const theme = {
         }
     },
     modal: {
-        padding: spacing.padding,
+        padding: 0,
         margin: spacing.margin,
         radius: spacing.radius,
-        background: colors.white,
+        background: colors.black,
         color: colors.black,
         closeButtonColor: colors.black
     },

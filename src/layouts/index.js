@@ -5,88 +5,77 @@ import { ThemeProvider, injectGlobal } from "styled-components";
 import { Theme } from "rla-components";
 import merge from "lodash/merge";
 
-require("../theme/font-awesome-setup");
 import customTheme from "../theme/theme";
 import globalCss from "../theme/globalCss";
 import { serveStatic } from "../helpers/helpers";
+import Offcanvas from "../components/Offcanvas";
+import Footer from "../components/Footer";
+import LoadingScreen from "../components/loading/LoadingScreen";
+require("../theme/font-awesome-setup");
 
 //Add Global CSS
 injectGlobal`${globalCss(customTheme)}`;
 
-import SiteHeader from "../components/SiteHeader";
-import Offcanvas from "../components/Offcanvas";
-
-import Footer from "../components/Footer";
-
-const navigation = [
-    { to: "/Work", text: "Work" },
-    { to: "/clients", text: "Clients" },
-    { to: "/people", text: "People" },
-    { to: "/careers", text: "Careers" },
-    { to: "/news", text: "News" },
-    { to: "/contact", text: "Contact" }
-];
-
-let resizeTimer;
-
 class TemplateWrapper extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            scrolltop: 0,
-            offcanvasActive: false
+            hasMounted: false,
+            offcanvasColor: null
         };
-    }
 
+        this.setOffcanvasColor = this.setOffcanvasColor.bind(this);
+    }
     componentDidMount() {
-        window.addEventListener("scroll", () => this.handleScroll());
+        this.setState({ hasMounted: true });
     }
-
-    componentWillUnmount() {
-        window.removeEventListener("scroll", () => this.handleScroll());
+    setOffcanvasColor(x) {
+        this.setState({ offcanvasColor: x });
     }
-
-    toggleOffcanvas() {
-        this.setState({ offcanvasActive: !this.state.offcanvasActive });
-    }
-
-    handleScroll() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            this.setState({ scrolltop: window.scrollY });
-        }, 250);
-    }
-
     render() {
-        const { scrolltop } = this.state;
+        const { offcanvasColor } = this.state;
         const { children, location, ...rest } = this.props;
-        const isHome = Boolean(location && location.pathname == "/");
-        const offcanvasActive = Boolean(
-            (scrolltop != 0 || !isHome) && this.state.offcanvasActive
-        );
+
         return (
             <ThemeProvider theme={merge(Theme, customTheme)}>
-                <div>
-                    <Helmet title="RLA" />
-
-                    <Offcanvas
-                        items={navigation}
-                        active={true}
-                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
-                        offcanvasActive={offcanvasActive}
-                    />
-                    <SiteHeader
-                        items={navigation}
-                        location={this.props.location}
-                        toggleOffcanvas={() => this.toggleOffcanvas.bind(this)}
-                        offcanvasActive={offcanvasActive}
-                        scrolltop={scrolltop}
-                        isHome={isHome}
-                    />
-                    <div>{children()}</div>
-                    {this.props.data && (
-                        <Footer items={navigation} data={this.props.data} />
-                    )}
+                <div style={{ height: "100%" }}>
+                    <div
+                        style={{
+                            height: "100%"
+                        }}>
+                        <Helmet
+                            encodeSpecialCharacters={false}
+                            title="RLA Group | Full Service Advertising Agency | Bournemouth">
+                            <meta
+                                name="title"
+                                content="RLA Group | Full Service Advertising Agency | Bournemouth"
+                            />
+                            <meta
+                                name="description"
+                                content="RLA are a full service creative advertising agency who create connected experiences that help brands achieve their ambitions."
+                            />
+                        </Helmet>
+                        <Offcanvas
+                            location={location}
+                            offcanvasColor={offcanvasColor}
+                        />
+                        <div style={{ height: "100%" }}>
+                            {children({
+                                ...this.props,
+                                layout: false,
+                                setOffcanvasColor: this.setOffcanvasColor
+                            })}
+                        </div>
+                        {this.props.data && <Footer data={this.props.data} />}
+                    </div>
+                    <div
+                        style={{
+                            height: "100%",
+                            ...(this.state.hasMounted && { display: "none" })
+                        }}>
+                        <LoadingScreen text="Loading..." />
+                    </div>
                 </div>
             </ThemeProvider>
         );
@@ -102,6 +91,7 @@ export default TemplateWrapper;
 export const query = graphql`
     query FooterQuery {
         allMarkdownRemark(
+            sort: { fields: [frontmatter___title], order: ASC }
             filter: {
                 fields: {
                     slug: { regex: "/contacts/(bournemouth)|(london)//" }

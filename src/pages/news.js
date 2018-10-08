@@ -2,11 +2,13 @@ import React from "react";
 import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
+import Helmet from "react-helmet";
 
 import theme from "../theme/theme";
-import NewsSummary from "../components/news/NewsSummary";
+import NewsList from "../components/news/NewsList";
 import HeaderBlock from "../components/HeaderBlock";
 
+const rowsAdvance = 3;
 export default class NewsPage extends React.Component {
     render() {
         let {
@@ -16,63 +18,38 @@ export default class NewsPage extends React.Component {
 
         return (
             <div style={transition && transition.style}>
+                <Helmet title="News | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="News | RLA Group | Full Service Advertising Agency"
+                    />
+                    <meta
+                        name="description"
+                        content="Check out the latest news, insights, trends in the advertising industry and culture pieces from RLA Group here."
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={theme.pageHeaderSection.padding}>
                             News &amp; <span>Insights</span>
                         </HeaderBlock>
                     </Column>
                 </Row>
-                <Row expanded collapse>
-                    <Column medium={6} large={6} collapse>
-                        <NewsItem data={news[0]} height={2} />
-                    </Column>
-                    <Column medium={6} large={6} collapse>
-                        <Row collapse>
-                            <NewsItem data={news[1]} height={1} />
-                        </Row>
-                        <Row collapse>
-                            <Column medium={6} large={6} collapse>
-                                <NewsItem data={news[2]} height={1} />
-                            </Column>
-                            <Column medium={6} large={6} collapse>
-                                <NewsItem data={news[3]} height={1} />
-                            </Column>
-                        </Row>
-                    </Column>
-                </Row>
-                <Row expanded collapse>
-                    <Column medium={3} collapse>
-                        <NewsItem data={news[4]} height={1} />
-                    </Column>
-                    <Column medium={3} collapse>
-                        <NewsItem data={news[5]} height={1} />
-                    </Column>
-                    <Column medium={6} collapse>
-                        <NewsItem data={news[6]} height={1} />
-                    </Column>
-                </Row>
+                <NewsList news={news} />
             </div>
         );
-    }
-}
-
-class NewsItem extends React.Component {
-    render() {
-        const rowHeight = 22;
-        let { data, height } = this.props;
-        return data ? (
-            <NewsSummary story={data.node} height={rowHeight * height} />
-        ) : null;
     }
 }
 
 export const pageQuery = graphql`
     query NewsQuery {
         allMarkdownRemark(
+            sort: {
+                fields: [frontmatter___date, frontmatter___weighting]
+                order: DESC
+            }
             filter: { frontmatter: { templateKey: { eq: "news" } } }
         ) {
             edges {
@@ -84,7 +61,16 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        thumb
+                        thumb {
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
+                            original
+                        }
                         category
                     }
                 }

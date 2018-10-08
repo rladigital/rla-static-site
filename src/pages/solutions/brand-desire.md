@@ -1,11 +1,14 @@
 ---
 templateKey: solutions
 title: Brand Desire
-intro: 'Generating buzz, excitement and equity around brands'
+intro: ' GENERATING BUZZ, PREFERENCE AND EQUITY FOR BRANDS'
+description1: >-
+  Improving the impact of your advertising and marketing by creating genuine
+  consumer preference, desire and ultimately customer loyalty for your brand.
+description2: >-
+  Brand desire is just one part of our connected ambition for clients. See how
+  we can help you create brand desire by getting in touch.
 color1: '#2CFFFE'
 color2: '#2A86F2'
-description1: >-
-  We improve marketing impact by creating interconnected creative and technology experiences that work not just in isolation, but across your whole business.
-description2: >-
-  Brand desire is just one part of the picture. See how we can help you by getting in touch.
 ---
+

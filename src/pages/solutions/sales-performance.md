@@ -1,19 +1,14 @@
 ---
 templateKey: solutions
-title: Sales Performance
-intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+title: Channel Incentives
+intro: MOTIVATING YOUR PARTNERS TO LEVERAGE SALES
 description1: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Whether encouraging new behaviours or curbing old ones, we can help you
+  influence partners from corporate target alignment down to employee
+  engagement.
 description2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Channel incentives are just one part of our connected ambition for our
+  Clients. See how we can help you create them by getting in touch.
 color1: '#FD894E'
 color2: '#FB5126'
 ---

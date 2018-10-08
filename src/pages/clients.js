@@ -5,11 +5,15 @@ import { Row, Column } from "rla-components";
 import Carousel from "nuka-carousel";
 import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import FAIcon from "@fortawesome/react-fontawesome";
+import Helmet from "react-helmet";
 
-import theme, { colors } from "../theme/theme";
-import ClientSummary from "../components/clients/ClientSummary";
+import { getOriginalImageSrc } from "../utils/image";
+import theme, { colors, spacing, breakpoints } from "../theme/theme";
+import { isMobile, isBrowser } from "../helpers/helpers";
 import HeaderBlock from "../components/HeaderBlock";
 import SolutionModal from "../components/solutions/SolutionModal";
+import Icon from "../components/blog/Icon";
 
 const rotate360 = keyframes`
   from {
@@ -24,6 +28,7 @@ const rotate360 = keyframes`
 `;
 
 const Brand = styled.div`
+    margin-left: -2rem;
     transition opacity 0.5s ease;
 `;
 
@@ -34,14 +39,14 @@ const Container = styled.div`
 
 const LogoContainer = styled.div`
     padding: 4vw 3vw;
-    cursor: pointer;
+    //cursor: pointer;
 `;
 
 const Logo = styled.div`
     width: 100%;
     height: 10vw;
-    min-height: 200px;
-    max-height: 400px;
+    min-height: 60px;
+    max-height: 80px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -55,9 +60,9 @@ const Line = styled.div`
 const Solution = styled.div`
     height: 56px;
     margin-left: 4rem;
-    border-left: 1px solid ${colors.white};
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
     position: relative;
-    animation: ${rotate360} 0.5s linear;
+    animation: ${rotate360} 0.5s ease-out;
     animation-fill-mode: forwards;
 
     opacity: 0;
@@ -72,6 +77,7 @@ const SolutionDot = styled.div`
     position: absolute;
     border-radius: 50px;
     z-index: 1;
+    cursor: pointer;
     &:after {
         width: 24px;
         height: 24px;
@@ -92,6 +98,21 @@ const SolutionText = styled.div`
     text-transform: uppercase;
     bottom: 5px;
     left: 30px;
+    cursor: pointer;
+`;
+
+const Control = styled.a`
+    top: 50%;
+    font-size: 3em;
+    color: ${colors.white};
+    cursor: pointer;
+    position: absolute;
+    padding: ${spacing.padding}em 0;
+    transform: translateY(-363px);
+    transition: opacity 0.25s ease;
+    @media (min-width: ${breakpoints.medium}px) {
+        padding: ${spacing.padding}em;
+    }
 `;
 
 export default class ClientsPage extends React.Component {
@@ -101,17 +122,51 @@ export default class ClientsPage extends React.Component {
             currentSlide: 0,
             activeSolution: null
         };
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+    componentDidMount() {
+        window.addEventListener("keydown", this.handleKeyDown);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("keydown", this.handleKeyDown);
     }
     setSlide(x) {
         this.setState({ currentSlide: x });
     }
-    handleClick(x) {
+    handleKeyDown(e) {
+        if (e.key == "ArrowLeft") {
+            this.setSlide(Math.max(this.state.currentSlide - 1, 0));
+        }
+        if (e.key == "ArrowRight") {
+            this.setSlide(
+                Math.min(
+                    this.state.currentSlide + 1,
+                    this.props.data.clients.edges.length - 1
+                )
+            );
+        }
+    }
+    handleClick(selectedSolution) {
+        console.log(selectedSolution);
+        let selectedSolutionIndex = null;
+        if (selectedSolution) {
+            const { solutions: { edges: solutions } } = this.props.data;
+
+            selectedSolutionIndex = solutions.findIndex(solution => {
+                return (
+                    selectedSolution.frontmatter.title ===
+                    solution.node.frontmatter.title
+                );
+            });
+        }
+        console.log(selectedSolutionIndex);
         this.setState({
-            activeSolution: x
+            activeSolution: selectedSolutionIndex
         });
     }
 
     getSolution(solutionTitle) {
+        //console.log(solutionTitle);
         const solution = this.props.data.solutions.edges.filter(solution => {
             return solution.node.frontmatter.title === solutionTitle;
         })[0];
@@ -128,54 +183,96 @@ export default class ClientsPage extends React.Component {
         } = data;
 
         const settings = {
-            slideWidth: 0.3,
+            slideWidth: isBrowser() && isMobile() ? 0.75 : 0.25,
             cellAlign: "center",
             dots: false,
             slideIndex: this.state.currentSlide,
-            renderCenterRightControls: ({ nextSlide }) => null,
-            renderCenterLeftControls: ({ previousSlide }) => null,
-            renderBottomCenterControls: ({ currentSlide }) => null
+            wrapAround: false,
+            renderCenterRightControls: ({ nextSlide }) => (
+                <Control
+                    onClick={nextSlide}
+                    style={{
+                        right: 0,
+                        ...(this.state.currentSlide == clients.length - 1 && {
+                            opacity: 0.1,
+                            cursor: "not-allowed"
+                        })
+                    }}>
+                    <Icon
+                        size={40}
+                        icon="chevron-right"
+                        transform="shrink-10 "
+                        iconColor={colors.white}
+                    />
+                </Control>
+            ),
+            renderCenterLeftControls: ({ previousSlide }) => (
+                <Control
+                    onClick={previousSlide}
+                    style={{
+                        left: 0,
+                        ...(this.state.currentSlide == 0 && {
+                            opacity: 0.1,
+                            cursor: "not-allowed"
+                        })
+                    }}>
+                    <Icon
+                        size={40}
+                        icon="chevron-left"
+                        transform="shrink-10 "
+                        iconColor={colors.white}
+                    />
+                </Control>
+            ),
+            renderBottomCenterControls: ({ currentSlide }) => null,
+            afterSlide: slideIndex => {
+                this.setSlide(slideIndex);
+            }
         };
 
         return (
             <div style={transition && transition.style}>
+                <Helmet title="Clients | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="Clients | RLA Group | Full Service Advertising Agency"
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
-                            <span>Brands</span> we work with
+                            padding={theme.pageHeaderSection.padding}>
+                            <span>CLIENT</span> EXPERIENCE
                         </HeaderBlock>
                     </Column>
                 </Row>
 
                 <Row expanded collapse>
-                    <Carousel {...settings}>
+                    <Carousel {...settings} style={{ minHeight: "400px" }}>
                         {clients.map(({ node: client }, index) => {
                             const isCurrent = Boolean(
                                 this.state.currentSlide == index
                             );
-                            console.log(client);
+                            //console.log(client);
                             return (
-                                // <ClientSummary client={client} />
                                 <Brand
                                     key={index}
-                                    style={{ opacity: isCurrent ? 1 : 0.1 }}
-                                >
+                                    style={{ opacity: isCurrent ? 1 : 0.1 }}>
                                     <Container>
                                         <LogoContainer
                                             style={{
                                                 backgroundColor:
                                                     client.frontmatter.color
                                             }}
-                                            onClick={() => this.setSlide(index)}
-                                        >
+                                            onClick={() =>
+                                                this.setSlide(index)
+                                            }>
                                             <Logo
                                                 style={{
-                                                    backgroundImage: `url('${
+                                                    backgroundImage: `url('${getOriginalImageSrc(
                                                         client.frontmatter.logo
-                                                    }')`
+                                                    )}')`
                                                 }}
                                             />
                                         </LogoContainer>
@@ -193,8 +290,7 @@ export default class ClientsPage extends React.Component {
                                                     this.state.currentSlide - 1
                                                     ? "-2rem"
                                                     : 0
-                                        }}
-                                    >
+                                        }}>
                                         <Line
                                             style={{
                                                 marginTop: isCurrent ? 30 : 34,
@@ -202,7 +298,7 @@ export default class ClientsPage extends React.Component {
                                             }}
                                         />
                                     </Container>
-                                    <Container style={{ height: 300 }}>
+                                    <Container style={{ height: 500 }}>
                                         {isCurrent &&
                                             client.frontmatter.solutionsList.map(
                                                 (title, index) => {
@@ -212,20 +308,15 @@ export default class ClientsPage extends React.Component {
                                                     if (solution) {
                                                         return (
                                                             <Solution
-                                                                onClick={() =>
-                                                                    this.handleClick(
-                                                                        solution
-                                                                    )
-                                                                }
+                                                                onClick={this.handleClick.bind(
+                                                                    this,
+                                                                    solution
+                                                                )}
                                                                 style={{
-                                                                    animationDelay: `${0.2 *
-                                                                        index}s`,
-                                                                    zIndex:
-                                                                        1 -
-                                                                        index
+                                                                    animationDelay: `${0.25 *
+                                                                        index}s`
                                                                 }}
-                                                                key={index}
-                                                            >
+                                                                key={index}>
                                                                 <SolutionDot
                                                                     style={{
                                                                         background: `linear-gradient(to bottom, ${
@@ -259,12 +350,14 @@ export default class ClientsPage extends React.Component {
                         })}
                     </Carousel>
                 </Row>
-                {activeSolution && (
+                {activeSolution != null && (
                     <SolutionModal
                         width={window.innerWidth}
                         height={window.innerHeight}
                         solution={activeSolution}
+                        solutions={solutions}
                         close={() => this.handleClick(null)}
+                        showButtons={false}
                     />
                 )}
             </div>
@@ -275,6 +368,7 @@ export default class ClientsPage extends React.Component {
 export const pageQuery = graphql`
     query clientsQuery {
         clients: allMarkdownRemark(
+            sort: { fields: [frontmatter___title], order: ASC }
             filter: { frontmatter: { templateKey: { eq: "clients" } } }
         ) {
             edges {
@@ -287,7 +381,16 @@ export const pageQuery = graphql`
                     frontmatter {
                         title
                         templateKey
-                        logo
+                        logo {
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
+                            original
+                        }
                         color
                         solutionsList
                     }
@@ -310,6 +413,8 @@ export const pageQuery = graphql`
                         color1
                         color2
                         intro
+                        description1
+                        description2
                     }
                 }
             }

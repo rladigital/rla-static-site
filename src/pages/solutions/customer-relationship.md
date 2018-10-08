@@ -1,19 +1,13 @@
 ---
 templateKey: solutions
 title: Customer Relationship
-intro: Improving customer relationships
+intro: 'NURTURING, DELIGHTING AND SHOWING YOU CARE.'
 description1: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Never take a relationship for granted. Earn customer loyalty by attending to
+  their needs and desires. Observe data carefully, and act on it wisely.
 description2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  Customer relationships are just one part of our connected ambition for our
+  Clients. See how we can help you nurture them by getting in touch.
 color1: '#CA7ADC'
 color2: '#AA4DBE'
 ---

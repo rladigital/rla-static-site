@@ -3,16 +3,18 @@ import Link from "gatsby-link";
 import graphql from "graphql";
 import { Row, Column } from "rla-components";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 
-import { serveStatic } from "../helpers/helpers";
+import { isBrowser } from "../helpers/helpers";
 import theme from "../theme/theme";
 import HeaderBlock from "../components/HeaderBlock";
+import PeopleBrowser from "../components/people/PeopleBrowser";
 
-if (serveStatic()) {
-    var PeopleBrowser = require("../components/people/PeopleBrowserStatic");
-} else {
-    var PeopleBrowser = require("../components/people/PeopleBrowser");
-}
+// if (isBrowser()) {
+//     var PeopleBrowser = require("../components/people/PeopleBrowser");
+// } else {
+//     var PeopleBrowser = require("../components/people/PeopleBrowserStatic");
+// }
 
 const StyledP = styled.p`
     text-align: center;
@@ -27,43 +29,28 @@ export default class PeoplePage extends React.Component {
         //console.log(news);
         return (
             <div style={transition && transition.style}>
+                <Helmet title="People | RLA Group | Full Service Advertising Agency">
+                    <meta
+                        name="title"
+                        content="People | RLA Group | Full Service Advertising Agency"
+                    />
+                </Helmet>
                 <Row>
                     <Column>
                         <HeaderBlock
                             fontSize={theme.pageHeaderSection.fontSize}
-                            padding={theme.pageHeaderSection.padding}
-                        >
+                            padding={{
+                                top: 8,
+                                right: 0,
+                                bottom: 0,
+                                left: 0
+                            }}>
                             <span>People</span> at our Core
                         </HeaderBlock>
                     </Column>
                 </Row>
 
-                <Row>
-                    <Column xlarge={6} centered>
-                        <StyledP>
-                            We deliver fresh thinking and innovative ideas that
-                            give our clients the edge over their competitors.
-                            Our passion and drive to know your business inside
-                            out and back to front enables us to work alongside
-                            you and become an inseparable extension of your
-                            marketing team.
-                        </StyledP>
-                    </Column>
-                </Row>
-
-                <Row>
-                    <PeopleBrowser
-                        people={people
-                            .concat(people)
-                            .concat(people)
-                            .concat(people)
-                            .concat(people)
-                            .concat(people)
-                            .concat(people)
-                            .concat(people)}
-                        size={500}
-                    />
-                </Row>
+                <PeopleBrowser people={people} size={500} />
             </div>
         );
     }
@@ -79,13 +66,23 @@ export const pageQuery = graphql`
                     fields {
                         slug
                     }
-                    excerpt(pruneLength: 400)
+                    html
                     id
                     frontmatter {
                         title
                         templateKey
                         role
-                        profile
+                        tags
+                        profile {
+                            responsive {
+                                childImageSharp {
+                                    original {
+                                        src
+                                    }
+                                }
+                            }
+                            original
+                        }
                     }
                 }
             }

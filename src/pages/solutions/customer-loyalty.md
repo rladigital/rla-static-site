@@ -1,20 +1,15 @@
 ---
 templateKey: solutions
 title: Customer Loyalty
-intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+intro: KEEPING PEOPLE ENGAGED AND FOCUSED ON YOU.
 description1: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
+  If you’re lucky, loyalty is powered by habit. But you don’t need luck when
+  you’ve got Cortex Loyalty. The magic way to incentivise long-term repeat
+  business.
 description2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus
-  eros, rhoncus in rhoncus eu, molestie at eros. Etiam blandit dui dolor, sit
-  amet suscipit odio facilisis tincidunt. Phasellus sit amet diam quis eros
-  suscipit eleifend id ut purus. Donec sit amet orci lacinia, ultrices arcu nec,
-  luctus tellus. Morbi.
-color1: '#FCF46F'
-color2: '#F7E53C'
+  Customer loyalty is just one part of our connected ambition for our Clients.
+  See how we can help you build it by getting in touch.
+color1: '#FFC400'
+color2: '#e69200'
 ---
 

@@ -1,23 +1,21 @@
 import React from "react";
 import { Row, Column } from "rla-components";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 
-import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
-import iconUrl from "leaflet/dist/images/marker-icon.png";
-import shadowUrl from "leaflet/dist/images/marker-shadow.png";
+import { colors } from "../../theme/theme";
+import iconUrl from "../../img/map-marker.svg";
+import geoData from "../../data/countries.geo.json";
+import { isMobile } from "../../helpers/helpers";
 
 require("leaflet/dist/leaflet.css");
 
 L.Marker.prototype.options.icon = L.icon({
-    iconRetinaUrl,
     iconUrl,
-    shadowUrl,
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
-    tooltipAnchor: [16, -28],
-    shadowSize: [41, 41]
+    tooltipAnchor: [16, -28]
 });
 
 export default class ContactMap extends React.Component {
@@ -45,15 +43,29 @@ export default class ContactMap extends React.Component {
                 center={position}
                 zoom={this.state.zoom}
                 style={{
-                    minHeight: "500px",
+                    minHeight: "680px",
                     height: "100%",
-                    width: "100%"
+                    width: "100%",
+                    zIndex: 1
                 }}
-            >
-                <TileLayer
+                dragging={!isMobile()}
+                scrollWheelZoom={false}
+                doubleClickZoom={false}
+                touchZoom={false}>
+                {/* <TileLayer
                     attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;http://cartodb.com/attributions&quot;>CartoDB</a>"
-                    url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
+                    url="https://cartocdn_{s}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}.png"
                     maxZoom="19"
+                /> */}
+
+                <GeoJSON
+                    data={geoData}
+                    style={{
+                        fillColor: "#424f67",
+                        weight: 1,
+                        color: colors.background,
+                        fillOpacity: 1
+                    }}
                 />
 
                 {contacts.map(({ node: contact }, index) => {
@@ -71,6 +83,20 @@ export default class ContactMap extends React.Component {
                         />
                     );
                 })}
+
+                {/* {contacts.map(({ node: contact }, index) => {
+                    return (
+                        <Popup
+                            position={[
+                                contact.frontmatter.lat,
+                                contact.frontmatter.lng
+                            ]}
+                            key={index}
+                        >
+                            <div>{contact.frontmatter.title}</div>
+                        </Popup>
+                    );
+                })} */}
             </Map>
         );
     }

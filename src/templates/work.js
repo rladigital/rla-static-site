@@ -4,163 +4,423 @@ import ReactRenderer from "remark-react";
 import graphql from "graphql";
 import Helmet from "react-helmet";
 import styled from "styled-components";
-import { Row, Column, Button } from "rla-components";
+import { Row, Column, Button, Modal } from "rla-components";
+import Link from "gatsby-link";
+import { Parallax, Background } from "react-parallax";
+import VideoCover from "react-video-cover";
+import ScrollTrigger from "react-scroll-trigger";
 
+import { getOriginalImageSrc } from "../utils/image";
 import { colors, spacing, breakpoints } from "../theme/theme";
+import { transparentize, isBrowser } from "../helpers/helpers";
+
 import Content, { HTMLContent } from "../components/Content";
 import PageDetailContainer from "../components/PageDetailContainer";
 import PullQuote from "../components/PullQuote";
+import GalleryImage, {
+    GalleryItem,
+    GalleryModal
+} from "../components/GalleryImage";
 import HeaderBlock from "../components/HeaderBlock";
-
-const Hero = styled.div`
-    width: 100%;
-    height: 30vw;
-    max-height: 400px;
-    min-height: 180px;
-    background-size: cover;
-    background-position: center;
-    background-image: url('${props => props.src}');
-    margin-bottom: 3.2em;
-`;
+import BackButton from "../components/blog/BackButton";
+import Hero from "../components/blog/Hero";
 
 const Logo = styled.img`
-    height: 30px;
-    margin-bottom: 2.8em;
-`;
-
-const Heading = styled.h4`
-    margin-bottom 1.2em;
-`;
-
-const GalleryItem = styled.div`
-    width: 100%;
-    height: 80vw;
-    margin: 0 0 8vw 0;
-    float: left;
-    position: relative;
-    @media (min-width: ${breakpoints.medium}px) {
-        width: 24vw;
-        height: 24vw;
-        max-width: 340px;
-        max-height: 340px;
-        margin: 0 2.4vw 2.4vw 0;
-    }
-`;
-
-const GalleryImage = GalleryItem.extend`
-    background-image: url('${props => props.src}');
-    background-size: cover;
-    background-position: center;
+    max-height: 70px;
 `;
 
 const StyledButton = Button.extend`
     top: 50%;
+    left: 50%;
+    width: 80%;
     position: absolute;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     border-radius: 10px;
-    font-weight 900;
+    font-weight: 600;
 `;
 
-const contentStyle = {
-    marginBottom: "4em",
-    color: colors.lightGray
-};
+const Table = styled.table`
+    margin: 0 0 5em 0;
+    display: inline-block;
+`;
 
-export const WorkTemplate = ({
-    content,
-    logo,
-    hero,
-    project,
-    outcome,
-    galleryImages,
-    solutions,
-    title,
-    intro,
-    helmet
-}) => {
-    //console.log(project, outcome);
-    return (
-        <PageDetailContainer>
-            {helmet || ""}
-            {hero && (
+const Td = styled.td`
+    padding: 0 2em 1em 0;
+`;
+
+const Solution = styled.div`
+    padding: 0 30px;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    margin-bottom: 2.5em;
+`;
+
+const SolutionDot = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: red;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+`;
+
+const H2 = styled.h2`
+    font-size: 1.2em;
+`;
+
+const Container = styled.div`
+    padding: 4.5rem 3rem 4em;
+`;
+
+const Img = styled.div`
+    width: 100vw;
+    height: 35vw;
+    min-height: 600px;
+    max-height: 800px;
+    background-image: url('${props => props.src}');
+    background-position: center;
+    background-size: cover;
+`;
+
+export class WorkTemplate extends React.Component {
+    constructor() {
+        super();
+
+        this.state = { parallaxEnabled: true };
+
+        if (isBrowser()) {
+            window.addEventListener("resize", this.isParallaxEnabled);
+        }
+    }
+    componentWillUnmount() {
+        if (isBrowser()) {
+            window.removeEventListener("resize", this.isParallaxEnabled);
+        }
+    }
+    isParallaxEnabled = () => {
+        const { parallaxEnabled } = this.state;
+
+        if (window.innerWidth < 800) {
+            if (parallaxEnabled) {
+                this.setState({ parallaxEnabled: false });
+            }
+        } else {
+            if (!parallaxEnabled) {
+                this.setState({ parallaxEnabled: true });
+            }
+        }
+    };
+    render() {
+        const { data, helmet, transition, history } = this.props;
+        const { parallaxEnabled } = this.state;
+
+        const {
+            copySections,
+            hero,
+            intro,
+            logo,
+            solutionsList,
+            title,
+            footer
+        } = data.work.frontmatter;
+
+        const solutions = data.solutions.edges;
+
+        const parallaxStyle = {
+            height: "35vw",
+            maxHeight: 800,
+            minHeight: 300,
+            overflow: "hidden"
+        };
+
+        return [
+            <PageDetailContainer
+                padding={0}
+                style={{
+                    paddingBottom: 0,
+                    textAlign: "center",
+                    ...(transition && transition.style)
+                }}>
+                {helmet || ""}
+                {hero && (
+                    <Hero
+                        src={getOriginalImageSrc(hero)}
+                        style={{ maxHeight: 500, marginBottom: "4rem" }}
+                    />
+                )}
+
                 <Row>
-                    <Column>
-                        <Hero src={hero} />
+                    <Column xlarge={7} centered>
+                        <PullQuote fontSize={3} padding={3}>
+                            <Content content={intro}>{intro}</Content>
+                        </PullQuote>
+
+                        {logo && (
+                            <Logo src={getOriginalImageSrc(logo)} id="logo" />
+                        )}
                     </Column>
                 </Row>
-            )}
-            {logo && (
-                <Row>
-                    <Column>
-                        <Logo src={logo} id="logo" />
-                    </Column>
-                </Row>
-            )}
-            <Row>
-                <Column large={6}>
-                    <PullQuote fontSize={4}>{intro}</PullQuote>
-                </Column>
-                <Column large={6}>
-                    <Heading>The Project</Heading>
-                    <Content content={project} style={contentStyle} />
-                    <Heading>The Outcome</Heading>
-                    <Content content={outcome} style={contentStyle} />
-                </Column>
-            </Row>
-            <Row>
-                <Column>
-                    {galleryImages.map((image, index) => {
-                        return <GalleryImage src={image} />;
+
+                {copySections &&
+                    copySections.map((section, index) => {
+                        return (
+                            <div>
+                                <Row
+                                    expanded
+                                    collapse
+                                    equaliseChildHeight={!section.stacked}>
+                                    {(section.title || section.description) && (
+                                        <Column
+                                            xlarge={!section.stacked ? 6 : 7}
+                                            collapse
+                                            centered={section.stacked}
+                                            style={{ position: "relative" }}>
+                                            <Container
+                                                style={{
+                                                    ...(!section.stacked && {
+                                                        top: "50%",
+                                                        position: "absolute",
+                                                        transform:
+                                                            "translateY(-50%)"
+                                                    }),
+                                                    ...(index == 0 && {
+                                                        marginTop: "-1em"
+                                                    })
+                                                }}>
+                                                {section.title && (
+                                                    <H2>{section.title}</H2>
+                                                )}
+                                                {section.description && (
+                                                    <Content
+                                                        className="work-cms-content"
+                                                        content={
+                                                            section.description
+                                                        }
+                                                    />
+                                                )}
+                                            </Container>
+                                        </Column>
+                                    )}
+                                    <Column
+                                        large={!section.stacked ? 6 : 12}
+                                        collapse>
+                                        {section.video && isBrowser() ? (
+                                            <Video src={section.video} />
+                                        ) : (
+                                            section.image &&
+                                            (section.parallax &&
+                                            parallaxEnabled ? (
+                                                <Parallax strength={200}>
+                                                    <div
+                                                        style={parallaxStyle}
+                                                    />
+                                                    <Background className="custom-bg">
+                                                        <Img
+                                                            src={getOriginalImageSrc(
+                                                                section.image
+                                                            )}
+                                                        />
+                                                    </Background>
+                                                </Parallax>
+                                            ) : (
+                                                <img
+                                                    src={getOriginalImageSrc(
+                                                        section.image
+                                                    )}
+                                                />
+                                            ))
+                                        )}
+                                    </Column>
+                                </Row>
+                            </div>
+                        );
                     })}
 
-                    <GalleryItem>
-                        <StyledButton
-                            size="large"
-                            color="background"
-                            hollow
-                            expanded
-                        >
-                            See Next Case Study →
-                        </StyledButton>
-                    </GalleryItem>
-                </Column>
-            </Row>
-        </PageDetailContainer>
-    );
-};
+                <Row>
+                    <Column style={{ textAlign: "center" }}>
+                        <Container>
+                            <div style={{ height: 12 }} />
 
-export default ({ data }) => {
-    //console.log(data);
-    const { markdownRemark: work } = data;
+                            {solutionsList &&
+                                solutionsList.map((solution, index) => {
+                                    const colors = solutions.filter(
+                                        item =>
+                                            item.node.frontmatter.title ===
+                                            solution
+                                    );
+
+                                    return (
+                                        <Solution key={index}>
+                                            {colors.length && (
+                                                <SolutionDot
+                                                    style={{
+                                                        background: `linear-gradient(to bottom, ${
+                                                            colors[0].node
+                                                                .frontmatter
+                                                                .color1
+                                                        }, ${
+                                                            colors[0].node
+                                                                .frontmatter
+                                                                .color2
+                                                        })`
+                                                    }}
+                                                />
+                                            )}
+
+                                            <span>{solution}</span>
+                                        </Solution>
+                                    );
+                                })}
+                        </Container>
+                    </Column>
+                </Row>
+                {footer ? (
+                    <Row expanded collapse>
+                        <Column collapse>
+                            <Hero
+                                style={{
+                                    ...parallaxStyle,
+                                    maxHeight: 500,
+                                    marginBottom: 0
+                                }}
+                                src={getOriginalImageSrc(footer)}
+                            />
+                        </Column>
+                    </Row>
+                ) : (
+                    <div style={{ height: 80 }} />
+                )}
+            </PageDetailContainer>
+        ];
+    }
+}
+
+export default ({ history, transition, pathContext, data }) => {
+    const { title, metaTitle, metaDescription, hero } = data.work.frontmatter;
+    const pageTitle =
+        metaTitle ||
+        `${title} | News | RLA Group | Full Service Advertising Agency`;
+    const { previous, next, slug } = pathContext;
     return (
         <WorkTemplate
-            description={work.frontmatter.description}
-            helmet={<Helmet title={`Our Work | ${work.frontmatter.title}`} />}
-            title={work.frontmatter.title}
-            logo={work.frontmatter.logo}
-            hero={work.frontmatter.hero}
-            project={work.frontmatter.project}
-            outcome={work.frontmatter.outcome}
-            galleryImages={work.frontmatter.galleryImages}
-            solutions={work.frontmatter.solutions}
-            intro={work.frontmatter.intro}
+            helmet={
+                <Helmet title={pageTitle}>
+                    <meta name="title" content={pageTitle} />
+                    <meta property="og:title" content={pageTitle} />
+                    {hero && (
+                        <meta
+                            property="og:image"
+                            content={`//www.rla.co.uk${hero.original}`}
+                        />
+                    )}
+                    {metaDescription && (
+                        <meta
+                            property="og:description"
+                            content={metaDescription}
+                        />
+                    )}
+                    <meta
+                        property="og:url"
+                        content={`//www.rla.co.uk${slug}`}
+                    />
+                    {metaDescription && (
+                        <meta name="description" content={metaDescription} />
+                    )}
+                </Helmet>
+            }
+            data={data}
+            transition={transition}
+            history={history}
         />
     );
 };
 
+class Video extends React.Component {
+    render() {
+        const { src } = this.props;
+        const videoOptions = {
+            width: "100%",
+            ref: videoRef => {
+                this.videoRef = videoRef;
+            },
+            onClick: () => {
+                if (this.videoRef && this.videoRef.paused) {
+                    this.videoRef.play();
+                } else if (this.videoRef) {
+                    this.videoRef.pause();
+                }
+            },
+            loop: true,
+            playsInline: true,
+            preload: "auto"
+        };
+
+        return (
+            <ScrollTrigger
+                onEnter={() => this.videoRef.play()}
+                onExit={() => this.videoRef.pause()}>
+                <video {...videoOptions}>
+                    <source src={src} />
+                </video>
+            </ScrollTrigger>
+        );
+    }
+}
+
 export const pageQuery = graphql`
     query WorkByPath($path: String!) {
-        markdownRemark(fields: { slug: { eq: $path } }) {
+        work: markdownRemark(fields: { slug: { eq: $path } }) {
             html
             frontmatter {
+                hero {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
+                footer
                 title
                 intro
-                logo
-                hero
-                project
-                outcome
-                galleryImages
+                metaTitle
+                metaDescription
+                logo {
+                    responsive {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
+                    }
+                    original
+                }
+                copySections {
+                    title
+                    description
+                    image
+                    parallax
+                    imageAlignment
+                    stacked
+                    video
+                }
                 solutionsList
+            }
+        }
+        solutions: allMarkdownRemark(
+            filter: { frontmatter: { templateKey: { eq: "solutions" } } }
+        ) {
+            edges {
+                node {
+                    frontmatter {
+                        title
+                        color1
+                        color2
+                    }
+                }
             }
         }
     }
