@@ -11,19 +11,19 @@ date: 10/08/2018
 hero: /img/1160x450-paris-ms-article-header-image-v1.jpg
 thumb: /img/1160x450-paris-ms-article-header-image-v1.jpg
 category: News
-intro: tbc
+intro: Paris Motor show 2018 Week 1 Round up
 sideHeading: tbc
 galleryImages:
   - /img/1366x532-paris-ms-article-mid-image-bmw-1-v1.jpg
+  - /img/1366x532-paris-ms-article-mid-image-bmw-2-v1.jpg
+  - /img/1160x450-paris-ms-article-header-image-v1.jpg
+  - /img/1366x532-paris-ms-article-mid-image-peugeot-v1.jpg
+  - /img/1366x532-paris-ms-article-mid-image-porsche-v1.jpg
+  - null
 author: Luke Fagg
 weighting: 0
 ---
-The automotive industry has converged on Paris for the Mondial Paris Motor show. As always with these Motor shows we get a little taste of new models, tech and future concepts. It’s a lot to take on board, so I’ve taken the time out to give you a few headlines from the first few days.
-
-<br>
-
-**The new BMW 3 Series
-**
+## The new BMW 3 Series
 
 BMW launched the latest 3 series models. There’s a lot going on here so I’ll be quick, its 85mm longer and 16mm wider that the last 3 Series. But thanks to a lot of aluminium in the bonnet, front wings and suspension, it manages to be 55kg lighter. So lighter and a stiffer chassis, what else did you expect from the Ultimate Driving Machine?
 
@@ -33,15 +33,15 @@ The styling, feels pretty safe, nothing drastic to show. I’m definitely waitin
 
 Whether clever marketing or a genuine leak, images of the 3 Series were released a few days before launch… I know which my money is on.
 
-<img src="/img/1366x532-paris-ms-article-mid-image-bmw-1-v1.jpg" alt="bmw3seriesblue" class="floatLeft widthundefined" />
+<img src="/img/1366x532-paris-ms-article-mid-image-bmw-1-v1.jpg" alt="undefined" class="floatLeft width25" />
 
-<img src="/img/1366x532-paris-ms-article-mid-image-bmw-2-v1.jpg" alt="bmw3serieswhite" class="floatRight widthundefined" />
-
-<br>
+<img src="/img/1366x532-paris-ms-article-mid-image-bmw-2-v1.jpg" alt="undefined" class="floatRight width25" />
 
 <br>
 
-**The Audi R8 GT3 Evo race car**
+<br>
+
+## The Audi R8 GT3 Evo race car
 
 Yes.
 
@@ -49,11 +49,11 @@ Look at it, it looks amazing. You won’t see a more aggressive looking race car
 
 If they continue down this more aggressive style with nods to the old Quattro, count me in.
 
-![audir9gt3](/img/1160x450-paris-ms-article-header-image-v1.jpg)
+![audir8racecar](/img/1160x450-paris-ms-article-header-image-v1.jpg)
 
 <br>
 
-**Peugeot E-Legend**
+## Peugeot E-Legend
 
 The next in the line of the retro-looking EV’s following the Honda Urban EV. Peugeot are showing that the future of cars can still look like cars. And that’s pretty cool.
 
@@ -63,11 +63,11 @@ But let’s calm down a bit. It’s a concept, so chances are it’ll never look
 
 And a little side note from the PSA stands, Citroen are saying that all their cars will be electrified by 2025. So another car company committing to an all-electric future just as Jaguar Land Rover and Volvo – can only be good news.
 
-![peugeotv1](/img/1366x532-paris-ms-article-mid-image-peugeot-v1.jpg)
+![peugeotecar](/img/1366x532-paris-ms-article-mid-image-peugeot-v1.jpg)
 
 <br>
 
-**Porsche 911 Speedster**
+## Porsche 911 Speedster
 
 Teased at their 70th birthday in June the 911 Speedster has created quite a stir with Porsche fans. So much so that Porsche have decided to put some into production. 1,948 to be precise. That’s not a weird random number pulled out of the air, the original 356 was signed off for production in 1948. So a limited number available.
 
