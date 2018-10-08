@@ -2,15 +2,13 @@
 templateKey: news
 title: Paris Motor show 2018 Week 1 Round up
 metaTitle: Paris Motor show 2018
-metaDescription: >-
-  The automotive industry has converged on Paris for the Mondial Paris Motor
-  show. As always with these Motor shows we get a little taste of new models,
-  tech and future concepts. It’s a lot to take on board, so I’ve taken the time
-  out to give you a few headlines from the first few days.
+metaDescription: Paris Motor show 2018 Week 1 Round up
 date: 10/08/2018
 hero: /img/1160x450-paris-ms-article-header-image-v1.jpg
 thumb: /img/1160x450-paris-ms-article-header-image-v1.jpg
 category: News
+tags:
+  - News
 intro: Paris Motor show 2018 Week 1 Round up
 sideHeading: Paris Motor show 2018 Week 1 Round up
 galleryImages:
@@ -39,7 +37,7 @@ Whether clever marketing or a genuine leak, images of the 3 Series were released
 
 <br>
 
-## 
+
 
 ## The Audi R8 GT3 Evo race car
 
@@ -51,7 +49,7 @@ If they continue down this more aggressive style with nods to the old Quattro, c
 
 ![audir8racecar](/img/1160x450-paris-ms-article-header-image-v1.jpg)
 
-## 
+
 
 ## Peugeot E-Legend
 
