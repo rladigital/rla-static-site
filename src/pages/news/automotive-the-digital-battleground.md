@@ -34,6 +34,8 @@ Meeting consumer needs using data and technology is the new battleground for gro
 
 Our experience gained whilst working with some of the world’s largest automotive brands and their retail networks have highlighted five key factors that successful companies have in place that enable them to navigate the digital marketing transition, and seize the benefits with both hands firmly gripped on the steering wheel.
 
+![](/img/1366x532-automotive-article-mid-image-a-v1.jpg)
+
 **1. Connected Digital Insights**
 
 Effective marketers link their digital information to [better understand and reach their customers](https://rla.co.uk/news/is-data-killing-creativity/). Automotive brands can no longer afford to treat ‘brand and communications’ as distinct entities. It’s increasingly difficult to execute in one of these areas without a reasonably in-depth understanding of the others. There’s no point planning a launch event if you can’t also plan to promote that event across social media and email too. Connecting digital channels and information is key to marketing effectiveness.
