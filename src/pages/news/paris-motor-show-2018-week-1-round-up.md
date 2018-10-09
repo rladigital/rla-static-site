@@ -18,7 +18,7 @@ galleryImages:
   - /img/1366x532-paris-ms-article-mid-image-peugeot-v1.jpg
   - /img/1366x532-paris-ms-article-mid-image-porsche-v1.jpg
   - null
-author: Luke Fagg
+author: James Coogan
 weighting: 0
 ---
 ## The new BMW 3 Series
@@ -37,8 +37,6 @@ Whether clever marketing or a genuine leak, images of the 3 Series were released
 
 <br>
 
-<br>
-
 ## The Audi R8 GT3 Evo race car
 
 Yes.
@@ -48,8 +46,6 @@ Look at it, it looks amazing. You won’t see a more aggressive looking race car
 If they continue down this more aggressive style with nods to the old Quattro, count me in.
 
 ![audir8racecar](/img/1160x450-paris-ms-article-header-image-v1.jpg)
-
-
 
 ## Peugeot E-Legend
 
@@ -62,8 +58,6 @@ But let’s calm down a bit. It’s a concept, so chances are it’ll never look
 And a little side note from the PSA stands, Citroen are saying that all their cars will be electrified by 2025. So another car company committing to an all-electric future just as Jaguar Land Rover and Volvo – can only be good news.
 
 ![peugeotecar](/img/1366x532-paris-ms-article-mid-image-peugeot-v1.jpg)
-
-
 
 ## Porsche 911 Speedster
 
