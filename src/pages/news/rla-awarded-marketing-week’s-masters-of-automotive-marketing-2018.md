@@ -31,15 +31,15 @@ RLA were [nominated as Marketing Week Masters](https://www.marketingweek.com/201
 
 So, what made PERKS such a resounding success? 
 
-> “Good, smart idea well executed in a challenging sector”
+> **Good, smart idea well executed in a challenging sector**
 
 A 25% uplift in sales in a declining market for car manufacturers is the reward PSA received from a brave and innovative approach to engaging with their customers. Fundamental to our success in achieving the Marketing Week Masters of Automotive Award was building a unique tool that innovatively unified customer and sales data that had previously been spread across the retail network. This provided insights into previously unattainable customer behaviour and allowed the development of an automated communications programme, transforming a very traditional approach to marketing into the leading-edge creative solution in the sector.
 
-> “Innovative solution, strong ROI and growth in a declining category”
+> **Innovative solution, strong ROI and growth in a declining category**
 
 Algorithms were designed using propensity modelling, to deliver bespoke incentives to individual customers dependent upon their current purchasing habits and the likelihood to buy from additional categories.
 
->  “Genuinely innovative and highly effective”
+>  **Genuinely innovative and highly effective**
 
 Research, testing, due diligence, and a brave client have created a customer-centric programme that has transformed PSA’s trade marketing, sparked a desire amongst local garages to participate, and delivered unseen levels of engagement with communications and a quicker than expected impact on sales.
 
