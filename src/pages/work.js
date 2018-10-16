@@ -12,6 +12,7 @@ import { randomChunkArray, random, shuffleArray } from "../helpers/helpers";
 import WorkSummary from "../components/work/WorkSummary";
 import HeaderBlock from "../components/HeaderBlock";
 import LoadMore from "../components/blog/LoadMore";
+import MwWinner from "../components/MwWinner";
 
 let lastarrayIndex = null;
 
@@ -32,7 +33,11 @@ export default class PeoplePage extends React.Component {
         this.state = {};
     }
     componentDidMount() {
-        const { data: { allMarkdownRemark: { edges: work } } } = this.props;
+        const {
+            data: {
+                allMarkdownRemark: { edges: work }
+            }
+        } = this.props;
 
         // const chunks = randomChunkArray(shuffleArray(work), 2, 3);
         const chunks = randomChunkArray(work, 2, 3);
@@ -85,7 +90,9 @@ export default class PeoplePage extends React.Component {
 
     render() {
         const {
-            data: { allMarkdownRemark: { edges: work } },
+            data: {
+                allMarkdownRemark: { edges: work }
+            },
             transition
         } = this.props;
         const { chunkedWork, rows, layout } = this.state;
@@ -98,6 +105,7 @@ export default class PeoplePage extends React.Component {
                         content="Work | RLA Group | Full Service Advertising Agency"
                     />
                 </Helmet>
+                <MwWinner top={"35%"} />
                 <Row>
                     <Column>
                         <HeaderBlock

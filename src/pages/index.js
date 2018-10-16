@@ -8,6 +8,7 @@ import PeopleSection from "../components/people/PeopleSection";
 import WorkSection from "../components/work/WorkSection";
 import NewsSection from "../components/news/NewsSection";
 import MissionSection from "../components/mission/MissionSection";
+import MwWinner from "../components/MwWinner";
 
 if (!isBrowser()) {
     var SolutionsSection = require("../components/solutions/SolutionsSectionStatic");
@@ -75,6 +76,7 @@ export default class IndexPage extends React.Component {
                     url="https://identity.netlify.com/v1/netlify-identity-widget.js"
                     onLoad={() => this.handleScriptLoad()}
                 />
+                <MwWinner top={"35%"} />
                 <SolutionsSection
                     width={width}
                     height={height}

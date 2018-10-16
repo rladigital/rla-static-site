@@ -62,7 +62,7 @@ const HeaderBackground = styled.div`
 
 const HeaderContainer = styled.div`
     top: 0;
-    z-index: 6;
+    z-index: ${props => (props.offcanvasActive ? 999 : 6)};
     position: fixed;
     text-align: center;
     color: ${props =>
@@ -70,7 +70,7 @@ const HeaderContainer = styled.div`
     padding: ${spacing.padding}rem;
     transition: color 1s ease;
     @media (min-width: ${breakpoints.medium}px) {
-        z-index: ${props => props.zIndex};
+        z-index: ${props => (props.offcanvasActive ? 999 : props.zIndex)};
     }
 `;
 
@@ -78,16 +78,15 @@ const Overlay = styled.div`
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 4;
+    z-index: 9;
     background: ${transparentize(colors.reallyDarkBlueGray, 0.1)};
-    z-index: 2;
     top: 0;
 `;
 
 const Menu = styled.div`
     top: 0;
     right: 0;
-    z-index: 5;
+    z-index: 15;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -96,7 +95,7 @@ const Menu = styled.div`
     background: ${colors.reallyDarkBlueGray};
     font-family: ${props => props.theme.headings.fontFamily};
     @media (min-width: ${breakpoints.medium}px) {
-        z-index: 2;
+        z-index: 12;
         width: 400px;
     }
 `;
@@ -181,9 +180,8 @@ class Offcanvas extends React.Component {
             <HeaderContainer
                 zIndex={4}
                 style={{ right: 0 }}
-                offcanvasColor={
-                    offcanvasActive ? colors.white : offcanvasColor
-                }>
+                offcanvasColor={offcanvasActive ? colors.white : offcanvasColor}
+                offcanvasActive={offcanvasActive}>
                 <MenuIcon
                     active={offcanvasActive}
                     onClick={

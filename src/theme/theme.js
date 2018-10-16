@@ -43,6 +43,7 @@ const theme = {
     lightColor: colors.white,
     accent: colors.accent,
     spacing: spacing,
+    breakpoints: breakpoints,
     body: {
         color: colors.white,
         background: colors.background,
