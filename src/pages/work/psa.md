@@ -64,6 +64,8 @@ copySections:
       projects to assist in driving the growth that Groupe PSA demands.
     stacked: true
     title: 'FULL-SERVICE, STRATEGIC AND CREATIVE MARCOMMS'
+  - description: '![](/img/awards.png)'
+    title: Awards
 footer: /img/2017equipauto_psa-1-edit.jpg
 solutionLookup: ''
 solutionsList:
@@ -76,3 +78,4 @@ solutionsList:
 weighting: -4
 previewType: page
 ---
+
