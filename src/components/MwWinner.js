@@ -22,7 +22,7 @@ const Img = styled.img`
 
 const MwWinner = ({ top }) => (
     <Container top={top}>
-        <Link to="#">
+        <Link to="/news/rla-awarded-marketing-week’s-masters-of-automotive-marketing-2018/">
             <Img
                 src={banner}
                 alt="Marketing Week Masters 2018 Automotive Winner"
