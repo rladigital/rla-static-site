@@ -84,6 +84,7 @@ copySections:
     stacked: true
     title: 'MEASURABLE RESULTS, EXCITING FUTURES'
 footer: /img/2674x1218-scania-kieron-owen-image.jpg
+footerImageDescription: Photograph courtesy of Bryan Winstanley
 solutionLookup: ''
 solutionsList:
   - Brand Desire
