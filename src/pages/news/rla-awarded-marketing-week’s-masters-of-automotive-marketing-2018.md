@@ -44,3 +44,13 @@ Algorithms were designed using propensity modelling, to deliver bespoke incentiv
 Research, testing, due diligence, and a brave client have created a customer-centric programme that has transformed PSA’s trade marketing, sparked a desire amongst local garages to participate, and delivered unseen levels of engagement with communications and a quicker than expected impact on sales.
 
 PERKS has been, and continues to be, a successful fusion of creativity, technology, and strategic thinking. We are incredibly proud to have been successful, particularly against some of the best Automotive marketing strategies in the country, and are excited to see where our journey with Groupe PSA will continue to take us.
+
+<div class="highlighted">What the Judges said:
+
+
+
+"Good, smart idea well executed in a challenging sector"
+
+"Innovative solution, strong ROI and growth in a declining category"
+
+"Genuinely innovative and highly effective"</div>
