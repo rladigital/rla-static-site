@@ -77,6 +77,12 @@ collections:
                             required: false,
                         },
                         {
+                            label: "Image Description",
+                            name: "imageDescription",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
                             label: "Parallax",
                             name: "parallax",
                             widget: "boolean",
@@ -113,6 +119,12 @@ collections:
                 label: "Footer Image",
                 name: "footer",
                 widget: "image",
+                required: false,
+            }
+          - {
+                label: "Footer Image Description",
+                name: "footerImageDescription",
+                widget: "string",
                 required: false,
             }
           - {

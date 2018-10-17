@@ -85,6 +85,12 @@ const Img = styled.div`
     background-size: cover;
 `;
 
+const ImageDescription = styled.div`
+    padding: 2rem 0;
+    font-style: italic;
+    color: ${props => colors.mediumGray};
+`;
+
 export class WorkTemplate extends React.Component {
     constructor() {
         super();
@@ -125,7 +131,8 @@ export class WorkTemplate extends React.Component {
             logo,
             solutionsList,
             title,
-            footer
+            footer,
+            footerImageDescription
         } = data.work.frontmatter;
 
         const solutions = data.solutions.edges;
@@ -296,18 +303,29 @@ export class WorkTemplate extends React.Component {
                     </Column>
                 </Row>
                 {footer ? (
-                    <Row expanded collapse>
-                        <Column collapse>
-                            <Hero
-                                style={{
-                                    ...parallaxStyle,
-                                    maxHeight: 500,
-                                    marginBottom: 0
-                                }}
-                                src={getOriginalImageSrc(footer)}
-                            />
-                        </Column>
-                    </Row>
+                    <div>
+                        <Row expanded collapse>
+                            <Column collapse>
+                                <Hero
+                                    style={{
+                                        ...parallaxStyle,
+                                        maxHeight: 500,
+                                        marginBottom: 0
+                                    }}
+                                    src={getOriginalImageSrc(footer)}
+                                />
+                            </Column>
+                        </Row>
+                        {footerImageDescription && (
+                            <Row>
+                                <Column>
+                                    <ImageDescription>
+                                        {footerImageDescription}
+                                    </ImageDescription>
+                                </Column>
+                            </Row>
+                        )}
+                    </div>
                 ) : (
                     <div style={{ height: 80 }} />
                 )}
@@ -405,6 +423,7 @@ export const pageQuery = graphql`
                     original
                 }
                 footer
+                footerImageDescription
                 title
                 intro
                 metaTitle
