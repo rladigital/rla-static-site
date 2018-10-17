@@ -278,7 +278,7 @@ function globalCss(theme) {
 
         .postContent blockquote {
             display:block;
-            padding: 15px 20px 15px 45px;
+            padding: 15px 20px 15px 30px;
             margin: 0 0 2rem;
             position: relative;
             //font-family: "Adobe Caslon Pro", Georgia, serif;
@@ -346,6 +346,15 @@ function globalCss(theme) {
                         margin-right: 5px;
                     }
                 }
+            }
+            .highlighted{
+                strong{
+                    display: block;
+                    margin-bottom: 1rem;
+                }
+               background: #eeeeee
+               padding: 30px 30px 0;
+               overflow: hidden;
             }
         }
 
