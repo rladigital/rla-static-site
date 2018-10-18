@@ -31,15 +31,11 @@ RLA were [nominated as Marketing Week Masters](https://www.marketingweek.com/201
 
 So, what made PERKS such a resounding success?
 
-![](/img/1366x532-marketing-awards-winner-article-mid-image-a-v1.jpg)
+![null](/img/1366x532-marketing-awards-winner-article-mid-image-a-v1.jpg)
 
 A 25% uplift in sales in a declining market for car manufacturers is the reward PSA received from a brave and innovative approach to engaging with their customers. Fundamental to our success in achieving the Marketing Week Masters of Automotive Award was building a unique tool that innovatively unified customer and sales data that had previously been spread across the retail network. This provided insights into previously unattainable customer behaviour and allowed the development of an automated communications programme, transforming a very traditional approach to marketing into the leading-edge creative solution in the sector.
 
->
-
 Algorithms were designed using propensity modelling, to deliver bespoke incentives to individual customers dependent upon their current purchasing habits and the likelihood to buy from additional categories.
-
->
 
 Research, testing, due diligence, and a brave client have created a customer-centric programme that has transformed PSA’s trade marketing, sparked a desire amongst local garages to participate, and delivered unseen levels of engagement with communications and a quicker than expected impact on sales.
 
