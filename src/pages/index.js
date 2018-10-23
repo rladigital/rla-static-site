@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import Script from "react-load-script";
 import graphql from "graphql";
+import queryString from "query-string";
 
 import { serveStatic, isBrowser } from "../helpers/helpers";
 import PeopleSection from "../components/people/PeopleSection";
@@ -69,6 +70,7 @@ export default class IndexPage extends React.Component {
             people: { edges: people },
             transition
         } = data;
+        const urlParams = queryString.parse(this.props.location.search);
 
         return (
             <section style={transition && transition.style}>
@@ -82,7 +84,8 @@ export default class IndexPage extends React.Component {
                     height={height}
                     solutions={solutions}
                     scrolltop={scrolltop}
-                    setOffcanvasColor={setOffcanvasColor}>
+                    setOffcanvasColor={setOffcanvasColor}
+                    urlParams={urlParams}>
                     <WorkSection work={work} />
                     <ServicesSection
                         width={width}

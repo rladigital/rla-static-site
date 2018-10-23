@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
+import Link from "gatsby-link";
 
 import graphql from "graphql";
 import styled from "styled-components";
@@ -156,6 +157,10 @@ class SolutionModal extends React.Component {
             this.props.setScrollable(false);
         }
 
+        if (this.props.onOpen) {
+            this.props.onOpen();
+        }
+
         setTimeout(() => {
             this.setState({
                 animation: 1
@@ -255,12 +260,10 @@ class SolutionModal extends React.Component {
                         isMobile() && currentSolution.frontmatter.color2,
                     opacity: animation,
                     transitionDelay: animation ? "0.5s" : "0s"
-                }}
-            >
+                }}>
                 <BackButton
                     role="button"
-                    onClick={() => this.handleClose(close)}
-                >
+                    onClick={() => this.handleClose(close)}>
                     <FAIcon icon="chevron-left" /> BACK
                 </BackButton>
                 <Svg>
@@ -276,8 +279,7 @@ class SolutionModal extends React.Component {
                         left: circleProps.cx,
                         opacity: animation,
                         transitionDelay: animation ? "0.5s" : "0s"
-                    }}
-                >
+                    }}>
                     <Content onClick={e => e.stopPropagation()}>
                         <Scrollbars style={{ height: "100%" }} autoHide>
                             <ContentRow>
@@ -306,6 +308,12 @@ class SolutionModal extends React.Component {
                                     </Column>
                                     <Column xlarge={5}>
                                         <ContentContainer>
+                                            <a href="/?solution=customer-acquisition">
+                                                Test
+                                            </a>
+                                            <Link to="?solution=customer-acquisition">
+                                                Test2
+                                            </Link>
                                             <ContentMarkdown
                                                 content={
                                                     currentSolution.frontmatter
@@ -332,8 +340,7 @@ class SolutionModal extends React.Component {
                                                         this.handleClick(
                                                             prevSolution
                                                         )
-                                                    }
-                                                >
+                                                    }>
                                                     <FAIcon icon="arrow-left" />{" "}
                                                     {
                                                         solutions[prevSolution]
@@ -354,8 +361,7 @@ class SolutionModal extends React.Component {
                                                         this.handleClick(
                                                             nextSolution
                                                         )
-                                                    }
-                                                >
+                                                    }>
                                                     {
                                                         solutions[nextSolution]
                                                             .node.frontmatter

@@ -27,6 +27,7 @@ class SolutionsSection extends React.Component {
         super(props);
         this.state = {
             section: 0,
+            activeSolution: undefined,
             scrollable: true
         };
 
@@ -40,6 +41,32 @@ class SolutionsSection extends React.Component {
             leading: true,
             trailing: false
         });
+    }
+
+    componentWillReceiveProps(props) {
+        if (
+            props.urlParams &&
+            props.urlParams.solution &&
+            props.urlParams.solution != this.state.solution
+        ) {
+            const slug = `/solutions/${props.urlParams.solution}/`;
+
+            const activeSolution = props.solutions
+                .map(function(e) {
+                    return e.node.fields.slug;
+                })
+                .indexOf(slug);
+
+            if (
+                activeSolution !== this.state.activeSolution &&
+                activeSolution !== -1
+            ) {
+                this.setState({
+                    section: 1,
+                    activeSolution
+                });
+            }
+        }
     }
 
     componentDidMount() {
@@ -109,15 +136,26 @@ class SolutionsSection extends React.Component {
         }, 1500);
     }
 
+    resetActiveSolution = () => {
+        this.setState({ activeSolution: undefined });
+    };
+
     render() {
-        const { width, height, solutions, setOffcanvasColor } = this.props;
-        const { section } = this.state;
+        const {
+            width,
+            height,
+            solutions,
+            setOffcanvasColor,
+            urlParams
+        } = this.props;
+        const { section, activeSolution } = this.state;
+
+        console.log(activeSolution);
 
         const sections = [
             <Zoom
                 key="section_1"
-                cb={() => setOffcanvasColor(colors.background)}
-            >
+                cb={() => setOffcanvasColor(colors.background)}>
                 <Section>
                     <SolutionsVideo
                         width={width}
@@ -134,8 +172,10 @@ class SolutionsSection extends React.Component {
                         width={width}
                         height={height}
                         solutions={solutions}
+                        activeSolution={activeSolution}
                         scrollDown={this.nextSection}
                         setScrollable={this.setScrollable}
+                        onModalOpen={this.resetActiveSolution}
                     />
                 </Section>
             </Zoom>,
@@ -154,14 +194,12 @@ class SolutionsSection extends React.Component {
                     minHeight: height,
                     position: section >= 2 ? "static" : "fixed",
                     zIndex: section == 0 ? 4 : 1
-                }}
-            >
+                }}>
                 <Swipe
                     onSwipeMove={this.shouldScrollPage}
                     onSwipeDown={this.prevSection}
                     onSwipeUp={this.nextSection}
-                    allowMouseEvents
-                >
+                    allowMouseEvents>
                     <TransitionGroup>{sections[section]}</TransitionGroup>
                 </Swipe>
             </Container>
@@ -221,16 +259,14 @@ class Zoom extends React.Component {
                     position: "fixed",
                     zIndex: zIndex,
                     top: 0
-                }}
-            >
+                }}>
                 <Transition in={inProp} timeout={500} {...rest}>
                     {state => (
                         <div
                             style={{
                                 ...defaultStyle,
                                 ...transitions[state]
-                            }}
-                        >
+                            }}>
                             {React.Children.map(children, child =>
                                 React.cloneElement(child, {
                                     transitionState: state
@@ -287,8 +323,7 @@ class Slide extends React.Component {
                         style={{
                             ...defaultStyle,
                             ...transitions[state]
-                        }}
-                    >
+                        }}>
                         {children}
                     </div>
                 )}
