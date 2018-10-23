@@ -7,7 +7,7 @@ import graphql from "graphql";
 import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
-import ContentMarkdown, { HTMLContent } from "../Content";
+import ContentMarkdown, { HTMLAstContent } from "../Content";
 import { scale, random, isBrowser, isMobile } from "../../helpers/helpers";
 import { Scrollbars } from "react-custom-scrollbars";
 
@@ -112,10 +112,11 @@ const BackButton = styled.a`
 
 const ContentContainer = styled.div`
     font-size: 1rem;
-    padding: 0 2vw 0 0;
+
+    text-align: left;
     p {
         line-height: 1.5;
-        margin: 0 0 1.5rem 0;
+        margin: 0 2vw 0 1.4rem;
     }
     a {
         font-weight: bold;
@@ -155,10 +156,6 @@ class SolutionModal extends React.Component {
 
         if (this.props.setScrollable) {
             this.props.setScrollable(false);
-        }
-
-        if (this.props.onOpen) {
-            this.props.onOpen();
         }
 
         setTimeout(() => {
@@ -295,34 +292,13 @@ class SolutionModal extends React.Component {
                                 </Row>
                             </ContentRow>
                             <ContentRow>
-                                <Row expanded>
-                                    <Column xlarge={5}>
-                                        <ContentContainer>
-                                            <ContentMarkdown
-                                                content={
-                                                    currentSolution.frontmatter
-                                                        .description1
-                                                }
-                                            />
-                                        </ContentContainer>
-                                    </Column>
-                                    <Column xlarge={5}>
-                                        <ContentContainer>
-                                            <a href="/?solution=customer-acquisition">
-                                                Test
-                                            </a>
-                                            <Link to="?solution=customer-acquisition">
-                                                Test2
-                                            </Link>
-                                            <ContentMarkdown
-                                                content={
-                                                    currentSolution.frontmatter
-                                                        .description2
-                                                }
-                                            />
-                                        </ContentContainer>
-                                    </Column>
-                                </Row>
+                                <ContentContainer>
+                                    <Row expanded>
+                                        <HTMLAstContent
+                                            content={currentSolution.htmlAst}
+                                        />
+                                    </Row>
+                                </ContentContainer>
                             </ContentRow>
                         </Scrollbars>
                         {this.props.showButtons &&

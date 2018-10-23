@@ -65,13 +65,12 @@ class SolutionsVideo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeSolution: undefined,
-            lines: []
+            lines: [],
+            activeSolution: null
         };
 
         this.lineTicker = this.lineTicker.bind(this);
     }
-
     componentDidMount() {
         const { solutions } = this.props;
         const orbs = this.orbs(solutions);
@@ -79,21 +78,15 @@ class SolutionsVideo extends React.Component {
             orbs: orbs
         });
         this.preLoadLines(orbs);
-        this.timer = setInterval(this.lineTicker, 1000);
-    }
+        // this.timer = setInterval(this.lineTicker, 1000);
 
-    componentWillReceiveProps(props) {
-        console.log(props);
-        if (
-            props.activeSolution !== undefined &&
-            props.activeSolution !== this.state.activeSolution
-        ) {
-            this.setState({ activeSolution: props.activeSolution });
-        }
+        this.props.innerRef(this);
     }
 
     componentWillUnmount() {
         clearInterval(this.timer);
+
+        this.props.innerRef(null);
     }
 
     handleClick(x) {
@@ -220,8 +213,7 @@ class SolutionsVideo extends React.Component {
             style,
             transitionState,
             nextSection,
-            setScrollable,
-            onModalOpen
+            setScrollable
         } = this.props;
         const { activeSolution, orbs, lines } = this.state;
 
@@ -374,7 +366,6 @@ class SolutionsVideo extends React.Component {
                         solutions={solutions}
                         close={() => this.handleClick(null)}
                         setScrollable={setScrollable}
-                        onOpen={onModalOpen}
                     />
                 )}
 

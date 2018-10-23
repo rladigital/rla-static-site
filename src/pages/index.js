@@ -169,7 +169,7 @@ export const pageQuery = graphql`
                     fields {
                         slug
                     }
-                    html
+                    htmlAst
                     id
                     frontmatter {
                         title

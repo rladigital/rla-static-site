@@ -19,6 +19,7 @@
         "gatsby-plugin-sharp": "^1.6.28",
         "gatsby-plugin-sitemap": "^1.2.25",
         "gatsby-plugin-styled-components": "^2.0.6",
+        "gatsby-remark-component": "^1.1.3",
         "gatsby-remark-external-links": "^0.0.4",
         "gatsby-remark-images": "^1.5.44",
         "gatsby-remark-relative-images": "^0.0.6",
@@ -47,11 +48,14 @@
         "react-swipe-events": "^1.0.3",
         "react-transition-group": "2.2.1",
         "react-video-cover": "^1.2.0",
+        "rehype-react": "^3.0.3",
         "remark": "^9.0.0",
         "remark-external-links": "^3.0.0",
         "remark-react": "^4.0.1",
         "rla-components": "0.4.5",
-        "styled-components": "^3.1.6"
+        "styled-components": "^3.1.6",
+        "unist-util-visit": "^1.4.0",
+        "unist-util-visit-parents": "^2.0.1"
     },
     "keywords": [
         "gatsby"

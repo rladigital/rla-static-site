@@ -27,7 +27,6 @@ class SolutionsSection extends React.Component {
         super(props);
         this.state = {
             section: 0,
-            activeSolution: undefined,
             scrollable: true
         };
 
@@ -57,14 +56,12 @@ class SolutionsSection extends React.Component {
                 })
                 .indexOf(slug);
 
-            if (
-                activeSolution !== this.state.activeSolution &&
-                activeSolution !== -1
-            ) {
+            if (activeSolution !== -1 && this.solutionsList) {
                 this.setState({
-                    section: 1,
-                    activeSolution
+                    section: 1
                 });
+
+                this.solutionsList.handleClick(activeSolution);
             }
         }
     }
@@ -136,10 +133,6 @@ class SolutionsSection extends React.Component {
         }, 1500);
     }
 
-    resetActiveSolution = () => {
-        this.setState({ activeSolution: undefined });
-    };
-
     render() {
         const {
             width,
@@ -148,9 +141,7 @@ class SolutionsSection extends React.Component {
             setOffcanvasColor,
             urlParams
         } = this.props;
-        const { section, activeSolution } = this.state;
-
-        console.log(activeSolution);
+        const { section } = this.state;
 
         const sections = [
             <Zoom
@@ -172,10 +163,9 @@ class SolutionsSection extends React.Component {
                         width={width}
                         height={height}
                         solutions={solutions}
-                        activeSolution={activeSolution}
                         scrollDown={this.nextSection}
                         setScrollable={this.setScrollable}
-                        onModalOpen={this.resetActiveSolution}
+                        innerRef={node => (this.solutionsList = node)}
                     />
                 </Section>
             </Zoom>,
