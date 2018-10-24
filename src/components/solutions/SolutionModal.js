@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
 import ReactDOM from "react-dom";
 import Link from "gatsby-link";
 
@@ -7,9 +7,9 @@ import graphql from "graphql";
 import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
-import ContentMarkdown, { HTMLAstContent } from "../Content";
 import { scale, random, isBrowser, isMobile } from "../../helpers/helpers";
 import { Scrollbars } from "react-custom-scrollbars";
+import rehypeReact from "rehype-react";
 
 import FAIcon from "@fortawesome/react-fontawesome";
 
@@ -122,6 +122,7 @@ const ContentContainer = styled.div`
         font-weight: bold;
         color: #fff;
         text-decoration: underline;
+        cursor: pointer;
     }
     @media (min-width: ${breakpoints.medium}px) {
         p {
@@ -244,8 +245,37 @@ class SolutionModal extends React.Component {
             fill: currentSolution.frontmatter.color2,
             transform: `translate(${width * (1 - animation)} 0)`
         };
+        const SolutionLink = ({ solution, children }) => {
+            const slug = `/solutions/${solution}/`;
+            const activeSolution = solutions
+                .map(function(e) {
+                    console.log(e, slug);
+                    return e.node.fields.slug;
+                })
+                .indexOf(slug);
+            const handleClick = () => {
+                if (activeSolution != -1) {
+                    this.handleClick(activeSolution);
+                }
+            };
 
-        //console.log("Current Solution", currentSolution);
+            return <a onClick={handleClick}>{children}</a>;
+        };
+        const HTMLAstContent = ({ content, className, style }) => {
+            return (
+                <div className={className} style={style}>
+                    {renderAst(content)}
+                </div>
+            );
+        };
+        const renderAst = new rehypeReact({
+            createElement: React.createElement,
+            components: {
+                solutionlink: SolutionLink,
+                row: Row,
+                column: Column
+            }
+        }).Compiler;
 
         return ReactDOM.createPortal(
             <Container

@@ -11,8 +11,8 @@ color2: "#FB5126"
 <column large="5">
     <p>
       Whether encouraging new behaviours or curbing old ones, we can help you
-      influence partners from corporate target alignment down to .<gatsbylink to="/?solution=employee-engagement">employee
-      engagement</gatsbylink>
+      influence partners from corporate target alignment down to .<solutionlink solution="employee-engagement">employee
+      engagement</solutionlink>
     </p>
 </column>
 <column large="5">

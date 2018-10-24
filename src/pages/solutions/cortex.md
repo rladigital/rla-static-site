@@ -14,7 +14,7 @@ color2: "#d74540"
     <p>
       Cortex is the machine behind the scenes turning the chaos of data into pure
       magic – it’s insight at a glance. Through one unified platform, we can reveal
-      the science behind the beauty and unlock the path to total <gatsbylink to="/?solution=customer-loyalty">customer loyalty</gatsbylink>.
+      the science behind the beauty and unlock the path to total <solutionlink solution="customer-loyalty">customer loyalty</solutionlink>.
     </p>
 </column>
 <column large="5">

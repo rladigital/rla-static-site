@@ -10,7 +10,7 @@ color2: "#AA4DBE"
 
 <column large="5">
     <p>
-      Never take a relationship for granted. Earn <gatsbylink to="/?solution=customer-loyalty">customer loyalty</gatsbylink> by attending to
+      Never take a relationship for granted. Earn <solutionlink solution="customer-loyalty">customer loyalty</solutionlink> by attending to
       their needs and desires. Observe data carefully, and act on it wisely.
     </p>
 </column>

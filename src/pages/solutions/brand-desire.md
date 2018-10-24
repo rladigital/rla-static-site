@@ -11,7 +11,7 @@ color2: "#2A86F2"
 <column large="5">
     <p>
       Improving the impact of your advertising and marketing by creating genuine
-      consumer preference, desire and ultimately <gatsbylink to="/?solution=customer-loyalty">customer loyalty</gatsbylink> for your brand.
+      consumer preference, desire and ultimately <solutionlink solution="customer-loyalty">customer loyalty</solutionlink> for your brand.
     </p>
 </column>
 <column large="5">
