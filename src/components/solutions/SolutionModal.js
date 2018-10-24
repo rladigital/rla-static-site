@@ -249,11 +249,12 @@ class SolutionModal extends React.Component {
             const slug = `/solutions/${solution}/`;
             const activeSolution = solutions
                 .map(function(e) {
-                    console.log(e, slug);
+                    //console.log(e.node.fields.slug, slug);
                     return e.node.fields.slug;
                 })
                 .indexOf(slug);
             const handleClick = () => {
+                //console.log(activeSolution);
                 if (activeSolution != -1) {
                     this.handleClick(activeSolution);
                 }
