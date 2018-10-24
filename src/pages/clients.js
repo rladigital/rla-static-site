@@ -150,7 +150,9 @@ export default class ClientsPage extends React.Component {
         console.log(selectedSolution);
         let selectedSolutionIndex = null;
         if (selectedSolution) {
-            const { solutions: { edges: solutions } } = this.props.data;
+            const {
+                solutions: { edges: solutions }
+            } = this.props.data;
 
             selectedSolutionIndex = solutions.findIndex(solution => {
                 return (
@@ -405,7 +407,7 @@ export const pageQuery = graphql`
                     fields {
                         slug
                     }
-                    html
+                    htmlAst
                     id
                     frontmatter {
                         title
