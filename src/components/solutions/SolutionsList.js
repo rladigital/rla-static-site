@@ -65,12 +65,13 @@ class SolutionsVideo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            lines: [],
-            activeSolution: null
+            activeSolution: null,
+            lines: []
         };
 
         this.lineTicker = this.lineTicker.bind(this);
     }
+
     componentDidMount() {
         const { solutions } = this.props;
         const orbs = this.orbs(solutions);
@@ -78,15 +79,11 @@ class SolutionsVideo extends React.Component {
             orbs: orbs
         });
         this.preLoadLines(orbs);
-        // this.timer = setInterval(this.lineTicker, 1000);
-
-        this.props.innerRef(this);
+        this.timer = setInterval(this.lineTicker, 1000);
     }
 
     componentWillUnmount() {
         clearInterval(this.timer);
-
-        this.props.innerRef(null);
     }
 
     handleClick(x) {

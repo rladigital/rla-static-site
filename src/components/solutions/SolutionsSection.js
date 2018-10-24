@@ -42,30 +42,6 @@ class SolutionsSection extends React.Component {
         });
     }
 
-    componentWillReceiveProps(props) {
-        if (
-            props.urlParams &&
-            props.urlParams.solution &&
-            props.urlParams.solution != this.state.solution
-        ) {
-            const slug = `/solutions/${props.urlParams.solution}/`;
-
-            const activeSolution = props.solutions
-                .map(function(e) {
-                    return e.node.fields.slug;
-                })
-                .indexOf(slug);
-
-            if (activeSolution !== -1 && this.solutionsList) {
-                this.setState({
-                    section: 1
-                });
-
-                this.solutionsList.handleClick(activeSolution);
-            }
-        }
-    }
-
     componentDidMount() {
         window.addEventListener("wheel", this.handleScroll);
     }
@@ -134,13 +110,7 @@ class SolutionsSection extends React.Component {
     }
 
     render() {
-        const {
-            width,
-            height,
-            solutions,
-            setOffcanvasColor,
-            urlParams
-        } = this.props;
+        const { width, height, solutions, setOffcanvasColor } = this.props;
         const { section } = this.state;
 
         const sections = [
@@ -165,7 +135,6 @@ class SolutionsSection extends React.Component {
                         solutions={solutions}
                         scrollDown={this.nextSection}
                         setScrollable={this.setScrollable}
-                        innerRef={node => (this.solutionsList = node)}
                     />
                 </Section>
             </Zoom>,
