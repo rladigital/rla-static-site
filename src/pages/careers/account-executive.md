@@ -2,7 +2,6 @@
 templateKey: job
 area: Client Services
 title: Account Executive
-closing: 01/01/2019
 description: >-
     ## About us
 
@@ -66,7 +65,6 @@ description: >-
     * First class ability to prioritise and manage own workload.
 
     * Drive for personal growth.
-level: "- "
 location: Bournemouth
 salary: "£18,000 - £23,000 depending on experience + benefits"
 hours: "9:00am - 5:30pm"
