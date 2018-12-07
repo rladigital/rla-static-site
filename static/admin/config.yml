@@ -367,7 +367,7 @@ collections:
                 widget: "markdown",
                 required: false,
             }
-          - { label: "Level", name: "level", widget: "string" }
+          - { label: "Level", name: "level", widget: "string", required: false }
           - { label: "Location", name: "location", widget: "string" }
           - { label: "Salary", name: "salary", widget: "string" }
           - {

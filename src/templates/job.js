@@ -68,7 +68,11 @@ export const JobTemplate = props => {
                     ]}
                     <Column large={description && 4}>
                         <SummaryContainer>
-                            <SummaryItem label="Level:">{level}</SummaryItem>
+                            {level && (
+                                <SummaryItem label="Level:">
+                                    {level}
+                                </SummaryItem>
+                            )}
                             <SummaryItem label="Salary:">{salary}</SummaryItem>
                             <SummaryItem label="Hours:">{hours}</SummaryItem>
                             <SummaryItem label="Location:">
