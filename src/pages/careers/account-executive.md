@@ -26,7 +26,7 @@ description: >-
     reporting to a Senior Account Manager. 
 
 
-    ## You will:
+    You will:
 
 
     * Be responsible for maintaining the client’s Marketing Helpline.
