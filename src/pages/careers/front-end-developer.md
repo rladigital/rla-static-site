@@ -2,7 +2,7 @@
 templateKey: job
 area: Digital
 title: Front End Developer
-closing: 12/10/2018
+closing: Invalid date
 description: >-
   ## About us
 
