@@ -2,6 +2,7 @@
 templateKey: job
 area: Client Services
 title: Account Executive
+closing: 12/10/2018
 description: >-
   ## About us
 
