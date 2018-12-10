@@ -6,17 +6,19 @@ description: "## About Us\r\n\nWith a 30-year pedigree and a client base to be h
 level: Mid / Senior
 location: Bournemouth
 salary: Salary dependent on experience + benefits.
-hours: "9:00am - 5:30pm"
+hours: '9:00am - 5:30pm'
 benefits:
-    - 28 days’ holiday (plus bank holidays.) After 5 years’ continuous service
-    - an additional 3 days’ holiday to use during that anniversary year
-    - Your birthday as a day off
-    - Continuous Professional Development
-    - Childcare Vouchers
-    - Eye Care Scheme
-    - Refer A Friend Scheme
-    - Cycle to Work Scheme
-    - Reward & Recognition Scheme
-    - Fridge Friday!
+  - 28 days’ holiday (plus bank holidays.) After 5 years’ continuous service
+  - an additional 3 days’ holiday to use during that anniversary year
+  - Your birthday as a day off
+  - Continuous Professional Development
+  - Childcare Vouchers
+  - Eye Care Scheme
+  - Refer A Friend Scheme
+  - Cycle to Work Scheme
+  - Reward & Recognition Scheme
+  - Fridge Friday!
+hero: /img/account-manager.jpg
 weighting: 0
 ---
+
