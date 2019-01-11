@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: 10 Questions with… Faye Prince
-date: 06/13/2018
+date: 11/01/2019
 hero: /img/10-Questions-Article-faye.jpg
 thumb: /img/10-Questions-Article-faye.jpg
 category: Culture
