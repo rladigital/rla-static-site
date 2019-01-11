@@ -40,7 +40,7 @@ Emotion though, doesn’t need to shed tears or an outward expression to exert a
 
 Douglas Van Praet, the author of Unconscious Branding: How Neuroscience Can Empower (and Inspire) Marketing, puts it perfectly, saying:
 
-<blockquote>“The most startling truth is we don’t even think our way to logical solutions. We feel our way to reason. Emotions are the substrate, the base layer of neural circuitry underpinning even rational deliberation. Emotions don’t hinder decisions. They constitute the foundation on which they’re made!”.</blockquote>
+<blockquote>&nbsp; &nbsp; &nbsp; &nbsp;The most startling truth is we don’t even think our way to logical solutions. We feel our way to reason. Emotions are the substrate, the base layer of neural circuitry underpinning even rational deliberation. Emotions don’t hinder decisions. They constitute the foundation on which they’re made!.</blockquote>
 
 What Van Praet’s research shows us is that the more customers weigh up their options for a high value purchase, the more they need their emotions, instincts and memories to make a choice.
 What automotive marketers need to do is recognise the value that cognitive research has in marketing and use it to target hearts, not heads. Marketers need to make it a goal to create a sense of inspiration in the area of the brain that seeks connection and a sense of belonging and build a strategy that emphasises it.
