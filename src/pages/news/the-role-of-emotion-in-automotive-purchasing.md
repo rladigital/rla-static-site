@@ -7,7 +7,7 @@ metaDescription: >-
 date: 10/01/2019
 hero: /img/1366x532-emotion-in-car-buying.jpg
 thumb: /img/1366x532-emotion-in-car-buying.jpg
-category: News
+category: Insight
 tags:
   - ''
 intro: Lorem Ipsum
