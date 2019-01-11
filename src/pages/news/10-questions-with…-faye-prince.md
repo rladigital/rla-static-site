@@ -19,10 +19,6 @@ metaTitle: 10 Questions with Faye Prince | RLA Group
 metaDescription: 10 Questions with our Account Director Faye Prince
 ---
 
-**What’s your role at RLA?**
-
-I’ve recently been promoted to Account Director, so I’ve been enjoying my new email signature and it feels nice to write it in this box.
-
 **Ok, so what do you actually do?**
 
 I was made an Account Director last year and work in the client services side of things, alongside two great Account Managers, Hannah and Sophie.
@@ -42,10 +38,6 @@ I’ve worked at RLA for over four years now, and the people make the biggest di
 
 Working together with a likeminded team (and wider team) of talented people, who work hard to get the job done, who never shy away from a challenge and want to deliver the best possible outcome. 
 We play hard too, work in a brilliant environment (cue aforementioned pigs) and have a strong team of inspirational leaders to learn from and who help us to be better at what we do.  
-
-**What industry trend or technology are you most excited about?**
-
-I’m recently really enjoying getting to understand in home tech in more detail and how this will continue to be adopted by consumers. It seems to be making huge waves, {suspect Alexa will make it somewhere close to the top of 2018 Christmas present list charts} but it will be interesting to see how it can be made more affordable to help people less-able to do more, rather than become another expensive luxury for those able, to do less.
 
 **What’s your best memory from RLA so far?**
 
@@ -74,23 +66,14 @@ My older self-wishes I’d taken more interest in politics and economics when I 
 The RLA Sonos is a controversial as bringing up Brexit around the dinner table. Radiohead, ahem. 
 It’s a responsibility I try to steer clear of, but if I had to choose then I like a Spotify hits playlist and to keep it lively.  
 
-**We’re on a pitch and it’s pizza time, what are you ordering?**
-
-I do love a Margherita, or something simple with prosciutto and rocket. I’m not too wild. 😉 
-
 **Summarise RLA in one word**
 
 Honest
-
-**Which other RLAer is most awesome and why?**
-
-Andy Orritt obvs. Handsome and intelligent.
 
 **It’s Friday, its 4 o’clock, the beer fridge is open. What are you grabbing?**
 
 I’m fickle when it comes to the Friday beer fridge. If it’s been a long day and we’re still going then it’s a Diet Coke. On a hot summer’s day, Peroni. But if we’re talking kick back and relax after a long week then it’s a cold G&T.  
 
-**Questions for Client Side**
 
 **What’s your favourite part of the job?**
 

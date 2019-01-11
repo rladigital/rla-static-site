@@ -7,7 +7,7 @@ metaDescription: >-
 date: 10/01/2019
 hero: /img/1366x532-emotion-in-car-buying.jpg
 thumb: /img/1366x532-emotion-in-car-buying.jpg
-category: Insight
+category: News
 tags:
   - ''
 intro: Lorem Ipsum
@@ -49,7 +49,7 @@ Neuroanatomist Jill Bolte Taylor said “We live in a world where we are taught 
 Take for instance one of the most successful ads in Volkswagen’s history.
 The 2011 Super Bowl ad was the story of a miniature Darth Vader who comes to believe in the power of The Force when his dad uses the remote-start feature of a Volkswagen. The advert became among the most notorious and shared Super Bowl ads ever, amassing a staggering 56 million views on YouTube, generating a reported 6.8 billion impressions worldwide and more than $100 million in earned media. And it helped the VW brand achieve the best market share in the United States in 30 years.
 
-![null](/img/1366x532-emotion-in-car-buying1.jpg) 
+![null](/img/1366x532-emotion-in-car-buying2.jpg) 
 
 Why?
 Dr. Stephen Sands, Chair and Chief Science Officer at Sands Research explained “VW’s Darth Vader advertisement elicited such a strong emotional response, it ranks as the highest we have ever tested.” The ad received the highest “neuro-engagement score” in the annual Sands Research Super Bowl Ad Neuro Ranking, which measures not what people say but how they feel through electrophysiological activity in the brain.
@@ -57,13 +57,5 @@ Dr. Stephen Sands, Chair and Chief Science Officer at Sands Research explained �
 Automakers and their dealer networks should recognise the shortcomings of traditional approaches and heed the lessons that cognitive science is clearly teaching us. Automotive consumers feel their way to reason. As marketers we must rouse hearts, not just heads, by transforming the overall customer experience and ultimately develop into a trusted organisation. 
 
 At RLA, we have created countless integrated strategies for our clients that have been able to improve consumer loyalty, retention, and aftersales. If our years of automotive experience have taught us anything, it is that to transform a customer from a buyer to a brand advocate, relationships need to be built by injecting trust-building attributes and emotional relevance into every customer interaction along their purchase journey. Remember, if you want to generate action, then you need to generate emotion.
-
-
-
-<div class="highlighted"><strong>Further reading:</strong>
-
-[The Myth of Marketing: How Research Reaches For The Heart But Only Connects With The Head](https://www.fastcompany.com/1682625/the-myth-of-marketing-how-research-reaches-for-the-heart-but-only-connects-with-the-head) \
-[Guest opinion: Experiential communication will help car dealers combat online sales pressures](https://www.am-online.com/opinion/2018/01/04/guest-opinion-experiential-communication-will-help-car-dealers-combat-online-sales-pressures)\
-"Genuinely innovative and highly effective"</div>
 
 
