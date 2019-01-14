@@ -1,6 +1,6 @@
 ---
 templateKey: people
-title: Henry
+title: Henry Debenham
 role: Client Services Director
 tags:
   - Client Services
