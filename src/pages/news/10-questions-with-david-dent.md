@@ -6,12 +6,12 @@ hero: /img/1160x450 10 questions article header image david dent.jpg
 thumb: /img/1160x450 10 questions article header image david dent.jpg
 category: Culture
 tags:
-  - Culture
-  - 10 Questions
+    - Culture
+    - 10 Questions
 intro: test
 sideHeading: You have to love people and want to understand what makes them tick.
 galleryImages:
-  - /img/david dent.jpg
+    - /img/david dent.jpg
 author: David Dent
 weighting: 0
 metaTitle: 10 Questions with David Dent | RLA Group
@@ -60,4 +60,4 @@ That would have to be Mount Gay Rum – the head office visits to Barbados, and 
 
 For me it’s about being curious. You have to love people and want to understand what makes them tick. The Apple ‘Think Different’ ad from 1997 captured it:
 
-> _“Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.”_
+> Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.

@@ -1,14 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
 import ReactDOM from "react-dom";
+import Link from "gatsby-link";
 
 import graphql from "graphql";
 import styled from "styled-components";
 import { Row, Column, Button } from "rla-components";
 import { colors, breakpoints } from "../../theme/theme";
-import ContentMarkdown, { HTMLContent } from "../Content";
 import { scale, random, isBrowser, isMobile } from "../../helpers/helpers";
 import { Scrollbars } from "react-custom-scrollbars";
+import rehypeReact from "rehype-react";
 
 import FAIcon from "@fortawesome/react-fontawesome";
 
@@ -111,15 +112,17 @@ const BackButton = styled.a`
 
 const ContentContainer = styled.div`
     font-size: 1rem;
-    padding: 0 2vw 0 0;
+
+    text-align: left;
     p {
         line-height: 1.5;
-        margin: 0 0 1.5rem 0;
+        margin: 0 2vw 0 1.4rem;
     }
     a {
         font-weight: bold;
         color: #fff;
         text-decoration: underline;
+        cursor: pointer;
     }
     @media (min-width: ${breakpoints.medium}px) {
         p {
@@ -242,8 +245,38 @@ class SolutionModal extends React.Component {
             fill: currentSolution.frontmatter.color2,
             transform: `translate(${width * (1 - animation)} 0)`
         };
+        const SolutionLink = ({ solution, children }) => {
+            const slug = `/solutions/${solution}/`;
+            const activeSolution = solutions
+                .map(function(e) {
+                    //console.log(e.node.fields.slug, slug);
+                    return e.node.fields.slug;
+                })
+                .indexOf(slug);
+            const handleClick = () => {
+                //console.log(activeSolution);
+                if (activeSolution != -1) {
+                    this.handleClick(activeSolution);
+                }
+            };
 
-        //console.log("Current Solution", currentSolution);
+            return <a onClick={handleClick}>{children}</a>;
+        };
+        const HTMLAstContent = ({ content, className, style }) => {
+            return (
+                <div className={className} style={style}>
+                    {renderAst(content)}
+                </div>
+            );
+        };
+        const renderAst = new rehypeReact({
+            createElement: React.createElement,
+            components: {
+                solutionlink: SolutionLink,
+                row: Row,
+                column: Column
+            }
+        }).Compiler;
 
         return ReactDOM.createPortal(
             <Container
@@ -255,12 +288,10 @@ class SolutionModal extends React.Component {
                         isMobile() && currentSolution.frontmatter.color2,
                     opacity: animation,
                     transitionDelay: animation ? "0.5s" : "0s"
-                }}
-            >
+                }}>
                 <BackButton
                     role="button"
-                    onClick={() => this.handleClose(close)}
-                >
+                    onClick={() => this.handleClose(close)}>
                     <FAIcon icon="chevron-left" /> BACK
                 </BackButton>
                 <Svg>
@@ -276,8 +307,7 @@ class SolutionModal extends React.Component {
                         left: circleProps.cx,
                         opacity: animation,
                         transitionDelay: animation ? "0.5s" : "0s"
-                    }}
-                >
+                    }}>
                     <Content onClick={e => e.stopPropagation()}>
                         <Scrollbars style={{ height: "100%" }} autoHide>
                             <ContentRow>
@@ -293,28 +323,13 @@ class SolutionModal extends React.Component {
                                 </Row>
                             </ContentRow>
                             <ContentRow>
-                                <Row expanded>
-                                    <Column xlarge={5}>
-                                        <ContentContainer>
-                                            <ContentMarkdown
-                                                content={
-                                                    currentSolution.frontmatter
-                                                        .description1
-                                                }
-                                            />
-                                        </ContentContainer>
-                                    </Column>
-                                    <Column xlarge={5}>
-                                        <ContentContainer>
-                                            <ContentMarkdown
-                                                content={
-                                                    currentSolution.frontmatter
-                                                        .description2
-                                                }
-                                            />
-                                        </ContentContainer>
-                                    </Column>
-                                </Row>
+                                <ContentContainer>
+                                    <Row expanded>
+                                        <HTMLAstContent
+                                            content={currentSolution.htmlAst}
+                                        />
+                                    </Row>
+                                </ContentContainer>
                             </ContentRow>
                         </Scrollbars>
                         {this.props.showButtons &&
@@ -332,8 +347,7 @@ class SolutionModal extends React.Component {
                                                         this.handleClick(
                                                             prevSolution
                                                         )
-                                                    }
-                                                >
+                                                    }>
                                                     <FAIcon icon="arrow-left" />{" "}
                                                     {
                                                         solutions[prevSolution]
@@ -354,8 +368,7 @@ class SolutionModal extends React.Component {
                                                         this.handleClick(
                                                             nextSolution
                                                         )
-                                                    }
-                                                >
+                                                    }>
                                                     {
                                                         solutions[nextSolution]
                                                             .node.frontmatter

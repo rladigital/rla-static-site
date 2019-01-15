@@ -116,8 +116,7 @@ class SolutionsSection extends React.Component {
         const sections = [
             <Zoom
                 key="section_1"
-                cb={() => setOffcanvasColor(colors.background)}
-            >
+                cb={() => setOffcanvasColor(colors.background)}>
                 <Section>
                     <SolutionsVideo
                         width={width}
@@ -154,14 +153,12 @@ class SolutionsSection extends React.Component {
                     minHeight: height,
                     position: section >= 2 ? "static" : "fixed",
                     zIndex: section == 0 ? 4 : 1
-                }}
-            >
+                }}>
                 <Swipe
                     onSwipeMove={this.shouldScrollPage}
                     onSwipeDown={this.prevSection}
                     onSwipeUp={this.nextSection}
-                    allowMouseEvents
-                >
+                    allowMouseEvents>
                     <TransitionGroup>{sections[section]}</TransitionGroup>
                 </Swipe>
             </Container>
@@ -221,16 +218,14 @@ class Zoom extends React.Component {
                     position: "fixed",
                     zIndex: zIndex,
                     top: 0
-                }}
-            >
+                }}>
                 <Transition in={inProp} timeout={500} {...rest}>
                     {state => (
                         <div
                             style={{
                                 ...defaultStyle,
                                 ...transitions[state]
-                            }}
-                        >
+                            }}>
                             {React.Children.map(children, child =>
                                 React.cloneElement(child, {
                                     transitionState: state
@@ -287,8 +282,7 @@ class Slide extends React.Component {
                         style={{
                             ...defaultStyle,
                             ...transitions[state]
-                        }}
-                    >
+                        }}>
                         {children}
                     </div>
                 )}

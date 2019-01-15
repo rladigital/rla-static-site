@@ -82,3 +82,39 @@ CMS.registerEditorComponent({
         );
     }
 });
+
+CMS.registerEditorComponent({
+    // Internal id of the component
+    id: "highlighted",
+    // Visible label
+    label: "Highlighted Text",
+    // Fields the user need to fill out when adding an instance of the component
+    fields: [
+        {
+            name: "markdown",
+            label: "Text",
+            widget: "markdown"
+        }
+    ],
+    // Pattern to identify a block as being an instance of this component
+    pattern: /^<div class="highlighted" \/>\S+<\/div>$/,
+
+    // Function to extract data elements from the regexp match
+    fromBlock: function(match) {
+        console.log("fromBlock", match);
+        return {
+            test: match[1]
+        };
+    },
+    // Function to create a text block from an instance of this component
+    toBlock: function(obj) {
+        console.log("toBlock", obj);
+        return `<div class="highlighted">${obj.markdown}</div>`;
+    },
+    // Preview output for this component. Can either be a string or a React component
+    // (component gives better render performance)
+    toPreview: function(obj) {
+        console.log("toPreview", obj);
+        return `<div class="highlighted">${obj.markdown}</div>`;
+    }
+});

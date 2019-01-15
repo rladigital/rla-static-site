@@ -24,6 +24,8 @@ import GalleryImage, {
 import HeaderBlock from "../components/HeaderBlock";
 import BackButton from "../components/blog/BackButton";
 import Hero from "../components/blog/Hero";
+import MwWinner from "../components/MwWinner";
+import awards from "../img/awards.png";
 
 const Logo = styled.img`
     max-height: 70px;
@@ -83,6 +85,12 @@ const Img = styled.div`
     background-size: cover;
 `;
 
+const ImageDescription = styled.div`
+    padding: 2rem 0;
+    font-style: italic;
+    color: ${props => colors.mediumGray};
+`;
+
 export class WorkTemplate extends React.Component {
     constructor() {
         super();
@@ -112,8 +120,9 @@ export class WorkTemplate extends React.Component {
         }
     };
     render() {
-        const { data, helmet, transition, history } = this.props;
+        const { data, helmet, transition, history, slug } = this.props;
         const { parallaxEnabled } = this.state;
+        const isPSA = Boolean(slug === "/work/psa/");
 
         const {
             copySections,
@@ -122,7 +131,8 @@ export class WorkTemplate extends React.Component {
             logo,
             solutionsList,
             title,
-            footer
+            footer,
+            footerImageDescription
         } = data.work.frontmatter;
 
         const solutions = data.solutions.edges;
@@ -149,6 +159,7 @@ export class WorkTemplate extends React.Component {
                         style={{ maxHeight: 500, marginBottom: "4rem" }}
                     />
                 )}
+                {isPSA && <MwWinner top={"50%"} />}
 
                 <Row>
                     <Column xlarge={7} centered>
@@ -236,6 +247,22 @@ export class WorkTemplate extends React.Component {
                             </div>
                         );
                     })}
+                {isPSA && (
+                    <Row>
+                        <Column collapse>
+                            <Container>
+                                <H2>Awards</H2>
+                                <img
+                                    src={awards}
+                                    style={{
+                                        marginTop: "2rem",
+                                        maxHeight: 100
+                                    }}
+                                />
+                            </Container>
+                        </Column>
+                    </Row>
+                )}
 
                 <Row>
                     <Column style={{ textAlign: "center" }}>
@@ -276,18 +303,29 @@ export class WorkTemplate extends React.Component {
                     </Column>
                 </Row>
                 {footer ? (
-                    <Row expanded collapse>
-                        <Column collapse>
-                            <Hero
-                                style={{
-                                    ...parallaxStyle,
-                                    maxHeight: 500,
-                                    marginBottom: 0
-                                }}
-                                src={getOriginalImageSrc(footer)}
-                            />
-                        </Column>
-                    </Row>
+                    <div>
+                        <Row expanded collapse>
+                            <Column collapse>
+                                <Hero
+                                    style={{
+                                        ...parallaxStyle,
+                                        maxHeight: 500,
+                                        marginBottom: 0
+                                    }}
+                                    src={getOriginalImageSrc(footer)}
+                                />
+                            </Column>
+                        </Row>
+                        {footerImageDescription && (
+                            <Row>
+                                <Column>
+                                    <ImageDescription>
+                                        {footerImageDescription}
+                                    </ImageDescription>
+                                </Column>
+                            </Row>
+                        )}
+                    </div>
                 ) : (
                     <div style={{ height: 80 }} />
                 )}
@@ -332,6 +370,7 @@ export default ({ history, transition, pathContext, data }) => {
             data={data}
             transition={transition}
             history={history}
+            slug={slug}
         />
     );
 };
@@ -384,6 +423,7 @@ export const pageQuery = graphql`
                     original
                 }
                 footer
+                footerImageDescription
                 title
                 intro
                 metaTitle

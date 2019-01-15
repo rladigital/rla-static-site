@@ -124,7 +124,7 @@ class SolutionsVideo extends React.Component {
 
             for (var i = 0; i < items.length; i++) {
                 array[i] = new Object();
-                const theta = Math.PI * 2 / items.length;
+                const theta = (Math.PI * 2) / items.length;
                 const angle = theta * i - Math.PI / 2;
 
                 const x = 0 + r * Math.cos(angle); // center point + radius * angle
@@ -223,8 +223,7 @@ class SolutionsVideo extends React.Component {
                             x="-20%"
                             y="-20%"
                             width="140%"
-                            height="140%"
-                        >
+                            height="140%">
                             <feDropShadow
                                 dx="0"
                                 dy="4"
@@ -247,8 +246,7 @@ class SolutionsVideo extends React.Component {
                             <linearGradient
                                 key={index}
                                 id={`grad_${index}`}
-                                key={`$gradient_${index}`}
-                            >
+                                key={`$gradient_${index}`}>
                                 <stop
                                     offset="5%"
                                     stopColor={solution.frontmatter.color1}
@@ -266,8 +264,7 @@ class SolutionsVideo extends React.Component {
                             isMobile()
                                 ? transformScale(1000)
                                 : transformScale(1080)
-                        })`}
-                    >
+                        })`}>
                         <TransitionGroup component="g">
                             {lines.length > 4 &&
                                 transitionState == "entered" &&
@@ -286,8 +283,7 @@ class SolutionsVideo extends React.Component {
                                         ].indexOf(transitionState) > -1
                                     )}
                                     index={index}
-                                    appear={true}
-                                >
+                                    appear={true}>
                                     <Solution
                                         y={orbs[index].cy}
                                         textAnchor={
@@ -296,8 +292,7 @@ class SolutionsVideo extends React.Component {
                                                 : orbs[index].cx < 0
                                                     ? "end"
                                                     : "start"
-                                        }
-                                    >
+                                        }>
                                         {solution.frontmatter.title
                                             .toUpperCase()
                                             .split(" ")
@@ -315,14 +310,15 @@ class SolutionsVideo extends React.Component {
                                                             ? 60
                                                             : -60
                                                         : 20
-                                                    : i == 0 ? "-3px" : "18px";
+                                                    : i == 0
+                                                        ? "-3px"
+                                                        : "18px";
 
                                                 return (
                                                     <tspan
                                                         key={i}
                                                         x={x}
-                                                        dy={dy}
-                                                    >
+                                                        dy={dy}>
                                                         {word}
                                                     </tspan>
                                                 );
@@ -404,8 +400,7 @@ class Fade extends React.Component {
                         style={{
                             ...defaultStyle,
                             ...transitionStyles[state]
-                        }}
-                    >
+                        }}>
                         {children}
                     </g>
                 )}
@@ -447,8 +442,7 @@ class OrbAnimation extends React.Component {
                         style={{
                             ...defaultStyle,
                             ...transitionStyles[state]
-                        }}
-                    >
+                        }}>
                         {children}
                     </G>
                 )}

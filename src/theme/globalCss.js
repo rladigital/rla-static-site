@@ -277,9 +277,33 @@ function globalCss(theme) {
         }    
 
         .postContent blockquote {
-            padding: 2rem 2rem 1.2rem 2rem;
-            background: #eaeaea;
+            display:block;
+            padding: 15px 20px 15px 30px;
+            margin: 0 0 2rem;
+            position: relative;
+            //font-family: "Adobe Caslon Pro", Georgia, serif;
             font-size: 2rem;
+            color: ${colors.background};
+          
+
+            &:after{
+                font-family: "Adobe Caslon Pro", Georgia, serif;
+                content: '\\201C'; /*Unicode for Left Double Quote*/
+                font-size: 200px;
+                font-weight: bold;
+                position: absolute;
+                left: 10px;
+                top: 0px;
+                color: #ddd;
+                z-index: 0;
+            }
+
+            p{
+                margin-bottom: 0;
+                line-height: 1;
+                position: relative;
+                z-index: 1;
+            }
         }
 
         /* ----- CMS content style ----- */
@@ -322,6 +346,15 @@ function globalCss(theme) {
                         margin-right: 5px;
                     }
                 }
+            }
+            .highlighted{
+                strong{
+                    display: block;
+                    margin-bottom: 1rem;
+                }
+               background: #eeeeee
+               padding: 30px 30px 0;
+               overflow: hidden;
             }
         }
 
