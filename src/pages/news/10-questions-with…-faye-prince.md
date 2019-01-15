@@ -49,7 +49,7 @@ Winning our Macmillan Coffee Morning bake-off, Best Baker (2016) with a Coffee a
 
 The last 2 years have been a super busy time for me outside of work. I married my (now) husband earlier in the year and we have steadily been working through renovating our Victorian style home in Bournemouth. We’re hopeful to be on the home stretch and so despite living in a building site which currently is the back three rooms to the house. When we’re not fuelled by a diet of microwave meals, or dealing with dust and DIY, then it’s the usual - good food, a few* drinks and catching up with my amazing friends and family. Bournemouth is a great town to live in, and it’s an awesome place to make the most of at weekends. 
 
-* small number, a handful, a sprinkling, one or two, a couple, two or three; not many, hardly any. 
+\* small number, a handful, a sprinkling, one or two, a couple, two or three; not many, hardly any. 
 
 **What would you do if you weren’t in the marketing industry?**
 
