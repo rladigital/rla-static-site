@@ -32,7 +32,7 @@ class JobsSection extends React.Component {
                             </Column>
                         </Row>
 
-                        {!this.isMobile() && (
+                        {!isMobile() && (
                             <Row collapse>
                                 <Column large={6} xlarge={4}>
                                     <NewsPlaceholder
@@ -57,7 +57,7 @@ class JobsSection extends React.Component {
                             </Row>
                         )}
 
-                        {this.isMobile() && (
+                        {isMobile() && (
                             <Row collapse>
                                 <Column>
                                     {jobs[2] && (
