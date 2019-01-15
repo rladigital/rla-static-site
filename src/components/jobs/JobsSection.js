@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Column, Button } from "rla-components";
 import Link from "gatsby-link";
 import styled from "styled-components";
+import { isMobile, isBrowser } from "../../helpers/helpers";
 
 import JobSummary from "./JobSummary";
 import { colors, spacing } from "../../theme/theme";
@@ -31,25 +32,49 @@ class JobsSection extends React.Component {
                             </Column>
                         </Row>
 
-                        <Row collapse>
-                            <Column large={6} xlarge={4}>
-                                <NewsPlaceholder height={37.5} news={news} />
-                            </Column>
-                            <Column large={6} xlarge={8}>
-                                {jobs[2] && (
-                                    <JobSummary
-                                        job={jobs[2].node}
-                                        height={18}
+                        {!this.isMobile() && (
+                            <Row collapse>
+                                <Column large={6} xlarge={4}>
+                                    <NewsPlaceholder
+                                        height={37.5}
+                                        news={news}
                                     />
-                                )}
-                                {jobs[3] && (
-                                    <JobSummary
-                                        job={jobs[3].node}
-                                        height={18}
-                                    />
-                                )}
-                            </Column>
-                        </Row>
+                                </Column>
+                                <Column large={6} xlarge={8}>
+                                    {jobs[2] && (
+                                        <JobSummary
+                                            job={jobs[2].node}
+                                            height={18}
+                                        />
+                                    )}
+                                    {jobs[3] && (
+                                        <JobSummary
+                                            job={jobs[3].node}
+                                            height={18}
+                                        />
+                                    )}
+                                </Column>
+                            </Row>
+                        )}
+
+                        {this.isMobile() && (
+                            <Row collapse>
+                                <Column>
+                                    {jobs[2] && (
+                                        <JobSummary
+                                            job={jobs[2].node}
+                                            height={18}
+                                        />
+                                    )}
+                                    {jobs[3] && (
+                                        <JobSummary
+                                            job={jobs[3].node}
+                                            height={18}
+                                        />
+                                    )}
+                                </Column>
+                            </Row>
+                        )}
                     </Column>
                     <Column medium={6} large={5} xlarge={3}>
                         {jobs[1] && (
