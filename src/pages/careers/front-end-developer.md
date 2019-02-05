@@ -2,7 +2,7 @@
 templateKey: job
 area: Digital
 title: Full Stack Developer
-closing: Invalid date
+closing: 03/05/2019
 description: >-
   ## About us
 
