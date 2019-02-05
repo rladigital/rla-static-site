@@ -107,6 +107,7 @@ benefits:
   - 28 Days Holiday
   - Pension
   - Fun Environment
+hero: /img/developer.jpg
 weighting: 0
 ---
 
