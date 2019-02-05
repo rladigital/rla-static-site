@@ -2,6 +2,7 @@
 templateKey: job
 area: Digital
 title: Full Stack Developer
+closing: 02/05/2019
 description: >-
   ## About us
 
