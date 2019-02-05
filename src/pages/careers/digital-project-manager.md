@@ -2,7 +2,7 @@
 templateKey: job
 area: Digital
 title: Digital Project Manager
-closing: 05/03/2019
+closing: 03/05/2019
 description: >-
   ## About us
 
