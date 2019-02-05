@@ -101,12 +101,25 @@ description: >-
 
   * Some experience of DevOps
 location: bournemouth
-salary: DOE
+salary: Salary dependent on experience + benefits
 hours: '9:00am - 5:30pm'
 benefits:
-  - 28 Days Holiday
-  - Pension
-  - Fun Environment
+  - 28 days’ holiday (plus bank holidays.) After 5 years’ continuous service
+  - an additional 3 days’ holiday to use during that anniversary year
+  - Your birthday as a day off
+  - Beautiful location (including an on-site farm and golf course)
+  - Flexible working hours
+  - Possibility for some remote working
+  - Continuous Professional Development
+  - Childcare Vouchers
+  - Eye Care Scheme
+  - Refer A Friend Scheme
+  - Cycle to Work Scheme
+  - Reward & Recognition Scheme
+  - Beer fridge Fridays & regular social events
+  - >-
+    Free parking (please note due to the location of our office you will need
+    your own transport)
 hero: /img/developer.jpg
 weighting: 0
 ---
