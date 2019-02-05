@@ -18,56 +18,72 @@ description: >-
 
 
   We have many exciting projects including large bespoke websites for
-  multinational companies or brand new digital products. Our clients are
+  multinational companies or brand-new digital products. Our clients are
   primarily internationally recognised, automotive brands firms and your role
-  will be focused on building next generation web software, using modern
-  frontend technologies and techniques. 
+  will be focused on building next generation web software. As one of our
+  full-stack developers you will be focusing on the architecture and development
+  of our digital products and solutions. Your role will include PHP and React
+  development, on both new and existing projects. The role requires someone who
+  is innovative, a good problem solver and ability to work on own initiative.
 
 
   You will:
 
-  * Develop responsive web front-end, ensuring an excellent end user
-  experience. 
 
-  * Develop new bespoke digital products.
+  * Development of web applications and websites from backend to frontend 
 
-  * Work designs and wireframes into high quality code.
+  * Building reusable code and libraries for future use
 
-  * Work closely with client services & creative studio to understand the
-  business. domain and client requirements that drive analysis,
-  architecture/design and development of quality technical solutions.
+  * Optimisation of the applications for maximum speed and scalability
 
-  * You will consult and make recommendations on UX for all digital product.
+  * Implementation of a robust set of services and APIs to power web
+  applications
 
-  * Troubleshoot front end issues across websites & email templates.
+  * Integration of the front-end and back-end aspects of web applications
+
+  * Provide accurate estimates for digital projects to support project managers
+  and account teams in new digital project proposals
+
+  * Guidance to creative, planning and account teams in relation to digital
+  projects and solutions
+
+  * Demonstrate commercial awareness through working within project timelines,
+  and effectively communicating and escalating to relevant project manager
+
+  * Ability to translate technical information to non-technical team members,
+  and ensure understanding
 
 
   ## About You
 
+
   * Previous experience in web development; building interactive and responsive
   sites
 
-  * Previous commercial experience working with React.js and Redux 
+  * Experience working with PHPP5/7 & Laravel 
+
+  * Experience working with React.js and Redux
 
   * Experience with Typescript/ES6
 
   * Experience with SASS
 
-  * Good understanding of Yarn, NPM, Webpack and the whole frontend toolchain 
+  * Used to working with API integrations: REST, SOAP, XML, GraphQL, Micro
+  service architecture
 
-  * Experience with version control (Git) 
+  * Agile, Testing, CI/CD
 
-  ## 
+  * ## 
 
 
   Nice to have:
 
-  * Experience working with PHP 5/7 & Laravel
 
   * Experience with React Native
 
-  * Used to working with API integrations: REST, SOAP, XML, GraphQL, Micro
-  service architecture
+  * Good understanding of Yarn, NPM, Webpack and the whole frontend toolchain
+
+  * Some experience of DevOps
 location: Bournemouth
 salary: Salary dependent on experience + benefits
 hours: '9:00am - 5:30pm'
