@@ -2,7 +2,7 @@
 templateKey: job
 area: Digital
 title: Digital Project Manager
-closing: Invalid date
+closing: 03/05/2019
 description: >-
   ## About us
 
@@ -55,8 +55,6 @@ description: >-
   for digital projects.
 
 
-
-
   ## About You
 
 
@@ -88,8 +86,6 @@ description: >-
   profitable and on time digital projects.
 
   * A good foundation of Digital knowledge to enable "selling-up" of projects.
-
-  * ## 
 
 
   Nice to have:
