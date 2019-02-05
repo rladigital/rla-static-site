@@ -2,7 +2,7 @@
 templateKey: job
 area: Digital
 title: Digital Project Manager
-closing: 02/05/2019
+closing: Invalid date
 description: >-
   ## About us
 
@@ -111,7 +111,6 @@ benefits:
   - Flexible working hours
   - Possibility for some remote working
   - Continuous Professional Development
-  - Childcare Vouchers
   - Eye Care Scheme
   - Refer A Friend Scheme
   - Cycle to Work Scheme
