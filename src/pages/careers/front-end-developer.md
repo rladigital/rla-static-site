@@ -73,7 +73,7 @@ description: >-
 
   * Agile, Testing, CI/CD
 
-  * ## 
+
 
 
   Nice to have:
