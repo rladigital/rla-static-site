@@ -28,9 +28,8 @@ description: >-
   clients, alongside being able to bring ideas to life with killer visuals.
 
 
-  **Responsibilities will include:
+  ## Responsibilities will include:
 
-  **
 
   * Receiving, understanding and progressing creative briefs (solo and in teams)
 
@@ -71,7 +70,8 @@ description: >-
   studio team is key.
 
 
-  **Get in touch if:**
+  ## Get in touch if:
+
 
   * You have a portfolio displaying clever thinking and beautifully crafted
   design
@@ -97,8 +97,8 @@ description: >-
   * You’re a hands-on person, who will happily muck in wherever the creative and
     studio teams need help.
 
+  ## Qualifications / Experience:
 
-  **Qualifications / Experience:**
 
   * A degree in a visual design / creative discipline (or equivalent experience)
 
@@ -107,7 +107,8 @@ description: >-
   * A portfolio of work demonstrating creative excellence
 
 
-  **Whats in it for you:**
+  ## Whats in it for you:
+
 
   RLA’s pretty amazing ‘standard’ benefits (28 days’ holiday plus bank holidays,
   your birthday as a day off, Continuous Professional Development, Eye Care
@@ -115,9 +116,8 @@ description: >-
   Scheme)
 
 
+  ## PLUS:
 
-
-  **PLUS:**
 
   * Beer Fridge Friday\* (\*wine, ice coffee and fancy soft drinks also
   available)
