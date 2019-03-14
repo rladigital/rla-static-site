@@ -27,7 +27,7 @@ For the purposes of scoring, I made a list of categories that I believe are esse
 **Style:** Is it poster-worthy?\
 **Groundbreaking:** A moment in history? A record breaker?\
 **Rarity:** Are you going to be seeing 10 of them on your daily commute?\
-**Character: **Does it have any? Or does it blend into the background?\
+**Character:** Does it have any? Or does it blend into the background?\
 **Unique:** Does it have a distinctive design, future-gazing technology or fascinating quirks?
 
 I’ll put forward 6 cars, some will be obvious, some not. We’ll rate each trait out of 5 and see where we are!
@@ -38,7 +38,7 @@ I’ll put forward 6 cars, some will be obvious, some not. We’ll rate each tra
 
 A strong start here. The McLaren P1 will surely be considered a classic in the future. Super rare – check (only 375 were made). Gorgeous, and part of the revolution of electric/hybrid super cars. Using F1 technology, McLaren also pushed the boundaries with the P1, showing us how fast a car could go and how hybrid technology was the way forward. This is a a true Hyper car. Not alone in it’s feats though, developed at the same time as the Porsche 918 and the Ferrari La Ferrari. But as an all rounder, the P1 comes out on top. They will all be classics in the future, mind.
 
-**Style: **5/5\
+**Style:** 5/5\
 **Groundbreaking:** 5/5\
 **Rarity:** 5/5\
 **Character:** 4/5\
@@ -53,9 +53,9 @@ A strong start here. The McLaren P1 will surely be considered a classic in the f
 Recognised (at the time) as the fastest street-legal production car in the world. The Veyron was a total game changer. The original is 14 years old this year - and still looks great. Highly collectable from the beginning, this will only increase with time. Like the P1, but with an even more ludicrously high purchase price, this isn’t classic for the masses.
 
 **Style:** 4/5\
-**Groundbreaking: **5/5\
+**Groundbreaking:** 5/5\
 **Rarity:** 4/5\
-**Character: **4/5\
+**Character:** 4/5\
 **Unique:** 4/5
 
 **Total Score: 21**
@@ -68,11 +68,11 @@ Let’s get a little controversial. Can a remake become a classic?
 
 In a word – yes. BMW brought back the MINI in the early 2000s, and while the first models were good, it was in 2006 that they nailed the formula with the R56. Undoubtedly the best MINI hatch around. Small, nippy, tight in the corners and brought that Go-Kart feeling of the original. A joy to look at and a joy to drive. Then in 2013 they introduced the 2nd facelift, the F56 - I had one. I loved it. But it just wasn’t as good as the previous iteration. Still great to drive, and arguably a better engine, but something was missing – that little spark. I can’t put my finger on it, but it does make it clearer to me that the R56 will one day be a classic.
 
-**Style: **5/5\
+**Style:** 5/5\
 **Groundbreaking:** 4/5\
-**Rarity: **2/5\
-**Character: **5/5\
-**Unique: **2/5
+**Rarity:** 2/5\
+**Character:** 5/5\
+**Unique:** 2/5
 
 **Total Score: 18**
 
@@ -86,7 +86,7 @@ Game. Changer.
 
 **Style:** 4/5\
 **Groundbreaking:** 5/5\
-**Rarity: **3/5\
+**Rarity:** 3/5\
 **Character:** 3/5\
 **Unique:** 3/5
 
@@ -100,10 +100,10 @@ Audi celebrated the TT’s 20th birthday last year. Making the TT the oldest car
 
 And if you’re not in agreement, then think about this. Without the original TT, we’d never have got the R8 (which could/should have made this list).
 
-**Style: **4/5\
+**Style:** 4/5\
 **Groundbreaking:** 4/5\
 **Rarity:** 3/5\
-**Character: **4/5\
+**Character:** 4/5\
 **Unique:** 3/5
 
 **Total Score: 18**
@@ -119,7 +119,7 @@ We had to have at least one Ferrari didn’t we! And in recent history, one Ferr
 **Style:** 5/5\
 **Groundbreaking:** 4/5\
 **Rarity:** 4/5\
-**Character: **5/5\
+**Character:** 5/5\
 **Unique:** 4/5
 
 **Total Score: 22**
