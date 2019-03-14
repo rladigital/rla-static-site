@@ -1,8 +1,10 @@
 ---
 templateKey: news
-title: Classically trained
-metaTitle: Classically trained | RLA Group
-metaDescription: Classically trained
+title: Classically trained. Which modern cards will be retro icons in 2040?
+metaTitle: >-
+  Classically trained. Which modern cards will be retro icons in 2040? | RLA
+  Group
+metaDescription: Classically trained. Which modern cards will be retro icons in 2040?
 date: 03/14/2019
 hero: /img/1160x450-articletitle-header-image-v2.jpg
 thumb: /img/1160x450-articletitle-header-image-v2.jpg
@@ -14,7 +16,9 @@ tags:
   - automotive
   - driving
 intro: Which modern cars will be retro icons in 2040?
-sideHeading: SIDE HEADING TBC
+sideHeading: >-
+  4.5 litre, naturally aspirated V8 engine - even if you have no idea what that
+  means it sounds good.
 galleryImages:
   - /img/1160x450-articletitle-header-image-v2.jpg
 author: James Coogan
@@ -128,7 +132,7 @@ We had to have at least one Ferrari didn’t we! And in recent history, one Ferr
 
 Who knows? Will we all be in electric cars enjoying the age of renewable energy? Or will it be a Mad Max style dystopian landscape where we’re fighting over the last scraps of petrol? Probably the former. Hopefully the former. Will autonomous vehicles catch on and ferry us around like futuristic taxis summoned from an app? Maybe cars won’t even have wheels and we’ll all be flying around in giant personal drones. One thing is for sure, the biggest change in over 100 years of the motor industry is coming. And classic cars (both current and future classics) like the ones on this list may well be branded as archaic and banished to the history books. Or if fuel becomes a commodity that not everyone can afford, we may only get to use a combustion engine on a track day style event. Either way, the world is changing, and we need to keep up. But that’s pretty exciting isn’t it?
 
-A quick shout out…
+## A quick shout out…
 
 I know I said only 6, but I need to mention a few other likely future-classics that didn’t quite make the cut:
 
