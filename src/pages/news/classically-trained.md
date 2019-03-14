@@ -44,7 +44,7 @@ A strong start here. The McLaren P1 will surely be considered a classic in the f
 **Character:** 4/5\
 **Unique:** 4/5
 
-Total Score: 23
+**Total Score: 23**
 
 ## 02. Bugatti Veyron - 2005
 
@@ -58,7 +58,7 @@ Recognised (at the time) as the fastest street-legal production car in the world
 **Character: **4/5\
 **Unique:** 4/5
 
-Total Score: 21
+**Total Score: 21**
 
 ## 03. MINI R56 - 2006
 
@@ -74,7 +74,7 @@ In a word – yes. BMW brought back the MINI in the early 2000s, and while the f
 **Character: **5/5\
 **Unique: **2/5
 
-Total Score: 18
+**Total Score: 18**
 
 ## 04. Tesla Model S - 2012
 
@@ -90,11 +90,9 @@ Game. Changer.
 **Character:** 3/5\
 **Unique:** 3/5
 
-Total Score: 18
+**Total Score: 18**
 
 ## 05. Audi TT - 1998
-
-
 
 ![Audi TT](/img/1366x532-audi-tt-v1.jpg)
 
@@ -108,7 +106,7 @@ And if you’re not in agreement, then think about this. Without the original TT
 **Character: **4/5\
 **Unique:** 3/5
 
-Total Score: 18
+**Total Score: 18**
 
 ## 06. Ferrari 458 - 2010
 
@@ -124,7 +122,7 @@ We had to have at least one Ferrari didn’t we! And in recent history, one Ferr
 **Character: **5/5\
 **Unique:** 4/5
 
-Total Score: 22
+**Total Score: 22**
 
 ## So 2040? What’s that going to be like?
 
