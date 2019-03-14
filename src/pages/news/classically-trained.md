@@ -7,6 +7,12 @@ date: 03/14/2019
 hero: /img/1160x450-articletitle-header-image-v2.jpg
 thumb: /img/1160x450-articletitle-header-image-v2.jpg
 category: Culture
+tags:
+  - cars
+  - classic
+  - supercars
+  - automotive
+  - driving
 intro: Which modern cars will be retro icons in 2040?
 sideHeading: SIDE HEADING TBC
 galleryImages:
