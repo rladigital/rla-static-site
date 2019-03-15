@@ -10,8 +10,8 @@ hero: /img/1160x450-10-questions-article-header-image-james-coogan.jpg
 thumb: /img/1160x450-10-questions-article-header-image-james-coogan.jpg
 category: Culture
 tags:
-  - 10 questions
-  - james coogan
+  - Culture
+  - 10 Questions
 intro: INTRO HEADING?
 sideHeading: SIDE HEADING
 galleryImages:
