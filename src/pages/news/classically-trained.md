@@ -1,10 +1,10 @@
 ---
 templateKey: news
-title: Classically trained. Which modern cards will be retro icons in 2040?
+title: Classically trained. Which modern cars will be retro icons in 2040?
 metaTitle: >-
-  Classically trained. Which modern cards will be retro icons in 2040? | RLA
+  Classically trained. Which modern cars will be retro icons in 2040? | RLA
   Group
-metaDescription: Classically trained. Which modern cards will be retro icons in 2040?
+metaDescription: Classically trained. Which modern cars will be retro icons in 2040?
 date: 03/14/2019
 hero: /img/1160x450-articletitle-header-image-v2.jpg
 thumb: /img/1160x450-articletitle-header-image-v2.jpg
