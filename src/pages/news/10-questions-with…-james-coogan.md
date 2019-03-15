@@ -13,7 +13,7 @@ tags:
   - Culture
   - 10 Questions
 intro: 10 Questions with… James Coogan
-sideHeading: SIDE HEADING
+sideHeading: Dreamboat
 galleryImages:
   - /img/1160x450-10-questions-article-header-image-james-coogan.jpg
 author: James Coogan
@@ -36,10 +36,6 @@ There’s a real buzz in the barn and a sense of togetherness to produce great w
 ## What industry trend or technology are you most excited about?
 
 Electric cars and renew-able energy. I’m a petrol head so it sounds sacrilegious to say it, but electric cars are the future, so the sooner we get on board the better! It’s going to be huge.
-
-## What’s your best memory from RLA so far?
-
-There’s been a few, but last year’s sports day was pretty good. Go ape!
 
 ## When you’re not in the barn, what do you get up to?
 
@@ -64,13 +60,3 @@ All the meats, stuffed crust, extra chillies and hot sauce. Although I’ve just
 ## Summarise RLA in one word.
 
 Dreamboat.
-
-## Which other RLAer is most awesome and why?
-
-We’ve got a great team of people and a few that really pull everything together. So there are just to many to name them all. 
-
-Bullet. Dodged.
-
-## It’s Friday, its 4 o’clock, the beer fridge is open. What are you grabbing?
-
-We’ve got some amazing chocolate milkshakes that are good. I’ve got a long(ish) drive home so I tend to avoid the beer at the fridge.
