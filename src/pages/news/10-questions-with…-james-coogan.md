@@ -4,7 +4,7 @@ title: >-
   10 Questions with… James
   Coogan                                                        
 metaTitle: 10 Questions with… James Coogan | RLA Group
-metaDescription: 10 Questions with… James Coogan
+metaDescription: 10 Questions with Digital Designer James Coogan
 date: 03/15/2019
 hero: /img/1160x450-10-questions-article-header-image-james-coogan.jpg
 thumb: /img/1160x450-10-questions-article-header-image-james-coogan.jpg
@@ -12,7 +12,7 @@ category: Culture
 tags:
   - Culture
   - 10 Questions
-intro: INTRO HEADING?
+intro: 10 Questions with… James Coogan
 sideHeading: SIDE HEADING
 galleryImages:
   - /img/1160x450-10-questions-article-header-image-james-coogan.jpg
