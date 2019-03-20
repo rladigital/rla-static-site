@@ -17,7 +17,7 @@ sideHeading: Dreamboat
 galleryImages:
   - /img/1160x450-10-questions-article-header-image-james-coogan.jpg
 author: James Coogan
-weighting: '1'
+weighting: '300'
 ---
 ## What’s your role at RLA?
 
