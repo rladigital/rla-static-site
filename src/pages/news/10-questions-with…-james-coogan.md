@@ -1,7 +1,7 @@
 ---
 templateKey: news
 title: >-
-  10 Questions with… James
+  10 Questions with…. James
   Coogan                                                        
 metaTitle: 10 Questions with… James Coogan | RLA Group
 metaDescription: 10 Questions with Digital Designer James Coogan
