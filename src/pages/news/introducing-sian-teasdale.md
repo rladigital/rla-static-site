@@ -13,9 +13,7 @@ tags:
 intro: >-
   RLA’s a well-respected agency comprising big-name clients, with a great
   company culture and values that reflect my own. If the shoe fits... 
-sideHeading: >-
-  RLA’s a well-respected agency comprising big-name clients, with a great
-  company culture and values that reflect my own. If the shoe fits... 
+sideHeading: 'RLA have a culture that isn’t just smoke and mirrors, they actually mean it.'
 galleryImages:
   - /img/sian.png
 author: Sian Teasdale
