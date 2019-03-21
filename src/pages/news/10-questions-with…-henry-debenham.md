@@ -41,7 +41,7 @@ I have a young family, so I love to spend as much time with them as possible, go
 
 I’ve worked on a number of businesses that have won awards for their creativity and effectiveness that I’m pretty proud of but the thing I’m most proud of is my curiosity and pursuit of learning and experiencing new types of agency, client and communications. I’ve never let uncertainty or fear stop me from making a change, even when that means leaving the comfort and security of what you currently have. So, I’m also really proud of my wife Jenny for letting me pursue my career without boundaries and always supporting me!
 
-<strong>You’re in control of the Sonos, what are we listening to?</strong>
+**You’re in control of the Sonos, what are we listening to?**
 
 I love a huge range of music from feel good classics to Indie to the latest chart music but the band that I grew up with, was my first concert and whose song we had our first wedding dance to is Guns ‘n’ Roses. So, at some point, I’ll always reach for Appetite for Destruction.
 
