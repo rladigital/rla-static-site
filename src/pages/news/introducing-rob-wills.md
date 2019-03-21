@@ -13,9 +13,7 @@ tags:
 intro: >-
   RLA’s a well-respected agency comprising big-name clients, with a great
   company culture and values that reflect my own. If the shoe fits... 
-sideHeading: >-
-  RLA’s a well-respected agency comprising big-name clients, with a great
-  company culture and values that reflect my own. If the shoe fits... 
+sideHeading: How many people can feed a horse from their car window on the drive into work?
 galleryImages:
   - /img/rob.png
 author: Rob Wills
