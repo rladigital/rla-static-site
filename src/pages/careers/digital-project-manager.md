@@ -2,7 +2,7 @@
 templateKey: job
 area: Digital
 title: Senior Digital Project Manager
-closing: 03/05/2019
+closing: 04/05/2019
 description: >-
   ## About us
 
