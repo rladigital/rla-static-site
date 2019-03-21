@@ -2,7 +2,7 @@
 templateKey: job
 area: Digital
 title: Junior Digital Project Manager
-closing: 04/03/2019
+closing: 04/05/2019
 description: >-
   ## About us
 
