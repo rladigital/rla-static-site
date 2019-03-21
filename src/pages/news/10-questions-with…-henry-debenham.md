@@ -11,7 +11,7 @@ tags:
   - Culture
   - 10 Questions
 intro: test
-sideHeading: test2
+sideHeading: Something hot and spicy.
 galleryImages:
   - /img/henry10.png
 author: Henry Debenham
