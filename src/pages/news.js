@@ -48,7 +48,7 @@ export const pageQuery = graphql`
         allMarkdownRemark(
             sort: {
                 fields: [frontmatter___date, frontmatter___weighting]
-                order: DESC
+                order: ASC
             }
             filter: { frontmatter: { templateKey: { eq: "news" } } }
         ) {
