@@ -24,6 +24,6 @@ Not everyone wants to own their car, or be tied down to a multi-year PCP contrac
 
  
 
-So the BIG QUESTION is:
+<strong>So the BIG QUESTION is:</strong>
 
 Are Car subscription services going to make owning a car a thing of the past?
