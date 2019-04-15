@@ -6,8 +6,8 @@ address: |-
   Parley Green Lane<br/>
   Christchurch<br/>
   BH23 6BB
-contactName: Paul Smith
-contactImage: /img/1160x450-10-questions-article-header-image-luke-fagg.jpg
+contactName: Luke Fagg
+contactImage: /img/luke.fagg.png
 contactRole: Marketing Manager
 tel: +44 (0)1202 597 140
 email: luke.fagg@rla.co.uk
