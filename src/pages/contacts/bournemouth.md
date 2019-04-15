@@ -7,7 +7,7 @@ address: |-
   Christchurch<br/>
   BH23 6BB
 contactName: Luke Fagg
-contactImage: /img/luke.fagg.png
+contactImage: /img/luke.fagg1.png
 contactRole: Marketing Manager
 tel: +44 (0)1202 597 140
 email: luke.fagg@rla.co.uk
