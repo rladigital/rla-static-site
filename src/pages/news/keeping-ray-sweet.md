@@ -18,11 +18,7 @@ galleryImages:
 author: Andy Orritt
 weighting: 0
 ---
-**KEEPING RAY SWEET**
-
-
-
-**“HE’S NOT VERY VOLKSWAGEN”**
+<strong>“HE’S NOT VERY VOLKSWAGEN”</strong>
 
 
 
@@ -42,7 +38,7 @@ It took some work – but we got him. Our concept was to play to Ray’s strengt
 
 
 
-**6 YEARS, 10 AWARDS, 1 IMPRESSED CLIENT**
+<strong>6 YEARS, 10 AWARDS, 1 IMPRESSED CLIENT</strong>
 
 
 
@@ -50,7 +46,7 @@ Boy did it work – a doubling of sales, 35% increase in market share with the T
 
 
 
-**RAY FRONTED THE ‘LET’S GO TO WORK’ CAMPAIGN FOR SIX YEARS, HELPING TO MAKE IT VWCV’S MOST EFFECTIVE CAMPAIGN TO DATE. **
+<strong>RAY FRONTED THE ‘LET’S GO TO WORK’ CAMPAIGN FOR SIX YEARS, HELPING TO MAKE IT VWCV’S MOST EFFECTIVE CAMPAIGN TO DATE.</strong>
 
 
 
