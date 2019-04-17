@@ -21,17 +21,17 @@ weighting: 0
 
 Several warm beers (and a few fiercely guarded bottles of prosecco) into the evening, we were merrily rubbing  shoulders with the best and brightest in the business; the nearest table looking particularly dapper made us realise  we were toe-to-toe with ASOS’s creative team (though with  half of us wearing ASOS garb it wasn’t as awkward as you might think).
 
-<strong>“GENUINELY INNOVATIVE AND HIGHLY EFFECTIVE”</strong>
+<strong>“GENUINELY INNOVATIVE AND HIGHLY EFFECTIVE”</strong><br><br>
 
 Our eyes darted nervously around the table as it was time for the ‘Automotive’ category award presentation. As the nominees were read out, we soon realised we were about to butt heads with Adam&Eve/DDB and their T-Roc ram campaign.
 
 More ‘industry judges aligning’ than ‘stars aligning’, moments later we were being hauled onstage with Lauren Laverne, and the Automotive Masters award thrust into our hands. The plucky David had taken on a room of Goliaths and won. So what did the judges have to say about PERKS?
 
-<strong>“A good, smart idea well executed in a challenging sector”</strong> <br><br>
+<strong>“A good, smart idea well executed in a challenging sector”</strong>
 
-<strong>“PERKS is an Innovative solution, with strong ROI and growth in a declining category”</strong><br><br>
+<strong>“PERKS is an Innovative solution, with strong ROI and growth in a declining category”</strong>
 
-<strong>“The programme is genuinely innovative and highly effective”</strong><br><br>
+<strong>“The programme is genuinely innovative and highly effective”</strong>
 
 The celebrations went on into the night... and if you ever find a bow tie looking ownerless near Tobacco Dock, please do get in touch with our Head of Strategy.
 
