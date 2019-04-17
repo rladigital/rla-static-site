@@ -15,7 +15,7 @@ intro: NO BULLSH!T
 sideHeading: MARKETEERS BECOME MATADORS TO DELIVER FOR VOLKSWAGEN
 galleryImages:
   - /img/1160x450-no-bull-header-image-v1.jpg
-author: Andy Orritt
+author: Luke Fagg
 weighting: 0
 ---
 <strong>MARKETEERS BECOME MATADORS TO DELIVER FOR VOLKSWAGEN</strong><br><br>
