@@ -14,7 +14,7 @@ intro: ' THE ITALIAN JOB'
 sideHeading: ' NO. NOPE. NO CHANCE. WON’T WORK.'
 galleryImages:
   - /img/1160x450-italian-job-header-image-v1.jpg
-author: Andy Orritt
+author: Samantha Smith
 weighting: 0
 ---
 <strong>NO. NOPE. NO CHANCE. WON’T WORK.</strong><br><br>
