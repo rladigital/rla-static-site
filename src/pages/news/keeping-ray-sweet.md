@@ -15,7 +15,7 @@ sideHeading: “HE’S NOT VERY VOLKSWAGEN”
 galleryImages:
   - /img/1160x450-keeping-ray-sweet-header-image-v1.jpg
   - null
-author: Andy Orritt
+author: Henry Debenham
 weighting: 0
 ---
 <strong>“HE’S NOT VERY VOLKSWAGEN”
