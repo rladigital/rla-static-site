@@ -17,13 +17,13 @@ galleryImages:
 author: Andy Orritt
 weighting: 0
 ---
-<strong>(RE)IGNITING AWARENESS</strong>
+<strong>(RE)IGNITING AWARENESS</strong><br><br>
 
 We were only five days into our 12-week pan-European brand engagement gamification campaign for Ferodo and we’d already burned through 75% of the forecasted gameplay. What was going on? Turns out, we got our strategy right. More than right. We’d banked on being able to quickly reignite the Aftermarket’s attraction to the heritage braking brand through a series of gamified, mobile-first stories, incentives and promotions… we just didn’t bank on the scale of the reaction! Our challenge was to re-establish Ferodo as the premium braking brand of choice across 17 European countries, including Russia, by targeting local garages and distributors and encouraging them to reappraise their current allegiances. Years of underinvestment in marketing had led to the inevitable erosion in awareness of the Ferodo brand, and sales were now in decline. Which was a big concern.
 
 
 
-<strong>17 MARKETS, 200 DELIVERY POINTS, 250,000 CUSTOMERS</strong>
+<strong>17 MARKETS, 200 DELIVERY POINTS, 250,000 CUSTOMERS</strong><br><br>
 
 
 
@@ -31,7 +31,7 @@ Our solution was extensive. An omni-channel promotion-led campaign, tailored min
 
 
 
-<strong>OUT OF THIS WORLD ENGAGEMENT</strong>
+<strong>OUT OF THIS WORLD ENGAGEMENT</strong><br><br>
 
 
 
