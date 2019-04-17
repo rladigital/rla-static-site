@@ -27,11 +27,11 @@ Our eyes darted nervously around the table as it was time for the ‘Automotive�
 
 More ‘industry judges aligning’ than ‘stars aligning’, moments later we were being hauled onstage with Lauren Laverne, and the Automotive Masters award thrust into our hands. The plucky David had taken on a room of Goliaths and won. So what did the judges have to say about PERKS?
 
-<strong>“A good, smart idea well executed in a challenging sector”</strong>
+<strong>“A good, smart idea well executed in a challenging sector”</strong><br><br>
 
-<strong>“PERKS is an Innovative solution, with strong ROI and growth in a declining category”</strong>
+<strong>“PERKS is an Innovative solution, with strong ROI and growth in a declining category”</strong><br><br>
 
-<strong>“The programme is genuinely innovative and highly effective”</strong>
+<strong>“The programme is genuinely innovative and highly effective”</strong><br><br>
 
 The celebrations went on into the night... and if you ever find a bow tie looking ownerless near Tobacco Dock, please do get in touch with our Head of Strategy.
 
