@@ -14,7 +14,7 @@ intro: THE MASTERS OF AUTOMOTIVE
 sideHeading: “GENUINELY INNOVATIVE AND HIGHLY EFFECTIVE”
 galleryImages:
   - /img/1160x450-meet-the-masters-header-image-v1.jpg
-author: Andy Orritt
+author: David Dent
 weighting: 0
 ---
 “Masters of Automotive”. Not our words. But our peers’.  To better understand their context – we had just launched PERKS, the automated loyalty programme that we’d designed and built for PSA Group. And though months of hard work had gone on behind closed doors, the dust had barely settled on the programme launch before we found ourselves at the Marketing Week Awards.
