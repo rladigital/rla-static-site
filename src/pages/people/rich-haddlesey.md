@@ -1,6 +1,6 @@
 ---
 templateKey: people
-title: Rich Haddlesey
+title: Richard Haddlesey
 role: BACKEND DEVELOPER
 tags:
   - Digtal
