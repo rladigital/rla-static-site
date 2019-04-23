@@ -7,4 +7,4 @@ tags:
 profile: /img/image001.jpg
 email: richard.haddlesey@rla.co.uk
 ---
-I have always used technology to help me find solutions and enhance my life. I love travelling, DJing, photography and my family…oh and my Xbox!
+Richard has always enjoyed using technology to help him find solutions and enhance his life. He loves travelling, DJing, photography and his family…oh and his Xbox!
