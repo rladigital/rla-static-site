@@ -5,7 +5,7 @@ metaTitle: 'KHHHHHHT. BUCHAREST, WE HAVE A PROBLEM | RLA Group'
 metaDescription: 'KHHHHHHT. BUCHAREST, WE HAVE A PROBLEM'
 date: 04/17/2019
 hero: /img/1160x450-bucharest-header-image-v2.jpg
-thumb: /img/1160x450-bucharest-header-image-v2.jpg
+thumb: /img/1200x1200-bucharest-social-square-v2.jpg
 category: Culture
 tags:
   - cars
