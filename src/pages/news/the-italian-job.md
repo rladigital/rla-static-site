@@ -5,7 +5,7 @@ metaTitle: THE ITALIAN JOB | RLA Group
 metaDescription: THE ITALIAN JOB
 date: 04/17/2019
 hero: /img/1160x450-italian-job-header-image-v1.jpg
-thumb: /img/1160x450-italian-job-header-image-v1.jpg
+thumb: /img/1200x1200-italian-job-social-square-v1.jpg
 category: Culture
 tags:
   - cars
@@ -13,7 +13,7 @@ tags:
 intro: ' THE ITALIAN JOB'
 sideHeading: ' NO. NOPE. NO CHANCE. WON’T WORK.'
 galleryImages:
-  - /img/1160x450-italian-job-header-image-v1.jpg
+  - /img/1200x1200-italian-job-social-square-v1.jpg
 author: Samantha Smith
 weighting: 0
 ---
