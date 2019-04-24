@@ -5,7 +5,7 @@ metaTitle: THE MASTERS OF AUTOMOTIVE | RLA Group
 metaDescription: THE MASTERS OF AUTOMOTIVE
 date: 04/17/2019
 hero: /img/1160x450-meet-the-masters-header-image-v1.jpg
-thumb: /img/1160x450-meet-the-masters-header-image-v1.jpg
+thumb: /img/1200x1200-meet-the-masters-social-square-v1.jpg
 category: Culture
 tags:
   - cars
@@ -13,7 +13,7 @@ tags:
 intro: THE MASTERS OF AUTOMOTIVE
 sideHeading: “GENUINELY INNOVATIVE AND HIGHLY EFFECTIVE”
 galleryImages:
-  - /img/1160x450-meet-the-masters-header-image-v1.jpg
+  - /img/1200x1200-meet-the-masters-social-square-v1.jpg
 author: David Dent
 weighting: 0
 ---
