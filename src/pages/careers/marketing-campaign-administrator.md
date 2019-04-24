@@ -76,7 +76,7 @@ description: >-
   * Present (verbally and in writing) the Agency’s proposals and recommendations
   effectively, logically and concisely
 
-  * 
+
 
 
   ## Requirements
