@@ -4,7 +4,7 @@ title: THE MASTERS OF AUTOMOTIVE
 metaTitle: THE MASTERS OF AUTOMOTIVE | RLA Group
 metaDescription: THE MASTERS OF AUTOMOTIVE
 date: 04/17/2019
-hero: /img/1160x450-meet-the-masters-header-image-v1.jpg
+hero: /img/1160x450-meet-the-masters-header-image-v2.jpg
 thumb: /img/1200x1200-meet-the-masters-social-square-v1.jpg
 category: Culture
 tags:
