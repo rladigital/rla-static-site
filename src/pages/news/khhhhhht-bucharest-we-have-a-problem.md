@@ -13,7 +13,7 @@ tags:
 intro: 'KHHHHHHT. BUCHAREST, WE HAVE A PROBLEM'
 sideHeading: (RE)IGNITING AWARENESS
 galleryImages:
-  - /img/1160x450-bucharest-header-image-v2.jpg
+  - /img/1200x1200-bucharest-social-square-v2.jpg
 author: Andy Orritt
 weighting: 0
 ---
