@@ -5,7 +5,7 @@ metaTitle: NO BULLSH!T | RLA Group
 metaDescription: NO BULLSH!T
 date: 04/15/2019
 hero: /img/1160x450-no-bull-header-image-v1.jpg
-thumb: /img/1160x450-no-bull-header-image-v1.jpg
+thumb: /img/1200x1200-no-bull-social-square-v1.jpg
 category: Culture
 tags:
   - car
