@@ -5,7 +5,7 @@ metaTitle: KEEPING RAY SWEET | RLA Group
 metaDescription: KEEPING RAY SWEET
 date: 04/17/2019
 hero: /img/1160x450-keeping-ray-sweet-header-image-v1.jpg
-thumb: /img/1160x450-keeping-ray-sweet-header-image-v1.jpg
+thumb: /img/1200x1200-v-social-square-v1.jpg
 category: Culture
 tags:
   - cars
@@ -13,8 +13,7 @@ tags:
 intro: KEEPING RAY SWEET
 sideHeading: “HE’S NOT VERY VOLKSWAGEN”
 galleryImages:
-  - /img/1160x450-keeping-ray-sweet-header-image-v1.jpg
-  - null
+  - /img/1200x1200-v-social-square-v1.jpg
 author: Henry Debenham
 weighting: 0
 ---
