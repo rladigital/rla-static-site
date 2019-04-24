@@ -14,7 +14,7 @@ tags:
 intro: NO BULLSH!T
 sideHeading: MARKETEERS BECOME MATADORS TO DELIVER FOR VOLKSWAGEN
 galleryImages:
-  - /img/1160x450-no-bull-header-image-v1.jpg
+  - /img/1200x1200-no-bull-social-square-v1.jpg
 author: Luke Fagg
 weighting: 0
 ---
