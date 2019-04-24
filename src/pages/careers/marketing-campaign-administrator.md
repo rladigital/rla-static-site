@@ -1,12 +1,119 @@
 ---
 templateKey: job
 area: Client Services
-title: Marketing Campaign Administrator
-closing: 04/05/2019
-description: "## About us\n\nWith a 30-year pedigree and a client base to be hugely proud of, RLA is a full-service advertising and marketing communications agency based in a beautiful converted barn in Bournemouth. You’ll have the best of both worlds as you’ll be based in a stunning, relaxed countryside location, but be just a 20-minute drive to Dorset’s finest beaches!\n\n## The Role\n\nWe’re looking for a Marketing Campaign Administrator to run the day to day delivery of its predictive marketing across the VW group of brands (VW, Audi, Skoda, Seat, VW Commercial vehicles). \r\n\nReporting into the team of Account Managers there are four parts to this role:\r\n\n* The management of campaign delivery which involves reviewing data requests, compiling and sending out communications across Text, Email and DM, via automated systems.\n* Campaign led, helping set up and create campaigns across Text, Email and DM, testing the campaigns and delivering them to the set audience.\n* Liaising with studio to create templates, writing briefs and reviewing and proofing work.\n* Reporting on response rates and feeding back details re gone away/opt out and bounce.\n\n\n\n## About You\n\nAll the necessary training will be given on the systems needed to fulfil these tasks, but you will need:\n\n* Good problem-solving skills – Being able to spot issues and talk to the relevant people to solve them.\n* Good writing and communication skills - Being able to respond to a query and clearly articulate the problem and solution both within the agency and with the client.\n* Intermediate/Competent Excel skills – Being able to track and interpret multiple lines of information and compile that information into an easy to use format.\n* Time and project management – Being able to juggle several contacts and tasks simultaneously, prioritising the most urgent and keeping track of what needs to be done that day, ensuring that things are checked off.\n* Attention to detail – Making sure that what you do has been checked thoroughly and it’s correct before passing it on."
+title: Account Manager
+closing: 05/24/2019
+description: >-
+  ## About us
+
+
+  RLA is a Marketing and Communications agency, based in a Barn just outside of
+  Bournemouth, that specialises in changing the behaviour of consumers for
+  automotive brands.
+
+
+  ## Overview
+
+
+  Due to growth, we are looking for an Account Manager to run the day to day
+  delivery of predictive marketing across the Volkswagen group of brands
+  (Volkswagen Audi, Skoda, Seat, Volkswagen Commercial vehicles), along with
+  Scania’s brand and aftersales direct Marketing communications.
+
+
+  Reporting into the team Account Director we are looking for an Account Manager
+  that is the perfect blend of art and science with 50% of this role being about
+  managing the delivery and smooth running of aftersales marketing with multiple
+  messages across multiple brands and 50% being able to think strategically and
+  creatively about brand communications across the full marketing mix. 
+
+
+  ## Responsibilities
+
+
+  * Overseeing the management of campaign delivery which involves reviewing data
+  requests, compiling and sending out communications across Text, Email and DM,
+  via automated systems
+
+  * Campaign led; helping set up and create campaigns across Text, Email and DM,
+  testing the campaigns and delivering them to the set audience.
+
+  * Creative led; supporting brand activity, writing creative briefs (with the
+  planner), reviewing creative work, liaising with studio to create on creative
+  resource needed, reviewing and proofing work.
+
+  * Reporting on response rates, feeding back details re gone away/opt out and
+  bounce backs and optimising performance. 
+
+  * To have an in-depth knowledge of the Client’s business and the sector in
+  which they operate
+
+  * To think proactively on behalf of the Client and RLA, considering new
+  marketing opportunities
+
+  * Liaise with Printers and 3rd party suppliers, ensuring that accurate
+  Production Estimates and Quotes are obtained and supplied on time to client
+
+  * To work with the creative team to deliver creative that always pushes the
+  client brief ensuring proactivity is at the heart of everything we do and
+  ensuring all work is to quality, time and cost.
+
+  * To work closely with the Account Director and planning in terms of strategy
+  development and implementation
+
+  * To deputise for the Account Director when necessary, both internally and
+  with Clients
+
+  * To develop and maintain a strong relationship with the client and become the
+  ‘go to’ person for all day to day queries and issues.
+
+  * Manage and oversee the day to day administration of all core Client projects
+  and budgets
+
+  * To effectively delegate work to the Account Executive – providing clarity on
+  all briefs/requests and managing them effectively
+
+  * Present (verbally and in writing) the Agency’s proposals and recommendations
+  effectively, logically and concisely
+
+  * 
+
+
+  ## Requirements
+
+
+  You will love getting stuck into the detail, get excited about finding new
+  ways to improve process efficiency and thrive on accurate delivery. You will
+  have the ability to think strategically and creatively and be able to work
+  collaboratively to find the most effective way of delivering a job. Above all
+  we are looking for someone we will enjoy working with, who has a positive
+  can-do attitude, who can be fully trusted and relied upon. 
+
+
+  The ideal candidate is likely to possess the following qualifications /
+  experience:
+
+
+  * A proven track record of running effective integrated projects. 
+
+  * Strong digital skills/Automated Comms experience would be amazing.articulate
+  the 
+
+  * Demonstrates a real knowledge and passion for integrated marketing and keeps
+  abreast Experienced on working on fast paced accounts and good at managing
+  many different 
+
+  * Excellent communicator (at all levels).
+
+  * Good Commercial understanding 
+
+  * A relentless desire for delivering work on budget, on brief and on time.
+
+  * A forensic attention to detail and the ability to implement process to
+  maintain quality control across the account.
 location: Bournemouth
 salary: DoE
-hours: '9:00am - 5:30pm'
+hours: '37.5 per week, between 8.30am-6pm. Flexibility required'
 benefits:
   - 28 days’ holiday (plus bank holidays.) After 5 years’ continuous service
   - an additional 3 days’ holiday to use during that anniversary year
