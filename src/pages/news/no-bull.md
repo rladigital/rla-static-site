@@ -11,7 +11,7 @@ tags:
   - car
   - automotive
   - VW
-intro: NO BULLSH!T
+intro: NO BULL
 sideHeading: MARKETEERS BECOME MATADORS TO DELIVER FOR VOLKSWAGEN
 galleryImages:
   - /img/1200x1200-no-bull-social-square-v1.jpg
@@ -23,9 +23,9 @@ weighting: 0
 “Look – it’s a great idea. Sold. But we need the campaign live in 10 days. It’s not possible.”
 A MARKETING DIRECTOR, WHO WILL REMAIN ANONYMOUS.
 
-The timescales should have been enough to worry any professional marketeer or agency bod, but this time, we were otherwise distracted. We had committed to a 10-day turnaround from concept to production and supply, but all our creative team could think about was our impending, cantankerous muse – a prized ‘toro de lidia’, or ‘Spanish
+The timescales should have been enough to worry any professional marketeer or agency bod, but this time, we were otherwise distracted. We had committed to a 10-day turnaround from concept to production and supply, but all our creative team could think about was our impending, cantankerous muse – a prized ‘toro de lidia’, or ‘Spanish fighting bull’ to you and me. We needed our star model to exude pure, thunderous power all while (ideally) staying just on the right side of murderous to allow us to get ‘the shot’. 
 
-fighting bull’ to you and me. We needed our star model to exude pure, thunderous power all while (ideally) staying just on the right side of murderous to allow us to get ‘the shot’. Let’s roll back a few days. Volkswagen Commercial Vehicles had a new product on the horizon, with a distinct USP – the most powerful engine in the mid-sized panel van market. But due to internal communications delays, it was confirmed very late, and was inbound NOW! The commercial vehicle show was a couple of weeks away, national media was reserved… but there was no creative. No problem, as lead-creative agency we work fast. With a flash of inspiration came the idea of using a heaving, muscular bull as the perfect representation of the unprecedented power of the new 180hp Transporter. Sold, it was perfect. But surely there’s no time?
+Let’s roll back a few days. Volkswagen Commercial Vehicles had a new product on the horizon, with a distinct USP – the most powerful engine in the mid-sized panel van market. But due to internal communications delays, it was confirmed very late, and was inbound NOW! The commercial vehicle show was a couple of weeks away, national media was reserved… but there was no creative. No problem, as lead-creative agency we work fast. With a flash of inspiration came the idea of using a heaving, muscular bull as the perfect representation of the unprecedented power of the new 180hp Transporter. Sold, it was perfect. But surely there’s no time?
 
 <strong>20% BUMP, 6 MONTH UPLIFT</strong><br><br>
 
