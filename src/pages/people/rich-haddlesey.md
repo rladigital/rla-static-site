@@ -3,7 +3,7 @@ templateKey: people
 title: Richard Haddlesey
 role: BACKEND DEVELOPER
 tags:
-  - Digtal
+  - Digital
 profile: /img/image001.jpg
 email: richard.haddlesey@rla.co.uk
 ---
