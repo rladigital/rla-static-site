@@ -20,8 +20,6 @@ description: >-
   help deliver more high-quality, effective video content.
 
 
-
-
   ## The Role
 
 
@@ -44,8 +42,6 @@ description: >-
   producing work for big-name clients including BMW, Peugeot, Scania and Volvo.
 
 
-
-
   ## Responsibilities Include
 
 
@@ -60,8 +56,6 @@ description: >-
 
   * Designing and preparing content for use in various spaces, including social,
   event stands, presentations and websites.
-
-
 
 
   ## About you
@@ -90,8 +84,6 @@ description: >-
   and any specialist experience in areas like Cinema 4D, or videography will be
   of great interest and help you stand out. We’re also open to hybrid Graphic /
   Motion designers, but the Motion skillset needs to be highly developed.
-
-
 
 
   ## The Rewards
