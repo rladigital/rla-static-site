@@ -90,7 +90,8 @@ description: >-
 
 
   * True professional development – we look to support creative skills growth
-  with internal support and coaching, alongside online and in-person training
+
+  * with internal support and coaching, alongside online and in-person training
   and courses.
 
   * 28 days’ holiday (plus bank holidays.) After 5 years’ continuous service, an
@@ -106,11 +107,18 @@ description: >-
 
   * Reward & Recognition Scheme
 
-  * Fridge Friday
-
   * Free parking
 
   * The chance to join RLA’s world-beating frisbee and surfing teams!
+
+  * Beer\* Fridge Friday (\*wine, ice coffee and fancy soft drinks also
+  available).
+
+  * The opportunity to get your choice of fresh tunes on the Sonos.
+
+  * The chance to be a key part in shaping the agencies output going forward.
+
+  * The chance to work alongside some seriously talented, friendly creatives.
 location: Bournemouth
 salary: DoE
 hours: '9:00am - 5:30pm'
