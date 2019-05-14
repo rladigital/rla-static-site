@@ -15,17 +15,21 @@ description: >-
   ## Overview
 
 
-  Due to growth, we are looking for an Account Manager to run the day to day
-  delivery of predictive marketing across the Volkswagen group of brands
-  (Volkswagen Audi, Skoda, Seat, Volkswagen Commercial vehicles), along with
-  Scania’s brand and aftersales direct Marketing communications.
+  We are looking for x2 Account Managers! One to run the day to day delivery of
+  predictive marketing across the Volkswagen group of brands (Volkswagen Audi,
+  Skoda, Seat, Volkswagen Commercial vehicles), along with Scania’s brand and
+  aftersales direct Marketing communications. The other will sit within our BMW
+  & Mini team, running the day to day delivery of our BMW and MINI Technicians
+  programme, together with running the Ocean Automotive Account across 2 Audi
+  Retailers.
 
 
-  Reporting into the team Account Director we are looking for an Account Manager
-  that is the perfect blend of art and science with 50% of this role being about
-  managing the delivery and smooth running of aftersales marketing with multiple
-  messages across multiple brands and 50% being able to think strategically and
-  creatively about brand communications across the full marketing mix. 
+  Reporting into the team Account Director we are looking for Account Managers
+  who possess the perfect blend of art and science with 50% of this role being
+  about managing the delivery and smooth running of aftersales marketing with
+  multiple messages across multiple brands and 50% being able to think
+  strategically and creatively about brand communications across the full
+  marketing mix.
 
 
   ## Responsibilities
@@ -75,8 +79,6 @@ description: >-
 
   * Present (verbally and in writing) the Agency’s proposals and recommendations
   effectively, logically and concisely
-
-
 
 
   ## Requirements
