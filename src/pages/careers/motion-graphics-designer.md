@@ -4,7 +4,7 @@ area: Studio
 title: Motion Graphics Designer
 closing: 06/14/2019
 description: >-
-  ## **About Us**
+  ## About Us
 
 
   With a 30-year pedigree and a client base to be hugely proud of, RLA is a
