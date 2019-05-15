@@ -90,8 +90,7 @@ description: >-
 
 
   * True professional development – we look to support creative skills growth
-
-  * with internal support and coaching, alongside online and in-person training
+  with internal support and coaching, alongside online and in-person training
   and courses.
 
   * 28 days’ holiday (plus bank holidays.) After 5 years’ continuous service, an
