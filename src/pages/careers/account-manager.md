@@ -7,9 +7,11 @@ description: >-
   ## About us
 
 
-  RLA is a Marketing and Communications agency, based in a Barn just outside of
-  Bournemouth, that specialises in changing the behaviour of consumers for
-  automotive brands.
+  With a 30-year pedigree and a client base to be hugely proud of, RLA is a
+  full-service advertising and marketing communications agency based in a
+  beautiful converted barn in Bournemouth. You’ll have the best of both worlds
+  as you’ll be based in a stunning, relaxed countryside location, but be just a
+  20-minute drive to Dorset’s finest beaches!
 
 
   ## Overview
