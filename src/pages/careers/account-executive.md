@@ -1,0 +1,93 @@
+---
+templateKey: job
+area: Client Services
+title: Account Executive
+closing: 06/30/2019
+description: >+
+  ## About us
+
+
+  RLA is a Marketing and Communications agency, based in a Barn just outside of
+  Bournemouth, that specialises in changing the behaviour of consumers for
+  automotive brands.
+
+
+  ## The Role
+
+
+  You will be working as part of a brilliant and experienced team providing
+  support to the Senior Account Managers and Account Managers! This role would
+  suit someone with amazing organisation and administrative skills and an
+  excellent eye for detail. 
+
+
+  The role will involve day to day duties of maintaining the account and
+  reporting to a Senior Account Manager. 
+
+
+  ## Responsibilities
+
+
+  * Be responsible for maintaining the client’s Marketing Helpline.
+
+  * Ensure that any queries are dealt with in a timely and efficient manner.
+
+  * Assist with the trafficking of projects through the production process from
+  briefing 
+
+  * Be responsible for managing the production process to ensure we meet project
+  deadlines through proactive management.
+
+  * Responsible for managing allocated small projects from start to finish and
+  deliver to time, cost and quality.
+
+  * Provide an effective timely and professional service to the Client either
+  directly or via Account Manager.
+
+  * Develop relationships with colleagues across the group and always support in
+  a professional manner.
+
+  * Compile status reports and contact reports.
+
+
+  ## Requirements
+
+
+  * Marketing or business-related degree would be highly desirable as would
+  previous digital experience and/or knowledge. 
+
+  * Excellent organizational and administrative skills.
+
+  * Excellent communication skills.
+
+  * Self-motivated.
+
+  * Ability to work flexibly, on own initiative and as part of a team.
+
+  * First class ability to prioritise and manage own workload.
+
+  * Drive for personal growth.
+
+location: Bournemouth
+salary: £DoE
+hours: '9:00am - 5:30pm'
+benefits:
+  - 28 days’ holiday (plus bank holidays.) After 5 years’ continuous service
+  - an additional 3 days’ holiday to use during that anniversary year
+  - Your birthday as a day off
+  - Beautiful location (including an on-site farm and golf course)
+  - Flexible working hours
+  - Possibility for some remote working
+  - Continuous Professional Development
+  - Eye Care Scheme
+  - Refer A Friend Scheme
+  - Cycle to Work Scheme
+  - Reward & Recognition Scheme
+  - Beer fridge Fridays & regular social events
+  - >-
+    Free parking (please note due to the location of our office you will need
+    your own transport)
+hero: /img/account-exec.jpg
+weighting: 0
+---
+
