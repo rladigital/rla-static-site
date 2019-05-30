@@ -15,4 +15,3 @@ benefits:
 hero: /img/igor-son-285029.jpg
 weighting: 4
 ---
-
